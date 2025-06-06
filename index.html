@@ -103,7 +103,7 @@
       border-radius: 8px;
       text-decoration: none;
       transition: background-color 0.3s ease;
-      margin-top: 1rem;
+      margin-top: auto;
     }
 
     .cta-btn:hover,
@@ -124,6 +124,9 @@
       padding: 2rem;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
       transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     .card:hover {
@@ -140,6 +143,7 @@
     .card p {
       font-size: 1rem;
       color: #555;
+      flex-grow: 1;
     }
 
     footer {
