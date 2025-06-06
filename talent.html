@@ -1,98 +1,294 @@
+<!-- Full Page Template for Talent Placement – CoreCloud 2.0 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Talent Placement – CoreCloud</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CoreCloud – Talent Placement</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: #f4f6f8;
+      color: #1e1e1e;
+    }
+
+    .small-banner {
+      background-color: #fff;
+      padding: 1.5rem 2rem 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .banner-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      height: 160px;
+      width: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a.nav-btn {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #003366;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    nav a.nav-btn:hover,
+    nav a.nav-btn.active {
+      color: #005fa3;
+      font-weight: 900;
+    }
+
+    .page-banner {
+      height: 480px;
+      background-image: url('assets/images/talent-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      margin-top: 200px;
+    }
+
+    .content {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    .content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #003366;
+      margin-bottom: 1rem;
+    }
+
+    .division-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .division-card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .division-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .division-card h2 {
+      font-size: 1.5rem;
+      color: #003366;
+      margin-bottom: 0.75rem;
+    }
+
+    .division-card p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.5;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background-color: #0077cc;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      margin-top: 2rem;
+    }
+
+    .cta-btn:hover {
+      background-color: #005fa3;
+    }
+
+    footer {
+      background-color: #003366;
+      color: #fff;
+      text-align: center;
+      padding: 4rem 1rem 2rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .footer-col {
+      flex: 1;
+      min-width: 220px;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
+    }
+
+    .footer-col p {
+      font-size: 0.95rem;
+      margin: 0.25rem 0;
+    }
+
+    .social-icons a img {
+      width: 24px;
+      height: 24px;
+      margin: 0 0.5rem;
+    }
+
+    .footer-newsletter input[type="email"] {
+      padding: 0.5rem;
+      width: 250px;
+      margin-right: 0.5rem;
+    }
+
+    .footer-newsletter button {
+      padding: 0.5rem 1rem;
+      background: #0077cc;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #ccc;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      font-size: 0.85rem;
+    }
+  </style>
 </head>
 <body>
-  <!-- Navigation -->
   <div class="small-banner">
     <header class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
       <nav>
         <ul>
-          <li><a href="index.html" class="nav-btn">HOME</a></li>
-          <li><a href="consulting.html" class="nav-btn">CONSULTING</a></li>
-          <li><a href="aws.html" class="nav-btn">AWS SERVICE SUITE</a></li>
-          <li><a href="talent.html" class="nav-btn active">TALENT PLACEMENT</a></li>
-          <li><a href="white-paper.html" class="nav-btn">WHITE PAPER</a></li>
-          <li><a href="resources.html" class="nav-btn">RESOURCES</a></li>
-          <li><a href="contact.html" class="nav-btn">CONTACT</a></li>
-          <li><a href="testimonials.html" class="nav-btn">TESTIMONIALS</a></li>
+          <li><a href="index.html" class="nav-btn">Home</a></li>
+          <li><a href="consulting.html" class="nav-btn">Consulting</a></li>
+          <li><a href="aws.html" class="nav-btn">AWS Service Suite</a></li>
+          <li><a href="talent.html" class="nav-btn active">Talent Placement</a></li>
+          <li><a href="white-paper.html" class="nav-btn">White Paper</a></li>
+          <li><a href="resources.html" class="nav-btn">Resources</a></li>
+          <li><a href="contact.html" class="nav-btn">Contact</a></li>
+          <li><a href="testimonials.html" class="nav-btn">Testimonials</a></li>
         </ul>
       </nav>
     </header>
   </div>
 
-  <!-- Banner -->
-  <div class="page-banner" style="background-image: url('assets/images/talent-bannerimage.png');"></div>
+  <div class="page-banner"></div>
 
-  <!-- Main Content -->
   <main class="content">
-    <h1>CoreCloud Talent Placement</h1>
-    <p class="hero-subtitle">Elite talent solutions tailored for your cloud, dev, data, and cybersecurity priorities.</p>
+    <h1>Talent That Delivers Outcomes</h1>
+    <p>We connect you with high-impact professionals — engineers, architects, analysts, and leaders — through strategic partnerships and outcome-driven delivery models.</p>
 
     <section class="division-grid">
       <div class="division-card">
-        <h2>Elite Talent</h2>
-        <p>We place highly skilled professionals across cloud architecture, software engineering, data science, and cybersecurity. Only top-tier candidates make the cut.</p>
+        <h2>Elite Talent Pools</h2>
+        <p>We place top-tier talent across DevOps, cloud, data, architecture, and security — vetted and performance-backed.</p>
       </div>
       <div class="division-card">
-        <h2>Strategic Sourcing</h2>
-        <p>In partnership with CareerWeb and Synthesis, we deliver a streamlined pipeline from search to onboarding — fully aligned to your strategic goals.</p>
+        <h2>Strategic Sourcing Engine</h2>
+        <p>In partnership with CareerWeb and Synthesis, we power high-velocity sourcing, screening, and onboarding at scale.</p>
       </div>
       <div class="division-card">
-        <h2>Contract or Permanent</h2>
-        <p>Flexible engagement models with compliance, governance, and performance guarantees built in. Scale up or secure long-term leaders — on your terms.</p>
+        <h2>Full Lifecycle Coverage</h2>
+        <p>Permanent and contract hires with full compliance, managed service capability, and replacement guarantees.</p>
       </div>
       <div class="division-card">
-        <h2>Executive Oversight</h2>
-        <p>Every placement is reviewed by CoreCloud leadership. We ensure fit, function, and measurable business impact — not just CVs.</p>
+        <h2>Leadership Oversight</h2>
+        <p>Every placement is driven by executive accountability and strategic alignment — no junior outsourcing.</p>
       </div>
     </section>
 
-    <section class="section" style="margin-top: 4rem;">
-      <h2>Our Placement Process</h2>
-      <div style="text-align: center;">
-        <img src="assets/images/talent-process-diagram.png" alt="Talent Placement Flowchart" style="max-width: 100%; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-      </div>
-    </section>
-
-    <section class="section" style="margin-top: 3rem;">
-      <h2>Proven. Responsive. Human.</h2>
-      <p>
-        We’re not a CV farm. CoreCloud connects you with professionals who deliver real outcomes — fast. Every placement is a relationship, not a transaction.
-      </p>
-      <ul>
-        <li><strong>70/30 revenue share</strong> with partners like Synthesis, DVT, and CareerWeb</li>
-        <li><strong>Guaranteed replacement</strong> for underperformance</li>
-        <li><strong>Full screening, interview scheduling, and onboarding</strong> managed by our network</li>
-      </ul>
-    </section>
-
-    <div class="centered" style="margin-top: 3rem;">
-      <a href="contact.html" class="cta-btn">Start Hiring</a>
-    </div>
+    <a href="contact.html" class="cta-btn">Let's Talk Talent</a>
   </main>
 
-  <!-- Footer -->
+  <!-- Optimized Footer -->
   <footer>
     <div class="footer-content">
-      <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-        <a href="https://twitter.com" target="_blank">Twitter</a>
-        <a href="https://www.facebook.com" target="_blank">Facebook</a>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>CoreCloud (Pty) Ltd</h4>
+          <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
+          <p><strong>BEE Level 4</strong></p>
+          <p>Company Reg: 2022/123456/07</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>Tel: +27 10 020 5005<br>Email: hello@corecloud.africa</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/company/corecloud" target="_blank">
+              <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
+            </a>
+            <a href="https://twitter.com/corecloud" target="_blank">
+              <img src="assets/icons/twitter.svg" alt="Twitter" />
+            </a>
+            <a href="https://facebook.com/corecloud" target="_blank">
+              <img src="assets/icons/facebook.svg" alt="Facebook" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 CoreCloud. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
       </div>
     </div>
   </footer>
-
-  <!-- Chatbot -->
-  <script src="https://www.chatbase.co/embed.min.js"
-          chatbotId="2lVQDE6W7igyTrTHXu9Wk"
-          domain="www.chatbase.co"
-          defer></script>
 </body>
 </html>
