@@ -1,10 +1,118 @@
+<!-- Full Page Template with Optimized Footer and Executive Enhancements -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>White Paper – CoreCloud</title>
+  <title>CoreCloud – White Paper</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: #f4f6f8;
+      color: #1e1e1e;
+    }
+
+    .small-banner {
+      background-color: #fff;
+      padding: 1.5rem 2rem 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .banner-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      height: 160px;
+      width: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a.nav-btn {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #003366;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    nav a.nav-btn:hover,
+    nav a.nav-btn.active {
+      color: #005fa3;
+      font-weight: 900;
+    }
+
+    .page-banner {
+      height: 480px;
+      background-image: url('assets/images/white-paper-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      margin-top: 200px;
+    }
+
+    .content {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    .content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #003366;
+      margin-bottom: 1rem;
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      margin: 2rem 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: #0077cc;
+      color: #fff;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      margin: 0.5rem;
+    }
+
+    .btn:hover {
+      background-color: #005fa3;
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -13,70 +121,31 @@
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
       <nav>
         <ul>
-          <li><a href="index.html" class="nav-btn">HOME</a></li>
-          <li><a href="consulting.html" class="nav-btn">CONSULTING</a></li>
-          <li><a href="aws.html" class="nav-btn">AWS SERVICE SUITE</a></li>
-          <li><a href="talent.html" class="nav-btn">TALENT PLACEMENT</a></li>
-          <li><a href="white-paper.html" class="nav-btn active">WHITE PAPER</a></li>
-          <li><a href="resources.html" class="nav-btn">RESOURCES</a></li>
-          <li><a href="contact.html" class="nav-btn">CONTACT</a></li>
-          <li><a href="testimonials.html" class="nav-btn">TESTIMONIALS</a></li>
+          <li><a href="index.html" class="nav-btn">Home</a></li>
+          <li><a href="consulting.html" class="nav-btn">Consulting</a></li>
+          <li><a href="aws.html" class="nav-btn">AWS Service Suite</a></li>
+          <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
+          <li><a href="white-paper.html" class="nav-btn active">White Paper</a></li>
+          <li><a href="resources.html" class="nav-btn">Resources</a></li>
+          <li><a href="contact.html" class="nav-btn">Contact</a></li>
+          <li><a href="testimonials.html" class="nav-btn">Testimonials</a></li>
         </ul>
       </nav>
     </header>
   </div>
 
-  <!-- Page Banner -->
-  <div class="page-banner" style="background-image: url('assets/images/white-paper-bannerimage.png');"></div>
+  <!-- Hero Banner -->
+  <div class="page-banner"></div>
 
   <!-- Main Content -->
   <main class="content">
     <h1>Strategic Cloud Transformation in South Africa</h1>
+    <p>This white paper outlines a structured, partner-enabled framework for cloud transformation at scale. We unpack enterprise challenges and walk through a 6-phase journey to cloud maturity.</p>
 
-    <section class="section">
-      <h2>Executive Summary</h2>
-      <p>
-        Cloud is not the future — it’s now. But for South African enterprises, cloud transformation isn't just about
-        technology — it’s about <strong>scale, skills, and execution</strong>. This white paper outlines a bold, partner-enabled
-        framework to migrate, modernize, manage, and monetize cloud at national scale.
-      </p>
-    </section>
+    <img src="assets/images/corecloud-lifecycle-diagram.png" alt="CoreCloud Lifecycle Diagram" />
+    <img src="assets/images/corecloud-pillars-diagram.png" alt="CoreCloud Strategic Pillars" />
 
-    <section class="section">
-      <h2>Our 6-Phase Transformation Model</h2>
-      <ul>
-        <li><strong>1. Audit & Assess:</strong> Deep environment scans and stakeholder mapping</li>
-        <li><strong>2. Business Case & Roadmap:</strong> Defined TCO, ROI, and modernization milestones</li>
-        <li><strong>3. Cloud Migration:</strong> AWS-native migration with zero business disruption</li>
-        <li><strong>4. Modernization:</strong> Containerization, microservices, and DevSecOps enablement</li>
-        <li><strong>5. Optimization:</strong> FinOps, autoscaling, security, and performance tuning</li>
-        <li><strong>6. Managed Services:</strong> 24/7 SLAs, DevOps pipelines, and real-time insights</li>
-      </ul>
-      <div class="diagram" style="text-align: center; margin-top: 2rem;">
-        <img src="assets/images/corecloud-lifecycle-diagram.png" alt="Lifecycle Diagram" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);" />
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Strategic Pillars</h2>
-      <p>
-        CoreCloud’s strategy is rooted in four non-negotiables: <strong>Architecture, Talent, Partnerships, and Governance</strong>.
-        These pillars ensure every engagement drives measurable outcomes, not promises.
-      </p>
-      <div class="diagram" style="text-align: center; margin-top: 2rem;">
-        <img src="assets/images/corecloud-pillars-diagram.png" alt="Pillars Diagram" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);" />
-      </div>
-    </section>
-
-    <section class="section">
-      <h2>Why CoreCloud</h2>
-      <p>
-        We’re not just advisors — we’re orchestrators. Our national partner ecosystem — including Synthesis, LSD, and DVT —
-        enables delivery with scale and credibility. Every engagement is overseen by senior executives with decades in enterprise ICT.
-      </p>
-    </section>
-
-    <div class="download-cta" style="text-align: center; margin-top: 3rem;">
+    <div style="margin-top: 3rem;">
       <h2>Download the Full White Paper</h2>
       <a href="assets/downloads/CoreCloud_White_Paper_2025_Full_Two_Diagrams.docx" download class="btn">Download .DOCX</a>
       <a href="assets/downloads/CoreCloud_White_Paper_2025_Full_Two_Diagrams.pdf" download class="btn">Download PDF</a>
@@ -86,19 +155,49 @@
   <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-        <a href="https://twitter.com" target="_blank">Twitter</a>
-        <a href="https://www.facebook.com" target="_blank">Facebook</a>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>CoreCloud (Pty) Ltd</h4>
+          <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
+          <p><strong>BEE Level 4</strong></p>
+          <p>Company Reg: 2022/123456/07</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>Tel: +27 10 020 5005<br>Email: hello@corecloud.africa</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/company/corecloud" target="_blank" aria-label="LinkedIn">
+              <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
+            </a>
+            <a href="https://twitter.com/corecloud" target="_blank" aria-label="Twitter">
+              <img src="assets/icons/twitter.svg" alt="Twitter" />
+            </a>
+            <a href="https://facebook.com/corecloud" target="_blank" aria-label="Facebook">
+              <img src="assets/icons/facebook.svg" alt="Facebook" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 CoreCloud. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
       </div>
     </div>
   </footer>
-
-  <!-- Chatbot -->
-  <script src="https://www.chatbase.co/embed.min.js"
-          chatbotId="2lVQDE6W7igyTrTHXu9Wk"
-          domain="www.chatbase.co"
-          defer></script>
 </body>
 </html>
