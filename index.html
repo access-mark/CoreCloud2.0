@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CoreCloud – Build. Modernize. Scale.</title>
+  <title>Consulting – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
     body {
@@ -13,11 +13,6 @@
       color: #1e1e1e;
     }
 
-    .logo {
-      height: 160px;
-      width: auto;
-    }
-
     .small-banner {
       background-color: #fff;
       padding: 0.8rem 2rem;
@@ -25,6 +20,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+    }
+
+    .logo {
+      max-height: 160px;
+      width: auto;
     }
 
     nav ul {
@@ -61,11 +61,31 @@
     }
 
     .page-banner {
+      margin-top: 220px;
       height: 480px;
       background-image: url('assets/images/sandton-bannerimage.png');
       background-size: cover;
       background-position: center;
-      margin-top: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 4rem;
+    }
+
+    .banner-title {
+      background: #ffffff;
+      padding: 1.5rem 2.5rem;
+      border-radius: 8px;
+      text-align: right;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .banner-title h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #003366;
+      margin: 0;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
     }
 
     .content {
@@ -74,47 +94,14 @@
       padding: 0 1.5rem;
     }
 
-    .content h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      text-align: center;
-      margin: 2rem 0;
-      color: #003366;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    .hero-subtitle {
-      text-align: center;
-      font-size: 1.3rem;
-      line-height: 1.6;
-      color: #333;
-      margin-bottom: 2rem;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      background-color: #0077cc;
-      color: #fff;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.9rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .cta-btn:hover {
-      background-color: #005fa3;
-    }
-
-    .division-grid {
+    .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      margin-top: 3rem;
+      margin-top: 2rem;
     }
 
-    .division-card {
+    .card {
       background: #ffffff;
       border-radius: 12px;
       padding: 2rem;
@@ -122,31 +109,20 @@
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .division-card:hover {
+    .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     }
 
-    .division-card h2 {
+    .card h2 {
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
       color: #222;
     }
 
-    .division-card p {
+    .card p {
       font-size: 1rem;
       color: #555;
-      margin-bottom: 1rem;
-    }
-
-    .division-card .nav-btn {
-      font-weight: 600;
-      color: #0077cc;
-      text-decoration: none;
-    }
-
-    .division-card .nav-btn:hover {
-      text-decoration: underline;
     }
 
     footer {
@@ -190,47 +166,49 @@
     <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
     <nav>
       <ul>
-        <li><a href="index.html" class="nav-btn active">Home</a></li>
-        <li><a href="consulting.html" class="nav-btn">Consulting</a></li>
+        <li><a href="index.html" class="nav-btn">Home</a></li>
+        <li><a href="consulting.html" class="nav-btn active">Consulting</a></li>
         <li><a href="aws.html" class="nav-btn">AWS Service Suite</a></li>
         <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
         <li><a href="resources.html" class="nav-btn">Resources</a></li>
         <li><a href="contact.html" class="nav-btn">Contact</a></li>
-        <li><a href="testimonials.html" class="nav-btn">Testimonials</a></li>
       </ul>
     </nav>
   </div>
 
-  <div class="page-banner"></div>
+  <div class="page-banner">
+    <div class="banner-title">
+      <h1>Consulting</h1>
+    </div>
+  </div>
 
   <main class="content">
-    <h1>Build. Modernize. Scale.</h1>
-    <section class="hero">
-      <p class="hero-subtitle">
-        CoreCloud delivers strategic consulting, AWS cloud transformation, and high-performance talent to power growth.
-      </p>
-      <div class="centered">
-        <a href="contact.html" class="cta-btn">Book a Strategy Call</a>
+    <div class="card-grid">
+      <div class="card">
+        <h2>Strategic Sales Advisory</h2>
+        <p>High-level advisory to define vision, accelerate GTM plans, and close the strategy-to-execution gap. We help you shape initiatives that outperform expectations.</p>
       </div>
-    </section>
-
-    <section class="division-grid">
-      <div class="division-card">
-        <h2>CoreCloud Consulting</h2>
-        <p>Sales transformation, GTM acceleration, and executive-level advisory. Strategy meets execution.</p>
-        <a href="consulting.html" class="nav-btn">Explore Consulting →</a>
+      <div class="card">
+        <h2>Sales Team Assessment</h2>
+        <p>We evaluate your structure, incentive models, team performance, and enablement practices. Our framework maps capability against ambition, revealing clear growth paths.</p>
       </div>
-      <div class="division-card">
-        <h2>CoreCloud AWS Service Suite</h2>
-        <p>Migrate, Modernize, Manage & Optimize with AWS-certified experts and ecosystem partners.</p>
-        <a href="aws.html" class="nav-btn">Explore AWS Services →</a>
+      <div class="card">
+        <h2>Pipeline & Forecasting Precision</h2>
+        <p>Build predictable, repeatable, and scalable sales processes. Our models enhance pipeline velocity, win rates, and forecasting integrity.</p>
       </div>
-      <div class="division-card">
-        <h2>CoreCloud Talent Placement</h2>
-        <p>Elite professionals sourced, screened, and placed through strategic partnerships with Careerweb and Synthesis.</p>
-        <a href="talent.html" class="nav-btn">Explore Talent Solutions →</a>
+      <div class="card">
+        <h2>Sales Methodology Implementation</h2>
+        <p>We install battle-tested methods—from MEDDIC to Challenger—to improve qualification, shorten cycles, and empower reps with repeatable frameworks.</p>
       </div>
-    </section>
+      <div class="card">
+        <h2>Executive-Level Engagement</h2>
+        <p>Trusted guidance for C-levels and boards. We support transformation agendas and commercial growth with discretion and strategic clarity.</p>
+      </div>
+      <div class="card">
+        <h2>Channel & Partner Acceleration</h2>
+        <p>Maximize ecosystem leverage with GTM orchestration, enablement journeys, and partner program refinement.</p>
+      </div>
+    </div>
   </main>
 
   <footer>
