@@ -6,50 +6,201 @@
   <title>Resources – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: #f4f6f8;
+      color: #1e1e1e;
+    }
+
+    .small-banner {
+      background-color: #fff;
+      padding: 1.5rem 2rem 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .banner-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      height: 160px;
+      width: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a.nav-btn {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #003366;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    nav a.nav-btn:hover,
+    nav a.nav-btn.active {
+      color: #005fa3;
+      font-weight: 900;
+    }
+
+    .page-banner {
+      height: 480px;
+      background-image: url('assets/images/resources-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      margin-top: 200px;
+    }
+
+    .content {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #003366;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
     .resources-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      margin-top: 3rem;
     }
+
     .resource-card {
-      background: #fff;
+      background: #ffffff;
       border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-      padding: 2rem;
-      text-align: left;
-      transition: 0.3s;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
     }
+
     .resource-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
     }
+
     .resource-card h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.6rem;
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
       color: #003366;
     }
+
     .resource-card p {
-      color: #444;
+      font-size: 0.95rem;
+      color: #555;
       margin-bottom: 1rem;
     }
+
     .resource-card a {
-      color: #0077cc;
-      font-weight: 600;
       text-decoration: none;
+      font-weight: 600;
+      color: #0077cc;
     }
+
     .resource-card a:hover {
       text-decoration: underline;
     }
-    .hero-subtitle {
-      text-align: center;
-      font-size: 1.2rem;
+
+    footer {
+      background-color: #003366;
+      color: #fff;
+      padding: 4rem 2rem 2rem;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
       margin-bottom: 2rem;
-      color: #333;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-col p {
+      margin: 0.3rem 0;
+    }
+
+    .social-icons a {
+      display: inline-block;
+      margin-right: 1rem;
+    }
+
+    .footer-newsletter {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .footer-newsletter form {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .footer-newsletter input {
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      border: none;
+      width: 300px;
+    }
+
+    .footer-newsletter button {
+      padding: 0.5rem 1.5rem;
+      border: none;
+      background: #0077cc;
+      color: #fff;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-top: 2rem;
+    }
+
+    .footer-bottom a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+  <!-- Header -->
   <div class="small-banner">
     <header class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
@@ -68,55 +219,76 @@
     </header>
   </div>
 
-  <div class="page-banner" style="background-image: url('assets/images/resources-bannerimage.png');"></div>
+  <!-- Hero Banner -->
+  <div class="page-banner"></div>
 
+  <!-- Main Content -->
   <main class="content">
-    <h1>CoreCloud Resources</h1>
-    <p class="hero-subtitle">
-      Empowering your journey with insights, toolkits, and frameworks for real transformation.
-    </p>
-
-    <section class="resources-grid">
+    <h1>Strategic Resources & Tools</h1>
+    <div class="resources-grid">
       <div class="resource-card">
-        <h3>CoreCloud White Paper</h3>
-        <p>Explore our AWS modernization methodology, lifecycle phases, and partner-led delivery model.</p>
-        <a href="assets/downloads/CoreCloud_White_Paper_2025_Full_Two_Diagrams.pdf" download>Download PDF →</a>
+        <h3>Sales Audit Template</h3>
+        <p>Download our diagnostic framework for evaluating sales team structure and opportunity readiness.</p>
+        <a href="assets/downloads/sales-audit-template.docx" download>Download →</a>
       </div>
-
       <div class="resource-card">
-        <h3>Sales Transformation Playbook</h3>
-        <p>A structured framework to evaluate and optimize your sales function with strategic focus.</p>
-        <a href="assets/downloads/CoreCloud_Sales_Transformation_Playbook.pdf" download>Download Playbook →</a>
+        <h3>Pricing Strategy Playbook</h3>
+        <p>How to develop outcome-based pricing models that align with client value and margin goals.</p>
+        <a href="assets/downloads/pricing-playbook.pdf" download>Download →</a>
       </div>
-
+      <div class="resource-card">
+        <h3>Consulting Pitch Deck</h3>
+        <p>A polished executive deck used to position CoreCloud services with enterprise clients.</p>
+        <a href="assets/downloads/consulting-deck.pptx" download>Download →</a>
+      </div>
       <div class="resource-card">
         <h3>Talent Scorecard</h3>
-        <p>Measure team performance, skill gaps, and alignment with modern delivery models.</p>
-        <a href="assets/downloads/CoreCloud_Talent_Scorecard_Template.xlsx" download>Download Scorecard →</a>
+        <p>Our performance tracking model for placements and partner-delivered technical teams.</p>
+        <a href="assets/downloads/talent-scorecard.xlsx" download>Download →</a>
       </div>
-
-      <div class="resource-card">
-        <h3>Cloud Readiness Assessment</h3>
-        <p>Use our diagnostic tool to evaluate cloud maturity across architecture, security, and ops.</p>
-        <a href="assets/downloads/CoreCloud_Cloud_Readiness_Assessment.pdf" download>Download Assessment →</a>
-      </div>
-    </section>
+    </div>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-        <a href="https://twitter.com" target="_blank">Twitter</a>
-        <a href="https://www.facebook.com" target="_blank">Facebook</a>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>CoreCloud (Pty) Ltd</h4>
+          <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
+          <p><strong>BEE Level 4</strong></p>
+          <p>Company Reg: 2022/123456/07</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>Tel: +27 10 020 5005<br>Email: hello@corecloud.africa</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/company/corecloud" target="_blank"><img src="assets/icons/linkedin.svg" alt="LinkedIn" /></a>
+            <a href="https://twitter.com/corecloud" target="_blank"><img src="assets/icons/twitter.svg" alt="Twitter" /></a>
+            <a href="https://facebook.com/corecloud" target="_blank"><img src="assets/icons/facebook.svg" alt="Facebook" /></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 CoreCloud. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
       </div>
     </div>
   </footer>
-
-  <script src="https://www.chatbase.co/embed.min.js"
-          chatbotId="2lVQDE6W7igyTrTHXu9Wk"
-          domain="www.chatbase.co"
-          defer></script>
 </body>
 </html>
