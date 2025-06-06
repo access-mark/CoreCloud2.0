@@ -2,231 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Consulting – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      background-color: #f4f6f8;
-      color: #1e1e1e;
-    }
-
-    .small-banner {
-      background-color: #fff;
-      padding: 0.8rem 2rem;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .logo {
-      max-height: 160px;
-      width: auto;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav a.nav-btn {
-      text-decoration: none;
-      font-weight: 400;
-      color: #0077cc;
-      text-transform: uppercase;
-      font-size: 0.95rem;
-      padding: 0.5rem 0.75rem;
-      transition: all 0.3s ease;
-      border-bottom: 2px solid transparent;
-    }
-
-    nav a.nav-btn:hover,
-    nav a.nav-btn.active {
-      color: #002b5c;
-      font-weight: 900;
-      border-bottom: 2px solid #002b5c;
-      animation: pulseNav 0.4s ease-in-out;
-    }
-
-    @keyframes pulseNav {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    .page-banner {
-      height: 480px;
-      background-image: url('assets/images/consulting-bannerimage.png');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      padding-right: 4rem;
-    }
-
-    .banner-title {
-      background: #ffffff;
-      padding: 1.5rem 2.5rem;
-      border-radius: 8px;
-      text-align: right;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .banner-title h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #003366;
-      margin: 0;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-    }
-
-    .content {
-      max-width: 1200px;
-      margin: 4rem auto;
-      padding: 0 1.5rem;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    }
-
-    .card h2 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: #222;
-    }
-
-    .card p {
-      font-size: 1rem;
-      color: #555;
-    }
-
-    footer {
-      background-image: url('assets/images/footer-bannerimage.png');
-      background-size: cover;
-      background-position: center;
-      color: #fff;
-      padding: 4rem 2rem;
-      margin-top: 4rem;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-
-    .footer-col h4 {
-      margin-bottom: 0.8rem;
-    }
-
-    .footer-col p {
-      margin: 0.3rem 0;
-      font-size: 0.95rem;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.85rem;
-    }
-  </style>
 </head>
 <body>
   <div class="small-banner">
-    <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-    <nav>
-      <ul>
-        <li><a href="index.html" class="nav-btn">Home</a></li>
-        <li><a href="consulting.html" class="nav-btn active">Consulting</a></li>
-        <li><a href="aws.html" class="nav-btn">AWS Service Suite</a></li>
-        <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
-        <li><a href="resources.html" class="nav-btn">Resources</a></li>
-        <li><a href="contact.html" class="nav-btn">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-
-  <div class="page-banner">
-    <div class="banner-title">
-      <h1>Consulting</h1>
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="index.html" class="nav-btn">Home</a></li>
+          <li><a href="consulting.html" class="nav-btn active">Consulting</a></li>
+          <li><a href="aws.html" class="nav-btn">AWS Service Suite</a></li>
+          <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
+          <li><a href="resources.html" class="nav-btn">Resources</a></li>
+          <li><a href="contact.html" class="nav-btn">Contact</a></li>
+        </ul>
+      </nav>
     </div>
   </div>
 
+  <div class="page-banner" style="background-image: url('assets/images/consulting-bannerimage.png'); background-size: cover; background-position: center; height: 480px; margin-top: 200px;"></div>
+
   <main class="content">
+    <h1>Executive Sales Consulting</h1>
+    <p class="hero-subtitle">High-performance advisory to align your sales engine with executive intent and growth outcomes.</p>
+
     <div class="card-grid">
       <div class="card">
         <h2>Strategic Sales Advisory</h2>
-        <p>High-level advisory to define vision, accelerate GTM plans, and close the strategy-to-execution gap. We help you shape initiatives that outperform expectations.</p>
+        <p>Define a bold vision and eliminate execution gaps. Our consulting translates C-level growth plans into operational momentum.</p>
+        <a href="contact.html" class="cta-btn">Let's Talk Strategy →</a>
       </div>
       <div class="card">
         <h2>Sales Team Assessment</h2>
-        <p>We evaluate your structure, incentive models, team performance, and enablement practices. Our framework maps capability against ambition, revealing clear growth paths.</p>
+        <p>Structure, incentives, and performance mapped to ambition. We expose friction points and optimize force multipliers.</p>
+        <a href="contact.html" class="cta-btn">Book an Audit →</a>
       </div>
       <div class="card">
-        <h2>Pipeline & Forecasting Precision</h2>
-        <p>Build predictable, repeatable, and scalable sales processes. Our models enhance pipeline velocity, win rates, and forecasting integrity.</p>
+        <h2>Pipeline & Forecast Accuracy</h2>
+        <p>Build a system of truth. Drive velocity, eliminate bloat, and shift from guesswork to precision forecasting.</p>
+        <a href="contact.html" class="cta-btn">Improve Accuracy →</a>
       </div>
       <div class="card">
-        <h2>Sales Methodology Implementation</h2>
-        <p>We install battle-tested methods—from MEDDIC to Challenger—to improve qualification, shorten cycles, and empower reps with repeatable frameworks.</p>
+        <h2>Methodology Deployment</h2>
+        <p>Embed proven sales methodologies like MEDDIC, Challenger, or SPICED to drive consistency, shorten cycles, and scale wins.</p>
+        <a href="contact.html" class="cta-btn">Deploy Methods →</a>
       </div>
       <div class="card">
-        <h2>Executive-Level Engagement</h2>
-        <p>Trusted guidance for C-levels and boards. We support transformation agendas and commercial growth with discretion and strategic clarity.</p>
+        <h2>Executive GTM Leadership</h2>
+        <p>Advisory at board and C-level to guide go-to-market clarity, commercial alignment, and transformation oversight.</p>
+        <a href="contact.html" class="cta-btn">Request Leadership Advisory →</a>
       </div>
       <div class="card">
-        <h2>Channel & Partner Acceleration</h2>
-        <p>Maximize ecosystem leverage with GTM orchestration, enablement journeys, and partner program refinement.</p>
+        <h2>Channel & Partner Velocity</h2>
+        <p>Orchestrate partner programs with high-velocity enablement, GTM frameworks, and aligned value creation.</p>
+        <a href="contact.html" class="cta-btn">Accelerate Channels →</a>
       </div>
     </div>
   </main>
 
   <footer>
     <div class="footer-content">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4>CoreCloud (Pty) Ltd</h4>
-          <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
-          <p><strong>BEE Level 4</strong></p>
-          <p>Company Reg: 2022/123456/07</p>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <p>Tel: +27 10 020 5005<br>Email: hello@corecloud.africa</p>
-        </div>
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
+        <p><strong>BEE Level 4</strong></p>
+        <p>Company Reg: 2022/123456/07</p>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+      <div class="footer-right">
+        <p>Contact</p>
+        <p>Mobile: +27 82 872 7858<br>Email: hello@corecloud.africa</p>
+        <div class="footer-bottom">
+          <p>&copy; 2022 CoreCloud. All rights reserved.</p>
+          <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+        </div>
       </div>
     </div>
   </footer>
