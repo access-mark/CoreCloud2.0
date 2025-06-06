@@ -1,10 +1,9 @@
-<!-- Full Page Template with Optimized Footer and Executive Enhancements -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CoreCloud – White Paper</title>
+  <title>White Paper – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
     body {
@@ -12,6 +11,9 @@
       font-family: 'Segoe UI', Roboto, sans-serif;
       background-color: #f4f6f8;
       color: #1e1e1e;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     .small-banner {
@@ -83,18 +85,19 @@
       margin-bottom: 1rem;
     }
 
-    .content p {
-      font-size: 1.1rem;
-      color: #444;
+    .hero-subtitle {
+      font-size: 1.2rem;
       line-height: 1.6;
+      color: #444;
+      margin-bottom: 2.5rem;
     }
 
-    .content img {
+    .diagram img {
       max-width: 100%;
       height: auto;
+      margin: 2rem 0;
       border-radius: 10px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-      margin: 2rem 0;
     }
 
     .btn {
@@ -112,12 +115,47 @@
     .btn:hover {
       background-color: #005fa3;
     }
+
+    footer {
+      background-image: url('assets/images/footer-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      padding: 4rem 2rem 2rem;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+
+    .footer-left, .footer-right {
+      min-width: 280px;
+    }
+
+    .footer-left {
+      text-align: left;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    .footer-bottom {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      text-align: right;
+    }
   </style>
 </head>
 <body>
-  <!-- Header -->
   <div class="small-banner">
-    <header class="banner-header">
+    <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
       <nav>
         <ul>
@@ -128,74 +166,45 @@
           <li><a href="white-paper.html" class="nav-btn active">White Paper</a></li>
           <li><a href="resources.html" class="nav-btn">Resources</a></li>
           <li><a href="contact.html" class="nav-btn">Contact</a></li>
-          <li><a href="testimonials.html" class="nav-btn">Testimonials</a></li>
         </ul>
       </nav>
-    </header>
+    </div>
   </div>
 
-  <!-- Hero Banner -->
   <div class="page-banner"></div>
 
-  <!-- Main Content -->
   <main class="content">
     <h1>Strategic Cloud Transformation in South Africa</h1>
-    <p>This white paper outlines a structured, partner-enabled framework for cloud transformation at scale. We unpack enterprise challenges and walk through a 6-phase journey to cloud maturity.</p>
+    <p class="hero-subtitle">This white paper unpacks a structured, partner-powered cloud journey — tailored for South African enterprises navigating compliance, legacy challenges, and business acceleration.</p>
 
-    <img src="assets/images/corecloud-lifecycle-diagram.png" alt="CoreCloud Lifecycle Diagram" />
-    <img src="assets/images/corecloud-pillars-diagram.png" alt="CoreCloud Strategic Pillars" />
-
-    <div style="margin-top: 3rem;">
-      <h2>Download the Full White Paper</h2>
-      <a href="assets/downloads/CoreCloud_White_Paper_2025_Full_Two_Diagrams.docx" download class="btn">Download .DOCX</a>
-      <a href="assets/downloads/CoreCloud_White_Paper_2025_Full_Two_Diagrams.pdf" download class="btn">Download PDF</a>
+    <div class="diagram">
+      <img src="assets/images/corecloud-lifecycle-diagram.png" alt="Cloud Transformation Lifecycle" />
     </div>
+
+    <div class="diagram">
+      <img src="assets/images/corecloud-pillars-diagram.png" alt="Strategic Cloud Pillars" />
+    </div>
+
+    <h2>Download the Full White Paper</h2>
+    <a href="assets/downloads/CoreCloud_White_Paper_2025_Full_Two_Diagrams.docx" download class="btn">Download .DOCX</a>
+    <a href="assets/downloads/CoreCloud_White_Paper_2025_Full_Two_Diagrams.pdf" download class="btn">Download PDF</a>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4>CoreCloud (Pty) Ltd</h4>
-          <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
-          <p><strong>BEE Level 4</strong></p>
-          <p>Company Reg: 2022/123456/07</p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <p>Tel: +27 10 020 5005<br>Email: hello@corecloud.africa</p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Follow Us</h4>
-          <div class="social-icons">
-            <a href="https://www.linkedin.com/company/corecloud" target="_blank" aria-label="LinkedIn">
-              <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
-            </a>
-            <a href="https://twitter.com/corecloud" target="_blank" aria-label="Twitter">
-              <img src="assets/icons/twitter.svg" alt="Twitter" />
-            </a>
-            <a href="https://facebook.com/corecloud" target="_blank" aria-label="Facebook">
-              <img src="assets/icons/facebook.svg" alt="Facebook" />
-            </a>
-          </div>
-        </div>
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
+        <p><strong>BEE Level 4</strong></p>
+        <p>Company Reg: 2022/123456/07</p>
       </div>
-
-      <div class="footer-newsletter">
-        <h4>Stay Informed</h4>
-        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email" required />
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+      <div class="footer-right">
+        <p>Contact</p>
+        <p>Mobile: +27 82 872 7858<br>Email: hello@corecloud.africa</p>
+        <div class="footer-bottom">
+          <p>&copy; 2025 CoreCloud. All rights reserved.</p>
+          <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+        </div>
       </div>
     </div>
   </footer>
