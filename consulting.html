@@ -5,6 +5,191 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Consulting – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: #f4f6f8;
+      color: #1e1e1e;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .small-banner {
+      background-color: #fff;
+      padding: 1.5rem 2rem 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .banner-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      height: 160px;
+      width: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a.nav-btn {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #003366;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    nav a.nav-btn:hover,
+    nav a.nav-btn.active {
+      color: #005fa3;
+      font-weight: 900;
+    }
+
+    .page-banner {
+      height: 480px;
+      background-image: url('assets/images/consulting-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      margin-top: 200px;
+    }
+
+    .content {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    .content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #003366;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #222;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #555;
+      flex-grow: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background-color: #0077cc;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      margin-top: auto;
+    }
+
+    .cta-btn:hover {
+      background-color: #005fa3;
+    }
+
+    footer {
+      background-image: url('assets/images/footer-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      padding: 4rem 2rem 2rem;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      align-items: flex-end;
+    }
+
+    .footer-left, .footer-right {
+      min-width: 280px;
+    }
+
+    .footer-left {
+      text-align: left;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    .footer-col h4 {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer-col p {
+      margin: 0.3rem 0;
+      font-size: 0.95rem;
+    }
+
+    .footer-bottom {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      text-align: right;
+    }
+  </style>
 </head>
 <body>
   <div class="small-banner">
@@ -23,7 +208,7 @@
     </div>
   </div>
 
-  <div class="page-banner" style="background-image: url('assets/images/consulting-bannerimage.png'); background-size: cover; background-position: center; height: 480px; margin-top: 200px;"></div>
+  <div class="page-banner"></div>
 
   <main class="content">
     <h1>Executive Sales Consulting</h1>
