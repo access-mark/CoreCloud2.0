@@ -1,88 +1,170 @@
+<!-- Consulting Page – CoreCloud 2.0 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Consulting – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: #f4f6f8;
+      color: #1e1e1e;
+    }
+
+    .small-banner {
+      background-color: #fff;
+      padding: 1.5rem 2rem 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .banner-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      height: 160px;
+      width: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a.nav-btn {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #003366;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    nav a.nav-btn:hover,
+    nav a.nav-btn.active {
+      color: #005fa3;
+      font-weight: 900;
+    }
+
+    .page-banner {
+      height: 480px;
+      background-image: url('assets/images/consulting-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      margin-top: 200px;
+    }
+
+    .content {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    .content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #003366;
+      margin-bottom: 1rem;
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      color: #444;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
-
   <!-- Header -->
   <div class="small-banner">
     <header class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
       <nav>
         <ul>
-          <li><a href="index.html" class="nav-btn">HOME</a></li>
-          <li><a href="consulting.html" class="nav-btn active">CONSULTING</a></li>
-          <li><a href="aws.html" class="nav-btn">AWS SERVICE SUITE</a></li>
-          <li><a href="talent.html" class="nav-btn">TALENT PLACEMENT</a></li>
-          <li><a href="white-paper.html" class="nav-btn">WHITE PAPER</a></li>
-          <li><a href="resources.html" class="nav-btn">RESOURCES</a></li>
-          <li><a href="contact.html" class="nav-btn">CONTACT</a></li>
-          <li><a href="testimonials.html" class="nav-btn">TESTIMONIALS</a></li>
+          <li><a href="index.html" class="nav-btn">Home</a></li>
+          <li><a href="consulting.html" class="nav-btn active">Consulting</a></li>
+          <li><a href="aws.html" class="nav-btn">AWS Service Suite</a></li>
+          <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
+          <li><a href="white-paper.html" class="nav-btn">White Paper</a></li>
+          <li><a href="resources.html" class="nav-btn">Resources</a></li>
+          <li><a href="contact.html" class="nav-btn">Contact</a></li>
+          <li><a href="testimonials.html" class="nav-btn">Testimonials</a></li>
         </ul>
       </nav>
     </header>
   </div>
 
-  <!-- Banner -->
-  <div class="page-banner" style="background-image: url('assets/images/consulting-bannerimage.png'); margin-top: 200px;"></div>
+  <!-- Hero Banner -->
+  <div class="page-banner"></div>
 
   <!-- Main Content -->
   <main class="content">
-    <h1>Sales & Strategy Consulting</h1>
-    <p class="hero-subtitle">
-      We don't run workshops. We drive revenue. Full-stack consulting with skin in the game.
-    </p>
-
-    <section class="division-grid">
-      <div class="division-card">
-        <h2>Sales Audit</h2>
-        <p>We assess your team, pipeline, messaging, and leadership. Then we sharpen it all. Fast.</p>
-      </div>
-      <div class="division-card">
-        <h2>Execution Engine</h2>
-        <p>We implement a full go-to-market stack: process, people, CRM, pricing, and performance rhythms.</p>
-      </div>
-      <div class="division-card">
-        <h2>Leadership Leverage</h2>
-        <p>We work directly with your execs, run shadow boards, and create 90-day sprint plans that deliver.</p>
-      </div>
-      <div class="division-card">
-        <h2>Investor-Ready</h2>
-        <p>We prep your pitch decks, validate your model, and show how to hit numbers with real strategy.</p>
-      </div>
-    </section>
-
-    <div class="diagram" style="text-align: center; margin: 3rem auto;">
-      <img src="assets/images/consulting-methodology.png" alt="Consulting Methodology" style="max-width: 100%; border-radius: 10px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);" />
-      <p style="font-size: 0.95rem; color: #666; margin-top: 1rem;">The CoreConsult™ Framework – Audit, Align, Accelerate</p>
-    </div>
-
-    <div class="centered" style="margin-top: 3rem;">
-      <a href="contact.html" class="cta-btn">Engage CoreCloud</a>
-    </div>
+    <h1>Consulting with CoreCloud</h1>
+    <p>We don’t just advise — we activate. Our consulting team blends decades of sales strategy, enterprise transformation, and go-to-market execution to help you win, scale, and lead.</p>
   </main>
 
-  <!-- Footer -->
+  <!-- Optimized Footer for CoreCloud 2.0 -->
   <footer>
     <div class="footer-content">
-      <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-      <div class="social-links">
-        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-        <a href="https://twitter.com" target="_blank">Twitter</a>
-        <a href="https://www.facebook.com" target="_blank">Facebook</a>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>CoreCloud (Pty) Ltd</h4>
+          <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
+          <p><strong>BEE Level 4</strong></p>
+          <p>Company Reg: 2022/123456/07</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>Tel: +27 10 020 5005<br>Email: hello@corecloud.africa</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/company/corecloud" target="_blank" aria-label="LinkedIn">
+              <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
+            </a>
+            <a href="https://twitter.com/corecloud" target="_blank" aria-label="Twitter">
+              <img src="assets/icons/twitter.svg" alt="Twitter" />
+            </a>
+            <a href="https://facebook.com/corecloud" target="_blank" aria-label="Facebook">
+              <img src="assets/icons/facebook.svg" alt="Facebook" />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-newsletter">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form class="newsletter-form">
+          <input type="email" placeholder="Enter your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 CoreCloud. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
       </div>
     </div>
   </footer>
-
-  <!-- Chatbot -->
-  <script src="https://www.chatbase.co/embed.min.js"
-          chatbotId="2lVQDE6W7igyTrTHXu9Wk"
-          domain="www.chatbase.co"
-          defer></script>
-
 </body>
 </html>
