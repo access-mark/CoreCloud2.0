@@ -1,0 +1,86 @@
+<!-- Optimized Footer for CoreCloud 2.0 -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>CoreCloud (Pty) Ltd</h4>
+        <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>Tel: +27 10 020 5005<br>Email: hello@corecloud.africa</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/company/corecloud" target="_blank" aria-label="LinkedIn">
+            <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
+          </a>
+          <a href="https://twitter.com/corecloud" target="_blank" aria-label="Twitter">
+            <img src="assets/icons/twitter.svg" alt="Twitter" />
+          </a>
+          <a href="https://facebook.com/corecloud" target="_blank" aria-label="Facebook">
+            <img src="assets/icons/facebook.svg" alt="Facebook" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background-color: #003366;
+    color: #fff;
+    padding: 3rem 1rem 2rem;
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .footer-col h4 {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .footer-col p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .social-icons a img {
+    width: 24px;
+    height: 24px;
+    margin-right: 1rem;
+    filter: brightness(0) invert(1);
+    transition: opacity 0.3s ease;
+  }
+
+  .social-icons a img:hover {
+    opacity: 0.7;
+  }
+
+  .footer-bottom {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+</style>
