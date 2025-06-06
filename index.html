@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CoreCloud – Build. Modernize. Scale.</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Consulting – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
     body {
@@ -15,25 +15,15 @@
 
     .small-banner {
       background-color: #fff;
+      padding: 0.8rem 2rem;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-      padding: 1.5rem 2rem 0.5rem;
-    }
-
-    .banner-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
     }
 
     .logo {
-      height: 160px;
+      max-height: 150px;
       width: auto;
     }
 
@@ -47,17 +37,16 @@
 
     nav a.nav-btn {
       text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: #003366;
-      text-transform: uppercase;
-      transition: all 0.3s ease;
+      font-weight: 600;
+      color: #0077cc;
+      padding: 0.5rem 0.75rem;
+      transition: color 0.3s ease;
     }
 
     nav a.nav-btn:hover,
     nav a.nav-btn.active {
       color: #005fa3;
-      font-weight: 900;
+      text-decoration: underline;
     }
 
     .page-banner {
@@ -65,65 +54,40 @@
       background-image: url('assets/images/sandton-bannerimage.png');
       background-size: cover;
       background-position: center;
-      margin-top: 200px;
       display: flex;
       align-items: center;
-      justify-content: flex-end;
-      padding-right: 5%;
+      justify-content: center;
     }
 
-    .banner-text {
+    .banner-title {
       background: rgba(255, 255, 255, 0.85);
-      padding: 2rem;
-      max-width: 500px;
-      text-align: right;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-align: center;
     }
 
-    .banner-text h1 {
-      font-size: 2.8rem;
+    .banner-title h1 {
+      font-size: 3rem;
       font-weight: 700;
       color: #003366;
-      margin-bottom: 1rem;
-    }
-
-    .banner-text p {
-      font-size: 1.2rem;
-      line-height: 1.6;
-      color: #333;
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      background-color: #0077cc;
-      color: #fff;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.9rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .cta-btn:hover {
-      background-color: #005fa3;
+      margin: 0;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
     }
 
     .content {
       max-width: 1200px;
       margin: 4rem auto;
       padding: 0 1.5rem;
-      text-align: center;
     }
 
-    .division-grid {
+    .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      margin-top: 3rem;
+      margin-top: 2rem;
     }
 
-    .division-card {
+    .card {
       background: #ffffff;
       border-radius: 12px;
       padding: 2rem;
@@ -131,127 +95,76 @@
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .division-card:hover {
+    .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     }
 
-    .division-card h2 {
+    .card h2 {
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
       color: #222;
     }
 
-    .division-card p {
+    .card p {
       font-size: 1rem;
       color: #555;
-      margin-bottom: 1rem;
-    }
-
-    footer {
-      background-image: url('assets/images/footer-bannerimage.png');
-      background-size: cover;
-      background-position: center;
-      color: #fff;
-      padding: 4rem 2rem;
-      margin-top: 4rem;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-
-    .footer-col h4 {
-      margin-bottom: 0.8rem;
-    }
-
-    .footer-col p {
-      margin: 0.3rem 0;
-      font-size: 0.95rem;
-    }
-
-    .footer-bottom {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 0.85rem;
     }
   </style>
 </head>
 <body>
+  <!-- Navigation -->
   <div class="small-banner">
-    <header class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-      <nav>
-        <ul>
-          <li><a href="index.html" class="nav-btn active">Home</a></li>
-          <li><a href="consulting.html" class="nav-btn">Consulting</a></li>
+    <header class="banner-header" style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 1rem 0;">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" style="margin-bottom: 1rem;" />
+      <nav style="width: 100%;">
+        <ul style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; padding: 0; margin: 0; list-style: none;">
+          <li><a href="index.html" class="nav-btn">Home</a></li>
+          <li><a href="consulting.html" class="nav-btn active">Consulting</a></li>
           <li><a href="aws.html" class="nav-btn">AWS Service Suite</a></li>
           <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
-          <li><a href="white-paper.html" class="nav-btn">White Paper</a></li>
           <li><a href="resources.html" class="nav-btn">Resources</a></li>
           <li><a href="contact.html" class="nav-btn">Contact</a></li>
-          <li><a href="testimonials.html" class="nav-btn">Testimonials</a></li>
         </ul>
       </nav>
     </header>
   </div>
 
+  <!-- Hero Banner -->
   <div class="page-banner">
-    <div class="banner-text">
-      <h1>Build. Modernize. Scale.</h1>
-      <p>Unlock cloud-driven growth with South Africa’s sharpest consulting, AWS specialists, and elite talent. Powered by proven frameworks. Delivered with integrity.</p>
-      <a href="contact.html" class="cta-btn">Book a Strategy Call</a>
+    <div class="banner-title">
+      <h1>Consulting</h1>
     </div>
   </div>
 
+  <!-- Page Content -->
   <main class="content">
-    <section class="division-grid">
-      <div class="division-card">
-        <h2>CoreCloud Consulting</h2>
-        <p>Sales transformation, GTM acceleration, and executive-level advisory. Strategy meets execution.</p>
-        <a href="consulting.html" class="nav-btn">Explore Consulting →</a>
+    <div class="card-grid">
+      <div class="card">
+        <h2>Strategic Sales Advisory</h2>
+        <p>High-level advisory to define vision, accelerate GTM plans, and close the strategy-to-execution gap. We help you shape initiatives that outperform expectations.</p>
       </div>
-
-      <div class="division-card">
-        <h2>CoreCloud AWS Service Suite</h2>
-        <p>Migrate, Modernize, Manage & Optimize with AWS-certified experts and ecosystem partners.</p>
-        <a href="aws.html" class="nav-btn">Explore AWS Services →</a>
+      <div class="card">
+        <h2>Sales Team Assessment</h2>
+        <p>We evaluate your structure, incentive models, team performance, and enablement practices. Our framework maps capability against ambition, revealing clear growth paths.</p>
       </div>
-
-      <div class="division-card">
-        <h2>CoreCloud Talent Placement</h2>
-        <p>Elite professionals sourced, screened, and placed through strategic partnerships with Careerweb and Synthesis.</p>
-        <a href="talent.html" class="nav-btn">Explore Talent Solutions →</a>
+      <div class="card">
+        <h2>Pipeline & Forecasting Precision</h2>
+        <p>Build predictable, repeatable, and scalable sales processes. Our models enhance pipeline velocity, win rates, and forecasting integrity.</p>
       </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-content">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4>CoreCloud (Pty) Ltd</h4>
-          <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
-          <p><strong>BEE Level 4</strong></p>
-          <p>Company Reg: 2022/123456/07</p>
-        </div>
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <p>Tel: +27 10 020 5005<br>Email: hello@corecloud.africa</p>
-        </div>
+      <div class="card">
+        <h2>Sales Methodology Implementation</h2>
+        <p>We install battle-tested methods—from MEDDIC to Challenger—to improve qualification, shorten cycles, and empower reps with repeatable frameworks.</p>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+      <div class="card">
+        <h2>Executive-Level Engagement</h2>
+        <p>Trusted guidance for C-levels and boards. We support transformation agendas and commercial growth with discretion and strategic clarity.</p>
+      </div>
+      <div class="card">
+        <h2>Channel & Partner Acceleration</h2>
+        <p>Maximize ecosystem leverage with GTM orchestration, enablement journeys, and partner program refinement.</p>
       </div>
     </div>
-  </footer>
+  </main>
 </body>
 </html>
