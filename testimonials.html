@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Testimonials – CoreCloud</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: #f4f6f8;
+      color: #1e1e1e;
+    }
+
+    .small-banner {
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      padding: 1.5rem 2rem 1rem 2rem;
+    }
+
+    .banner-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: 1200px;
+      width: 100%;
+    }
+
+    .logo {
+      height: 160px;
+      width: auto;
+      margin-bottom: 1rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a.nav-btn {
+      text-decoration: none;
+      font-weight: 600;
+      color: #0077cc;
+      font-size: 16px;
+      padding: 0.5rem 0.75rem;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      white-space: nowrap;
+    }
+
+    nav a.nav-btn:hover,
+    nav a.nav-btn.active {
+      color: #005fa3;
+      font-weight: bold;
+    }
+
+    .page-banner {
+      height: 480px;
+      background-image: url('assets/images/testimonials-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      margin-top: 240px;
+    }
+
+    .content {
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 2rem 0;
+      color: #003366;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .testimonial {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .testimonial p {
+      font-size: 1.1rem;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    .testimonial h3 {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #005fa3;
+      font-weight: 700;
+    }
+
+    footer {
+      background-color: #003366;
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-content p {
+      font-size: 16px;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .social-links {
+      margin-top: 15px;
+    }
+
+    .social-links a {
+      margin: 0 1rem;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .social-links a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="small-banner">
+    <header class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="index.html" class="nav-btn">Home</a></li>
+          <li><a href="consulting.html" class="nav-btn">Consulting</a></li>
+          <li><a href="aws.html" class="nav-btn">AWS Service Suite</a></li>
+          <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
+          <li><a href="white-paper.html" class="nav-btn">White Paper</a></li>
+          <li><a href="resources.html" class="nav-btn">Resources</a></li>
+          <li><a href="contact.html" class="nav-btn">Contact</a></li>
+          <li><a href="testimonials.html" class="nav-btn active">Testimonials</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+
+  <!-- Banner -->
+  <div class="page-banner"></div>
+
+  <!-- Content -->
+  <main class="content">
+    <h1>Client Testimonials</h1>
+
+    <div class="testimonial">
+      <p>"CoreCloud’s AWS team didn’t just migrate our workloads — they transformed how we operate. We cut infrastructure costs by 35% and launched new digital services in weeks, not months."</p>
+      <h3>– CIO, National Retail Group</h3>
+    </div>
+
+    <div class="testimonial">
+      <p>"The CoreCloud Consulting team helped us map a go-to-market strategy that actually worked. Their audit and exec advisory process was world-class — no fluff, just precision."</p>
+      <h3>– Head of Sales, Fintech Startup</h3>
+    </div>
+
+    <div class="testimonial">
+      <p>"When it came to sourcing top talent, CoreCloud was in a league of its own. Within 14 days we had three senior engineers onboarded, fully compliant, and delivering value."</p>
+      <h3>– Engineering Director, Telecoms Company</h3>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 CoreCloud. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+        <a href="https://twitter.com" target="_blank">Twitter</a>
+        <a href="https://www.facebook.com" target="_blank">Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chatbot -->
+  <script src="https://www.chatbase.co/embed.min.js"
+          chatbotId="2lVQDE6W7igyTrTHXu9Wk"
+          domain="www.chatbase.co"
+          defer></script>
+</body>
+</html>
