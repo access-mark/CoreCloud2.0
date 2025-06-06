@@ -1,10 +1,9 @@
-<!-- Full Page Template for Talent Placement – CoreCloud 2.0 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CoreCloud – Talent Placement</title>
+  <title>AWS Cloud Services – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
     body {
@@ -12,6 +11,9 @@
       font-family: 'Segoe UI', Roboto, sans-serif;
       background-color: #f4f6f8;
       color: #1e1e1e;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     .small-banner {
@@ -63,7 +65,7 @@
 
     .page-banner {
       height: 480px;
-      background-image: url('assets/images/talent-bannerimage.png');
+      background-image: url('assets/images/aws-bannerimage.png');
       background-size: cover;
       background-position: center;
       margin-top: 200px;
@@ -83,36 +85,47 @@
       margin-bottom: 1rem;
     }
 
-    .division-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
+    .hero-subtitle {
+      font-size: 1.3rem;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 2rem;
     }
 
-    .division-card {
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
       background: #ffffff;
       border-radius: 12px;
       padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    .division-card:hover {
+    .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     }
 
-    .division-card h2 {
+    .card h2 {
       font-size: 1.5rem;
-      color: #003366;
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.5rem;
+      color: #222;
     }
 
-    .division-card p {
+    .card p {
       font-size: 1rem;
       color: #555;
-      line-height: 1.5;
+      flex-grow: 1;
+      margin-bottom: 1.5rem;
     }
 
     .cta-btn {
@@ -125,168 +138,138 @@
       border-radius: 8px;
       text-decoration: none;
       transition: background-color 0.3s ease;
-      margin-top: 2rem;
+      margin-top: auto;
     }
 
     .cta-btn:hover {
       background-color: #005fa3;
     }
 
-    footer {
-      background-color: #003366;
-      color: #fff;
+    .diagram {
+      margin-top: 4rem;
       text-align: center;
-      padding: 4rem 1rem 2rem;
+    }
+
+    .diagram img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 1rem;
+    }
+
+    footer {
+      background-image: url('assets/images/footer-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      color: #fff;
+      padding: 4rem 2rem 2rem;
+      margin-top: auto;
     }
 
     .footer-content {
       max-width: 1200px;
       margin: 0 auto;
-    }
-
-    .footer-grid {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
-      gap: 2rem;
-      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      align-items: flex-end;
     }
 
-    .footer-col {
-      flex: 1;
-      min-width: 220px;
+    .footer-left, .footer-right {
+      min-width: 280px;
     }
 
-    .footer-col h4 {
-      margin-bottom: 0.8rem;
-      font-size: 1.1rem;
+    .footer-left {
+      text-align: left;
     }
 
-    .footer-col p {
-      font-size: 0.95rem;
-      margin: 0.25rem 0;
-    }
-
-    .social-icons a img {
-      width: 24px;
-      height: 24px;
-      margin: 0 0.5rem;
-    }
-
-    .footer-newsletter input[type="email"] {
-      padding: 0.5rem;
-      width: 250px;
-      margin-right: 0.5rem;
-    }
-
-    .footer-newsletter button {
-      padding: 0.5rem 1rem;
-      background: #0077cc;
-      border: none;
-      color: #fff;
-      cursor: pointer;
-      border-radius: 4px;
+    .footer-right {
+      text-align: right;
     }
 
     .footer-bottom {
-      border-top: 1px solid #ccc;
       margin-top: 2rem;
-      padding-top: 1rem;
       font-size: 0.85rem;
+      text-align: right;
     }
   </style>
 </head>
 <body>
   <div class="small-banner">
-    <header class="banner-header">
+    <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
       <nav>
         <ul>
           <li><a href="index.html" class="nav-btn">Home</a></li>
           <li><a href="consulting.html" class="nav-btn">Consulting</a></li>
-          <li><a href="aws.html" class="nav-btn">AWS Service Suite</a></li>
-          <li><a href="talent.html" class="nav-btn active">Talent Placement</a></li>
-          <li><a href="white-paper.html" class="nav-btn">White Paper</a></li>
+          <li><a href="aws.html" class="nav-btn active">AWS Service Suite</a></li>
+          <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
           <li><a href="resources.html" class="nav-btn">Resources</a></li>
           <li><a href="contact.html" class="nav-btn">Contact</a></li>
-          <li><a href="testimonials.html" class="nav-btn">Testimonials</a></li>
         </ul>
       </nav>
-    </header>
+    </div>
   </div>
 
   <div class="page-banner"></div>
 
   <main class="content">
-    <h1>Talent That Delivers Outcomes</h1>
-    <p>We connect you with high-impact professionals — engineers, architects, analysts, and leaders — through strategic partnerships and outcome-driven delivery models.</p>
+    <h1>Cloud Done Right</h1>
+    <p class="hero-subtitle">Migrate. Modernize. Manage. Optimize. End-to-end AWS transformation, led by proven frameworks and elite partners.</p>
 
-    <section class="division-grid">
-      <div class="division-card">
-        <h2>Elite Talent Pools</h2>
-        <p>We place top-tier talent across DevOps, cloud, data, architecture, and security — vetted and performance-backed.</p>
+    <div class="card-grid">
+      <div class="card">
+        <h2>Migrate with Precision</h2>
+        <p>Seamless AWS migrations driven by readiness assessments, technical audits, and structured landing zone design. No rework. No guesswork.</p>
+        <a href="contact.html" class="cta-btn">Start Migration →</a>
       </div>
-      <div class="division-card">
-        <h2>Strategic Sourcing Engine</h2>
-        <p>In partnership with CareerWeb and Synthesis, we power high-velocity sourcing, screening, and onboarding at scale.</p>
+      <div class="card">
+        <h2>Modernize Infrastructure</h2>
+        <p>Re-architect and containerize applications. Transition to serverless. Accelerate innovation using native AWS services like ECS, Lambda, and Aurora.</p>
+        <a href="contact.html" class="cta-btn">Modernize Now →</a>
       </div>
-      <div class="division-card">
-        <h2>Full Lifecycle Coverage</h2>
-        <p>Permanent and contract hires with full compliance, managed service capability, and replacement guarantees.</p>
+      <div class="card">
+        <h2>Managed Cloud Operations</h2>
+        <p>Elite partners handle day-to-day cloud operations: observability, backups, security, patching, and compliance. You stay focused on growth.</p>
+        <a href="contact.html" class="cta-btn">Get Managed Support →</a>
       </div>
-      <div class="division-card">
-        <h2>Leadership Oversight</h2>
-        <p>Every placement is driven by executive accountability and strategic alignment — no junior outsourcing.</p>
+      <div class="card">
+        <h2>Optimize for Scale</h2>
+        <p>Right-size resources, control costs, and unlock performance. We use AWS Well-Architected Reviews and real-time telemetry to drive action.</p>
+        <a href="contact.html" class="cta-btn">Optimize AWS →</a>
       </div>
-    </section>
+    </div>
 
-    <a href="contact.html" class="cta-btn">Let's Talk Talent</a>
+    <div class="diagram">
+      <h2>CoreCloud AWS Transformation Framework</h2>
+      <img src="assets/images/aws-methodology-diagram.png" alt="AWS Methodology Diagram" />
+    </div>
+
+    <div class="diagram">
+      <h2>Cloud Lifecycle Coverage</h2>
+      <img src="assets/images/cloud-lifecycle.png" alt="Cloud Lifecycle" />
+    </div>
+
+    <div class="diagram">
+      <h2>Our Partner-Led Operating Model</h2>
+      <img src="assets/images/partner-operating-model.png" alt="Partner Operating Model" />
+    </div>
   </main>
 
-  <!-- Optimized Footer -->
   <footer>
     <div class="footer-content">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4>CoreCloud (Pty) Ltd</h4>
-          <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
-          <p><strong>BEE Level 4</strong></p>
-          <p>Company Reg: 2022/123456/07</p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <p>Tel: +27 10 020 5005<br>Email: hello@corecloud.africa</p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Follow Us</h4>
-          <div class="social-icons">
-            <a href="https://www.linkedin.com/company/corecloud" target="_blank">
-              <img src="assets/icons/linkedin.svg" alt="LinkedIn" />
-            </a>
-            <a href="https://twitter.com/corecloud" target="_blank">
-              <img src="assets/icons/twitter.svg" alt="Twitter" />
-            </a>
-            <a href="https://facebook.com/corecloud" target="_blank">
-              <img src="assets/icons/facebook.svg" alt="Facebook" />
-            </a>
-          </div>
-        </div>
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
+        <p><strong>BEE Level 4</strong></p>
+        <p>Company Reg: 2022/123456/07</p>
       </div>
-
-      <div class="footer-newsletter">
-        <h4>Stay Informed</h4>
-        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email" required />
-          <button type="submit">Subscribe</button>
-        </form>
-      </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+      <div class="footer-right">
+        <p>Contact</p>
+        <p>Mobile: +27 82 872 7858<br>Email: hello@corecloud.africa</p>
+        <div class="footer-bottom">
+          <p>&copy; 2025 CoreCloud. All rights reserved.</p>
+          <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+        </div>
       </div>
     </div>
   </footer>
