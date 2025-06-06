@@ -15,15 +15,25 @@
 
     .small-banner {
       background-color: #fff;
-      padding: 0.8rem 2rem;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      padding: 1.5rem 2rem 0.5rem;
+    }
+
+    .banner-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .logo {
-      max-height: 150px;
+      height: 160px;
       width: auto;
     }
 
@@ -37,16 +47,17 @@
 
     nav a.nav-btn {
       text-decoration: none;
-      font-weight: 600;
-      color: #0077cc;
-      padding: 0.5rem 0.75rem;
-      transition: color 0.3s ease;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #003366;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
     }
 
     nav a.nav-btn:hover,
     nav a.nav-btn.active {
       color: #005fa3;
-      text-decoration: underline;
+      font-weight: 900;
     }
 
     .page-banner {
@@ -56,14 +67,16 @@
       background-position: center;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
+      padding-right: 4rem;
+      margin-top: 200px;
     }
 
     .banner-title {
       background: rgba(255, 255, 255, 0.85);
       padding: 1rem 2rem;
       border-radius: 8px;
-      text-align: center;
+      text-align: right;
     }
 
     .banner-title h1 {
@@ -115,10 +128,10 @@
 <body>
   <!-- Navigation -->
   <div class="small-banner">
-    <header class="banner-header" style="text-align: center; display: flex; flex-direction: column; align-items: center; padding: 1rem 0;">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" style="margin-bottom: 1rem;" />
-      <nav style="width: 100%;">
-        <ul style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; padding: 0; margin: 0; list-style: none;">
+    <header class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+      <nav>
+        <ul>
           <li><a href="index.html" class="nav-btn">Home</a></li>
           <li><a href="consulting.html" class="nav-btn active">Consulting</a></li>
           <li><a href="aws.html" class="nav-btn">AWS Service Suite</a></li>
