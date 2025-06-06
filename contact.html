@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact – CoreCloud</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .contact-wrapper {
+      max-width: 1000px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    .contact-wrapper h1 {
+      font-size: 3rem;
+      color: #003366;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .contact-form label {
+      display: block;
+      font-weight: 600;
+      margin: 0.5rem 0 0.25rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+      height: 150px;
+    }
+
+    .contact-form button {
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #005fa3;
+    }
+
+    .contact-info {
+      background-color: #f0f4f8;
+      border-radius: 12px;
+      padding: 2rem;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .contact-info h2 {
+      margin-bottom: 1rem;
+      color: #003366;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <div class="small-banner">
+    <header class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="index.html" class="nav-btn">HOME</a></li>
+          <li><a href="consulting.html" class="nav-btn">CONSULTING</a></li>
+          <li><a href="aws.html" class="nav-btn">AWS SERVICE SUITE</a></li>
+          <li><a href="talent.html" class="nav-btn">TALENT PLACEMENT</a></li>
+          <li><a href="white-paper.html" class="nav-btn">WHITE PAPER</a></li>
+          <li><a href="resources.html" class="nav-btn">RESOURCES</a></li>
+          <li><a href="contact.html" class="nav-btn active">CONTACT</a></li>
+          <li><a href="testimonials.html" class="nav-btn">TESTIMONIALS</a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+
+  <!-- Page Content -->
+  <main class="contact-wrapper">
+    <h1>Let’s Talk</h1>
+    <div class="contact-grid">
+      <form class="contact-form">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+
+      <div class="contact-info">
+        <h2>Contact Information</h2>
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>433 Broadacres Country Estate<br/>Syringa Rd, Broadacres<br/>Gauteng, South Africa</p>
+        <p><strong>Email:</strong> hello@corecloud.group</p>
+        <p><strong>Phone:</strong> +27 82 123 4567</p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/louwmark" target="_blank">Mark Louw</a></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 CoreCloud. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+        <a href="https://twitter.com" target="_blank">Twitter</a>
+        <a href="https://www.facebook.com" target="_blank">Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Chatbot -->
+  <script src="https://www.chatbase.co/embed.min.js"
+          chatbotId="2lVQDE6W7igyTrTHXu9Wk"
+          domain="www.chatbase.co"
+          defer></script>
+</body>
+</html>
