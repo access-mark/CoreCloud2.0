@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AWS Services – CoreCloud</title>
+  <title>AWS Cloud Services – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
     body {
@@ -85,10 +85,75 @@
       margin-bottom: 1rem;
     }
 
-    .content p {
-      font-size: 1.1rem;
-      color: #444;
+    .hero-subtitle {
+      font-size: 1.3rem;
       line-height: 1.6;
+      color: #333;
+      margin-bottom: 2rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #222;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #555;
+      flex-grow: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background-color: #0077cc;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      margin-top: auto;
+    }
+
+    .cta-btn:hover {
+      background-color: #005fa3;
+    }
+
+    .diagram {
+      margin-top: 4rem;
+      text-align: center;
+    }
+
+    .diagram img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 1rem;
     }
 
     footer {
@@ -121,15 +186,6 @@
       text-align: right;
     }
 
-    .footer-col h4 {
-      margin-bottom: 0.8rem;
-    }
-
-    .footer-col p {
-      margin: 0.3rem 0;
-      font-size: 0.95rem;
-    }
-
     .footer-bottom {
       margin-top: 2rem;
       font-size: 0.85rem;
@@ -157,8 +213,36 @@
   <div class="page-banner"></div>
 
   <main class="content">
-    <h1>AWS Cloud Transformation</h1>
-    <p>We don’t just migrate. We modernize and manage for scale. CoreCloud orchestrates your AWS journey — from readiness assessment to optimization — with elite partners and proven frameworks.</p>
+    <h1>Cloud Done Right</h1>
+    <p class="hero-subtitle">Migrate. Modernize. Manage. Optimize. End-to-end AWS transformation, led by proven frameworks and elite partners.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h2>Migrate with Precision</h2>
+        <p>We deliver seamless AWS migrations, guided by best-practice blueprints and pre-flight readiness assessments.</p>
+        <a href="contact.html" class="cta-btn">Start Migration →</a>
+      </div>
+      <div class="card">
+        <h2>Modernize Infrastructure</h2>
+        <p>Refactor workloads and re-architect applications to take full advantage of cloud-native scalability and resilience.</p>
+        <a href="contact.html" class="cta-btn">Modernize Now →</a>
+      </div>
+      <div class="card">
+        <h2>Managed Cloud Operations</h2>
+        <p>Our AWS-certified partners handle everything from patching to monitoring — so you focus on growth, not upkeep.</p>
+        <a href="contact.html" class="cta-btn">Get Managed Support →</a>
+      </div>
+      <div class="card">
+        <h2>Optimize for Scale</h2>
+        <p>Continuous cloud optimization ensures your environment stays fast, secure, cost-efficient, and ready to scale.</p>
+        <a href="contact.html" class="cta-btn">Optimize AWS →</a>
+      </div>
+    </div>
+
+    <div class="diagram">
+      <h2>Our Proven AWS Transformation Model</h2>
+      <img src="assets/images/aws-methodology-diagram.png" alt="AWS Methodology Diagram" />
+    </div>
   </main>
 
   <footer>
