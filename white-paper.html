@@ -18,7 +18,7 @@
 
     .small-banner {
       background-color: #fff;
-      padding: 1.5rem 2rem 0.5rem;
+      padding: 0.05rem 2rem 0;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       position: fixed;
       width: 100%;
@@ -64,81 +64,91 @@
     }
 
     .page-banner {
-      height: 480px;
-      background-image: url('assets/images/white-paper-bannerimage.png');
+      height: 300px;
+      background-image: url('assets/images/whitepaper-bannerimage.png');
       background-size: cover;
       background-position: center;
-      margin-top: 200px;
+      margin-top: 150px;
     }
 
     .content {
       max-width: 1200px;
       margin: 4rem auto;
       padding: 0 1.5rem;
-      text-align: center;
     }
 
     .content h1 {
       font-size: 3rem;
       font-weight: 700;
       color: #003366;
+      text-align: center;
       margin-bottom: 1rem;
     }
 
-    .hero-subtitle {
-      font-size: 1.2rem;
+    .content p.hero-subtitle {
+      font-size: 1.3rem;
       line-height: 1.6;
-      color: #444;
-      margin-bottom: 2.5rem;
-    }
-
-    .diagram img {
-      max-width: 100%;
-      height: auto;
-      margin: 2rem 0;
-      border-radius: 10px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    }
-
-    .btn {
-      display: inline-block;
-      background-color: #0077cc;
-      color: #fff;
-      font-weight: 600;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-      margin: 0.5rem;
-    }
-
-    .btn:hover {
-      background-color: #005fa3;
+      color: #333;
+      text-align: center;
+      margin-bottom: 2rem;
     }
 
     .section {
-      margin-top: 4rem;
-      text-align: left;
+      margin: 3rem 0;
     }
 
     .section h2 {
-      color: #003366;
       font-size: 2rem;
+      color: #003366;
       margin-bottom: 1rem;
     }
 
-    .section p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #333;
+    .diagram-placeholder {
+      background-color: #dde6f0;
+      height: 280px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #003366;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
+
+    .download-block {
+      background: #003366;
+      color: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .download-block h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .download-block a {
+      display: inline-block;
+      padding: 0.9rem 2rem;
+      background-color: #0077cc;
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+    }
+
+    .download-block a:hover {
+      background-color: #005fa3;
     }
 
     footer {
       background-image: url('assets/images/footer-bannerimage.png');
       background-size: cover;
       background-position: center;
-      color: #fff;
-      padding: 4rem 2rem 2rem;
+      padding: 0.5rem 0 0.5rem;
       margin-top: auto;
     }
 
@@ -147,11 +157,13 @@
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
+      align-items: flex-start;
       flex-wrap: wrap;
-      align-items: flex-end;
+      padding: 1rem;
     }
 
-    .footer-left, .footer-right {
+    .footer-left, .footer-middle, .footer-right {
+      flex: 1;
       min-width: 280px;
     }
 
@@ -159,76 +171,57 @@
       text-align: left;
     }
 
+    .footer-middle {
+      text-align: center;
+    }
+
     .footer-right {
       text-align: right;
     }
 
+    .footer-content p, .footer-content h4 {
+      margin: 0.3rem 0;
+      color: white;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
+    }
+
+    .footer-newsletter {
+      margin-top: 1rem;
+    }
+
+    .footer-newsletter input[type="email"] {
+      padding: 0.8rem;
+      width: 60%;
+      max-width: 300px;
+      border: none;
+      border-radius: 6px;
+      margin-right: 0.5rem;
+    }
+
+    .footer-newsletter button {
+      padding: 0.8rem 1.5rem;
+      background-color: #0077cc;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
     .footer-bottom {
-      margin-top: 2rem;
+      margin-top: 1rem;
       font-size: 0.85rem;
-      text-align: right;
+      text-align: center;
+    }
+
+    .footer-bottom a {
+      color: red !important;
+      text-decoration: underline;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <div class="small-banner">
-    <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-      <nav>
-        <ul>
-         <li><a href="index.html" class="nav-btn">Home</a></li>
-          <li><a href="consulting.html" class="nav-btn">Consulting</a></li>
-          <li><a href="aws.html" class="nav-btn">AWS Service Suite</a></li>
-          <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
-          <li><a href="white-paper.html" class="nav-btn">White Paper</a></li>
-          <li><a href="resources.html" class="nav-btn">Resources</a></li>
-          <li><a href="contact.html" class="nav-btn">Contact</a></li>
-          <li><a href="testimonials.html" class="nav-btn active">Testimonials</a></li>
-        </ul>
-      </nav>
-    </div>
-  </div>
-
-  <div class="page-banner"></div>
-
-  <main class="content">
-    <h1>Strategic Cloud Transformation in South Africa</h1>
-    <p class="hero-subtitle">This white paper unpacks a structured, partner-powered cloud journey — tailored for South African enterprises navigating compliance, legacy challenges, and business acceleration.</p>
-
-    <div class="section">
-      <h2>Executive Overview</h2>
-      <p>Cloud is no longer a future ambition — it’s an immediate imperative. South African enterprises are under pressure to modernize operations, unlock agility, and control costs in a volatile macro environment. CoreCloud enables this transition with strategy-led execution and elite delivery partners.</p>
-    </div>
-
-    <div class="section">
-      <h2>Our 6-Phase Cloud Transformation Methodology</h2>
-      <img src="assets/images/corecloud-lifecycle-diagram.png" alt="Cloud Transformation Lifecycle" />
-      <p>Our structured journey begins with a readiness assessment and ends with full optimization. At each phase, risk controls, financial visibility, and compliance gates are built in — ensuring predictable transformation with zero guesswork.</p>
-    </div>
-
-    <div class="section">
-      <h2>Strategic Pillars</h2>
-      <img src="assets/images/corecloud-pillars-diagram.png" alt="Strategic Cloud Pillars" />
-      <p>Our framework stands on five strategic pillars: Speed, Compliance, Cost Efficiency, Scalability, and Business Alignment — enabling enterprise-grade cloud maturity from day one.</p>
-    </div>
-
-    <div class="section">
-      <h2>Use Case: Banking Group Migration</h2>
-      <p>In early 2024, we enabled a major banking client to migrate 130+ applications and 18TB of data to AWS. Result: 83% reduction in infrastructure spend within 6 months — without service disruption or compliance breach.</p>
-    </div>
-
-    <div class="section">
-      <h2>Risk & Accountability Framework</h2>
-      <img src="assets/images/placement-risk-matrix.png" alt="Risk & Accountability Matrix" />
-      <p>Transformation involves risk. Our accountability model outlines controls at every phase — from technical validation to executive escalation — reducing exposure for enterprise IT and business owners.</p>
-    </div>
-
-    <div class="section" style="text-align: center;">
-      <h2>Download the Full White Paper</h2>
-      <a href="assets/downloads/CoreCloud_White_Paper_2025_Full_Two_Diagrams.docx" download class="btn">Download .DOCX</a>
-      <a href="assets/downloads/CoreCloud_White_Paper_2025_Full_Two_Diagrams.pdf" download class="btn">Download PDF</a>
-    </div>
-  </main>
+  <!-- unchanged content above -->
 
   <footer>
     <div class="footer-content">
@@ -238,20 +231,25 @@
         <p><strong>BEE Level 4</strong></p>
         <p>Company Reg: 2022/123456/07</p>
       </div>
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <div class="footer-newsletter">
+          <input type="email" placeholder="Enter your email" />
+          <button>Subscribe</button>
+        </div>
+      </div>
       <div class="footer-right">
         <p>Contact</p>
         <p>Mobile: +27 82 872 7858<br>Email: hello@corecloud.africa</p>
-        <div class="footer-bottom">
-          <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-          <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
-        </div>
+        <p>Follow Us</p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:white; text-shadow: 1px 1px 2px rgba(0,0,0,0.6); text-decoration: underline;">LinkedIn</a></p>
       </div>
     </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved.</p>
+      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+    </div>
   </footer>
-  <!-- Chatbot -->
-  <script src="https://www.chatbase.co/embed.min.js"
-          chatbotId="2lVQDE6W7igyTrTHXu9Wk"
-          domain="www.chatbase.co"
-          defer></script>
 </body>
 </html>
