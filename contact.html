@@ -11,11 +11,14 @@
       font-family: 'Segoe UI', Roboto, sans-serif;
       background-color: #f4f6f8;
       color: #1e1e1e;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     .small-banner {
       background-color: #fff;
-      padding: 1.5rem 2rem 0.5rem;
+      padding: 0.05rem 2rem 0;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       position: fixed;
       width: 100%;
@@ -61,143 +64,138 @@
     }
 
     .page-banner {
-      height: 480px;
+      height: 300px;
       background-image: url('assets/images/contact-bannerimage.png');
       background-size: cover;
       background-position: center;
-      margin-top: 200px;
+      margin-top: 150px;
     }
 
-    .content {
-      max-width: 800px;
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 1200px;
       margin: 4rem auto;
       padding: 0 1.5rem;
-      text-align: center;
+      gap: 3rem;
     }
 
-    .content h1 {
-      font-size: 2.8rem;
-      font-weight: 700;
+    .contact-left, .contact-right {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .contact-left h2, .contact-right h2 {
       color: #003366;
-      margin-bottom: 1rem;
     }
 
-    .content p {
-      font-size: 1.1rem;
-      color: #444;
+    .contact-left p {
       line-height: 1.6;
-      margin-bottom: 2rem;
     }
 
-    form {
-      display: grid;
-      gap: 1rem;
-      text-align: left;
-    }
-
-    input, textarea {
-      padding: 0.75rem;
-      font-size: 1rem;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      width: 100%;
-    }
-
-    button {
-      padding: 0.75rem;
-      font-size: 1rem;
-      background-color: #0077cc;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
+    .contact-form label {
+      display: block;
+      margin: 0.8rem 0 0.3rem;
       font-weight: 600;
     }
 
-    button:hover {
-      background-color: #005fa3;
+    .contact-form input, .contact-form select, .contact-form textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
     }
 
-    footer {
-      background-color: #003366;
+    .contact-form button {
+      background-color: #0077cc;
       color: #fff;
-      padding: 4rem 2rem 2rem;
-      margin-top: 4rem;
+      border: none;
+      padding: 0.9rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #005fa3;
     }
 
     .footer-content {
       max-width: 1200px;
       margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1rem;
     }
 
-    .footer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-bottom: 2rem;
+    footer {
+      background-image: url('assets/images/footer-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      padding: 0.5rem 0 0.5rem;
+      margin-top: auto;
     }
 
-    .footer-col h4 {
-      margin-bottom: 0.8rem;
+    .footer-left, .footer-middle, .footer-right {
+      flex: 1;
+      min-width: 280px;
     }
 
-    .footer-col p {
+    .footer-left { text-align: left; }
+    .footer-middle { text-align: center; }
+    .footer-right { text-align: right; }
+
+    .footer-content p, .footer-content h4 {
       margin: 0.3rem 0;
-    }
-
-    .social-icons a {
-      display: inline-block;
-      margin-right: 1rem;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     }
 
     .footer-newsletter {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .footer-newsletter form {
       margin-top: 1rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
     }
 
-    .footer-newsletter input {
-      padding: 0.5rem 1rem;
-      border-radius: 4px;
+    .footer-newsletter input[type="email"] {
+      padding: 0.8rem;
+      width: 60%;
+      max-width: 300px;
       border: none;
-      width: 300px;
+      border-radius: 6px;
+      margin-right: 0.5rem;
     }
 
     .footer-newsletter button {
-      padding: 0.5rem 1.5rem;
-      border: none;
-      background: #0077cc;
+      padding: 0.8rem 1.5rem;
+      background-color: #0077cc;
       color: #fff;
-      border-radius: 4px;
+      border: none;
+      border-radius: 6px;
       cursor: pointer;
     }
 
     .footer-bottom {
+      margin-top: 1rem;
+      font-size: 0.85rem;
       text-align: center;
-      font-size: 0.9rem;
-      color: #ccc;
-      margin-top: 2rem;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     }
 
     .footer-bottom a {
-      color: #ccc;
-      text-decoration: none;
-    }
-
-    .footer-bottom a:hover {
+      color: red !important;
       text-decoration: underline;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
   <div class="small-banner">
-    <header class="banner-header">
+    <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
       <nav>
         <ul>
@@ -211,67 +209,76 @@
           <li><a href="testimonials.html" class="nav-btn">Testimonials</a></li>
         </ul>
       </nav>
-    </header>
+    </div>
   </div>
 
   <div class="page-banner"></div>
 
-  <main class="content">
-    <h1>Let’s Talk</h1>
-    <p>We're here to help. Whether you’re starting your cloud journey, seeking specialist talent, or exploring advisory services, let’s connect.</p>
-    <form>
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <input type="text" name="company" placeholder="Company Name" />
-      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-  </main>
+  <div class="contact-container">
+    <div class="contact-left">
+      <h2>Let's Talk Impact</h2>
+      <p>Start a conversation that moves the needle — strategy, talent, cloud transformation.</p>
+      <p><strong>CoreCloud (Pty) Ltd</strong><br>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
+      <p><strong>BEE Level 4</strong><br>Company Reg: 2022/123456/07</p>
+      <p><strong>Mobile:</strong> +27 82 872 7858<br><strong>Email:</strong> hello@corecloud.africa</p>
+      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/company/corecloud-africa" target="_blank">@corecloud-africa</a></p>
+    </div>
+    <div class="contact-right">
+      <h2>Send a Message</h2>
+      <form class="contact-form">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" />
+
+        <label for="interest">Area of Interest</label>
+        <select id="interest" name="interest">
+          <option value="Consulting">Consulting</option>
+          <option value="AWS">AWS Services</option>
+          <option value="Talent">Talent Placement</option>
+        </select>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5"></textarea>
+
+        <button type="submit">Submit →</button>
+      </form>
+    </div>
+  </div>
 
   <footer>
     <div class="footer-content">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4>CoreCloud (Pty) Ltd</h4>
-          <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
-          <p><strong>BEE Level 4</strong></p>
-          <p>Company Reg: 2022/123456/07</p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <p>Tel: +27 10 020 5005<br>Email: hello@corecloud.africa</p>
-        </div>
-
-        <div class="footer-col">
-          <h4>Follow Us</h4>
-          <div class="social-icons">
-            <a href="https://www.linkedin.com/company/corecloud" target="_blank"><img src="assets/icons/linkedin.svg" alt="LinkedIn" /></a>
-            <a href="https://twitter.com/corecloud" target="_blank"><img src="assets/icons/twitter.svg" alt="Twitter" /></a>
-            <a href="https://facebook.com/corecloud" target="_blank"><img src="assets/icons/facebook.svg" alt="Facebook" /></a>
-          </div>
-        </div>
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
+        <p><strong>BEE Level 4</strong></p>
+        <p>Company Reg: 2022/123456/07</p>
       </div>
-
-      <div class="footer-newsletter">
+      <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form class="newsletter-form">
-          <input type="email" placeholder="Enter your email" required />
-          <button type="submit">Subscribe</button>
-        </form>
+        <div class="footer-newsletter">
+          <input type="email" placeholder="Enter your email" />
+          <button>Subscribe</button>
+        </div>
       </div>
-
-      <div class="footer-bottom">
-        <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+      <div class="footer-right">
+        <p>Contact</p>
+        <p>Mobile: +27 82 872 7858<br>Email: hello@corecloud.africa</p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank">LinkedIn</a></p>
       </div>
     </div>
+    <div class="footer-bottom">
+      <p>&copy; 2022 CoreCloud. All rights reserved.</p>
+      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+    </div>
   </footer>
-  <!-- Chatbot -->
-  <script src="https://www.chatbase.co/embed.min.js"
-          chatbotId="2lVQDE6W7igyTrTHXu9Wk"
-          domain="www.chatbase.co"
-          defer></script>
 </body>
 </html>
