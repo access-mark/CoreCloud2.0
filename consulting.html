@@ -68,14 +68,13 @@
       background-image: url('assets/images/consulting-bannerimage.png');
       background-size: cover;
       background-position: center;
-      margin-top: 150px;
+      margin-top: 160px;
     }
 
     .content {
       max-width: 1200px;
       margin: 4rem auto;
       padding: 0 1.5rem;
-      text-align: center;
     }
 
     .content h1 {
@@ -83,13 +82,16 @@
       font-weight: 700;
       color: #003366;
       margin-bottom: 1rem;
+      text-align: center;
     }
 
-    .hero-subtitle {
-      font-size: 1.3rem;
-      line-height: 1.6;
+    .content > p.intro {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      font-size: 1.2rem;
+      line-height: 1.7;
       color: #333;
-      margin-bottom: 2rem;
     }
 
     .card-grid {
@@ -104,7 +106,6 @@
       border-radius: 12px;
       padding: 2rem;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-      transition: transform 0.3s, box-shadow 0.3s;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -149,51 +150,38 @@
       background-image: url('assets/images/footer-bannerimage.png');
       background-size: cover;
       background-position: center;
-      padding: 0.5rem 0 0.5rem;
+      color: #fff;
+      padding: 2rem 1rem 1rem;
       margin-top: auto;
+      text-align: center;
     }
 
     .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
       display: flex;
+      flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
       flex-wrap: wrap;
-      padding: 1rem;
     }
 
-    .footer-left, .footer-middle, .footer-right {
+    .footer-left, .footer-right, .footer-center {
       flex: 1;
       min-width: 280px;
     }
 
-    .footer-left {
-      text-align: left;
-    }
-
-    .footer-middle {
-      text-align: center;
-    }
-
-    .footer-right {
-      text-align: right;
-    }
-
-    .footer-content p, .footer-content h4 {
+    .footer-left p, .footer-right p, .footer-center p, .footer-center h4 {
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+      font-size: 0.95rem;
       margin: 0.3rem 0;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-    }
-
-    .footer-newsletter {
-      margin-top: 1rem;
     }
 
     .footer-newsletter input[type="email"] {
       padding: 0.8rem;
       width: 60%;
-      max-width: 300px;
+      max-width: 280px;
       border: none;
       border-radius: 6px;
       margin-right: 0.5rem;
@@ -209,11 +197,11 @@
     }
 
     .footer-bottom {
-      margin-top: 1rem;
+      margin-top: 1.5rem;
       font-size: 0.85rem;
       text-align: center;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
     }
 
     .footer-bottom a {
@@ -245,8 +233,8 @@
   <div class="page-banner"></div>
 
   <main class="content">
+    <p class="intro">CoreCloud’s consulting arm was built for executives who demand more from sales: more clarity, more precision, more growth. In a landscape flooded with theory and templates, we bring hard-won experience, GTM rigour, and the ability to reshape your commercial engine from the boardroom down to the frontline.</p>
     <h1>Executive Sales Consulting</h1>
-    <p class="hero-subtitle">High-performance advisory to align your sales engine with executive intent and growth outcomes.</p>
 
     <div class="card-grid">
       <div class="card">
@@ -290,7 +278,7 @@
         <p><strong>BEE Level 4</strong></p>
         <p>Company Reg: 2022/123456/07</p>
       </div>
-      <div class="footer-middle">
+      <div class="footer-center">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <div class="footer-newsletter">
@@ -300,9 +288,9 @@
       </div>
       <div class="footer-right">
         <p>Contact</p>
-        <p>Mobile: +27 82 872 7858<br>Email: hello@corecloud.africa</p>
-        <p>Follow Us</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); text-decoration: underline;">LinkedIn</a></p>
+        <p>Mobile: +27 82 872 7858</p>
+        <p>Email: hello@corecloud.africa</p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank">Follow us on LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -310,10 +298,5 @@
       <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
     </div>
   </footer>
-  <!-- Chatbot -->
-  <script src="https://www.chatbase.co/embed.min.js"
-          chatbotId="2lVQDE6W7igyTrTHXu9Wk"
-          domain="www.chatbase.co"
-          defer></script>
 </body>
 </html>
