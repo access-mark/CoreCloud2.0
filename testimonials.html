@@ -18,7 +18,7 @@
 
     .small-banner {
       background-color: #fff;
-      padding: 1.5rem 2rem 0.5rem;
+      padding: 0.05rem 2rem 0;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       position: fixed;
       width: 100%;
@@ -64,11 +64,11 @@
     }
 
     .page-banner {
-      height: 480px;
+      height: 300px;
       background-image: url('assets/images/testimonials-bannerimage.png');
       background-size: cover;
       background-position: center;
-      margin-top: 200px;
+      margin-top: 150px;
     }
 
     .content {
@@ -85,24 +85,28 @@
       margin-bottom: 2rem;
     }
 
-    .testimonial {
-      background: #fff;
-      padding: 2rem;
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: #ffffff;
       border-radius: 12px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.05);
-      margin-bottom: 2rem;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       text-align: left;
     }
 
-    .testimonial p {
-      font-size: 1.1rem;
-      color: #444;
+    .testimonial-card p {
+      font-size: 1rem;
+      color: #555;
       line-height: 1.6;
     }
 
-    .testimonial h3 {
-      font-size: 1.2rem;
-      font-weight: 600;
+    .testimonial-card strong {
+      display: block;
       margin-top: 1rem;
       color: #003366;
     }
@@ -111,8 +115,7 @@
       background-image: url('assets/images/footer-bannerimage.png');
       background-size: cover;
       background-position: center;
-      color: #fff;
-      padding: 4rem 2rem 2rem;
+      padding: 0.5rem 0 0.5rem;
       margin-top: auto;
     }
 
@@ -121,26 +124,60 @@
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
-      align-items: flex-end;
+      padding: 1rem;
     }
 
-    .footer-left, .footer-right {
+    .footer-left, .footer-middle, .footer-right {
+      flex: 1;
       min-width: 280px;
     }
 
-    .footer-left {
-      text-align: left;
+    .footer-left { text-align: left; }
+    .footer-middle { text-align: center; }
+    .footer-right { text-align: right; }
+
+    .footer-content p, .footer-content h4 {
+      margin: 0.3rem 0;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     }
 
-    .footer-right {
-      text-align: right;
+    .footer-newsletter {
+      margin-top: 1rem;
+    }
+
+    .footer-newsletter input[type="email"] {
+      padding: 0.8rem;
+      width: 60%;
+      max-width: 300px;
+      border: none;
+      border-radius: 6px;
+      margin-right: 0.5rem;
+    }
+
+    .footer-newsletter button {
+      padding: 0.8rem 1.5rem;
+      background-color: #0077cc;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
     .footer-bottom {
-      margin-top: 2rem;
+      margin-top: 1rem;
       font-size: 0.85rem;
-      text-align: right;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .footer-bottom a {
+      color: red !important;
+      text-decoration: underline;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -166,21 +203,24 @@
   <div class="page-banner"></div>
 
   <main class="content">
-    <h1>Client Testimonials</h1>
-
-    <div class="testimonial">
-      <p>"CoreCloud accelerated our cloud migration with professionalism and speed. Their AWS specialists knew exactly what to do, and we were up and running in record time."</p>
-      <h3>– IT Director, Financial Services Group</h3>
-    </div>
-
-    <div class="testimonial">
-      <p>"The consultative sales audit completely reshaped how we operate. Within 6 months we doubled pipeline conversion. This is not fluff – it’s executive consulting done right."</p>
-      <h3>– Head of Sales, SAAS Startup</h3>
-    </div>
-
-    <div class="testimonial">
-      <p>"Their talent division placed an elite DevSecOps team with us. Performance was monitored, and gaps were replaced seamlessly. World-class service with South African agility."</p>
-      <h3>– COO, Large Telco</h3>
+    <h1>What Our Clients Say</h1>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p>"CoreCloud’s strategic clarity transformed our go-to-market. Within 90 days we saw a 28% increase in qualified pipeline."</p>
+        <strong>– James D., CRO, TechScale</strong>
+      </div>
+      <div class="testimonial-card">
+        <p>"Their AWS migration was fast, secure, and smooth. We saved 37% on cloud spend within the first 6 months."</p>
+        <strong>– Lerato M., CIO, RetailLogic</strong>
+      </div>
+      <div class="testimonial-card">
+        <p>"Professionalism and delivery precision is unmatched. CoreCloud has become a true extension of our leadership team."</p>
+        <strong>– Sipho N., CEO, NovaFin</strong>
+      </div>
+      <div class="testimonial-card">
+        <p>"They didn’t just place talent — they delivered outcomes. Our new hires are driving measurable value from day one."</p>
+        <strong>– Karen P., HR Director, MedTech SA</strong>
+      </div>
     </div>
   </main>
 
@@ -192,20 +232,24 @@
         <p><strong>BEE Level 4</strong></p>
         <p>Company Reg: 2022/123456/07</p>
       </div>
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <div class="footer-newsletter">
+          <input type="email" placeholder="Enter your email" />
+          <button>Subscribe</button>
+        </div>
+      </div>
       <div class="footer-right">
         <p>Contact</p>
         <p>Mobile: +27 82 872 7858<br>Email: hello@corecloud.africa</p>
-        <div class="footer-bottom">
-          <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-          <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
-        </div>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank">LinkedIn</a></p>
       </div>
     </div>
+    <div class="footer-bottom">
+      <p>&copy; 2022 CoreCloud. All rights reserved.</p>
+      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+    </div>
   </footer>
-  <!-- Chatbot -->
-  <script src="https://www.chatbase.co/embed.min.js"
-          chatbotId="2lVQDE6W7igyTrTHXu9Wk"
-          domain="www.chatbase.co"
-          defer></script>
 </body>
 </html>
