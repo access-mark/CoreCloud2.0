@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AWS Cloud Services – CoreCloud</title>
+  <title>AWS Services – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
     body {
@@ -18,7 +18,7 @@
 
     .small-banner {
       background-color: #fff;
-      padding: 1.5rem 2rem 0.5rem;
+      padding: 0.05rem 2rem 0;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       position: fixed;
       width: 100%;
@@ -64,11 +64,11 @@
     }
 
     .page-banner {
-      height: 480px;
+      height: 300px;
       background-image: url('assets/images/aws-bannerimage.png');
       background-size: cover;
       background-position: center;
-      margin-top: 200px;
+      margin-top: 150px;
     }
 
     .content {
@@ -83,13 +83,6 @@
       font-weight: 700;
       color: #003366;
       margin-bottom: 1rem;
-    }
-
-    .hero-subtitle {
-      font-size: 1.3rem;
-      line-height: 1.6;
-      color: #333;
-      margin-bottom: 2rem;
     }
 
     .card-grid {
@@ -145,51 +138,57 @@
       background-color: #005fa3;
     }
 
-    .diagram {
-      margin-top: 4rem;
-      text-align: center;
-    }
-
-    .diagram img {
-      max-width: 100%;
-      height: auto;
-      margin-top: 1rem;
-    }
-
     footer {
       background-image: url('assets/images/footer-bannerimage.png');
       background-size: cover;
       background-position: center;
-      color: #fff;
-      padding: 4rem 2rem 2rem;
+      padding: 0.5rem 0 0.5rem;
       margin-top: auto;
+      text-align: center;
     }
 
     .footer-content {
-      max-width: 1200px;
+      max-width: 800px;
       margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      align-items: flex-end;
     }
 
-    .footer-left, .footer-right {
-      min-width: 280px;
+    .footer-content p, .footer-content h4 {
+      margin: 0.3rem 0;
+      color: #003366;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
     }
 
-    .footer-left {
-      text-align: left;
+    .footer-newsletter {
+      margin-top: 1rem;
     }
 
-    .footer-right {
-      text-align: right;
+    .footer-newsletter input[type="email"] {
+      padding: 0.8rem;
+      width: 60%;
+      max-width: 300px;
+      border: none;
+      border-radius: 6px;
+      margin-right: 0.5rem;
+    }
+
+    .footer-newsletter button {
+      padding: 0.8rem 1.5rem;
+      background-color: #0077cc;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
     .footer-bottom {
-      margin-top: 2rem;
+      margin-top: 1rem;
       font-size: 0.85rem;
-      text-align: right;
+    }
+
+    .footer-bottom a {
+      color: red !important;
+      text-decoration: underline;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -215,66 +214,60 @@
   <div class="page-banner"></div>
 
   <main class="content">
-    <h1>Cloud Done Right</h1>
-    <p class="hero-subtitle">Migrate. Modernize. Manage. Optimize. End-to-end AWS transformation, led by proven frameworks and elite partners.</p>
+    <h1>AWS Cloud Services</h1>
+    <p class="hero-subtitle">CoreCloud drives AWS transformation with precision — migrate, modernize, and manage your cloud with confidence.</p>
 
     <div class="card-grid">
       <div class="card">
-        <h2>Migrate with Precision</h2>
-        <p>We deliver seamless AWS migrations, guided by best-practice blueprints and pre-flight readiness assessments.</p>
+        <h2>Migrate</h2>
+        <p>We handle end-to-end migrations with AWS MAP and well-architected frameworks to minimize risk and disruption.</p>
         <a href="contact.html" class="cta-btn">Start Migration →</a>
       </div>
       <div class="card">
-        <h2>Modernize Infrastructure</h2>
-        <p>Refactor workloads and re-architect applications to take full advantage of cloud-native scalability and resilience.</p>
+        <h2>Modernize</h2>
+        <p>Refactor, containerize, or re-platform to modern cloud-native architectures that scale and perform.</p>
         <a href="contact.html" class="cta-btn">Modernize Now →</a>
       </div>
       <div class="card">
-        <h2>Managed Cloud Operations</h2>
-        <p>Our AWS-certified partners handle everything from patching to monitoring — so you focus on growth, not upkeep.</p>
-        <a href="contact.html" class="cta-btn">Get Managed Support →</a>
+        <h2>Manage</h2>
+        <p>Ongoing support, cost optimization, governance, and automation delivered through a secure managed service model.</p>
+        <a href="contact.html" class="cta-btn">Manage with Us →</a>
       </div>
       <div class="card">
-        <h2>Optimize for Scale</h2>
-        <p>Continuous cloud optimization ensures your environment stays fast, secure, cost-efficient, and ready to scale.</p>
-        <a href="contact.html" class="cta-btn">Optimize AWS →</a>
+        <h2>Optimize</h2>
+        <p>Improve performance, reduce spend, and align AWS workloads to business goals through architectural reviews and cost analytics.</p>
+        <a href="contact.html" class="cta-btn">Optimize Now →</a>
       </div>
       <div class="card">
-        <h2>Secure with Confidence</h2>
-        <p>We implement security-first architectures and continuous compliance monitoring across identity, access, and data.</p>
-        <a href="contact.html" class="cta-btn">Secure Your Cloud →</a>
+        <h2>Security & Compliance</h2>
+        <p>Implement robust cloud security policies and meet compliance mandates across sectors with AWS-native tools.</p>
+        <a href="contact.html" class="cta-btn">Secure the Cloud →</a>
       </div>
       <div class="card">
-        <h2>Automate Everything</h2>
-        <p>Leverage CI/CD pipelines, infrastructure as code, and automation tooling to accelerate velocity and consistency.</p>
-        <a href="contact.html" class="cta-btn">Automate Now →</a>
+        <h2>Data & Analytics</h2>
+        <p>Unlock insights from your AWS environment with data lakes, AI/ML tools, and serverless analytics at scale.</p>
+        <a href="contact.html" class="cta-btn">Explore Insights →</a>
       </div>
-    </div>
-
-    <div class="diagram">
-      <h2>Our Proven AWS Transformation Model</h2>
-      <img src="assets/images/aws-methodology-diagram.png" alt="AWS Methodology Diagram" />
     </div>
   </main>
 
   <footer>
     <div class="footer-content">
-      <div class="footer-left">
-        <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
-        <p><strong>BEE Level 4</strong></p>
-        <p>Company Reg: 2022/123456/07</p>
+      <p><strong>CoreCloud (Pty) Ltd</strong></p>
+      <p>433 Broadacres Country Estate, Syringa Rd, Broadacres, Johannesburg</p>
+      <p><strong>BEE Level 4</strong></p>
+      <p>Company Reg: 2022/123456/07</p>
+      <h4>Stay Informed</h4>
+      <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+      <div class="footer-newsletter">
+        <input type="email" placeholder="Enter your email" />
+        <button>Subscribe</button>
       </div>
-      <div class="footer-right">
-        <p>Contact</p>
-        <p>Mobile: +27 82 872 7858<br>Email: hello@corecloud.africa</p>
-        <div class="footer-bottom">
-          <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-          <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
-        </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 CoreCloud. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
       </div>
     </div>
   </footer>
-  <script src="https://www.chatbase.co/embed.min.js" chatbotId="2lVQDE6W7igyTrTHXu9Wk" domain="www.chatbase.co" defer></script>
 </body>
 </html>
