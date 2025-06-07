@@ -65,35 +65,84 @@
 
     .page-banner {
       height: 300px;
-      background-image: url('assets/images/white-paper-bannerimage.png');
+      background-image: url('assets/images/whitepaper-bannerimage.png');
       background-size: cover;
       background-position: center;
       margin-top: 150px;
     }
 
     .content {
-      max-width: 1000px;
+      max-width: 1200px;
       margin: 4rem auto;
       padding: 0 1.5rem;
+      text-align: center;
     }
 
     .content h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: 700;
       color: #003366;
-      text-align: center;
       margin-bottom: 1rem;
     }
 
-    .content p, .content ul {
-      font-size: 1.1rem;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
+    .hero-subtitle {
+      font-size: 1.3rem;
+      line-height: 1.6;
       color: #333;
+      margin-bottom: 2rem;
     }
 
-    .content ul {
-      padding-left: 1.2rem;
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: left;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      color: #003366;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #444;
+      flex-grow: 1;
+    }
+
+    .cta-btn {
+      margin-top: 3rem;
+      display: inline-block;
+      background-color: #0077cc;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #005fa3;
     }
 
     footer {
@@ -196,16 +245,33 @@
   <div class="page-banner"></div>
 
   <main class="content">
-    <h1>CoreCloud Executive White Paper</h1>
-    <p>A deep dive into the evolving landscape of cloud transformation, executive sales, and talent innovation. Download our strategic white paper to unlock bold insights and proven frameworks driving modern business acceleration.</p>
-    <ul>
-      <li>📊 Market Landscape & Trends</li>
-      <li>🧠 Executive Sales Playbooks</li>
-      <li>🌐 Cloud Migration Methodologies</li>
-      <li>🔁 Talent Delivery & GTM Integration</li>
-      <li>🎯 Outcome-Based Growth Models</li>
-    </ul>
-    <p><a href="assets/files/CoreCloud-Whitepaper.pdf" class="cta-btn">Download White Paper →</a></p>
+    <h1>CoreCloud White Paper</h1>
+    <p class="hero-subtitle">Explore our blueprint for high-growth execution — from sales and talent to cloud migration strategy.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h2>📊 Market Landscape & Trends</h2>
+        <p>Uncover the macro shifts shaping ICT in South Africa — digital priorities, hybrid workforces, AI integration, and platform consolidation.</p>
+      </div>
+      <div class="card">
+        <h2>🧠 Executive Sales Playbooks</h2>
+        <p>Turn growth ambition into operating reality. Our sales methodologies empower leaders to embed control, scale, and confidence.</p>
+      </div>
+      <div class="card">
+        <h2>🌐 Cloud Migration Methodologies</h2>
+        <p>Gain proven frameworks for AWS migration and modernization — from readiness to optimization, built for measurable impact.</p>
+      </div>
+      <div class="card">
+        <h2>🔁 Talent Delivery & GTM Integration</h2>
+        <p>Integrated resourcing models to fuse talent placement with commercial outcomes and ensure seamless project delivery.</p>
+      </div>
+      <div class="card">
+        <h2>🎯 Outcome-Based Growth Models</h2>
+        <p>See how CoreCloud aligns incentives, value creation, and execution through a fully outcome-driven engagement model.</p>
+      </div>
+    </div>
+
+    <a href="assets/pdfs/corecloud-white-paper.pdf" class="cta-btn" target="_blank">Download White Paper →</a>
   </main>
 
   <footer>
