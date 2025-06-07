@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home – CoreCloud</title>
+  <title>CoreCloud – Executive Tech Solutions</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
     body {
@@ -65,7 +65,7 @@
 
     .page-banner {
       height: 300px;
-      background-image: url('assets/images/index-bannerimage.png');
+      background-image: url('assets/images/sandton-bannerimage.png');
       background-size: cover;
       background-position: center;
       margin-top: 150px;
@@ -92,63 +92,53 @@
       margin-bottom: 2rem;
     }
 
-    .section {
-      margin: 4rem auto;
-    }
-
-    .section h2 {
-      font-size: 2rem;
-      color: #003366;
-      margin-bottom: 1rem;
-    }
-
-    .section p {
-      font-size: 1.1rem;
-      color: #444;
-      max-width: 800px;
-      margin: 0 auto 2rem;
-    }
-
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
-      padding: 0 1rem;
-      margin-bottom: 3rem;
+      margin-top: 2rem;
     }
 
     .card {
-      background: #fff;
+      background: #ffffff;
       border-radius: 12px;
       padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      text-align: left;
     }
 
-    .card h3 {
-      font-size: 1.4rem;
-      color: #003366;
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
       margin-bottom: 0.5rem;
+      color: #222;
     }
 
     .card p {
+      font-size: 1rem;
       color: #555;
       flex-grow: 1;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .cta-btn {
+      display: inline-block;
       background-color: #0077cc;
       color: #fff;
-      padding: 0.8rem 1.5rem;
-      border: none;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
       border-radius: 8px;
       text-decoration: none;
-      font-weight: bold;
-      align-self: start;
+      transition: background-color 0.3s ease;
+      margin-top: auto;
     }
 
     .cta-btn:hover {
@@ -159,21 +149,41 @@
       background-image: url('assets/images/footer-bannerimage.png');
       background-size: cover;
       background-position: center;
-      padding: 1rem 0 0.5rem;
+      padding: 0.5rem 0 0.5rem;
       margin-top: auto;
-      text-align: center;
     }
 
     .footer-content {
-      max-width: 800px;
+      max-width: 1200px;
       margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1rem;
     }
 
-    .footer-content p,
-    .footer-content h4 {
+    .footer-left, .footer-middle, .footer-right {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .footer-left {
+      text-align: left;
+    }
+
+    .footer-middle {
+      text-align: center;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    .footer-content p, .footer-content h4 {
       margin: 0.3rem 0;
-      color: #003366;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     }
 
     .footer-newsletter {
@@ -201,6 +211,9 @@
     .footer-bottom {
       margin-top: 1rem;
       font-size: 0.85rem;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     }
 
     .footer-bottom a {
@@ -232,29 +245,23 @@
   <div class="page-banner"></div>
 
   <main class="content">
-    <h1>Welcome to CoreCloud</h1>
-    <p class="hero-subtitle">Transforming technology execution through clarity, velocity, and excellence across consulting, AWS cloud services, and talent delivery.</p>
-
-    <div class="section">
-      <h2>Outcomes That Matter</h2>
-      <p>CoreCloud exists to cut through the noise, eliminate technical inertia, and deliver actionable transformation. Our mission is simple: turn bold visions into enterprise-grade execution at pace.</p>
-    </div>
-
+    <h1>Bold Tech. Executive Precision.</h1>
+    <p class="hero-subtitle">Cloud consulting, AWS services, and top-tier talent – aligned with your boardroom ambitions and frontline delivery.</p>
     <div class="card-grid">
       <div class="card">
-        <h3>Consulting</h3>
-        <p>Executive advisory to align commercial strategy, optimize performance, and embed go-to-market excellence.</p>
+        <h2>Consulting</h2>
+        <p>Executive-led sales transformation, go-to-market alignment, and revenue system design for bold growth execution.</p>
         <a href="consulting.html" class="cta-btn">Explore Consulting →</a>
       </div>
       <div class="card">
-        <h3>AWS Service Suite</h3>
-        <p>Migration, modernization, and managed AWS delivery – purpose-built to accelerate scale and control spend.</p>
-        <a href="aws.html" class="cta-btn">Explore AWS Suite →</a>
+        <h2>AWS Service Suite</h2>
+        <p>Migrate, modernize, manage, and optimize your cloud with CoreCloud-certified orchestration through AWS partners.</p>
+        <a href="aws.html" class="cta-btn">View AWS Offerings →</a>
       </div>
       <div class="card">
-        <h3>Talent Placement</h3>
-        <p>Precision sourcing of high-performance cloud, tech, and sales talent — fully managed and execution-ready.</p>
-        <a href="talent.html" class="cta-btn">Explore Talent →</a>
+        <h2>Talent Placement</h2>
+        <p>Elite cloud engineers and ICT specialists placed through trusted sourcing and delivery partnerships across South Africa.</p>
+        <a href="talent.html" class="cta-btn">Meet Our Talent →</a>
       </div>
     </div>
   </main>
@@ -279,11 +286,11 @@
         <p>Contact</p>
         <p>Mobile: +27 82 872 7858<br>Email: hello@corecloud.africa</p>
         <p>Follow Us</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:white; text-shadow: 1px 1px 2px rgba(0,0,0,0.6); text-decoration: underline;">LinkedIn</a></p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); text-decoration: underline;">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved.</p>
+      <p>&copy; 2022 CoreCloud. All rights reserved.</p>
       <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
     </div>
   </footer>
