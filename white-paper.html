@@ -72,76 +72,28 @@
     }
 
     .content {
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 4rem auto;
       padding: 0 1.5rem;
     }
 
     .content h1 {
-      font-size: 3rem;
+      font-size: 2.8rem;
       font-weight: 700;
       color: #003366;
       text-align: center;
       margin-bottom: 1rem;
     }
 
-    .content p.hero-subtitle {
-      font-size: 1.3rem;
-      line-height: 1.6;
+    .content p, .content ul {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
       color: #333;
-      text-align: center;
-      margin-bottom: 2rem;
     }
 
-    .section {
-      margin: 3rem 0;
-    }
-
-    .section h2 {
-      font-size: 2rem;
-      color: #003366;
-      margin-bottom: 1rem;
-    }
-
-    .diagram-placeholder {
-      background-color: #dde6f0;
-      height: 280px;
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #003366;
-      font-weight: bold;
-      margin-bottom: 2rem;
-    }
-
-    .download-block {
-      background: #003366;
-      color: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      text-align: center;
-      margin-top: 3rem;
-    }
-
-    .download-block h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .download-block a {
-      display: inline-block;
-      padding: 0.9rem 2rem;
-      background-color: #0077cc;
-      color: #fff;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: background-color 0.3s ease;
-    }
-
-    .download-block a:hover {
-      background-color: #005fa3;
+    .content ul {
+      padding-left: 1.2rem;
     }
 
     footer {
@@ -223,7 +175,38 @@
   </style>
 </head>
 <body>
-  <!-- unchanged content above -->
+  <div class="small-banner">
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="index.html" class="nav-btn">Home</a></li>
+          <li><a href="consulting.html" class="nav-btn">Consulting</a></li>
+          <li><a href="aws.html" class="nav-btn">AWS Service Suite</a></li>
+          <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
+          <li><a href="white-paper.html" class="nav-btn active">White Paper</a></li>
+          <li><a href="resources.html" class="nav-btn">Resources</a></li>
+          <li><a href="contact.html" class="nav-btn">Contact</a></li>
+          <li><a href="testimonials.html" class="nav-btn">Testimonials</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="page-banner"></div>
+
+  <main class="content">
+    <h1>CoreCloud Executive White Paper</h1>
+    <p>A deep dive into the evolving landscape of cloud transformation, executive sales, and talent innovation. Download our strategic white paper to unlock bold insights and proven frameworks driving modern business acceleration.</p>
+    <ul>
+      <li>📊 Market Landscape & Trends</li>
+      <li>🧠 Executive Sales Playbooks</li>
+      <li>🌐 Cloud Migration Methodologies</li>
+      <li>🔁 Talent Delivery & GTM Integration</li>
+      <li>🎯 Outcome-Based Growth Models</li>
+    </ul>
+    <p><a href="assets/files/CoreCloud-Whitepaper.pdf" class="cta-btn">Download White Paper →</a></p>
+  </main>
 
   <footer>
     <div class="footer-content">
