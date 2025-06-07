@@ -150,44 +150,40 @@
       background-size: cover;
       background-position: center;
       color: #fff;
-      padding: 1rem 2rem;
+      padding: 2rem;
       margin-top: auto;
+      text-align: center;
     }
 
     .footer-content {
-      max-width: 1200px;
+      max-width: 800px;
       margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      align-items: flex-end;
     }
 
-    .footer-left, .footer-right {
-      min-width: 280px;
+    .footer-content p {
+      margin: 0.5rem 0;
     }
 
-    .footer-left {
-      text-align: left;
+    .footer-newsletter {
+      margin-top: 2rem;
     }
 
-    .footer-right {
-      text-align: right;
+    .footer-newsletter input[type="email"] {
+      padding: 0.8rem;
+      width: 60%;
+      max-width: 300px;
+      border: none;
+      border-radius: 6px;
+      margin-right: 0.5rem;
     }
 
-    .footer-col h4 {
-      margin-bottom: 0.8rem;
-    }
-
-    .footer-col p {
-      margin: 0.3rem 0;
-      font-size: 0.95rem;
-    }
-
-    .footer-bottom {
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      text-align: right;
+    .footer-newsletter button {
+      padding: 0.8rem 1.5rem;
+      background-color: #0077cc;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -252,19 +248,21 @@
 
   <footer>
     <div class="footer-content">
-      <div class="footer-left">
-        <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
-        <p><strong>BEE Level 4</strong></p>
-        <p>Company Reg: 2022/123456/07</p>
+      <p><strong>CoreCloud (Pty) Ltd</strong></p>
+      <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
+      <p><strong>BEE Level 4</strong></p>
+      <p>Company Reg: 2022/123456/07</p>
+      <div class="footer-newsletter">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form action="https://formspree.io/f/xknldzgo" method="POST">
+          <input type="email" name="email" placeholder="Enter your email" required />
+          <button type="submit">Subscribe</button>
+        </form>
       </div>
-      <div class="footer-right">
-        <p>Contact</p>
-        <p>Mobile: +27 82 872 7858<br>Email: hello@corecloud.africa</p>
-        <div class="footer-bottom">
-          <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-          <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
-        </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 CoreCloud. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
       </div>
     </div>
   </footer>
