@@ -18,7 +18,7 @@
 
     .small-banner {
       background-color: #fff;
-      padding: 1.5rem 2rem 0.5rem;
+      padding: 0.05rem 2rem 0;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       position: fixed;
       width: 100%;
@@ -64,11 +64,11 @@
     }
 
     .page-banner {
-      height: 480px;
+      height: 300px;
       background-image: url('assets/images/talent-bannerimage.png');
       background-size: cover;
       background-position: center;
-      margin-top: 200px;
+      margin-top: 150px;
     }
 
     .content {
@@ -145,68 +145,57 @@
       background-color: #005fa3;
     }
 
-    .diagram {
-      margin-top: 4rem;
-      text-align: center;
-    }
-
-    .diagram img {
-      max-width: 100%;
-      height: auto;
-      margin-top: 1rem;
-    }
-
-    .methodology {
-      margin-top: 5rem;
-      text-align: left;
-    }
-
-    .methodology h2 {
-      color: #003366;
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-    }
-
-    .methodology p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #333;
-    }
-
     footer {
       background-image: url('assets/images/footer-bannerimage.png');
       background-size: cover;
       background-position: center;
-      color: #fff;
-      padding: 4rem 2rem 2rem;
+      padding: 0.5rem 0 0.5rem;
       margin-top: auto;
+      text-align: center;
     }
 
     .footer-content {
-      max-width: 1200px;
+      max-width: 800px;
       margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      align-items: flex-end;
     }
 
-    .footer-left, .footer-right {
-      min-width: 280px;
+    .footer-content p, .footer-content h4 {
+      margin: 0.3rem 0;
+      color: #003366;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
     }
 
-    .footer-left {
-      text-align: left;
+    .footer-newsletter {
+      margin-top: 1rem;
     }
 
-    .footer-right {
-      text-align: right;
+    .footer-newsletter input[type="email"] {
+      padding: 0.8rem;
+      width: 60%;
+      max-width: 300px;
+      border: none;
+      border-radius: 6px;
+      margin-right: 0.5rem;
+    }
+
+    .footer-newsletter button {
+      padding: 0.8rem 1.5rem;
+      background-color: #0077cc;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
     .footer-bottom {
-      margin-top: 2rem;
+      margin-top: 1rem;
       font-size: 0.85rem;
-      text-align: right;
+    }
+
+    .footer-bottom a {
+      color: red !important;
+      text-decoration: underline;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -219,9 +208,9 @@
           <li><a href="index.html" class="nav-btn">Home</a></li>
           <li><a href="consulting.html" class="nav-btn">Consulting</a></li>
           <li><a href="aws.html" class="nav-btn">AWS Service Suite</a></li>
-          <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
+          <li><a href="talent.html" class="nav-btn active">Talent Placement</a></li>
           <li><a href="white-paper.html" class="nav-btn">White Paper</a></li>
-          <li><a href="resources.html" class="nav-btn active">Resources</a></li>
+          <li><a href="resources.html" class="nav-btn">Resources</a></li>
           <li><a href="contact.html" class="nav-btn">Contact</a></li>
           <li><a href="testimonials.html" class="nav-btn">Testimonials</a></li>
         </ul>
@@ -232,80 +221,60 @@
   <div class="page-banner"></div>
 
   <main class="content">
-    <h1>Strategic Talent. Precision Delivery.</h1>
-    <p class="hero-subtitle">We embed elite professionals into your business — fast. From engineers to executives, our talent delivers impact, not just headcount.</p>
+    <h1>Elite Talent, Delivered</h1>
+    <p class="hero-subtitle">We place executive-aligned, high-impact technology talent that delivers results from day one.</p>
 
     <div class="card-grid">
       <div class="card">
-        <h2>Vetted & Verified</h2>
-        <p>Each candidate is pre-screened by experts and backed by references, skills tests, and proven delivery history.</p>
-        <a href="contact.html" class="cta-btn">Explore Talent →</a>
+        <h2>Senior Engineers & Architects</h2>
+        <p>Deep technical mastery across cloud, devops, and architecture. Our candidates are deployment-ready and outcomes-driven.</p>
+        <a href="contact.html" class="cta-btn">Request Talent →</a>
       </div>
       <div class="card">
-        <h2>Partner-Led Sourcing</h2>
-        <p>Our sourcing engine runs through CareerWeb and Synthesis — giving us reach, speed, and quality at scale.</p>
-        <a href="contact.html" class="cta-btn">See How We Source →</a>
+        <h2>Delivery & Transformation Leads</h2>
+        <p>Battle-tested leaders to drive cloud migrations, agile transformations, and business-critical program delivery.</p>
+        <a href="contact.html" class="cta-btn">Find a Lead →</a>
       </div>
       <div class="card">
-        <h2>Managed Delivery</h2>
-        <p>We don’t just place. We manage performance. Strategic oversight and escalation paths built in.</p>
-        <a href="contact.html" class="cta-btn">Our Delivery Model →</a>
+        <h2>Strategic Advisors</h2>
+        <p>Fractional CIOs, CTOs, and strategy leaders with domain expertise to guide and challenge internal capability.</p>
+        <a href="contact.html" class="cta-btn">Engage Expertise →</a>
       </div>
       <div class="card">
-        <h2>Full Compliance</h2>
-        <p>Tax, HR, onboarding, replacement guarantees — handled. Our structure protects clients and contractors alike.</p>
-        <a href="contact.html" class="cta-btn">View Terms →</a>
+        <h2>Data & AI Talent</h2>
+        <p>Top-tier analysts, scientists, and ML engineers ready to activate your data strategy and AI roadmap.</p>
+        <a href="contact.html" class="cta-btn">Activate Data Strategy →</a>
       </div>
       <div class="card">
-        <h2>Leadership Alignment</h2>
-        <p>We operate at board level. Every engagement is linked to strategic outcomes and revenue-generating agendas.</p>
-        <a href="contact.html" class="cta-btn">Talk to Leadership →</a>
+        <h2>Security & Compliance Experts</h2>
+        <p>Certified specialists to manage risk, regulatory compliance, and proactive threat detection in complex environments.</p>
+        <a href="contact.html" class="cta-btn">Secure the Perimeter →</a>
       </div>
       <div class="card">
-        <h2>Specialist Pools</h2>
-        <p>Cloud engineers, security analysts, DevOps, data, and enterprise architects — all accessible through a single engine.</p>
-        <a href="contact.html" class="cta-btn">Access Expertise →</a>
+        <h2>Interim Executives</h2>
+        <p>Flexible executive capacity during transition periods or growth spikes — no long-term headcount impact.</p>
+        <a href="contact.html" class="cta-btn">Get Interim Support →</a>
       </div>
-    </div>
-
-    <div class="methodology">
-      <h2>How We Deliver Talent That Performs</h2>
-      <p>We don't spray resumes. We orchestrate outcomes. Every engagement begins with a needs-based diagnostic, followed by our six-phase delivery cycle — ensuring strategic alignment, speed, and risk control at every step.</p>
-    </div>
-
-    <div class="diagram">
-      <h2>Talent Placement Methodology</h2>
-      <img src="assets/images/placement-methodology-flow.png" alt="Talent Methodology Flowchart" />
-    </div>
-
-    <div class="diagram">
-      <h2>Risk & Accountability Model</h2>
-      <img src="assets/images/placement-risk-matrix.png" alt="Risk & Accountability Matrix" />
     </div>
   </main>
 
   <footer>
     <div class="footer-content">
-      <div class="footer-left">
-        <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
-        <p><strong>BEE Level 4</strong></p>
-        <p>Company Reg: 2022/123456/07</p>
+      <p><strong>CoreCloud (Pty) Ltd</strong></p>
+      <p>433 Broadacres Country Estate, Syringa Rd, Broadacres, Johannesburg</p>
+      <p><strong>BEE Level 4</strong></p>
+      <p>Company Reg: 2022/123456/07</p>
+      <h4>Stay Informed</h4>
+      <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+      <div class="footer-newsletter">
+        <input type="email" placeholder="Enter your email" />
+        <button>Subscribe</button>
       </div>
-      <div class="footer-right">
-        <p>Contact</p>
-        <p>Mobile: +27 82 872 7858<br>Email: hello@corecloud.africa</p>
-        <div class="footer-bottom">
-          <p>&copy; 2024 CoreCloud. All rights reserved.</p>
-          <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
-        </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 CoreCloud. All rights reserved.</p>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
       </div>
     </div>
   </footer>
-  <!-- Chatbot -->
-  <script src="https://www.chatbase.co/embed.min.js"
-          chatbotId="2lVQDE6W7igyTrTHXu9Wk"
-          domain="www.chatbase.co"
-          defer></script>
 </body>
 </html>
