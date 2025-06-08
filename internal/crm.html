@@ -121,13 +121,14 @@
     <h2>Please sign in to access the CRM</h2>
     <button onclick="signInWithGoogle()">Sign in with Google</button>
   </div>
+
   <div id="crmApp">
     <div class="banner">
       <h1 id="greeting">CoreCloud CRM</h1>
       <button onclick="firebase.auth().signOut()">Log Out</button>
     </div>
+
     <div class="main">
-      <!-- Graphs Section -->
       <div class="charts-row">
         <div class="chart-container">
           <h3>Lead Status Overview</h3>
@@ -143,7 +144,6 @@
         </div>
       </div>
 
-      <!-- CRM Input Form -->
       <form id="leadForm">
         <input type="text" placeholder="Name" id="leadName" required />
         <input type="email" placeholder="Email" id="leadEmail" required />
@@ -158,7 +158,6 @@
         <button type="submit">Add Lead</button>
       </form>
 
-      <!-- Leads Table -->
       <table>
         <thead>
           <tr>
@@ -172,10 +171,12 @@
         <tbody id="leadsTableBody"></tbody>
       </table>
     </div>
+
     <footer>
       &copy; 2025 CoreCloud (Pty) Ltd – All rights reserved.
     </footer>
   </div>
+
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyBWjVSHJ7EXtwyB_q9dk3eb46uYHU8LGiU",
@@ -186,6 +187,7 @@
       appId: "1:283481366995:web:84d682ae160ac4558c4f26"
     };
     firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
 
     function signInWithGoogle() {
       const provider = new firebase.auth.GoogleAuthProvider();
@@ -210,11 +212,107 @@
         document.getElementById("greeting").textContent = `Hello ${name}`;
         login.style.display = "none";
         crm.style.display = "block";
+        loadLeads();
+        loadCharts();
       } else {
         login.style.display = "block";
         crm.style.display = "none";
       }
     });
+
+    document.getElementById("leadForm").addEventListener("submit", async e => {
+      e.preventDefault();
+      const name = document.getElementById("leadName").value.trim();
+      const email = document.getElementById("leadEmail").value.trim().toLowerCase();
+      const company = document.getElementById("leadCompany").value.trim();
+      const status = document.getElementById("leadStatus").value;
+      if (!name || !email) return alert("Name and Email are required");
+
+      const existing = await db.collection("leads").where("email", "==", email).get();
+      if (!existing.empty) return alert("Lead with this email already exists");
+
+      await db.collection("leads").add({
+        name,
+        email,
+        company,
+        status,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp()
+      });
+
+      document.getElementById("leadForm").reset();
+    });
+
+    function loadLeads() {
+      const tbody = document.getElementById("leadsTableBody");
+      db.collection("leads").orderBy("timestamp", "desc").limit(20).onSnapshot(snapshot => {
+        tbody.innerHTML = "";
+        snapshot.forEach(doc => {
+          const lead = doc.data();
+          const row = document.createElement("tr");
+          row.innerHTML = `
+            <td>${lead.name}</td>
+            <td>${lead.email}</td>
+            <td>${lead.company}</td>
+            <td>${lead.status}</td>
+            <td><button onclick="deleteLead('${doc.id}')">Delete</button></td>
+          `;
+          tbody.appendChild(row);
+        });
+      });
+    }
+
+    function deleteLead(id) {
+      if (confirm("Are you sure you want to delete this lead?")) {
+        db.collection("leads").doc(id).delete();
+      }
+    }
+
+    function loadCharts() {
+      db.collection("leads").onSnapshot(snapshot => {
+        const leads = snapshot.docs.map(doc => doc.data());
+        const statusCounts = { New: 0, Contacted: 0, Qualified: 0, Lost: 0, Customer: 0 };
+        const companyCounts = {};
+        const monthlyCounts = { Jan: 0, Feb: 0, Mar: 0, Apr: 0, May: 0, Jun: 0 };
+
+        leads.forEach(lead => {
+          if (lead.status) statusCounts[lead.status] = (statusCounts[lead.status] || 0) + 1;
+          if (lead.company) companyCounts[lead.company] = (companyCounts[lead.company] || 0) + 1;
+          if (lead.timestamp && lead.timestamp.toDate) {
+            const month = lead.timestamp.toDate().toLocaleString("default", { month: "short" });
+            if (monthlyCounts[month] !== undefined) monthlyCounts[month]++;
+          }
+        });
+
+        renderChart('statusChart', 'doughnut', Object.keys(statusCounts), Object.values(statusCounts), 'Leads by Status');
+        renderChart('companyChart', 'bar', Object.keys(companyCounts), Object.values(companyCounts), 'Leads by Company');
+        renderChart('monthlyChart', 'line', Object.keys(monthlyCounts), Object.values(monthlyCounts), 'Monthly Leads');
+      });
+    }
+
+    function renderChart(canvasId, type, labels, data, title) {
+      const ctx = document.getElementById(canvasId).getContext('2d');
+      if (window[canvasId + "Chart"]) window[canvasId + "Chart"].destroy();
+      window[canvasId + "Chart"] = new Chart(ctx, {
+        type,
+        data: {
+          labels,
+          datasets: [{
+            label: title,
+            data,
+            backgroundColor: ['#0077cc', '#00aaff', '#66cc66', '#ff6666', '#ffaa00'],
+            borderColor: '#fff',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            title: { display: true, text: title },
+            legend: { position: type === 'doughnut' ? 'bottom' : 'top' }
+          }
+        }
+      });
+    }
   </script>
 </body>
 </html>
