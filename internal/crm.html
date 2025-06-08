@@ -22,13 +22,22 @@
       background-color: #001f3f;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       color: white;
       box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      padding: 0 2rem;
     }
     .banner h1 {
       margin: 0;
       font-size: 2rem;
+    }
+    .banner button {
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
     }
     .main {
       max-width: 1200px;
@@ -68,13 +77,18 @@
     }
     .chart-container {
       background: #fff;
-      padding: 2rem;
-      margin-top: 2rem;
+      padding: 1rem;
+      margin-bottom: 2rem;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      width: 30%;
-      margin-left: auto;
-      margin-right: auto;
+      flex: 1;
+      min-width: 300px;
+    }
+    .charts-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
     }
     footer {
       background-color: #001f3f;
@@ -110,30 +124,31 @@
   <div id="crmApp">
     <div class="banner">
       <h1 id="greeting">CoreCloud CRM</h1>
+      <button onclick="firebase.auth().signOut()">Log Out</button>
     </div>
     <div class="main">
-
-      <!-- New Charts Row -->
-      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
-        <div class="chart-container" style="width: 30%;">
+      <!-- Graphs Section -->
+      <div class="charts-row">
+        <div class="chart-container">
           <h3>Lead Status Overview</h3>
           <canvas id="statusChart" height="100"></canvas>
         </div>
-        <div class="chart-container" style="width: 30%;">
+        <div class="chart-container">
           <h3>Leads by Company</h3>
           <canvas id="companyChart" height="100"></canvas>
         </div>
-        <div class="chart-container" style="width: 30%;">
+        <div class="chart-container">
           <h3>Monthly Leads</h3>
           <canvas id="monthlyChart" height="100"></canvas>
         </div>
       </div>
 
+      <!-- CRM Input Form -->
       <form id="leadForm">
-        <input type="text" id="name" placeholder="Name" required />
-        <input type="email" id="email" placeholder="Email" required />
-        <input type="text" id="company" placeholder="Company" />
-        <select id="status">
+        <input type="text" placeholder="Name" id="leadName" required />
+        <input type="email" placeholder="Email" id="leadEmail" required />
+        <input type="text" placeholder="Company" id="leadCompany" />
+        <select id="leadStatus">
           <option value="New">New</option>
           <option value="Contacted">Contacted</option>
           <option value="Qualified">Qualified</option>
@@ -142,11 +157,9 @@
         </select>
         <button type="submit">Add Lead</button>
       </form>
-      <div class="chart-container">
-        <h3>Lead Status Overview</h3>
-        <canvas id="statusChart" height="100"></canvas>
-      </div>
-      <table id="leadsTable">
+
+      <!-- Leads Table -->
+      <table>
         <thead>
           <tr>
             <th>Name</th>
@@ -156,9 +169,7 @@
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
-          <!-- Populated dynamically -->
-        </tbody>
+        <tbody id="leadsTableBody"></tbody>
       </table>
     </div>
     <footer>
@@ -183,104 +194,27 @@
       });
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      firebase.auth().onAuthStateChanged(user => {
-        const login = document.getElementById("loginContainer");
-        const crm = document.getElementById("crmApp");
-        if (user) {
-          const email = user.email;
-          let name = "User";
-          if (email === "mark@corecloudza.com") name = "Mark";
-          else if (email === "justine@corecloudza.com") name = "Justine";
-          else {
-            alert("Access denied. This CRM is restricted.");
-            firebase.auth().signOut();
-            return;
-          }
-          document.getElementById("greeting").textContent = `Hello ${name}`;
-          login.style.display = "none";
-          crm.style.display = "block";
-        } else {
-          login.style.display = "block";
-          crm.style.display = "none";
+    firebase.auth().onAuthStateChanged(user => {
+      const login = document.getElementById("loginContainer");
+      const crm = document.getElementById("crmApp");
+      if (user) {
+        const email = user.email;
+        let name = "User";
+        if (email === "mark@corecloudza.com") name = "Mark";
+        else if (email === "justine@corecloudza.com") name = "Justine";
+        else {
+          alert("Access denied. This CRM is restricted.");
+          firebase.auth().signOut();
+          return;
         }
-      });
-    });
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const ctx = document.getElementById('statusChart');
-      if (ctx) {
-        new Chart(ctx, {
-          type: 'doughnut',
-          data: {
-            labels: ['New', 'Contacted', 'Qualified', 'Lost', 'Customer'],
-            datasets: [{
-              label: 'Leads by Status',
-              data: [5, 6, 4, 3, 7],
-              backgroundColor: ['#0077cc', '#00aaff', '#66cc66', '#ff6666', '#ffaa00'],
-            }]
-          },
-          options: {
-            responsive: true,
-            plugins: {
-              legend: {
-                position: 'bottom'
-              },
-              title: {
-                display: true,
-                text: 'Current CRM Lead Distribution'
-              }
-            }
-          }
-        });
+        document.getElementById("greeting").textContent = `Hello ${name}`;
+        login.style.display = "none";
+        crm.style.display = "block";
+      } else {
+        login.style.display = "block";
+        crm.style.display = "none";
       }
     });
-  document.addEventListener("DOMContentLoaded", () => {
-  const companyChart = new Chart(document.getElementById('companyChart'), {
-    type: 'bar',
-    data: {
-      labels: ['ACME', 'BetaCorp', 'CoreTech', 'Delta', 'EnviroSol'],
-      datasets: [{
-        label: 'Leads per Company',
-        data: [4, 3, 5, 6, 7],
-        backgroundColor: '#00aaff'
-      }]
-    },
-    options: {
-      plugins: {
-        legend: { display: false },
-        title: {
-          display: true,
-          text: 'Lead Volume by Company'
-        }
-      },
-      responsive: true
-    }
-  });
-
-  const monthlyChart = new Chart(document.getElementById('monthlyChart'), {
-    type: 'line',
-    data: {
-      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
-      datasets: [{
-        label: 'Leads Created',
-        data: [5, 10, 8, 6, 9, 12],
-        fill: false,
-        borderColor: '#66cc66',
-        tension: 0.1
-      }]
-    },
-    options: {
-      plugins: {
-        title: {
-          display: true,
-          text: 'Monthly Lead Generation'
-        }
-      },
-      responsive: true
-    }
-  });
-});
-</script>
+  </script>
 </body>
 </html>
