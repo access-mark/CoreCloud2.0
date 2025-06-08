@@ -113,6 +113,18 @@
       display: flex;
       justify-content: space-between;
     }
+    .edit-btn, .delete-btn {
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      padding: 0.3rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+    .delete-btn {
+      background-color: #d9534f;
+    }
   </style>
 </head>
 <body>
@@ -133,6 +145,8 @@
           <input type="text" id="company" placeholder="Company" required />
           <input type="email" id="email" placeholder="Email" required />
           <input type="tel" id="phone" placeholder="Phone" required />
+          <input type="date" id="lastContacted" />
+          <input type="text" id="notes" placeholder="Notes (optional)" />
           <select id="status">
             <option value="Lead">Lead</option>
             <option value="Prospect">Prospect</option>
@@ -165,6 +179,8 @@
             <th>Phone</th>
             <th>Status</th>
             <th>Last Contacted</th>
+            <th>Notes</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody></tbody>
