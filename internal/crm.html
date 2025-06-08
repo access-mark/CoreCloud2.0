@@ -112,6 +112,23 @@
       <h1 id="greeting">CoreCloud CRM</h1>
     </div>
     <div class="main">
+
+      <!-- New Charts Row -->
+      <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem;">
+        <div class="chart-container" style="width: 30%;">
+          <h3>Lead Status Overview</h3>
+          <canvas id="statusChart" height="100"></canvas>
+        </div>
+        <div class="chart-container" style="width: 30%;">
+          <h3>Leads by Company</h3>
+          <canvas id="companyChart" height="100"></canvas>
+        </div>
+        <div class="chart-container" style="width: 30%;">
+          <h3>Monthly Leads</h3>
+          <canvas id="monthlyChart" height="100"></canvas>
+        </div>
+      </div>
+
       <form id="leadForm">
         <input type="text" id="name" placeholder="Name" required />
         <input type="email" id="email" placeholder="Email" required />
@@ -218,6 +235,52 @@
         });
       }
     });
-  </script>
+  document.addEventListener("DOMContentLoaded", () => {
+  const companyChart = new Chart(document.getElementById('companyChart'), {
+    type: 'bar',
+    data: {
+      labels: ['ACME', 'BetaCorp', 'CoreTech', 'Delta', 'EnviroSol'],
+      datasets: [{
+        label: 'Leads per Company',
+        data: [4, 3, 5, 6, 7],
+        backgroundColor: '#00aaff'
+      }]
+    },
+    options: {
+      plugins: {
+        legend: { display: false },
+        title: {
+          display: true,
+          text: 'Lead Volume by Company'
+        }
+      },
+      responsive: true
+    }
+  });
+
+  const monthlyChart = new Chart(document.getElementById('monthlyChart'), {
+    type: 'line',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      datasets: [{
+        label: 'Leads Created',
+        data: [5, 10, 8, 6, 9, 12],
+        fill: false,
+        borderColor: '#66cc66',
+        tension: 0.1
+      }]
+    },
+    options: {
+      plugins: {
+        title: {
+          display: true,
+          text: 'Monthly Lead Generation'
+        }
+      },
+      responsive: true
+    }
+  });
+});
+</script>
 </body>
 </html>
