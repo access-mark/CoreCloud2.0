@@ -31,6 +31,22 @@
     .banner img {
       height: 60px;
     }
+    nav {
+      background-color: #fff;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.75rem 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+    nav a {
+      color: #0077cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
     .main {
       max-width: 1200px;
       margin: auto;
@@ -50,7 +66,12 @@
       width: 100%;
       margin-top: 1rem;
       border-collapse: collapse;
-      background: #fff;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    th {
+      background-color: #0077cc;
+      color: white;
     }
     th, td {
       padding: 0.75rem;
@@ -90,6 +111,14 @@
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
+    footer {
+      background-color: #001f3f;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.875rem;
+      margin-top: 4rem;
+    }
   </style>
 </head>
 <body>
@@ -97,6 +126,14 @@
     <img src="assets/img/corecloud-logo.png" alt="CoreCloud Logo">
     <h1>CoreCloud CRM</h1>
   </div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="crm.html">CRM</a>
+    <a href="talent.html">Talent</a>
+    <a href="aws.html">AWS Services</a>
+    <a href="consulting.html">Consulting</a>
+    <a href="contact.html">Contact</a>
+  </nav>
   <div class="main">
     <h2>Lead Status Overview</h2>
     <div class="chart-container">
@@ -121,6 +158,10 @@
       <tbody></tbody>
     </table>
   </div>
+
+  <footer>
+    &copy; 2025 CoreCloud (Pty) Ltd – All rights reserved. | 433 Broadacres Country Estate, Syringa Rd, Broadacres, Johannesburg
+  </footer>
 
   <script>
     function handleLinkedInUpload(event) {
