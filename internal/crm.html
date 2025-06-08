@@ -95,7 +95,26 @@
     <div class="chart-container">
       <canvas id="statusChart"></canvas>
     </div>
+
+    <h3>Upload LinkedIn Contacts CSV</h3>
+    <input type="file" accept=".csv" onchange="handleLinkedInUpload(event)" />
+
+    <h3>Lead Table</h3>
+    <table id="leadTable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Company</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Status</th>
+          <th>Last Contacted</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
   </div>
+
   <script>
     function handleLinkedInUpload(event) {
       const file = event.target.files[0];
@@ -104,7 +123,7 @@
         const lines = reader.result.split("\n").slice(1);
         const leads = lines.filter(Boolean).map(line => {
           const fields = line.split(',');
-          const name = `${fields[0]} ${fields[1]}`; // First + Last Name
+          const name = `${fields[0]} ${fields[1]}`;
           const company = fields[2] || "Unknown";
           const email = fields[4] || "";
           const phone = fields[5] || "";
@@ -118,9 +137,10 @@
           };
         });
         const existing = loadLeadsFromLocal();
-        saveLeadsToLocal([...existing, ...leads]);
-        renderTable([...existing, ...leads]);
-        updateChart([...existing, ...leads]);
+        const merged = [...existing, ...leads];
+        saveLeadsToLocal(merged);
+        renderTable(merged);
+        updateChart(merged);
       };
       reader.readAsText(file);
     }
@@ -155,7 +175,31 @@
     function loadLeadsFromLocal() {
       return JSON.parse(localStorage.getItem('leads') || '[]');
     }
-    updateChart(loadLeadsFromLocal());
+
+    function saveLeadsToLocal(leads) {
+      localStorage.setItem('leads', JSON.stringify(leads));
+    }
+
+    function renderTable(leads) {
+      const tbody = document.querySelector('#leadTable tbody');
+      tbody.innerHTML = '';
+      leads.forEach(lead => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${lead.name}</td>
+          <td>${lead.company}</td>
+          <td>${lead.email}</td>
+          <td>${lead.phone}</td>
+          <td>${lead.status}</td>
+          <td>${lead.lastContacted}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    const storedLeads = loadLeadsFromLocal();
+    renderTable(storedLeads);
+    updateChart(storedLeads);
   </script>
 </body>
 </html>
