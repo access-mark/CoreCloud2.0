@@ -115,9 +115,9 @@
 <body>
   <div class="banner">
     <img src="assets/img/corecloud-logo.png" alt="CoreCloud Logo">
-    <h1>CoreCloud CRM</h1>
+    <h1 id="greeting">CoreCloud CRM</h1>
   </div>
-  <div class="main">
+  <div class="main" id="mainContent" style="display:none;">
     <div class="form-section">
       <h3>Add New Lead</h3>
       <form id="leadForm">
@@ -176,6 +176,24 @@
       measurementId: "G-HVK729YF2V"
     };
     firebase.initializeApp(firebaseConfig);
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        const email = user.email;
+        let name = "there";
+        if (email === "mark@corecloudza.com") name = "Mark";
+        else if (email === "justine@corecloudza.com") name = "Justine";
+        else {
+          alert("Access denied. This CRM is restricted.");
+          firebase.auth().signOut();
+          return;
+        }
+        document.getElementById("greeting").textContent = `Hello ${name}`;
+        document.getElementById("mainContent").style.display = 'block';
+      } else {
+        window.location.href = '/';
+      }
+    });
   </script>
   <script src="scripts/crm.js"></script>
 </body>
