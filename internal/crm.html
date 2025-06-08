@@ -111,6 +111,14 @@
       font-size: 0.875rem;
       margin-top: 4rem;
     }
+    .status-select {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      font-size: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -258,18 +266,33 @@
     function renderTable(leads) {
       const tbody = document.querySelector('#leadTable tbody');
       tbody.innerHTML = '';
-      leads.forEach(lead => {
+      leads.forEach((lead, index) => {
         const row = document.createElement('tr');
         row.innerHTML = `
           <td>${lead.name}</td>
           <td>${lead.company}</td>
           <td>${lead.email}</td>
           <td>${lead.phone}</td>
-          <td>${lead.status}</td>
+          <td>
+            <select class="status-select" onchange="updateStatus(${index}, this.value)">
+              <option value="Lead" ${lead.status === 'Lead' ? 'selected' : ''}>Lead</option>
+              <option value="Prospect" ${lead.status === 'Prospect' ? 'selected' : ''}>Prospect</option>
+              <option value="Qualified" ${lead.status === 'Qualified' ? 'selected' : ''}>Qualified</option>
+              <option value="Closed" ${lead.status === 'Closed' ? 'selected' : ''}>Closed</option>
+            </select>
+          </td>
           <td>${lead.lastContacted}</td>
         `;
         tbody.appendChild(row);
       });
+    }
+
+    function updateStatus(index, newStatus) {
+      const leads = loadLeadsFromLocal();
+      leads[index].status = newStatus;
+      saveLeadsToLocal(leads);
+      renderTable(leads);
+      updateChart(leads);
     }
 
     const storedLeads = loadLeadsFromLocal();
