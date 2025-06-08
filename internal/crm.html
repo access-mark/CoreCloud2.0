@@ -132,5 +132,50 @@
       &copy; 2025 CoreCloud (Pty) Ltd – All rights reserved.
     </footer>
   </div>
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBWjVSHJ7EXtwyB_q9dk3eb46uYHU8LGiU",
+      authDomain: "corecloud-crm.firebaseapp.com",
+      projectId: "corecloud-crm",
+      storageBucket: "corecloud-crm.appspot.com",
+      messagingSenderId: "283481366995",
+      appId: "1:283481366995:web:84d682ae160ac4558c4f26",
+      measurementId: "G-HVK729YF2V"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    function signInWithGoogle() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider)
+        .then((result) => {
+          const email = result.user.email;
+          if (email === "mark@corecloudza.com" || email === "justine@corecloudza.com") {
+            document.getElementById("loginContainer").style.display = "none";
+            document.getElementById("crmApp").style.display = "block";
+            document.getElementById("greeting").textContent = `Hello ${email.includes("justine") ? "Justine" : "Mark"}`;
+          } else {
+            alert("Access denied. This CRM is restricted.");
+            firebase.auth().signOut();
+          }
+        })
+        .catch((error) => {
+          console.error("Login failed:", error.message);
+        });
+    }
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        const email = user.email;
+        if (email === "mark@corecloudza.com" || email === "justine@corecloudza.com") {
+          document.getElementById("loginContainer").style.display = "none";
+          document.getElementById("crmApp").style.display = "block";
+          document.getElementById("greeting").textContent = `Hello ${email.includes("justine") ? "Justine" : "Mark"}`;
+        } else {
+          firebase.auth().signOut();
+        }
+      }
+    });
+  </script>
 </body>
 </html>
