@@ -120,7 +120,7 @@
 </head>
 <body>
   <div class="banner">
-    <img src="assets/images/corecloud-neon-logo.png" alt="CoreCloud Neon Logo" class="logo" style="height: 90px; position: absolute; top: 20px; left: 30px; border-radius: 8px;" />
+    <img src="assets/img/corecloud-neon-logo.png" alt="CoreCloud Neon Logo" class="logo" style="height: 90px; position: absolute; top: 20px; left: 30px; border-radius: 8px;" />
     <h1 id="greeting">CoreCloud CRM</h1>
   </div>
   <div class="main" id="mainContent" style="display:none;">
@@ -202,5 +202,24 @@
     });
   </script>
   <script src="scripts/crm.js"></script>
+  <script>
+    function signInWithGoogle() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider).catch(error => {
+        console.error('Google Sign-In Error:', error.message);
+        alert('Google Sign-In failed: ' + error.message);
+      });
+    }
+
+    if (!firebase.auth().currentUser) {
+      const loginDiv = document.createElement('div');
+      loginDiv.style = 'text-align:center; margin-top: 5rem;';
+      loginDiv.innerHTML = `
+        <h2>Please sign in to access the CRM</h2>
+        <button onclick="signInWithGoogle()" style="padding: 10px 20px; font-size: 1rem; background-color: #0077cc; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Sign in with Google</button>
+      `;
+      document.body.prepend(loginDiv);
+    }
+  </script>
 </body>
 </html>
