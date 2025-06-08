@@ -1,4 +1,3 @@
-<!-- crm.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +7,7 @@
   <title>CoreCloud CRM</title>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
@@ -34,6 +34,37 @@
       max-width: 1200px;
       margin: auto;
       padding: 2rem;
+    }
+    form input, form select {
+      display: block;
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    form button {
+      background-color: #0077cc;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #ffffff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    th {
+      background-color: #0077cc;
+      color: white;
+    }
+    th, td {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      text-align: left;
     }
     .chart-container {
       background: #fff;
@@ -73,22 +104,47 @@
     <h2>Please sign in to access the CRM</h2>
     <button onclick="signInWithGoogle()">Sign in with Google</button>
   </div>
-
   <div id="crmApp">
     <div class="banner">
       <h1 id="greeting">CoreCloud CRM</h1>
     </div>
     <div class="main">
+      <form id="leadForm">
+        <input type="text" id="name" placeholder="Name" required />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="text" id="company" placeholder="Company" />
+        <select id="status">
+          <option value="New">New</option>
+          <option value="Contacted">Contacted</option>
+          <option value="Qualified">Qualified</option>
+          <option value="Lost">Lost</option>
+          <option value="Customer">Customer</option>
+        </select>
+        <button type="submit">Add Lead</button>
+      </form>
       <div class="chart-container">
         <h3>Lead Status Overview</h3>
         <canvas id="statusChart" height="100"></canvas>
       </div>
+      <table id="leadsTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Company</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Populated dynamically -->
+        </tbody>
+      </table>
     </div>
     <footer>
       &copy; 2025 CoreCloud (Pty) Ltd – All rights reserved.
     </footer>
   </div>
-
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyBWjVSHJ7EXtwyB_q9dk3eb46uYHU8LGiU",
@@ -111,7 +167,6 @@
       firebase.auth().onAuthStateChanged(user => {
         const login = document.getElementById("loginContainer");
         const crm = document.getElementById("crmApp");
-
         if (user) {
           const email = user.email;
           let name = "User";
@@ -132,7 +187,6 @@
       });
     });
 
-    // Load chart
     document.addEventListener("DOMContentLoaded", () => {
       const ctx = document.getElementById('statusChart');
       if (ctx) {
