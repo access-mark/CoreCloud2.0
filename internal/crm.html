@@ -192,6 +192,11 @@
       const lastContacted = new Date().toISOString().split('T')[0];
       const newLead = { name, company, email, phone, status, lastContacted };
       const existing = loadLeadsFromLocal();
+      const duplicate = existing.find(lead => lead.name === name && lead.company === company);
+      if (duplicate) {
+        alert("Duplicate entry detected. This lead already exists.");
+        return;
+      }
       existing.push(newLead);
       saveLeadsToLocal(existing);
       renderTable(existing);
@@ -220,7 +225,12 @@
           };
         });
         const existing = loadLeadsFromLocal();
-        const merged = [...existing, ...leads];
+        const merged = [...existing];
+        leads.forEach(newLead => {
+          if (!merged.some(existingLead => existingLead.name === newLead.name && existingLead.company === newLead.company)) {
+            merged.push(newLead);
+          }
+        });
         saveLeadsToLocal(merged);
         renderTable(merged);
         updateChart(merged);
