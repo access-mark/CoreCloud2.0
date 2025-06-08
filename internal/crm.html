@@ -119,6 +119,13 @@
       background-color: #fff;
       font-size: 1rem;
     }
+    #searchInput {
+      margin: 1rem 0;
+      padding: 0.5rem;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
@@ -134,7 +141,6 @@
     <a href="consulting.html">Consulting</a>
     <a href="contact.html">Contact</a>
   </nav>
-
   <div class="main">
     <div class="form-section">
       <h3>Add New Lead</h3>
@@ -161,7 +167,11 @@
     <h3>Upload LinkedIn Contacts CSV</h3>
     <input type="file" accept=".csv" onchange="handleLinkedInUpload(event)" />
 
+    <h3>Search Leads</h3>
+    <input type="text" id="searchInput" placeholder="Search by name, company, or email..." onkeyup="filterLeads()" />
+
     <h3>Lead Table</h3>
+    <button onclick="exportToCSV()">Export to CSV</button>
     <table id="leadTable">
       <thead>
         <tr>
@@ -176,11 +186,9 @@
       <tbody></tbody>
     </table>
   </div>
-
   <footer>
     &copy; 2025 CoreCloud (Pty) Ltd – All rights reserved. | 433 Broadacres Country Estate, Syringa Rd, Broadacres, Johannesburg
   </footer>
-
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyBWjVSHJ7EXtwyB_q9dk3eb46uYHU8LGiU",
@@ -193,5 +201,6 @@
     };
     firebase.initializeApp(firebaseConfig);
   </script>
+  <script src="scripts/crm.js"></script>
 </body>
 </html>
