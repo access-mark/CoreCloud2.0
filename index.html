@@ -3,278 +3,303 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex, nofollow" />
-  <title>CoreCloud CRM</title>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>CoreCloud – Executive-Grade Cloud Transformation</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
       margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
       background-color: #f4f6f8;
       color: #1e1e1e;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
-    .banner {
+
+    .small-banner {
+      background-color: #fff;
+      padding: 0.05rem 2rem 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: fixed;
       width: 100%;
-      height: 180px;
-      background: url('assets/img/coretech-bannerimage.png') no-repeat center center;
-      background-size: cover;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .banner-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 2rem;
-      color: white;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-    }
-    .banner img {
-      height: 60px;
-    }
-    nav {
-      background-color: #fff;
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 0.75rem 0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    }
-    nav a {
-      color: #0077cc;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .main {
       max-width: 1200px;
-      margin: auto;
-      padding: 2rem;
+      margin: 0 auto;
     }
-    .form-section {
-      background: #ffffff;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+
+    .logo {
+      height: 160px;
+      width: auto;
     }
-    .form-section h3 {
-      margin-top: 0;
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      padding: 0;
+      margin: 0;
     }
-    form input, form select {
-      display: block;
-      width: 100%;
+
+    nav a.nav-btn {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #003366;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    nav a.nav-btn:hover,
+    nav a.nav-btn.active {
+      color: #005fa3;
+      font-weight: 900;
+    }
+
+    .page-banner {
+      height: 300px;
+      background-image: url('assets/images/index-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      margin-top: 160px;
+    }
+
+    .content {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #003366;
       margin-bottom: 1rem;
-      padding: 0.5rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
+      text-align: center;
     }
-    form button {
+
+    .content > p {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story-grid, .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .story-card, .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .story-card h2, .card h2 {
+      color: #003366;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .story-card p, .card p {
+      color: #333;
+      line-height: 1.6;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
       background-color: #0077cc;
       color: #fff;
-      padding: 0.6rem 1.2rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      margin-top: auto;
     }
-    form button:hover {
+
+    .cta-btn:hover {
       background-color: #005fa3;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #ffffff;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-    th {
-      background-color: #0077cc;
-      color: white;
-    }
-    th, td {
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      text-align: left;
-    }
-    .chart-container {
-      background: #fff;
-      padding: 2rem;
-      margin-top: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
+
     footer {
-      background-color: #001f3f;
-      color: white;
+      background-image: url('assets/images/footer-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      padding: 0.5rem 0 0.5rem;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
       padding: 1rem;
+    }
+
+    .footer-left, .footer-middle, .footer-right {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .footer-left { text-align: left; }
+    .footer-middle { text-align: center; }
+    .footer-right { text-align: right; }
+
+    .footer-content p, .footer-content h4 {
+      margin: 0.3rem 0;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.95);
+    }
+
+    .footer-newsletter input[type="email"] {
+      padding: 0.8rem;
+      width: 60%;
+      max-width: 300px;
+      border: none;
+      border-radius: 6px;
+      margin-right: 0.5rem;
+    }
+
+    .footer-newsletter button {
+      padding: 0.8rem 1.5rem;
+      background-color: #0077cc;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .footer-bottom {
+      margin-top: 1rem;
+      font-size: 0.85rem;
       text-align: center;
-      font-size: 0.875rem;
-      margin-top: 4rem;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.95);
+    }
+
+    .footer-bottom a {
+      color: red !important;
+      text-decoration: underline;
+      font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <div class="banner">
-    <img src="assets/img/corecloud-logo.png" alt="CoreCloud Logo">
-    <h1>CoreCloud CRM</h1>
+  <div class="small-banner">
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="index.html" class="nav-btn active">Home</a></li>
+          <li><a href="consulting.html" class="nav-btn">Consulting</a></li>
+          <li><a href="aws.html" class="nav-btn">AWS Service Suite</a></li>
+          <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
+          <li><a href="white-paper.html" class="nav-btn">White Paper</a></li>
+          <li><a href="resources.html" class="nav-btn">Resources</a></li>
+          <li><a href="contact.html" class="nav-btn">Contact</a></li>
+          <li><a href="testimonials.html" class="nav-btn">Testimonials</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="crm.html">CRM</a>
-    <a href="talent.html">Talent</a>
-    <a href="aws.html">AWS Services</a>
-    <a href="consulting.html">Consulting</a>
-    <a href="contact.html">Contact</a>
-  </nav>
 
-  <div class="main">
-    <div class="form-section">
-      <h3>Add New Lead</h3>
-      <form id="leadForm">
-        <input type="text" id="name" placeholder="Full Name" required />
-        <input type="text" id="company" placeholder="Company" required />
-        <input type="email" id="email" placeholder="Email" />
-        <input type="tel" id="phone" placeholder="Phone" />
-        <select id="status">
-          <option value="Lead">Lead</option>
-          <option value="Prospect">Prospect</option>
-          <option value="Qualified">Qualified</option>
-          <option value="Closed">Closed</option>
-        </select>
-        <button type="submit">Add Lead</button>
-      </form>
+  <div class="page-banner"></div>
+
+  <main class="content">
+    <h1>The CoreCloud Advantage</h1>
+    <p>CoreCloud was born out of necessity — a response to fractured execution, bloated systems, and missed growth in the South African enterprise landscape. We created CoreCloud to be the sharp edge of digital and commercial transformation: bold, deeply integrated, and obsessively outcome-focused.</p>
+
+    <div class="story-grid">
+      <div class="story-card">
+        <h2>Why</h2>
+        <p>Businesses across South Africa are burdened by bloated sales operations, underperforming cloud investments, and talent gaps that stall execution. Leaders know what success looks like — but lack the precise tools, systems, and partners to drive it at scale.</p>
+      </div>
+      <div class="story-card">
+        <h2>What</h2>
+        <p>CoreCloud delivers the sharp edge of transformation — executive sales consulting, AWS modernization, and top-tier talent sourcing — all integrated to create velocity, alignment, and measurable impact. We don’t just advise; we deliver outcomes.</p>
+      </div>
+      <div class="story-card">
+        <h2>How</h2>
+        <p>Through rigorous diagnostics, proven GTM methodologies, and a trusted partner ecosystem, CoreCloud maps strategy to execution. We cut through noise with clear frameworks, accelerate through automation, and enable scale through elite people and process design.</p>
+      </div>
     </div>
 
-    <div class="chart-container">
-      <h2>Lead Status Overview</h2>
-      <canvas id="statusChart"></canvas>
+    <h1 style="margin-top: 4rem">Bold Tech. Executive Precision.</h1>
+    <p style="text-align: center; max-width: 900px; margin: 0 auto 2rem; font-size: 1.2rem;">Cloud consulting, AWS services, and top-tier talent – aligned with your boardroom ambitions and frontline delivery.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <h2>Consulting</h2>
+        <p>Executive-grade sales strategy, pipeline accuracy, GTM frameworks, and high-performance transformation advisory.</p>
+        <a href="consulting.html" class="cta-btn">Explore Consulting →</a>
+      </div>
+      <div class="card">
+        <h2>AWS Services</h2>
+        <p>Modernize, migrate, manage, and optimize with proven AWS frameworks and top-tier cloud execution teams.</p>
+        <a href="aws.html" class="cta-btn">View AWS Services →</a>
+      </div>
+      <div class="card">
+        <h2>Talent Placement</h2>
+        <p>Top talent matched to business need. Deeply screened, technically verified, and strategically aligned.</p>
+        <a href="talent.html" class="cta-btn">Browse Talent Solutions →</a>
+      </div>
     </div>
-
-    <h3>Upload LinkedIn Contacts CSV</h3>
-    <input type="file" accept=".csv" onchange="handleLinkedInUpload(event)" />
-
-    <h3>Lead Table</h3>
-    <table id="leadTable">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Company</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Status</th>
-          <th>Last Contacted</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </div>
+  </main>
 
   <footer>
-    &copy; 2025 CoreCloud (Pty) Ltd – All rights reserved. | 433 Broadacres Country Estate, Syringa Rd, Broadacres, Johannesburg
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
+        <p><strong>BEE Level 4</strong></p>
+        <p>Company Reg: 2022/123456/07</p>
+      </div>
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <div class="footer-newsletter">
+          <input type="email" placeholder="Enter your email" />
+          <button>Subscribe</button>
+        </div>
+      </div>
+      <div class="footer-right">
+        <p>Contact</p>
+        <p>Mobile: +27 82 872 7858<br>Email: hello@corecloud.africa</p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank">LinkedIn</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2022 CoreCloud. All rights reserved.</p>
+      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+    </div>
   </footer>
-
-  <script>
-    document.getElementById('leadForm').addEventListener('submit', function (e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value;
-      const company = document.getElementById('company').value;
-      const email = document.getElementById('email').value;
-      const phone = document.getElementById('phone').value;
-      const status = document.getElementById('status').value;
-      const lastContacted = new Date().toISOString().split('T')[0];
-      const newLead = { name, company, email, phone, status, lastContacted };
-      const existing = loadLeadsFromLocal();
-      existing.push(newLead);
-      saveLeadsToLocal(existing);
-      renderTable(existing);
-      updateChart(existing);
-      document.getElementById('leadForm').reset();
-    });
-
-    function handleLinkedInUpload(event) {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = function () {
-        const lines = reader.result.split("\n").slice(1);
-        const leads = lines.filter(Boolean).map(line => {
-          const fields = line.split(',');
-          const name = `${fields[0]} ${fields[1]}`;
-          const company = fields[2] || "Unknown";
-          const email = fields[4] || "";
-          const phone = fields[5] || "";
-          return {
-            name,
-            company,
-            email,
-            phone,
-            status: "Lead",
-            lastContacted: new Date().toISOString().split('T')[0],
-          };
-        });
-        const existing = loadLeadsFromLocal();
-        const merged = [...existing, ...leads];
-        saveLeadsToLocal(merged);
-        renderTable(merged);
-        updateChart(merged);
-      };
-      reader.readAsText(file);
-    }
-
-    function updateChart(leads) {
-      const statusCounts = { Lead: 0, Prospect: 0, Qualified: 0, Closed: 0 };
-      leads.forEach(lead => {
-        if (statusCounts[lead.status] !== undefined) {
-          statusCounts[lead.status]++;
-        }
-      });
-      const ctx = document.getElementById('statusChart').getContext('2d');
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: Object.keys(statusCounts),
-          datasets: [{
-            label: 'Leads by Status',
-            data: Object.values(statusCounts),
-            backgroundColor: ['#0077cc', '#28a745', '#ffc107', '#dc3545']
-          }]
-        },
-        options: {
-          responsive: true,
-          scales: {
-            y: { beginAtZero: true }
-          }
-        }
-      });
-    }
-
-    function loadLeadsFromLocal() {
-      return JSON.parse(localStorage.getItem('leads') || '[]');
-    }
-
-    function saveLeadsToLocal(leads) {
-      localStorage.setItem('leads', JSON.stringify(leads));
-    }
-
-    function renderTable(leads) {
-      const tbody = document.querySelector('#leadTable tbody');
-      tbody.innerHTML = '';
-      leads.forEach(lead => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-          <td>${lead.name}</td>
-          <td>${lead.company}</td>
-          <td>${lead.email}</td>
-          <td>${lead.phone}</td>
-          <td>${lead.status}</td>
-          <td>${lead.lastContacted}</td>
-        `;
-        tbody.appendChild(row);
-      });
-    }
-
-    const storedLeads = loadLeadsFromLocal();
-    renderTable(storedLeads);
-    updateChart(storedLeads);
-  </script>
+  !-- Chatbot -->
+  <script src="https://www.chatbase.co/embed.min.js"
+          chatbotId="2lVQDE6W7igyTrTHXu9Wk"
+          domain="www.chatbase.co"
+          defer></script>
 </body>
 </html>
