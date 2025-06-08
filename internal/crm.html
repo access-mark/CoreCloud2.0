@@ -164,6 +164,7 @@
         </thead>
         <tbody></tbody>
       </table>
+    <button onclick="logoutUser()" style="margin-top: 1rem; background-color: #d9534f; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Logout</button>
     </div>
     <footer>
       &copy; 2025 CoreCloud (Pty) Ltd – All rights reserved.
@@ -214,5 +215,14 @@
     });
   </script>
   <script src="scripts/crm.js"></script>
+<script>
+    function logoutUser() {
+      firebase.auth().signOut().then(() => {
+        location.reload();
+      }).catch(error => {
+        alert('Logout failed: ' + error.message);
+      });
+    }
+  </script>
 </body>
 </html>
