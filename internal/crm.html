@@ -1,3 +1,4 @@
+<!-- crm.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,6 @@
   <title>CoreCloud CRM</title>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
@@ -25,7 +25,6 @@
       justify-content: center;
       color: white;
       box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-      position: relative;
     }
     .banner h1 {
       margin: 0;
@@ -35,47 +34,6 @@
       max-width: 1200px;
       margin: auto;
       padding: 2rem;
-    }
-    .form-section {
-      background: #ffffff;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-    form input, form select {
-      display: block;
-      width: 100%;
-      margin-bottom: 1rem;
-      padding: 0.5rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    form button {
-      background-color: #0077cc;
-      color: #fff;
-      padding: 0.6rem 1.2rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    form button:hover {
-      background-color: #005fa3;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #ffffff;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-    th {
-      background-color: #0077cc;
-      color: white;
-    }
-    th, td {
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      text-align: left;
     }
     .chart-container {
       background: #fff;
@@ -108,23 +66,6 @@
     #crmApp {
       display: none;
     }
-    .pagination {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: space-between;
-    }
-    .edit-btn, .delete-btn {
-      background-color: #0077cc;
-      color: white;
-      border: none;
-      padding: 0.3rem 0.6rem;
-      border-radius: 4px;
-      cursor: pointer;
-      margin-right: 5px;
-    }
-    .delete-btn {
-      background-color: #d9534f;
-    }
   </style>
 </head>
 <body>
@@ -138,8 +79,10 @@
       <h1 id="greeting">CoreCloud CRM</h1>
     </div>
     <div class="main">
-      <!-- UI and test data populated here -->
-      <p>Test data will be added in the next script for debugging and load simulation.</p>
+      <div class="chart-container">
+        <h3>Lead Status Overview</h3>
+        <canvas id="statusChart" height="100"></canvas>
+      </div>
     </div>
     <footer>
       &copy; 2025 CoreCloud (Pty) Ltd – All rights reserved.
@@ -189,13 +132,35 @@
       });
     });
 
-    function logoutUser() {
-      firebase.auth().signOut().then(() => {
-        location.reload();
-      }).catch(error => {
-        alert('Logout failed: ' + error.message);
-      });
-    }
+    // Load chart
+    document.addEventListener("DOMContentLoaded", () => {
+      const ctx = document.getElementById('statusChart');
+      if (ctx) {
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: ['New', 'Contacted', 'Qualified', 'Lost', 'Customer'],
+            datasets: [{
+              label: 'Leads by Status',
+              data: [5, 6, 4, 3, 7],
+              backgroundColor: ['#0077cc', '#00aaff', '#66cc66', '#ff6666', '#ffaa00'],
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'bottom'
+              },
+              title: {
+                display: true,
+                text: 'Current CRM Lead Distribution'
+              }
+            }
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>
