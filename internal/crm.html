@@ -119,58 +119,61 @@
   </style>
 </head>
 <body>
-  <div class="banner">
-    <img src="assets/img/corecloud-neon-logo.png" alt="CoreCloud Neon Logo" class="logo" style="height: 90px; position: absolute; top: 20px; left: 30px; border-radius: 8px;" />
-    <h1 id="greeting">CoreCloud CRM</h1>
-  </div>
-  <div class="main" id="mainContent" style="display:none;">
-    <div class="form-section">
-      <h3>Add New Lead</h3>
-      <form id="leadForm">
-        <input type="text" id="name" placeholder="Full Name" required />
-        <input type="text" id="company" placeholder="Company" required />
-        <input type="email" id="email" placeholder="Email" required />
-        <input type="tel" id="phone" placeholder="Phone" required />
-        <select id="status">
-          <option value="Lead">Lead</option>
-          <option value="Prospect">Prospect</option>
-          <option value="Qualified">Qualified</option>
-          <option value="Closed">Closed</option>
-        </select>
-        <button type="submit">Add Lead</button>
-      </form>
+  <div id="crmApp" style="display:none;">
+    <div class="banner">
+      <img src="assets/images/corecloud-neon-logo.png" alt="CoreCloud Neon Logo" class="logo" />
+      <h1 id="greeting">CoreCloud CRM</h1>
     </div>
+    <div class="main">
+      <div class="form-section">
+        <h3>Add New Lead</h3>
+        <form id="leadForm">
+          <input type="text" id="name" placeholder="Full Name" required />
+          <input type="text" id="company" placeholder="Company" required />
+          <input type="email" id="email" placeholder="Email" required />
+          <input type="tel" id="phone" placeholder="Phone" required />
+          <select id="status">
+            <option value="Lead">Lead</option>
+            <option value="Prospect">Prospect</option>
+            <option value="Qualified">Qualified</option>
+            <option value="Closed">Closed</option>
+          </select>
+          <button type="submit">Add Lead</button>
+        </form>
+      </div>
 
-    <div class="chart-container">
-      <h2>Lead Status Overview</h2>
-      <canvas id="statusChart"></canvas>
+      <div class="chart-container">
+        <h2>Lead Status Overview</h2>
+        <canvas id="statusChart"></canvas>
+      </div>
+
+      <h3>Upload LinkedIn Contacts CSV</h3>
+      <input type="file" accept=".csv" onchange="handleLinkedInUpload(event)" />
+
+      <h3>Search Leads</h3>
+      <input type="text" id="searchInput" placeholder="Search by name, company, or email..." onkeyup="filterLeads()" />
+
+      <h3>Lead Table</h3>
+      <button onclick="exportToCSV()">Export to CSV</button>
+      <table id="leadTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Status</th>
+            <th>Last Contacted</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
     </div>
-
-    <h3>Upload LinkedIn Contacts CSV</h3>
-    <input type="file" accept=".csv" onchange="handleLinkedInUpload(event)" />
-
-    <h3>Search Leads</h3>
-    <input type="text" id="searchInput" placeholder="Search by name, company, or email..." onkeyup="filterLeads()" />
-
-    <h3>Lead Table</h3>
-    <button onclick="exportToCSV()">Export to CSV</button>
-    <table id="leadTable">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Company</th>
-          <th>Email</th>
-          <th>Phone</th>
-          <th>Status</th>
-          <th>Last Contacted</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
+    <footer>
+      &copy; 2025 CoreCloud (Pty) Ltd – All rights reserved. | 433 Broadacres Country Estate, Syringa Rd, Broadacres, Johannesburg
+    </footer>
   </div>
-  <footer>
-    &copy; 2025 CoreCloud (Pty) Ltd – All rights reserved. | 433 Broadacres Country Estate, Syringa Rd, Broadacres, Johannesburg
-  </footer>
+
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyBWjVSHJ7EXtwyB_q9dk3eb46uYHU8LGiU",
@@ -182,6 +185,14 @@
       measurementId: "G-HVK729YF2V"
     };
     firebase.initializeApp(firebaseConfig);
+
+    function signInWithGoogle() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider).catch(error => {
+        console.error('Google Sign-In Error:', error.message);
+        alert('Google Sign-In failed: ' + error.message);
+      });
+    }
 
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -195,31 +206,17 @@
           return;
         }
         document.getElementById("greeting").textContent = `Hello ${name}`;
-        document.getElementById("mainContent").style.display = 'block';
+        document.getElementById("crmApp").style.display = 'block';
       } else {
-        window.location.href = '/';
+        document.body.innerHTML = `
+          <div style="text-align:center; margin-top: 5rem;">
+            <h2>Please sign in to access the CRM</h2>
+            <button onclick="signInWithGoogle()" style="padding: 10px 20px; font-size: 1rem; background-color: #0077cc; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Sign in with Google</button>
+          </div>
+        `;
       }
     });
   </script>
   <script src="scripts/crm.js"></script>
-  <script>
-    function signInWithGoogle() {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider).catch(error => {
-        console.error('Google Sign-In Error:', error.message);
-        alert('Google Sign-In failed: ' + error.message);
-      });
-    }
-
-    if (!firebase.auth().currentUser) {
-      const loginDiv = document.createElement('div');
-      loginDiv.style = 'text-align:center; margin-top: 5rem;';
-      loginDiv.innerHTML = `
-        <h2>Please sign in to access the CRM</h2>
-        <button onclick="signInWithGoogle()" style="padding: 10px 20px; font-size: 1rem; background-color: #0077cc; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Sign in with Google</button>
-      `;
-      document.body.prepend(loginDiv);
-    }
-  </script>
 </body>
 </html>
