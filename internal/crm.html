@@ -105,7 +105,7 @@
       <div class="summary-card">Closed<br><span id="count-closed">0</span></div>
     </div>
     <div style="display: flex; justify-content: space-between; align-items: center; margin: 1rem 0;">
-      <input type="text" id="search-input" placeholder="Search leads..." style="width: 60%;">
+      <input type="text" id="search-input" placeholder="Search leads..." style="width: 50%;">
       <select id="status-filter">
         <option value="">All Statuses</option>
         <option value="Lead">Lead</option>
@@ -117,6 +117,8 @@
         <input type="file" id="csv-input" accept=".csv" />
         <button onclick="openLeadModal()">➕ Add Lead</button>
         <button onclick="exportLeads()">⬇️ Download</button>
+        <button onclick="document.getElementById('linkedin-input').click()">🔗 Upload LinkedIn</button>
+        <input type="file" id="linkedin-input" accept=".csv" style="display:none" onchange="handleLinkedInUpload(event)" />
       </div>
     </div>
     <table id="lead-table">
@@ -259,6 +261,21 @@
       link.href = URL.createObjectURL(blob);
       link.download = "corecloud_crm.csv";
       link.click();
+    }
+    function handleLinkedInUpload(event) {
+      const file = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = function () {
+        const lines = reader.result.split("\n").slice(1);
+        const leads = lines.filter(Boolean).map(line => {
+          const [name, company, email, phone] = line.split(",");
+          return { name, company, email, phone, status: "Lead", lastContacted: new Date().toISOString().split('T')[0] };
+        });
+        const existing = loadLeadsFromLocal();
+        saveLeadsToLocal([...existing, ...leads]);
+        renderTable([...existing, ...leads]);
+      };
+      reader.readAsText(file);
     }
     document.getElementById("status-filter").addEventListener("change", () => {
       renderTable(loadLeadsFromLocal());
