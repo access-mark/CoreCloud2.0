@@ -148,6 +148,35 @@
   </div>
 
   <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBWjVSHJ7EXtwyB_q9dk3eb46uYHU8LGiU",
+      authDomain: "corecloud-crm.firebaseapp.com",
+      projectId: "corecloud-crm",
+      storageBucket: "corecloud-crm.appspot.com",
+      messagingSenderId: "283481366995",
+      appId: "1:283481366995:web:84d682ae160ac4558c4f26",
+      measurementId: "G-HVK729YF2V"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    document.getElementById("login").addEventListener("click", () => {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider).then((result) => {
+        const email = result.user.email;
+        if (email.endsWith("@corecloudza.com")) {
+          document.getElementById("login-card").classList.add("hidden");
+          document.getElementById("crm-ui").classList.remove("hidden");
+          document.getElementById("user-email").textContent = email;
+          renderTable(loadLeadsFromLocal());
+        } else {
+          document.getElementById("access-denied").classList.remove("hidden");
+          firebase.auth().signOut();
+        }
+      }).catch((error) => {
+        console.error("Login failed:", error.message);
+      });
+    });
+
     function openLeadModal() {
       document.getElementById("lead-modal").classList.remove("hidden");
     }
@@ -172,6 +201,71 @@
         document.getElementById(id).value = '';
       });
     }
+
+    function loadLeadsFromLocal() {
+      return JSON.parse(localStorage.getItem("leads") || "[]");
+    }
+    function saveLeadsToLocal(leads) {
+      localStorage.setItem("leads", JSON.stringify(leads));
+    }
+    function renderTable(leads) {
+      const filter = document.getElementById("status-filter").value.toLowerCase();
+      const search = document.getElementById("search-input").value.toLowerCase();
+      const tbody = document.querySelector("#lead-table tbody");
+      tbody.innerHTML = "";
+      const counters = { Lead: 0, Prospect: 0, Qualified: 0, Closed: 0 };
+      leads.forEach((lead, i) => {
+        if ((filter && lead.status.toLowerCase() !== filter) || !JSON.stringify(lead).toLowerCase().includes(search)) return;
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${lead.name}</td><td>${lead.company}</td><td>${lead.email}</td><td>${lead.phone}</td>
+          <td>${lead.status}</td><td>${lead.lastContacted}</td>
+          <td><button onclick="deleteLead(${i})">🗑</button></td>`;
+        tbody.appendChild(row);
+        if (counters[lead.status] !== undefined) counters[lead.status]++;
+      });
+      document.getElementById("count-leads").textContent = counters["Lead"];
+      document.getElementById("count-prospects").textContent = counters["Prospect"];
+      document.getElementById("count-qualified").textContent = counters["Qualified"];
+      document.getElementById("count-closed").textContent = counters["Closed"];
+    }
+    function deleteLead(index) {
+      const leads = loadLeadsFromLocal();
+      leads.splice(index, 1);
+      saveLeadsToLocal(leads);
+      renderTable(leads);
+    }
+    document.getElementById("csv-input").addEventListener("change", (e) => {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const lines = reader.result.split("\n").slice(1);
+        const leads = lines.filter(Boolean).map(line => {
+          const [name, company, email, phone, status, lastContacted] = line.split(",");
+          return { name, company, email, phone, status, lastContacted };
+        });
+        saveLeadsToLocal(leads);
+        renderTable(leads);
+      };
+      reader.readAsText(e.target.files[0]);
+    });
+    function exportLeads() {
+      const leads = loadLeadsFromLocal();
+      const csv = ["Name,Company,Email,Phone,Status,LastContacted"];
+      leads.forEach(l => {
+        csv.push(`${l.name},${l.company},${l.email},${l.phone},${l.status},${l.lastContacted}`);
+      });
+      const blob = new Blob([csv.join("\n")], { type: "text/csv" });
+      const link = document.createElement("a");
+      link.href = URL.createObjectURL(blob);
+      link.download = "corecloud_crm.csv";
+      link.click();
+    }
+    document.getElementById("status-filter").addEventListener("change", () => {
+      renderTable(loadLeadsFromLocal());
+    });
+    document.getElementById("search-input").addEventListener("input", () => {
+      renderTable(loadLeadsFromLocal());
+    });
   </script>
 </body>
 </html>
