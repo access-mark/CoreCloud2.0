@@ -49,9 +49,6 @@
       border-radius: 10px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.1);
     }
-    .form-section h3 {
-      margin-top: 0;
-    }
     form input, form select {
       display: block;
       width: 100%;
@@ -101,27 +98,33 @@
       font-size: 0.875rem;
       margin-top: 4rem;
     }
-    .status-select {
-      width: 100%;
-      padding: 0.5rem;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      background-color: #fff;
-      font-size: 1rem;
+    #loginContainer {
+      text-align: center;
+      margin-top: 5rem;
     }
-    #searchInput {
-      margin: 1rem 0;
-      padding: 0.5rem;
-      width: 100%;
-      border: 1px solid #ccc;
+    #loginContainer button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #0077cc;
+      color: #fff;
+      border: none;
       border-radius: 5px;
+      cursor: pointer;
+    }
+    #crmApp {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <div id="crmApp" style="display:none;">
+  <div id="loginContainer">
+    <h2>Please sign in to access the CRM</h2>
+    <button onclick="signInWithGoogle()">Sign in with Google</button>
+  </div>
+
+  <div id="crmApp">
     <div class="banner">
-      <img src="assets/images/corecloud-neon-logo.png" alt="CoreCloud Neon Logo" class="logo" />
+      <img src="assets/images/corecloud-neon-logo.png" alt="CoreCloud Logo" class="logo" />
       <h1 id="greeting">CoreCloud CRM</h1>
     </div>
     <div class="main">
@@ -170,7 +173,7 @@
       </table>
     </div>
     <footer>
-      &copy; 2025 CoreCloud (Pty) Ltd – All rights reserved. | 433 Broadacres Country Estate, Syringa Rd, Broadacres, Johannesburg
+      &copy; 2025 CoreCloud (Pty) Ltd – All rights reserved.
     </footer>
   </div>
 
@@ -181,15 +184,13 @@
       projectId: "corecloud-crm",
       storageBucket: "corecloud-crm.appspot.com",
       messagingSenderId: "283481366995",
-      appId: "1:283481366995:web:84d682ae160ac4558c4f26",
-      measurementId: "G-HVK729YF2V"
+      appId: "1:283481366995:web:84d682ae160ac4558c4f26"
     };
     firebase.initializeApp(firebaseConfig);
 
     function signInWithGoogle() {
       const provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider).catch(error => {
-        console.error('Google Sign-In Error:', error.message);
         alert('Google Sign-In failed: ' + error.message);
       });
     }
@@ -197,7 +198,7 @@
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
         const email = user.email;
-        let name = "there";
+        let name = "User";
         if (email === "mark@corecloudza.com") name = "Mark";
         else if (email === "justine@corecloudza.com") name = "Justine";
         else {
@@ -206,14 +207,8 @@
           return;
         }
         document.getElementById("greeting").textContent = `Hello ${name}`;
-        document.getElementById("crmApp").style.display = 'block';
-      } else {
-        document.body.innerHTML = `
-          <div style="text-align:center; margin-top: 5rem;">
-            <h2>Please sign in to access the CRM</h2>
-            <button onclick="signInWithGoogle()" style="padding: 10px 20px; font-size: 1rem; background-color: #0077cc; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Sign in with Google</button>
-          </div>
-        `;
+        document.getElementById("loginContainer").style.display = "none";
+        document.getElementById("crmApp").style.display = "block";
       }
     });
   </script>
