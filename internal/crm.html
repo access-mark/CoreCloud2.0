@@ -141,8 +141,8 @@
       <form id="leadForm">
         <input type="text" id="name" placeholder="Full Name" required />
         <input type="text" id="company" placeholder="Company" required />
-        <input type="email" id="email" placeholder="Email" />
-        <input type="tel" id="phone" placeholder="Phone" />
+        <input type="email" id="email" placeholder="Email" required />
+        <input type="tel" id="phone" placeholder="Phone" required />
         <select id="status">
           <option value="Lead">Lead</option>
           <option value="Prospect">Prospect</option>
@@ -182,132 +182,130 @@
   </footer>
 
   <script>
-    document.getElementById('leadForm').addEventListener('submit', function (e) {
+    const firebaseConfig = {
+      apiKey: "AIzaSyBWjVSHJ7EXtwyB_q9dk3eb46uYHU8LGiU",
+      authDomain: "corecloud-crm.firebaseapp.com",
+      projectId: "corecloud-crm",
+      storageBucket: "corecloud-crm.appspot.com",
+      messagingSenderId: "283481366995",
+      appId: "1:283481366995:web:84d682ae160ac4558c4f26",
+      measurementId: "G-HVK729YF2V"
+    };
+    firebase.initializeApp(firebaseConfig);
+
+    const chartData = {
+      labels: ["Lead", "Prospect", "Qualified", "Closed"],
+      datasets: [{
+        label: 'Lead Count',
+        data: [0, 0, 0, 0],
+        backgroundColor: ['#0077cc', '#00bcd4', '#4caf50', '#9c27b0']
+      }]
+    };
+
+    const ctx = document.getElementById('statusChart').getContext('2d');
+    const statusChart = new Chart(ctx, {
+      type: 'bar',
+      data: chartData,
+      options: { responsive: true, scales: { y: { beginAtZero: true } } }
+    });
+
+    const leadForm = document.getElementById("leadForm");
+    const leadTable = document.querySelector("#leadTable tbody");
+    const leads = [];
+
+    leadForm.addEventListener("submit", e => {
       e.preventDefault();
-      const name = document.getElementById('name').value;
-      const company = document.getElementById('company').value;
-      const email = document.getElementById('email').value;
-      const phone = document.getElementById('phone').value;
-      const status = document.getElementById('status').value;
-      const lastContacted = new Date().toISOString().split('T')[0];
-      const newLead = { name, company, email, phone, status, lastContacted };
-      const existing = loadLeadsFromLocal();
-      const duplicate = existing.find(lead => lead.name === name && lead.company === company);
-      if (duplicate) {
-        alert("Duplicate entry detected. This lead already exists.");
+      const name = document.getElementById("name").value;
+      const company = document.getElementById("company").value;
+      const email = document.getElementById("email").value;
+      const phone = document.getElementById("phone").value;
+      const status = document.getElementById("status").value;
+
+      if (leads.some(l => l.email === email)) {
+        alert("This email is already in the system.");
         return;
       }
-      existing.push(newLead);
-      saveLeadsToLocal(existing);
-      renderTable(existing);
-      updateChart(existing);
-      document.getElementById('leadForm').reset();
+
+      const lead = { name, company, email, phone, status, lastContacted: new Date().toLocaleDateString() };
+      leads.push(lead);
+      addLeadToTable(lead);
+      updateChart();
+      leadForm.reset();
     });
+
+    function addLeadToTable(lead) {
+      const row = document.createElement("tr");
+      row.innerHTML = `
+        <td>${lead.name}</td>
+        <td>${lead.company}</td>
+        <td>${lead.email}</td>
+        <td>${lead.phone}</td>
+        <td>
+          <select class="status-select" onchange="updateStatus(this)">
+            <option ${lead.status === "Lead" ? "selected" : ""}>Lead</option>
+            <option ${lead.status === "Prospect" ? "selected" : ""}>Prospect</option>
+            <option ${lead.status === "Qualified" ? "selected" : ""}>Qualified</option>
+            <option ${lead.status === "Closed" ? "selected" : ""}>Closed</option>
+          </select>
+        </td>
+        <td>${lead.lastContacted}</td>
+      `;
+      leadTable.appendChild(row);
+    }
+
+    function updateStatus(select) {
+      const row = select.closest("tr");
+      const email = row.children[2].textContent;
+      const lead = leads.find(l => l.email === email);
+      if (lead) {
+        lead.status = select.value;
+        updateChart();
+      }
+    }
+
+    function updateChart() {
+      const counts = [0, 0, 0, 0];
+      leads.forEach(l => {
+        if (l.status === "Lead") counts[0]++;
+        if (l.status === "Prospect") counts[1]++;
+        if (l.status === "Qualified") counts[2]++;
+        if (l.status === "Closed") counts[3]++;
+      });
+      statusChart.data.datasets[0].data = counts;
+      statusChart.update();
+    }
 
     function handleLinkedInUpload(event) {
       const file = event.target.files[0];
       const reader = new FileReader();
-      reader.onload = function () {
-        const lines = reader.result.split("\n").slice(1);
-        const leads = lines.filter(Boolean).map(line => {
-          const fields = line.split(',');
-          const name = `${fields[0]} ${fields[1]}`;
-          const company = fields[2] || "Unknown";
-          const email = fields[4] || "";
-          const phone = fields[5] || "";
-          return {
-            name,
-            company,
+      reader.onload = function(e) {
+        const lines = e.target.result.split("\n");
+        const headers = lines[0].split(",");
+        const emailIndex = headers.findIndex(h => h.toLowerCase().includes("email"));
+        const nameIndex = headers.findIndex(h => h.toLowerCase().includes("name"));
+        const companyIndex = headers.findIndex(h => h.toLowerCase().includes("company"));
+        const phoneIndex = headers.findIndex(h => h.toLowerCase().includes("phone"));
+
+        for (let i = 1; i < lines.length; i++) {
+          const fields = lines[i].split(",");
+          const email = fields[emailIndex]?.trim();
+          if (!email || leads.some(l => l.email === email)) continue;
+
+          const lead = {
+            name: fields[nameIndex]?.trim() || "",
+            company: fields[companyIndex]?.trim() || "",
             email,
-            phone,
+            phone: fields[phoneIndex]?.trim() || "",
             status: "Lead",
-            lastContacted: new Date().toISOString().split('T')[0],
+            lastContacted: new Date().toLocaleDateString()
           };
-        });
-        const existing = loadLeadsFromLocal();
-        const merged = [...existing];
-        leads.forEach(newLead => {
-          if (!merged.some(existingLead => existingLead.name === newLead.name && existingLead.company === newLead.company)) {
-            merged.push(newLead);
-          }
-        });
-        saveLeadsToLocal(merged);
-        renderTable(merged);
-        updateChart(merged);
+          leads.push(lead);
+          addLeadToTable(lead);
+        }
+        updateChart();
       };
       reader.readAsText(file);
     }
-
-    function updateChart(leads) {
-      const statusCounts = { Lead: 0, Prospect: 0, Qualified: 0, Closed: 0 };
-      leads.forEach(lead => {
-        if (statusCounts[lead.status] !== undefined) {
-          statusCounts[lead.status]++;
-        }
-      });
-      const ctx = document.getElementById('statusChart').getContext('2d');
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: Object.keys(statusCounts),
-          datasets: [{
-            label: 'Leads by Status',
-            data: Object.values(statusCounts),
-            backgroundColor: ['#0077cc', '#28a745', '#ffc107', '#dc3545']
-          }]
-        },
-        options: {
-          responsive: true,
-          scales: {
-            y: { beginAtZero: true }
-          }
-        }
-      });
-    }
-
-    function loadLeadsFromLocal() {
-      return JSON.parse(localStorage.getItem('leads') || '[]');
-    }
-
-    function saveLeadsToLocal(leads) {
-      localStorage.setItem('leads', JSON.stringify(leads));
-    }
-
-    function renderTable(leads) {
-      const tbody = document.querySelector('#leadTable tbody');
-      tbody.innerHTML = '';
-      leads.forEach((lead, index) => {
-        const row = document.createElement('tr');
-        row.innerHTML = `
-          <td>${lead.name}</td>
-          <td>${lead.company}</td>
-          <td>${lead.email}</td>
-          <td>${lead.phone}</td>
-          <td>
-            <select class="status-select" onchange="updateStatus(${index}, this.value)">
-              <option value="Lead" ${lead.status === 'Lead' ? 'selected' : ''}>Lead</option>
-              <option value="Prospect" ${lead.status === 'Prospect' ? 'selected' : ''}>Prospect</option>
-              <option value="Qualified" ${lead.status === 'Qualified' ? 'selected' : ''}>Qualified</option>
-              <option value="Closed" ${lead.status === 'Closed' ? 'selected' : ''}>Closed</option>
-            </select>
-          </td>
-          <td>${lead.lastContacted}</td>
-        `;
-        tbody.appendChild(row);
-      });
-    }
-
-    function updateStatus(index, newStatus) {
-      const leads = loadLeadsFromLocal();
-      leads[index].status = newStatus;
-      saveLeadsToLocal(leads);
-      renderTable(leads);
-      updateChart(leads);
-    }
-
-    const storedLeads = loadLeadsFromLocal();
-    renderTable(storedLeads);
-    updateChart(storedLeads);
   </script>
 </body>
 </html>
