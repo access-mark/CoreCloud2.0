@@ -111,6 +111,19 @@
     #crmApp {
       display: none;
     }
+    .pagination {
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .pagination button {
+      padding: 0.5rem 1rem;
+      margin: 0 0.25rem;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
@@ -118,20 +131,14 @@
     <h2>Please sign in to access the CRM</h2>
     <button onclick="signInWithGoogle()">Sign in with Google</button>
   </div>
-
   <div id="crmApp">
     <div class="banner">
       <h1 id="greeting">Hello</h1>
       <button onclick="firebase.auth().signOut()">Log Out</button>
     </div>
-
     <div class="main">
-      <div class="charts-row">
-        <div class="chart-container"><canvas id="statusChart"></canvas></div>
-        <div class="chart-container"><canvas id="companyChart"></canvas></div>
-        <div class="chart-container"><canvas id="monthlyChart"></canvas></div>
-      </div>
-
+      <h2>Bulk Upload (LinkedIn CSV)</h2>
+      <input type="file" id="csvUpload" accept=".csv" />
       <h2 style="margin-top: 2rem;">Add New Lead</h2>
       <form id="leadForm">
         <input type="text" id="name" placeholder="Full Name" required />
@@ -147,113 +154,69 @@
         </select>
         <button type="submit">Add Lead</button>
       </form>
-
       <h2>Leads</h2>
       <table id="leadsTable">
         <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Company</th>
-            <th>Status</th>
-          </tr>
+          <tr><th>Name</th><th>Email</th><th>Company</th><th>Status</th><th>Actions</th></tr>
         </thead>
         <tbody></tbody>
       </table>
+      <div class="pagination">
+        <button onclick="prevPage()">Prev</button>
+        <button onclick="nextPage()">Next</button>
+      </div>
     </div>
-
-    <footer>
-      &copy; 2025 CoreCloud (Pty) Ltd – All rights reserved.
-    </footer>
+    <footer>&copy; 2025 CoreCloud (Pty) Ltd – All rights reserved.</footer>
   </div>
-
   <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyBWjVSHJ7EXtwyB_q9dk3eb46uYHU8LGiU",
-      authDomain: "corecloud-crm.firebaseapp.com",
-      projectId: "corecloud-crm",
-      storageBucket: "corecloud-crm.appspot.com",
-      messagingSenderId: "283481366995",
-      appId: "1:283481366995:web:84d682ae160ac4558c4f26"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-
-    function signInWithGoogle() {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider)
-        .then(result => {
-          const email = result.user.email;
-          if (["mark@corecloudza.com", "justine@corecloudza.com"].includes(email)) {
-            document.getElementById("loginContainer").style.display = "none";
-            document.getElementById("crmApp").style.display = "block";
-            document.getElementById("greeting").textContent = `Hello ${email.includes("justine") ? "Justine" : "Mark"}`;
-          } else {
-            alert("Access denied.");
-            firebase.auth().signOut();
-          }
-        })
-        .catch(error => console.error("Login failed:", error.message));
-    }
-
-    firebase.auth().onAuthStateChanged(user => {
-      if (user && ["mark@corecloudza.com", "justine@corecloudza.com"].includes(user.email)) {
-        document.getElementById("loginContainer").style.display = "none";
-        document.getElementById("crmApp").style.display = "block";
-        document.getElementById("greeting").textContent = `Hello ${user.email.includes("justine") ? "Justine" : "Mark"}`;
-      }
-    });
-
     const leads = [];
-
-    function updateCharts() {
-      const statusCount = { New: 0, Contacted: 0, Qualified: 0, Lost: 0, Customer: 0 };
-      const companyCount = {};
-      const monthlyCount = {};
-
-      leads.forEach(lead => {
-        statusCount[lead.status] = (statusCount[lead.status] || 0) + 1;
-        companyCount[lead.company] = (companyCount[lead.company] || 0) + 1;
-        const month = new Date().toLocaleString('default', { month: 'short' });
-        monthlyCount[month] = (monthlyCount[month] || 0) + 1;
-      });
-
-      new Chart(document.getElementById("statusChart"), {
-        type: 'doughnut',
-        data: {
-          labels: Object.keys(statusCount),
-          datasets: [{ data: Object.values(statusCount), backgroundColor: ['#0077cc', '#00cc88', '#ffaa00', '#ff4444', '#999999'] }]
-        },
-        options: { responsive: true }
-      });
-
-      new Chart(document.getElementById("companyChart"), {
-        type: 'bar',
-        data: {
-          labels: Object.keys(companyCount),
-          datasets: [{ label: "Leads", data: Object.values(companyCount), backgroundColor: '#0077cc' }]
-        },
-        options: { responsive: true }
-      });
-
-      new Chart(document.getElementById("monthlyChart"), {
-        type: 'line',
-        data: {
-          labels: Object.keys(monthlyCount),
-          datasets: [{ label: "Monthly Leads", data: Object.values(monthlyCount), borderColor: '#00cc88', fill: false }]
-        },
-        options: { responsive: true }
-      });
-    }
+    let currentPage = 0;
+    const pageSize = 10;
 
     function renderTable() {
       const tbody = document.querySelector("#leadsTable tbody");
       tbody.innerHTML = "";
-      leads.forEach(lead => {
+      const start = currentPage * pageSize;
+      const paginated = leads.slice(start, start + pageSize);
+      paginated.forEach((lead, index) => {
         const row = document.createElement("tr");
-        row.innerHTML = `<td>${lead.name}</td><td>${lead.email}</td><td>${lead.company}</td><td>${lead.status}</td>`;
+        row.innerHTML = `
+          <td>${lead.name}</td>
+          <td>${lead.email}</td>
+          <td>${lead.company}</td>
+          <td>${lead.status}</td>
+          <td><button onclick="editLead(${start + index})">Edit</button> <button onclick="deleteLead(${start + index})">Delete</button></td>
+        `;
         tbody.appendChild(row);
       });
+    }
+
+    function nextPage() {
+      if ((currentPage + 1) * pageSize < leads.length) {
+        currentPage++;
+        renderTable();
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 0) {
+        currentPage--;
+        renderTable();
+      }
+    }
+
+    function editLead(index) {
+      const lead = leads[index];
+      document.getElementById("name").value = lead.name;
+      document.getElementById("email").value = lead.email;
+      document.getElementById("company").value = lead.company;
+      document.getElementById("status").value = lead.status;
+      deleteLead(index);
+    }
+
+    function deleteLead(index) {
+      leads.splice(index, 1);
+      renderTable();
     }
 
     document.getElementById("leadForm").addEventListener("submit", function(e) {
@@ -263,22 +226,39 @@
       const company = document.getElementById("company").value;
       const status = document.getElementById("status").value;
 
-      if (!name || !email || !company || !status) return;
+      const duplicate = leads.some(l => l.email === email);
+      if (duplicate) return alert("Duplicate lead detected.");
 
       leads.push({ name, email, company, status });
-      renderTable();
-      updateCharts();
       this.reset();
+      renderTable();
+    });
+
+    document.getElementById("csvUpload").addEventListener("change", function(e) {
+      const file = e.target.files[0];
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const lines = e.target.result.split("\n");
+        lines.forEach(line => {
+          const [name, email, company, status] = line.split(",");
+          if (name && email && company && status && !leads.some(l => l.email === email)) {
+            leads.push({ name, email, company, status });
+          }
+        });
+        renderTable();
+      };
+      reader.readAsText(file);
     });
 
     for (let i = 1; i <= 25; i++) {
-      const statuses = ["New", "Contacted", "Qualified", "Lost", "Customer"];
-      const randomStatus = statuses[Math.floor(Math.random() * statuses.length)];
-      leads.push({ name: `Test User ${i}`, email: `user${i}@example.com`, company: `Company ${i % 5}`, status: randomStatus });
+      leads.push({
+        name: `Test User ${i}`,
+        email: `user${i}@example.com`,
+        company: `Company ${i % 5}`,
+        status: ["New","Contacted","Qualified","Lost","Customer"][i % 5]
+      });
     }
-
     renderTable();
-    updateCharts();
   </script>
 </body>
 </html>
