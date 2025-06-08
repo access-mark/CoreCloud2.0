@@ -1,0 +1,237 @@
+<!-- Save this as crm.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CoreCloud CRM</title>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 500px;
+      margin: 2rem auto;
+    }
+    .hidden { display: none; }
+    .summary-card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      min-width: 120px;
+      font-weight: bold;
+    }
+    table {
+      width: 100%;
+      margin-top: 1rem;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 0.5rem;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    #lead-modal input, #lead-modal select {
+      width: 100%;
+      margin: 0.25rem 0;
+      padding: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="card" id="login-card">
+    <h2>CoreCloud CRM Access</h2>
+    <p>Please sign in with your CoreCloud email to access the CRM.</p>
+    <button id="login">Sign in with Google</button>
+    <div id="access-denied" class="hidden">
+      <p>❌ Access denied. You must sign in with a corecloudza.com email.</p>
+    </div>
+  </div>
+
+  <div id="crm-ui" class="hidden">
+    <h2>CoreCloud CRM</h2>
+    <p>Welcome, <span id="user-email"></span></p>
+
+    <div id="crm-summary" style="display: flex; gap: 1rem; justify-content: center; margin-top: 1rem;">
+      <div class="summary-card">Leads: <span id="count-leads">0</span></div>
+      <div class="summary-card">Prospects: <span id="count-prospects">0</span></div>
+      <div class="summary-card">Qualified: <span id="count-qualified">0</span></div>
+      <div class="summary-card">Closed: <span id="count-closed">0</span></div>
+    </div>
+
+    <div style="margin: 2rem auto; max-width: 1000px;">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <input type="text" id="search-input" placeholder="Search leads..." style="padding: 0.5rem; width: 60%;">
+        <button onclick="openLeadModal()">➕ Add Lead</button>
+      </div>
+      <table id="lead-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Status</th>
+            <th>Last Contacted</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <div id="lead-modal" class="hidden" style="position: fixed; top: 20%; left: 50%; transform: translateX(-50%);
+        background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.2); z-index: 1000;">
+      <h3 id="modal-title">Add Lead</h3>
+      <input id="lead-name" placeholder="Name"><br>
+      <input id="lead-company" placeholder="Company"><br>
+      <input id="lead-email" placeholder="Email"><br>
+      <input id="lead-phone" placeholder="Phone"><br>
+      <select id="lead-status">
+        <option value="Lead">Lead</option>
+        <option value="Prospect">Prospect</option>
+        <option value="Qualified">Qualified</option>
+        <option value="Closed">Closed</option>
+      </select><br>
+      <input id="lead-contacted" type="date"><br><br>
+      <button onclick="saveLead()">💾 Save</button>
+      <button onclick="closeLeadModal()">❌ Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyBWjVSHJ7EXtwyB_q9dk3eb46uYHU8LGiU",
+      authDomain: "corecloud-crm.firebaseapp.com",
+      projectId: "corecloud-crm",
+      storageBucket: "corecloud-crm.firebasestorage.app",
+      messagingSenderId: "283481366995",
+      appId: "1:283481366995:web:84d682ae160ac4558c4f26",
+      measurementId: "G-HVK729YF2V"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    const loginBtn = document.getElementById('login');
+    const crmUI = document.getElementById('crm-ui');
+    const accessDenied = document.getElementById('access-denied');
+    const loginCard = document.getElementById('login-card');
+    const userEmailSpan = document.getElementById('user-email');
+
+    loginBtn.onclick = () => {
+      firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
+        .then((result) => {
+          const email = result.user.email;
+          if (email.endsWith("@corecloudza.com")) {
+            userEmailSpan.textContent = email;
+            crmUI.classList.remove('hidden');
+            loginCard.classList.add('hidden');
+          } else {
+            accessDenied.classList.remove('hidden');
+          }
+        })
+        .catch((error) => {
+          alert("Login failed: " + error.message);
+        });
+    };
+
+    let leads = [];
+
+    function updateTable() {
+      const tbody = document.querySelector("#lead-table tbody");
+      tbody.innerHTML = "";
+      const search = document.getElementById("search-input").value.toLowerCase();
+      let counts = { Lead: 0, Prospect: 0, Qualified: 0, Closed: 0 };
+
+      leads.forEach((lead, index) => {
+        if (Object.values(lead).some(val => val.toLowerCase().includes(search))) {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${lead.name}</td>
+            <td>${lead.company}</td>
+            <td>${lead.email}</td>
+            <td>${lead.phone}</td>
+            <td>${lead.status}</td>
+            <td>${lead.lastContacted}</td>
+            <td>
+              <button onclick="editLead(${index})">✏️</button>
+              <button onclick="deleteLead(${index})">🗑️</button>
+            </td>
+          `;
+          tbody.appendChild(tr);
+          counts[lead.status]++;
+        }
+      });
+
+      document.getElementById("count-leads").textContent = counts["Lead"];
+      document.getElementById("count-prospects").textContent = counts["Prospect"];
+      document.getElementById("count-qualified").textContent = counts["Qualified"];
+      document.getElementById("count-closed").textContent = counts["Closed"];
+    }
+
+    function openLeadModal(editIndex = null) {
+      document.getElementById("lead-modal").classList.remove("hidden");
+      if (editIndex !== null) {
+        const lead = leads[editIndex];
+        document.getElementById("modal-title").textContent = "Edit Lead";
+        document.getElementById("lead-name").value = lead.name;
+        document.getElementById("lead-company").value = lead.company;
+        document.getElementById("lead-email").value = lead.email;
+        document.getElementById("lead-phone").value = lead.phone;
+        document.getElementById("lead-status").value = lead.status;
+        document.getElementById("lead-contacted").value = lead.lastContacted;
+        document.getElementById("lead-modal").dataset.editing = editIndex;
+      } else {
+        document.getElementById("modal-title").textContent = "Add Lead";
+        document.querySelectorAll("#lead-modal input, #lead-modal select").forEach(el => el.value = "");
+        delete document.getElementById("lead-modal").dataset.editing;
+      }
+    }
+
+    function closeLeadModal() {
+      document.getElementById("lead-modal").classList.add("hidden");
+    }
+
+    function saveLead() {
+      const lead = {
+        name: document.getElementById("lead-name").value,
+        company: document.getElementById("lead-company").value,
+        email: document.getElementById("lead-email").value,
+        phone: document.getElementById("lead-phone").value,
+        status: document.getElementById("lead-status").value,
+        lastContacted: document.getElementById("lead-contacted").value,
+      };
+      const editIndex = document.getElementById("lead-modal").dataset.editing;
+      if (editIndex !== undefined) {
+        leads[editIndex] = lead;
+      } else {
+        leads.unshift(lead);
+      }
+      closeLeadModal();
+      updateTable();
+    }
+
+    function editLead(index) {
+      openLeadModal(index);
+    }
+
+    function deleteLead(index) {
+      leads.splice(index, 1);
+      updateTable();
+    }
+
+    document.getElementById("search-input").addEventListener("input", updateTable);
+  </script>
+</body>
+</html>
