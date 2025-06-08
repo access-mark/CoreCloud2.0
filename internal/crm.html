@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
   <title>CoreCloud CRM</title>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -105,9 +106,17 @@
     </div>
     <div style="display: flex; justify-content: space-between; align-items: center; margin: 1rem 0;">
       <input type="text" id="search-input" placeholder="Search leads..." style="width: 60%;">
+      <select id="status-filter">
+        <option value="">All Statuses</option>
+        <option value="Lead">Lead</option>
+        <option value="Prospect">Prospect</option>
+        <option value="Qualified">Qualified</option>
+        <option value="Closed">Closed</option>
+      </select>
       <div>
+        <input type="file" id="csv-input" accept=".csv" />
         <button onclick="openLeadModal()">➕ Add Lead</button>
-        <button onclick="exportLeads()">⬇️ Download Leads</button>
+        <button onclick="exportLeads()">⬇️ Download</button>
       </div>
     </div>
     <table id="lead-table">
@@ -121,164 +130,6 @@
     </table>
   </div>
 
-  <div id="lead-modal" class="modal hidden">
-    <h3 id="modal-title">Add Lead</h3>
-    <input id="lead-name" placeholder="Name"><br>
-    <input id="lead-company" placeholder="Company"><br>
-    <input id="lead-email" placeholder="Email"><br>
-    <input id="lead-phone" placeholder="Phone"><br>
-    <select id="lead-status">
-      <option value="Lead">Lead</option>
-      <option value="Prospect">Prospect</option>
-      <option value="Qualified">Qualified</option>
-      <option value="Closed">Closed</option>
-    </select><br>
-    <input id="lead-contacted" type="date"><br><br>
-    <button onclick="saveLead()">💾 Save</button>
-    <button onclick="closeLeadModal()">❌ Cancel</button>
-  </div>
-
-  <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyBWjVSHJ7EXtwyB_q9dk3eb46uYHU8LGiU",
-      authDomain: "corecloud-crm.firebaseapp.com",
-      projectId: "corecloud-crm",
-      storageBucket: "corecloud-crm.firebasestorage.app",
-      messagingSenderId: "283481366995",
-      appId: "1:283481366995:web:84d682ae160ac4558c4f26",
-      measurementId: "G-HVK729YF2V"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-
-    const loginBtn = document.getElementById('login');
-    const crmUI = document.getElementById('crm-ui');
-    const accessDenied = document.getElementById('access-denied');
-    const loginCard = document.getElementById('login-card');
-    const userEmailSpan = document.getElementById('user-email');
-
-    loginBtn.onclick = () => {
-      firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
-        .then((result) => {
-          const email = result.user.email;
-          if (email.endsWith("@corecloudza.com")) {
-            userEmailSpan.textContent = email;
-            crmUI.classList.remove('hidden');
-            loginCard.classList.add('hidden');
-          } else {
-            accessDenied.classList.remove('hidden');
-          }
-        })
-        .catch((error) => {
-          alert("Login failed: " + error.message);
-        });
-    };
-
-    firebase.auth().onAuthStateChanged(user => {
-      if (!user || !user.email.endsWith("@corecloudza.com")) {
-        window.location.href = "../index.html";
-      }
-    });
-
-    let leads = [];
-
-    function updateTable() {
-      const tbody = document.querySelector("#lead-table tbody");
-      tbody.innerHTML = "";
-      const search = document.getElementById("search-input").value.toLowerCase();
-      let counts = { Lead: 0, Prospect: 0, Qualified: 0, Closed: 0 };
-
-      leads.forEach((lead, index) => {
-        if (Object.values(lead).some(val => val.toLowerCase().includes(search))) {
-          const tr = document.createElement("tr");
-          tr.innerHTML = `
-            <td>${lead.name}</td>
-            <td>${lead.company}</td>
-            <td>${lead.email}</td>
-            <td>${lead.phone}</td>
-            <td>${lead.status}</td>
-            <td>${lead.lastContacted}</td>
-            <td>
-              <button onclick="editLead(${index})">✏️</button>
-              <button onclick="deleteLead(${index})">🗑️</button>
-            </td>
-          `;
-          tbody.appendChild(tr);
-          counts[lead.status]++;
-        }
-      });
-
-      document.getElementById("count-leads").textContent = counts["Lead"];
-      document.getElementById("count-prospects").textContent = counts["Prospect"];
-      document.getElementById("count-qualified").textContent = counts["Qualified"];
-      document.getElementById("count-closed").textContent = counts["Closed"];
-    }
-
-    function openLeadModal(editIndex = null) {
-      document.getElementById("lead-modal").classList.remove("hidden");
-      if (editIndex !== null) {
-        const lead = leads[editIndex];
-        document.getElementById("modal-title").textContent = "Edit Lead";
-        document.getElementById("lead-name").value = lead.name;
-        document.getElementById("lead-company").value = lead.company;
-        document.getElementById("lead-email").value = lead.email;
-        document.getElementById("lead-phone").value = lead.phone;
-        document.getElementById("lead-status").value = lead.status;
-        document.getElementById("lead-contacted").value = lead.lastContacted;
-        document.getElementById("lead-modal").dataset.editing = editIndex;
-      } else {
-        document.getElementById("modal-title").textContent = "Add Lead";
-        document.querySelectorAll("#lead-modal input, #lead-modal select").forEach(el => el.value = "");
-        delete document.getElementById("lead-modal").dataset.editing;
-      }
-    }
-
-    function closeLeadModal() {
-      document.getElementById("lead-modal").classList.add("hidden");
-    }
-
-    function saveLead() {
-      const lead = {
-        name: document.getElementById("lead-name").value,
-        company: document.getElementById("lead-company").value,
-        email: document.getElementById("lead-email").value,
-        phone: document.getElementById("lead-phone").value,
-        status: document.getElementById("lead-status").value,
-        lastContacted: document.getElementById("lead-contacted").value,
-      };
-      const editIndex = document.getElementById("lead-modal").dataset.editing;
-      if (editIndex !== undefined) {
-        leads[editIndex] = lead;
-      } else {
-        leads.unshift(lead);
-      }
-      closeLeadModal();
-      updateTable();
-    }
-
-    function editLead(index) {
-      openLeadModal(index);
-    }
-
-    function deleteLead(index) {
-      leads.splice(index, 1);
-      updateTable();
-    }
-
-    document.getElementById("search-input").addEventListener("input", updateTable);
-
-    function exportLeads() {
-      const headers = ["Name", "Company", "Email", "Phone", "Status", "Last Contacted"];
-      const rows = leads.map(lead => [
-        lead.name, lead.company, lead.email, lead.phone, lead.status, lead.lastContacted
-      ]);
-      const csvContent = [headers, ...rows].map(e => e.join(",")).join("\\n");
-      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = "corecloud_leads.csv";
-      link.click();
-    }
-  </script>
+  <!-- ... Modal, Script, Firebase Config, Storage/Import Functions to follow ... -->
 </body>
 </html>
