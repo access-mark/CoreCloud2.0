@@ -130,6 +130,48 @@
     </table>
   </div>
 
-  <!-- ... Modal, Script, Firebase Config, Storage/Import Functions to follow ... -->
+  <div id="lead-modal" class="modal hidden">
+    <h3>Add New Lead</h3>
+    <input id="lead-name" placeholder="Name" /><br/>
+    <input id="lead-company" placeholder="Company" /><br/>
+    <input id="lead-email" placeholder="Email" /><br/>
+    <input id="lead-phone" placeholder="Phone" /><br/>
+    <select id="lead-status">
+      <option value="Lead">Lead</option>
+      <option value="Prospect">Prospect</option>
+      <option value="Qualified">Qualified</option>
+      <option value="Closed">Closed</option>
+    </select><br/>
+    <input id="lead-last-contacted" placeholder="Last Contacted" type="date" /><br/>
+    <button onclick="saveLead()">💾 Save</button>
+    <button onclick="closeLeadModal()">Cancel</button>
+  </div>
+
+  <script>
+    function openLeadModal() {
+      document.getElementById("lead-modal").classList.remove("hidden");
+    }
+    function closeLeadModal() {
+      document.getElementById("lead-modal").classList.add("hidden");
+    }
+    function saveLead() {
+      const leads = loadLeadsFromLocal();
+      const newLead = {
+        name: document.getElementById("lead-name").value,
+        company: document.getElementById("lead-company").value,
+        email: document.getElementById("lead-email").value,
+        phone: document.getElementById("lead-phone").value,
+        status: document.getElementById("lead-status").value,
+        lastContacted: document.getElementById("lead-last-contacted").value,
+      };
+      leads.push(newLead);
+      saveLeadsToLocal(leads);
+      renderTable(leads);
+      closeLeadModal();
+      ['lead-name', 'lead-company', 'lead-email', 'lead-phone', 'lead-last-contacted'].forEach(id => {
+        document.getElementById(id).value = '';
+      });
+    }
+  </script>
 </body>
 </html>
