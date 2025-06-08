@@ -8,6 +8,7 @@
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore-compat.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -79,210 +80,82 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       z-index: 1000;
     }
+    .chart-container {
+      background: #fff;
+      padding: 2rem;
+      margin-top: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
   </style>
 </head>
 <body>
-  <div class="banner">
-    <img src="../assets/img/corecloud-logo.png" alt="CoreCloud Logo" style="height: 48px;">
-    <div id="user-email"></div>
-  </div>
-
-  <div class="main" id="login-card">
-    <h2>Login Required</h2>
-    <p>Sign in with your CoreCloud email to access the CRM.</p>
-    <button id="login">Sign in with Google</button>
-    <div id="access-denied" class="hidden">
-      <p>❌ Access denied. Only @corecloudza.com emails are allowed.</p>
+  <div class="main">
+    <h2>Lead Status Overview</h2>
+    <div class="chart-container">
+      <canvas id="statusChart"></canvas>
     </div>
   </div>
-
-  <div class="main hidden" id="crm-ui">
-    <h2>CRM Console</h2>
-    <div style="display: flex; gap: 1rem; justify-content: center; margin: 1rem 0;">
-      <div class="summary-card">Leads<br><span id="count-leads">0</span></div>
-      <div class="summary-card">Prospects<br><span id="count-prospects">0</span></div>
-      <div class="summary-card">Qualified<br><span id="count-qualified">0</span></div>
-      <div class="summary-card">Closed<br><span id="count-closed">0</span></div>
-    </div>
-    <div style="display: flex; justify-content: space-between; align-items: center; margin: 1rem 0;">
-      <input type="text" id="search-input" placeholder="Search leads..." style="width: 50%;">
-      <select id="status-filter">
-        <option value="">All Statuses</option>
-        <option value="Lead">Lead</option>
-        <option value="Prospect">Prospect</option>
-        <option value="Qualified">Qualified</option>
-        <option value="Closed">Closed</option>
-      </select>
-      <div>
-        <input type="file" id="csv-input" accept=".csv" />
-        <button onclick="openLeadModal()">➕ Add Lead</button>
-        <button onclick="exportLeads()">⬇️ Download</button>
-        <button onclick="document.getElementById('linkedin-input').click()">🔗 Upload LinkedIn</button>
-        <input type="file" id="linkedin-input" accept=".csv" style="display:none" onchange="handleLinkedInUpload(event)" />
-      </div>
-    </div>
-    <table id="lead-table">
-      <thead>
-        <tr>
-          <th>Name</th><th>Company</th><th>Email</th><th>Phone</th>
-          <th>Status</th><th>Last Contacted</th><th>Actions</th>
-        </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </div>
-
-  <div id="lead-modal" class="modal hidden">
-    <h3>Add New Lead</h3>
-    <input id="lead-name" placeholder="Name" /><br/>
-    <input id="lead-company" placeholder="Company" /><br/>
-    <input id="lead-email" placeholder="Email" /><br/>
-    <input id="lead-phone" placeholder="Phone" /><br/>
-    <select id="lead-status">
-      <option value="Lead">Lead</option>
-      <option value="Prospect">Prospect</option>
-      <option value="Qualified">Qualified</option>
-      <option value="Closed">Closed</option>
-    </select><br/>
-    <input id="lead-last-contacted" placeholder="Last Contacted" type="date" /><br/>
-    <button onclick="saveLead()">💾 Save</button>
-    <button onclick="closeLeadModal()">Cancel</button>
-  </div>
-
   <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyBWjVSHJ7EXtwyB_q9dk3eb46uYHU8LGiU",
-      authDomain: "corecloud-crm.firebaseapp.com",
-      projectId: "corecloud-crm",
-      storageBucket: "corecloud-crm.appspot.com",
-      messagingSenderId: "283481366995",
-      appId: "1:283481366995:web:84d682ae160ac4558c4f26",
-      measurementId: "G-HVK729YF2V"
-    };
-    firebase.initializeApp(firebaseConfig);
-
-    document.getElementById("login").addEventListener("click", () => {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider).then((result) => {
-        const email = result.user.email;
-        if (email.endsWith("@corecloudza.com")) {
-          document.getElementById("login-card").classList.add("hidden");
-          document.getElementById("crm-ui").classList.remove("hidden");
-          document.getElementById("user-email").textContent = email;
-          renderTable(loadLeadsFromLocal());
-        } else {
-          document.getElementById("access-denied").classList.remove("hidden");
-          firebase.auth().signOut();
-        }
-      }).catch((error) => {
-        console.error("Login failed:", error.message);
-      });
-    });
-
-    function openLeadModal() {
-      document.getElementById("lead-modal").classList.remove("hidden");
-    }
-    function closeLeadModal() {
-      document.getElementById("lead-modal").classList.add("hidden");
-    }
-    function saveLead() {
-      const leads = loadLeadsFromLocal();
-      const newLead = {
-        name: document.getElementById("lead-name").value,
-        company: document.getElementById("lead-company").value,
-        email: document.getElementById("lead-email").value,
-        phone: document.getElementById("lead-phone").value,
-        status: document.getElementById("lead-status").value,
-        lastContacted: document.getElementById("lead-last-contacted").value,
-      };
-      leads.push(newLead);
-      saveLeadsToLocal(leads);
-      renderTable(leads);
-      closeLeadModal();
-      ['lead-name', 'lead-company', 'lead-email', 'lead-phone', 'lead-last-contacted'].forEach(id => {
-        document.getElementById(id).value = '';
-      });
-    }
-
-    function loadLeadsFromLocal() {
-      return JSON.parse(localStorage.getItem("leads") || "[]");
-    }
-    function saveLeadsToLocal(leads) {
-      localStorage.setItem("leads", JSON.stringify(leads));
-    }
-    function renderTable(leads) {
-      const filter = document.getElementById("status-filter").value.toLowerCase();
-      const search = document.getElementById("search-input").value.toLowerCase();
-      const tbody = document.querySelector("#lead-table tbody");
-      tbody.innerHTML = "";
-      const counters = { Lead: 0, Prospect: 0, Qualified: 0, Closed: 0 };
-      leads.forEach((lead, i) => {
-        if ((filter && lead.status.toLowerCase() !== filter) || !JSON.stringify(lead).toLowerCase().includes(search)) return;
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${lead.name}</td><td>${lead.company}</td><td>${lead.email}</td><td>${lead.phone}</td>
-          <td>${lead.status}</td><td>${lead.lastContacted}</td>
-          <td><button onclick="deleteLead(${i})">🗑</button></td>`;
-        tbody.appendChild(row);
-        if (counters[lead.status] !== undefined) counters[lead.status]++;
-      });
-      document.getElementById("count-leads").textContent = counters["Lead"];
-      document.getElementById("count-prospects").textContent = counters["Prospect"];
-      document.getElementById("count-qualified").textContent = counters["Qualified"];
-      document.getElementById("count-closed").textContent = counters["Closed"];
-    }
-    function deleteLead(index) {
-      const leads = loadLeadsFromLocal();
-      leads.splice(index, 1);
-      saveLeadsToLocal(leads);
-      renderTable(leads);
-    }
-    document.getElementById("csv-input").addEventListener("change", (e) => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        const lines = reader.result.split("\n").slice(1);
-        const leads = lines.filter(Boolean).map(line => {
-          const [name, company, email, phone, status, lastContacted] = line.split(",");
-          return { name, company, email, phone, status, lastContacted };
-        });
-        saveLeadsToLocal(leads);
-        renderTable(leads);
-      };
-      reader.readAsText(e.target.files[0]);
-    });
-    function exportLeads() {
-      const leads = loadLeadsFromLocal();
-      const csv = ["Name,Company,Email,Phone,Status,LastContacted"];
-      leads.forEach(l => {
-        csv.push(`${l.name},${l.company},${l.email},${l.phone},${l.status},${l.lastContacted}`);
-      });
-      const blob = new Blob([csv.join("\n")], { type: "text/csv" });
-      const link = document.createElement("a");
-      link.href = URL.createObjectURL(blob);
-      link.download = "corecloud_crm.csv";
-      link.click();
-    }
     function handleLinkedInUpload(event) {
       const file = event.target.files[0];
       const reader = new FileReader();
       reader.onload = function () {
         const lines = reader.result.split("\n").slice(1);
         const leads = lines.filter(Boolean).map(line => {
-          const [name, company, email, phone] = line.split(",");
-          return { name, company, email, phone, status: "Lead", lastContacted: new Date().toISOString().split('T')[0] };
+          const fields = line.split(',');
+          const name = `${fields[0]} ${fields[1]}`; // First + Last Name
+          const company = fields[2] || "Unknown";
+          const email = fields[4] || "";
+          const phone = fields[5] || "";
+          return {
+            name,
+            company,
+            email,
+            phone,
+            status: "Lead",
+            lastContacted: new Date().toISOString().split('T')[0],
+          };
         });
         const existing = loadLeadsFromLocal();
         saveLeadsToLocal([...existing, ...leads]);
         renderTable([...existing, ...leads]);
+        updateChart([...existing, ...leads]);
       };
       reader.readAsText(file);
     }
-    document.getElementById("status-filter").addEventListener("change", () => {
-      renderTable(loadLeadsFromLocal());
-    });
-    document.getElementById("search-input").addEventListener("input", () => {
-      renderTable(loadLeadsFromLocal());
-    });
+
+    function updateChart(leads) {
+      const statusCounts = { Lead: 0, Prospect: 0, Qualified: 0, Closed: 0 };
+      leads.forEach(lead => {
+        if (statusCounts[lead.status] !== undefined) {
+          statusCounts[lead.status]++;
+        }
+      });
+      const ctx = document.getElementById('statusChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: Object.keys(statusCounts),
+          datasets: [{
+            label: 'Leads by Status',
+            data: Object.values(statusCounts),
+            backgroundColor: ['#0077cc', '#28a745', '#ffc107', '#dc3545']
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
+      });
+    }
+
+    function loadLeadsFromLocal() {
+      return JSON.parse(localStorage.getItem('leads') || '[]');
+    }
+    updateChart(loadLeadsFromLocal());
   </script>
 </body>
 </html>
