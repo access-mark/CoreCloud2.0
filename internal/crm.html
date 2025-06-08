@@ -196,6 +196,8 @@
     }
 
     firebase.auth().onAuthStateChanged(user => {
+      const login = document.getElementById("loginContainer");
+      const crm = document.getElementById("crmApp");
       if (user) {
         const email = user.email;
         let name = "User";
@@ -207,8 +209,11 @@
           return;
         }
         document.getElementById("greeting").textContent = `Hello ${name}`;
-        document.getElementById("loginContainer").style.display = "none";
-        document.getElementById("crmApp").style.display = "block";
+        login.style.display = "none";
+        crm.style.display = "block";
+      } else {
+        login.style.display = "block";
+        crm.style.display = "none";
       }
     });
   </script>
