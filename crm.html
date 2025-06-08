@@ -9,23 +9,21 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f6f8;
       margin: 0;
-      padding: 0;
+      background-color: #f4f6f8;
       color: #1e1e1e;
     }
     .banner {
-      background: #ffffff;
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      width: 100%;
+      height: 200px;
+      background: url('banner.png') no-repeat center center;
+      background-size: cover;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-    }
-    .logo {
-      font-weight: bold;
-      font-size: 1.5rem;
-      color: #0077cc;
+      align-items: center;
+      padding: 1rem 2rem;
+      color: white;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
     }
     .main {
       max-width: 1200px;
@@ -83,7 +81,7 @@
 </head>
 <body>
   <div class="banner">
-    <div class="logo">CoreCloud CRM</div>
+    <img src="assets/img/corecloud-logo.png" alt="CoreCloud Logo" style="height: 48px;">
     <div id="user-email"></div>
   </div>
 
@@ -98,14 +96,12 @@
 
   <div class="main hidden" id="crm-ui">
     <h2>CRM Console</h2>
-
     <div style="display: flex; gap: 1rem; justify-content: center; margin: 1rem 0;">
       <div class="summary-card">Leads<br><span id="count-leads">0</span></div>
       <div class="summary-card">Prospects<br><span id="count-prospects">0</span></div>
       <div class="summary-card">Qualified<br><span id="count-qualified">0</span></div>
       <div class="summary-card">Closed<br><span id="count-closed">0</span></div>
     </div>
-
     <div style="display: flex; justify-content: space-between; align-items: center; margin: 1rem 0;">
       <input type="text" id="search-input" placeholder="Search leads..." style="width: 60%;">
       <div>
@@ -113,7 +109,6 @@
         <button onclick="exportLeads()">⬇️ Download Leads</button>
       </div>
     </div>
-
     <table id="lead-table">
       <thead>
         <tr>
@@ -270,7 +265,7 @@
       const rows = leads.map(lead => [
         lead.name, lead.company, lead.email, lead.phone, lead.status, lead.lastContacted
       ]);
-      const csvContent = [headers, ...rows].map(e => e.join(",")).join("\n");
+      const csvContent = [headers, ...rows].map(e => e.join(",")).join("\\n");
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
