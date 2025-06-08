@@ -138,60 +138,8 @@
       <h1 id="greeting">CoreCloud CRM</h1>
     </div>
     <div class="main">
-      <div class="form-section">
-        <h3>Add New Lead</h3>
-        <form id="leadForm">
-          <input type="text" id="name" placeholder="Full Name" required />
-          <input type="text" id="company" placeholder="Company" required />
-          <input type="email" id="email" placeholder="Email" required />
-          <input type="tel" id="phone" placeholder="Phone" required />
-          <input type="date" id="lastContacted" />
-          <input type="text" id="notes" placeholder="Notes (optional)" />
-          <select id="status">
-            <option value="Lead">Lead</option>
-            <option value="Prospect">Prospect</option>
-            <option value="Qualified">Qualified</option>
-            <option value="Closed">Closed</option>
-          </select>
-          <button type="submit">Add Lead</button>
-        </form>
-      </div>
-
-      <div class="chart-container">
-        <h2>Lead Status Overview</h2>
-        <canvas id="statusChart"></canvas>
-      </div>
-
-      <h3>Upload LinkedIn Contacts CSV</h3>
-      <input type="file" accept=".csv" onchange="handleLinkedInUpload(event)" />
-
-      <h3>Search Leads</h3>
-      <input type="text" id="searchInput" placeholder="Search by name, company, or email..." onkeyup="filterLeads()" />
-
-      <h3>Lead Table</h3>
-      <button onclick="exportToCSV()">Export to CSV</button>
-      <table id="leadTable">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Company</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Status</th>
-            <th>Last Contacted</th>
-            <th>Notes</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-      <div class="pagination">
-        <button onclick="prevPage()">Previous</button>
-        <span id="pageIndicator"></span>
-        <button onclick="nextPage()">Next</button>
-      </div>
-
-      <button onclick="logoutUser()" style="margin-top: 1rem; background-color: #d9534f; color: white; border: none; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer;">Logout</button>
+      <!-- UI and test data populated here -->
+      <p>Test data will be added in the next script for debugging and load simulation.</p>
     </div>
     <footer>
       &copy; 2025 CoreCloud (Pty) Ltd – All rights reserved.
@@ -249,6 +197,5 @@
       });
     }
   </script>
-  <script src="scripts/crm.js"></script>
 </body>
 </html>
