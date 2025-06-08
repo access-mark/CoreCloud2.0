@@ -27,12 +27,6 @@
       box-shadow: 0 4px 6px rgba(0,0,0,0.2);
       position: relative;
     }
-    .logo {
-      position: absolute;
-      top: 20px;
-      left: 30px;
-      height: 60px;
-    }
     .banner h1 {
       margin: 0;
       font-size: 2rem;
@@ -124,7 +118,6 @@
 
   <div id="crmApp">
     <div class="banner">
-      <img src="assets/images/corecloud-neon-logo.png" alt="CoreCloud Logo" class="logo" />
       <h1 id="greeting">CoreCloud CRM</h1>
     </div>
     <div class="main">
@@ -195,26 +188,29 @@
       });
     }
 
-    firebase.auth().onAuthStateChanged(user => {
-      const login = document.getElementById("loginContainer");
-      const crm = document.getElementById("crmApp");
-      if (user) {
-        const email = user.email;
-        let name = "User";
-        if (email === "mark@corecloudza.com") name = "Mark";
-        else if (email === "justine@corecloudza.com") name = "Justine";
-        else {
-          alert("Access denied. This CRM is restricted.");
-          firebase.auth().signOut();
-          return;
+    document.addEventListener('DOMContentLoaded', () => {
+      firebase.auth().onAuthStateChanged(user => {
+        const login = document.getElementById("loginContainer");
+        const crm = document.getElementById("crmApp");
+
+        if (user) {
+          const email = user.email;
+          let name = "User";
+          if (email === "mark@corecloudza.com") name = "Mark";
+          else if (email === "justine@corecloudza.com") name = "Justine";
+          else {
+            alert("Access denied. This CRM is restricted.");
+            firebase.auth().signOut();
+            return;
+          }
+          document.getElementById("greeting").textContent = `Hello ${name}`;
+          login.style.display = "none";
+          crm.style.display = "block";
+        } else {
+          login.style.display = "block";
+          crm.style.display = "none";
         }
-        document.getElementById("greeting").textContent = `Hello ${name}`;
-        login.style.display = "none";
-        crm.style.display = "block";
-      } else {
-        login.style.display = "block";
-        crm.style.display = "none";
-      }
+      });
     });
   </script>
   <script src="scripts/crm.js"></script>
