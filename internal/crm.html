@@ -174,44 +174,10 @@
     <footer>&copy; 2025 CoreCloud (Pty) Ltd – All rights reserved.</footer>
   </div>
   <script>
-    const firebaseConfig = {
-      apiKey: "AIzaSyBWjVSHJ7EXtwyB_q9dk3eb46uYHU8LGiU",
-      authDomain: "corecloud-crm.firebaseapp.com",
-      projectId: "corecloud-crm",
-      storageBucket: "corecloud-crm.appspot.com",
-      messagingSenderId: "283481366995",
-      appId: "1:283481366995:web:84d682ae160ac4558c4f26",
-      measurementId: "G-HVK729YF2V"
-    };
-
-    firebase.initializeApp(firebaseConfig);
-
-    function signInWithGoogle() {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider).catch(error => alert("Login failed: " + error.message));
-    }
-
-    function logoutUser() {
-      firebase.auth().signOut().then(() => location.reload());
-    }
-
-    firebase.auth().onAuthStateChanged(user => {
-      if (user && (user.email === "mark@corecloudza.com" || user.email === "justine@corecloudza.com")) {
-        document.getElementById("loginContainer").style.display = "none";
-        document.getElementById("crmApp").style.display = "block";
-        document.getElementById("greeting").textContent = `Hello ${user.email.includes("justine") ? "Justine" : "Mark"}`;
-        renderTable();
-      } else if (user) {
-        alert("Access denied. You're not authorized for this CRM.");
-        firebase.auth().signOut();
-      } else {
-        document.getElementById("crmApp").style.display = "none";
-      }
-    });
-
     const leads = [];
     let currentPage = 0;
     const pageSize = 10;
+    let editIndex = null;
 
     function renderTable() {
       const tbody = document.querySelector("#leadsTable tbody");
@@ -225,34 +191,23 @@
           <td>${lead.email}</td>
           <td>${lead.company}</td>
           <td>${lead.status}</td>
-          <td><button onclick="editLead(${start + index})">Edit</button> <button onclick="deleteLead(${start + index})">Delete</button></td>
+          <td>
+            <button onclick="startEdit(${start + index})">Edit</button>
+            <button onclick="deleteLead(${start + index})">Delete</button>
+          </td>
         `;
         tbody.appendChild(row);
       });
       renderCharts();
     }
 
-    function nextPage() {
-      if ((currentPage + 1) * pageSize < leads.length) {
-        currentPage++;
-        renderTable();
-      }
-    }
-
-    function prevPage() {
-      if (currentPage > 0) {
-        currentPage--;
-        renderTable();
-      }
-    }
-
-    function editLead(index) {
+    function startEdit(index) {
       const lead = leads[index];
       document.getElementById("name").value = lead.name;
       document.getElementById("email").value = lead.email;
       document.getElementById("company").value = lead.company;
       document.getElementById("status").value = lead.status;
-      deleteLead(index);
+      editIndex = index;
     }
 
     function deleteLead(index) {
@@ -267,77 +222,17 @@
       const company = document.getElementById("company").value;
       const status = document.getElementById("status").value;
 
-      if (leads.some(l => l.email === email)) return alert("Duplicate lead detected.");
+      if (editIndex !== null) {
+        leads[editIndex] = { name, email, company, status };
+        editIndex = null;
+      } else {
+        if (leads.some(l => l.email === email)) return alert("Duplicate lead detected.");
+        leads.push({ name, email, company, status });
+      }
 
-      leads.push({ name, email, company, status });
       this.reset();
       renderTable();
     });
-
-    document.getElementById("csvUpload").addEventListener("change", function(e) {
-      const file = e.target.files[0];
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const lines = e.target.result.split("\n");
-        lines.forEach(line => {
-          const [name, email, company, status] = line.split(",");
-          if (name && email && company && status && !leads.some(l => l.email === email)) {
-            leads.push({ name, email, company, status });
-          }
-        });
-        renderTable();
-      };
-      reader.readAsText(file);
-    });
-
-    for (let i = 1; i <= 25; i++) {
-      leads.push({
-        name: `Test User ${i}`,
-        email: `user${i}@example.com`,
-        company: `Company ${i % 5}`,
-        status: ["New","Contacted","Qualified","Lost","Customer"][i % 5]
-      });
-    }
-
-    let statusChart, companyChart, monthlyChart;
-    function renderCharts() {
-      const statuses = {};
-      const companies = {};
-      leads.forEach(lead => {
-        statuses[lead.status] = (statuses[lead.status] || 0) + 1;
-        companies[lead.company] = (companies[lead.company] || 0) + 1;
-      });
-      const months = Array(12).fill(0);
-      monthlyChart?.destroy();
-      companyChart?.destroy();
-      statusChart?.destroy();
-      const ctx1 = document.getElementById("statusChart").getContext("2d");
-      statusChart = new Chart(ctx1, {
-        type: "pie",
-        data: {
-          labels: Object.keys(statuses),
-          datasets: [{ data: Object.values(statuses), backgroundColor: ["#0077cc", "#ff851b", "#2ecc40", "#ff4136", "#b10dc9"] }]
-        },
-        options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
-      });
-      const ctx2 = document.getElementById("companyChart").getContext("2d");
-      companyChart = new Chart(ctx2, {
-        type: "bar",
-        data: {
-          labels: Object.keys(companies),
-          datasets: [{ label: "Leads by Company", data: Object.values(companies), backgroundColor: "#0077cc" }]
-        }
-      });
-      const ctx3 = document.getElementById("monthlyChart").getContext("2d");
-      monthlyChart = new Chart(ctx3, {
-        type: "line",
-        data: {
-          labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-          datasets: [{ label: "Monthly Leads", data: months, backgroundColor: "#0077cc", borderColor: "#0077cc" }]
-        }
-      });
-    }
-    renderTable();
   </script>
 </body>
 </html>
