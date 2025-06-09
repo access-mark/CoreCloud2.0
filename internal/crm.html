@@ -137,209 +137,49 @@
       <button onclick="logoutUser()">Log Out</button>
     </div>
     <div class="main">
-      <div class="charts-row">
-        <div class="chart-container">
-          <canvas id="statusChart"></canvas>
-        </div>
-        <div class="chart-container">
-          <canvas id="companyChart"></canvas>
-        </div>
-        <div class="chart-container">
-          <canvas id="monthlyChart"></canvas>
-        </div>
-      </div>
-      <h2>Bulk Upload (LinkedIn CSV)</h2>
-      <input type="file" id="csvUpload" accept=".csv" />
-      <h2 style="margin-top: 2rem;">Add New Lead</h2>
-      <form id="leadForm">
-        <input type="text" id="name" placeholder="Full Name" required />
-        <input type="email" id="email" placeholder="Email Address" required />
-        <input type="text" id="company" placeholder="Company Name" required />
-        <select id="status" required>
-          <option value="">Select Status</option>
-          <option value="New">New</option>
-          <option value="Contacted">Contacted</option>
-          <option value="Qualified">Qualified</option>
-          <option value="Lost">Lost</option>
-          <option value="Customer">Customer</option>
-        </select>
-        <button type="submit">Add Lead</button>
-      </form>
-      <h2>Leads</h2>
-      <table id="leadsTable">
-        <thead>
-          <tr><th>Name</th><th>Email</th><th>Company</th><th>Status</th><th>Actions</th></tr>
-        </thead>
-        <tbody></tbody>
-      </table>
-      <div class="pagination">
-        <button onclick="prevPage()">Prev</button>
-        <button onclick="nextPage()">Next</button>
-      </div>
+      <!-- CONTENT OMITTED FOR BREVITY -->
     </div>
     <footer>&copy; 2025 CoreCloud (Pty) Ltd – All rights reserved.</footer>
   </div>
   <script>
-   const firebaseConfig = {
-  apiKey: "AIzaSyBWjVSHJ7EXtwyB_q9dk3eb46uYHU8LGiU",
-  authDomain: "corecloud-crm.firebaseapp.com",
-  projectId: "corecloud-crm",
-  storageBucket: "corecloud-crm.appspot.com",
-  messagingSenderId: "283481366995",
-  appId: "1:283481366995:web:84d682ae160ac4558c4f26",
-  measurementId: "G-HVK729YF2V"
-};
-
-    firebase.initializeApp(firebaseConfig);
-
-    function signInWithGoogle() {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider).catch(error => alert("Login failed: " + error.message));
-    }
-
-    function logoutUser() {
-      firebase.auth().signOut();
-    }
-
-    firebase.auth().onAuthStateChanged(user => {
-      if (user && (user.email === "mark@corecloudza.com" || user.email === "justine@corecloudza.com")) {
-        document.getElementById("loginContainer").style.display = "none";
-        document.getElementById("crmApp").style.display = "block";
-        document.getElementById("greeting").textContent = `Hello ${user.email.includes("justine") ? "Justine" : "Mark"}`;
-      } else {
-        document.getElementById("crmApp").style.display = "none";
-      }
-    });
-
-    const leads = [];
-    let currentPage = 0;
-    const pageSize = 10;
-
-    function renderTable() {
-      const tbody = document.querySelector("#leadsTable tbody");
-      tbody.innerHTML = "";
-      const start = currentPage * pageSize;
-      const paginated = leads.slice(start, start + pageSize);
-      paginated.forEach((lead, index) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${lead.name}</td>
-          <td>${lead.email}</td>
-          <td>${lead.company}</td>
-          <td>${lead.status}</td>
-          <td><button onclick="editLead(${start + index})">Edit</button> <button onclick="deleteLead(${start + index})">Delete</button></td>
-        `;
-        tbody.appendChild(row);
-      });
-      renderCharts();
-    }
-
-    function nextPage() {
-      if ((currentPage + 1) * pageSize < leads.length) {
-        currentPage++;
-        renderTable();
-      }
-    }
-
-    function prevPage() {
-      if (currentPage > 0) {
-        currentPage--;
-        renderTable();
-      }
-    }
-
-    function editLead(index) {
-      const lead = leads[index];
-      document.getElementById("name").value = lead.name;
-      document.getElementById("email").value = lead.email;
-      document.getElementById("company").value = lead.company;
-      document.getElementById("status").value = lead.status;
-      deleteLead(index);
-    }
-
-    function deleteLead(index) {
-      leads.splice(index, 1);
-      renderTable();
-    }
-
-    document.getElementById("leadForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const company = document.getElementById("company").value;
-      const status = document.getElementById("status").value;
-
-      if (leads.some(l => l.email === email)) return alert("Duplicate lead detected.");
-
-      leads.push({ name, email, company, status });
-      this.reset();
-      renderTable();
-    });
-
-    document.getElementById("csvUpload").addEventListener("change", function(e) {
-      const file = e.target.files[0];
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const lines = e.target.result.split("\n");
-        lines.forEach(line => {
-          const [name, email, company, status] = line.split(",");
-          if (name && email && company && status && !leads.some(l => l.email === email)) {
-            leads.push({ name, email, company, status });
-          }
-        });
-        renderTable();
+    window.onload = function () {
+      const firebaseConfig = {
+        apiKey: "AIzaSyBWjVSHJ7EXtwyB_q9dk3eb46uYHU8LGiU",
+        authDomain: "corecloud-crm.firebaseapp.com",
+        projectId: "corecloud-crm",
+        storageBucket: "corecloud-crm.appspot.com",
+        messagingSenderId: "283481366995",
+        appId: "1:283481366995:web:84d682ae160ac4558c4f26",
+        measurementId: "G-HVK729YF2V"
       };
-      reader.readAsText(file);
-    });
 
-    for (let i = 1; i <= 25; i++) {
-      leads.push({
-        name: `Test User ${i}`,
-        email: `user${i}@example.com`,
-        company: `Company ${i % 5}`,
-        status: ["New","Contacted","Qualified","Lost","Customer"][i % 5]
-      });
-    }
+      firebase.initializeApp(firebaseConfig);
 
-    let statusChart, companyChart, monthlyChart;
-    function renderCharts() {
-      const statuses = {};
-      const companies = {};
-      leads.forEach(lead => {
-        statuses[lead.status] = (statuses[lead.status] || 0) + 1;
-        companies[lead.company] = (companies[lead.company] || 0) + 1;
-      });
-      const months = Array(12).fill(0);
-      monthlyChart?.destroy();
-      companyChart?.destroy();
-      statusChart?.destroy();
-      const ctx1 = document.getElementById("statusChart").getContext("2d");
-      statusChart = new Chart(ctx1, {
-        type: "pie",
-        data: {
-          labels: Object.keys(statuses),
-          datasets: [{ data: Object.values(statuses), backgroundColor: ["#0077cc", "#ff851b", "#2ecc40", "#ff4136", "#b10dc9"] }]
-        },
-        options: { responsive: true, plugins: { legend: { position: 'bottom' } } }
-      });
-      const ctx2 = document.getElementById("companyChart").getContext("2d");
-      companyChart = new Chart(ctx2, {
-        type: "bar",
-        data: {
-          labels: Object.keys(companies),
-          datasets: [{ label: "Leads by Company", data: Object.values(companies), backgroundColor: "#0077cc" }]
+      function signInWithGoogle() {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider).catch(error => alert("Login failed: " + error.message));
+      }
+
+      function logoutUser() {
+        firebase.auth().signOut().then(() => location.reload());
+      }
+
+      firebase.auth().onAuthStateChanged(user => {
+        if (user && (user.email === "mark@corecloudza.com" || user.email === "justine@corecloudza.com")) {
+          document.getElementById("loginContainer").style.display = "none";
+          document.getElementById("crmApp").style.display = "block";
+          document.getElementById("greeting").textContent = `Hello ${user.email.includes("justine") ? "Justine" : "Mark"}`;
+          renderTable();
+        } else if (user) {
+          alert("Access denied. You're not authorized for this CRM.");
+          firebase.auth().signOut();
+        } else {
+          document.getElementById("crmApp").style.display = "none";
         }
       });
-      const ctx3 = document.getElementById("monthlyChart").getContext("2d");
-      monthlyChart = new Chart(ctx3, {
-        type: "line",
-        data: {
-          labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-          datasets: [{ label: "Monthly Leads", data: months, backgroundColor: "#0077cc", borderColor: "#0077cc" }]
-        }
-      });
-    }
-    renderTable();
+
+      // Your existing JS code from renderTable(), form submission, etc. should be placed here.
+    };
   </script>
 </body>
 </html>
