@@ -174,64 +174,36 @@
     <footer>&copy; 2025 CoreCloud (Pty) Ltd – All rights reserved.</footer>
   </div>
   <script>
-    const leads = [];
-    let currentPage = 0;
-    const pageSize = 10;
-    let editIndex = null;
+    const firebaseConfig = {
+      apiKey: "AIzaSyBWjVSHJ7EXtwyB_q9dk3eb46uYHU8LGiU",
+      authDomain: "corecloud-crm.firebaseapp.com",
+      projectId: "corecloud-crm",
+      storageBucket: "corecloud-crm.appspot.com",
+      messagingSenderId: "283481366995",
+      appId: "1:283481366995:web:84d682ae160ac4558c4f26"
+    };
 
-    function renderTable() {
-      const tbody = document.querySelector("#leadsTable tbody");
-      tbody.innerHTML = "";
-      const start = currentPage * pageSize;
-      const paginated = leads.slice(start, start + pageSize);
-      paginated.forEach((lead, index) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td>${lead.name}</td>
-          <td>${lead.email}</td>
-          <td>${lead.company}</td>
-          <td>${lead.status}</td>
-          <td>
-            <button onclick="startEdit(${start + index})">Edit</button>
-            <button onclick="deleteLead(${start + index})">Delete</button>
-          </td>
-        `;
-        tbody.appendChild(row);
-      });
-      renderCharts();
+    firebase.initializeApp(firebaseConfig);
+
+    function signInWithGoogle() {
+      const provider = new firebase.auth.GoogleAuthProvider();
+      firebase.auth().signInWithPopup(provider).catch(error => alert("Login failed: " + error.message));
     }
 
-    function startEdit(index) {
-      const lead = leads[index];
-      document.getElementById("name").value = lead.name;
-      document.getElementById("email").value = lead.email;
-      document.getElementById("company").value = lead.company;
-      document.getElementById("status").value = lead.status;
-      editIndex = index;
+    function logoutUser() {
+      firebase.auth().signOut();
     }
 
-    function deleteLead(index) {
-      leads.splice(index, 1);
-      renderTable();
-    }
-
-    document.getElementById("leadForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const company = document.getElementById("company").value;
-      const status = document.getElementById("status").value;
-
-      if (editIndex !== null) {
-        leads[editIndex] = { name, email, company, status };
-        editIndex = null;
+    firebase.auth().onAuthStateChanged(user => {
+      if (user && (user.email === "mark@corecloudza.com" || user.email === "justine@corecloudza.com")) {
+        document.getElementById("loginContainer").style.display = "none";
+        document.getElementById("crmApp").style.display = "block";
+        document.getElementById("greeting").textContent = `Hello ${user.email.includes("justine") ? "Justine" : "Mark"}`;
       } else {
-        if (leads.some(l => l.email === email)) return alert("Duplicate lead detected.");
-        leads.push({ name, email, company, status });
+        firebase.auth().signOut();
+        document.getElementById("crmApp").style.display = "none";
+        document.getElementById("loginContainer").style.display = "block";
       }
-
-      this.reset();
-      renderTable();
     });
   </script>
 </body>
