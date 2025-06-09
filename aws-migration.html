@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AWS Migration – CoreCloud</title>
+  <title>Cloud Services Suite – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta name="description" content="CoreCloud offers certified AWS and Azure services for migration, modernization, and cloud management.">
+  <meta name="keywords" content="AWS, Azure, cloud migration, modernization, managed services, South Africa, CoreCloud">
   <style>
     body {
       margin: 0;
@@ -18,7 +20,7 @@
 
     .small-banner {
       background-color: #fff;
-      padding: 0.5rem 2rem;
+      padding: 0.05rem 2rem 0;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       position: fixed;
       width: 100%;
@@ -40,6 +42,29 @@
       width: auto;
     }
 
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a.nav-btn {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #003366;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    nav a.nav-btn:hover,
+    nav a.nav-btn.active {
+      color: #005fa3;
+      font-weight: 900;
+    }
+
     .page-banner {
       height: 300px;
       background-image: url('assets/images/aws-bannerimage.png');
@@ -57,37 +82,71 @@
 
     .content h1 {
       font-size: 3rem;
-      color: #003366;
       font-weight: 700;
+      color: #003366;
+      margin-bottom: 1rem;
     }
 
-    .content p {
-      font-size: 1.2rem;
+    .content p.hero-subtitle {
+      font-size: 1.3rem;
       line-height: 1.6;
       color: #333;
-      margin: 1.5rem 0;
+      margin-bottom: 2rem;
     }
 
-    .content ul {
-      text-align: left;
-      max-width: 800px;
-      margin: 2rem auto;
+    .subheader {
+      font-size: 2rem;
+      color: #003366;
+      margin-top: 3rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #222;
+    }
+
+    .card p {
       font-size: 1rem;
-      line-height: 1.6;
-      color: #444;
+      color: #555;
+      flex-grow: 1;
+      margin-bottom: 1.5rem;
     }
 
     .cta-btn {
+      display: inline-block;
       background-color: #0077cc;
       color: #fff;
       font-weight: 600;
-      font-size: 1.1rem;
+      font-size: 1rem;
       padding: 0.9rem 2rem;
       border-radius: 8px;
       text-decoration: none;
-      display: inline-block;
-      margin-top: 2rem;
       transition: background-color 0.3s ease;
+      margin-top: auto;
     }
 
     .cta-btn:hover {
@@ -99,24 +158,73 @@
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="index.html" class="nav-btn">Home</a></li>
+          <li><a href="consulting.html" class="nav-btn">Consulting</a></li>
+          <li><a href="aws.html" class="nav-btn active">Cloud Service Suite</a></li>
+          <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
+          <li><a href="white-paper.html" class="nav-btn">White Paper</a></li>
+          <li><a href="resources.html" class="nav-btn">Resources</a></li>
+          <li><a href="contact.html" class="nav-btn">Contact</a></li>
+          <li><a href="testimonials.html" class="nav-btn">Testimonials</a></li>
+        </ul>
+      </nav>
     </div>
   </div>
 
   <div class="page-banner"></div>
-
   <main class="content">
-    <h1>AWS Migration Services</h1>
-    <p>CoreCloud delivers AWS migration strategies that reduce complexity, minimize downtime, and accelerate your journey to the cloud. Through our orchestrated partner network, we offer an executive-led roadmap, hands-on execution, and complete governance alignment.</p>
+    <h1>AWS & Microsoft Azure Cloud Services Suite</h1>
+    <p class="hero-subtitle">You’re not just moving to the cloud — you’re setting the foundation for real, scalable business transformation. At CoreCloud, we don’t deal in buzzwords. We deal in delivery. Whether you’re entrenched in AWS, expanding into Azure, or operating in a hybrid zone, we help you move fast, modernize smart, and manage with intent. Real people. Real impact. Zero fluff.</p>
 
-    <ul>
-      <li>✔️ Migration readiness assessment (AWS MRA)</li>
-      <li>✔️ TCO evaluation and cloud business case modeling</li>
-      <li>✔️ Application discovery, dependency mapping & wave planning</li>
-      <li>✔️ Secure landing zone design and implementation</li>
-      <li>✔️ Execution through AWS Migration Hub or partner tooling</li>
-    </ul>
+    <h2 class="subheader">Amazon Web Services (AWS)</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h2>Migrate</h2>
+        <p>Accelerate AWS cloud adoption with structured workload migration, assessments, and roadmaps.</p>
+        <a href="aws-migration.html" class="cta-btn">Start AWS Migration →</a>
+      </div>
+      <div class="card">
+        <h2>Modernize</h2>
+        <p>Refactor legacy systems using microservices, containers, and serverless on AWS to boost agility.</p>
+        <a href="aws-modernize.html" class="cta-btn">Modernize with AWS →</a>
+      </div>
+      <div class="card">
+        <h2>Manage</h2>
+        <p>24/7 managed services for AWS environments with optimization, observability, and governance.</p>
+        <a href="aws-manage.html" class="cta-btn">Manage AWS Cloud →</a>
+      </div>
+      <div class="card">
+        <h2>Optimize</h2>
+        <p>Leverage AWS tools for reserved instances, right-sizing, and advanced cost optimization strategies.</p>
+        <a href="aws-optimize.html" class="cta-btn">Optimize AWS Spend →</a>
+      </div>
+    </div>
 
-    <a href="contact.html" class="cta-btn">Start Your Migration →</a>
+    <h2 class="subheader">Microsoft Azure</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h2>Azure Migration</h2>
+        <p>Simplify lift-and-shift or hybrid transitions with Azure Migrate and end-to-end workload planning.</p>
+        <a href="azure-migration.html" class="cta-btn">Start Azure Migration →</a>
+      </div>
+      <div class="card">
+        <h2>App Innovation</h2>
+        <p>Transform your applications with Azure App Services, Logic Apps, and Kubernetes architecture.</p>
+        <a href="azure-apps.html" class="cta-btn">Modernize on Azure →</a>
+      </div>
+      <div class="card">
+        <h2>Cloud Management</h2>
+        <p>Secure, monitor, and manage Azure environments with Azure Monitor, Security Center, and Sentinel.</p>
+        <a href="azure-manage.html" class="cta-btn">Manage Azure Cloud →</a>
+      </div>
+      <div class="card">
+        <h2>Cost Control</h2>
+        <p>Gain visibility and control with Azure Cost Management, Advisor, and FinOps advisory services.</p>
+        <a href="azure-cost.html" class="cta-btn">Control Azure Costs →</a>
+      </div>
+    </div>
   </main>
 </body>
 </html>
