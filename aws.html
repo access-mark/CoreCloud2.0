@@ -1,3 +1,4 @@
+<!-- Full Page Code with Footer for Azure Migration Page -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -152,6 +153,83 @@
     .cta-btn:hover {
       background-color: #005fa3;
     }
+
+    footer {
+      background-image: url('assets/images/footer-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      padding: 0.5rem 0 0.5rem;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1rem;
+    }
+
+    .footer-left, .footer-middle, .footer-right {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .footer-left {
+      text-align: left;
+    }
+
+    .footer-middle {
+      text-align: center;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    .footer-content p, .footer-content h4 {
+      margin: 0.3rem 0;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .footer-newsletter {
+      margin-top: 1rem;
+    }
+
+    .footer-newsletter input[type="email"] {
+      padding: 0.8rem;
+      width: 60%;
+      max-width: 300px;
+      border: none;
+      border-radius: 6px;
+      margin-right: 0.5rem;
+    }
+
+    .footer-newsletter button {
+      padding: 0.8rem 1.5rem;
+      background-color: #0077cc;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .footer-bottom {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .footer-bottom a {
+      color: red !important;
+      text-decoration: underline;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -188,17 +266,17 @@
       <div class="card">
         <h2>Modernize</h2>
         <p>Refactor legacy systems using microservices, containers, and serverless on AWS to boost agility.</p>
-        <a href="contact.html" class="cta-btn">Modernize with AWS →</a>
+        <a href="aws-modernize.html" class="cta-btn">Modernize with AWS →</a>
       </div>
       <div class="card">
         <h2>Manage</h2>
         <p>24/7 managed services for AWS environments with optimization, observability, and governance.</p>
-        <a href="contact.html" class="cta-btn">Manage AWS Cloud →</a>
+        <a href="aws-manage.html" class="cta-btn">Manage AWS Cloud →</a>
       </div>
       <div class="card">
         <h2>Optimize</h2>
         <p>Leverage AWS tools for reserved instances, right-sizing, and advanced cost optimization strategies.</p>
-        <a href="contact.html" class="cta-btn">Optimize AWS Spend →</a>
+        <a href="aws-optimize.html" class="cta-btn">Optimize AWS Spend →</a>
       </div>
     </div>
 
@@ -212,19 +290,48 @@
       <div class="card">
         <h2>App Innovation</h2>
         <p>Transform your applications with Azure App Services, Logic Apps, and Kubernetes architecture.</p>
-        <a href="contact.html" class="cta-btn">Modernize on Azure →</a>
+        <a href="azure-apps.html" class="cta-btn">Modernize on Azure →</a>
       </div>
       <div class="card">
         <h2>Cloud Management</h2>
         <p>Secure, monitor, and manage Azure environments with Azure Monitor, Security Center, and Sentinel.</p>
-        <a href="contact.html" class="cta-btn">Manage Azure Cloud →</a>
+        <a href="azure-manage.html" class="cta-btn">Manage Azure Cloud →</a>
       </div>
       <div class="card">
         <h2>Cost Control</h2>
         <p>Gain visibility and control with Azure Cost Management, Advisor, and FinOps advisory services.</p>
-        <a href="contact.html" class="cta-btn">Control Azure Costs →</a>
+        <a href="azure-cost.html" class="cta-btn">Control Azure Costs →</a>
       </div>
     </div>
   </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
+        <p><strong>BEE Level 4</strong></p>
+        <p>Company Reg: 2022/123456/07</p>
+      </div>
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <div class="footer-newsletter">
+          <input type="email" placeholder="Enter your email" />
+          <button>Subscribe</button>
+        </div>
+      </div>
+      <div class="footer-right">
+        <p>Contact</p>
+        <p>Mobile: +27 82 872 7858<br>Email: hello@corecloud.africa</p>
+        <p>Follow Us</p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); text-decoration: underline;">LinkedIn</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2022 CoreCloud. All rights reserved.</p>
+      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+    </div>
+  </footer>
 </body>
 </html>
