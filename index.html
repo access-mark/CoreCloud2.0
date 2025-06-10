@@ -5,9 +5,210 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CoreCloud – Executive-Grade Cloud Transformation</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: #f4f6f8;
+      color: #1e1e1e;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .small-banner {
+      background-color: #fff;
+      padding: 0.05rem 2rem 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .banner-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      height: 160px;
+      width: auto;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav a.nav-btn {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #003366;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    nav a.nav-btn:hover,
+    nav a.nav-btn.active {
+      color: #005fa3;
+      font-weight: 900;
+    }
+
+    .page-banner {
+      height: 300px;
+      background-image: url('assets/images/index-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      margin-top: 160px;
+    }
+
+    .content {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #003366;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .content > p {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story-grid, .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .story-card, .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .story-card h2, .card h2 {
+      color: #003366;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .story-card p, .card p {
+      color: #333;
+      line-height: 1.6;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background-color: #0077cc;
+      color: #fff;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      margin-top: auto;
+    }
+
+    .cta-btn:hover {
+      background-color: #005fa3;
+    }
+
+    footer {
+      background-image: url('assets/images/footer-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      padding: 0.5rem 0 0.5rem;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1rem;
+    }
+
+    .footer-left, .footer-middle, .footer-right {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .footer-left { text-align: left; }
+    .footer-middle { text-align: center; }
+    .footer-right { text-align: right; }
+
+    .footer-content p, .footer-content h4 {
+      margin: 0.3rem 0;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.95);
+    }
+
+    .footer-newsletter input[type="email"] {
+      padding: 0.8rem;
+      width: 60%;
+      max-width: 300px;
+      border: none;
+      border-radius: 6px;
+      margin-right: 0.5rem;
+    }
+
+    .footer-newsletter button {
+      padding: 0.8rem 1.5rem;
+      background-color: #0077cc;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .footer-bottom {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.95);
+    }
+
+    .footer-bottom a {
+      color: red !important;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-  <header class="small-banner">
+  <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
       <nav>
@@ -23,9 +224,9 @@
         </ul>
       </nav>
     </div>
-  </header>
+  </div>
 
-  <div class="page-banner" style="background-image: url('assets/images/index-bannerimage.png'); background-size: cover; background-position: center; height: 300px; margin-top: 160px;"></div>
+  <div class="page-banner"></div>
 
   <main class="content">
     <h1>The CoreCloud Advantage</h1>
@@ -46,7 +247,7 @@
       </div>
     </div>
 
-    <h1 style="margin-top: 4rem;">Bold Tech. Executive Precision.</h1>
+    <h1 style="margin-top: 4rem">Bold Tech. Executive Precision.</h1>
     <p style="text-align: center; max-width: 900px; margin: 0 auto 2rem; font-size: 1.2rem;">Cloud consulting, AWS services, and top-tier talent – aligned with your boardroom ambitions and frontline delivery.</p>
 
     <div class="card-grid">
@@ -68,7 +269,7 @@
     </div>
   </main>
 
-  <footer style="background-image: url('assets/images/footer-bannerimage.png'); background-size: cover; background-position: center; padding: 0.5rem 0;">
+  <footer>
     <div class="footer-content">
       <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
