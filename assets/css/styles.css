@@ -44,18 +44,8 @@ body {
 /* Nav Menu */
 nav {
   display: flex;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
+  align-items: center;
   gap: 1.5rem;
-  padding: 0;
-  margin: 0;
-}
-
-nav li {
-  display: inline-block;
 }
 
 nav a {
@@ -140,7 +130,8 @@ main.content {
   transition: transform 0.2s ease;
 }
 
-.card h3, .card h2 {
+.card h3,
+.card h2 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
   color: #003366;
@@ -209,20 +200,30 @@ footer {
   padding: 1rem;
 }
 
-.footer-left, .footer-middle, .footer-right {
+.footer-left,
+.footer-middle,
+.footer-right {
   flex: 1;
   min-width: 280px;
 }
 
-.footer-left { text-align: left; }
-.footer-middle { text-align: center; }
-.footer-right { text-align: right; }
+.footer-left {
+  text-align: left;
+}
+
+.footer-middle {
+  text-align: center;
+}
+
+.footer-right {
+  text-align: right;
+}
 
 .footer-content p,
 .footer-content h4 {
   margin: 0.3rem 0;
   color: white;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.95);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.95);
 }
 
 .footer-newsletter input[type="email"] {
@@ -248,7 +249,7 @@ footer {
   font-size: 0.85rem;
   text-align: center;
   color: white;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.95);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.95);
 }
 
 .footer-bottom a {
