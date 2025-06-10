@@ -27,7 +27,8 @@ body {
 }
 
 .logo {
-  max-height: 48px;
+  height: 200px;
+  width: auto;
 }
 
 nav a {
@@ -102,9 +103,10 @@ main.content {
   transition: transform 0.2s ease;
 }
 
-.card h3 {
+.card h3, .card h2 {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
+  color: #003366;
 }
 
 .card p {
