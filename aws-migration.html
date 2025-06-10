@@ -100,57 +100,48 @@
       margin-top: 3rem;
     }
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+    .arrow-flow {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 1rem;
       margin-top: 2rem;
+      position: relative;
     }
 
-    .card {
+    .arrow-card {
+      flex: 1;
       background: #ffffff;
       border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      position: relative;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    .arrow-card::after {
+      content: "→";
+      position: absolute;
+      right: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: #0077cc;
     }
 
-    .card h2 {
-      font-size: 1.5rem;
+    .arrow-card:last-child::after {
+      content: "";
+    }
+
+    .arrow-card h2 {
+      font-size: 1.4rem;
+      color: #003366;
       margin-bottom: 0.5rem;
-      color: #222;
     }
 
-    .card p {
+    .arrow-card p {
       font-size: 1rem;
       color: #555;
-      flex-grow: 1;
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      background-color: #0077cc;
-      color: #fff;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.9rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-      margin-top: auto;
-    }
-
-    .cta-btn:hover {
-      background-color: #005fa3;
     }
   </style>
 </head>
@@ -178,51 +169,22 @@
     <h1>AWS & Microsoft Azure Cloud Services Suite</h1>
     <p class="hero-subtitle">You don’t build the future by choosing between AWS and Azure. You win by orchestrating both. CoreCloud isn’t a cloud reseller — we’re your transformation partner. From first migration to daily management, we engineer a seamless cloud experience that makes cost predictable, performance measurable, and growth exponential. The services below aren’t isolated — they’re a connected system that stacks intelligently, building a foundation that grows with your ambition.</p>
 
-    <h2 class="subheader">Amazon Web Services (AWS)</h2>
-    <div class="card-grid">
-      <div class="card">
+    <div class="arrow-flow">
+      <div class="arrow-card">
         <h2>Migrate</h2>
-        <p>Accelerate AWS cloud adoption with structured workload migration, assessments, and roadmaps.</p>
-        <a href="aws-modernize.html" class="cta-btn">Next: Modernize →</a>
+        <p>Structured transitions that ensure your workloads move to the cloud securely, quickly, and efficiently.</p>
       </div>
-      <div class="card">
+      <div class="arrow-card">
         <h2>Modernize</h2>
-        <p>Refactor legacy systems using microservices, containers, and serverless on AWS to boost agility.</p>
-        <a href="aws-manage.html" class="cta-btn">Next: Manage →</a>
+        <p>Transform legacy apps with modern architecture to enable agility, scalability, and cost savings.</p>
       </div>
-      <div class="card">
+      <div class="arrow-card">
         <h2>Manage</h2>
-        <p>24/7 managed services for AWS environments with optimization, observability, and governance.</p>
-        <a href="aws-optimize.html" class="cta-btn">Next: Optimize →</a>
+        <p>Stay in control with proactive monitoring, governance, and support across environments.</p>
       </div>
-      <div class="card">
+      <div class="arrow-card">
         <h2>Optimize</h2>
-        <p>Leverage AWS tools for reserved instances, right-sizing, and advanced cost optimization strategies.</p>
-        <a href="azure-migration.html" class="cta-btn">Next: Azure Migration →</a>
-      </div>
-    </div>
-
-    <h2 class="subheader">Microsoft Azure</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h2>Azure Migration</h2>
-        <p>Simplify lift-and-shift or hybrid transitions with Azure Migrate and end-to-end workload planning.</p>
-        <a href="azure-apps.html" class="cta-btn">Next: App Innovation →</a>
-      </div>
-      <div class="card">
-        <h2>App Innovation</h2>
-        <p>Transform your applications with Azure App Services, Logic Apps, and Kubernetes architecture.</p>
-        <a href="azure-manage.html" class="cta-btn">Next: Cloud Management →</a>
-      </div>
-      <div class="card">
-        <h2>Cloud Management</h2>
-        <p>Secure, monitor, and manage Azure environments with Azure Monitor, Security Center, and Sentinel.</p>
-        <a href="azure-cost.html" class="cta-btn">Next: Cost Control →</a>
-      </div>
-      <div class="card">
-        <h2>Cost Control</h2>
-        <p>Gain visibility and control with Azure Cost Management, Advisor, and FinOps advisory services.</p>
-        <a href="contact.html" class="cta-btn">Talk to CoreCloud →</a>
+        <p>Continuously refine performance, spend, and scalability with insights and automation.</p>
       </div>
     </div>
   </main>
