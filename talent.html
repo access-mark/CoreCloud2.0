@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Talent Placement – CoreCloud</title>
+  <title>Contact – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -13,50 +13,57 @@
       <a href="index.html">Home</a>
       <a href="consulting.html">Consulting</a>
       <a href="aws.html">Cloud Suite</a>
-      <a href="talent.html" class="active">Talent Placement</a>
+      <a href="talent.html">Talent Placement</a>
       <a href="resources.html">Resources</a>
-      <a href="contact.html">Contact</a>
+      <a href="contact.html" class="active">Contact</a>
     </nav>
   </div>
 
-  <div class="hero" style="background-image: url('assets/images/talent-bannerimage.png'); background-size: cover; background-position: center; height: 300px; margin-top: 200px;"></div>
+  <div class="hero" style="background-image: url('assets/images/contact-bannerimage.png'); background-size: cover; background-position: center; height: 300px; margin-top: 200px;"></div>
 
   <main class="content">
     <section class="section intro">
-      <h1 class="section-title">Elite Talent Placement</h1>
-      <p class="subtitle">We place top-tier cloud, engineering, and sales talent into delivery-critical environments. Our model fuses strategic alignment, technical excellence, and outcome-based hiring to ensure every placement delivers impact.</p>
+      <h1 class="section-title">Let’s Connect</h1>
+      <p class="subtitle">We're ready to engage — whether you're planning your next move, scaling delivery, or building a cloud strategy from scratch.</p>
     </section>
 
-    <section class="section card-grid quad">
+    <section class="section contact-grid">
       <div class="card">
-        <h2>Strategic Talent Sourcing</h2>
-        <p>Pinpoint hiring for cloud, engineering, data, and sales. High-impact roles, filled with precision.</p>
-        <a href="contact.html" class="cta-btn">Access Talent →</a>
+        <h2>Company Info</h2>
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>433 Broadacres Country Estate<br>Syringa Rd, Broadacres, Johannesburg</p>
+        <p><strong>BEE Level 4</strong><br>Company Reg: 2022/123456/07</p>
+        <p><strong>Mobile:</strong> +27 82 872 7858</p>
+        <p><strong>Email:</strong> hello@corecloud.africa</p>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/company/corecloud-africa" target="_blank">@corecloud-africa</a></p>
       </div>
       <div class="card">
-        <h2>Partner Embedded Models</h2>
-        <p>We place specialists into delivery ecosystems via partners like Synthesis, DVT, and LSD.</p>
-        <a href="contact.html" class="cta-btn">View Model →</a>
-      </div>
-      <div class="card">
-        <h2>Permanent & Contract</h2>
-        <p>Flexible placement models with payroll, onboarding, and full compliance built in.</p>
-        <a href="contact.html" class="cta-btn">Learn More →</a>
-      </div>
-      <div class="card">
-        <h2>National Reach</h2>
-        <p>Fast, digital-first sourcing across South Africa’s most competitive talent pools.</p>
-        <a href="contact.html" class="cta-btn">Hire Now →</a>
-      </div>
-      <div class="card">
-        <h2>Performance Guarantee</h2>
-        <p>We replace fast if it’s not working. No risk to you. Delivery is everything.</p>
-        <a href="contact.html" class="cta-btn">View Guarantee →</a>
-      </div>
-      <div class="card">
-        <h2>Sales, Tech & Ops Roles</h2>
-        <p>From specialist roles to executive search. We source sales, engineering, cloud and ops talent.</p>
-        <a href="contact.html" class="cta-btn">Explore Talent →</a>
+        <h2>Message Us</h2>
+        <form class="contact-form">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" />
+
+          <label for="interest">Area of Interest</label>
+          <select id="interest" name="interest">
+            <option value="Consulting">Consulting</option>
+            <option value="AWS">AWS Services</option>
+            <option value="Talent">Talent Placement</option>
+          </select>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5"></textarea>
+
+          <button type="submit">Submit →</button>
+        </form>
       </div>
     </section>
   </main>
