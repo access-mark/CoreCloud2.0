@@ -7,201 +7,35 @@
   <link rel="stylesheet" href="https://access-mark.github.io/CoreCloud2.0/assets/css/styles.css" />
   <meta name="description" content="CoreCloud's AWS-certified Migration Services accelerate secure, scalable cloud transitions for enterprises across South Africa.">
   <meta name="keywords" content="AWS Migration, Cloud Transformation, CoreCloud, South Africa, Secure Workload Migration">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      background-color: #f4f6f8;
-      color: #1e1e1e;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    .small-banner {
-      background-color: #fff;
-      padding: 0.05rem 2rem 0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-    }
-
-    .banner-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      height: 160px;
-      width: auto;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav a.nav-btn {
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: #003366;
-      text-transform: uppercase;
-      transition: all 0.3s ease;
-    }
-
-    nav a.nav-btn:hover,
-    nav a.nav-btn.active {
-      color: #005fa3;
-      font-weight: 900;
-    }
-
-    .page-banner {
-      height: 300px;
-      background-image: url('assets/images/aws-bannerimage.png');
-      background-size: cover;
-      background-position: center;
-      margin-top: 150px;
-    }
-
-    .content {
-      max-width: 1200px;
-      margin: 4rem auto;
-      padding: 0 1.5rem;
-      text-align: left;
-    }
-
-    .content h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      color: #003366;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-
-    .narrative {
-      font-size: 1.2rem;
-      line-height: 1.8;
-      color: #333;
-      margin-bottom: 2rem;
-    }
-
-    .section {
-      margin-top: 3rem;
-    }
-
-    .section h2 {
-      color: #003366;
-      margin-bottom: 1rem;
-    }
-
-    .section ul {
-      padding-left: 1.5rem;
-    }
-
-    .section ul li {
-      margin-bottom: 0.7rem;
-      font-size: 1rem;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      background-color: #0077cc;
-      color: #fff;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.9rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-      margin-top: 2rem;
-    }
-
-    .cta-btn:hover {
-      background-color: #005fa3;
-    }
-
-    footer {
-      background-image: url('assets/images/footer-bannerimage.png');
-      background-size: cover;
-      background-position: center;
-      padding: 0.5rem 0 0.5rem;
-      margin-top: auto;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 1rem;
-    }
-
-    .footer-left, .footer-middle, .footer-right {
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .footer-content p, .footer-content h4 {
-      margin: 0.3rem 0;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-    }
-
-    .footer-bottom {
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      text-align: center;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-    }
-
-    .footer-bottom a {
-      color: red !important;
-      text-decoration: underline;
-      font-weight: bold;
-    }
-  </style>
 </head>
 <body>
+  <!-- Top Navigation -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
       <nav>
-        <ul>
-          <li><a href="index.html" class="nav-btn">Home</a></li>
-          <li><a href="consulting.html" class="nav-btn">Consulting</a></li>
-          <li><a href="cloud.html" class="nav-btn">Cloud Service Suite</a></li>
-          <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
-          <li><a href="white-paper.html" class="nav-btn">White Paper</a></li>
-          <li><a href="resources.html" class="nav-btn">Resources</a></li>
-          <li><a href="contact.html" class="nav-btn">Contact</a></li>
-          <li><a href="testimonials.html" class="nav-btn">Testimonials</a></li>
-        </ul>
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="consulting.html" class="nav-btn">Consulting</a>
+        <a href="cloud.html" class="nav-btn">Cloud Service Suite</a>
+        <a href="talent.html" class="nav-btn">Talent Placement</a>
+        <a href="resources.html" class="nav-btn">Resources</a>
+        <a href="contact.html" class="nav-btn">Contact</a>
       </nav>
     </div>
   </div>
 
-  <div class="page-banner"></div>
+  <!-- Banner -->
+  <div class="page-banner" style="background-image: url('assets/images/aws-bannerimage.png');"></div>
+
+  <!-- Page Content -->
   <main class="content">
-    <h1>AWS Migration Services</h1>
-    <p class="narrative">
+    <h1 class="center-title">AWS Migration Services</h1>
+    <p class="narrative center-subtitle">
       You don’t just migrate to AWS — you commit to transformation. At CoreCloud, migration isn't a checkbox. It's the launchpad. We start by assessing your landscape, business goals, and compliance needs. Then we craft a secure, scalable roadmap for moving your workloads to AWS without breaking momentum. Whether you're migrating your first app or your entire data center, we bring the tools, partners, and battle-tested frameworks to make it frictionless.
     </p>
 
     <div class="section">
-      <h2>What We Deliver</h2>
+      <h2 class="section-title">What We Deliver</h2>
       <ul>
         <li>Cloud Readiness Assessments & Business Case Alignment</li>
         <li>Migration Planning & Proof-of-Concept Pilots</li>
@@ -213,7 +47,7 @@
     </div>
 
     <div class="section">
-      <h2>Why CoreCloud?</h2>
+      <h2 class="section-title">Why CoreCloud?</h2>
       <ul>
         <li>Certified migration orchestrators – we connect you to the right delivery partner</li>
         <li>Zero fluff – real timelines, real cost control, real business outcomes</li>
@@ -221,9 +55,12 @@
       </ul>
     </div>
 
-    <a href="contact.html" class="cta-btn">Start Your Migration →</a>
+    <div style="text-align: center;">
+      <a href="contact.html" class="cta-btn">Start Your Migration →</a>
+    </div>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -243,12 +80,11 @@
       <div class="footer-right">
         <p>Contact</p>
         <p>Mobile: +27 82 872 7858<br>Email: hello@corecloud.africa</p>
-        <p>Follow Us</p>
         <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); text-decoration: underline;">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2022 CoreCloud. All rights reserved.</p>
+      <p>&copy; 2025 CoreCloud. All rights reserved.</p>
       <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
     </div>
   </footer>
