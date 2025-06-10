@@ -7,63 +7,67 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
+  <!-- Header -->
   <div class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" style="height: 200px;" />
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
       <nav>
-        <ul>
-          <li><a href="index.html" class="nav-btn">Home</a></li>
-          <li><a href="consulting.html" class="nav-btn">Consulting</a></li>
-          <li><a href="cloud.html" class="nav-btn">Cloud Service Suite</a></li>
-          <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
-          <li><a href="resources.html" class="nav-btn">Resources</a></li>
-          <li><a href="contact.html" class="nav-btn active">Contact</a></li>
-        </ul>
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="consulting.html" class="nav-btn">Consulting</a>
+        <a href="cloud.html" class="nav-btn">Cloud Service Suite</a>
+        <a href="talent.html" class="nav-btn">Talent Placement</a>
+        <a href="resources.html" class="nav-btn">Resources</a>
+        <a href="contact.html" class="nav-btn active">Contact</a>
       </nav>
     </div>
   </div>
 
+  <!-- Banner -->
   <div class="page-banner" style="background-image: url('assets/images/contact-bannerimage.png');"></div>
 
-  <div class="contact-container">
-    <div class="contact-left">
-      <h2>Let's Talk Impact</h2>
-      <p>Start a conversation that moves the needle — strategy, talent, cloud transformation.</p>
-      <p><strong>CoreCloud (Pty) Ltd</strong><br>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
-      <p><strong>BEE Level 4</strong><br>Company Reg: 2022/123456/07</p>
-      <p><strong>Mobile:</strong> +27 82 872 7858<br><strong>Email:</strong> hello@corecloud.africa</p>
-      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/company/corecloud-africa" target="_blank">@corecloud-africa</a></p>
+  <!-- Main Content -->
+  <main class="content">
+    <div class="contact-container" style="display: flex; flex-wrap: wrap; gap: 3rem; justify-content: space-between;">
+      <div class="contact-left" style="flex: 1; min-width: 300px;">
+        <h2>Let's Talk Impact</h2>
+        <p>Start a conversation that moves the needle — strategy, talent, cloud transformation.</p>
+        <p><strong>CoreCloud (Pty) Ltd</strong><br>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
+        <p><strong>BEE Level 4</strong><br>Company Reg: 2022/123456/07</p>
+        <p><strong>Mobile:</strong> +27 82 872 7858<br><strong>Email:</strong> hello@corecloud.africa</p>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/company/corecloud-africa" target="_blank">@corecloud-africa</a></p>
+      </div>
+      <div class="contact-right" style="flex: 1; min-width: 300px;">
+        <h2>Send a Message</h2>
+        <form class="contact-form" style="display: flex; flex-direction: column; gap: 1rem;">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" />
+
+          <label for="interest">Area of Interest</label>
+          <select id="interest" name="interest">
+            <option value="Consulting">Consulting</option>
+            <option value="AWS">AWS Services</option>
+            <option value="Talent">Talent Placement</option>
+          </select>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5"></textarea>
+
+          <button type="submit" style="padding: 0.8rem 1.5rem; background-color: #0077cc; color: #fff; border: none; border-radius: 6px; cursor: pointer;">Submit →</button>
+        </form>
+      </div>
     </div>
-    <div class="contact-right">
-      <h2>Send a Message</h2>
-      <form class="contact-form">
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required />
+  </main>
 
-        <label for="company">Company</label>
-        <input type="text" id="company" name="company" />
-
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="phone">Phone</label>
-        <input type="tel" id="phone" name="phone" />
-
-        <label for="interest">Area of Interest</label>
-        <select id="interest" name="interest">
-          <option value="Consulting">Consulting</option>
-          <option value="AWS">AWS Services</option>
-          <option value="Talent">Talent Placement</option>
-        </select>
-
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5"></textarea>
-
-        <button type="submit">Submit →</button>
-      </form>
-    </div>
-  </div>
-
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
