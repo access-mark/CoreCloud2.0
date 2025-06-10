@@ -48,12 +48,11 @@
     nav {
       display: flex;
       align-items: center;
+      gap: 1.5rem;
     }
 
-    nav a,
-    nav ul li a {
+    nav a {
       text-decoration: none;
-      margin-left: 1.5rem;
       font-weight: 700;
       font-size: 0.95rem;
       color: #003366;
@@ -62,23 +61,9 @@
     }
 
     nav a:hover,
-    nav a.active,
-    nav ul li a:hover,
-    nav ul li a.active {
+    nav a.active {
       color: #005fa3;
       font-weight: 900;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav li {
-      display: inline-block;
     }
 
     .page-banner {
