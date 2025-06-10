@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AWS Modernization – CoreCloud</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta name="description" content="CoreCloud accelerates your AWS modernization journey by transforming legacy systems into agile, cloud-native solutions that drive innovation.">
+  <meta name="keywords" content="AWS Modernization, Cloud Native, Application Transformation, CoreCloud, South Africa">
+</head>
+<body>
+  <div class="small-banner">
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="index.html" class="nav-btn">Home</a></li>
+          <li><a href="consulting.html" class="nav-btn">Consulting</a></li>
+          <li><a href="cloud.html" class="nav-btn active">Cloud Service Suite</a></li>
+          <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
+          <li><a href="white-paper.html" class="nav-btn">White Paper</a></li>
+          <li><a href="resources.html" class="nav-btn">Resources</a></li>
+          <li><a href="contact.html" class="nav-btn">Contact</a></li>
+          <li><a href="testimonials.html" class="nav-btn">Testimonials</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+  <div class="page-banner" style="height: 300px; background: url('assets/images/aws-bannerimage.png') center/cover no-repeat; margin-top: 150px;"></div>
+
+  <main class="content" style="max-width: 1200px; margin: 4rem auto; padding: 0 1.5rem;">
+    <h1 style="font-size: 3rem; color: #003366; text-align: center;">AWS Modernization Services</h1>
+    <p class="narrative" style="font-size: 1.2rem; line-height: 1.8; color: #333; margin-bottom: 2rem;">
+      Legacy systems are a tax on innovation. Modernization isn’t about rewriting code — it’s about rewriting the rules. CoreCloud brings structure and speed to your AWS modernization journey, turning legacy workloads into cloud-native capabilities. From containerization and serverless to DevOps automation and scalable microservices, we help you move fast without breaking things.
+    </p>
+
+    <div class="section" style="margin-top: 3rem;">
+      <h2 style="color: #003366;">What We Deliver</h2>
+      <ul style="padding-left: 1.5rem;">
+        <li>Legacy System Audits & Readiness Assessment</li>
+        <li>Containerization & Microservices Refactoring</li>
+        <li>CI/CD Pipeline Design & DevOps Automation</li>
+        <li>Serverless Architecture & Event-Driven Design</li>
+        <li>Cloud-native Security & Cost Governance</li>
+        <li>Co-delivery with AWS-certified Engineering Teams</li>
+      </ul>
+    </div>
+
+    <div class="section" style="margin-top: 3rem;">
+      <h2 style="color: #003366;">Why CoreCloud?</h2>
+      <ul style="padding-left: 1.5rem;">
+        <li>Zero-to-cloud velocity – modernize in weeks, not years</li>
+        <li>Tailored modernization blueprints for your stack</li>
+        <li>Proven methodology backed by real-world outcomes</li>
+      </ul>
+    </div>
+
+    <a href="contact.html" class="cta-btn" style="display: inline-block; background-color: #0077cc; color: #fff; font-weight: 600; font-size: 1rem; padding: 0.9rem 2rem; border-radius: 8px; text-decoration: none; transition: background-color 0.3s ease; margin-top: 2rem;">Modernize with CoreCloud →</a>
+  </main>
+
+  <footer style="background-image: url('assets/images/footer-bannerimage.png'); background-size: cover; background-position: center; padding: 0.5rem 0; margin-top: auto;">
+    <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; padding: 1rem;">
+      <div class="footer-left" style="flex: 1; min-width: 280px;">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
+        <p><strong>BEE Level 4</strong></p>
+        <p>Company Reg: 2022/123456/07</p>
+      </div>
+      <div class="footer-middle" style="flex: 1; min-width: 280px; text-align: center;">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <div class="footer-newsletter">
+          <input type="email" placeholder="Enter your email" style="padding: 0.8rem; width: 60%; max-width: 300px; border: none; border-radius: 6px; margin-right: 0.5rem;" />
+          <button style="padding: 0.8rem 1.5rem; background-color: #0077cc; color: #fff; border: none; border-radius: 6px; cursor: pointer;">Subscribe</button>
+        </div>
+      </div>
+      <div class="footer-right" style="flex: 1; min-width: 280px; text-align: right;">
+        <p>Contact</p>
+        <p>Mobile: +27 82 872 7858<br>Email: hello@corecloud.africa</p>
+        <p>Follow Us</p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); text-decoration: underline;">LinkedIn</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom" style="margin-top: 1rem; font-size: 0.85rem; text-align: center; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+      <p>&copy; 2022 CoreCloud. All rights reserved.</p>
+      <p><a href="privacy.html" style="color: red; text-decoration: underline; font-weight: bold;">Privacy Policy</a> | <a href="terms.html" style="color: red; text-decoration: underline; font-weight: bold;">Terms & Conditions</a></p>
+    </div>
+  </footer>
+</body>
+</html>
