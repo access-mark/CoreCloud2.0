@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cloud Services Suite – CoreCloud</title>
+  <title>Cloud Service Suite – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <meta name="description" content="CoreCloud offers certified AWS and Azure services for migration, modernization, and cloud management.">
-  <meta name="keywords" content="AWS, Azure, cloud migration, modernization, managed services, South Africa, CoreCloud">
+  <meta name="description" content="Explore CoreCloud's powerful Cloud Service Suite featuring AWS and Azure migration, modernization, management, and optimization offerings." />
+  <meta name="keywords" content="AWS, Azure, Cloud Services, Migration, Modernization, Management, Optimization, CoreCloud" />
   <style>
     body {
       margin: 0;
@@ -67,7 +67,7 @@
 
     .page-banner {
       height: 300px;
-      background-image: url('assets/images/aws-bannerimage.png');
+      background-image: url('assets/images/cloud-banner.png');
       background-size: cover;
       background-position: center;
       margin-top: 150px;
@@ -87,69 +87,61 @@
       margin-bottom: 1rem;
     }
 
-    .content p.hero-subtitle {
+    .subtitle {
       font-size: 1.3rem;
       line-height: 1.6;
       color: #333;
       margin-bottom: 2rem;
     }
 
-    .subheader {
-      font-size: 2rem;
-      color: #003366;
-      margin-top: 4rem;
+    .section-title {
+      margin-top: 3rem;
       margin-bottom: 1rem;
+      font-size: 2rem;
+      color: #005fa3;
     }
 
-    .arrow-flow {
-      display: flex;
-      justify-content: space-between;
-      align-items: stretch;
-      gap: 1rem;
-      margin-top: 2rem;
-      position: relative;
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
     }
 
-    .arrow-card {
-      flex: 1;
+    .card {
       background: #ffffff;
       border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      text-align: center;
-      position: relative;
-      transition: transform 0.3s ease;
-      cursor: pointer;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-align: left;
     }
 
-    .arrow-card:hover {
+    .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     }
 
-    .arrow-card::after {
-      content: "→";
-      position: absolute;
-      right: -1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2rem;
-      color: #0077cc;
-    }
-
-    .arrow-card:last-child::after {
-      content: "";
-    }
-
-    .arrow-card h2 {
-      font-size: 1.4rem;
+    .card h2 {
+      font-size: 1.5rem;
       color: #003366;
       margin-bottom: 0.5rem;
     }
 
-    .arrow-card p {
+    .card p {
       font-size: 1rem;
       color: #555;
+      margin-bottom: 1rem;
+    }
+
+    .card a {
+      display: inline-block;
+      background-color: #0077cc;
+      color: #fff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
     }
 
     footer {
@@ -170,49 +162,10 @@
       padding: 1rem;
     }
 
-    .footer-left, .footer-middle, .footer-right {
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .footer-left {
-      text-align: left;
-    }
-
-    .footer-middle {
-      text-align: center;
-    }
-
-    .footer-right {
-      text-align: right;
-    }
-
     .footer-content p, .footer-content h4 {
-      margin: 0.3rem 0;
       color: white;
+      margin: 0.3rem 0;
       text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-    }
-
-    .footer-newsletter {
-      margin-top: 1rem;
-    }
-
-    .footer-newsletter input[type="email"] {
-      padding: 0.8rem;
-      width: 60%;
-      max-width: 300px;
-      border: none;
-      border-radius: 6px;
-      margin-right: 0.5rem;
-    }
-
-    .footer-newsletter button {
-      padding: 0.8rem 1.5rem;
-      background-color: #0077cc;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
     }
 
     .footer-bottom {
@@ -238,7 +191,7 @@
         <ul>
           <li><a href="index.html" class="nav-btn">Home</a></li>
           <li><a href="consulting.html" class="nav-btn">Consulting</a></li>
-          <li><a href="aws.html" class="nav-btn active">Cloud Service Suite</a></li>
+          <li><a href="cloud.html" class="nav-btn active">Cloud Service Suite</a></li>
           <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
           <li><a href="white-paper.html" class="nav-btn">White Paper</a></li>
           <li><a href="resources.html" class="nav-btn">Resources</a></li>
@@ -250,47 +203,56 @@
   </div>
 
   <div class="page-banner"></div>
-  <main class="content">
-    <h1>AWS & Microsoft Azure Cloud Services Suite</h1>
-    <p class="hero-subtitle">You don’t build the future by choosing between AWS and Azure. You win by orchestrating both. CoreCloud isn’t a cloud reseller — we’re your transformation partner. From first migration to daily management, we engineer a seamless cloud experience that makes cost predictable, performance measurable, and growth exponential. The services below aren’t isolated — they’re a connected system that stacks intelligently, building a foundation that grows with your ambition.</p>
 
-    <div class="subheader">AWS Services</div>
-    <div class="arrow-flow">
-      <div class="arrow-card" onclick="location.href='aws-migration.html';">
+  <main class="content">
+    <h1>CoreCloud Cloud Service Suite</h1>
+    <p class="subtitle">From AWS to Azure – We orchestrate transformation through the best in global cloud innovation. Click to explore each building block of our suite.</p>
+
+    <h2 class="section-title">Amazon Web Services (AWS)</h2>
+    <div class="card-grid">
+      <div class="card">
         <h2>Migrate</h2>
-        <p>Structured transitions that ensure your workloads move to the cloud securely, quickly, and efficiently.</p>
+        <p>Accelerate your move to the cloud with secure AWS migration plans.</p>
+        <a href="aws-migration.html">Explore →</a>
       </div>
-      <div class="arrow-card" onclick="location.href='aws-modernize.html';">
+      <div class="card">
         <h2>Modernize</h2>
-        <p>Transform legacy apps with modern architecture to enable agility, scalability, and cost savings.</p>
+        <p>Transform legacy systems using containers, microservices & serverless.</p>
+        <a href="aws-modernize.html">Explore →</a>
       </div>
-      <div class="arrow-card" onclick="location.href='aws-manage.html';">
+      <div class="card">
         <h2>Manage</h2>
-        <p>Stay in control with proactive monitoring, governance, and support across environments.</p>
+        <p>Gain visibility, control & 24/7 support with managed AWS services.</p>
+        <a href="aws-manage.html">Explore →</a>
       </div>
-      <div class="arrow-card" onclick="location.href='aws-optimize.html';">
+      <div class="card">
         <h2>Optimize</h2>
-        <p>Continuously refine performance, spend, and scalability with insights and automation.</p>
+        <p>Drive cloud cost savings & performance through AWS best practices.</p>
+        <a href="aws-optimize.html">Explore →</a>
       </div>
     </div>
 
-    <div class="subheader">Microsoft Azure Services</div>
-    <div class="arrow-flow">
-      <div class="arrow-card" onclick="location.href='azure-migration.html';">
+    <h2 class="section-title">Microsoft Azure</h2>
+    <div class="card-grid">
+      <div class="card">
         <h2>Migrate</h2>
-        <p>Lift-and-shift or rearchitect workloads to Azure with confidence, compliance, and control.</p>
+        <p>Plan and execute secure workload migrations into Microsoft Azure.</p>
+        <a href="azure-migration.html">Explore →</a>
       </div>
-      <div class="arrow-card" onclick="location.href='azure-modernize.html';">
+      <div class="card">
         <h2>Modernize</h2>
-        <p>Enable innovation through containers, serverless compute, and Azure-native services.</p>
+        <p>Refactor applications into Azure-native cloud environments.</p>
+        <a href="azure-modernize.html">Explore →</a>
       </div>
-      <div class="arrow-card" onclick="location.href='azure-manage.html';">
+      <div class="card">
         <h2>Manage</h2>
-        <p>Gain full-stack observability, security posture management, and support on Azure.</p>
+        <p>Rely on CoreCloud to manage, monitor & support Azure operations.</p>
+        <a href="azure-manage.html">Explore →</a>
       </div>
-      <div class="arrow-card" onclick="location.href='azure-optimize.html';">
+      <div class="card">
         <h2>Optimize</h2>
-        <p>Streamline operations with Azure Cost Management, FinOps practices, and automation.</p>
+        <p>Optimize Azure resources, costs, and governance with expert guidance.</p>
+        <a href="azure-optimize.html">Explore →</a>
       </div>
     </div>
   </main>
