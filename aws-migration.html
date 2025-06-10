@@ -117,6 +117,13 @@
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
       text-align: center;
       position: relative;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .arrow-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     }
 
     .arrow-card::after {
@@ -170,19 +177,19 @@
     <p class="hero-subtitle">You don’t build the future by choosing between AWS and Azure. You win by orchestrating both. CoreCloud isn’t a cloud reseller — we’re your transformation partner. From first migration to daily management, we engineer a seamless cloud experience that makes cost predictable, performance measurable, and growth exponential. The services below aren’t isolated — they’re a connected system that stacks intelligently, building a foundation that grows with your ambition.</p>
 
     <div class="arrow-flow">
-      <div class="arrow-card">
+      <div class="arrow-card" onclick="location.href='aws-migration.html';">
         <h2>Migrate</h2>
         <p>Structured transitions that ensure your workloads move to the cloud securely, quickly, and efficiently.</p>
       </div>
-      <div class="arrow-card">
+      <div class="arrow-card" onclick="location.href='aws-modernize.html';">
         <h2>Modernize</h2>
         <p>Transform legacy apps with modern architecture to enable agility, scalability, and cost savings.</p>
       </div>
-      <div class="arrow-card">
+      <div class="arrow-card" onclick="location.href='aws-manage.html';">
         <h2>Manage</h2>
         <p>Stay in control with proactive monitoring, governance, and support across environments.</p>
       </div>
-      <div class="arrow-card">
+      <div class="arrow-card" onclick="location.href='aws-optimize.html';">
         <h2>Optimize</h2>
         <p>Continuously refine performance, spend, and scalability with insights and automation.</p>
       </div>
