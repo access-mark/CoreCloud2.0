@@ -97,60 +97,136 @@
     .subheader {
       font-size: 2rem;
       color: #003366;
-      margin-top: 3rem;
+      margin-top: 4rem;
+      margin-bottom: 1rem;
     }
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
+    .arrow-flow {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 1rem;
       margin-top: 2rem;
+      position: relative;
     }
 
-    .card {
+    .arrow-card {
+      flex: 1;
       background: #ffffff;
       border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-      transition: transform 0.3s, box-shadow 0.3s;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      position: relative;
+      transition: transform 0.3s ease;
+      cursor: pointer;
     }
 
-    .card:hover {
+    .arrow-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     }
 
-    .card h2 {
-      font-size: 1.5rem;
+    .arrow-card::after {
+      content: "→";
+      position: absolute;
+      right: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: #0077cc;
+    }
+
+    .arrow-card:last-child::after {
+      content: "";
+    }
+
+    .arrow-card h2 {
+      font-size: 1.4rem;
+      color: #003366;
       margin-bottom: 0.5rem;
-      color: #222;
     }
 
-    .card p {
+    .arrow-card p {
       font-size: 1rem;
       color: #555;
-      flex-grow: 1;
-      margin-bottom: 1.5rem;
     }
 
-    .cta-btn {
-      display: inline-block;
-      background-color: #0077cc;
-      color: #fff;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.9rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
+    footer {
+      background-image: url('assets/images/footer-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      padding: 0.5rem 0 0.5rem;
       margin-top: auto;
     }
 
-    .cta-btn:hover {
-      background-color: #005fa3;
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 1rem;
+    }
+
+    .footer-left, .footer-middle, .footer-right {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .footer-left {
+      text-align: left;
+    }
+
+    .footer-middle {
+      text-align: center;
+    }
+
+    .footer-right {
+      text-align: right;
+    }
+
+    .footer-content p, .footer-content h4 {
+      margin: 0.3rem 0;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .footer-newsletter {
+      margin-top: 1rem;
+    }
+
+    .footer-newsletter input[type="email"] {
+      padding: 0.8rem;
+      width: 60%;
+      max-width: 300px;
+      border: none;
+      border-radius: 6px;
+      margin-right: 0.5rem;
+    }
+
+    .footer-newsletter button {
+      padding: 0.8rem 1.5rem;
+      background-color: #0077cc;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .footer-bottom {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+
+    .footer-bottom a {
+      color: red !important;
+      text-decoration: underline;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -176,56 +252,76 @@
   <div class="page-banner"></div>
   <main class="content">
     <h1>AWS & Microsoft Azure Cloud Services Suite</h1>
-    <p class="hero-subtitle">Cloud isn’t just a destination. It’s your springboard. We don’t just tick boxes with AWS or Azure certifications — we orchestrate high-impact cloud strategies that unlock speed, security, and business outcomes that actually matter. Whether you're migrating a single workload or running a hybrid ecosystem, CoreCloud ensures you're not just in the cloud — you're in control.</p>
+    <p class="hero-subtitle">You don’t build the future by choosing between AWS and Azure. You win by orchestrating both. CoreCloud isn’t a cloud reseller — we’re your transformation partner. From first migration to daily management, we engineer a seamless cloud experience that makes cost predictable, performance measurable, and growth exponential. The services below aren’t isolated — they’re a connected system that stacks intelligently, building a foundation that grows with your ambition.</p>
 
-    <h2 class="subheader">Amazon Web Services (AWS)</h2>
-    <div class="card-grid">
-      <div class="card">
+    <div class="subheader">AWS Services</div>
+    <div class="arrow-flow">
+      <div class="arrow-card" onclick="location.href='aws-migration.html';">
         <h2>Migrate</h2>
-        <p>Accelerate AWS cloud adoption with structured workload migration, assessments, and roadmaps.</p>
-        <a href="aws-migration.html" class="cta-btn">Start AWS Migration →</a>
+        <p>Structured transitions that ensure your workloads move to the cloud securely, quickly, and efficiently.</p>
       </div>
-      <div class="card">
+      <div class="arrow-card" onclick="location.href='aws-modernize.html';">
         <h2>Modernize</h2>
-        <p>Refactor legacy systems using microservices, containers, and serverless on AWS to boost agility.</p>
-        <a href="aws-modernize.html" class="cta-btn">Modernize with AWS →</a>
+        <p>Transform legacy apps with modern architecture to enable agility, scalability, and cost savings.</p>
       </div>
-      <div class="card">
+      <div class="arrow-card" onclick="location.href='aws-manage.html';">
         <h2>Manage</h2>
-        <p>24/7 managed services for AWS environments with optimization, observability, and governance.</p>
-        <a href="aws-manage.html" class="cta-btn">Manage AWS Cloud →</a>
+        <p>Stay in control with proactive monitoring, governance, and support across environments.</p>
       </div>
-      <div class="card">
+      <div class="arrow-card" onclick="location.href='aws-optimize.html';">
         <h2>Optimize</h2>
-        <p>Leverage AWS tools for reserved instances, right-sizing, and advanced cost optimization strategies.</p>
-        <a href="aws-optimize.html" class="cta-btn">Optimize AWS Spend →</a>
+        <p>Continuously refine performance, spend, and scalability with insights and automation.</p>
       </div>
     </div>
 
-    <h2 class="subheader">Microsoft Azure</h2>
-    <div class="card-grid">
-      <div class="card">
-        <h2>Azure Migration</h2>
-        <p>Simplify lift-and-shift or hybrid transitions with Azure Migrate and end-to-end workload planning.</p>
-        <a href="azure-migration.html" class="cta-btn">Start Azure Migration →</a>
+    <div class="subheader">Microsoft Azure Services</div>
+    <div class="arrow-flow">
+      <div class="arrow-card" onclick="location.href='azure-migration.html';">
+        <h2>Migrate</h2>
+        <p>Lift-and-shift or rearchitect workloads to Azure with confidence, compliance, and control.</p>
       </div>
-      <div class="card">
-        <h2>App Innovation</h2>
-        <p>Transform your applications with Azure App Services, Logic Apps, and Kubernetes architecture.</p>
-        <a href="azure-apps.html" class="cta-btn">Modernize on Azure →</a>
+      <div class="arrow-card" onclick="location.href='azure-modernize.html';">
+        <h2>Modernize</h2>
+        <p>Enable innovation through containers, serverless compute, and Azure-native services.</p>
       </div>
-      <div class="card">
-        <h2>Cloud Management</h2>
-        <p>Secure, monitor, and manage Azure environments with Azure Monitor, Security Center, and Sentinel.</p>
-        <a href="azure-manage.html" class="cta-btn">Manage Azure Cloud →</a>
+      <div class="arrow-card" onclick="location.href='azure-manage.html';">
+        <h2>Manage</h2>
+        <p>Gain full-stack observability, security posture management, and support on Azure.</p>
       </div>
-      <div class="card">
-        <h2>Cost Control</h2>
-        <p>Gain visibility and control with Azure Cost Management, Advisor, and FinOps advisory services.</p>
-        <a href="azure-cost.html" class="cta-btn">Control Azure Costs →</a>
+      <div class="arrow-card" onclick="location.href='azure-optimize.html';">
+        <h2>Optimize</h2>
+        <p>Streamline operations with Azure Cost Management, FinOps practices, and automation.</p>
       </div>
     </div>
   </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
+        <p><strong>BEE Level 4</strong></p>
+        <p>Company Reg: 2022/123456/07</p>
+      </div>
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <div class="footer-newsletter">
+          <input type="email" placeholder="Enter your email" />
+          <button>Subscribe</button>
+        </div>
+      </div>
+      <div class="footer-right">
+        <p>Contact</p>
+        <p>Mobile: +27 82 872 7858<br>Email: hello@corecloud.africa</p>
+        <p>Follow Us</p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8); text-decoration: underline;">LinkedIn</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2022 CoreCloud. All rights reserved.</p>
+      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+    </div>
+  </footer>
 </body>
 </html>
-
