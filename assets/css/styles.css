@@ -1,0 +1,213 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: #f4f6f8;
+  color: #1e1e1e;
+  line-height: 1.6;
+}
+
+/* Header & Navigation */
+.small-banner {
+  background-color: #ffffff;
+  padding: 1.2rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  max-height: 48px;
+}
+
+nav a {
+  margin-left: 1.2rem;
+  text-decoration: none;
+  color: #1e1e1e;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+  color: #0077cc;
+}
+
+/* Hero Section */
+.hero {
+  padding: 4rem 2rem 2rem;
+  background-color: #eaf4ff;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero .subtitle {
+  font-size: 1.2rem;
+  color: #444;
+}
+
+/* Content Sections */
+main.content {
+  padding: 2rem;
+}
+
+.section {
+  margin: 3rem 0;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.section.intro ul {
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+}
+
+.section.intro li {
+  margin-bottom: 0.5rem;
+}
+
+/* Cards & Grids */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+.cta-btn,
+.button {
+  display: inline-block;
+  background-color: #0077cc;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover,
+.button:hover {
+  background-color: #005fa3;
+}
+
+/* Pillars (Quad Grid) */
+.card-grid.quad {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* CTA Section */
+.cta.center {
+  text-align: center;
+  background-color: #f0f8ff;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  margin-top: 3rem;
+}
+
+/* Footer */
+.footer {
+  background-color: #1e1e1e;
+  color: white;
+  padding: 2rem 2rem 1rem;
+  margin-top: 3rem;
+}
+
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-left,
+.footer-middle,
+.footer-right {
+  flex: 1;
+  min-width: 240px;
+}
+
+.footer-newsletter {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer-newsletter input[type="email"] {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.footer-newsletter button {
+  padding: 0.5rem 1rem;
+  background-color: #00bcd4;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.footer-newsletter button:hover {
+  background-color: #0097a7;
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 0.85rem;
+  color: #ccc;
+  margin-top: 2rem;
+}
+
+.footer-bottom a {
+  color: #ccc;
+  text-decoration: underline;
+}
