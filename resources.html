@@ -6,82 +6,67 @@
   <title>Resources – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    .preview-grid {
+    .page-banner {
+      background: url('assets/images/resources-bannerimage.png') center center no-repeat;
+      background-size: cover;
+      height: 340px;
+      margin-top: 160px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      max-width: 900px;
+      margin: 0 auto 2rem;
+      color: #444;
+    }
+
+    .resources-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      margin-top: 2rem;
+      max-width: 1200px;
+      margin: 2rem auto 4rem;
     }
 
-    .preview-card {
-      background-color: #fff;
+    .resource-card {
+      background: white;
       border-radius: 12px;
       padding: 1.5rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-      transition: transform 0.2s ease;
-      text-align: center;
-      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
     }
 
-    .preview-card:hover {
-      transform: translateY(-4px);
+    .resource-card:hover {
+      transform: translateY(-5px);
     }
 
-    .preview-card h2 {
+    .resource-card h3 {
       color: #003366;
+      margin-bottom: 0.8rem;
       font-size: 1.2rem;
-      margin-bottom: 0.5rem;
     }
 
-    .preview-card p {
+    .resource-card p {
       font-size: 0.95rem;
       color: #555;
     }
 
-    /* Modal Styling */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 2000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.7);
-    }
-
-    .modal-content {
-      background-color: #fff;
-      margin: 10% auto;
-      padding: 2rem;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 600px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    }
-
-    .modal-content h2 {
-      color: #003366;
-      margin-bottom: 1rem;
-    }
-
-    .modal-content p {
-      font-size: 1rem;
-      color: #333;
-    }
-
-    .close {
-      color: #aaa;
-      float: right;
-      font-size: 1.8rem;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .close:hover,
-    .close:focus {
-      color: black;
+    footer {
+      background: url('assets/images/footer-bannerimage.png') center center no-repeat, #0b1e3f;
+      background-size: cover;
+      color: white;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      min-height: 320px;
+      position: relative;
+      z-index: 0;
     }
   </style>
 </head>
@@ -91,88 +76,53 @@
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
       <nav>
-        <a href="index.html" class="nav-btn">Home</a>
-        <a href="consulting.html" class="nav-btn">Consulting</a>
-        <a href="cloud.html" class="nav-btn">Cloud Service Suite</a>
-        <a href="talent.html" class="nav-btn">Talent Placement</a>
-        <a href="resources.html" class="nav-btn active">Resources</a>
-        <a href="contact.html" class="nav-btn">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="cloud.html">Cloud Service Suite</a>
+        <a href="talent.html">Talent Placement</a>
+        <a href="resources.html" class="active">Resources</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </div>
 
   <!-- Banner -->
-  <div class="page-banner" style="background-image: url('assets/images/resources-bannerimage.png'); height: 340px;"></div>
+  <div class="page-banner"></div>
 
   <!-- Content -->
   <main class="content">
-    <h1 class="center-title">Resources & Templates</h1>
-    <p class="center-subtitle">Access practical tools, ready-to-use templates, and strategic frameworks to support your journey.</p>
+    <section class="section">
+      <h1 class="section-title">CoreCloud Resources</h1>
+      <p class="subtitle">Insights, playbooks, white papers, and practical tools from the CoreCloud team and our strategic ecosystem.</p>
 
-    <div class="preview-grid">
-      <div class="preview-card" onclick="openModal('modal1')">
-        <h2>Sales Audit Scorecard</h2>
-        <p>Assess and benchmark your sales structure, team, and execution rhythm.</p>
+      <div class="resources-grid">
+        <div class="resource-card">
+          <h3>Cloud Modernisation Playbook</h3>
+          <p>A strategic guide to modernising your infrastructure for agility, scalability, and cost control.</p>
+        </div>
+        <div class="resource-card">
+          <h3>Talent Placement Toolkit</h3>
+          <p>Our end-to-end methodology for sourcing, assessing, and placing top-tier talent that sticks.</p>
+        </div>
+        <div class="resource-card">
+          <h3>Cloud Migration Checklist</h3>
+          <p>Everything you need to prepare for a seamless and secure cloud migration.</p>
+        </div>
+        <div class="resource-card">
+          <h3>Sales Performance Audit Template</h3>
+          <p>Quickly assess sales team effectiveness across structure, tools, process and execution.</p>
+        </div>
+        <div class="resource-card">
+          <h3>Investor Deck: CoreCloud Group</h3>
+          <p>An executive overview of our operating model, divisions, and future-forward business plan.</p>
+        </div>
+        <div class="resource-card">
+          <h3>Legal Templates</h3>
+          <p>Standardised NDA, MSA, subcontractor agreements, and more — South Africa compliant.</p>
+        </div>
       </div>
-      <div class="preview-card" onclick="openModal('modal2')">
-        <h2>Go-To-Market Blueprint</h2>
-        <p>Validate your GTM motions with a proven framework for South Africa’s landscape.</p>
-      </div>
-      <div class="preview-card" onclick="openModal('modal3')">
-        <h2>Talent Placement Playbook</h2>
-        <p>Step-by-step guide for sourcing, onboarding, and accountability.</p>
-      </div>
-      <div class="preview-card" onclick="openModal('modal4')">
-        <h2>Client Pitch Deck Framework</h2>
-        <p>Structure your decks for clarity, confidence, and C-level traction.</p>
-      </div>
-      <div class="preview-card" onclick="openModal('modal5')">
-        <h2>Pricing Strategy Matrix</h2>
-        <p>Framework for value-based pricing, partner alignment, and transparency.</p>
-      </div>
-    </div>
+    </section>
   </main>
-
-  <!-- Modals -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('modal1')">&times;</span>
-      <h2>Sales Audit Scorecard</h2>
-      <p>This scorecard helps sales leaders assess their sales team maturity across structure, process, talent, and tech stack. Includes rating criteria and action prompts.</p>
-    </div>
-  </div>
-
-  <div id="modal2" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('modal2')">&times;</span>
-      <h2>Go-To-Market Blueprint</h2>
-      <p>This blueprint outlines GTM structure, messaging pillars, channel strategy, and sales alignment tailored for the SA business environment.</p>
-    </div>
-  </div>
-
-  <div id="modal3" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('modal3')">&times;</span>
-      <h2>Talent Placement Playbook</h2>
-      <p>From intake to replacement — this template supports fast, structured hiring with accountability, scorecards, and interview workflows.</p>
-    </div>
-  </div>
-
-  <div id="modal4" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('modal4')">&times;</span>
-      <h2>Client Pitch Deck Framework</h2>
-      <p>A proven pitch format that gets stakeholder attention fast. Covers pain points, differentiation, solution framing, and next steps.</p>
-    </div>
-  </div>
-
-  <div id="modal5" class="modal">
-    <div class="modal-content">
-      <span class="close" onclick="closeModal('modal5')">&times;</span>
-      <h2>Pricing Strategy Matrix</h2>
-      <p>Framework for strategic pricing — helping you align price to value while managing internal and external perception.</p>
-    </div>
-  </div>
 
   <!-- Footer -->
   <footer>
@@ -198,29 +148,8 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
     </div>
   </footer>
-
-  <!-- Scripts -->
-  <script>
-    function openModal(id) {
-      document.getElementById(id).style.display = 'block';
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).style.display = 'none';
-    }
-
-    window.onclick = function(event) {
-      const modals = document.querySelectorAll('.modal');
-      modals.forEach(modal => {
-        if (event.target == modal) {
-          modal.style.display = "none";
-        }
-      });
-    }
-  </script>
 </body>
 </html>
