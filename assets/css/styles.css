@@ -1,10 +1,168 @@
-/* --- Card Grid (Quad Layout Only) --- */
-.card-grid.quad {
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: #f4f6f8;
+  color: #1e1e1e;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header & Navigation */
+.small-banner {
+  background-color: #ffffff;
+  padding: 0.2rem 2rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.banner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  height: 160px;
+  width: auto;
+}
+
+/* Nav Menu */
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #003366;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+  color: #005fa3;
+  font-weight: 900;
+}
+
+/* Banner */
+.page-banner {
+  height: 340px;
+  background-size: cover;
+  background-position: center;
+  margin-top: 160px;
+}
+
+/* Headings */
+h1, h3, h4, h5, h6,
+.center-title,
+.section-title {
+  color: #1e1e1e;
+}
+
+.center-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.center-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #444;
+  max-width: 900px;
+  margin: 0 auto 2rem;
+}
+
+/* Content */
+main.content {
+  max-width: 1400px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+  flex: 1 0 auto;
+}
+
+.section {
+  margin: 3rem 0;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Bullet Lists */
+.section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.section ul li::before {
+  content: "✔ ";
+  color: #0077cc;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+/* CTA Buttons */
+.cta-btn,
+.button {
+  display: inline-block;
+  background-color: #0077cc;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+.cta-btn:hover,
+.button:hover {
+  background-color: #005fa3;
+}
+
+/* CTA Section */
+.cta.center {
+  text-align: center;
+  background-color: #f0f8ff;
+  padding: 3rem 2rem;
+  border-radius: 12px;
+  margin-top: 3rem;
+}
+
+/* Card Grid — default layout */
+.card-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
-  margin-top: 2rem;
   padding: 0 2rem;
+}
+
+/* Card Grid — quad layout only for cloud.html */
+.card-grid.quad {
+  grid-template-columns: repeat(4, 1fr);
 }
 
 @media screen and (max-width: 1024px) {
@@ -19,11 +177,11 @@
   }
 }
 
-/* --- Card Styling (Universal) --- */
+/* Card Styling */
 .card {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   padding: 2rem;
   text-align: center;
   transition: transform 0.3s ease;
@@ -33,7 +191,6 @@
   transform: translateY(-5px);
 }
 
-/* --- Card Title --- */
 .card h2 {
   color: #002147;
   margin-bottom: 1rem;
@@ -41,14 +198,12 @@
   font-weight: 700;
 }
 
-/* --- Card Body Text --- */
 .card p {
   font-size: 0.95rem;
   color: #444;
   margin-bottom: 1.5rem;
 }
 
-/* --- Card CTA Button --- */
 .card .cta-btn {
   display: inline-block;
   padding: 0.5rem 1rem;
@@ -56,5 +211,81 @@
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
+  font-weight: bold;
+}
+
+/* Footer */
+footer {
+  background: url('assets/images/footer-bannerimage.png') center center no-repeat, #0b1e3f;
+  background-size: cover;
+  padding: 2rem 1rem 1rem;
+  color: white;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-left,
+.footer-middle,
+.footer-right {
+  flex: 1;
+  min-width: 280px;
+}
+
+.footer-left {
+  text-align: left;
+}
+
+.footer-middle {
+  text-align: center;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-content p,
+.footer-content h4 {
+  margin: 0.3rem 0;
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.95);
+}
+
+.footer-newsletter input[type="email"] {
+  padding: 0.8rem;
+  width: 60%;
+  max-width: 300px;
+  border: none;
+  border-radius: 6px;
+  margin-right: 0.5rem;
+}
+
+.footer-newsletter button {
+  padding: 0.8rem 1.5rem;
+  background-color: #0077cc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.footer-bottom {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.95);
+}
+
+.footer-bottom a {
+  color: red !important;
+  text-decoration: underline;
   font-weight: bold;
 }
