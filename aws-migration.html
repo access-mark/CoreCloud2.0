@@ -5,10 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AWS Migration Services – CoreCloud</title>
   <link rel="stylesheet" href="https://access-mark.github.io/CoreCloud2.0/assets/css/styles.css" />
-  <meta name="description" content="CoreCloud's AWS-certified Migration Services accelerate secure, scalable cloud transitions for enterprises across South Africa.">
-  <meta name="keywords" content="AWS Migration, Cloud Transformation, CoreCloud, South Africa, Secure Workload Migration">
   <style>
-    .card-grid {
+    .page-banner {
+      background-color: #FF9900;
+      height: 150px;
+      margin-top: 160px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.4rem;
+      color: #004f91;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #444;
+      max-width: 900px;
+      margin: 0 auto 2rem;
+    }
+
+    .card-row {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -19,38 +39,22 @@
     .card {
       background: white;
       border-radius: 12px;
-      padding: 2rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+      max-width: 360px;
+      flex: 1 1 300px;
       text-align: center;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-      width: 360px;
-      max-width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
 
     .card h3 {
+      font-size: 1.2rem;
       color: #0066b2;
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
+      margin-bottom: 0.8rem;
     }
 
-    .card ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto;
-      text-align: left;
-      max-width: 320px;
-      line-height: 1.8;
-      font-size: 1rem;
+    .card p {
+      font-size: 0.95rem;
       color: #333;
-    }
-
-    .card ul li::before {
-      content: "✔ ";
-      color: #0066b2;
-      font-weight: bold;
-      margin-right: 0.4rem;
     }
 
     .cta-btn {
@@ -58,9 +62,9 @@
       margin-top: 2rem;
       background-color: #0066b2;
       color: white;
-      padding: 0.75rem 1.5rem;
+      padding: 0.8rem 1.5rem;
+      font-weight: bold;
       border-radius: 8px;
-      font-weight: 600;
       text-decoration: none;
       transition: background-color 0.3s ease;
     }
@@ -69,19 +73,21 @@
       background-color: #004f91;
     }
 
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      color: #004f91;
-      margin-bottom: 1rem;
+    ul.checklist {
+      list-style: none;
+      padding-left: 0;
+      font-size: 1.05rem;
+      color: #333;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 1rem auto;
     }
 
-    .center-subtitle {
-      text-align: center;
-      font-size: 1.1rem;
-      color: #444;
-      max-width: 900px;
-      margin: 0 auto 2rem;
+    ul.checklist li::before {
+      content: "✔";
+      margin-right: 0.5rem;
+      color: green;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -102,55 +108,75 @@
   </div>
 
   <!-- Banner -->
-  <div class="page-banner" style="background-color: #FF9900; height: 150px; margin-top: 160px;"></div>
+  <div class="page-banner"></div>
 
   <!-- Main Content -->
   <main class="content">
-    <h1 class="center-title">AWS Migration Services</h1>
-    <p class="center-subtitle">
+    <h1 class="section-title">AWS Migration Services</h1>
+    <p class="section-subtitle">
       You don’t just migrate to AWS — you commit to transformation. At CoreCloud, migration isn't a checkbox. It's the launchpad.<br><br>
-      We start by assessing your landscape, business goals, and compliance needs. Then we craft a secure, scalable roadmap for moving your workloads to AWS without breaking momentum.<br><br>
-      Whether you're migrating your first app or your entire data center, we bring the tools, partners, and battle-tested frameworks to make it frictionless.
+      We assess your landscape, map out business objectives, design cloud architectures that scale, and ensure every workload lands securely, reliably, and with zero guesswork. This is AWS migration — delivered with enterprise-grade precision.
     </p>
 
-    <section class="section">
-      <h2 class="section-title">What We Deliver</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>End-to-End Execution</h3>
-          <ul>
-            <li>Cloud Readiness Assessments</li>
-            <li>Business Case Alignment</li>
-            <li>PoC Pilots & Migration Planning</li>
-            <li>Landing Zone Design</li>
-            <li>Secure Automation & Execution</li>
-            <li>Minimal Downtime Assurance</li>
-          </ul>
-        </div>
+    <h2 class="section-title">Why Migrate to AWS?</h2>
+    <div class="card-row">
+      <div class="card">
+        <h3>Scale Without Limits</h3>
+        <p>Unlock elastic infrastructure that grows with your business — no hardware capex or delays.</p>
       </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Why CoreCloud?</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Partner Power + Precision</h3>
-          <ul>
-            <li>Certified migration orchestrators</li>
-            <li>Zero fluff — real timelines & outcomes</li>
-            <li>Designed to scale with your business</li>
-          </ul>
-        </div>
+      <div class="card">
+        <h3>Security & Compliance</h3>
+        <p>Meet regulatory demands with encrypted, auditable environments trusted by global enterprises.</p>
       </div>
-    </section>
+      <div class="card">
+        <h3>Innovation Velocity</h3>
+        <p>Access 200+ AWS services and modernize faster with AI, analytics, and DevOps-ready pipelines.</p>
+      </div>
+    </div>
 
-    <div style="text-align: center; margin-top: 3rem;">
-      <a href="contact.html" class="cta-btn">Start Your Migration →</a>
+    <h2 class="section-title">What We Deliver</h2>
+    <ul class="checklist">
+      <li>Cloud Readiness Assessments & Business Case Justification</li>
+      <li>Detailed Migration Planning & Proof-of-Concept Pilots</li>
+      <li>Workload Segmentation, Prioritization & Landing Zone Design</li>
+      <li>Secure, Automated Migration Execution with Minimal Downtime</li>
+      <li>Post-Migration Validation, Optimization, and Governance Controls</li>
+    </ul>
+
+    <h2 class="section-title">Our Migration Process</h2>
+    <div class="card-row">
+      <div class="card">
+        <h3>1. Discovery</h3>
+        <p>Inventory assets, assess dependencies, and map workloads with business impact analysis.</p>
+      </div>
+      <div class="card">
+        <h3>2. Planning</h3>
+        <p>Develop a migration factory model with prioritized waves and rollback strategies.</p>
+      </div>
+      <div class="card">
+        <h3>3. Execution</h3>
+        <p>Leverage automation and certified tools to migrate workloads with precision and speed.</p>
+      </div>
+      <div class="card">
+        <h3>4. Optimization</h3>
+        <p>Right-size, monitor, and apply governance to ensure sustainable long-term value.</p>
+      </div>
+    </div>
+
+    <h2 class="section-title">Why CoreCloud?</h2>
+    <ul class="checklist">
+      <li>Certified AWS migration orchestrators with deep partner integration</li>
+      <li>No fluff — just results, accountability, and clear delivery milestones</li>
+      <li>Built for scale — from SMMEs to listed enterprises, we match strategy to execution</li>
+    </ul>
+
+    <div style="text-align: center;">
+      <a href="contact.html" class="cta-btn">Start Your AWS Migration →</a>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer style="background:#0b1e3f; padding-top:2rem;">
+  <footer>
     <div class="footer-content">
       <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
@@ -173,7 +199,8 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2023 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+      <p>&copy; 2023 CoreCloud. All rights reserved.</p>
+      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
     </div>
   </footer>
 </body>
