@@ -1,4 +1,4 @@
-/* Card Grid (Quad Layout) */
+/* --- Card Grid (Quad Layout Only) --- */
 .card-grid.quad {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -19,7 +19,7 @@
   }
 }
 
-/* Card Styling */
+/* --- Card Styling (Universal) --- */
 .card {
   background: #fff;
   border-radius: 12px;
@@ -33,22 +33,22 @@
   transform: translateY(-5px);
 }
 
-/* Card Title — force CoreCloud Blue */
+/* --- Card Title --- */
 .card h2 {
-  color: #002147 !important;
+  color: #002147;
   margin-bottom: 1rem;
   font-size: 1.25rem;
   font-weight: 700;
 }
 
-/* Card Body Text */
+/* --- Card Body Text --- */
 .card p {
   font-size: 0.95rem;
   color: #444;
   margin-bottom: 1.5rem;
 }
 
-/* Card CTA Button */
+/* --- Card CTA Button --- */
 .card .cta-btn {
   display: inline-block;
   padding: 0.5rem 1rem;
