@@ -63,7 +63,7 @@ nav a.active {
   font-weight: 900;
 }
 
-/* Hero / Banner */
+/* Banner */
 .page-banner {
   height: 300px;
   background-size: cover;
@@ -71,23 +71,7 @@ nav a.active {
   margin-top: 160px;
 }
 
-.hero {
-  padding: 4rem 2rem 2rem;
-  background-color: #eaf4ff;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.hero .subtitle {
-  font-size: 1.2rem;
-  color: #444;
-}
-
-/* Consistent Titles */
+/* Headings */
 .center-title {
   text-align: center;
   font-size: 2.5rem;
@@ -104,9 +88,10 @@ nav a.active {
 
 /* Content */
 main.content {
-  max-width: 1400px; /* Wider for 4 cards */
+  max-width: 1400px;
   margin: 4rem auto;
   padding: 0 1.5rem;
+  flex: 1 0 auto;
 }
 
 .section {
@@ -119,50 +104,20 @@ main.content {
   text-align: center;
 }
 
-.section.intro ul {
-  margin-top: 1rem;
-  margin-left: 1.5rem;
+/* Bullet Lists */
+.section ul {
+  list-style-type: none;
+  padding-left: 0;
 }
 
-.section.intro li {
-  margin-bottom: 0.5rem;
+.section ul li::before {
+  content: "✔ ";
+  color: #0077cc;
+  font-weight: bold;
+  margin-right: 0.5rem;
 }
 
-/* Cards */
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-  text-align: left;
-  transition: transform 0.2s ease;
-}
-
-.card h3,
-.card h2 {
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  color: #003366;
-}
-
-.card p {
-  font-size: 0.95rem;
-  margin-bottom: 1rem;
-  color: #555;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-}
-
-/* CTA Buttons */
+/* CTA */
 .cta-btn,
 .button {
   display: inline-block;
@@ -182,24 +137,6 @@ main.content {
   background-color: #005fa3;
 }
 
-/* Pillars */
-.card-grid.quad {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-@media (max-width: 1100px) {
-  .card-grid.quad {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 600px) {
-  .card-grid.quad {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* CTA Section */
 .cta.center {
   text-align: center;
   background-color: #f0f8ff;
@@ -210,10 +147,10 @@ main.content {
 
 /* Footer */
 footer {
-  background-image: url('assets/images/footer-bannerimage.png');
+  background: url('assets/images/footer-bannerimage.png') center center no-repeat, #0b1e3f;
   background-size: cover;
-  background-position: center;
-  padding: 0.5rem 0 0.5rem;
+  padding: 2rem 1rem 1rem;
+  color: white;
   margin-top: auto;
 }
 
@@ -222,9 +159,8 @@ footer {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
-  padding: 1rem;
+  gap: 2rem;
 }
 
 .footer-left,
