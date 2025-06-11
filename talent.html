@@ -5,6 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Talent Placement – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: #f4f6f8;
+      color: #1e1e1e;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main.content {
+      flex: 1;
+      max-width: 1400px;
+      margin: 4rem auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    footer {
+      background: url('assets/images/footer-bannerimage.png') center center no-repeat, #0b1e3f;
+      background-size: cover;
+      padding-top: 2rem;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
   <!-- Top Navigation -->
@@ -23,7 +52,9 @@
   </div>
 
   <!-- Hero Banner -->
-  <section class="hero" style="background-image: url('assets/images/talent-bannerimage.png'); background-size: cover; background-position: center; height: 300px; margin-top: 160px;"></section>
+  <div style="width: 100%; height: 340px; overflow: hidden; margin-top: 160px;">
+    <img src="assets/images/talent-banner.png" alt="Talent Placement Banner" style="width: 100%; height: 340px; object-fit: cover;" />
+  </div>
 
   <!-- Main Content -->
   <main class="content">
@@ -34,17 +65,19 @@
 
     <section class="section">
       <h2 class="section-title">Why CoreCloud Talent?</h2>
-      <ul>
-        <li>✔ Deep industry insight into ICT hiring needs</li>
-        <li>✔ Extensive network of pre-vetted cloud and engineering talent</li>
-        <li>✔ Agile placement models to suit permanent or contract resourcing</li>
-        <li>✔ Speed, quality, and cultural fit — every time</li>
-      </ul>
+      <div style="display: flex; justify-content: center;">
+        <ul style="text-align: left;">
+          <li>✔ Deep industry insight into ICT hiring needs</li>
+          <li>✔ Extensive network of pre-vetted cloud and engineering talent</li>
+          <li>✔ Agile placement models to suit permanent or contract resourcing</li>
+          <li>✔ Speed, quality, and cultural fit — every time</li>
+        </ul>
+      </div>
     </section>
 
     <section class="section">
       <h2 class="section-title">Our Focus Areas</h2>
-      <div class="card-grid">
+      <div class="card-grid quad">
         <div class="card">
           <h3>Cloud Engineers</h3>
           <p>AWS, Azure, hybrid and multi-cloud professionals with infrastructure expertise.</p>
@@ -69,18 +102,22 @@
           <h3>Data Specialists</h3>
           <p>From data engineers to analysts — powering insight and innovation.</p>
         </div>
+        <div class="card">
+          <h3>Sales & Sales Management</h3>
+          <p>High-performance sales talent with strong technical acumen and go-to-market execution.</p>
+        </div>
       </div>
     </section>
 
     <section class="cta center">
       <h2>Need Talent or Looking for Your Next Role?</h2>
       <p>We place top-tier talent into roles that matter. Let’s talk.</p>
-      <a href="contact.html" class="button">Start a Conversation</a>
+      <a href="contact.html" class="cta-btn">Start a Conversation</a>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer>
     <div class="footer-content">
       <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
@@ -103,8 +140,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
     </div>
   </footer>
 </body>
