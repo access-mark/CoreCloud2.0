@@ -3,16 +3,45 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cloud Services – CoreCloud</title>
+  <title>Cloud Service Suite – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <meta name="description" content="Explore CoreCloud's AWS and Azure services – migration, modernization, management, and optimization through top-tier partnerships.">
-  <meta name="keywords" content="CoreCloud, Cloud Services, AWS, Azure, Migrate, Modernize, Manage, Optimize, South Africa">
+  <meta name="description" content="CoreCloud's cloud service suite enables South African businesses to migrate, modernize, manage, and optimize cloud environments for impact and efficiency.">
+  <meta name="keywords" content="Cloud Services, AWS, Azure, Migration, Modernization, Management, Optimization, CoreCloud, South Africa">
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: #f4f6f8;
+      color: #1e1e1e;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main.content {
+      flex: 1;
+      max-width: 1400px;
+      margin: 4rem auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    footer {
+      background: url('assets/images/footer-bannerimage.png') center center no-repeat, #0b1e3f;
+      background-size: cover;
+      padding-top: 2rem;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
-  <!-- Top Navigation -->
+  <!-- Header -->
   <div class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud company logo" class="logo" />
       <nav>
         <a href="index.html" class="nav-btn">Home</a>
         <a href="consulting.html" class="nav-btn">Consulting</a>
@@ -25,90 +54,71 @@
   </div>
 
   <!-- Banner -->
-  <div class="page-banner" style="background-image: url('assets/images/aws-bannerimage.png');"></div>
+  <div class="page-banner" style="background-image: url('assets/images/cloud-bannerimage.png'); background-color: #eaf4ff; height: 340px;"></div>
 
-  <!-- Page Content -->
+  <!-- Content -->
   <main class="content">
-    <section class="section intro">
-      <h1 class="section-title">Cloud Service Suite</h1>
-      <p class="subtitle center-subtitle">We don’t just offer cloud – we orchestrate transformation. CoreCloud connects South African enterprises to AWS and Azure with clarity, execution, and results. Through our elite partner network, we eliminate complexity, unlock agility, and ensure every move aligns with business impact.</p>
-    </section>
+    <h1 style="text-align: center;">Cloud Services Built for Execution</h1>
+    <p class="subtitle" style="text-align: center; max-width: 900px; margin: 0 auto 2rem;">
+      Cloud isn't a buzzword — it's the execution layer of modern business. CoreCloud delivers migration, modernization, management, and optimization services across AWS and Azure, tailored for the realities of South African enterprises.<br><br>
+      Whether you're lifting and shifting, rearchitecting workloads, stabilizing production, or cutting runaway costs — we have the partners, frameworks, and operational clarity to move with purpose and deliver outcomes that matter.
+    </p>
 
-    <!-- Pillars Section -->
-    <section class="section pillars">
-      <h2 class="section-title">The Four Pillars of Cloud Success</h2>
-      <p class="center-subtitle">Our end-to-end framework ensures every step — from onboarding to optimization — is aligned with business outcomes.</p>
+    <section class="section">
+      <h2 class="section-title">Our Cloud Service Suite</h2>
       <div class="card-grid quad">
-        <div class="card"><h3>Migrate</h3><p>Workload discovery, planning, and execution – with zero disruption.</p></div>
-        <div class="card"><h3>Modernize</h3><p>Re-architect legacy systems with containers, microservices, and APIs.</p></div>
-        <div class="card"><h3>Manage</h3><p>Enable 24/7 operations, governance, patching, and cloud security.</p></div>
-        <div class="card"><h3>Optimize</h3><p>Implement FinOps, tagging, automation, and performance metrics.</p></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Amazon Web Services (AWS)</h2>
-      <p class="center-subtitle">Industry-leading cloud capabilities, brought to life through expert migration, modernization, management, and optimization.</p>
-      <div class="card-grid">
         <div class="card">
-          <h3>Migrate</h3>
-          <p>Accelerate your move to the cloud with secure AWS migration plans.</p>
-          <a href="aws-migration.html" class="cta-btn">Explore →</a>
+          <h2>AWS Migration</h2>
+          <p>We assess, plan, and execute migrations to Amazon Web Services — fast, clean, and disruption-free.</p>
+          <a href="aws-migration.html" class="cta-btn">Explore</a>
         </div>
         <div class="card">
-          <h3>Modernize</h3>
-          <p>Transform legacy systems using containers, microservices & serverless.</p>
-          <a href="aws-modernize.html" class="cta-btn">Explore →</a>
+          <h2>AWS Modernize</h2>
+          <p>Refactor or replatform legacy workloads to leverage AWS-native services and automation.</p>
+          <a href="aws-modernize.html" class="cta-btn">Explore</a>
         </div>
         <div class="card">
-          <h3>Manage</h3>
-          <p>Gain visibility, control & 24/7 support with managed AWS services.</p>
-          <a href="aws-manage.html" class="cta-btn">Explore →</a>
+          <h2>AWS Manage</h2>
+          <p>Get visibility, control, and confidence running your AWS environments with full managed services.</p>
+          <a href="aws-manage.html" class="cta-btn">Explore</a>
         </div>
         <div class="card">
-          <h3>Optimize</h3>
-          <p>Drive cloud cost savings & performance through AWS best practices.</p>
-          <a href="aws-optimize.html" class="cta-btn">Explore →</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Microsoft Azure</h2>
-      <p class="center-subtitle">Unlock the power of Azure through seamless migration, re-architecture, and strategic cloud management.</p>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Migrate</h3>
-          <p>Plan and execute secure workload migrations into Microsoft Azure.</p>
-          <a href="azure-migration.html" class="cta-btn">Explore →</a>
+          <h2>AWS Optimize</h2>
+          <p>Eliminate wastage, enforce governance, and align spend to business value with AWS optimization.</p>
+          <a href="aws-optimize.html" class="cta-btn">Explore</a>
         </div>
         <div class="card">
-          <h3>Modernize</h3>
-          <p>Refactor applications into Azure-native cloud environments.</p>
-          <a href="azure-modernize.html" class="cta-btn">Explore →</a>
+          <h2>Azure Migration</h2>
+          <p>Plan and execute smooth migrations into the Microsoft Azure ecosystem.</p>
+          <a href="azure-migration.html" class="cta-btn">Explore</a>
         </div>
         <div class="card">
-          <h3>Manage</h3>
-          <p>Rely on CoreCloud to manage, monitor & support Azure operations.</p>
-          <a href="azure-manage.html" class="cta-btn">Explore →</a>
+          <h2>Azure Modernize</h2>
+          <p>Modernize apps and infrastructure for performance, flexibility, and platform-native resilience.</p>
+          <a href="azure-modernize.html" class="cta-btn">Explore</a>
         </div>
         <div class="card">
-          <h3>Optimize</h3>
-          <p>Optimize Azure resources, costs, and governance with expert guidance.</p>
-          <a href="azure-optimize.html" class="cta-btn">Explore →</a>
+          <h2>Azure Manage</h2>
+          <p>Stay compliant, efficient, and secure with fully managed Microsoft Azure cloud operations.</p>
+          <a href="azure-manage.html" class="cta-btn">Explore</a>
+        </div>
+        <div class="card">
+          <h2>Azure Optimize</h2>
+          <p>Control costs, optimize usage, and drive governance across your Azure footprint.</p>
+          <a href="azure-optimize.html" class="cta-btn">Explore</a>
         </div>
       </div>
     </section>
 
     <section class="cta center">
-      <h2>Book a Strategic Cloud Consultation</h2>
-      <p>Let’s build the future of your business on the right cloud foundation.</p>
-      <a href="contact.html" class="button">Talk to Our Team</a>
+      <h2>Need Guidance?</h2>
+      <p>Let’s map your next cloud move — with clarity, velocity, and accountability.</p>
+      <a href="contact.html" class="cta-btn">Talk to CoreCloud</a>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer>
     <div class="footer-content">
       <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
@@ -118,7 +128,7 @@
       </div>
       <div class="footer-middle">
         <h4>Stay Informed</h4>
-        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <p>Join our newsletter for cloud innovation and strategic insight.</p>
         <div class="footer-newsletter">
           <input type="email" placeholder="Enter your email" />
           <button>Subscribe</button>
@@ -131,8 +141,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
     </div>
   </footer>
 </body>
