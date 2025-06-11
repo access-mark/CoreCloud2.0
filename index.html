@@ -6,11 +6,79 @@
   <title>CoreCloud – Executive-Grade Cloud Transformation</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: #f4f6f8;
+      color: #1e1e1e;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .small-banner {
+      background-color: #fff;
+      padding: 0.05rem 2rem 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .banner-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      height: 160px;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #003366;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #004f91;
+      font-weight: 900;
+    }
+
+    .page-banner {
+      height: 340px;
+      background-image: url('assets/images/index-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      margin-top: 160px;
+    }
+
+    main.content {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+
     .center-title {
       text-align: center;
       font-size: 2.5rem;
       margin-bottom: 1rem;
-      color: #0077cc;
+      color: #0066b2;
       font-weight: 700;
     }
 
@@ -29,12 +97,19 @@
       margin-top: 2rem;
     }
 
-    .card h2, .card p {
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
       text-align: center;
     }
 
     .card h2 {
-      color: #005fa3;
+      color: #0066b2;
       font-size: 1.45rem;
       margin-bottom: 0.8rem;
       font-weight: 700;
@@ -49,7 +124,7 @@
 
     .cta-btn {
       display: inline-block;
-      background-color: #0077cc;
+      background-color: #0066b2;
       color: #fff;
       font-weight: 700;
       font-size: 0.95rem;
@@ -60,7 +135,7 @@
     }
 
     .cta-btn:hover {
-      background-color: #005fa3;
+      background-color: #004f91;
     }
 
     footer {
@@ -87,23 +162,15 @@
       min-width: 280px;
     }
 
-    .footer-left {
-      text-align: left;
-    }
-
-    .footer-middle {
-      text-align: center;
-    }
-
-    .footer-right {
-      text-align: right;
-    }
+    .footer-left { text-align: left; }
+    .footer-middle { text-align: center; }
+    .footer-right { text-align: right; }
 
     .footer-content p,
     .footer-content h4 {
       margin: 0.3rem 0;
       color: white;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.95);
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.95);
     }
 
     .footer-newsletter input[type="email"] {
@@ -117,7 +184,7 @@
 
     .footer-newsletter button {
       padding: 0.8rem 1.5rem;
-      background-color: #0077cc;
+      background-color: #0066b2;
       color: #fff;
       border: none;
       border-radius: 6px;
@@ -129,7 +196,7 @@
       font-size: 0.85rem;
       text-align: center;
       color: white;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.95);
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.95);
     }
 
     .footer-bottom a {
@@ -154,13 +221,12 @@
     </div>
   </div>
 
-  <div class="page-banner" style="height: 340px; background-image: url('assets/images/index-bannerimage.png'); background-size: cover; background-position: center; margin-top: 160px;"></div>
+  <div class="page-banner"></div>
 
   <main class="content">
     <h1 class="center-title">The CoreCloud Advantage</h1>
     <p class="center-subtitle">CoreCloud was born out of necessity — a response to fractured execution, bloated systems, and missed growth in the South African enterprise landscape. We created CoreCloud to be the sharp edge of digital and commercial transformation: bold, deeply integrated, and obsessively outcome-focused.</p>
 
-    <!-- Why / What / How Cards -->
     <div class="card-grid">
       <div class="card">
         <h2>Why</h2>
@@ -179,7 +245,6 @@
     <h1 class="center-title" style="margin-top: 4rem;">Bold Tech. Executive Precision.</h1>
     <p class="center-subtitle">Cloud consulting, AWS services, and top-tier talent – aligned with your boardroom ambitions and frontline delivery.</p>
 
-    <!-- Service Cards -->
     <div class="card-grid">
       <div class="card">
         <h2>Consulting</h2>
@@ -226,10 +291,5 @@
       <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
     </div>
   </footer>
-
-  <script src="https://www.chatbase.co/embed.min.js"
-          chatbotId="2lVQDE6W7igyTrTHXu9Wk"
-          domain="www.chatbase.co"
-          defer></script>
 </body>
 </html>
