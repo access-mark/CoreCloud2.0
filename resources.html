@@ -29,7 +29,7 @@
 
     .resources-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 2rem;
       max-width: 1200px;
       margin: 2rem auto 4rem;
@@ -50,12 +50,23 @@
     .resource-card h3 {
       color: #003366;
       margin-bottom: 0.8rem;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
     }
 
     .resource-card p {
-      font-size: 0.95rem;
-      color: #555;
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    .resource-card a {
+      display: inline-block;
+      background-color: #003366;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
     }
 
     footer {
@@ -92,33 +103,44 @@
   <!-- Content -->
   <main class="content">
     <section class="section">
-      <h1 class="section-title">CoreCloud Resources</h1>
-      <p class="subtitle">Insights, playbooks, white papers, and practical tools from the CoreCloud team and our strategic ecosystem.</p>
+      <h1 class="section-title">CoreCloud Strategic Resources</h1>
+      <p class="subtitle">No-fluff, executive-grade tools and frameworks designed to help you lead, scale, and deliver. These are the actual assets we use — shared with you because great execution should never start from scratch.</p>
 
       <div class="resources-grid">
         <div class="resource-card">
           <h3>Cloud Modernisation Playbook</h3>
-          <p>A strategic guide to modernising your infrastructure for agility, scalability, and cost control.</p>
+          <p>A battle-tested guide for IT leaders modernising legacy infrastructure. Covers architecture decisions, talent gaps, delivery models, and stakeholder buy-in frameworks.</p>
+          <a href="#">Download PDF</a>
         </div>
+
         <div class="resource-card">
           <h3>Talent Placement Toolkit</h3>
-          <p>Our end-to-end methodology for sourcing, assessing, and placing top-tier talent that sticks.</p>
+          <p>We’ve codified what works — from intake to onboarding. Includes our scorecard, velocity map, client briefing template, and candidate readiness checklist.</p>
+          <a href="#">Download Toolkit</a>
         </div>
+
         <div class="resource-card">
-          <h3>Cloud Migration Checklist</h3>
-          <p>Everything you need to prepare for a seamless and secure cloud migration.</p>
+          <h3>Sales Audit Framework</h3>
+          <p>Diagnose your sales engine like a pro. Covers structure, process, tooling, compensation alignment, and forecast integrity — built for CROs and founders scaling revenue.</p>
+          <a href="#">Get the Framework</a>
         </div>
+
         <div class="resource-card">
-          <h3>Sales Performance Audit Template</h3>
-          <p>Quickly assess sales team effectiveness across structure, tools, process and execution.</p>
+          <h3>Migration Readiness Checklist</h3>
+          <p>Before you move workloads to AWS or Azure, assess your readiness across 12 key domains. Avoid surprises — migrate with clarity and control.</p>
+          <a href="#">Download Checklist</a>
         </div>
+
         <div class="resource-card">
-          <h3>Investor Deck: CoreCloud Group</h3>
-          <p>An executive overview of our operating model, divisions, and future-forward business plan.</p>
+          <h3>Executive Investor Deck</h3>
+          <p>The CoreCloud narrative. Business model, traction, division structure, revenue strategy, and investment opportunity — as pitched to our backers.</p>
+          <a href="#">View Pitch Deck</a>
         </div>
+
         <div class="resource-card">
-          <h3>Legal Templates</h3>
-          <p>Standardised NDA, MSA, subcontractor agreements, and more — South Africa compliant.</p>
+          <h3>Legal Docs: NDA, MSA, Subcontract</h3>
+          <p>Fully vetted, South Africa–compliant legal templates. Use these to reduce friction in client and partner onboarding. Clean, fair, and ready to go.</p>
+          <a href="#">Access Legal Pack</a>
         </div>
       </div>
     </section>
