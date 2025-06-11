@@ -5,209 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CoreCloud – Executive-Grade Cloud Transformation</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <style>
-    body {
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      background-color: #f4f6f8;
-      color: #1e1e1e;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    .small-banner {
-      background-color: #fff;
-      padding: 0.05rem 2rem 0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-    }
-
-    .banner-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      height: 160px;
-      width: auto;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: #003366;
-      text-transform: uppercase;
-      transition: all 0.3s ease;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: #004f91;
-      font-weight: 900;
-    }
-
-    .page-banner {
-      height: 340px;
-      background-image: url('assets/images/index-bannerimage.png');
-      background-size: cover;
-      background-position: center;
-      margin-top: 160px;
-    }
-
-    main.content {
-      max-width: 1200px;
-      margin: 4rem auto;
-      padding: 0 1.5rem;
-    }
-
-    .center-title {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-      color: #004f91;
-      font-weight: 700;
-    }
-
-    .center-subtitle {
-      text-align: center;
-      font-size: 1.2rem;
-      color: #444;
-      max-width: 900px;
-      margin: 0 auto 2rem;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      text-align: center;
-    }
-
-    .card h2 {
-      color: #0066b2;
-      font-size: 1.45rem;
-      margin-bottom: 0.8rem;
-      font-weight: 700;
-    }
-
-    .card p {
-      color: #333;
-      line-height: 1.6;
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      background-color: #0066b2;
-      color: #fff;
-      font-weight: 700;
-      font-size: 0.95rem;
-      padding: 0.75rem 1.5rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-      margin-top: auto;
-    }
-
-    .cta-btn:hover {
-      background-color: #004f91;
-    }
-
-    footer {
-      background-color: #0b1e3f;
-      padding: 2rem 1rem 1rem;
-      color: white;
-      margin-top: auto;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    .footer-left,
-    .footer-middle,
-    .footer-right {
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .footer-left { text-align: left; }
-    .footer-middle { text-align: center; }
-    .footer-right { text-align: right; }
-
-    .footer-content p,
-    .footer-content h4 {
-      margin: 0.3rem 0;
-      color: white;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.95);
-    }
-
-    .footer-newsletter input[type="email"] {
-      padding: 0.8rem;
-      width: 60%;
-      max-width: 300px;
-      border: none;
-      border-radius: 6px;
-      margin-right: 0.5rem;
-    }
-
-    .footer-newsletter button {
-      padding: 0.8rem 1.5rem;
-      background-color: #0066b2;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .footer-bottom {
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      text-align: center;
-      color: white;
-      text-shadow: 2px 2px 6px rgba(0,0,0,0.95);
-    }
-
-    .footer-bottom a {
-      color: red !important;
-      text-decoration: underline;
-      font-weight: bold;
-    }
-  </style>
 </head>
 <body>
+  <!-- Navigation -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
@@ -222,12 +22,18 @@
     </div>
   </div>
 
-  <div class="page-banner"></div>
+  <!-- Banner -->
+  <div class="page-banner" style="background-image: url('assets/images/index-bannerimage.png'); background-size: cover; background-position: center; height: 340px; margin-top: 160px;"></div>
 
+  <!-- Main Content -->
   <main class="content">
     <h1 class="center-title">The CoreCloud Advantage</h1>
-    <p class="center-subtitle">CoreCloud was born out of necessity — a response to fractured execution, bloated systems, and missed growth in the South African enterprise landscape. We created CoreCloud to be the sharp edge of digital and commercial transformation: bold, deeply integrated, and obsessively outcome-focused.</p>
+    <p class="center-subtitle">
+      CoreCloud was born out of necessity — a response to fractured execution, bloated systems, and missed growth in the South African enterprise landscape. 
+      We created CoreCloud to be the sharp edge of digital and commercial transformation: bold, deeply integrated, and obsessively outcome-focused.
+    </p>
 
+    <!-- Why / What / How Cards -->
     <div class="card-grid">
       <div class="card">
         <h2>Why</h2>
@@ -243,37 +49,35 @@
       </div>
     </div>
 
+    <!-- Offerings -->
     <h1 class="center-title" style="margin-top: 4rem;">Bold Tech. Executive Precision.</h1>
     <p class="center-subtitle">Cloud consulting, AWS services, and top-tier talent – aligned with your boardroom ambitions and frontline delivery.</p>
 
     <div class="card-grid">
-     <div class="card">
-      <h3 class="card-title">Consulting</h3>
-      <p>Executive-grade sales strategy, pipeline accuracy, GTM frameworks, and high-performance transformation advisory.</p>
-      <div style="text-align: center;">
+      <!-- Consulting Card -->
+      <div class="card">
+        <h3 style="color: #0066b2; font-size: 1.4rem;">Consulting</h3>
+        <p>Executive-grade sales strategy, pipeline accuracy, GTM frameworks, and high-performance transformation advisory.</p>
         <a href="consulting.html" class="cta-btn">Explore Consulting →</a>
       </div>
-    </div>
 
-    <!-- AWS Services Card -->
-    <div class="card">
-      <h3 class="card-title">AWS Services</h3>
-      <p>Modernize, migrate, manage, and optimize with proven AWS frameworks and top-tier cloud execution teams.</p>
-      <div style="text-align: center;">
+      <!-- AWS Card -->
+      <div class="card">
+        <h3 style="color: #0066b2; font-size: 1.4rem;">AWS Services</h3>
+        <p>Modernize, migrate, manage, and optimize with proven AWS frameworks and top-tier cloud execution teams.</p>
         <a href="aws.html" class="cta-btn">View AWS Services →</a>
       </div>
-    </div>
 
-    <!-- Talent Placement Card -->
-    <div class="card">
-      <h3 class="card-title">Talent Placement</h3>
-      <p>Top talent matched to business need. Deeply screened, technically verified, and strategically aligned.</p>
-      <div style="text-align: center;">
+      <!-- Talent Card -->
+      <div class="card">
+        <h3 style="color: #0066b2; font-size: 1.4rem;">Talent Placement</h3>
+        <p>Top talent matched to business need. Deeply screened, technically verified, and strategically aligned.</p>
         <a href="talent.html" class="cta-btn">Browse Talent Solutions →</a>
       </div>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -293,12 +97,18 @@
       <div class="footer-right">
         <p>Contact</p>
         <p>Mobile: +27 82 872 7858<br>Email: mark@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
+        <p>
+          <a href="https://linkedin.com/company/corecloud-africa" target="_blank"
+             style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a>
+        </p>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+      <p>
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms & Conditions</a>
+      </p>
     </div>
   </footer>
 </body>
