@@ -9,13 +9,11 @@
   <meta name="keywords" content="AWS Migration, Cloud Transformation, CoreCloud, South Africa, Secure Workload Migration">
   <style>
     .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 2rem;
       margin-top: 2rem;
-      max-width: 1100px;
-      margin-left: auto;
-      margin-right: auto;
     }
 
     .card {
@@ -23,22 +21,26 @@
       border-radius: 12px;
       padding: 2rem;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      width: 360px;
+      max-width: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
     }
 
     .card h3 {
       color: #0066b2;
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       margin-bottom: 1rem;
     }
 
     .card ul {
       list-style: none;
-      padding-left: 0;
+      padding: 0;
+      margin: 0 auto;
       text-align: left;
+      max-width: 320px;
       line-height: 1.8;
       font-size: 1rem;
       color: #333;
@@ -48,12 +50,12 @@
       content: "✔ ";
       color: #0066b2;
       font-weight: bold;
-      margin-right: 0.3rem;
+      margin-right: 0.4rem;
     }
 
     .cta-btn {
       display: inline-block;
-      margin-top: 1.5rem;
+      margin-top: 2rem;
       background-color: #0066b2;
       color: white;
       padding: 0.75rem 1.5rem;
@@ -65,6 +67,21 @@
 
     .cta-btn:hover {
       background-color: #004f91;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: #004f91;
+      margin-bottom: 1rem;
+    }
+
+    .center-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #444;
+      max-width: 900px;
+      margin: 0 auto 2rem;
     }
   </style>
 </head>
@@ -89,7 +106,7 @@
 
   <!-- Main Content -->
   <main class="content">
-    <h1 class="center-title" style="color:#004f91;">AWS Migration Services</h1>
+    <h1 class="center-title">AWS Migration Services</h1>
     <p class="center-subtitle">
       You don’t just migrate to AWS — you commit to transformation. At CoreCloud, migration isn't a checkbox. It's the launchpad.<br><br>
       We start by assessing your landscape, business goals, and compliance needs. Then we craft a secure, scalable roadmap for moving your workloads to AWS without breaking momentum.<br><br>
@@ -97,7 +114,7 @@
     </p>
 
     <section class="section">
-      <h2 class="section-title" style="color:#004f91;">What We Deliver</h2>
+      <h2 class="section-title">What We Deliver</h2>
       <div class="card-grid">
         <div class="card">
           <h3>End-to-End Execution</h3>
@@ -114,7 +131,7 @@
     </section>
 
     <section class="section">
-      <h2 class="section-title" style="color:#004f91;">Why CoreCloud?</h2>
+      <h2 class="section-title">Why CoreCloud?</h2>
       <div class="card-grid">
         <div class="card">
           <h3>Partner Power + Precision</h3>
@@ -127,7 +144,7 @@
       </div>
     </section>
 
-    <div style="text-align: center; margin-top: 2rem;">
+    <div style="text-align: center; margin-top: 3rem;">
       <a href="contact.html" class="cta-btn">Start Your Migration →</a>
     </div>
   </main>
