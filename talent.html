@@ -5,38 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Talent Placement – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <style>
-    html, body {
-      height: 100%;
-    }
-
-    body {
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      background-color: #f4f6f8;
-      color: #1e1e1e;
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    main.content {
-      flex: 1;
-      max-width: 1400px;
-      margin: 4rem auto;
-      padding: 0 1.5rem 4rem;
-    }
-
-    footer {
-      background: url('assets/images/footer-bannerimage.png') center center no-repeat, #0b1e3f;
-      background-size: cover;
-      padding-top: 2rem;
-      color: #fff;
-    }
-  </style>
 </head>
 <body>
-  <!-- Top Navigation -->
+  <!-- Header -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
@@ -51,33 +22,37 @@
     </div>
   </div>
 
-  <!-- Hero Banner -->
-  <div style="width: 100%; height: 340px; overflow: hidden; margin-top: 160px;">
-    <img src="assets/images/talent-banner.png" alt="Talent Placement Banner" style="width: 100%; height: 340px; object-fit: cover;" />
-  </div>
+  <!-- Banner -->
+  <div class="page-banner" style="background-image: url('assets/images/talent-banner.png'); height: 340px;"></div>
 
   <!-- Main Content -->
   <main class="content">
+    <!-- Intro -->
     <section class="section intro">
       <h1 class="section-title">Strategic Talent Placement</h1>
-      <p class="subtitle">We connect exceptional cloud, DevOps, and software talent to mission-critical roles across South Africa.</p>
+      <p class="subtitle">
+        At CoreCloud, we don’t just fill roles — we fuel performance. Our placement model is built for speed, precision, and impact. We connect high-calibre cloud, engineering, and digital talent with the organisations that are building what’s next.<br><br>
+        Whether you're scaling a delivery team, modernising infrastructure, or driving a digital programme — we move fast, vet thoroughly, and match on more than just skills. We align people with purpose, capability with context, and ambition with opportunity.<br><br>
+        Our network is built on trust, and our placements stick because we understand what both sides need to win.
+      </p>
     </section>
 
+    <!-- Why CoreCloud Talent -->
     <section class="section">
       <h2 class="section-title">Why CoreCloud Talent?</h2>
-      <div style="display: flex; justify-content: center;">
-        <ul style="text-align: left;">
-          <li>✔ Deep industry insight into ICT hiring needs</li>
-          <li>✔ Extensive network of pre-vetted cloud and engineering talent</li>
-          <li>✔ Agile placement models to suit permanent or contract resourcing</li>
-          <li>✔ Speed, quality, and cultural fit — every time</li>
-        </ul>
-      </div>
+      <ul style="margin-left: 1.5rem; max-width: 900px; margin-right: auto; margin-left: auto; text-align: left;">
+        <li>✔ We know the tech hiring landscape — because we’ve operated in it, led in it, and hired for it.</li>
+        <li>✔ Our talent network is curated, not crowdsourced — every profile is vetted, relevant, and ready.</li>
+        <li>✔ We move fast — with agile placement models that flex around your delivery pressures.</li>
+        <li>✔ We match on capability *and* chemistry — because culture fit drives performance.</li>
+        <li>✔ We speak executive — aligning talent to strategy, not just vacancies to CVs.</li>
+      </ul>
     </section>
 
+    <!-- Focus Areas -->
     <section class="section">
       <h2 class="section-title">Our Focus Areas</h2>
-      <div class="card-grid quad">
+      <div class="card-grid">
         <div class="card">
           <h3>Cloud Engineers</h3>
           <p>AWS, Azure, hybrid and multi-cloud professionals with infrastructure expertise.</p>
@@ -104,11 +79,12 @@
         </div>
         <div class="card">
           <h3>Sales & Sales Management</h3>
-          <p>High-performance sales talent with strong technical acumen and go-to-market execution.</p>
+          <p>High-performing ICT sales execs who know how to build pipeline, close deals, and grow accounts.</p>
         </div>
       </div>
     </section>
 
+    <!-- CTA -->
     <section class="cta center">
       <h2>Need Talent or Looking for Your Next Role?</h2>
       <p>We place top-tier talent into roles that matter. Let’s talk.</p>
