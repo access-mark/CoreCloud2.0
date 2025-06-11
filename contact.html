@@ -6,6 +6,14 @@
   <title>Contact – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
+      color: #1e1e1e;
+    }
+
     .small-banner {
       background-color: #ffffff;
       padding: 0.2rem 2rem 0;
@@ -33,14 +41,7 @@
     nav {
       display: flex;
       align-items: center;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
       gap: 1.5rem;
-      margin: 0;
-      padding: 0;
     }
 
     nav a.nav-btn {
@@ -54,12 +55,12 @@
 
     nav a.nav-btn:hover,
     nav a.nav-btn.active {
-      color: #005fa3;
+      color: #004f91;
       font-weight: 900;
     }
 
     .page-banner {
-      height: 300px;
+      height: 340px;
       background-image: url('assets/images/contact-bannerimage.png');
       background-size: cover;
       background-position: center;
@@ -83,7 +84,7 @@
     .contact-left h2,
     .contact-right h2 {
       font-size: 2rem;
-      color: #003366;
+      color: #004f91;
       margin-bottom: 1rem;
     }
 
@@ -112,7 +113,7 @@
 
     .contact-form button {
       padding: 0.8rem 1.5rem;
-      background-color: #0077cc;
+      background-color: #0066b2;
       color: #fff;
       border: none;
       border-radius: 6px;
@@ -121,11 +122,10 @@
     }
 
     footer {
-      background-image: url('assets/images/footer-bannerimage.png');
-      background-size: cover;
-      background-position: center;
-      padding: 0.5rem 0 0.5rem;
-      margin-top: auto;
+      background-color: #0b1e3f;
+      padding: 2rem 1rem 1rem;
+      color: white;
+      margin-top: 4rem;
     }
 
     .footer-content {
@@ -133,9 +133,8 @@
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
-      align-items: center;
       flex-wrap: wrap;
-      padding: 1rem;
+      gap: 2rem;
     }
 
     .footer-left,
@@ -145,23 +144,15 @@
       min-width: 280px;
     }
 
-    .footer-left {
-      text-align: left;
-    }
-
-    .footer-middle {
-      text-align: center;
-    }
-
-    .footer-right {
-      text-align: right;
-    }
+    .footer-left { text-align: left; }
+    .footer-middle { text-align: center; }
+    .footer-right { text-align: right; }
 
     .footer-content p,
     .footer-content h4 {
       margin: 0.3rem 0;
       color: white;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.95);
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.95);
     }
 
     .footer-newsletter input[type="email"] {
@@ -175,7 +166,7 @@
 
     .footer-newsletter button {
       padding: 0.8rem 1.5rem;
-      background-color: #0077cc;
+      background-color: #0066b2;
       color: #fff;
       border: none;
       border-radius: 6px;
@@ -187,7 +178,7 @@
       font-size: 0.85rem;
       text-align: center;
       color: white;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.95);
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.95);
     }
 
     .footer-bottom a {
@@ -198,32 +189,33 @@
   </style>
 </head>
 <body>
+  <!-- Top Nav -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
       <nav>
-        <ul>
-          <li><a href="index.html" class="nav-btn">Home</a></li>
-          <li><a href="consulting.html" class="nav-btn">Consulting</a></li>
-          <li><a href="cloud.html" class="nav-btn">Cloud Service Suite</a></li>
-          <li><a href="talent.html" class="nav-btn">Talent Placement</a></li>
-          <li><a href="resources.html" class="nav-btn">Resources</a></li>
-          <li><a href="contact.html" class="nav-btn active">Contact</a></li>
-        </ul>
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="consulting.html" class="nav-btn">Consulting</a>
+        <a href="cloud.html" class="nav-btn">Cloud Service Suite</a>
+        <a href="talent.html" class="nav-btn">Talent Placement</a>
+        <a href="resources.html" class="nav-btn">Resources</a>
+        <a href="contact.html" class="nav-btn active">Contact</a>
       </nav>
     </div>
   </div>
 
+  <!-- Banner -->
   <div class="page-banner"></div>
 
+  <!-- Contact Section -->
   <div class="contact-container">
     <div class="contact-left">
       <h2>Let's Talk Impact</h2>
       <p>Start a conversation that moves the needle — strategy, talent, cloud transformation.</p>
       <p><strong>CoreCloud (Pty) Ltd</strong><br>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
-      <p><strong>BEE Level 4</strong><br>Company Reg: 2022/123456/07</p>
-      <p><strong>Mobile:</strong> +27 82 872 7858<br><strong>Email:</strong> hello@corecloud.africa</p>
-      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/company/corecloud-africa" target="_blank">@corecloud-africa</a></p>
+      <p><strong>BEE Level 4</strong><br>Company Reg: 2023/937005/07</p>
+      <p><strong>Mobile:</strong> +27 82 872 7858<br><strong>Email:</strong> mark@corecloudza.com</p>
+      <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:red; text-decoration: underline; font-weight: bold;">@corecloud-africa</a></p>
     </div>
     <div class="contact-right">
       <h2>Send a Message</h2>
@@ -243,8 +235,8 @@
         <label for="interest">Area of Interest</label>
         <select id="interest" name="interest">
           <option value="Consulting">Consulting</option>
-          <option value="AWS">AWS Services</option>
-          <option value="Talent">Talent Placement</option>
+          <option value="Cloud Services">Cloud Services</option>
+          <option value="Talent Placement">Talent Placement</option>
         </select>
 
         <label for="message">Message</label>
@@ -255,13 +247,14 @@
     </div>
   </div>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
         <p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p>
         <p><strong>BEE Level 4</strong></p>
-        <p>Company Reg: 2022/123456/07</p>
+        <p>Company Reg: 2023/937005/07</p>
       </div>
       <div class="footer-middle">
         <h4>Stay Informed</h4>
@@ -273,8 +266,8 @@
       </div>
       <div class="footer-right">
         <p>Contact</p>
-        <p>Mobile: +27 82 872 7858<br>Email: hello@corecloud.africa</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank">LinkedIn</a></p>
+        <p>Mobile: +27 82 872 7858<br>Email: mark@corecloudza.com</p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -282,11 +275,5 @@
       <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
     </div>
   </footer>
-
-  <!-- Chatbot -->
-  <script src="https://www.chatbase.co/embed.min.js"
-          chatbotId="2lVQDE6W7igyTrTHXu9Wk"
-          domain="www.chatbase.co"
-          defer></script>
 </body>
 </html>
