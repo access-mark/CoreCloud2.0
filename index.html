@@ -6,16 +6,22 @@
   <title>CoreCloud – Executive-Grade Cloud Transformation</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
     .card h2, .card p {
       text-align: center;
     }
 
     .card h2 {
       color: #005fa3;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
+      font-size: 1.45rem;
+      margin-bottom: 0.8rem;
       font-weight: 700;
-      text-shadow: 0 0 1px rgba(0, 95, 163, 0.2);
     }
 
     .card p {
@@ -23,6 +29,22 @@
       line-height: 1.6;
       font-size: 1rem;
       margin-bottom: 1.5rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background-color: #0091ea;
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #0074c2;
     }
 
     footer {
@@ -119,27 +141,29 @@
   <div class="page-banner" style="height: 340px; background-image: url('assets/images/index-bannerimage.png'); background-size: cover; background-position: center; margin-top: 160px;"></div>
 
   <main class="content">
-    <h1 class="center-title">The CoreCloud Advantage</h1>
+    <h1 class="center-title" style="margin-bottom: 1rem;">The CoreCloud Advantage</h1>
     <p class="center-subtitle">CoreCloud was born out of necessity — a response to fractured execution, bloated systems, and missed growth in the South African enterprise landscape. We created CoreCloud to be the sharp edge of digital and commercial transformation: bold, deeply integrated, and obsessively outcome-focused.</p>
 
-    <div class="story-grid">
-      <div class="story-card">
+    <!-- Why / What / How Cards -->
+    <div class="card-grid">
+      <div class="card">
         <h2>Why</h2>
         <p>Businesses across South Africa are burdened by bloated sales operations, underperforming cloud investments, and talent gaps that stall execution. Leaders know what success looks like — but lack the precise tools, systems, and partners to drive it at scale.</p>
       </div>
-      <div class="story-card">
+      <div class="card">
         <h2>What</h2>
         <p>CoreCloud delivers the sharp edge of transformation — executive sales consulting, AWS modernization, and top-tier talent sourcing — all integrated to create velocity, alignment, and measurable impact. We don’t just advise; we deliver outcomes.</p>
       </div>
-      <div class="story-card">
+      <div class="card">
         <h2>How</h2>
         <p>Through rigorous diagnostics, proven GTM methodologies, and a trusted partner ecosystem, CoreCloud maps strategy to execution. We cut through noise with clear frameworks, accelerate through automation, and enable scale through elite people and process design.</p>
       </div>
     </div>
 
-    <h1 style="margin-top: 4rem" class="center-title">Bold Tech. Executive Precision.</h1>
+    <h1 style="margin-top: 4rem; margin-bottom: 1rem;" class="center-title">Bold Tech. Executive Precision.</h1>
     <p class="center-subtitle">Cloud consulting, AWS services, and top-tier talent – aligned with your boardroom ambitions and frontline delivery.</p>
 
+    <!-- Service Cards -->
     <div class="card-grid">
       <div class="card">
         <h2>Consulting</h2>
