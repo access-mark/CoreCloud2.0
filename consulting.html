@@ -8,11 +8,30 @@
   <meta name="description" content="CoreCloud delivers executive-grade consulting across strategy, sales, technology, and talent readiness.">
   <meta name="keywords" content="Consulting, CoreCloud, Advisory, GTM, Cloud Strategy, Architecture, Readiness, South Africa">
   <style>
-    .center-title {
+    main.content {
+      padding-bottom: 4rem;
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .page-banner {
+      height: 340px;
+      background-image: url('assets/images/consulting-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      margin-top: 160px;
+    }
+
+    h1, .section-title {
+      color: #004f91;
       text-align: center;
-      font-size: 2.6rem;
-      color: #0066b2;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
     }
 
     .subtitle {
@@ -20,20 +39,13 @@
       font-size: 1.2rem;
       color: #333;
       max-width: 900px;
-      margin: 0 auto 2.5rem;
+      margin: 0 auto 2rem;
       line-height: 1.7;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      color: #0066b2;
-      margin-bottom: 1.5rem;
     }
 
     .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
@@ -52,32 +64,27 @@
     }
 
     .card h2 {
-      font-size: 1.4rem;
       color: #0066b2;
       margin-bottom: 1rem;
+      font-size: 1.25rem;
     }
 
     .card p {
-      color: #333;
       font-size: 1rem;
-      line-height: 1.6;
+      color: #444;
+      margin-bottom: 1rem;
     }
 
-    .cta-btn {
-      display: inline-block;
-      background-color: #0066b2;
-      color: #fff;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.9rem 2rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-      margin-top: 1rem;
+    ul {
+      list-style-type: none;
+      padding-left: 0;
     }
 
-    .cta-btn:hover {
-      background-color: #004f91;
+    ul li::before {
+      content: "✔ ";
+      color: #0066b2;
+      font-weight: bold;
+      margin-right: 0.5rem;
     }
 
     .cta.center {
@@ -85,13 +92,132 @@
       background-color: #f0f8ff;
       padding: 3rem 2rem;
       border-radius: 12px;
-      margin-top: 4rem;
+      margin-top: 3rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background-color: #0066b2;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #004f91;
     }
 
     footer {
       background-color: #0b1e3f;
-      padding-top: 2rem;
+      padding: 2rem 1rem 1rem;
+      color: white;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer-left, .footer-middle, .footer-right {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .footer-left { text-align: left; }
+    .footer-middle { text-align: center; }
+    .footer-right { text-align: right; }
+
+    .footer-content p, .footer-content h4 {
+      margin: 0.3rem 0;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.95);
+    }
+
+    .footer-newsletter input[type="email"] {
+      padding: 0.8rem;
+      width: 60%;
+      max-width: 300px;
+      border: none;
+      border-radius: 6px;
+      margin-right: 0.5rem;
+    }
+
+    .footer-newsletter button {
+      padding: 0.8rem 1.5rem;
+      background-color: #0066b2;
       color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .footer-bottom {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.95);
+    }
+
+    .footer-bottom a {
+      color: red !important;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    .small-banner {
+      background-color: #ffffff;
+      padding: 0.2rem 2rem 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .banner-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      height: 160px;
+      width: auto;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #003366;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      color: #005fa3;
+      font-weight: 900;
     }
   </style>
 </head>
@@ -112,30 +238,42 @@
   </div>
 
   <!-- Banner -->
-  <div class="page-banner" style="background-image: url('assets/images/consulting-bannerimage.png'); height: 340px; background-size: cover; background-position: center; margin-top: 160px;"></div>
+  <div class="page-banner"></div>
 
   <!-- Content -->
   <main class="content">
-    <h1 class="center-title">Consulting That Drives Results</h1>
+    <h1>Consulting That Drives Results</h1>
     <p class="subtitle">
-      At CoreCloud, we don’t do vague advice or theoretical frameworks. We deliver sharp, outcome-driven consulting built for business leaders who need clarity, execution, and measurable impact.<br><br>
-      Our focus is on unlocking real growth — not just on paper, but where it matters: in revenue, capability, and performance.<br><br>
-      <strong>Cloud</strong> – Strategy, modernization, vendor alignment, and delivery models that enable scale.<br>
-      <strong>People</strong> – Readiness, structure, and skills alignment to support future-state operating models.<br>
-      <strong>Process</strong> – GTM, execution discipline, and commercial clarity that drives enterprise value.
+      At CoreCloud, we don’t do vague advice or theoretical frameworks. We deliver sharp, outcome-driven consulting built for business leaders who need clarity, execution, and measurable impact.
     </p>
+
+    <h2 class="section-title">The Three Pillars of Execution</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h2>Cloud</h2>
+        <p>Strategy, modernization, vendor alignment, and delivery models that enable scale.</p>
+      </div>
+      <div class="card">
+        <h2>People</h2>
+        <p>Readiness, structure, and skills alignment to support future-state operating models.</p>
+      </div>
+      <div class="card">
+        <h2>Process</h2>
+        <p>GTM, execution discipline, and commercial clarity that drives enterprise value.</p>
+      </div>
+    </div>
 
     <section class="section">
       <h2 class="section-title">Our Advisory Approach</h2>
       <p style="text-align: center;">We don’t sell buzzwords — we execute strategy. CoreCloud works with boards, CIOs, and business unit leaders to provide clear, structured, and high-impact consulting engagements.</p>
       <div style="display: flex; justify-content: center; margin-top: 1rem;">
         <ul style="text-align: left;">
-          <li>✔ Business-Aligned Cloud & Tech Strategy</li>
-          <li>✔ Sales & GTM Strategy Review & Uplift</li>
-          <li>✔ Platform Architecture & Vendor Rationalization</li>
-          <li>✔ Talent & Capability Readiness Assessments</li>
-          <li>✔ Delivery Models & Strategic Partnering</li>
-          <li>✔ Independent Board-Level Input</li>
+          <li>Business-Aligned Cloud & Tech Strategy</li>
+          <li>Sales & GTM Strategy Review & Uplift</li>
+          <li>Platform Architecture & Vendor Rationalization</li>
+          <li>Talent & Capability Readiness Assessments</li>
+          <li>Delivery Models & Strategic Partnering</li>
+          <li>Independent Board-Level Input</li>
         </ul>
       </div>
     </section>
@@ -180,7 +318,7 @@
       </div>
       <div class="footer-middle">
         <h4>Stay Informed</h4>
-        <p>Join our newsletter for cloud innovation and strategic insight.</p>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <div class="footer-newsletter">
           <input type="email" placeholder="Enter your email" />
           <button>Subscribe</button>
@@ -189,12 +327,11 @@
       <div class="footer-right">
         <p>Contact</p>
         <p>Mobile: +27 82 872 7858<br>Email: mark@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; font-weight: bold; text-decoration: underline;">LinkedIn</a></p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
+      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
     </div>
   </footer>
 </body>
