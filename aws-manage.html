@@ -10,9 +10,21 @@
   <style>
     .card-grid.triple {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
       margin-top: 2rem;
+    }
+
+    @media screen and (max-width: 1024px) {
+      .card-grid.triple {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      .card-grid.triple {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -47,15 +59,15 @@
       <div class="card-grid triple">
         <div class="card">
           <h2 style="color:#0066b2;">Monitoring & Dashboards</h2>
-          <p>We set up real-time health dashboards with alerting, so you're always in control of uptime and performance.</p>
+          <p>Real-time health dashboards with alerting, so you're always in control of uptime and performance.</p>
         </div>
         <div class="card">
           <h2 style="color:#0066b2;">Compliance Automation</h2>
-          <p>Built-in adherence to AWS Well-Architected Framework and security benchmarks — without the admin burden.</p>
+          <p>Adherence to AWS Well-Architected Framework and security benchmarks — without the admin burden.</p>
         </div>
         <div class="card">
           <h2 style="color:#0066b2;">Patching & Backups</h2>
-          <p>Automated patching, snapshot-based backups, and integrated DR routines that keep you protected and recoverable.</p>
+          <p>Automated patching, snapshot-based backups, and integrated DR routines keep you protected and recoverable.</p>
         </div>
         <div class="card">
           <h2 style="color:#0066b2;">Cost Optimization</h2>
@@ -63,7 +75,7 @@
         </div>
         <div class="card">
           <h2 style="color:#0066b2;">DevOps CI/CD Management</h2>
-          <p>We help manage and support your CI/CD pipelines, environments, and tooling — from build to deploy.</p>
+          <p>Manage and support CI/CD pipelines, environments, and tooling — from build to deploy with reliability.</p>
         </div>
         <div class="card">
           <h2 style="color:#0066b2;">24/7 Managed NOC</h2>
@@ -77,7 +89,7 @@
       <div class="card-grid triple">
         <div class="card">
           <h2 style="color:#0066b2;">Action-Oriented Support</h2>
-          <p>We don’t just alert you — we act. Our tools and teams respond immediately to keep services resilient.</p>
+          <p>We don’t just alert — we act. Our tools and teams respond immediately to keep services resilient.</p>
         </div>
         <div class="card">
           <h2 style="color:#0066b2;">Full Visibility</h2>
