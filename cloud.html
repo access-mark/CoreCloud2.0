@@ -10,28 +10,16 @@
   <style>
     .card-grid.quad {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
       padding: 0 2rem;
     }
 
-    @media screen and (max-width: 1024px) {
-      .card-grid.quad {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media screen and (max-width: 600px) {
-      .card-grid.quad {
-        grid-template-columns: 1fr;
-      }
-    }
-
     .card {
       background: #fff;
       border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       padding: 2rem;
       text-align: center;
       transition: transform 0.3s ease;
@@ -45,6 +33,7 @@
       margin-bottom: 1rem;
       font-size: 1.25rem;
       color: #002147;
+      font-weight: 700;
     }
 
     .card p {
