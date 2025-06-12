@@ -2,19 +2,100 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Thank You – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: #f4f6f8;
+      color: #1e1e1e;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .small-banner {
+      background-color: #fff;
+      padding: 1.5rem 2rem 0.5rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+    }
+
+    .banner-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo {
+      max-height: 50px;
+    }
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 180px 1rem 2rem;
+      text-align: center;
+    }
+
+    .content h1 {
+      font-size: 2rem;
+      color: #004f91;
+      margin-bottom: 1rem;
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      background-color: #0066b2;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    footer {
+      background-color: #0b1e3f;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
+  <!-- Banner -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
     </div>
   </div>
+
+  <!-- Main Content -->
   <main class="content">
     <h1>Thank You</h1>
-    <p>Your message has been sent successfully. We’ll be in touch shortly.</p>
-    <a href="index.html" class="cta-button">Back to Home</a>
+    <p>Your message has been successfully sent.<br>We'll be in touch shortly.</p>
+    <a href="index.html" class="cta-button">Return to Home</a>
   </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2023 CoreCloud (Pty) Ltd. All rights reserved.
+  </footer>
 </body>
 </html>
