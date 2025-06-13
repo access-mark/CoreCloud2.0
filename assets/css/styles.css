@@ -166,7 +166,7 @@ main.content {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 1.4rem;
+  padding: 1.2rem;
   text-align: center;
   transition: transform 0.3s ease;
 }
@@ -202,29 +202,14 @@ main.content {
 /* Mobile Tweaks */
 @media screen and (max-width: 768px) {
   .card {
-    padding: 1rem;
+    padding: 0.9rem;
   }
 
   .card h2, .card h3 {
-    font-size: 1.15rem;
+    font-size: 1.05rem;
   }
 
   .card p {
-    font-size: 0.85rem;
-  }
-
-  .logo {
-    width: 80px;
-    height: auto;
-  }
-
-  nav a {
-    font-size: 0.75rem;
-  }
-
-  .cta-btn,
-  .button {
-    font-size: 0.75rem;
-    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
   }
 }
