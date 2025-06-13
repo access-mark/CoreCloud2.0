@@ -201,15 +201,62 @@ main.content {
 
 /* Mobile Tweaks */
 @media screen and (max-width: 768px) {
+  body {
+    font-size: 0.85rem;
+    padding: 0;
+  }
+
+  .banner-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    height: 90px;
+    margin-bottom: 0.5rem;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  nav a {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+
+  .card-grid {
+    padding: 0 1rem;
+    gap: 1rem;
+  }
+
   .card {
-    padding: 0.9rem;
+    padding: 0.8rem;
   }
 
   .card h2, .card h3 {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
   }
 
   .card p {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  footer {
+    padding: 2rem 1rem 1rem;
+    background: #0b1e3f;
+    background-size: cover;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-middle,
+  .footer-right {
+    text-align: center;
   }
 }
