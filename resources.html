@@ -9,86 +9,6 @@
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <style>
-    .page-banner {
-      background: url('assets/images/resources-bannerimage.png') center center no-repeat;
-      background-size: cover;
-      height: 340px;
-      margin-top: 160px;
-    }
-
-    .section-title {
-      text-align: center;
-      font-size: 2.4rem;
-      margin-bottom: 1rem;
-      color: #004f91;
-    }
-
-    .subtitle {
-      text-align: center;
-      font-size: 1.1rem;
-      max-width: 900px;
-      margin: 0 auto 2rem;
-      color: #444;
-    }
-
-    .resources-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 2rem auto 4rem;
-    }
-
-    .resource-card {
-      background: white;
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .resource-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .resource-card h3 {
-      color: #0066b2;
-      margin-bottom: 0.8rem;
-      font-size: 1.3rem;
-    }
-
-    .resource-card p {
-      font-size: 1rem;
-      color: #333;
-      margin-bottom: 1.5rem;
-    }
-
-    .resource-card a {
-      display: inline-block;
-      background-color: #0066b2;
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      margin-top: auto;
-    }
-
-    footer {
-      background: #0b1e3f;
-      color: white;
-      margin-top: 4rem;
-      padding-top: 2rem;
-      min-height: 320px;
-      position: relative;
-      z-index: 0;
-    }
-  </style>
 </head>
 <body>
   <!-- Header -->
@@ -107,49 +27,48 @@
   </div>
 
   <!-- Banner -->
-  <div class="page-banner"></div>
+  <div style="width: 100%; height: 340px; overflow: hidden; margin-top: 160px;">
+    <img src="assets/images/resources-bannerimage.png" alt="Resources Banner" style="width: 100%; height: 340px; object-fit: cover;" />
+  </div>
 
-  <!-- Content -->
+  <!-- Main Content -->
   <main class="content">
     <section class="section">
-      <h1 class="section-title">CoreCloud Strategic Resources</h1>
-      <p class="subtitle">No-fluff, executive-grade tools and frameworks designed to help you lead, scale, and deliver. These are the actual assets we use — shared with you because great execution should never start from scratch.</p>
+      <h1 class="section-title" style="color:#004f91;">CoreCloud Strategic Resources</h1>
+      <p class="subtitle" style="text-align:center; max-width:900px; margin:0 auto 2rem;">
+        No-fluff, executive-grade tools and frameworks designed to help you lead, scale, and deliver. These are the actual assets we use — shared with you because great execution should never start from scratch.
+      </p>
 
-      <div class="resources-grid">
-        <div class="resource-card">
-          <h3>Cloud Modernisation Playbook</h3>
+      <div class="card-grid quad">
+        <div class="card">
+          <h2>Cloud Modernisation Playbook</h2>
           <p>A battle-tested guide for IT leaders modernising legacy infrastructure. Covers architecture decisions, talent gaps, delivery models, and stakeholder buy-in frameworks.</p>
-          <a href="#">Download PDF</a>
+          <a href="#" class="cta-btn">Download PDF</a>
         </div>
-
-        <div class="resource-card">
-          <h3>Talent Placement Toolkit</h3>
+        <div class="card">
+          <h2>Talent Placement Toolkit</h2>
           <p>We’ve codified what works — from intake to onboarding. Includes our scorecard, velocity map, client briefing template, and candidate readiness checklist.</p>
-          <a href="#">Download Toolkit</a>
+          <a href="#" class="cta-btn">Download Toolkit</a>
         </div>
-
-        <div class="resource-card">
-          <h3>Sales Audit Framework</h3>
+        <div class="card">
+          <h2>Sales Audit Framework</h2>
           <p>Diagnose your sales engine like a pro. Covers structure, process, tooling, compensation alignment, and forecast integrity — built for CROs and founders scaling revenue.</p>
-          <a href="#">Get the Framework</a>
+          <a href="#" class="cta-btn">Get the Framework</a>
         </div>
-
-        <div class="resource-card">
-          <h3>Migration Readiness Checklist</h3>
+        <div class="card">
+          <h2>Migration Readiness Checklist</h2>
           <p>Before you move workloads to AWS or Azure, assess your readiness across 12 key domains. Avoid surprises — migrate with clarity and control.</p>
-          <a href="#">Download Checklist</a>
+          <a href="#" class="cta-btn">Download Checklist</a>
         </div>
-
-        <div class="resource-card">
-          <h3>Executive Investor Deck</h3>
+        <div class="card">
+          <h2>Executive Investor Deck</h2>
           <p>The CoreCloud narrative. Business model, traction, division structure, revenue strategy, and investment opportunity — as pitched to our backers.</p>
-          <a href="#">View Pitch Deck</a>
+          <a href="#" class="cta-btn">View Pitch Deck</a>
         </div>
-
-        <div class="resource-card">
-          <h3>Legal Docs: NDA, MSA, Subcontract</h3>
+        <div class="card">
+          <h2>Legal Docs: NDA, MSA, Subcontract</h2>
           <p>Fully vetted, South Africa–compliant legal templates. Use these to reduce friction in client and partner onboarding. Clean, fair, and ready to go.</p>
-          <a href="#">Access Legal Pack</a>
+          <a href="#" class="cta-btn">Access Legal Pack</a>
         </div>
       </div>
     </section>
@@ -175,18 +94,18 @@
       <div class="footer-right">
         <p>Contact</p>
         <p>Mobile: +27 82 872 7858<br>Email: mark@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:red; font-weight:bold; text-decoration: underline;">LinkedIn</a></p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
     </div>
   </footer>
+
   <!-- Chatbot -->
   <script src="https://www.chatbase.co/embed.min.js"
           chatbotId="2lVQDE6W7igyTrTHXu9Wk"
           domain="www.chatbase.co"
           defer></script>
- 
 </body>
 </html>
