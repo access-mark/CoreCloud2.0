@@ -188,6 +188,12 @@ main.content {
   margin-bottom: 1.2rem;
 }
 
+/* Ensure white text on blue background */
+.card[style*="background: #0066b2"] h3,
+.card[style*="background: #0066b2"] p {
+  color: #ffffff !important;
+}
+
 .card .cta-btn {
   display: inline-block;
   padding: 0.4rem 0.8rem;
