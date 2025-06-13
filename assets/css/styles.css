@@ -289,3 +289,82 @@ footer {
   text-decoration: underline;
   font-weight: bold;
 }
+/* ===== MOBILE OPTIMIZATION (CoreCloud 2.0) ===== */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 0.95rem;
+    padding: 1rem;
+    line-height: 1.6;
+  }
+
+  .small-banner {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    text-align: center;
+  }
+
+  .nav-btn {
+    display: block;
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+
+  .logo {
+    width: 140px;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+
+  h1, h2, h3 {
+    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    text-align: center;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card {
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .btn, .cta-btn {
+    width: 100%;
+    text-align: center;
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+
+  footer {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  footer .footer-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  section {
+    margin-bottom: 2rem;
+  }
+
+  .grid-2, .grid-3, .grid-4 {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem;
+  }
+}
