@@ -195,15 +195,23 @@ main.content {
   color: #ffffff !important;
 }
 
+/* Reinstate bright blue full-width button on cards */
 .card .cta-btn {
-  display: inline-block;
-  padding: 0.4rem 0.8rem;
-  background-color: #002147;
+  display: block;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: #0066b2;
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
   font-weight: bold;
-  font-size: 0.8rem;
+  font-size: 0.95rem;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.card .cta-btn:hover {
+  background-color: #004f91;
 }
 
 /* Footer */
