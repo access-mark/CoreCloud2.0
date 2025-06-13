@@ -6,27 +6,98 @@
   <title>CoreCloud – Cloud Services</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    body { font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; background: #f4f6f8; color: #1e1e1e; }
-    .small-banner { background: #fff; padding: 0.2rem 2rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: fixed; top: 0; width: 100%; z-index: 1000; }
-    .banner-header { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
-    .logo { height: 160px; }
-    nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-    nav a.nav-btn { text-decoration: none; font-weight: 700; font-size: 0.95rem; color: #003366; text-transform: uppercase; }
-    nav a.nav-btn:hover, nav a.nav-btn.active { color: #005fa3; font-weight: 900; }
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      margin: 0;
+      background: #f4f6f8;
+      color: #1e1e1e;
+    }
+
+    .small-banner {
+      background-color: #ffffff;
+      padding: 0.2rem 2rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .banner-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      height: 160px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    nav a.nav-btn {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #003366;
+      text-transform: uppercase;
+    }
+
+    nav a.nav-btn:hover,
+    nav a.nav-btn.active {
+      color: #005fa3;
+      font-weight: 900;
+    }
+
     .page-banner {
       height: 340px;
       background: url('assets/images/cloud-banner.png') center/cover no-repeat;
       margin-top: 160px;
     }
-    main { max-width: 1200px; margin: 4rem auto; padding: 0 1.5rem; }
-    .center-title { text-align: center; font-size: 2rem; color: #004f91; font-weight: 700; margin-bottom: 1rem; }
-    .center-subtitle { text-align: center; font-size: 1rem; color: #444; margin-bottom: 2rem; }
+
+    main {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .center-title {
+      text-align: center;
+      font-size: 2rem;
+      color: #004f91;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .center-subtitle {
+      text-align: center;
+      font-size: 1rem;
+      color: #444;
+      margin-bottom: 2rem;
+    }
+
+    .body-copy {
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #333;
+      text-align: center;
+    }
+
     .card-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
       padding: 0 1rem;
     }
+
     .card {
       background: #fff;
       border-radius: 12px;
@@ -39,9 +110,24 @@
       text-align: center;
       transition: transform 0.3s ease;
     }
-    .card:hover { transform: translateY(-5px); }
-    .card h2 { color: #0066b2; font-size: 1.25rem; margin-bottom: 0.8rem; font-weight: 700; }
-    .card p { color: #444; font-size: 0.95rem; flex-grow: 1; }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      color: #0066b2;
+      font-size: 1.25rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+
+    .card p {
+      color: #444;
+      font-size: 0.95rem;
+      flex-grow: 1;
+    }
+
     .card .cta-btn {
       display: block;
       width: 100%;
@@ -56,8 +142,17 @@
       text-decoration: none;
       transition: background-color 0.3s ease;
     }
-    .card .cta-btn:hover { background: #004f91; }
-    footer { background: #0b1e3f; padding: 2rem 1rem 1rem; color: #fff; }
+
+    .card .cta-btn:hover {
+      background-color: #004f91;
+    }
+
+    footer {
+      background-color: #0b1e3f;
+      padding: 2rem 1rem 1rem;
+      color: white;
+    }
+
     .footer-content {
       max-width: 1200px;
       margin: 0 auto;
@@ -66,8 +161,19 @@
       justify-content: space-between;
       gap: 2rem;
     }
-    .footer-left, .footer-middle, .footer-right { flex: 1; min-width: 280px; }
-    .footer-content p, .footer-content h4 { color: #fff; margin: 0.3rem 0; text-shadow: 2px 2px 6px rgba(0,0,0,0.95); }
+
+    .footer-left, .footer-middle, .footer-right {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .footer-content p,
+    .footer-content h4 {
+      color: white;
+      margin: 0.3rem 0;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.95);
+    }
+
     .footer-newsletter input[type="email"] {
       padding: 0.8rem;
       width: 60%;
@@ -76,19 +182,22 @@
       border-radius: 6px;
       margin-right: 0.5rem;
     }
+
     .footer-newsletter button {
       padding: 0.8rem 1.5rem;
-      background: #0077cc;
+      background-color: #0077cc;
       color: #fff;
       border: none;
       border-radius: 6px;
       cursor: pointer;
     }
+
     .footer-bottom {
       margin-top: 1rem;
       text-align: center;
       font-size: 0.85rem;
     }
+
     .footer-bottom a {
       color: red !important;
       text-decoration: underline;
@@ -131,6 +240,12 @@
   <main>
     <h1 class="center-title">Cloud Services</h1>
     <p class="center-subtitle">We help you migrate, modernize, manage and optimize cloud for measurable business impact.</p>
+
+    <div class="body-copy">
+      CoreCloud delivers proven, cost-effective cloud enablement services across AWS and Microsoft Azure.
+      From migration planning to cloud-native modernization and fully managed environments, our services
+      unlock agility, scalability, and cost control — backed by a no-nonsense delivery ethos and trusted partners.
+    </div>
 
     <div class="card-grid">
       <div class="card">
