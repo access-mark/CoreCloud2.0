@@ -289,6 +289,7 @@ footer {
   text-decoration: underline;
   font-weight: bold;
 }
+
 /* ===== MOBILE OPTIMIZATION (CoreCloud 2.0) ===== */
 @media screen and (max-width: 768px) {
   body {
@@ -304,7 +305,7 @@ footer {
     text-align: center;
   }
 
-  .nav-btn {
+  nav a {
     display: block;
     margin: 0.5rem 0;
     text-align: center;
@@ -321,7 +322,7 @@ footer {
     text-align: center;
   }
 
-  .content {
+  main.content {
     padding: 1rem;
   }
 
