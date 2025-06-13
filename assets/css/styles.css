@@ -182,7 +182,7 @@ main.content {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 2rem;
+  padding: 1.7rem;
   text-align: center;
   transition: transform 0.3s ease;
 }
@@ -194,24 +194,25 @@ main.content {
 .card h2 {
   color: #002147;
   margin-bottom: 1rem;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   font-weight: 700;
 }
 
 .card p {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   color: #444;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 .card .cta-btn {
   display: inline-block;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.9rem;
   background-color: #002147;
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
   font-weight: bold;
+  font-size: 0.85rem;
 }
 
 /* Footer */
@@ -293,7 +294,7 @@ footer {
 /* ===== MOBILE OPTIMIZATION (CoreCloud 2.0) ===== */
 @media screen and (max-width: 768px) {
   body {
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     padding: 0.5rem;
     line-height: 1.5;
     align-items: center;
@@ -315,7 +316,7 @@ footer {
 
   nav a {
     display: block;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     padding: 0.3rem 0.6rem;
     border-radius: 5px;
     text-align: center;
@@ -326,13 +327,13 @@ footer {
   }
 
   .logo {
-    width: 100px;
+    width: 90px;
     height: auto;
     margin-bottom: 0.5rem;
   }
 
   h1, h2, h3 {
-    font-size: clamp(1.1rem, 4vw, 1.4rem);
+    font-size: clamp(1rem, 4vw, 1.3rem);
     text-align: center;
   }
 
@@ -350,14 +351,14 @@ footer {
   }
 
   .card {
-    padding: 0.85rem;
+    padding: 0.8rem;
     text-align: center;
   }
 
   .btn, .cta-btn {
     width: 100%;
     text-align: center;
-    padding: 0.5rem;
+    padding: 0.45rem;
     font-size: 0.75rem;
   }
 
