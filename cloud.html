@@ -17,7 +17,12 @@
     main { max-width: 1200px; margin: 4rem auto; padding: 0 1.5rem; }
     .center-title { text-align: center; font-size: 2rem; color: #004f91; font-weight: 700; margin-bottom: 1rem; }
     .center-subtitle { text-align: center; font-size: 1rem; color: #444; margin-bottom: 2rem; }
-    .card-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 2rem; padding: 0 1rem; }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      padding: 0 1rem;
+    }
     .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 1.2rem; display: flex; flex-direction: column; justify-content: space-between; height: 100%; text-align: center; transition: transform 0.3s ease; }
     .card:hover { transform: translateY(-5px); }
     .card h2 { color: #0066b2; font-size: 1.25rem; margin-bottom: 0.8rem; font-weight: 700; }
@@ -32,6 +37,19 @@
     .footer-newsletter button { padding: 0.8rem 1.5rem; background: #0077cc; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
     .footer-bottom { margin-top: 1rem; text-align: center; font-size: 0.85rem; }
     .footer-bottom a { color: red !important; text-decoration: underline; font-weight: bold; }
+
+    @media screen and (max-width: 992px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media screen and (max-width: 768px) {
       .logo { height: 90px; margin-bottom: 0.5rem; }
       nav { flex-direction: column; align-items: center; gap: 0.5rem; }
