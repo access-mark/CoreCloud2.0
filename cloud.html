@@ -53,6 +53,26 @@
       color: #fff;
     }
 
+    .azure-card {
+      background-color: #007fff !important;
+      border: 1px solid #000000;
+    }
+
+    .azure-card h3,
+    .azure-card p {
+      color: #ffffff !important;
+    }
+
+    .azure-card .cta-btn {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .azure-card .cta-btn:hover {
+      background-color: #003f7f;
+      color: #fff;
+    }
+
     @media screen and (max-width: 768px) {
       .cloud-columns {
         flex-direction: column;
@@ -123,22 +143,22 @@
       <div class="cloud-column">
         <h2>Azure</h2>
         <div class="card-group">
-          <div class="card">
+          <div class="card azure-card">
             <h3>Azure Migration</h3>
             <p>Seamlessly transition to Microsoft Azure with expert-led migration blueprints and support.</p>
             <a href="azure-migration.html" class="cta-btn">Explore Migration</a>
           </div>
-          <div class="card">
+          <div class="card azure-card">
             <h3>Azure Modernize</h3>
             <p>Refactor and rebuild apps on Azure with containerization, serverless, and AI-driven services.</p>
             <a href="azure-modernize.html" class="cta-btn">Modernize Now</a>
           </div>
-          <div class="card">
+          <div class="card azure-card">
             <h3>Azure Manage</h3>
             <p>Operate cloud environments with Azure-native tools, secure access, and performance tracking.</p>
             <a href="azure-manage.html" class="cta-btn">See Managed Services</a>
           </div>
-          <div class="card">
+          <div class="card azure-card">
             <h3>Azure Optimize</h3>
             <p>Reduce Azure costs and improve efficiency with intelligent optimization strategies.</p>
             <a href="azure-optimize.html" class="cta-btn">Start Optimizing</a>
