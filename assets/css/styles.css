@@ -72,16 +72,17 @@ nav a.active {
 }
 
 /* Headings */
-h1, h3, h4, h5, h6,
+h1, h2, h3, h4, h5, h6,
 .center-title,
 .section-title {
-  color: #1e1e1e;
+  color: #004f91;
 }
 
 .center-title {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 .center-subtitle {
@@ -160,29 +161,12 @@ main.content {
   padding: 0 2rem;
 }
 
-/* Card Grid — quad layout only for cloud.html */
-.card-grid.quad {
-  grid-template-columns: repeat(4, 1fr);
-}
-
-@media screen and (max-width: 1024px) {
-  .card-grid.quad {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .card-grid.quad {
-    grid-template-columns: 1fr;
-  }
-}
-
 /* Card Styling */
 .card {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  padding: 1.4rem;
+  padding: 1.2rem;
   text-align: center;
   transition: transform 0.3s ease;
 }
@@ -191,15 +175,15 @@ main.content {
   transform: translateY(-5px);
 }
 
-.card h2 {
-  color: #002147;
+.card h2, .card h3 {
+  color: #0066b2;
   margin-bottom: 1rem;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 700;
 }
 
 .card p {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: #444;
   margin-bottom: 1.2rem;
 }
@@ -215,175 +199,17 @@ main.content {
   font-size: 0.8rem;
 }
 
-/* Footer */
-footer {
-  background: url('assets/images/footer-bannerimage.png') center center no-repeat, #0b1e3f;
-  background-size: cover;
-  padding: 2rem 1rem 1rem;
-  color: white;
-  margin-top: auto;
-}
-
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.footer-left,
-.footer-middle,
-.footer-right {
-  flex: 1;
-  min-width: 280px;
-}
-
-.footer-left {
-  text-align: left;
-}
-
-.footer-middle {
-  text-align: center;
-}
-
-.footer-right {
-  text-align: right;
-}
-
-.footer-content p,
-.footer-content h4 {
-  margin: 0.3rem 0;
-  color: white;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.95);
-}
-
-.footer-newsletter input[type="email"] {
-  padding: 0.8rem;
-  width: 60%;
-  max-width: 300px;
-  border: none;
-  border-radius: 6px;
-  margin-right: 0.5rem;
-}
-
-.footer-newsletter button {
-  padding: 0.8rem 1.5rem;
-  background-color: #0077cc;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.footer-bottom {
-  margin-top: 1rem;
-  font-size: 0.85rem;
-  text-align: center;
-  color: white;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.95);
-}
-
-.footer-bottom a {
-  color: red !important;
-  text-decoration: underline;
-  font-weight: bold;
-}
-
-/* ===== MOBILE OPTIMIZATION (CoreCloud 2.0) ===== */
+/* Mobile Tweaks */
 @media screen and (max-width: 768px) {
-  body {
-    font-size: 0.82rem;
-    padding: 0.5rem;
-    line-height: 1.5;
-    align-items: center;
-  }
-
-  .small-banner {
-    flex-direction: column;
-    align-items: center;
-    padding: 0.8rem 1rem;
-    text-align: center;
-  }
-
-  nav {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.4rem;
-    margin-top: 0.4rem;
-  }
-
-  nav a {
-    display: block;
-    font-size: 0.7rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 5px;
-    text-align: center;
-    background-color: #e6f0fa;
-    color: #003366;
-    width: 100%;
-    max-width: 160px;
-  }
-
-  .logo {
-    width: 80px;
-    height: auto;
-    margin-bottom: 0.4rem;
-  }
-
-  h1, h2, h3 {
-    font-size: clamp(0.95rem, 4vw, 1.25rem);
-    text-align: center;
-  }
-
-  main.content {
-    padding: 1rem;
-    margin: 0 auto;
-    width: 100%;
-    max-width: 95%;
-  }
-
-  .card-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 0.8rem;
-  }
-
   .card {
-    padding: 0.7rem;
-    text-align: center;
+    padding: 0.9rem;
   }
 
-  .btn, .cta-btn {
-    width: 100%;
-    text-align: center;
-    padding: 0.4rem;
-    font-size: 0.7rem;
+  .card h2, .card h3 {
+    font-size: 1.05rem;
   }
 
-  footer {
-    padding: 2rem 1rem;
-    text-align: center;
-  }
-
-  footer .footer-links {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  img {
-    max-width: 100%;
-    height: auto;
-  }
-
-  section {
-    margin-bottom: 2rem;
-  }
-
-  .grid-2, .grid-3, .grid-4 {
-    display: grid;
-    grid-template-columns: 1fr !important;
-    gap: 1rem;
+  .card p {
+    font-size: 0.8rem;
   }
 }
