@@ -315,14 +315,14 @@ footer {
 
   nav a {
     display: block;
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
     border-radius: 5px;
     text-align: center;
     background-color: #e6f0fa;
     color: #003366;
     width: 100%;
-    max-width: 220px;
+    max-width: 190px;
   }
 
   .logo {
@@ -346,19 +346,19 @@ footer {
   .card-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.2rem;
+    gap: 1rem;
   }
 
   .card {
-    padding: 1rem;
+    padding: 0.85rem;
     text-align: center;
   }
 
   .btn, .cta-btn {
     width: 100%;
     text-align: center;
-    padding: 0.6rem;
-    font-size: 0.9rem;
+    padding: 0.5rem;
+    font-size: 0.75rem;
   }
 
   footer {
