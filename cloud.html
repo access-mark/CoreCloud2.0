@@ -33,6 +33,26 @@
       gap: 1.5rem;
     }
 
+    .aws-card {
+      background-color: #ff9900 !important;
+      border: 1px solid #000000;
+    }
+
+    .aws-card h3,
+    .aws-card p {
+      color: #ffffff !important;
+    }
+
+    .aws-card .cta-btn {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .aws-card .cta-btn:hover {
+      background-color: #333;
+      color: #fff;
+    }
+
     @media screen and (max-width: 768px) {
       .cloud-columns {
         flex-direction: column;
@@ -76,22 +96,22 @@
       <div class="cloud-column">
         <h2>AWS</h2>
         <div class="card-group">
-          <div class="card">
+          <div class="card aws-card">
             <h3>AWS Migration</h3>
             <p>Move workloads to AWS confidently with structured frameworks and minimal disruption.</p>
             <a href="aws-migration.html" class="cta-btn">Explore Migration</a>
           </div>
-          <div class="card">
+          <div class="card aws-card">
             <h3>AWS Modernize</h3>
             <p>Upgrade legacy systems to modern architectures to unlock agility, scale and cost-efficiency.</p>
             <a href="aws-modernize.html" class="cta-btn">Modernize Now</a>
           </div>
-          <div class="card">
+          <div class="card aws-card">
             <h3>AWS Manage</h3>
             <p>Run cloud operations at peak performance with observability, security and FinOps built in.</p>
             <a href="aws-manage.html" class="cta-btn">See Managed Services</a>
           </div>
-          <div class="card">
+          <div class="card aws-card">
             <h3>AWS Optimize</h3>
             <p>Drive ROI through right-sizing, governance, automation and ongoing performance tuning.</p>
             <a href="aws-optimize.html" class="cta-btn">Start Optimizing</a>
