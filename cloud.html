@@ -3,223 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CoreCloud – Cloud Services</title>
+  <title>CoreCloud Cloud Services | AWS & Azure Migration, Modernization & Management</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    body {
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      background-color: #f4f6f8;
-      color: #1e1e1e;
-      line-height: 1.6;
-      margin: 0;
-    }
-
-    .small-banner {
-      background-color: #ffffff;
-      padding: 0.2rem 2rem 0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-    }
-
-    .banner-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      height: 160px;
-    }
-
-    nav {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    nav a.nav-btn {
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: #003366;
-      text-transform: uppercase;
-    }
-
-    nav a.nav-btn:hover,
-    nav a.nav-btn.active {
-      color: #005fa3;
-      font-weight: 900;
-    }
-
-    .page-banner {
-      height: 340px;
-      background-image: url('assets/images/cloud-bannerimage.png');
-      background-size: cover;
-      background-position: center;
-      margin-top: 160px;
-    }
-
-    main {
-      max-width: 1200px;
-      margin: 4rem auto;
-      padding: 0 1.5rem;
-    }
-
-    .center-title {
-      text-align: center;
-      font-size: 2rem;
-      font-weight: 700;
-      color: #004f91;
-      margin-bottom: 1rem;
-    }
-
-    .center-subtitle {
-      text-align: center;
-      font-size: 1rem;
-      color: #444;
-      margin-bottom: 2rem;
-    }
-
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      padding: 0 1rem;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      padding: 1.2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card h2 {
-      color: #0066b2;
-      font-size: 1.25rem;
-      margin-bottom: 0.8rem;
-      font-weight: 700;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: #444;
-      flex-grow: 1;
-    }
-
-    .card .cta-btn {
-      display: block;
-      width: 100%;
-      padding: 0.75rem 1rem;
-      background-color: #0066b2;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.95rem;
-      margin-top: auto;
-      transition: background-color 0.3s ease;
-    }
-
-    .card .cta-btn:hover {
-      background-color: #004f91;
-    }
-
-    footer {
-      background-color: #0b1e3f;
-      padding: 2rem 1rem 1rem;
-      color: white;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-
-    .footer-left, .footer-middle, .footer-right {
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .footer-content p,
-    .footer-content h4 {
-      color: white;
-      margin: 0.3rem 0;
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.95);
-    }
-
-    .footer-newsletter input[type="email"] {
-      padding: 0.8rem;
-      width: 60%;
-      max-width: 300px;
-      border: none;
-      border-radius: 6px;
-      margin-right: 0.5rem;
-    }
-
-    .footer-newsletter button {
-      padding: 0.8rem 1.5rem;
-      background-color: #0077cc;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .footer-bottom {
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      text-align: center;
-      color: white;
-    }
-
-    .footer-bottom a {
-      color: red !important;
-      text-decoration: underline;
-      font-weight: bold;
-    }
-
+    body { font-family: 'Segoe UI', Roboto, sans-serif; margin: 0; background: #f4f6f8; color: #1e1e1e; }
+    .small-banner { background: #fff; padding: 0.2rem 2rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.05); position: fixed; top: 0; width: 100%; z-index: 1000; }
+    .banner-header { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; }
+    .logo { height: 160px; }
+    nav { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    nav a.nav-btn { text-decoration: none; font-weight: 700; font-size: 0.95rem; color: #003366; text-transform: uppercase; }
+    nav a.nav-btn:hover, nav a.nav-btn.active { color: #005fa3; font-weight: 900; }
+    .page-banner { height: 340px; background: url('assets/images/cloud-bannerimage.png') center/cover no-repeat; margin-top: 160px; }
+    main { max-width: 1200px; margin: 4rem auto; padding: 0 1.5rem; }
+    .center-title { text-align: center; font-size: 2rem; color: #004f91; font-weight: 700; margin-bottom: 1rem; }
+    .center-subtitle { text-align: center; font-size: 1rem; color: #444; margin-bottom: 2rem; }
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 2rem; padding: 0 1rem; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 1.2rem; display: flex; flex-direction: column; justify-content: space-between; height: 100%; text-align: center; transition: transform 0.3s ease; }
+    .card:hover { transform: translateY(-5px); }
+    .card h2 { color: #0066b2; font-size: 1.25rem; margin-bottom: 0.8rem; font-weight: 700; }
+    .card p { color: #444; font-size: 0.95rem; flex-grow: 1; }
+    .card .cta-btn { display: block; width: 100%; padding: 0.75rem 1rem; background: #0066b2; color: #fff; border: none; border-radius: 6px; font-size: 0.95rem; font-weight: bold; margin-top: auto; text-decoration: none; transition: background-color 0.3s ease; }
+    .card .cta-btn:hover { background: #004f91; }
+    footer { background: #0b1e3f; padding: 2rem 1rem 1rem; color: #fff; }
+    .footer-content { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2rem; }
+    .footer-left, .footer-middle, .footer-right { flex: 1; min-width: 280px; }
+    .footer-content p, .footer-content h4 { color: #fff; margin: 0.3rem 0; text-shadow: 2px 2px 6px rgba(0,0,0,0.95); }
+    .footer-newsletter input[type="email"] { padding: 0.8rem; width: 60%; max-width: 300px; border: none; border-radius: 6px; margin-right: 0.5rem; }
+    .footer-newsletter button { padding: 0.8rem 1.5rem; background: #0077cc; color: #fff; border: none; border-radius: 6px; cursor: pointer; }
+    .footer-bottom { margin-top: 1rem; text-align: center; font-size: 0.85rem; }
+    .footer-bottom a { color: red !important; text-decoration: underline; font-weight: bold; }
     @media screen and (max-width: 768px) {
-      .logo {
-        height: 90px;
-        margin-bottom: 0.5rem;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: center;
-        gap: 0.5rem;
-      }
-
-      .center-title {
-        font-size: 1.8rem;
-      }
-
-      .center-subtitle {
-        font-size: 0.95rem;
-        padding: 0 1rem;
-      }
+      .logo { height: 90px; margin-bottom: 0.5rem; }
+      nav { flex-direction: column; align-items: center; gap: 0.5rem; }
+      .center-title { font-size: 1.8rem; }
+      .center-subtitle { font-size: 0.95rem; padding: 0 1rem; }
     }
   </style>
 </head>
@@ -230,8 +47,8 @@
       <nav>
         <a href="index.html" class="nav-btn">Home</a>
         <a href="consulting.html" class="nav-btn">Consulting</a>
-        <a href="cloud.html" class="nav-btn active">Cloud</a>
-        <a href="talent.html" class="nav-btn">Talent</a>
+        <a href="cloud.html" class="nav-btn active">Cloud Service Suite</a>
+        <a href="talent.html" class="nav-btn">Talent Placement</a>
         <a href="resources.html" class="nav-btn">Resources</a>
         <a href="contact.html" class="nav-btn">Contact</a>
       </nav>
@@ -241,59 +58,33 @@
   <div class="page-banner"></div>
 
   <main>
-    <h1 class="center-title">Cloud Services</h1>
-    <p class="center-subtitle">We help you migrate, modernize, manage and optimize cloud for measurable business impact.</p>
+    <h1 class="center-title">Cloud Services Built for Execution</h1>
+    <p class="center-subtitle">
+      Cloud isn't a buzzword — it's the execution layer of modern business. CoreCloud delivers migration, modernization, management, and optimization services across AWS and
+      Azure, tailored for the realities of South African enterprises.<br><br>
+      Whether you're lifting and shifting, rearchitecting workloads, stabilizing production, or cutting runaway costs — we have the partners, frameworks, and operational
+      clarity to move with purpose and deliver outcomes that matter.
+    </p>
 
     <div class="card-grid">
-      <div class="card">
-        <h2>AWS Migration</h2>
-        <p>Move workloads to AWS confidently with structured frameworks and minimal disruption.</p>
-        <a href="aws-migration.html" class="cta-btn">Explore Migration</a>
-      </div>
-      <div class="card">
-        <h2>AWS Modernize</h2>
-        <p>Upgrade legacy systems to modern architectures to unlock agility, scale and cost-efficiency.</p>
-        <a href="aws-modernize.html" class="cta-btn">Modernize Now</a>
-      </div>
-      <div class="card">
-        <h2>AWS Manage</h2>
-        <p>Run cloud operations at peak performance with observability, security and FinOps built in.</p>
-        <a href="aws-manage.html" class="cta-btn">See Managed Services</a>
-      </div>
-      <div class="card">
-        <h2>AWS Optimize</h2>
-        <p>Drive ROI through right-sizing, governance, automation and ongoing performance tuning.</p>
-        <a href="aws-optimize.html" class="cta-btn">Start Optimizing</a>
-      </div>
+      <div class="card"><h2>AWS Migration</h2><p>We assess, plan, and execute migrations to Amazon Web Services — fast, clean, and disruption-free.</p><a href="aws-migration.html" class="cta-btn">Explore</a></div>
+      <div class="card"><h2>AWS Modernize</h2><p>Refactor or replatform legacy workloads to leverage AWS-native services and automation.</p><a href="aws-modernize.html" class="cta-btn">Explore</a></div>
+      <div class="card"><h2>AWS Manage</h2><p>Get visibility, control, and confidence running your AWS environments with full managed services.</p><a href="aws-manage.html" class="cta-btn">Explore</a></div>
+      <div class="card"><h2>AWS Optimize</h2><p>Eliminate wastage, enforce governance, and align spend to business value with AWS optimization.</p><a href="aws-optimize.html" class="cta-btn">Explore</a></div>
+      <div class="card"><h2>Azure Migration</h2><p>Plan and execute smooth migrations into the Microsoft Azure ecosystem.</p><a href="azure-migration.html" class="cta-btn">Explore</a></div>
+      <div class="card"><h2>Azure Modernize</h2><p>Modernize apps and infrastructure for performance, flexibility, and platform-native resilience.</p><a href="azure-modernize.html" class="cta-btn">Explore</a></div>
+      <div class="card"><h2>Azure Manage</h2><p>Stay compliant, efficient, and secure with fully managed Microsoft Azure cloud operations.</p><a href="azure-manage.html" class="cta-btn">Explore</a></div>
+      <div class="card"><h2>Azure Optimize</h2><p>Control costs, optimize usage, and drive governance across your Azure footprint.</p><a href="azure-optimize.html" class="cta-btn">Explore</a></div>
     </div>
   </main>
 
   <footer>
     <div class="footer-content">
-      <div class="footer-left">
-        <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>433 Broadacres Country Estate<br>Syringa Rd, Broadacres, Johannesburg</p>
-        <p>BEE Level 4</p>
-        <p>Company Reg: 2023/937005/07</p>
-      </div>
-      <div class="footer-middle">
-        <h4>Stay Informed</h4>
-        <p>Join our newsletter for insights and updates.</p>
-        <div class="footer-newsletter">
-          <input type="email" placeholder="Enter your email" />
-          <button>Subscribe</button>
-        </div>
-      </div>
-      <div class="footer-right">
-        <p>Contact Us</p>
-        <p>Mobile: +27 82 872 7858<br>Email: mark@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank">LinkedIn</a></p>
-      </div>
+      <div class="footer-left"><p><strong>CoreCloud (Pty) Ltd</strong></p><p>433 Broadacres Country Estate,<br>Syringa Rd, Broadacres, Johannesburg</p><p><strong>BEE Level 4</strong></p><p>Company Reg: 2023/937005/07</p></div>
+      <div class="footer-middle"><h4>Stay Informed</h4><p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p><div class="footer-newsletter"><input type="email" /><button>Subscribe</button></div></div>
+      <div class="footer-right"><p>Contact</p><p>Mobile: +27 82 872 7858<br>Email: mark@corecloudza.com</p><p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; font-weight: bold; text-decoration: underline;">LinkedIn</a></p></div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
-    </div>
+    <div class="footer-bottom"><p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p></div>
   </footer>
 </body>
 </html>
