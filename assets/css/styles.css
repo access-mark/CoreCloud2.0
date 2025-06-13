@@ -293,56 +293,60 @@ footer {
 /* ===== MOBILE OPTIMIZATION (CoreCloud 2.0) ===== */
 @media screen and (max-width: 768px) {
   body {
-    font-size: 0.95rem;
-    padding: 1rem;
-    line-height: 1.6;
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    line-height: 1.5;
+    align-items: center;
   }
 
   .small-banner {
     flex-direction: column;
     align-items: center;
-    padding: 1rem 1.5rem;
+    padding: 0.8rem 1rem;
     text-align: center;
   }
 
   nav {
     flex-direction: column;
     align-items: center;
-    gap: 0.75rem;
-    margin-top: 1rem;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
   }
 
   nav a {
     display: block;
-    font-size: 1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
     text-align: center;
     background-color: #e6f0fa;
     color: #003366;
     width: 100%;
-    max-width: 300px;
+    max-width: 220px;
   }
 
   .logo {
-    width: 140px;
+    width: 100px;
     height: auto;
     margin-bottom: 0.5rem;
   }
 
   h1, h2, h3 {
-    font-size: clamp(1.2rem, 4vw, 1.6rem);
+    font-size: clamp(1.1rem, 4vw, 1.4rem);
     text-align: center;
   }
 
   main.content {
     padding: 1rem;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 95%;
   }
 
   .card-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
 
   .card {
@@ -353,8 +357,8 @@ footer {
   .btn, .cta-btn {
     width: 100%;
     text-align: center;
-    padding: 0.8rem;
-    font-size: 1rem;
+    padding: 0.6rem;
+    font-size: 0.9rem;
   }
 
   footer {
@@ -379,6 +383,6 @@ footer {
   .grid-2, .grid-3, .grid-4 {
     display: grid;
     grid-template-columns: 1fr !important;
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
 }
