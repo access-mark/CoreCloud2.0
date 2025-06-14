@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AWS News Feed – CoreCloud</title>
+  <title>News Room – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
     body {
@@ -55,7 +55,7 @@
     }
 
     main.content {
-      max-width: 1200px;
+      max-width: 1400px;
       margin: 2rem auto;
       padding: 0 1.5rem;
     }
@@ -67,15 +67,33 @@
       margin-bottom: 2rem;
     }
 
-    .feed-container {
+    .feed-wrapper {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .feed-block {
+      flex: 1;
+      min-width: 380px;
       background: #fff;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 1rem;
+      padding: 1.5rem;
+      min-height: 800px;
+    }
+
+    .aws-feed {
+      border: 3px solid orange;
+    }
+
+    .azure-feed {
+      border: 3px solid #0078D4;
     }
 
     .feed-title {
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       font-weight: bold;
       margin-bottom: 1rem;
       color: #004f91;
@@ -115,13 +133,22 @@
   </div>
 
   <main class="content">
-    <h1 class="center-title">AWS News Feed</h1>
+    <h1 class="center-title">Industry News</h1>
+    <div class="feed-wrapper">
+      <!-- AWS Feed -->
+      <div class="feed-block aws-feed">
+        <div class="feed-title">AWS News</div>
+        <!-- Start FeedWind AWS Feed -->
+        <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="173540/" preloader-text="Loading..."></script>
+        <!-- End FeedWind AWS Feed -->
+      </div>
 
-    <div class="feed-container">
-      <div class="feed-title">Latest from AWS</div>
-      <!-- Start FeedWind AWS feed embed -->
-      <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="173540/" preloader-text="Loading..."></script>
-      <!-- End FeedWind embed -->
+      <!-- Azure Feed -->
+      <div class="feed-block azure-feed">
+        <div class="feed-title">Azure News</div>
+        <!-- Placeholder or feed embed -->
+        <p style="text-align: center;">Azure feed coming soon...</p>
+      </div>
     </div>
   </main>
 
