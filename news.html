@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News Room – CoreCloud</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .news-room {
+      padding: 4rem 1.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .news-room h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #004f91;
+      margin-bottom: 1.5rem;
+    }
+
+    .news-room p {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #444;
+      max-width: 900px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .feeds {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .feed-window {
+      flex: 1;
+      min-width: 300px;
+      max-width: 450px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .feed-window h3 {
+      margin: 0;
+      padding: 0.8rem;
+      font-size: 1.2rem;
+      background-color: #f4f6f8;
+      text-align: center;
+      color: #1e1e1e;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .feed-window iframe {
+      border: none;
+      width: 100%;
+      height: 420px;
+    }
+
+    .feed-window.aws { border-top: 5px solid #ff9900; }
+    .feed-window.azure { border-top: 5px solid #007fff; }
+    .feed-window.ai { border-top: 5px solid #444; }
+
+    @media (max-width: 768px) {
+      .feeds {
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      .feed-window iframe {
+        height: 350px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <div class="small-banner">
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+      <nav>
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="consulting.html" class="nav-btn">Consulting</a>
+        <a href="cloud.html" class="nav-btn">Cloud Service Suite</a>
+        <a href="talent.html" class="nav-btn">Talent Placement</a>
+        <a href="resources.html" class="nav-btn">Resources</a>
+        <a href="news.html" class="nav-btn active">News Room</a>
+        <a href="contact.html" class="nav-btn">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="news-room">
+    <h1>CoreCloud News Room</h1>
+    <p>Stay ahead with the latest developments in AWS, Microsoft Azure, and Artificial Intelligence. Curated in real time from trusted industry sources.</p>
+
+    <div class="feeds">
+      <!-- AWS Feed -->
+      <div class="feed-window aws">
+        <h3>AWS Updates</h3>
+        <iframe src="https://feed.mikle.com/widgets/subscribe.aspx?feedurl=https://aws.amazon.com/blogs/aws/feed/"></iframe>
+      </div>
+
+      <!-- Azure Feed -->
+      <div class="feed-window azure">
+        <h3>Azure Updates</h3>
+        <iframe src="https://feed.mikle.com/widgets/subscribe.aspx?feedurl=https://azure.microsoft.com/en-us/blog/feed/"></iframe>
+      </div>
+
+      <!-- AI Feed -->
+      <div class="feed-window ai">
+        <h3>AI & Tech</h3>
+        <iframe src="https://feed.mikle.com/widgets/subscribe.aspx?feedurl=https://openai.com/blog/rss/"></iframe>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>433 Broadacres Country Estate<br>Syringa Rd, Broadacres, Johannesburg</p>
+        <p>BEE Level 4</p>
+        <p>Company Reg: 2023/937005/07</p>
+      </div>
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for insights and updates.</p>
+        <div class="footer-newsletter">
+          <input type="email" placeholder="Enter your email" />
+          <button>Subscribe</button>
+        </div>
+      </div>
+      <div class="footer-right">
+        <p>Contact Us</p>
+        <p>Mobile: +27 82 872 7858<br>Email: mark@corecloudza.com</p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank">LinkedIn</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved.</p>
+      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+    </div>
+  </footer>
+</body>
+</html>
