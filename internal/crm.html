@@ -176,15 +176,15 @@
   <script>
     const firebaseConfig = {
       apiKey: "AIzaSyBWjVSHJ7EXtwyB_q9dk3eb46uYHU8LGiU",
-      authDomain: "corecloud-crm.firebaseapp.com",
+      authDomain: "access-mark.github.io", // ✅ UPDATED HERE
       projectId: "corecloud-crm",
       storageBucket: "corecloud-crm.appspot.com",
       messagingSenderId: "283481366995",
       appId: "1:283481366995:web:84d682ae160ac4558c4f26"
     };
-    
+
     firebase.initializeApp(firebaseConfig);
-    
+
     function signInWithGoogle() {
       const provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithPopup(provider).catch(error => alert("Login failed: " + error.message));
