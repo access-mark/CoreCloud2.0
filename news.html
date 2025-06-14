@@ -2,74 +2,98 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>News Room – CoreCloud</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AWS News Feed – CoreCloud</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    .news-room {
-      padding: 4rem 1.5rem;
-      max-width: 1000px;
-      margin: 0 auto;
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background: #f4f6f8;
+      padding-top: 160px;
+      margin: 0;
     }
 
-    .news-room h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      color: #004f91;
-      margin-bottom: 1.5rem;
-    }
-
-    .news-room p {
-      text-align: center;
-      font-size: 1.1rem;
-      color: #444;
-      max-width: 800px;
-      margin: 0 auto 3rem;
-    }
-
-    .feed-block {
-      margin-bottom: 3rem;
+    .small-banner {
       background: #fff;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .feed-header {
-      font-size: 1.3rem;
-      padding: 1rem;
-      text-align: center;
-      font-weight: bold;
-      border-bottom: 1px solid #eee;
-    }
-
-    .feed-aws .feed-header {
-      background-color: #fff8f0;
-      border-top: 4px solid #ff9900;
-    }
-
-    .feed-azure .feed-header {
-      background-color: #f0f8ff;
-      border-top: 4px solid #007fff;
-    }
-
-    .feed-ai .feed-header {
-      background-color: #f7f7f7;
-      border-top: 4px solid #444;
-    }
-
-    .feed-aws iframe,
-    .feed-azure iframe,
-    .feed-ai iframe {
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      position: fixed;
       width: 100%;
-      height: 420px;
-      border: none;
+      top: 0;
+      left: 0;
+      z-index: 1000;
     }
 
-    @media (max-width: 768px) {
-      .news-room h1 { font-size: 2rem; }
-      .feed-header { font-size: 1.1rem; }
-      iframe { height: 380px; }
+    .banner-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.8rem 2rem;
+    }
+
+    .logo {
+      height: 90px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #003366;
+      text-transform: uppercase;
+    }
+
+    nav a.active {
+      color: #005fa3;
+      font-weight: 900;
+    }
+
+    main.content {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    h1.center-title {
+      text-align: center;
+      font-size: 2rem;
+      color: #004f91;
+      margin-bottom: 2rem;
+    }
+
+    .feed-container {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 1rem;
+    }
+
+    .feed-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: #004f91;
+      text-align: center;
+    }
+
+    footer {
+      background-color: #0b1e3f;
+      padding: 2rem 1rem;
+      text-align: center;
+      color: white;
+      margin-top: 3rem;
+    }
+
+    footer a {
+      color: red;
+      text-decoration: underline;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -79,68 +103,30 @@
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
       <nav>
-        <a href="index.html" class="nav-btn">Home</a>
-        <a href="consulting.html" class="nav-btn">Consulting</a>
-        <a href="cloud.html" class="nav-btn">Cloud Service Suite</a>
-        <a href="talent.html" class="nav-btn">Talent Placement</a>
-        <a href="resources.html" class="nav-btn">Resources</a>
-        <a href="news.html" class="nav-btn active">News Room</a>
-        <a href="contact.html" class="nav-btn">Contact</a>
+        <a href="index.html">Home</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="cloud.html">Cloud</a>
+        <a href="talent.html">Talent</a>
+        <a href="resources.html">Resources</a>
+        <a href="newsroom.html" class="active">News Room</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </div>
 
-  <!-- Main Content -->
-  <main class="news-room">
-    <h1>CoreCloud News Room</h1>
-    <p>Stay ahead with the latest developments in AWS, Microsoft Azure, and Artificial Intelligence. Curated in real time from trusted industry sources.</p>
+  <main class="content">
+    <h1 class="center-title">AWS News Feed</h1>
 
-    <!-- AWS Feed -->
-    <div class="feed-block feed-aws">
-      <div class="feed-header">AWS Updates</div>
-      <iframe src="https://feed.mikle.com/widgets/subscribe.aspx?feedurl=https://aws.amazon.com/blogs/aws/feed/"></iframe>
-    </div>
-
-    <!-- Azure Feed -->
-    <div class="feed-block feed-azure">
-      <div class="feed-header">Azure Updates</div>
-      <iframe src="https://feed.mikle.com/widgets/subscribe.aspx?feedurl=https://azure.microsoft.com/en-us/blog/feed/"></iframe>
-    </div>
-
-    <!-- AI Feed -->
-    <div class="feed-block feed-ai">
-      <div class="feed-header">AI & Tech</div>
-      <iframe src="https://feed.mikle.com/widgets/subscribe.aspx?feedurl=https://openai.com/blog/rss/"></iframe>
+    <div class="feed-container">
+      <div class="feed-title">Latest from AWS</div>
+      <!-- Start FeedWind AWS feed embed -->
+      <script type="text/javascript" src="https://feed.mikle.com/js/fw-loader.js" data-fw-param="173540/" preloader-text="Loading..."></script>
+      <!-- End FeedWind embed -->
     </div>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <div class="footer-content">
-      <div class="footer-left">
-        <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>433 Broadacres Country Estate<br>Syringa Rd, Broadacres, Johannesburg</p>
-        <p>BEE Level 4</p>
-        <p>Company Reg: 2023/937005/07</p>
-      </div>
-      <div class="footer-middle">
-        <h4>Stay Informed</h4>
-        <p>Join our newsletter for insights and updates.</p>
-        <div class="footer-newsletter">
-          <input type="email" placeholder="Enter your email" />
-          <button>Subscribe</button>
-        </div>
-      </div>
-      <div class="footer-right">
-        <p>Contact Us</p>
-        <p>Mobile: +27 82 872 7858<br>Email: mark@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank">LinkedIn</a></p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved.</p>
-      <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
-    </div>
+    <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
   </footer>
 </body>
 </html>
