@@ -1,4 +1,4 @@
-<!-- RE / LAUNCH TALENT HUB – FINAL VERSION -->
+<!-- RE / LAUNCH TALENT HUB FINAL PAGE -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,19 +33,20 @@
 
     .cta-btn {
       display: block;
-      width: 100%;
-      margin-top: 1.5rem;
-      background-color: #00a651;
+      margin: 2rem auto 0;
+      background-color: #0066b2;
       color: white;
       padding: 0.75rem 1.5rem;
       border-radius: 5px;
       text-decoration: none;
       font-weight: bold;
       text-align: center;
+      width: 100%;
+      max-width: 500px;
     }
 
     .cta-btn:hover {
-      background-color: #00873e;
+      background-color: #004f91;
     }
 
     .section-title {
@@ -61,6 +62,20 @@
       max-width: 900px;
       margin: 0 auto 2rem;
       font-size: 1.1rem;
+    }
+
+    .video-embed {
+      display: flex;
+      justify-content: center;
+      margin: 3rem auto 1rem;
+    }
+
+    .video-embed iframe {
+      border: none;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
     }
   </style>
 </head>
@@ -86,7 +101,7 @@
     <img src="assets/images/talent-bannerimage.png" alt="Re / Launch Banner" style="width: 100%; height: 340px; object-fit: cover;" />
   </div>
 
-  <!-- Title Below Banner -->
+  <!-- Title -->
   <section class="section intro">
     <h1 class="section-title">Re / Launch Talent Hub</h1>
     <p class="subtitle">
@@ -94,18 +109,25 @@
     </p>
   </section>
 
-  <!-- Strategic Narrative -->
+  <!-- AI Animation -->
+  <section class="section">
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed/6xKWiCMKKJg?autoplay=0&mute=1" allowfullscreen></iframe>
+    </div>
+  </section>
+
+  <!-- Why Section -->
   <section class="section">
     <h2 class="section-title">Why We Built This</h2>
     <p class="subtitle">
       South Africa’s job market is broken — and talent is being wasted. Young professionals are denied opportunity because they lack experience. Highly skilled professionals are excluded for being “too expensive” or “overqualified.” CoreCloud is changing that.
     </p>
     <p class="subtitle">
-      Re / Launch is more than a support page. It’s a platform to reclaim your career. We don’t do pity placements. We do purpose, partnership, and performance. This is how we rebuild careers, restore dignity, and reignite potential.
+      Re / Launch is more than a support page. It’s a platform to reclaim your career. We don’t do pity placements. We do purpose, partnership, and performance.
     </p>
   </section>
 
-  <!-- Triple Card Layout -->
+  <!-- Youth Track -->
   <section class="section">
     <h2 class="section-title">Re / Launch Program Tracks</h2>
 
@@ -124,11 +146,9 @@
         <p>We help you polish your CV, enhance your LinkedIn profile, and prepare to engage the market with impact — all at no cost.</p>
       </div>
     </div>
+    <a href="https://forms.clickup.com/90121017301/f/2kxu35yn-512/X96OBGEO8CMWB81UUO" class="cta-btn" target="_blank">Apply to Re / Launch (Youth)</a>
 
-    <div style="margin-top: 2rem;">
-      <a href="https://forms.clickup.com/90121017301/f/2kxu35yn-512/X96OBGEO8CMWB81UUO" class="cta-btn" target="_blank">Apply to Re / Launch (Youth)</a>
-    </div>
-
+    <!-- Retrenched -->
     <h3 class="section-title" style="font-size: 1.5rem; margin-top: 5rem;">Relaunch for Retrenched Professionals</h3>
     <div class="card-grid triple">
       <div class="card">
@@ -144,30 +164,25 @@
         <p>From CVs to rate framing, we help experienced professionals avoid the “overqualified” trap and highlight strategic value.</p>
       </div>
     </div>
+    <a href="https://forms.clickup.com/90121017301/f/2kxu35yn-512/X96OBGEO8CMWB81UUO" class="cta-btn" target="_blank">Apply to Re / Launch (Experienced)</a>
 
-    <div style="margin-top: 2rem;">
-      <a href="https://forms.clickup.com/90121017301/f/2kxu35yn-512/X96OBGEO8CMWB81UUO" class="cta-btn" target="_blank">Apply to Re / Launch (Experienced)</a>
-    </div>
-  </section>
-
-  <!-- Graduate Program (Future Card) -->
-  <section class="section">
-    <h2 class="section-title">What's Coming Next</h2>
+    <!-- Graduate Program -->
+    <h3 class="section-title" style="font-size: 1.5rem; margin-top: 5rem;">Future: Graduate Talent Program</h3>
     <div class="card-grid triple">
-      <div class="card" style="grid-column: span 3;">
-        <h2 style="color:#0066b2;">CoreCloud Graduate Program</h2>
-        <p>We’re working on a bold new graduate intake initiative that identifies and develops South Africa’s top emerging ICT talent. If you're a recent graduate or final-year student hungry to build a real career in tech, watch this space — we're coming for you.</p>
+      <div class="card">
+        <h2 style="color:#0066b2;">Launchpad for Next-Gen Talent</h2>
+        <p>A dedicated graduate program is in the works to attract, develop, and place top young minds into South Africa’s digital economy. Stay tuned — CoreCloud is building the future pipeline.</p>
       </div>
     </div>
   </section>
 
-  <!-- Partner CTA -->
+  <!-- Employer CTA -->
   <section class="section" style="text-align: center;">
     <h2 class="section-title">Employers: Want to Make an Impact?</h2>
     <p class="subtitle">
       If you’re a company that believes in capability over credentials, and purpose over prejudice — join our Re / Launch movement. We’ll connect you to talent that’s hungry, proven, and ready to deliver.
     </p>
-    <a href="contact.html" class="cta-btn" style="max-width: 400px; margin: 2rem auto;">Partner with CoreCloud</a>
+    <a href="contact.html" class="cta-btn">Partner with CoreCloud</a>
   </section>
 
   <!-- Footer -->
