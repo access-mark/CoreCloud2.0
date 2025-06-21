@@ -16,11 +16,11 @@
       margin: 0 auto;
     }
 
-    .card-grid.duo {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+    .card-grid.triple {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
+      margin-top: 2rem;
     }
 
     .card {
@@ -28,27 +28,6 @@
       border-radius: 10px;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       padding: 2rem;
-      flex: 1 1 420px;
-      max-width: 500px;
-    }
-
-    .tick-list {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 1rem;
-    }
-
-    .tick-list li::before {
-      content: "✔";
-      color: #0066b2;
-      font-weight: bold;
-      margin-right: 0.75rem;
-    }
-
-    .tick-list li {
-      margin-bottom: 1rem;
-      font-size: 1rem;
-      line-height: 1.6;
     }
 
     .cta-btn {
@@ -123,38 +102,48 @@
     </p>
   </section>
 
-  <!-- Dual Track Cards -->
+  <!-- Triple Card Layout -->
   <section class="section">
-    <div class="card-grid duo">
-      <div class="card">
-        <h2 style="color: #0066b2;">Youth Upliftment Track</h2>
-        <p>
-          You’re young, talented, and motivated — but no one will hire you because you don’t have experience. We see you.
-        </p>
-        <ul class="tick-list">
-          <li>Micro project experience to build your CV</li>
-          <li>Exposure to CoreCloud partner networks</li>
-          <li>Mentorship and coaching from working professionals</li>
-          <li>Career workshops and LinkedIn feedback</li>
-          <li>Zero-cost access — we invest in you</li>
-        </ul>
-        <a href="#" class="cta-btn">Apply to Re / Launch (Youth)</a>
-      </div>
+    <h2 class="section-title">Re / Launch Program Tracks</h2>
 
+    <h3 class="section-title" style="font-size: 1.5rem; margin-top: 3rem;">Youth Upliftment</h3>
+    <div class="card-grid triple">
       <div class="card">
-        <h2 style="color: #0066b2;">Relaunch for Retrenched Professionals</h2>
-        <p>
-          You’ve built capability. You’ve delivered results. And now you’re out — not because you failed, but because systems did. We’re here to back you.
-        </p>
-        <ul class="tick-list">
-          <li>Direct access to hiring executives in our network</li>
-          <li>Short-term, consulting or project-based work</li>
-          <li>Support navigating rate expectations and perception bias</li>
-          <li>CV reformatting and spotlight referrals</li>
-          <li>Purpose-aligned job matching</li>
-        </ul>
-        <a href="#" class="cta-btn">Apply to Re / Launch (Experienced)</a>
+        <h2 style="color:#0066b2;">Micro Experience Projects</h2>
+        <p>Gain real-world CV content with guided project work from our partner ecosystem — build credibility without needing full-time history.</p>
       </div>
+      <div class="card">
+        <h2 style="color:#0066b2;">Exposure & Mentorship</h2>
+        <p>We plug you into networks that matter. Get introduced to hiring partners and mentored by professionals who’ve walked the path.</p>
+      </div>
+      <div class="card">
+        <h2 style="color:#0066b2;">Career Tools & Support</h2>
+        <p>We help you polish your CV, enhance your LinkedIn profile, and prepare to engage the market with impact — all at no cost.</p>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="#" class="cta-btn">Apply to Re / Launch (Youth)</a>
+    </div>
+
+    <h3 class="section-title" style="font-size: 1.5rem; margin-top: 5rem;">Relaunch for Retrenched Professionals</h3>
+    <div class="card-grid triple">
+      <div class="card">
+        <h2 style="color:#0066b2;">Executive Network Access</h2>
+        <p>We refer your profile directly into hiring decision-makers — no cold applications, just warm intros built on trust and track record.</p>
+      </div>
+      <div class="card">
+        <h2 style="color:#0066b2;">Flexible Work Pathways</h2>
+        <p>We support consulting, part-time, or project roles to keep you earning and active while you reframe what’s next.</p>
+      </div>
+      <div class="card">
+        <h2 style="color:#0066b2;">Profile Repositioning</h2>
+        <p>From CVs to rate framing, we help experienced professionals avoid the “overqualified” trap and highlight strategic value.</p>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="#" class="cta-btn">Apply to Re / Launch (Experienced)</a>
     </div>
   </section>
 
