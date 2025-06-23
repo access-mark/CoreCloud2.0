@@ -39,9 +39,41 @@
 </head>
 <body>
   <div class="message">
-    <h1>Thank You!</h1>
-    <p>Your application has been received. Our team will be in touch soon.</p>
+    <h1 id="main-heading">Thank You!</h1>
+    <p id="sub-message">We’ve received your submission and will be in touch soon.</p>
     <a href="index.html">Return to Home</a>
   </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get("type");
+
+    const heading = document.getElementById("main-heading");
+    const message = document.getElementById("sub-message");
+
+    const responses = {
+      subscribe: {
+        heading: "You're Subscribed!",
+        message: "Thanks for signing up. We'll keep you informed with fresh cloud insights and growth updates."
+      },
+      launch: {
+        heading: "Thank You for Applying!",
+        message: "Your Launch application has been received. We'll be in touch with next steps shortly."
+      },
+      relaunch: {
+        heading: "Thank You for Reaching Out!",
+        message: "We’ve received your Relaunch application and will support you on your journey back into the workforce."
+      },
+      contact: {
+        heading: "Thank You for Reaching Out!",
+        message: "We’ve received your message and will respond to you shortly."
+      }
+    };
+
+    if (responses[type]) {
+      heading.textContent = responses[type].heading;
+      message.textContent = responses[type].message;
+    }
+  </script>
 </body>
 </html>
