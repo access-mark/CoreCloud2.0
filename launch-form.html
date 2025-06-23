@@ -53,7 +53,7 @@
 </head>
 <body>
   <h1>Apply to Re / Launch (Youth Track)</h1>
-  <form action="mailto:launch@corecloudza.com" method="POST" enctype="text/plain">
+  <form id="launchForm">
     <label for="name">Full Name</label>
     <input type="text" id="name" name="Full Name" required>
 
@@ -83,12 +83,26 @@
     <label for="linkedin">LinkedIn Profile (optional)</label>
     <input type="url" id="linkedin" name="LinkedIn Profile">
 
-    <label for="cv">Upload Your CV (optional)</label>
-    <input type="file" id="cv" name="CV Upload" accept=".pdf,.doc,.docx">
-
     <label><input type="checkbox" name="Consent" required> I consent to CoreCloud contacting me regarding opportunities.</label>
 
     <button type="submit">Submit Application</button>
   </form>
+
+  <script>
+    document.getElementById('launchForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+
+      fetch("https://script.google.com/a/macros/corecloudza.com/s/AKfycbwu72Al8RJQ_xUdiKlNnku3H7gc_3nGdC79H3LckpR4V_DrpoORsdnwiwb8B0QlU2rl/exec", {
+        method: "POST",
+        body: new URLSearchParams(data)
+      }).then(() => {
+        window.location.href = "thank-you.html";
+      }).catch(() => {
+        alert("There was a problem submitting your application. Please try again later.");
+      });
+    });
+  </script>
 </body>
 </html>
