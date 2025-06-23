@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Partner With CoreCloud – Employer Intake</title>
+  <title>Partner with CoreCloud – Employer Submission</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
     body {
@@ -52,35 +52,52 @@
   </style>
 </head>
 <body>
-  <h1>Employer Partnership Intake</h1>
-  <form action="mailto:employ@corecloudza.com" method="POST" enctype="text/plain">
+  <h1>Partner with CoreCloud (Employer Form)</h1>
+  <form id="employerForm">
     <label for="company">Company Name</label>
     <input type="text" id="company" name="Company Name" required>
 
-    <label for="contact">Contact Person</label>
+    <label for="contact">Your Name & Surname</label>
     <input type="text" id="contact" name="Contact Person" required>
 
     <label for="email">Email Address</label>
     <input type="email" id="email" name="Email" required>
 
     <label for="phone">Phone Number</label>
-    <input type="text" id="phone" name="Phone">
+    <input type="text" id="phone" name="Phone Number">
 
-    <label for="province">Province / Location</label>
-    <input type="text" id="province" name="Province">
+    <label for="website">Company Website</label>
+    <input type="url" id="website" name="Website">
 
-    <label for="need">Type of Talent Needed</label>
-    <textarea id="need" name="Talent Need" rows="3"></textarea>
+    <label for="location">Location (City / Province)</label>
+    <input type="text" id="location" name="Location">
 
-    <label for="timeline">Preferred Start Date</label>
-    <input type="text" id="timeline" name="Start Date">
+    <label for="interest">What kind of talent are you looking for?</label>
+    <textarea id="interest" name="Talent Needs" rows="4"></textarea>
 
-    <label for="additional">Additional Notes</label>
-    <textarea id="additional" name="Additional Info" rows="3"></textarea>
+    <label for="consent">
+      <input type="checkbox" name="Consent" required />
+      I consent to CoreCloud contacting me about talent solutions.
+    </label>
 
-    <label><input type="checkbox" name="Consent" required> I consent to being contacted by CoreCloud regarding this inquiry.</label>
-
-    <button type="submit">Submit Partnership Inquiry</button>
+    <button type="submit">Submit Partnership Form</button>
   </form>
+
+  <script>
+    document.getElementById('employerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+
+      fetch("https://script.google.com/a/macros/corecloudza.com/s/AKfycbwu72Al8RJQ_xUdiKlNnku3H7gc_3nGdC79H3LckpR4V_DrpoORsdnwiwb8B0QlU2rl/exec", {
+        method: "POST",
+        body: new URLSearchParams(data)
+      }).then(() => {
+        window.location.href = "thank-you.html";
+      }).catch(() => {
+        alert("There was a problem submitting your form. Please try again later.");
+      });
+    });
+  </script>
 </body>
 </html>
