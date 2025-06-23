@@ -93,7 +93,7 @@
         method: "POST",
         body: new URLSearchParams(data)
       }).then(() => {
-        window.location.href = "thank-you.html";
+        window.location.href = "thank-you.html?type=contact";
       }).catch(() => {
         alert("There was a problem submitting your form. Please try again later.");
       });
