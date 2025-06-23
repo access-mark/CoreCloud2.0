@@ -92,7 +92,7 @@
     <div class="footer-middle">
       <h4>Stay Informed</h4>
       <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-      <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec" method="POST" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+      <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
         <input type="email" name="email" placeholder="Enter your email" required
                style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
         <button type="submit"
@@ -111,6 +111,28 @@
     <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
   </div>
 </footer>
+
+<script>
+  document.getElementById("subscribe-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+
+    fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
+      method: "POST",
+      body: data
+    })
+    .then(response => {
+      if (response.ok) {
+        window.location.href = "thank-you.html";
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    })
+    .catch(() => alert("Submission failed. Please try again."));
+  });
+</script>
+
 
 </body>
 </html>
