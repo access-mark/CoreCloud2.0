@@ -53,7 +53,7 @@
 </head>
 <body>
   <h1>Apply to Re / Launch (Experienced Track)</h1>
-  <form action="mailto:relaunch@corecloudza.com" method="POST" enctype="text/plain">
+  <form id="relaunchForm">
     <label for="name">Full Name</label>
     <input type="text" id="name" name="Full Name" required>
 
@@ -75,9 +75,6 @@
     <label for="linkedin">LinkedIn Profile (optional)</label>
     <input type="url" id="linkedin" name="LinkedIn Profile">
 
-    <label for="cv">Upload Your CV</label>
-    <input type="file" id="cv" name="CV Upload" accept=".pdf,.doc,.docx">
-
     <label for="availability">Availability</label>
     <select id="availability" name="Availability">
       <option value="Immediate">Immediate</option>
@@ -89,5 +86,22 @@
 
     <button type="submit">Submit Application</button>
   </form>
+
+  <script>
+    document.getElementById('relaunchForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+
+      fetch("https://script.google.com/a/macros/corecloudza.com/s/AKfycbyr8DDtL-ehamKEITPeo6zbfcqaUCW_o5yQ6QaVYlwqdkh486-EJ6Vo3I0ZERlbtjU6/exec", {
+        method: "POST",
+        body: new URLSearchParams(data)
+      }).then(() => {
+        window.location.href = "thank-you.html";
+      }).catch(() => {
+        alert("There was a problem submitting your application. Please try again later.");
+      });
+    });
+  </script>
 </body>
 </html>
