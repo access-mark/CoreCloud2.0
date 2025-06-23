@@ -36,6 +36,9 @@
       border: 1px solid #ccc;
       border-radius: 5px;
     }
+    input[type="file"] {
+      padding: 0.4rem;
+    }
     button {
       margin-top: 2rem;
       background-color: #0066b2;
@@ -53,7 +56,7 @@
 </head>
 <body>
   <h1>Apply to Re / Launch (Youth Track)</h1>
-  <form id="launchForm">
+  <form id="launchForm" enctype="multipart/form-data">
     <label for="name">Full Name</label>
     <input type="text" id="name" name="Full Name" required>
 
@@ -83,6 +86,9 @@
     <label for="linkedin">LinkedIn Profile (optional)</label>
     <input type="url" id="linkedin" name="LinkedIn Profile">
 
+    <label for="cv">Upload Your CV (PDF or Word)</label>
+    <input type="file" id="cv" name="CV" accept=".pdf,.doc,.docx" required>
+
     <label><input type="checkbox" name="Consent" required> I consent to CoreCloud contacting me regarding opportunities.</label>
 
     <button type="submit">Submit Application</button>
@@ -96,7 +102,7 @@
 
       fetch("https://script.google.com/a/macros/corecloudza.com/s/AKfycbwu72Al8RJQ_xUdiKlNnku3H7gc_3nGdC79H3LckpR4V_DrpoORsdnwiwb8B0QlU2rl/exec", {
         method: "POST",
-        body: new URLSearchParams(data)
+        body: data
       }).then(() => {
         window.location.href = "thank-you.html";
       }).catch(() => {
