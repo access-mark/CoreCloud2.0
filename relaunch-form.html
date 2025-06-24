@@ -36,9 +36,6 @@
       border: 1px solid #ccc;
       border-radius: 5px;
     }
-    input[type="file"] {
-      padding: 0.4rem;
-    }
     button {
       margin-top: 2rem;
       background-color: #0066b2;
@@ -56,7 +53,7 @@
 </head>
 <body>
   <h1>Apply to Re / Launch (Experienced Track)</h1>
-  <form id="relaunchForm" enctype="multipart/form-data">
+  <form id="relaunchForm">
     <label for="name">Full Name</label>
     <input type="text" id="name" name="Full Name" required>
 
@@ -84,9 +81,6 @@
       <option value="1 Month Notice">1 Month Notice</option>
       <option value="Negotiable">Negotiable</option>
     </select>
-
-    <label for="cv">Upload Your CV (PDF or Word)</label>
-    <input type="file" id="cv" name="CV" accept=".pdf,.doc,.docx" required>
 
     <label><input type="checkbox" name="Consent" required> I consent to CoreCloud contacting me regarding opportunities.</label>
 
