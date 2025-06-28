@@ -1,4 +1,3 @@
-<!-- FULL PAGE: talent.html with fixed CTA link -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,10 +5,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CoreCloud Talent Placement | Elite ICT & Executive Talent South Africa</title>
   <meta name="description" content="CoreCloud connects South African businesses with elite ICT professionals, cloud specialists, and executive talent – fast, precise, and fully vetted." />
-  <meta name="keywords" content="Talent Placement, ICT Staffing South Africa, Executive Talent, Cloud Talent, CoreCloud, Tech Recruitment, CoreCapacity" />
+  <meta name="keywords" content="Talent Placement, ICT Staffing South Africa, Executive Talent, Cloud Talent, CoreCloud, Tech Recruitment, CoreCapacity, CareerWeb" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .partner-card {
+      background-color: #f4f6f8;
+      padding: 20px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      margin-bottom: 2rem;
+    }
+
+    .partner-card h3 {
+      color: #004f91;
+      margin-bottom: 10px;
+    }
+
+    .partner-card a.cta-btn {
+      background-color: #0066b2;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .partner-card a.cta-btn:hover {
+      background-color: #004f91;
+    }
+
+    .relaunch-cta {
+      background: linear-gradient(90deg, #0066b2 0%, #004f91 100%);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem;
+      margin: 3rem 0;
+      border-radius: 8px;
+    }
+
+    .relaunch-cta h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .relaunch-cta p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .relaunch-cta a.cta-btn {
+      background-color: #ffffff;
+      color: #004f91;
+      font-weight: bold;
+      padding: 0.75rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    .relaunch-cta a.cta-btn:hover {
+      background-color: #004f91;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
   <!-- Header -->
@@ -34,10 +98,10 @@
   </div>
 
   <!-- Launch Hub CTA -->
-  <div style="background-color: #fffbf0; padding: 2rem; text-align: center; border-top: 3px solid #0066b2; border-bottom: 3px solid #0066b2;">
-    <h2 style="color: #004f91; font-size: 1.8rem; margin-bottom: 1rem;">Starting Out or Starting Over?</h2>
-    <p style="font-size: 1.1rem; color: #333; margin-bottom: 1.5rem;">Explore CoreCloud’s <strong>Re / Launch Talent Hub</strong> for youth and experienced professionals.</p>
-    <a href="talent-relaunch.html" class="cta-btn" style="background-color: #0066b2; color: white; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: bold; font-size: 1rem; text-decoration: none;">Visit Re / Launch Hub</a>
+  <div class="relaunch-cta">
+    <h2>Starting Out or Starting Over?</h2>
+    <p>Whether you’re a young professional launching your career or an experienced talent looking to pivot, our <strong>Re / Launch Talent Hub</strong> is designed to connect you to meaningful opportunities in the South African ICT landscape. Let’s help you take your next step — with clarity, confidence, and support.</p>
+    <a href="talent-relaunch.html" class="cta-btn">Visit Re / Launch Hub</a>
   </div>
 
   <!-- Main Content -->
@@ -84,63 +148,76 @@
       </div>
     </section>
 
-    <section class="cta center">
+    <section class="section" style="margin-top: 4rem;">
+      <h2 class="section-title" style="color: #004f91; text-align: center;">Strategic Partnerships</h2>
+      <p style="text-align: center; max-width: 900px; margin: 0 auto 2rem;">
+        At CoreCloud, we believe talent excellence requires more than internal resources alone. It’s about aligning with partners who specialise in talent sourcing, screening, and market intelligence — and who share our relentless drive for precision and quality in every placement.
+      </p>
+
+      <div class="partner-card">
+        <h3>CareerWeb</h3>
+        <p><strong>CareerWeb</strong> is South Africa’s premier specialist ICT talent platform. As CoreCloud’s trusted sourcing partner, CareerWeb provides unrivalled reach into the technology talent market, connecting skilled professionals across the country with roles that shape the future. Their focused digital platforms, extensive candidate networks, and deep knowledge of ICT talent trends ensure that CoreCloud’s talent pipeline remains fresh, diverse, and responsive to market demand.</p>
+        <a href="https://www.careerweb.co.za" target="_blank" class="cta-btn">Visit CareerWeb</a>
+      </div>
+    </section>
+
+    <section class="cta center" style="margin-top: 4rem;">
       <h2>Need Talent or Looking for Your Next Role?</h2>
       <p>We place top-tier talent into roles that matter. Let’s talk.</p>
       <a href="contact.html" class="cta-btn">Start a Conversation</a>
     </section>
   </main>
 
- <!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-left">
-      <p><strong>CoreCloud (Pty) Ltd</strong></p>
-      <p>Sandton,<br>Johannesburg</p>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton,<br>Johannesburg</p>
+      </div>
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+          <input type="email" name="email" placeholder="Enter your email" required
+                 style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
+          <button type="submit"
+                  style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
+            Subscribe
+          </button>
+        </form>
+      </div>
+      <div class="footer-right">
+        <p>Contact</p>
+        <p>Email: sales@corecloudza.com</p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
+      </div>
     </div>
-    <div class="footer-middle">
-      <h4>Stay Informed</h4>
-      <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-      <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
-        <input type="email" name="email" placeholder="Enter your email" required
-               style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
-        <button type="submit"
-                style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
-          Subscribe
-        </button>
-      </form>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
     </div>
-    <div class="footer-right">
-      <p>Contact</p>
-      <p>Email: sales@corecloudza.com</p>
-      <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  document.getElementById("subscribe-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const form = e.target;
-    const data = new FormData(form);
+  <script>
+    document.getElementById("subscribe-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
 
-    fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
-      method: "POST",
-      body: data
-    })
-    .then(response => {
-      if (response.ok) {
-        window.location.href = "thank-you.html";
-      } else {
-        alert("Something went wrong. Please try again.");
-      }
-    })
-    .catch(() => alert("Submission failed. Please try again."));
-  });
-</script>
+      fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
+        method: "POST",
+        body: data
+      })
+      .then(response => {
+        if (response.ok) {
+          window.location.href = "thank-you.html";
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      })
+      .catch(() => alert("Submission failed. Please try again."));
+    });
+  </script>
 
 </body>
 </html>
