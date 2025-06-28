@@ -16,6 +16,14 @@
       margin-top: 160px;
     }
 
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem; /* tighter spacing */
+      padding: 0 1rem;
+      margin-top: 2rem;
+    }
+
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -74,18 +82,16 @@
     </p>
   </section>
 
-  <!-- About CoreCloud (Moved closer + narrower) -->
+  <!-- About CoreCloud -->
   <section class="about-block" style="
     background: #ffffff;
     padding: 2.5rem 2rem;
     border-radius: 12px;
-    margin: 2rem auto 3rem auto;
+    margin: 1.5rem auto 3rem auto;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     max-width: 800px;
   ">
-    <div class="about-content" style="
-      text-align: center;
-    ">
+    <div class="about-content" style="text-align: center;">
       <div style="
         width: 60px;
         height: 4px;
@@ -112,7 +118,7 @@
   <main class="content">
     <!-- Why / What / How -->
     <section class="section">
-      <h2 class="section-title">Why, What, How</h2>
+      <h2 class="section-title">Our Focus & Method</h2>
       <div class="card-grid">
         <div class="card">
           <h2>Why</h2>
@@ -168,7 +174,7 @@
     </section>
 
     <!-- Re / Launch CTA -->
-    <section class="relaunch-cta" style="background: #ffffff; color: #333; text-align: center; padding: 3rem 1rem; margin: 4rem 0; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 800px; margin-left: auto; margin-right: auto;">
+    <section class="relaunch-cta" style="background: #ffffff; color: #333; text-align: center; padding: 3rem 1rem; margin: 4rem auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 800px;">
       <h2 style="color: #004f91; font-size: 2rem; margin-bottom: 1rem;">Starting Out or Starting Over?</h2>
       <p style="font-size: 1.1rem; color: #444; max-width: 800px; margin: 0 auto 2rem;">
         Whether you’re launching your career or pivoting mid-journey, our <strong>Re / Launch Talent Hub</strong> connects you with real opportunities in South Africa’s tech landscape. Let’s move you forward — with clarity and confidence.
