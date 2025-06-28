@@ -387,3 +387,9 @@ footer {
     font-size: 2rem !important;
   }
 }
+
+/* NEW: Force white text in Re / Launch Talent Hub */
+.relaunch-cta h2,
+.relaunch-cta p {
+  color: #ffffff;
+}
