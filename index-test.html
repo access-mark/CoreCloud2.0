@@ -16,42 +16,6 @@
       margin-top: 160px;
     }
 
-    .about-block {
-      background: #d9ecf8;
-      padding: 4rem 2rem;
-      border-radius: 12px;
-      margin: 3rem 0;
-    }
-
-    .about-content {
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: center;
-      position: relative;
-    }
-
-    .about-content::before {
-      content: "";
-      display: block;
-      width: 60px;
-      height: 4px;
-      background: #0066b2;
-      margin: 0 auto 1.5rem auto;
-      border-radius: 2px;
-    }
-
-    .about-content h2 {
-      font-size: 2.2rem;
-      color: #004f91;
-      margin-bottom: 1rem;
-    }
-
-    .about-content p {
-      font-size: 1.1rem;
-      color: #333;
-      line-height: 1.7;
-    }
-
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -76,49 +40,6 @@
     .stat-card p {
       font-size: 1rem;
       color: #444;
-    }
-
-    .relaunch-cta {
-      background: linear-gradient(90deg, #0066b2 0%, #004f91 100%);
-      color: #fff;
-      text-align: center;
-      padding: 3rem 1rem;
-      margin: 4rem 0;
-      border-radius: 8px;
-    }
-
-    .relaunch-cta h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .relaunch-cta p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .relaunch-cta a {
-      background: #ffffff;
-      color: #004f91;
-      font-weight: bold;
-      padding: 0.75rem 2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 1.1rem;
-    }
-
-    .relaunch-cta a:hover {
-      background: #004f91;
-      color: #fff;
-    }
-
-    /* Make all partner cards text white */
-    .partner-card-text h3,
-    .partner-card-text p {
-      color: #ffffff !important;
     }
   </style>
 </head>
@@ -152,10 +73,13 @@
 
   <main class="content">
     <!-- About CoreCloud -->
-    <section class="about-block">
-      <div class="about-content">
-        <h2>About CoreCloud</h2>
-        <p>CoreCloud bridges the gap between bold ambition and practical execution. Led by seasoned executives who’ve delivered under boardroom pressure, we transform enterprises across technology, talent, and commercial disciplines. Real outcomes come from clarity, precision, and relentless follow-through — and our clients trust us to deliver measurable impact where it matters most.</p>
+    <section class="about-block" style="background: #0088e8; padding: 4rem 2rem; border-radius: 12px; margin: 3rem 0;">
+      <div class="about-content" style="max-width: 900px; margin: 0 auto; text-align: center; position: relative;">
+        <div style="width: 60px; height: 4px; background: #ffffff; margin: 0 auto 1.5rem auto; border-radius: 2px;"></div>
+        <h2 style="font-size: 2.2rem; color: #ffffff; margin-bottom: 1rem;">About CoreCloud</h2>
+        <p style="font-size: 1.1rem; color: #ffffff; line-height: 1.7;">
+          CoreCloud bridges the gap between bold ambition and practical execution. Led by seasoned executives who’ve delivered under boardroom pressure, we transform enterprises across technology, talent, and commercial disciplines. Real outcomes come from clarity, precision, and relentless follow-through — and our clients trust us to deliver measurable impact where it matters most.
+        </p>
       </div>
     </section>
 
@@ -182,17 +106,17 @@
     <section class="section">
       <h2 class="section-title">Our Trusted Partners</h2>
       <div class="card-grid">
-        <a href="https://lsdopen.io/" target="_blank" class="card partner-card-text" style="background: #48b938;">
-          <h3>LSD Open</h3>
-          <p>Cloud-native and DevSecOps experts unlocking agility and scale in modern architectures.</p>
+        <a href="https://lsdopen.io/" target="_blank" class="card" style="background: #48b938; color: white;">
+          <h3 style="color: white;">LSD Open</h3>
+          <p style="color: white;">Cloud-native and DevSecOps experts unlocking agility and scale in modern architectures.</p>
         </a>
-        <a href="https://www.synthesis.co.za/" target="_blank" class="card partner-card-text" style="background: #000000;">
-          <h3>Synthesis</h3>
-          <p>Specialists in cloud architecture, regulatory compliance, and digital innovation for complex enterprises.</p>
+        <a href="https://www.synthesis.co.za/" target="_blank" class="card" style="background: #000000; color: white;">
+          <h3 style="color: white;">Synthesis</h3>
+          <p style="color: white;">Specialists in cloud architecture, regulatory compliance, and digital innovation for complex enterprises.</p>
         </a>
-        <a href="https://www.careerweb.co.za" target="_blank" class="card partner-card-text" style="background: #ee1c25;">
-          <h3>CareerWeb</h3>
-          <p>South Africa’s leading ICT talent platform ensuring fresh, diverse pipelines for CoreCloud placements.</p>
+        <a href="https://www.careerweb.co.za" target="_blank" class="card" style="background: #ee1c25; color: white;">
+          <h3 style="color: white;">CareerWeb</h3>
+          <p style="color: white;">South Africa’s leading ICT talent platform ensuring fresh, diverse pipelines for CoreCloud placements.</p>
         </a>
       </div>
     </section>
@@ -217,10 +141,10 @@
     </section>
 
     <!-- Re / Launch CTA -->
-    <section class="relaunch-cta">
+    <section class="relaunch-cta" style="background: linear-gradient(90deg, #0066b2 0%, #004f91 100%); color: #fff; text-align: center; padding: 3rem 1rem; margin: 4rem 0; border-radius: 8px;">
       <h2>Starting Out or Starting Over?</h2>
       <p>Whether you’re launching your career or pivoting mid-journey, our <strong>Re / Launch Talent Hub</strong> connects you with real opportunities in South Africa’s tech landscape. Let’s move you forward — with clarity and confidence.</p>
-      <a href="talent-relaunch.html">Visit Re / Launch Hub</a>
+      <a href="talent-relaunch.html" style="background: #ffffff; color: #004f91; font-weight: bold; padding: 0.75rem 2rem; border-radius: 6px; text-decoration: none; font-size: 1.1rem;">Visit Re / Launch Hub</a>
     </section>
 
     <!-- Stats Section -->
