@@ -10,39 +10,10 @@
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    .hero-banner {
-      background: linear-gradient(to right, rgba(0,79,145,0.7), rgba(0,102,178,0.7)), url('assets/images/index-bannerimage.png') center/cover no-repeat;
-      color: #fff;
+    .page-banner {
       height: 400px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    .hero-banner h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-      animation: fadeInDown 1s ease-out;
-    }
-
-    .hero-banner p {
-      font-size: 1.2rem;
-      max-width: 900px;
-      margin: 0 auto;
-      animation: fadeInUp 1.2s ease-out;
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
+      background: url('assets/images/index-bannerimage.png') center/cover no-repeat;
+      margin-top: 160px;
     }
 
     .about-block {
@@ -79,15 +50,6 @@
       font-size: 1.1rem;
       color: #333;
       line-height: 1.7;
-    }
-
-    .about-icon {
-      margin-bottom: 1rem;
-    }
-
-    .about-icon img {
-      width: 60px;
-      height: 60px;
     }
 
     .stats-grid {
@@ -171,19 +133,21 @@
     </div>
   </div>
 
-  <!-- Hero Banner -->
-  <div class="hero-banner">
-    <h1>Bold Tech. Executive Precision.</h1>
-    <p>Cloud consulting, AWS services, and elite talent — aligned with your boardroom ambitions and frontline delivery. CoreCloud turns strategy into measurable outcomes across South Africa’s enterprise landscape.</p>
-  </div>
+  <!-- Page Banner -->
+  <div class="page-banner"></div>
+
+  <!-- Hero Text below the Banner -->
+  <section style="text-align: center; padding: 3rem 1rem;">
+    <h1 style="font-size: 2.8rem; color: #004f91; margin-bottom: 1rem;">Bold Tech. Executive Precision.</h1>
+    <p style="font-size: 1.2rem; max-width: 900px; margin: 0 auto; color: #444;">
+      Cloud consulting, AWS services, and elite talent — aligned with your boardroom ambitions and frontline delivery. CoreCloud turns strategy into measurable outcomes across South Africa’s enterprise landscape.
+    </p>
+  </section>
 
   <main class="content">
     <!-- About CoreCloud -->
     <section class="about-block">
       <div class="about-content">
-        <div class="about-icon">
-          <img src="assets/images/icon-strategy.png" alt="Strategy Icon" />
-        </div>
         <h2>About CoreCloud</h2>
         <p>CoreCloud bridges the gap between bold ambition and practical execution. Led by seasoned executives who’ve delivered under boardroom pressure, we transform enterprises across technology, talent, and commercial disciplines. Real outcomes come from clarity, precision, and relentless follow-through — and our clients trust us to deliver measurable impact where it matters most.</p>
       </div>
