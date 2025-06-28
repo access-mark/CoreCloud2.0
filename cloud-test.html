@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cloud Service Suite – CoreCloud</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    .cloud-columns {
+      display: flex;
+      flex-direction: row;
+      gap: 3rem;
+      justify-content: center;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .cloud-column {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .cloud-column h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #004f91;
+      font-size: 1.6rem;
+    }
+
+    .card-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .aws-card {
+      background-color: #ff9900 !important;
+      border: 1px solid #000000;
+    }
+
+    .aws-card h3,
+    .aws-card p {
+      color: #ffffff !important;
+    }
+
+    .aws-card .cta-btn {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .aws-card .cta-btn:hover {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .azure-card {
+      background-color: #007fff !important;
+      border: 1px solid #000000;
+    }
+
+    .azure-card h3,
+    .azure-card p {
+      color: #ffffff !important;
+    }
+
+    .azure-card .cta-btn {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .azure-card .cta-btn:hover {
+      background-color: #003f7f;
+      color: #fff;
+    }
+
+    .partner-card {
+      background-color: #f4f6f8;
+      padding: 20px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      margin-bottom: 2rem;
+    }
+
+    .partner-card h3 {
+      color: #004f91;
+      margin-bottom: 10px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .cloud-columns {
+        flex-direction: column;
+      }
+
+      .cloud-column {
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Fixed Top Nav -->
+  <div class="small-banner">
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+      <nav>
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="consulting.html" class="nav-btn">Consulting</a>
+        <a href="cloud.html" class="nav-btn active">Cloud Service Suite</a>
+        <a href="talent.html" class="nav-btn">Talent Placement</a>
+        <a href="newsroom.html" class="nav-btn">Newsroom</a>
+        <a href="about.html" class="nav-btn">About Us</a>
+        <a href="contact.html" class="nav-btn">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="page-banner" style="background-image: url('assets/images/cloud-banner.png'); height: 340px;"></div>
+
+  <!-- Main Content -->
+  <main class="content">
+    <h1 class="center-title">Cloud Service Suite</h1>
+    <p class="center-subtitle" style="max-width: 900px; margin: 0 auto 2rem; text-align: center;">
+      CoreCloud empowers South African enterprises to migrate, modernize, manage, and optimize workloads across AWS and Azure environments — driving measurable impact at every stage of the journey.<br><br>
+      Our proven delivery frameworks, combined with a curated ecosystem of world-class partners like <strong>LSD Open</strong> and <strong>Synthesis</strong>, bring deep technical expertise, modern cloud-native practices, and rigorous governance to each engagement. Whether you're charting your initial cloud adoption or scaling mission-critical workloads, we help you unlock the full potential of cloud — on your terms, with the right expertise behind you.
+    </p>
+
+    <div class="cloud-columns">
+      <!-- AWS Column -->
+      <div class="cloud-column">
+        <h2>AWS</h2>
+        <div class="card-group">
+          <div class="card aws-card">
+            <h3>AWS Migration</h3>
+            <p>Move workloads to AWS confidently with structured frameworks and minimal disruption.</p>
+            <a href="aws-migration.html" class="cta-btn">Explore Migration</a>
+          </div>
+          <div class="card aws-card">
+            <h3>AWS Modernize</h3>
+            <p>Upgrade legacy systems to modern architectures to unlock agility, scale, and cost-efficiency.</p>
+            <a href="aws-modernize.html" class="cta-btn">Modernize Now</a>
+          </div>
+          <div class="card aws-card">
+            <h3>AWS Manage</h3>
+            <p>Run cloud operations at peak performance with observability, security, and FinOps built in.</p>
+            <a href="aws-manage.html" class="cta-btn">See Managed Services</a>
+          </div>
+          <div class="card aws-card">
+            <h3>AWS Optimize</h3>
+            <p>Drive ROI through right-sizing, governance, automation, and ongoing performance tuning.</p>
+            <a href="aws-optimize.html" class="cta-btn">Start Optimizing</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Azure Column -->
+      <div class="cloud-column">
+        <h2>Azure</h2>
+        <div class="card-group">
+          <div class="card azure-card">
+            <h3>Azure Migration</h3>
+            <p>Seamlessly transition to Microsoft Azure with expert-led migration blueprints and support.</p>
+            <a href="azure-migration.html" class="cta-btn">Explore Migration</a>
+          </div>
+          <div class="card azure-card">
+            <h3>Azure Modernize</h3>
+            <p>Refactor and rebuild apps on Azure with containerization, serverless, and AI-driven services.</p>
+            <a href="azure-modernize.html" class="cta-btn">Modernize Now</a>
+          </div>
+          <div class="card azure-card">
+            <h3>Azure Manage</h3>
+            <p>Operate cloud environments with Azure-native tools, secure access, and performance tracking.</p>
+            <a href="azure-manage.html" class="cta-btn">See Managed Services</a>
+          </div>
+          <div class="card azure-card">
+            <h3>Azure Optimize</h3>
+            <p>Reduce Azure costs and improve efficiency with intelligent optimization strategies.</p>
+            <a href="azure-optimize.html" class="cta-btn">Start Optimizing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" style="margin-top: 4rem;">
+      <h2 style="color: #004f91; text-align: center;">Our Delivery Ecosystem</h2>
+      <p style="max-width: 900px; margin: 0 auto 2rem; text-align: center;">
+        At CoreCloud, we know that exceptional cloud transformation requires more than technology alone. It’s about working with partners who are masters of their domains — and who share our relentless commitment to delivering real outcomes. Our trusted alliances with industry-leading specialists extend our reach and ensure our clients benefit from the best talent and capabilities in the market.
+      </p>
+
+      <div class="partner-card">
+        <h3>LSD Open</h3>
+        <p>LSD Open is South Africa’s leading specialist in open-source cloud-native technologies, Kubernetes platforms, and DevSecOps. As one of our core partners, they bring advanced skills in modern cloud-native architectures, container orchestration, and secure pipelines. Through LSD, our clients gain access to proven solutions and deep technical talent that accelerate modernization and unlock true agility in the cloud.</p>
+        <p><a href="https://lsdopen.io/" target="_blank" style="color: #0066b2; font-weight: bold;">Visit LSD Open →</a></p>
+      </div>
+
+      <div class="partner-card">
+        <h3>Synthesis</h3>
+        <p>Synthesis is a renowned South African technology and cloud solutions specialist, delivering innovative enterprise architectures, software engineering, and cloud transformation projects. Their deep expertise in regulated industries like banking, insurance, and fintech makes them a powerful partner in navigating complex cloud journeys. Together, we ensure our clients move fast, stay compliant, and achieve competitive advantage.</p>
+        <p><a href="https://www.synthesis.co.za/" target="_blank" style="color: #0066b2; font-weight: bold;">Visit Synthesis →</a></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton,<br>Johannesburg</p>
+      </div>
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+          <input type="email" name="email" placeholder="Enter your email" required
+                 style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
+          <button type="submit"
+                  style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
+            Subscribe
+          </button>
+        </form>
+      </div>
+      <div class="footer-right">
+        <p>Contact</p>
+        <p>Email: sales@corecloudza.com</p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("subscribe-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+
+      fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
+        method: "POST",
+        body: data
+      })
+      .then(response => {
+        if (response.ok) {
+          window.location.href = "thank-you.html";
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      })
+      .catch(() => alert("Submission failed. Please try again."));
+    });
+  </script>
+
+</body>
+</html>
