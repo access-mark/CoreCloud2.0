@@ -421,3 +421,39 @@ footer {
 .relaunch-cta p {
   color: #ffffff;
 }
+/* --- ENSURE ALL PAGE BANNERS HAVE CONSISTENT HEIGHT --- */
+
+.page-banner {
+  height: 340px !important;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  display: block;
+}
+
+/* Remove any accidental inner content height causing overflow */
+.page-banner > * {
+  height: 100%;
+  object-fit: cover;
+}
+
+/* If you accidentally use images directly inside .page-banner */
+.page-banner img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* OPTIONAL: If you want a slim nav bar, keep .small-banner small */
+.small-banner {
+  height: auto; /* keep nav flexible */
+  min-height: 80px;
+  padding: 0.5rem 2rem;
+}
+
+.small-banner .logo {
+  max-height: 60px;
+  height: auto;
+  width: auto;
+}
