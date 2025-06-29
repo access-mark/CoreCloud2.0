@@ -27,7 +27,7 @@ body {
   min-height: 100vh;
 }
 
-/* Typography – Uniform across all pages */
+/* Typography */
 h1 {
   font-size: 2rem;
   font-weight: 700;
@@ -375,9 +375,7 @@ footer {
     padding: 0.2rem 0.5rem;
   }
 
-  .page-banner {
-    height: 200px;
-  }
+  /* Removed mobile height override for page-banner */
 
   .card-grid {
     padding: 0 1rem;
