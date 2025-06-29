@@ -33,13 +33,6 @@
       text-align: center;
     }
 
-    .stats-grid .stat-card {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
     .stat-card h2 {
       font-size: 2.5rem;
       color: #0066b2;
@@ -49,6 +42,19 @@
     .stat-card p {
       font-size: 1rem;
       color: #444;
+    }
+
+    /* NEW width override for the 2 cards */
+    .full-width-card {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
+    .full-width-card .content-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
   </style>
 </head>
@@ -85,16 +91,15 @@
   </section>
 
   <main class="content">
-    <!-- About CoreCloud - moved higher -->
-    <section class="about-block" style="
+    <!-- About CoreCloud -->
+    <section class="about-block full-width-card" style="
       background: #ffffff;
-      padding: 2.5rem 2rem;
+      padding: 2.5rem 0;
       border-radius: 12px;
       margin: 1rem auto 2rem auto;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      max-width: 800px;
     ">
-      <div class="about-content" style="text-align: center;">
+      <div class="content-inner" style="text-align: center;">
         <div style="width: 60px; height: 4px; background: #0066b2; margin: 0 auto 1rem auto; border-radius: 2px;"></div>
         <h2 style="font-size: 2.2rem; color: #004f91; margin-bottom: 0.75rem;">About CoreCloud</h2>
         <p style="font-size: 1.1rem; color: #444444; line-height: 1.7; margin-bottom: 0;">
@@ -103,7 +108,7 @@
       </div>
     </section>
 
-    <!-- Focus & Method - moved up -->
+    <!-- Our Focus & Method -->
     <section id="focus-method-section" class="section">
       <h2 class="section-title">Our Focus & Method</h2>
       <div class="card-grid">
@@ -146,32 +151,42 @@
       <h2 class="section-title">Our Trusted Partners</h2>
       <div class="card-grid">
         <a href="https://lsdopen.io/" target="_blank" class="card" style="background: #48b938; color: white;">
-          <h3 style="color: white;">LSD Open</h3>
-          <p style="color: white;">Cloud-native and DevSecOps experts unlocking agility and scale in modern architectures.</p>
+          <h3>LSD Open</h3>
+          <p>Cloud-native and DevSecOps experts unlocking agility and scale in modern architectures.</p>
         </a>
         <a href="https://www.synthesis.co.za/" target="_blank" class="card" style="background: #000000; color: white;">
-          <h3 style="color: white;">Synthesis</h3>
-          <p style="color: white;">Specialists in cloud architecture, regulatory compliance, and digital innovation for complex enterprises.</p>
+          <h3>Synthesis</h3>
+          <p>Specialists in cloud architecture, regulatory compliance, and digital innovation for complex enterprises.</p>
         </a>
         <a href="https://www.careerweb.co.za" target="_blank" class="card" style="background: #ee1c25; color: white;">
-          <h3 style="color: white;">CareerWeb</h3>
-          <p style="color: white;">South Africa’s leading ICT talent platform ensuring fresh, diverse pipelines for CoreCloud placements.</p>
+          <h3>CareerWeb</h3>
+          <p>South Africa’s leading ICT talent platform ensuring fresh, diverse pipelines for CoreCloud placements.</p>
         </a>
       </div>
     </section>
 
     <!-- Re / Launch CTA -->
-    <section class="relaunch-cta" style="background: #ffffff; color: #333; text-align: center; padding: 3rem 1rem; margin: 4rem 0; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 900px; margin-left: auto; margin-right: auto;">
-      <h2 style="color: #004f91; font-size: 2rem; margin-bottom: 1rem;">Starting Out or Starting Over?</h2>
-      <p style="font-size: 1.1rem; color: #444; max-width: 800px; margin: 0 auto 2rem;">
-        Whether you’re launching your career or pivoting mid-journey, our <strong>Re / Launch Talent Hub</strong> connects you with real opportunities in South Africa’s tech landscape. Let’s move you forward — with clarity and confidence.
-      </p>
-      <a href="talent-relaunch.html" class="cta-btn" style="background: #0066b2; color: #ffffff; font-weight: bold; padding: 0.75rem 2rem; border-radius: 6px; text-decoration: none; font-size: 1.1rem;">
-        Visit Re / Launch Hub
-      </a>
+    <section class="relaunch-cta full-width-card" style="
+      background: #ffffff;
+      color: #333;
+      text-align: center;
+      padding: 3rem 0;
+      margin: 4rem 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    ">
+      <div class="content-inner">
+        <h2 style="color: #004f91; font-size: 2rem; margin-bottom: 1rem;">Starting Out or Starting Over?</h2>
+        <p style="font-size: 1.1rem; color: #444; max-width: 800px; margin: 0 auto 2rem;">
+          Whether you’re launching your career or pivoting mid-journey, our <strong>Re / Launch Talent Hub</strong> connects you with real opportunities in South Africa’s tech landscape. Let’s move you forward — with clarity and confidence.
+        </p>
+        <a href="talent-relaunch.html" class="cta-btn" style="background: #0066b2; color: #ffffff; font-weight: bold; padding: 0.75rem 2rem; border-radius: 6px; text-decoration: none; font-size: 1.1rem;">
+          Visit Re / Launch Hub
+        </a>
+      </div>
     </section>
 
-    <!-- Target Metrics -->
+    <!-- Targets -->
     <section class="stats-grid">
       <div class="stat-card">
         <h2>R1 Billion</h2>
@@ -186,7 +201,6 @@
         <p>Delivering at least 4x ROI for every client project, with measurable commercial impact.</p>
       </div>
     </section>
-
   </main>
 
   <!-- Footer -->
