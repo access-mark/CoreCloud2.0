@@ -10,23 +10,121 @@
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="https://access-mark.github.io/CoreCloud2.0/assets/css/styles.css" />
   <style>
-    .card-grid.triple {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+    /* Small Banner Styling */
+    .small-banner {
+      background-color: #f7f7f7;
+      padding: 10px 0;
+    }
+    
+    .banner-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .banner-header img {
+      max-height: 50px;
+    }
+    
+    .nav-btn {
+      text-decoration: none;
+      padding: 8px 16px;
+      color: #333;
+      font-weight: bold;
+      margin: 0 5px;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-btn:hover,
+    .nav-btn.active {
+      color: #0066b2;
+    }
+
+    .page-banner {
+      background-color: #0078D4;
+      height: 80px;
+      margin-top: 80px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.4rem;
+      color: #004f91;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #444;
+      max-width: 900px;
+      margin: 0 auto 2rem;
+    }
+
+    .card-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 2rem;
       margin-top: 2rem;
     }
 
-    @media screen and (max-width: 1024px) {
-      .card-grid.triple {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+      max-width: 360px;
+      flex: 1 1 300px;
+      text-align: center;
     }
 
-    @media screen and (max-width: 700px) {
-      .card-grid.triple {
-        grid-template-columns: 1fr;
-      }
+    .card h3 {
+      font-size: 1.2rem;
+      color: #0066b2;
+      margin-bottom: 0.8rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      background-color: #0066b2;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #004f91;
+    }
+
+    ul.checklist {
+      list-style: none;
+      padding-left: 0;
+      font-size: 1.05rem;
+      color: #333;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 1rem auto;
+    }
+
+    ul.checklist li::before {
+      content: "✔";
+      margin-right: 0.5rem;
+      color: green;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -47,18 +145,19 @@
     </div>
   </div>
 
-  <!-- Removed Banner -->
+  <!-- Azure Banner -->
+  <div class="page-banner"></div>
 
   <!-- Content -->
   <main class="content">
-    <h1 class="center-title" style="color: #004f91;">Microsoft Azure: Optimize</h1>
-    <p class="center-subtitle">
+    <h1 class="section-title">Microsoft Azure: Optimize</h1>
+    <p class="section-subtitle">
       Cloud waste is real – and costly. At CoreCloud, we unlock savings through proactive Azure optimization. Our process reveals hidden inefficiencies, rightsizes resources, and ensures your environment is lean, fast, and future-ready.
     </p>
 
     <section>
       <h2 class="section-title" style="color:#004f91; text-align:center;">Our Azure Optimization Toolkit</h2>
-      <div class="card-grid triple">
+      <div class="card-row">
         <div class="card">
           <h2 style="color:#0066b2;">Cost Visibility</h2>
           <p>We expose your Azure spend in real time — showing where money is wasted and where savings can be unlocked.</p>
