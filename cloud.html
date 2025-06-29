@@ -4,8 +4,80 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cloud Service Suite – CoreCloud</title>
+  <meta name="description" content="CoreCloud empowers South African enterprises to migrate, modernize, manage, and optimize workloads across AWS and Azure environments." />
+  <meta name="keywords" content="CoreCloud, Cloud Services South Africa, AWS Migration, Azure Migration, Cloud Modernization" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+
   <style>
+    .page-banner {
+      height: 300px !important;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .hero-title {
+      font-size: 2.8rem;
+      color: #004f91;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: #003366;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    nav.mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: #ffffff;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1001;
+    }
+
+    nav.mobile-nav a {
+      padding: 0.5rem 0;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav.mobile-nav a:last-child {
+      border-bottom: none;
+    }
+
     .cloud-columns {
       display: flex;
       flex-direction: row;
@@ -24,7 +96,8 @@
       text-align: center;
       margin-bottom: 1.5rem;
       color: #004f91;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
+      font-weight: 700;
     }
 
     .card-group {
@@ -33,74 +106,75 @@
       gap: 1.5rem;
     }
 
-    .aws-card {
-      background-color: #ff9900 !important;
-      border: 1px solid #000000;
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 1.2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none !important;
     }
 
-    .aws-card h3,
-    .aws-card p {
-      color: #ffffff !important;
+    .card:hover {
+      transform: translateY(-5px);
     }
 
-    .aws-card .cta-btn {
+    .card h3 {
+      font-size: 1.25rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .card p {
+      color: #ffffff;
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .cta-btn {
       background-color: #ffffff;
       color: #000000;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+      transition: background-color 0.3s ease;
+      margin-top: auto;
     }
 
-    .aws-card .cta-btn:hover {
+    .cta-btn:hover {
       background-color: #333;
       color: #fff;
     }
 
+    .aws-card {
+      background-color: #ff9900;
+      border: 1px solid #000;
+    }
+
     .azure-card {
-      background-color: #007fff !important;
-      border: 1px solid #000000;
-    }
-
-    .azure-card h3,
-    .azure-card p {
-      color: #ffffff !important;
-    }
-
-    .azure-card .cta-btn {
-      background-color: #ffffff;
-      color: #000000;
-    }
-
-    .azure-card .cta-btn:hover {
-      background-color: #003f7f;
-      color: #fff;
-    }
-
-    .partner-card {
-      background-color: #f4f6f8;
-      padding: 20px;
-      border-radius: 6px;
-      border: 1px solid #ddd;
-      margin-bottom: 2rem;
-    }
-
-    .partner-card h3 {
-      color: #004f91;
-      margin-bottom: 10px;
-    }
-
-    .partner-card a.cta-btn {
-      background-color: #0066b2;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 4px;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 10px;
-    }
-
-    .partner-card a.cta-btn:hover {
-      background-color: #004f91;
+      background-color: #007fff;
+      border: 1px solid #000;
     }
 
     @media screen and (max-width: 768px) {
+      nav.desktop-nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      nav.mobile-nav.active {
+        display: flex;
+      }
+
       .cloud-columns {
         flex-direction: column;
       }
@@ -111,12 +185,22 @@
     }
   </style>
 </head>
+
 <body>
-  <!-- Fixed Top Nav -->
+  <!-- Navigation -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-      <nav>
+
+      <!-- Hamburger Icon -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">Home</a>
         <a href="consulting.html" class="nav-btn">Consulting</a>
         <a href="cloud.html" class="nav-btn active">Cloud Service Suite</a>
@@ -125,22 +209,31 @@
         <a href="about.html" class="nav-btn">About Us</a>
         <a href="contact.html" class="nav-btn">Contact</a>
       </nav>
+
+      <!-- Mobile Nav -->
+      <nav class="mobile-nav" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="cloud.html">Cloud Service Suite</a>
+        <a href="talent.html">Talent Placement</a>
+        <a href="newsroom.html">Newsroom</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
   </div>
 
   <!-- Page Banner -->
   <div class="page-banner" style="background-image: url('assets/images/cloud-banner.png');"></div>
 
-  <!-- Main Content -->
   <main class="content">
-    <h1 class="center-title">Cloud Service Suite</h1>
-    <p class="center-subtitle" style="max-width: 900px; margin: 0 auto 2rem; text-align: center;">
+    <h1 class="hero-title">Cloud Service Suite</h1>
+    <p style="text-align: center; max-width: 900px; margin: 0 auto 2rem;">
       CoreCloud empowers South African enterprises to migrate, modernize, manage, and optimize workloads across AWS and Azure environments — driving measurable impact at every stage of the journey.<br><br>
-      Our proven delivery frameworks, combined with a curated ecosystem of world-class partners, who bring deep technical expertise, modern cloud-native practices, and rigorous governance to each engagement. Whether you're charting your initial cloud adoption or scaling mission-critical workloads, we help you unlock the full potential of cloud — on your terms, with the right expertise behind you.
+      Our proven delivery frameworks, combined with a curated ecosystem of world-class partners, bring deep technical expertise, modern cloud-native practices, and rigorous governance to each engagement.
     </p>
 
     <div class="cloud-columns">
-      <!-- AWS Column -->
       <div class="cloud-column">
         <h2>AWS</h2>
         <div class="card-group">
@@ -167,7 +260,6 @@
         </div>
       </div>
 
-      <!-- Azure Column -->
       <div class="cloud-column">
         <h2>Azure</h2>
         <div class="card-group">
@@ -198,12 +290,11 @@
     <section class="section" style="margin-top: 4rem;">
       <h2 style="color: #004f91; text-align: center;">Our Delivery Ecosystem</h2>
       <p style="max-width: 900px; margin: 0 auto 2rem; text-align: center;">
-        At CoreCloud, we know that exceptional cloud transformation requires more than technology alone. It’s about working with partners who are masters of their domains — and who share our relentless commitment to delivering real outcomes. Our trusted alliances with industry-leading specialists extend our reach and ensure our clients benefit from the best talent and capabilities in the market.
+        At CoreCloud, we know that exceptional cloud transformation requires more than technology alone. It’s about working with partners who are masters of their domains — and who share our relentless commitment to delivering real outcomes.
       </p>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -214,10 +305,8 @@
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
-          <input type="email" name="email" placeholder="Enter your email" required
-                 style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
-          <button type="submit"
-                  style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
+          <input type="email" name="email" placeholder="Enter your email" required style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
+          <button type="submit" style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
             Subscribe
           </button>
         </form>
@@ -234,6 +323,11 @@
   </footer>
 
   <script>
+    document.getElementById("hamburger").addEventListener("click", function() {
+      this.classList.toggle("active");
+      document.getElementById("mobileMenu").classList.toggle("active");
+    });
+
     document.getElementById("subscribe-form").addEventListener("submit", function (e) {
       e.preventDefault();
       const form = e.target;
