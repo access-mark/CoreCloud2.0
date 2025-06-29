@@ -264,7 +264,6 @@ main.content {
   margin-bottom: 1.2rem;
 }
 
-/* White text in dark cards */
 .card[style*="background"] * {
   color: #ffffff !important;
 }
@@ -412,8 +411,9 @@ footer {
     margin-bottom: 0;
   }
 
+  /* FIX: ensure page banner stays 300px on mobile */
   .page-banner {
-    height: 200px;
+    height: 300px;
   }
 }
 
