@@ -10,7 +10,17 @@
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    /* Hamburger Styles */
+    /* Fix banner height across all devices */
+    .page-banner {
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    /* Hamburger styles */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -18,11 +28,22 @@
       gap: 5px;
     }
 
-    .hamburger div {
+    .hamburger span {
       width: 25px;
       height: 3px;
       background-color: #003366;
       transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
     }
 
     nav.mobile-nav {
@@ -50,7 +71,7 @@
       border-bottom: none;
     }
 
-    /* Mobile Styles */
+    /* Mobile tweaks */
     @media screen and (max-width: 768px) {
       nav.desktop-nav {
         display: none;
@@ -58,10 +79,6 @@
 
       .hamburger {
         display: flex;
-      }
-
-      nav.mobile-nav {
-        display: none;
       }
 
       nav.mobile-nav.active {
@@ -78,9 +95,9 @@
       
       <!-- Hamburger Icon -->
       <div class="hamburger" id="hamburger">
-        <div></div>
-        <div></div>
-        <div></div>
+        <span></span>
+        <span></span>
+        <span></span>
       </div>
 
       <!-- Desktop Nav -->
@@ -108,10 +125,7 @@
   </div>
 
   <!-- Page Banner -->
-  <div class="page-banner" style="
-    background-image: url('assets/images/index-bannerimage.png');
-    height: 300px;
-  "></div>
+  <div class="page-banner" style="background-image: url('assets/images/index-bannerimage.png');"></div>
 
   <!-- Hero Text -->
   <section style="text-align: center; padding: 2.5rem 1rem 1rem;">
@@ -237,6 +251,7 @@
 
   <script>
     document.getElementById("hamburger").addEventListener("click", function() {
+      this.classList.toggle("active");
       document.getElementById("mobileMenu").classList.toggle("active");
     });
 
