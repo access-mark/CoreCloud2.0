@@ -27,7 +27,7 @@ body {
   min-height: 100vh;
 }
 
-/* Typography */
+/* Typography – Uniform across all pages */
 h1 {
   font-size: 2rem;
   font-weight: 700;
@@ -119,21 +119,19 @@ nav a.active {
   font-weight: 900;
 }
 
-/* PAGE BANNER — UNIFIED FIX */
+/* Uniform Page Banners */
 .page-banner {
-  height: 300px !important;
-  min-height: 300px;
-  max-height: 300px;
+  height: 300px;
+  width: 100%;
   background-size: cover;
   background-position: center;
-  width: 100%;
-  display: block;
+  background-repeat: no-repeat;
   overflow: hidden;
 }
 
-/* Images inside banners (if any) */
+/* For banners that use <img> instead of background-image */
 .page-banner img {
-  height: 300px !important;
+  height: 100%;
   width: 100%;
   object-fit: cover;
   display: block;
@@ -200,7 +198,7 @@ main.content {
   margin-top: 3rem;
 }
 
-/* Card Grid */
+/* Card Grid — default layout */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -208,6 +206,7 @@ main.content {
   padding: 0 2rem;
 }
 
+/* Card Styling */
 .card {
   background: #fff;
   border-radius: 12px;
@@ -239,12 +238,12 @@ main.content {
   margin-bottom: 1.2rem;
 }
 
-/* White text in cards with colored backgrounds */
+/* White text inside any card with custom background */
 .card[style*="background"] * {
   color: #ffffff !important;
 }
 
-/* Card CTA Button */
+/* Reinstate bright blue full-width button on cards */
 .card .cta-btn {
   display: block;
   width: 100%;
@@ -374,6 +373,10 @@ footer {
   nav a {
     font-size: 0.75rem;
     padding: 0.2rem 0.5rem;
+  }
+
+  .page-banner {
+    height: 200px;
   }
 
   .card-grid {
