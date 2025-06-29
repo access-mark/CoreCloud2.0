@@ -10,12 +10,21 @@
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    /* Force all page banners to 300px height across pages */
+    /* Uniformly force all page banners to 300px height across all devices */
     .page-banner {
       height: 300px !important;
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       width: 100%;
+      overflow: hidden;
+    }
+
+    /* Remove previous mobile override that forced shorter height */
+    @media screen and (max-width: 768px) {
+      .page-banner {
+        height: 300px !important;
+      }
     }
   </style>
 </head>
