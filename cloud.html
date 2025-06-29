@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 
   <style>
+    /* Page-specific styling */
     .page-banner {
       height: 300px !important;
       background-size: cover;
@@ -135,25 +136,6 @@
       margin-bottom: 1.2rem;
     }
 
-    .cta-btn {
-      background-color: #ffffff;
-      color: #000000;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.95rem;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      margin-top: auto;
-      border: 2px solid #ffffff;
-    }
-
-    .cta-btn:hover {
-      background-color: #333333;
-      color: #ffffff;
-      border-color: #333333;
-    }
-
     .aws-card {
       background-color: #ff9900;
       border: 1px solid #000;
@@ -162,6 +144,32 @@
     .azure-card {
       background-color: #007fff;
       border: 1px solid #000;
+    }
+
+    /* CLOUD PAGE CTA BUTTON FIX */
+
+    .aws-card .cta-btn {
+      background-color: #ffffff !important;
+      color: #ff9900 !important;
+      border: 2px solid #ffffff;
+    }
+
+    .aws-card .cta-btn:hover {
+      background-color: #f2f2f2 !important;
+      color: #ff9900 !important;
+      border-color: #f2f2f2;
+    }
+
+    .azure-card .cta-btn {
+      background-color: #ffffff !important;
+      color: #007fff !important;
+      border: 2px solid #ffffff;
+    }
+
+    .azure-card .cta-btn:hover {
+      background-color: #f2f2f2 !important;
+      color: #007fff !important;
+      border-color: #f2f2f2;
     }
 
     @media screen and (max-width: 768px) {
