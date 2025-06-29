@@ -147,41 +147,41 @@
       background-color: #004f91;
     }
 
-    .relaunch-cta {
+    /* Re/Launch card as a card block */
+    .relaunch-cta.card {
       background: linear-gradient(90deg, #0066b2 0%, #004f91 100%);
-      color: #fff;
+      color: #ffffff;
       text-align: center;
-      padding: 3rem 1rem;
-      margin: 3rem 0;
-      border-radius: 8px;
     }
 
-    .relaunch-cta h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
+    .relaunch-cta.card h2,
+    .relaunch-cta.card p {
+      color: #ffffff;
     }
 
-    .relaunch-cta p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .relaunch-cta a.cta-btn {
+    .relaunch-cta.card .cta-btn {
       background-color: #ffffff;
       color: #004f91;
-      font-weight: bold;
-      padding: 0.75rem 2rem;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 1.1rem;
+      border: none;
     }
 
-    .relaunch-cta a.cta-btn:hover {
+    .relaunch-cta.card .cta-btn:hover {
       background-color: #004f91;
-      color: #fff;
+      color: #ffffff;
+    }
+
+    /* Five-column layout for Our Focus Areas */
+    .card-grid.quad {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+
+    @media screen and (max-width: 1200px) {
+      .card-grid.quad {
+        grid-template-columns: repeat(3, 1fr);
+      }
     }
 
     @media screen and (max-width: 768px) {
@@ -195,6 +195,10 @@
 
       nav.mobile-nav.active {
         display: flex;
+      }
+
+      .card-grid.quad {
+        grid-template-columns: repeat(1, 1fr);
       }
     }
   </style>
@@ -250,12 +254,12 @@
     </p>
   </section>
 
-  <!-- Re/Launch Hub -->
-  <div class="relaunch-cta">
+  <!-- Re/Launch as Card -->
+  <section class="relaunch-cta card" style="margin: 3rem auto; max-width: 1000px;">
     <h2>Starting Out or Starting Over?</h2>
     <p>Whether you’re a young professional launching your career or an experienced talent looking to pivot, our <strong>Re / Launch Talent Hub</strong> is designed to connect you to meaningful opportunities in the South African ICT landscape. Let’s help you take your next step — with clarity, confidence, and support.</p>
     <a href="talent-relaunch.html" class="cta-btn">Visit Re / Launch Hub</a>
-  </div>
+  </section>
 
   <!-- Why CoreCloud -->
   <section class="section">
@@ -282,13 +286,6 @@
       <div class="card"><h2>Software Developers</h2><p>Full-stack, backend, and frontend developers across modern frameworks.</p></div>
       <div class="card"><h2>Business Analysts</h2><p>Tech-savvy BAs who bridge business goals with technical delivery.</p></div>
       <div class="card"><h2>Project Managers</h2><p>Agile, Scrum, and hybrid PMs driving high-performance delivery teams.</p></div>
-      <div class="card"><h2>Program Managers</h2><p>Strategic oversight of multi-workstream initiatives and enterprise-wide change.</p></div>
-      <div class="card"><h2>Sales – Hunters & Closers</h2><p>Revenue-focused sales execs who thrive in targets, velocity, and new logo acquisition.</p></div>
-      <div class="card"><h2>Sales Managers</h2><p>Leaders who build, coach, and drive high-performing ICT sales teams.</p></div>
-      <div class="card"><h2>Executive – C-Suite & Leadership</h2><p>Seasoned executives and strategic leaders aligned to growth, turnaround, and transformation mandates.</p></div>
-      <div class="card"><h2>Data Specialists</h2><p>From data engineers to analysts — powering insight and innovation.</p></div>
-      <div class="card"><h2>Solution Architects</h2><p>Strategic thinkers who design scalable, secure cloud and application architectures aligned to business goals.</p></div>
-      <div class="card"><h2>Security & Compliance Specialists</h2><p>Experts in cloud security, governance, and risk management — ensuring regulatory alignment and resilience.</p></div>
     </div>
   </section>
 
@@ -306,6 +303,7 @@
     <a href="contact.html" class="cta-btn">Start a Conversation</a>
   </section>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
