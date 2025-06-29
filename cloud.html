@@ -143,13 +143,15 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 0.95rem;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
       margin-top: auto;
+      border: 2px solid #ffffff;
     }
 
     .cta-btn:hover {
-      background-color: #333;
-      color: #fff;
+      background-color: #333333;
+      color: #ffffff;
+      border-color: #333333;
     }
 
     .aws-card {
@@ -157,17 +159,9 @@
       border: 1px solid #000;
     }
 
-    .aws-card .cta-btn {
-      color: #000000;
-    }
-
     .azure-card {
       background-color: #007fff;
       border: 1px solid #000;
-    }
-
-    .azure-card .cta-btn {
-      color: #004f91;
     }
 
     @media screen and (max-width: 768px) {
