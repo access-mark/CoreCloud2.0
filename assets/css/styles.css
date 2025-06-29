@@ -74,13 +74,15 @@ p {
 /* Header & Navigation */
 .small-banner {
   background-color: #ffffff;
-  padding: 0.2rem 2rem 0;
+  padding: 0.5rem 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
   z-index: 1000;
+  height: auto;
+  min-height: 80px;
 }
 
 .banner-header {
@@ -92,7 +94,8 @@ p {
 }
 
 .logo {
-  height: 160px;
+  max-height: 80px;
+  height: auto;
   width: auto;
 }
 
@@ -118,12 +121,21 @@ nav a.active {
   font-weight: 900;
 }
 
-/* Banner */
+/* Page Banner */
 .page-banner {
   height: 340px;
   background-size: cover;
   background-position: center;
-  /* removed duplicate margin-top here */
+  width: 100%;
+  display: block;
+}
+
+/* Images inside page banners (if any) */
+.page-banner img {
+  height: 340px;
+  width: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* Content */
@@ -350,7 +362,8 @@ footer {
   }
 
   .logo {
-    height: 90px;
+    max-height: 60px;
+    height: auto;
     margin-bottom: 0.5rem;
   }
 
@@ -420,40 +433,4 @@ footer {
 .relaunch-cta h2,
 .relaunch-cta p {
   color: #ffffff;
-}
-/* --- ENSURE ALL PAGE BANNERS HAVE CONSISTENT HEIGHT --- */
-
-.page-banner {
-  height: 340px !important;
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  display: block;
-}
-
-/* Remove any accidental inner content height causing overflow */
-.page-banner > * {
-  height: 100%;
-  object-fit: cover;
-}
-
-/* If you accidentally use images directly inside .page-banner */
-.page-banner img {
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* OPTIONAL: If you want a slim nav bar, keep .small-banner small */
-.small-banner {
-  height: auto; /* keep nav flexible */
-  min-height: 80px;
-  padding: 0.5rem 2rem;
-}
-
-.small-banner .logo {
-  max-height: 60px;
-  height: auto;
-  width: auto;
 }
