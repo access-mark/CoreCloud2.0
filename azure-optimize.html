@@ -10,10 +10,14 @@
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="https://access-mark.github.io/CoreCloud2.0/assets/css/styles.css" />
   <style>
-    /* Small Banner Styling */
+    /* Navigation Styling */
     .small-banner {
       background-color: #f7f7f7;
       padding: 10px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
     }
     
     .banner-header {
@@ -43,12 +47,14 @@
       color: #0066b2;
     }
 
+    /* Banner Styling */
     .page-banner {
       background-color: #0078D4;
       height: 80px;
-      margin-top: 80px;
+      margin-top: 80px; /* Adjust the margin so the content is visible below the banner */
     }
 
+    /* Section Styling */
     .section-title {
       text-align: center;
       font-size: 2.4rem;
@@ -129,7 +135,7 @@
   </style>
 </head>
 <body>
-  <!-- Top Nav -->
+  <!-- Header -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
