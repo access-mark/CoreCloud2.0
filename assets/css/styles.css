@@ -77,6 +77,7 @@ p {
   width: auto;
 }
 
+/* Desktop Nav */
 nav.desktop-nav {
   display: flex;
   align-items: center;
@@ -126,6 +127,7 @@ nav.desktop-nav a.active {
   transform: rotate(-45deg) translate(6px, -6px);
 }
 
+/* Mobile Nav */
 nav.mobile-nav {
   display: none;
   flex-direction: column;
