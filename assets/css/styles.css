@@ -119,6 +119,34 @@ nav a.active {
   font-weight: 900;
 }
 
+/* Hamburger Button */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  background: #003366;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
 /* Uniform Page Banners */
 .page-banner {
   height: 300px;
@@ -129,7 +157,6 @@ nav a.active {
   overflow: hidden;
 }
 
-/* For banners that use <img> instead of background-image */
 .page-banner img {
   height: 100%;
   width: 100%;
@@ -198,7 +225,7 @@ main.content {
   margin-top: 3rem;
 }
 
-/* Card Grid — default layout */
+/* Card Grid */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -206,7 +233,6 @@ main.content {
   padding: 0 2rem;
 }
 
-/* Card Styling */
 .card {
   background: #fff;
   border-radius: 12px;
@@ -238,12 +264,11 @@ main.content {
   margin-bottom: 1.2rem;
 }
 
-/* White text inside any card with custom background */
+/* White text in dark cards */
 .card[style*="background"] * {
   color: #ffffff !important;
 }
 
-/* Reinstate bright blue full-width button on cards */
 .card .cta-btn {
   display: block;
   width: 100%;
@@ -350,86 +375,49 @@ footer {
 
 /* Mobile Tweaks */
 @media screen and (max-width: 768px) {
-  body {
-    font-size: 0.85rem;
-    padding: 0;
-  }
-
   .banner-header {
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
-  }
-
-  .logo {
-    height: 90px;
-    margin-bottom: 0.5rem;
   }
 
   nav {
     flex-direction: column;
-    gap: 0.4rem;
+    background: #ffffff;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    margin-top: 1rem;
+  }
+
+  nav.open {
+    max-height: 500px;
   }
 
   nav a {
-    font-size: 0.75rem;
-    padding: 0.2rem 0.5rem;
-  }
-
-  /* Removed mobile height override for page-banner */
-
-  .card-grid {
-    padding: 0 1rem;
-    gap: 1rem;
-  }
-
-  .card {
     padding: 0.8rem;
-  }
-
-  .card h2, .card h3 {
-    font-size: 1.1rem;
-  }
-
-  .card p {
-    font-size: 0.85rem;
-  }
-
-  .card .cta-btn {
-    font-size: 0.85rem;
-    margin-top: 0.8rem;
-  }
-
-  footer {
-    padding: 2rem 1rem 1rem;
-  }
-
-  .footer-content {
-    flex-direction: column;
+    font-size: 0.9rem;
+    width: 100%;
     text-align: center;
+    border-bottom: 1px solid #ddd;
   }
 
-  .footer-left,
-  .footer-middle,
-  .footer-right {
-    text-align: center;
+  .hamburger {
+    display: flex;
   }
 
-  h1.section-title {
-    font-size: 1.8rem !important;
+  .logo {
+    height: 90px;
+    margin-bottom: 0;
   }
 
-  .subtitle,
-  .center-subtitle {
-    font-size: 1rem !important;
-    padding: 0 1rem;
-  }
-
-  .center-title {
-    font-size: 2rem !important;
+  .page-banner {
+    height: 200px;
   }
 }
 
-/* White text in Re / Launch Talent Hub */
+/* White text for Re/Launch Hub CTA */
 .relaunch-cta h2,
 .relaunch-cta p {
   color: #ffffff;
