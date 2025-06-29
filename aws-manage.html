@@ -8,34 +8,158 @@
   <meta name="keywords" content="AWS Managed Services, Cloud Governance South Africa, AWS Monitoring, Cost Optimization, Cloud Operations, CoreCloud AWS Support" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
-  <link rel="stylesheet" href="https://access-mark.github.io/CoreCloud2.0/assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
   <style>
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: #003366;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+    nav.mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: #ffffff;
+      width: 100%;
+      position: absolute;
+      top: 160px;
+      left: 0;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1001;
+    }
+    nav.mobile-nav.active {
+      display: flex;
+    }
+    nav.mobile-nav a {
+      padding: 0.8rem 0;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 1px solid #ddd;
+    }
+    nav.mobile-nav a:last-child {
+      border-bottom: none;
+    }
+
+    @media screen and (max-width: 768px) {
+      nav.desktop-nav {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    .page-banner {
+      background: linear-gradient(to right, #ff9900, #f57c00);
+      height: 150px;
+      margin-top: 160px;
+      width: 100%;
+    }
+
+    .center-title {
+      font-size: 2.4rem;
+      text-align: center;
+      color: #004f91;
+      margin: 3rem 0 1.5rem;
+      font-weight: 700;
+    }
+    .center-subtitle {
+      text-align: center;
+      color: #444;
+      font-size: 1.1rem;
+      margin: 0 auto 2rem;
+      max-width: 900px;
+      line-height: 1.6;
+    }
+
+    .section-title {
+      text-align: center;
+      color: #004f91;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      font-weight: 700;
+    }
+
     .card-grid.triple {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
+      padding: 0 1rem;
     }
 
-    @media screen and (max-width: 1024px) {
-      .card-grid.triple {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .card {
+      background: #ffffff;
+      color: #444;
+      padding: 1.5rem;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h2 {
+      color: #0066b2;
+      font-size: 1.4rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #444;
     }
 
-    @media screen and (max-width: 700px) {
-      .card-grid.triple {
-        grid-template-columns: 1fr;
-      }
+    .cta-btn {
+      display: inline-block;
+      background-color: #0066b2;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    .cta-btn:hover {
+      background-color: #004f91;
+      color: #fff;
     }
   </style>
 </head>
 <body>
-  <!-- Top Navigation -->
+  <!-- Navigation -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-      <nav>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">Home</a>
         <a href="consulting.html" class="nav-btn">Consulting</a>
         <a href="cloud.html" class="nav-btn active">Cloud Service Suite</a>
@@ -44,123 +168,130 @@
         <a href="about.html" class="nav-btn">About Us</a>
         <a href="contact.html" class="nav-btn">Contact</a>
       </nav>
+
+      <nav class="mobile-nav" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="cloud.html" class="active">Cloud Service Suite</a>
+        <a href="talent.html">Talent Placement</a>
+        <a href="newsroom.html">Newsroom</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
   </div>
 
-  <!-- AWS Banner (standard orange) -->
-  <div class="page-banner" style="background: linear-gradient(to right, #ff9900, #f57c00); height: 150px; margin-top: 160px;"></div>
+  <div class="page-banner"></div>
 
-  <!-- Page Content -->
-  <main class="content">
-    <h1 class="center-title" style="color:#004f91;">AWS Managed Services</h1>
+  <main class="content" style="max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem;">
+    <h1 class="center-title">AWS Managed Services</h1>
     <p class="center-subtitle">
       After the migration and modernization, the real work begins: operating with clarity, confidence, and control. CoreCloud’s AWS Managed Services keep your cloud operations sharp. We embed governance, automate patching, monitor performance, and manage costs — so you can focus on outcomes, not infrastructure.
     </p>
 
     <section class="section">
-      <h2 class="section-title" style="color:#004f91; text-align:center;">Our AWS Management Toolkit</h2>
+      <h2 class="section-title">Our AWS Management Toolkit</h2>
       <div class="card-grid triple">
         <div class="card">
-          <h2 style="color:#0066b2;">Monitoring & Dashboards</h2>
+          <h2>Monitoring & Dashboards</h2>
           <p>Real-time health dashboards with alerting, so you're always in control of uptime and performance.</p>
         </div>
         <div class="card">
-          <h2 style="color:#0066b2;">Compliance Automation</h2>
+          <h2>Compliance Automation</h2>
           <p>Adherence to AWS Well-Architected Framework and security benchmarks — without the admin burden.</p>
         </div>
         <div class="card">
-          <h2 style="color:#0066b2;">Patching & Backups</h2>
+          <h2>Patching & Backups</h2>
           <p>Automated patching, snapshot-based backups, and integrated DR routines keep you protected and recoverable.</p>
         </div>
         <div class="card">
-          <h2 style="color:#0066b2;">Cost Optimization</h2>
+          <h2>Cost Optimization</h2>
           <p>Track, analyze, and reduce cloud costs through tagging, RI/Savings Plan tracking, and usage pattern analysis.</p>
         </div>
         <div class="card">
-          <h2 style="color:#0066b2;">DevOps CI/CD Management</h2>
+          <h2>DevOps CI/CD Management</h2>
           <p>Manage and support CI/CD pipelines, environments, and tooling — from build to deploy with reliability.</p>
         </div>
         <div class="card">
-          <h2 style="color:#0066b2;">24/7 Managed NOC</h2>
+          <h2>24/7 Managed NOC</h2>
           <p>Round-the-clock partner-based NOC coverage with SLAs and proactive remediation built-in.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
-      <h2 class="section-title" style="color:#004f91; text-align:center;">Why Clients Trust CoreCloud</h2>
+      <h2 class="section-title">Why Clients Trust CoreCloud</h2>
       <div class="card-grid triple">
         <div class="card">
-          <h2 style="color:#0066b2;">Action-Oriented Support</h2>
+          <h2>Action-Oriented Support</h2>
           <p>We don’t just alert — we act. Our tools and teams respond immediately to keep services resilient.</p>
         </div>
         <div class="card">
-          <h2 style="color:#0066b2;">Full Visibility</h2>
+          <h2>Full Visibility</h2>
           <p>Track everything — from cost and uptime to security events and compliance risks — via one pane of glass.</p>
         </div>
         <div class="card">
-          <h2 style="color:#0066b2;">Obsessed with Outcomes</h2>
+          <h2>Obsessed with Outcomes</h2>
           <p>We reduce risk, contain costs, and unlock efficiency — measurable wins, not vague promises.</p>
         </div>
       </div>
     </section>
 
     <div style="text-align: center; margin-top: 3rem;">
-      <a href="contact.html" class="cta-btn" style="background-color: #0066b2;">Get a Managed Services Demo →</a>
+      <a href="contact.html" class="cta-btn">Get a Managed Services Demo →</a>
     </div>
   </main>
 
-   <!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-left">
-      <p><strong>CoreCloud (Pty) Ltd</strong></p>
-      <p>Sandton,<br>Johannesburg</p>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton,<br>Johannesburg</p>
+      </div>
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+          <input type="email" name="email" placeholder="Enter your email" required style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
+          <button type="submit" style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-right">
+        <p>Contact</p>
+        <p>Email: sales@corecloudza.com</p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
+      </div>
     </div>
-    <div class="footer-middle">
-      <h4>Stay Informed</h4>
-      <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-      <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
-        <input type="email" name="email" placeholder="Enter your email" required
-               style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
-        <button type="submit"
-                style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
-          Subscribe
-        </button>
-      </form>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
     </div>
-    <div class="footer-right">
-      <p>Contact</p>
-      <p>Email: sales@corecloudza.com</p>
-      <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  document.getElementById("subscribe-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const form = e.target;
-    const data = new FormData(form);
+  <script>
+    document.getElementById("hamburger").addEventListener("click", function() {
+      this.classList.toggle("active");
+      document.getElementById("mobileMenu").classList.toggle("active");
+    });
 
-    fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
-      method: "POST",
-      body: data
-    })
-    .then(response => {
-      if (response.ok) {
-        window.location.href = "thank-you.html";
-      } else {
-        alert("Something went wrong. Please try again.");
-      }
-    })
-    .catch(() => alert("Submission failed. Please try again."));
-  });
-</script>
+    document.getElementById("subscribe-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
 
- 
+      fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
+        method: "POST",
+        body: data
+      })
+      .then(response => {
+        if (response.ok) {
+          window.location.href = "thank-you.html";
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      })
+      .catch(() => alert("Submission failed. Please try again."));
+    });
+  </script>
 </body>
 </html>
