@@ -9,15 +9,25 @@
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+
   <style>
-    /* Banner height fix */
+    /* Banner height fix — forcibly always 300px */
     .page-banner {
-      height: 300px;
+      height: 300px !important;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       width: 100%;
       overflow: hidden;
+    }
+
+    /* Hero title normalized */
+    .hero-title {
+      font-size: 2.8rem;
+      color: #004f91;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-align: center;
     }
 
     /* Hamburger styles */
@@ -71,6 +81,7 @@
       border-bottom: none;
     }
 
+    /* Mobile tweaks */
     @media screen and (max-width: 768px) {
       nav.desktop-nav {
         display: none;
@@ -83,14 +94,10 @@
       nav.mobile-nav.active {
         display: flex;
       }
-
-      /* Normalize hero heading size on mobile */
-      h1.hero-title {
-        font-size: 2rem !important;
-      }
     }
   </style>
 </head>
+
 <body>
   <!-- Navigation -->
   <div class="small-banner">
@@ -133,7 +140,7 @@
 
   <!-- Hero Text -->
   <section style="text-align: center; padding: 2.5rem 1rem 1rem;">
-    <h1 class="hero-title" style="font-size: 2.8rem; color: #004f91; margin-bottom: 1rem;">
+    <h1 class="hero-title">
       From Strategy to Revenue. From Cloud to People.
     </h1>
     <p style="font-size: 1.2rem; max-width: 900px; margin: 0 auto; color: #444;">
