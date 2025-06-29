@@ -9,184 +9,155 @@
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+
   <style>
-    .page-banner {
-      height: 300px !important;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      width: 100%;
-      overflow: hidden;
-    }
-
-    .hero-title {
-      font-size: 2.8rem;
-      color: #004f91;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      text-align: center;
-    }
-
-    /* Hamburger styles */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      cursor: pointer;
-      gap: 5px;
-    }
-
-    .hamburger span {
-      width: 25px;
-      height: 3px;
-      background-color: #003366;
-      transition: all 0.3s ease;
-      border-radius: 2px;
-    }
-
-    .hamburger.active span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    .hamburger.active span:nth-child(2) {
-      opacity: 0;
-    }
-    .hamburger.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px);
-    }
-
-    nav.mobile-nav {
-      display: none;
-      flex-direction: column;
-      background: #ffffff;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      padding: 1rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      z-index: 1001;
-    }
-
-    nav.mobile-nav a {
-      padding: 0.5rem 0;
-      color: #003366;
-      text-decoration: none;
-      font-weight: bold;
-      border-bottom: 1px solid #ddd;
-    }
-
-    nav.mobile-nav a:last-child {
-      border-bottom: none;
-    }
-
-    .card {
-      text-decoration: none !important;
-      background: #0066b2;
-      color: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 1.2rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card h2, .card h3 {
-      color: #ffffff;
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    .card p {
-      color: #ffffff;
-      font-size: 0.95rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .card .cta-btn {
-      margin-top: auto;
-      background-color: #ffffff;
-      color: #0066b2;
-      text-align: center;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 0.95rem;
-      padding: 0.6rem 1.2rem;
+    .partner-card {
+      background-color: #f4f6f8;
+      padding: 20px;
       border-radius: 6px;
-      transition: background-color 0.3s ease;
+      border: 1px solid #ddd;
+      margin-bottom: 2rem;
     }
 
-    .card .cta-btn:hover {
+    .partner-card h3 {
+      color: #004f91;
+      margin-bottom: 10px;
+    }
+
+    .partner-card a.cta-btn {
+      background-color: #0066b2;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+
+    .partner-card a.cta-btn:hover {
       background-color: #004f91;
-      color: #ffffff;
     }
 
-    .relaunch-cta.card {
+    .relaunch-cta {
+      background: linear-gradient(90deg, #0066b2 0%, #004f91 100%);
+      color: #fff;
+      text-align: center;
+      padding: 3rem 1rem;
+      margin: 3rem 0;
+      border-radius: 8px;
+    }
+
+    .relaunch-cta h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .relaunch-cta p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .relaunch-cta a.cta-btn {
+      background-color: #ffffff;
+      color: #004f91;
+      font-weight: bold;
+      padding: 0.75rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1.1rem;
+    }
+
+    .relaunch-cta a.cta-btn:hover {
+      background-color: #004f91;
+      color: #fff;
+    }
+
+    /* New CTA Card styling */
+    .cta-card {
       background: linear-gradient(90deg, #0066b2 0%, #004f91 100%);
       color: #ffffff;
       text-align: center;
+      padding: 3rem 2rem;
+      margin: 4rem auto;
+      border-radius: 8px;
+      max-width: 800px;
     }
 
-    .relaunch-cta.card .cta-btn {
+    .cta-card h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-card p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-card a.cta-btn {
       background-color: #ffffff;
       color: #004f91;
-      border: none;
+      font-weight: bold;
+      padding: 0.75rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: inline-block;
+      transition: background-color 0.3s ease;
     }
 
-    .relaunch-cta.card .cta-btn:hover {
+    .cta-card a.cta-btn:hover {
       background-color: #004f91;
       color: #ffffff;
     }
 
+    /* Tighter grid for Focus Areas */
     .card-grid.quad {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
       padding: 0 1rem;
     }
 
-    @media screen and (max-width: 1200px) {
-      .card-grid.quad {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .card-grid.quad .card {
+      background: #0066b2;
+      color: #ffffff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-align: center;
+      transition: transform 0.3s ease;
+      text-decoration: none;
     }
 
-    @media screen and (max-width: 768px) {
-      nav.desktop-nav {
-        display: none;
-      }
+    .card-grid.quad .card:hover {
+      transform: translateY(-5px);
+    }
 
-      .hamburger {
-        display: flex;
-      }
+    .card-grid.quad .card h2 {
+      color: #ffffff;
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+    }
 
-      nav.mobile-nav.active {
-        display: flex;
-      }
-
-      .card-grid.quad {
-        grid-template-columns: 1fr;
-      }
+    .card-grid.quad .card p {
+      color: #ffffff;
+      font-size: 0.95rem;
     }
   </style>
 </head>
-
 <body>
+  <!-- Header -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">Home</a>
         <a href="consulting.html" class="nav-btn">Consulting</a>
@@ -196,82 +167,78 @@
         <a href="about.html" class="nav-btn">About Us</a>
         <a href="contact.html" class="nav-btn">Contact</a>
       </nav>
-
-      <nav class="mobile-nav" id="mobileMenu">
-        <a href="index.html">Home</a>
-        <a href="consulting.html">Consulting</a>
-        <a href="cloud.html">Cloud Service Suite</a>
-        <a href="talent.html" class="active">Talent Placement</a>
-        <a href="newsroom.html">Newsroom</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
-      </nav>
     </div>
   </div>
 
+  <!-- Page Banner -->
   <div class="page-banner" style="background-image: url('assets/images/talent-bannerimage.png');"></div>
 
-  <section style="text-align: center; padding: 2.5rem 1rem 1rem;">
-    <h1 class="hero-title">Strategic Talent Placement</h1>
-    <p style="font-size: 1.2rem; max-width: 900px; margin: 0 auto; color: #444;">
-      At CoreCloud, we don’t just fill roles — we fuel performance. Our placement model is built for speed, precision, and impact. We connect high-calibre cloud, engineering, and digital talent with the organisations that are building what’s next.<br><br>
-      Whether you're scaling a delivery team, modernising infrastructure, or driving a digital programme — we move fast, vet thoroughly, and match on more than just skills. We align people with purpose, capability with context, and ambition with opportunity.<br><br>
-      Our network is built on trust, and our placements stick because we understand what both sides need to win.
-    </p>
-  </section>
-
-  <section class="relaunch-cta card" style="margin: 3rem auto; max-width: 1000px;">
+  <!-- Launch Hub CTA -->
+  <div class="relaunch-cta">
     <h2>Starting Out or Starting Over?</h2>
     <p>Whether you’re a young professional launching your career or an experienced talent looking to pivot, our <strong>Re / Launch Talent Hub</strong> is designed to connect you to meaningful opportunities in the South African ICT landscape. Let’s help you take your next step — with clarity, confidence, and support.</p>
     <a href="talent-relaunch.html" class="cta-btn">Visit Re / Launch Hub</a>
-  </section>
+  </div>
 
-  <section class="section">
-    <h2 class="section-title">Why CoreCloud Talent?</h2>
-    <p class="center-subtitle" style="max-width: 900px; margin: 0 auto 2rem; text-align: center;">
-      We know the tech hiring landscape — because we’ve operated in it, led in it, and hired for it.
-    </p>
-    <div style="display: flex; justify-content: center;">
-      <ul style="line-height: 1.8; text-align: left;">
-        <li> Our talent network is curated, not crowdsourced — every profile is vetted, relevant, and ready.</li>
-        <li> We move fast — with agile placement models that flex around your delivery pressures.</li>
-        <li> We match on capability and chemistry — because culture fit drives performance.</li>
-        <li> We speak executive — aligning talent to strategy, not just vacancies to CVs.</li>
-      </ul>
-    </div>
-  </section>
+  <!-- Main Content -->
+  <main class="content">
+    <section class="section intro">
+      <h1 class="section-title" style="color: #004f91;">Strategic Talent Placement</h1>
+      <p class="subtitle" style="text-align: center; max-width: 900px; margin: 0 auto 2rem; color: #444;">
+        At CoreCloud, we don’t just fill roles — we fuel performance. Our placement model is built for speed, precision, and impact. We connect high-calibre cloud, engineering, and digital talent with the organisations that are building what’s next.<br><br>
+        Whether you're scaling a delivery team, modernising infrastructure, or driving a digital programme — we move fast, vet thoroughly, and match on more than just skills. We align people with purpose, capability with context, and ambition with opportunity.<br><br>
+        Our network is built on trust, and our placements stick because we understand what both sides need to win.
+      </p>
+    </section>
 
-  <section class="section">
-    <h2 class="section-title">Our Focus Areas</h2>
-    <div class="card-grid quad">
-      <div class="card"><h2>Cloud Engineers</h2><p>AWS, Azure, hybrid and multi-cloud professionals with infrastructure expertise.</p></div>
-      <div class="card"><h2>DevOps & Automation</h2><p>CI/CD specialists, platform engineers, and automation experts.</p></div>
-      <div class="card"><h2>Software Developers</h2><p>Full-stack, backend, and frontend developers across modern frameworks.</p></div>
-      <div class="card"><h2>Business Analysts</h2><p>Tech-savvy BAs who bridge business goals with technical delivery.</p></div>
-      <div class="card"><h2>Project Managers</h2><p>Agile, Scrum, and hybrid PMs driving high-performance delivery teams.</p></div>
-      <div class="card"><h2>Program Managers</h2><p>Strategic oversight of multi-workstream initiatives and enterprise-wide change.</p></div>
-      <div class="card"><h2>Sales – Hunters & Closers</h2><p>Revenue-focused sales execs who thrive in targets, velocity, and new logo acquisition.</p></div>
-      <div class="card"><h2>Sales Managers</h2><p>Leaders who build, coach, and drive high-performing ICT sales teams.</p></div>
-      <div class="card"><h2>Executive – C-Suite & Leadership</h2><p>Seasoned executives and strategic leaders aligned to growth, turnaround, and transformation mandates.</p></div>
-      <div class="card"><h2>Data Specialists</h2><p>From data engineers to analysts — powering insight and innovation.</p></div>
-      <div class="card"><h2>Solution Architects</h2><p>Strategic thinkers who design scalable, secure cloud and application architectures aligned to business goals.</p></div>
-      <div class="card"><h2>Security & Compliance Specialists</h2><p>Experts in cloud security, governance, and risk management — ensuring regulatory alignment and resilience.</p></div>
-    </div>
-  </section>
+    <section class="section">
+      <h2 class="section-title" style="color: #004f91;">Why CoreCloud Talent?</h2>
+      <p class="center-subtitle" style="max-width: 900px; margin: 0 auto 2rem; text-align: center;">
+        We know the tech hiring landscape — because we’ve operated in it, led in it, and hired for it.
+      </p>
+      <div style="display: flex; justify-content: center;">
+        <ul style="line-height: 1.8; text-align: left;">
+          <li> Our talent network is curated, not crowdsourced — every profile is vetted, relevant, and ready.</li>
+          <li> We move fast — with agile placement models that flex around your delivery pressures.</li>
+          <li> We match on capability and chemistry — because culture fit drives performance.</li>
+          <li> We speak executive — aligning talent to strategy, not just vacancies to CVs.</li>
+        </ul>
+      </div>
+    </section>
 
-  <section class="section" style="margin-top: 4rem;">
-    <h2 class="section-title" style="text-align: center;">Strategic Partnerships</h2>
-    <p style="text-align: center; max-width: 900px; margin: 0 auto 2rem;">
-      At CoreCloud, we believe talent excellence requires more than internal resources alone. It’s about aligning with partners who specialise in talent sourcing, screening, and market intelligence — and who share our relentless drive for precision and quality in every placement.
-    </p>
-  </section>
+    <section class="section">
+      <h2 class="section-title" style="color: #004f91;">Our Focus Areas</h2>
+      <div class="card-grid quad">
+        <div class="card"><h2>Cloud Engineers</h2><p>AWS, Azure, hybrid and multi-cloud professionals with infrastructure expertise.</p></div>
+        <div class="card"><h2>DevOps & Automation</h2><p>CI/CD specialists, platform engineers, and automation experts.</p></div>
+        <div class="card"><h2>Software Developers</h2><p>Full-stack, backend, and frontend developers across modern frameworks.</p></div>
+        <div class="card"><h2>Business Analysts</h2><p>Tech-savvy BAs who bridge business goals with technical delivery.</p></div>
+        <div class="card"><h2>Project Managers</h2><p>Agile, Scrum, and hybrid PMs driving high-performance delivery teams.</p></div>
+        <div class="card"><h2>Program Managers</h2><p>Strategic oversight of multi-workstream initiatives and enterprise-wide change.</p></div>
+        <div class="card"><h2>Sales – Hunters & Closers</h2><p>Revenue-focused sales execs who thrive in targets, velocity, and new logo acquisition.</p></div>
+        <div class="card"><h2>Sales Managers</h2><p>Leaders who build, coach, and drive high-performing ICT sales teams.</p></div>
+        <div class="card"><h2>Executive – C-Suite & Leadership</h2><p>Seasoned executives and strategic leaders aligned to growth, turnaround, and transformation mandates.</p></div>
+        <div class="card"><h2>Data Specialists</h2><p>From data engineers to analysts — powering insight and innovation.</p></div>
+        <div class="card"><h2>Solution Architects</h2><p>Strategic thinkers who design scalable, secure cloud and application architectures aligned to business goals.</p></div>
+        <div class="card"><h2>Security & Compliance Specialists</h2><p>Experts in cloud security, governance, and risk management — ensuring regulatory alignment and resilience.</p></div>
+      </div>
+    </section>
 
-  <section class="cta center" style="margin-top: 4rem;">
-    <h2>Need Talent or Looking for Your Next Role?</h2>
-    <p>We place top-tier talent into roles that matter. Let’s talk.</p>
-    <a href="contact.html" class="cta-btn">Start a Conversation</a>
-  </section>
+    <section class="section" style="margin-top: 4rem;">
+      <h2 class="section-title" style="color: #004f91; text-align: center;">Strategic Partnerships</h2>
+      <p style="text-align: center; max-width: 900px; margin: 0 auto 2rem;">
+        At CoreCloud, we believe talent excellence requires more than internal resources alone. It’s about aligning with partners who specialise in talent sourcing, screening, and market intelligence — and who share our relentless drive for precision and quality in every placement.
+      </p>
+    </section>
 
+    <section class="cta-card">
+      <h2>Need Talent or Looking for Your Next Role?</h2>
+      <p>We place top-tier talent into roles that matter. Let’s talk.</p>
+      <a href="contact.html" class="cta-btn">Start a Conversation</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -300,15 +267,11 @@
   </footer>
 
   <script>
-    document.getElementById("hamburger").addEventListener("click", function() {
-      this.classList.toggle("active");
-      document.getElementById("mobileMenu").classList.toggle("active");
-    });
-
     document.getElementById("subscribe-form").addEventListener("submit", function (e) {
       e.preventDefault();
       const form = e.target;
       const data = new FormData(form);
+
       fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
         method: "POST",
         body: data
