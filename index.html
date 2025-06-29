@@ -10,7 +10,7 @@
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    /* Fix banner height across all devices */
+    /* Banner height fix */
     .page-banner {
       height: 300px;
       background-size: cover;
@@ -71,7 +71,6 @@
       border-bottom: none;
     }
 
-    /* Mobile tweaks */
     @media screen and (max-width: 768px) {
       nav.desktop-nav {
         display: none;
@@ -84,6 +83,11 @@
       nav.mobile-nav.active {
         display: flex;
       }
+
+      /* Normalize hero heading size on mobile */
+      h1.hero-title {
+        font-size: 2rem !important;
+      }
     }
   </style>
 </head>
@@ -92,7 +96,7 @@
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-      
+
       <!-- Hamburger Icon -->
       <div class="hamburger" id="hamburger">
         <span></span>
@@ -129,7 +133,7 @@
 
   <!-- Hero Text -->
   <section style="text-align: center; padding: 2.5rem 1rem 1rem;">
-    <h1 style="font-size: 2.8rem; color: #004f91; margin-bottom: 1rem;">
+    <h1 class="hero-title" style="font-size: 2.8rem; color: #004f91; margin-bottom: 1rem;">
       From Strategy to Revenue. From Cloud to People.
     </h1>
     <p style="font-size: 1.2rem; max-width: 900px; margin: 0 auto; color: #444;">
