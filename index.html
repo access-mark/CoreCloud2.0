@@ -11,9 +11,9 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 
   <style>
-    /* Force consistent banner height */
+    /* Banner height fix */
     .page-banner {
-      height: 300px;
+      height: 300px !important;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -21,7 +21,7 @@
       overflow: hidden;
     }
 
-    /* Hero title */
+    /* Hero title normalized */
     .hero-title {
       font-size: 2.8rem;
       color: #004f91;
@@ -81,42 +81,62 @@
       border-bottom: none;
     }
 
-    /* Dark Card variant for white text */
-    .card-dark {
+    /* Explore Our Services cards styling */
+    .card {
+      text-decoration: none !important;
+    }
+
+    .card.card-dark {
       background-color: #0066b2;
       color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      border-radius: 12px;
+      padding: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
     }
 
-    .card-dark h3,
-    .card-dark p {
+    .card.card-dark:hover {
+      transform: translateY(-5px);
+    }
+
+    .card.card-dark h3,
+    .card.card-dark p {
       color: #ffffff;
+      text-decoration: none;
     }
 
-    /* CTA button inside dark cards */
-    .card-dark .cta-btn {
+    .card.card-dark .cta-btn {
       background-color: #ffffff;
       color: #0066b2;
-      display: inline-block;
+      display: block;
       padding: 0.6rem 1.2rem;
       border-radius: 6px;
+      text-align: center;
       text-decoration: none;
       font-weight: bold;
       font-size: 0.95rem;
       transition: background-color 0.3s ease;
-      margin-top: 1rem;
+      margin-top: auto;
     }
 
-    .card-dark .cta-btn:hover {
+    .card.card-dark .cta-btn:hover {
       background-color: #e0e0e0;
     }
 
+    /* Mobile tweaks */
     @media screen and (max-width: 768px) {
       nav.desktop-nav {
         display: none;
       }
+
       .hamburger {
         display: flex;
       }
+
       nav.mobile-nav.active {
         display: flex;
       }
@@ -222,18 +242,24 @@
       <h2 class="section-title">Explore Our Services</h2>
       <div class="card-grid">
         <a href="consulting.html" class="card card-dark">
-          <h3>Consulting</h3>
-          <p>Executive-grade sales strategy, pipeline accuracy, GTM frameworks, and high-performance transformation advisory.</p>
+          <div>
+            <h3>Consulting</h3>
+            <p>Executive-grade sales strategy, pipeline accuracy, GTM frameworks, and high-performance transformation advisory.</p>
+          </div>
           <span class="cta-btn">Learn More</span>
         </a>
         <a href="cloud.html" class="card card-dark">
-          <h3>Cloud Services</h3>
-          <p>Modernize, migrate, manage, and optimize with proven AWS & Azure frameworks and top-tier cloud execution teams.</p>
+          <div>
+            <h3>Cloud Services</h3>
+            <p>Modernize, migrate, manage, and optimize with proven AWS & Azure frameworks and top-tier cloud execution teams.</p>
+          </div>
           <span class="cta-btn">Learn More</span>
         </a>
         <a href="talent.html" class="card card-dark">
-          <h3>Talent Placement</h3>
-          <p>Top talent matched to business need. Deeply screened, technically verified, and strategically aligned.</p>
+          <div>
+            <h3>Talent Placement</h3>
+            <p>Top talent matched to business need. Deeply screened, technically verified, and strategically aligned.</p>
+          </div>
           <span class="cta-btn">Learn More</span>
         </a>
       </div>
