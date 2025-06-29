@@ -10,23 +10,68 @@
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="https://access-mark.github.io/CoreCloud2.0/assets/css/styles.css" />
   <style>
+    .thin-banner {
+      background-color: #FF9900;
+      height: 80px;
+      width: 100%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.4rem;
+      color: #004f91;
+      margin-top: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.1rem;
+      color: #444;
+      max-width: 900px;
+      margin: 0 auto 2rem;
+    }
+
     .card-grid.triple {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
       margin-top: 2rem;
     }
 
-    @media screen and (max-width: 1024px) {
-      .card-grid.triple {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      padding: 1.5rem;
+      text-align: center;
     }
 
-    @media screen and (max-width: 700px) {
-      .card-grid.triple {
-        grid-template-columns: 1fr;
-      }
+    .card h2 {
+      font-size: 1.4rem;
+      color: #0066b2;
+      margin-bottom: 0.8rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #333333;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      margin-top: 2rem;
+      background-color: #0066b2;
+      color: #ffffff;
+      padding: 0.8rem 1.5rem;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #004f91;
     }
   </style>
 </head>
@@ -35,7 +80,8 @@
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-      <nav>
+
+      <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">Home</a>
         <a href="consulting.html" class="nav-btn">Consulting</a>
         <a href="cloud.html" class="nav-btn active">Cloud Service Suite</a>
@@ -44,106 +90,129 @@
         <a href="about.html" class="nav-btn">About Us</a>
         <a href="contact.html" class="nav-btn">Contact</a>
       </nav>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html">Home</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="cloud.html" class="active">Cloud Service Suite</a>
+        <a href="talent.html">Talent Placement</a>
+        <a href="newsroom.html">Newsroom</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
   </div>
 
-  <!-- AWS Banner -->
-  <div class="page-banner" style="background: linear-gradient(to right, #ff9900, #f57c00); height: 150px; margin-top: 160px;"></div>
+  <!-- Thin Orange Banner -->
+  <div class="thin-banner"></div>
 
   <!-- Main Content -->
   <main class="content">
-    <h1 class="center-title" style="color:#004f91;">AWS Optimization Services</h1>
-    <p class="center-subtitle">
+    <h1 class="section-title">AWS Optimization Services</h1>
+    <p class="section-subtitle">
       Cloud waste is real – and costly. At CoreCloud, we unlock savings through proactive AWS optimization. Our process reveals hidden inefficiencies, rightsizes resources, and ensures your environment is lean, fast, and future-ready.
     </p>
 
-    <section>
-      <h2 class="section-title" style="color:#004f91; text-align:center;">Our Optimization Pillars</h2>
+    <section class="section">
+      <h2 class="section-title">Our Optimization Pillars</h2>
       <div class="card-grid triple">
         <div class="card">
-          <h2 style="color:#0066b2;">Cost Transparency</h2>
+          <h2>Cost Transparency</h2>
           <p>Deep visibility across accounts, with detection of untagged assets, anomalies, and unused services.</p>
         </div>
         <div class="card">
-          <h2 style="color:#0066b2;">Performance Tuning</h2>
+          <h2>Performance Tuning</h2>
           <p>Benchmarking, autoscaling, storage optimization and speed tuning for workload efficiency.</p>
         </div>
         <div class="card">
-          <h2 style="color:#0066b2;">Reserved Instances Strategy</h2>
+          <h2>Reserved Instances Strategy</h2>
           <p>Smart RI & Savings Plan strategies for maximum ROI while maintaining agility in deployment.</p>
         </div>
         <div class="card">
-          <h2 style="color:#0066b2;">FinOps Alignment</h2>
+          <h2>FinOps Alignment</h2>
           <p>Integrated forecasting, budget tracking, and cost ownership practices built into operations.</p>
         </div>
         <div class="card">
-          <h2 style="color:#0066b2;">Real-time Optimization Tools</h2>
+          <h2>Real-time Optimization Tools</h2>
           <p>We bring visibility, intelligence, and automation to cut costs while boosting performance.</p>
         </div>
         <div class="card">
-          <h2 style="color:#0066b2;">Cloud ROI Realization</h2>
+          <h2>Cloud ROI Realization</h2>
           <p>We move you from consumption to value — delivering measurable gains in efficiency and cost control.</p>
         </div>
       </div>
     </section>
 
     <div style="text-align: center; margin-top: 3rem;">
-      <a href="contact.html" class="cta-btn" style="background-color: #0066b2;">Start Saving →</a>
+      <a href="contact.html" class="cta-btn">Start Saving →</a>
     </div>
   </main>
 
   <!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-left">
-      <p><strong>CoreCloud (Pty) Ltd</strong></p>
-      <p>Sandton,<br>Johannesburg</p>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton,<br>Johannesburg</p>
+      </div>
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+          <input type="email" name="email" placeholder="Enter your email" required
+                 style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
+          <button type="submit"
+                  style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
+            Subscribe
+          </button>
+        </form>
+      </div>
+      <div class="footer-right">
+        <p>Contact</p>
+        <p>Email: sales@corecloudza.com</p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
+      </div>
     </div>
-    <div class="footer-middle">
-      <h4>Stay Informed</h4>
-      <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-      <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
-        <input type="email" name="email" placeholder="Enter your email" required
-               style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
-        <button type="submit"
-                style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
-          Subscribe
-        </button>
-      </form>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
     </div>
-    <div class="footer-right">
-      <p>Contact</p>
-      <p>Email: sales@corecloudza.com</p>
-      <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  document.getElementById("subscribe-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const form = e.target;
-    const data = new FormData(form);
+  <script>
+    document.getElementById("subscribe-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
 
-    fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
-      method: "POST",
-      body: data
-    })
-    .then(response => {
-      if (response.ok) {
-        window.location.href = "thank-you.html";
-      } else {
-        alert("Something went wrong. Please try again.");
-      }
-    })
-    .catch(() => alert("Submission failed. Please try again."));
-  });
-</script>
+      fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
+        method: "POST",
+        body: data
+      })
+      .then(response => {
+        if (response.ok) {
+          window.location.href = "thank-you.html";
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      })
+      .catch(() => alert("Submission failed. Please try again."));
+    });
 
-    
+    document.addEventListener("DOMContentLoaded", function () {
+      const hamburger = document.getElementById("hamburger");
+      const mobileNav = document.getElementById("mobileNav");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        mobileNav.classList.toggle("active");
+      });
+    });
+  </script>
 </body>
 </html>
-
