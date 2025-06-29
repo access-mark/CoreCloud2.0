@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CoreCloud | Cloud Consulting, AWS Services & Talent – South Africa</title>
-  <meta name="description" content="CoreCloud helps South African enterprises transform with executive-grade cloud consulting, AWS migration & modernization, and elite ICT talent placement." />
-  <meta name="keywords" content="CoreCloud, Cloud Services South Africa, AWS Migration, AWS Modernization, Talent Placement, Cloud Consulting South Africa, ICT Talent, Executive Cloud Consulting" />
+  <meta name="description" content="CoreCloud helps South African enterprises transform with executive-grade sales consulting, cloud modernization, and elite ICT talent placement." />
+  <meta name="keywords" content="CoreCloud, Cloud Services South Africa, AWS Migration, Sales Consulting, Talent Placement, ICT Talent" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
@@ -16,19 +16,20 @@
       margin-top: 160px;
     }
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem; /* tighter spacing */
-      padding: 0 1rem;
-      margin-top: 2rem;
+    .section {
+      margin-top: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    #focus-method-section {
+      margin-top: 1rem;
     }
 
     .stats-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 2rem;
-      margin: 4rem 0;
+      margin: 3rem 0;
       text-align: center;
     }
 
@@ -42,7 +43,6 @@
     .stat-card h2 {
       font-size: 2.5rem;
       color: #0066b2;
-      margin-top: 1.5rem;
       margin-bottom: 0.5rem;
     }
 
@@ -73,51 +73,38 @@
   <div class="page-banner"></div>
 
   <!-- Hero Text below the Banner -->
-  <section style="text-align: center; padding: 3rem 1rem;">
-    <h1 style="font-size: 2.8rem; color: #004f91; margin-bottom: 1rem;">
-      From Strategy to Revenue. From Cloud to People.
-    </h1>
+  <section style="text-align: center; padding: 2.5rem 1rem 1rem;">
+    <h1 style="font-size: 2.8rem; color: #004f91; margin-bottom: 1rem;">From Strategy to Revenue. From Cloud to People.</h1>
     <p style="font-size: 1.2rem; max-width: 900px; margin: 0 auto; color: #444;">
-      At CoreCloud, we believe execution matters as much as ambition. We help South African enterprises bridge the gap between boardroom strategy and real-world results — delivering measurable growth through precision sales consulting, transformative cloud modernization, and elite ICT talent placement. Whether you’re scaling your sales pipeline, modernizing legacy systems, or closing critical talent gaps, CoreCloud brings executive insight, proven frameworks, and a relentless focus on outcomes. We don’t just advise — we partner, we build, and we deliver. Because in today’s market, bold thinking alone isn’t enough. Revenue. Scale. Competitive advantage. That’s what we help you achieve.
+      At CoreCloud, we believe execution matters as much as ambition. We help South African enterprises bridge the gap between boardroom strategy and real-world results — delivering measurable growth through precision sales consulting, transformative cloud modernization, and elite ICT talent placement.
+      <br><br>
+      Whether you’re scaling your sales pipeline, modernizing legacy systems, or closing critical talent gaps, CoreCloud brings executive insight, proven frameworks, and a relentless focus on outcomes. We don’t just advise — we partner, we build, and we deliver.
+      <br><br>
+      Because in today’s market, bold thinking alone isn’t enough. Revenue. Scale. Competitive advantage. That’s what we help you achieve.
     </p>
   </section>
 
-  <!-- About CoreCloud -->
-  <section class="about-block" style="
-    background: #ffffff;
-    padding: 2.5rem 2rem;
-    border-radius: 12px;
-    margin: 1.5rem auto 3rem auto;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    max-width: 800px;
-  ">
-    <div class="about-content" style="text-align: center;">
-      <div style="
-        width: 60px;
-        height: 4px;
-        background: #0066b2;
-        margin: 0 auto 1rem auto;
-        border-radius: 2px;
-      "></div>
-      <h2 style="
-        font-size: 2.2rem;
-        color: #004f91;
-        margin-bottom: 0.75rem;
-      ">About CoreCloud</h2>
-      <p style="
-        font-size: 1.1rem;
-        color: #444444;
-        line-height: 1.7;
-        margin-bottom: 0;
-      ">
-        CoreCloud bridges the gap between bold ambition and practical execution. Led by seasoned executives who’ve delivered under boardroom pressure, we transform enterprises across technology, talent, and commercial disciplines. Real outcomes come from clarity, precision, and relentless follow-through — and our clients trust us to deliver measurable impact where it matters most.
-      </p>
-    </div>
-  </section>
-
   <main class="content">
-    <!-- Why / What / How -->
-    <section class="section">
+    <!-- About CoreCloud - moved higher -->
+    <section class="about-block" style="
+      background: #ffffff;
+      padding: 2.5rem 2rem;
+      border-radius: 12px;
+      margin: 1rem auto 2rem auto;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      max-width: 800px;
+    ">
+      <div class="about-content" style="text-align: center;">
+        <div style="width: 60px; height: 4px; background: #0066b2; margin: 0 auto 1rem auto; border-radius: 2px;"></div>
+        <h2 style="font-size: 2.2rem; color: #004f91; margin-bottom: 0.75rem;">About CoreCloud</h2>
+        <p style="font-size: 1.1rem; color: #444444; line-height: 1.7; margin-bottom: 0;">
+          CoreCloud bridges the gap between bold ambition and practical execution. Led by seasoned executives who’ve delivered under boardroom pressure, we transform enterprises across technology, talent, and commercial disciplines. Real outcomes come from clarity, precision, and relentless follow-through — and our clients trust us to deliver measurable impact where it matters most.
+        </p>
+      </div>
+    </section>
+
+    <!-- Focus & Method - moved up -->
+    <section id="focus-method-section" class="section">
       <h2 class="section-title">Our Focus & Method</h2>
       <div class="card-grid">
         <div class="card">
@@ -174,7 +161,7 @@
     </section>
 
     <!-- Re / Launch CTA -->
-    <section class="relaunch-cta" style="background: #ffffff; color: #333; text-align: center; padding: 3rem 1rem; margin: 4rem auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 800px;">
+    <section class="relaunch-cta" style="background: #ffffff; color: #333; text-align: center; padding: 3rem 1rem; margin: 4rem 0; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); max-width: 900px; margin-left: auto; margin-right: auto;">
       <h2 style="color: #004f91; font-size: 2rem; margin-bottom: 1rem;">Starting Out or Starting Over?</h2>
       <p style="font-size: 1.1rem; color: #444; max-width: 800px; margin: 0 auto 2rem;">
         Whether you’re launching your career or pivoting mid-journey, our <strong>Re / Launch Talent Hub</strong> connects you with real opportunities in South Africa’s tech landscape. Let’s move you forward — with clarity and confidence.
@@ -184,24 +171,22 @@
       </a>
     </section>
 
-    <!-- Targets -->
-    <section class="section">
-      <h2 class="section-title">Our Strategic Targets</h2>
-      <div class="stats-grid">
-        <div class="stat-card">
-          <h2>R1 Billion</h2>
-          <p>Our target: managing R1 billion in cloud spend by 2027, ensuring maximum value through modernization and FinOps.</p>
-        </div>
-        <div class="stat-card">
-          <h2>300+</h2>
-          <p>Scaling to over 300 cloud and talent engagements by 2026, driving transformation across industries.</p>
-        </div>
-        <div class="stat-card">
-          <h2>4x ROI</h2>
-          <p>Delivering at least 4x ROI for every client project, with measurable commercial impact.</p>
-        </div>
+    <!-- Target Metrics -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <h2>R1 Billion</h2>
+        <p>Our target: managing R1 billion in cloud spend by 2027, ensuring maximum value through modernization and FinOps.</p>
+      </div>
+      <div class="stat-card">
+        <h2>300+</h2>
+        <p>Scaling to over 300 cloud and talent engagements by 2026, driving transformation across industries.</p>
+      </div>
+      <div class="stat-card">
+        <h2>4x ROI</h2>
+        <p>Delivering at least 4x ROI for every client project, with measurable commercial impact.</p>
       </div>
     </section>
+
   </main>
 
   <!-- Footer -->
@@ -215,10 +200,8 @@
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
-          <input type="email" name="email" placeholder="Enter your email" required
-                 style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
-          <button type="submit"
-                  style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
+          <input type="email" name="email" placeholder="Enter your email" required style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
+          <button type="submit" style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
             Subscribe
           </button>
         </form>
