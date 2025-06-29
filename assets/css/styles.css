@@ -5,11 +5,22 @@
   box-sizing: border-box;
 }
 
+/* Color Variables */
+:root {
+  --primary-blue: #0066b2;
+  --dark-blue: #004f91;
+  --accent-green: #48b938;
+  --accent-red: #ee1c25;
+  --accent-black: #000000;
+  --light-bg: #f4f6f8;
+  --text-gray: #444;
+}
+
 /* Body Styling */
 body {
   font-family: 'Segoe UI', Roboto, sans-serif;
-  background-color: #f4f6f8;
-  color: #1e1e1e;
+  background-color: var(--light-bg);
+  color: var(--text-gray);
   line-height: 1.6;
   display: flex;
   flex-direction: column;
@@ -20,27 +31,27 @@ body {
 h1 {
   font-size: 2rem;
   font-weight: 700;
-  color: #004f91;
+  color: var(--dark-blue);
   margin-bottom: 1.2rem;
 }
 
 h2 {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #004f91;
+  color: var(--dark-blue);
   margin-bottom: 1rem;
 }
 
 h3 {
   font-size: 1.25rem;
   font-weight: 600;
-  color: #004f91;
+  color: var(--dark-blue);
   margin-bottom: 0.8rem;
 }
 
 p {
   font-size: 1rem;
-  color: #444;
+  color: var(--text-gray);
   margin-bottom: 1rem;
 }
 
@@ -48,18 +59,16 @@ p {
   font-size: 2rem;
   font-weight: 700;
   text-align: center;
-  color: #004f91;
+  color: var(--dark-blue);
   margin-bottom: 1.2rem;
 }
 
 .center-subtitle {
   font-size: 1rem;
-  color: #444;
+  color: var(--text-gray);
   text-align: center;
-  margin-bottom: 2rem;
+  margin: 0 auto 2rem auto;
   max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 /* Header & Navigation */
@@ -114,7 +123,7 @@ nav a.active {
   height: 340px;
   background-size: cover;
   background-position: center;
-  margin-top: 160px;
+  /* removed duplicate margin-top here */
 }
 
 /* Content */
@@ -133,7 +142,7 @@ main.content {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
   text-align: center;
-  color: #004f91;
+  color: var(--dark-blue);
 }
 
 /* Bullet Lists */
@@ -204,8 +213,9 @@ main.content {
   transform: translateY(-5px);
 }
 
-.card h2, .card h3 {
-  color: #0066b2;
+.card h2,
+.card h3 {
+  color: var(--primary-blue);
   margin-bottom: 1rem;
   font-size: 1.25rem;
   font-weight: 700;
@@ -213,13 +223,12 @@ main.content {
 
 .card p {
   font-size: 0.95rem;
-  color: #444;
+  color: var(--text-gray);
   margin-bottom: 1.2rem;
 }
 
-.card[style*="background: #0066b2"] h2,
-.card[style*="background: #0066b2"] h3,
-.card[style*="background: #0066b2"] p {
+/* White text inside any card with custom background */
+.card[style*="background"] * {
   color: #ffffff !important;
 }
 
@@ -228,7 +237,7 @@ main.content {
   display: block;
   width: 100%;
   padding: 0.75rem 1rem;
-  background-color: #0066b2;
+  background-color: var(--primary-blue);
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
@@ -239,7 +248,26 @@ main.content {
 }
 
 .card .cta-btn:hover {
-  background-color: #004f91;
+  background-color: var(--dark-blue);
+}
+
+/* Stat Cards */
+.stat-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  padding: 2rem;
+}
+
+.stat-card h2 {
+  font-size: 1.8rem;
+  color: var(--primary-blue);
+  margin-bottom: 0.5rem;
+}
+
+.stat-card p {
+  font-size: 1rem;
+  color: var(--text-gray);
 }
 
 /* Footer */
@@ -388,7 +416,7 @@ footer {
   }
 }
 
-/* NEW: Force white text in Re / Launch Talent Hub */
+/* White text in Re / Launch Talent Hub */
 .relaunch-cta h2,
 .relaunch-cta p {
   color: #ffffff;
