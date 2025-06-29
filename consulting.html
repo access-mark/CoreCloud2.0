@@ -9,7 +9,123 @@
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+
   <style>
+    /* Banner fix */
+    .page-banner {
+      height: 300px !important;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .hero-title {
+      font-size: 2.8rem;
+      color: #004f91;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: #003366;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    nav.mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: #ffffff;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1001;
+    }
+
+    nav.mobile-nav a {
+      padding: 0.5rem 0;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav.mobile-nav a:last-child {
+      border-bottom: none;
+    }
+
+    /* Cards */
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 1.2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none !important;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      color: #0066b2;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .card p {
+      color: #444;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .cta-btn {
+      background-color: #0066b2;
+      color: #fff;
+      display: inline-block;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+      transition: background-color 0.3s ease;
+      margin-top: auto;
+    }
+
+    .cta-btn:hover {
+      background-color: #004f91;
+    }
+
+    /* Partner cards */
     .partner-card {
       background-color: #f4f6f8;
       padding: 20px;
@@ -36,15 +152,39 @@
     .partner-card a:hover {
       text-decoration: underline;
     }
+
+    /* Mobile tweaks */
+    @media screen and (max-width: 768px) {
+      nav.desktop-nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      nav.mobile-nav.active {
+        display: flex;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <!-- Header -->
+  <!-- Navigation -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-      <nav>
+
+      <!-- Hamburger Icon -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">Home</a>
         <a href="consulting.html" class="nav-btn active">Consulting</a>
         <a href="cloud.html" class="nav-btn">Cloud Service Suite</a>
@@ -53,103 +193,110 @@
         <a href="about.html" class="nav-btn">About Us</a>
         <a href="contact.html" class="nav-btn">Contact</a>
       </nav>
+
+      <!-- Mobile Nav -->
+      <nav class="mobile-nav" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="cloud.html">Cloud Service Suite</a>
+        <a href="talent.html">Talent Placement</a>
+        <a href="newsroom.html">Newsroom</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
   </div>
 
   <!-- Page Banner -->
   <div class="page-banner" style="background-image: url('assets/images/consulting-bannerimage.png');"></div>
 
-  <!-- Content -->
   <main class="content">
-    <h1 style="text-align: center; color: #004f91;">Consulting Partnerships That Deliver Real Results</h1>
-    <p class="subtitle" style="text-align: center; max-width: 900px; margin: 0 auto 2rem;">
+    <h1 class="hero-title">Consulting Partnerships That Deliver Real Results</h1>
+    <p style="text-align: center; max-width: 900px; margin: 0 auto 2rem;">
       At CoreCloud, we believe true execution goes beyond internal expertise. It’s about forging the right partnerships, combining insight and action to deliver measurable results at scale.
     </p>
 
-    <h2 class="section-title" style="color: #004f91;">The Four Pillars of Execution</h2>
+    <h2 class="section-title">The Four Pillars of Execution</h2>
     <div class="card-grid" style="margin-top: 1rem;">
       <div class="card">
-        <h2 style="color: #0066b2;">Cloud</h2>
+        <h2>Cloud</h2>
         <p>We craft cloud strategies, modernize legacy systems, align vendors, and design delivery models that unlock agility and give enterprises a lasting competitive edge.</p>
       </div>
       <div class="card">
-        <h2 style="color: #0066b2;">People</h2>
+        <h2>People</h2>
         <p>We build future-ready teams, aligning skills, roles, and structures to support evolving operating models and drive sustained high performance.</p>
       </div>
       <div class="card">
-        <h2 style="color: #0066b2;">Process</h2>
+        <h2>Process</h2>
         <p>We bring discipline to go-to-market strategies, ensure commercial clarity, and embed operational rigor to translate strategy into measurable enterprise value.</p>
       </div>
       <div class="card">
-        <h2 style="color: #0066b2;">Partnerships</h2>
+        <h2>Partnerships</h2>
         <p>We partner with specialist firms who extend our capabilities, bringing deep domain expertise and accelerating impactful outcomes for our clients.</p>
       </div>
     </div>
 
     <section class="section">
-      <h2 class="section-title" style="color: #004f91;">Our Advisory Approach</h2>
+      <h2 class="section-title">Our Advisory Approach</h2>
       <p style="text-align: center;">We don’t trade in buzzwords — we deliver actionable strategy. CoreCloud partners with boards, CIOs, and business leaders to provide clear, structured, and high-impact engagements that turn vision into reality.</p>
       <div style="display: flex; justify-content: center; margin-top: 1rem;">
         <ul style="text-align: left;">
-          <li> Business-aligned cloud and technology strategies</li>
-          <li> Sales and go-to-market diagnostics and uplift</li>
-          <li> Platform architecture and vendor rationalization</li>
-          <li> Talent and capability readiness assessments</li>
-          <li> Optimized delivery models and strategic partnerships</li>
-          <li> Independent board-level advisory</li>
+          <li>Business-aligned cloud and technology strategies</li>
+          <li>Sales and go-to-market diagnostics and uplift</li>
+          <li>Platform architecture and vendor rationalization</li>
+          <li>Talent and capability readiness assessments</li>
+          <li>Optimized delivery models and strategic partnerships</li>
+          <li>Independent board-level advisory</li>
         </ul>
       </div>
     </section>
 
     <section class="section">
-      <h2 class="section-title" style="color: #004f91;">Why Clients Choose CoreCloud</h2>
+      <h2 class="section-title">Why Clients Choose CoreCloud</h2>
       <div class="card-grid">
         <div class="card">
-          <h2 style="color: #0066b2;">Executive-Grade Insights</h2>
+          <h2>Executive-Grade Insights</h2>
           <p>Our team brings executive-level experience honed in boardrooms, global technology giants, and high-growth ventures, delivering insights that drive real results.</p>
         </div>
         <div class="card">
-          <h2 style="color: #0066b2;">Outcome-Obsessed</h2>
+          <h2>Outcome-Obsessed</h2>
           <p>We measure success by outcomes, not hours. Every engagement is designed to deliver tangible, high-impact results for our clients.</p>
         </div>
         <div class="card">
-          <h2 style="color: #0066b2;">Agile & Independent</h2>
+          <h2>Agile & Independent</h2>
           <p>We stay lean and agile, free from vendor lock-in, ensuring we recommend only what’s best for your business — never bundled agendas.</p>
         </div>
         <div class="card">
-          <h2 style="color: #0066b2;">South African Context</h2>
+          <h2>South African Context</h2>
           <p>We understand the South African market, its players, challenges, and opportunities — and we know how to win in this unique environment.</p>
         </div>
         <div class="card">
-          <h2 style="color: #0066b2;">Strategic Operators</h2>
+          <h2>Strategic Operators</h2>
           <p>We’ve been in the boardroom, built the strategies, and executed under pressure. No buzzwords — just real-world delivery.</p>
         </div>
         <div class="card">
-          <h2 style="color: #0066b2;">Speed & Scale</h2>
+          <h2>Speed & Scale</h2>
           <p>We operate with speed and precision, transforming analysis into action and scaling solutions to match enterprise ambitions.</p>
         </div>
         <div class="card">
-          <h2 style="color: #0066b2;">Proven Partner Ecosystem</h2>
+          <h2>Proven Partner Ecosystem</h2>
           <p>Through partnerships with leading specialists like Xsellerate, we extend our capabilities and accelerate outcomes for our clients.</p>
         </div>
         <div class="card">
-          <h2 style="color: #0066b2;">Financial Pragmatism</h2>
+          <h2>Financial Pragmatism</h2>
           <p>We understand budgets are real. Our solutions are designed to deliver measurable ROI and sustainable value without unnecessary cost layers.</p>
         </div>
       </div>
     </section>
 
-    <!-- Strategic Partnerships Section -->
     <section class="section" style="margin-top: 4rem;">
-      <h2 class="section-title" style="color: #004f91;">Strategic Partnerships</h2>
+      <h2 class="section-title">Strategic Partnerships</h2>
       <p style="text-align: center; max-width: 900px; margin: 0 auto 2rem;">
         At CoreCloud, we believe true execution requires more than expertise alone. It demands alignment with world-class partners who bring specialized skills and share our relentless focus on delivering measurable outcomes.
       </p>
 
-        <p style="text-align: center; margin-top: 2rem;">
-        <a href="contact.html" class="cta-btn" style="background-color: #0066b2; color: #fff; padding: 10px 20px; border-radius: 4px; text-decoration: none;">
-          Explore Sales Enablement with CoreCloud & Xsellerate
-        </a>
+      <p style="text-align: center; margin-top: 2rem;">
+        <a href="contact.html" class="cta-btn">Explore Sales Enablement with CoreCloud & Xsellerate</a>
       </p>
     </section>
 
@@ -171,10 +318,8 @@
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
-          <input type="email" name="email" placeholder="Enter your email" required
-                 style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
-          <button type="submit"
-                  style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
+          <input type="email" name="email" placeholder="Enter your email" required style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
+          <button type="submit" style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
             Subscribe
           </button>
         </form>
@@ -191,6 +336,11 @@
   </footer>
 
   <script>
+    document.getElementById("hamburger").addEventListener("click", function() {
+      this.classList.toggle("active");
+      document.getElementById("mobileMenu").classList.toggle("active");
+    });
+
     document.getElementById("subscribe-form").addEventListener("submit", function (e) {
       e.preventDefault();
       const form = e.target;
@@ -210,6 +360,5 @@
       .catch(() => alert("Submission failed. Please try again."));
     });
   </script>
-
 </body>
 </html>
