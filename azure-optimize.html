@@ -104,6 +104,8 @@
       font-size: 1.2rem;
       color: #004f91;
       transition: background-color 0.3s ease;
+      width: 100%;
+      text-align: center;
     }
 
     .mobile-nav a:hover {
@@ -125,16 +127,22 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      width: 100%;
     }
 
     .desktop-nav a {
       text-decoration: none;
-      padding: 10px;
+      padding: 10px 15px;
       color: #004f91;
       font-size: 1rem;
+      transition: background-color 0.3s ease;
     }
 
-    /* Media Query for Mobile */
+    .desktop-nav a:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* Mobile Nav - show links in vertical column */
     @media screen and (max-width: 768px) {
       .desktop-nav {
         display: none;
