@@ -1,4 +1,3 @@
-<!-- RE / LAUNCH TALENT HUB – Updated with Form Routing -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,62 +7,114 @@
   <meta name="description" content="CoreCloud’s Re / Launch Talent Hub helps youth and retrenched professionals find meaningful work with purpose-driven support." />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
+    body {
+      background-color: #f4f6f8;
+      font-family: 'Segoe UI', sans-serif;
+      color: #444;
+      line-height: 1.6;
+    }
+
     .section {
-      padding: 3rem 2rem;
+      padding: 3rem 1.5rem;
       max-width: 1200px;
       margin: 0 auto;
-    }
-
-    .card-grid.triple {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
-
-    .card {
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      padding: 1.5rem;
-    }
-
-    .cta-btn {
-      display: block;
-      margin: 1.5rem auto 0;
-      background-color: #0066b2;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      text-align: center;
-      width: 100%;
-      max-width: 500px;
-    }
-
-    .cta-btn:hover {
-      background-color: #004f91;
     }
 
     .section-title {
       text-align: center;
       color: #004f91;
       font-size: 2rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
+      font-weight: bold;
     }
 
     .subtitle {
       text-align: center;
       color: #444;
       max-width: 900px;
-      margin: 0 auto 1.5rem;
+      margin: 0 auto 1.5rem auto;
       font-size: 1.1rem;
     }
 
-    h3.section-title {
+    .card-grid.triple {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2 {
+      color: #0066b2;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .card p {
+      font-size: 1rem;
+      color: #444;
+    }
+
+    .cta-btn {
+      display: inline-block;
       margin-top: 2rem;
+      background-color: #ffffff;
+      color: #0066b2;
+      border: 2px solid #0066b2;
+      padding: 0.75rem 2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .cta-btn:hover {
+      background-color: #0066b2;
+      color: #ffffff;
+    }
+
+    h3.section-title {
+      margin-top: 3rem;
       font-size: 1.5rem;
+      color: #004f91;
+    }
+
+    .page-banner {
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .page-banner img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .partner-card a.cta-btn {
+      margin-top: 1rem;
+    }
+
+    @media screen and (max-width: 768px) {
+      .card-grid.triple {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -72,7 +123,7 @@
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-      <nav>
+      <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">Home</a>
         <a href="consulting.html" class="nav-btn">Consulting</a>
         <a href="cloud.html" class="nav-btn">Cloud Service Suite</a>
@@ -113,15 +164,15 @@
     <h3 class="section-title">Youth Upliftment</h3>
     <div class="card-grid triple">
       <div class="card">
-        <h2 style="color:#0066b2;">Micro Experience Projects</h2>
+        <h2>Micro Experience Projects</h2>
         <p>Gain real-world CV content with guided project work from our partner ecosystem — build credibility without needing full-time history.</p>
       </div>
       <div class="card">
-        <h2 style="color:#0066b2;">Exposure & Mentorship</h2>
+        <h2>Exposure & Mentorship</h2>
         <p>We plug you into networks that matter. Get introduced to hiring partners and mentored by professionals who’ve walked the path.</p>
       </div>
       <div class="card">
-        <h2 style="color:#0066b2;">Career Tools & Support</h2>
+        <h2>Career Tools & Support</h2>
         <p>We help you polish your CV, enhance your LinkedIn profile, and prepare to engage the market with impact — all at no cost.</p>
       </div>
     </div>
@@ -131,15 +182,15 @@
     <h3 class="section-title">Relaunch for Retrenched Professionals</h3>
     <div class="card-grid triple">
       <div class="card">
-        <h2 style="color:#0066b2;">Executive Network Access</h2>
+        <h2>Executive Network Access</h2>
         <p>We refer your profile directly into hiring decision-makers — no cold applications, just warm intros built on trust and track record.</p>
       </div>
       <div class="card">
-        <h2 style="color:#0066b2;">Flexible Work Pathways</h2>
+        <h2>Flexible Work Pathways</h2>
         <p>We support consulting, part-time, or project roles to keep you earning and active while you reframe what’s next.</p>
       </div>
       <div class="card">
-        <h2 style="color:#0066b2;">Profile Repositioning</h2>
+        <h2>Profile Repositioning</h2>
         <p>From CVs to rate framing, we help experienced professionals avoid the “overqualified” trap and highlight strategic value.</p>
       </div>
     </div>
@@ -149,7 +200,7 @@
     <h3 class="section-title">Future: Graduate Talent Program</h3>
     <div class="card-grid triple">
       <div class="card">
-        <h2 style="color:#0066b2;">Launchpad for Next-Gen Talent</h2>
+        <h2>Launchpad for Next-Gen Talent</h2>
         <p>A dedicated graduate program is in the works to attract, develop, and place top young minds into South Africa’s digital economy. Stay tuned — CoreCloud is building the future pipeline.</p>
       </div>
     </div>
@@ -175,10 +226,8 @@
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
-          <input type="email" name="email" placeholder="Enter your email" required
-                 style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
-          <button type="submit"
-                  style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
+          <input type="email" name="email" placeholder="Enter your email" required style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
+          <button type="submit" style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
             Subscribe
           </button>
         </form>
