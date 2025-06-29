@@ -10,7 +10,7 @@
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="https://access-mark.github.io/CoreCloud2.0/assets/css/styles.css" />
   <style>
-    /* Navigation Styling */
+    /* Navigation Bar */
     .small-banner {
       background-color: #f7f7f7;
       padding: 10px 0;
@@ -47,11 +47,11 @@
       color: #0066b2;
     }
 
-    /* Banner Styling */
+    /* Thin Blue Banner */
     .page-banner {
       background-color: #0078D4;
       height: 80px;
-      margin-top: 80px; /* Adjust the margin so the content is visible below the banner */
+      margin-top: 80px;
     }
 
     /* Section Styling */
@@ -132,6 +132,55 @@
       color: green;
       font-weight: bold;
     }
+
+    /* Mobile Nav Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      width: 30px;
+      height: 4px;
+      background-color: #333;
+      border-radius: 5px;
+    }
+
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .mobile-nav {
+        display: none;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        background-color: #f7f7f7;
+        width: 100%;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      .mobile-nav a {
+        display: block;
+        text-decoration: none;
+        color: #333;
+        padding: 10px 0;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      .mobile-nav.active {
+        display: block;
+      }
+    }
   </style>
 </head>
 <body>
@@ -139,7 +188,7 @@
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-      <nav>
+      <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">Home</a>
         <a href="consulting.html" class="nav-btn">Consulting</a>
         <a href="cloud.html" class="nav-btn active">Cloud Service Suite</a>
@@ -148,60 +197,70 @@
         <a href="about.html" class="nav-btn">About Us</a>
         <a href="contact.html" class="nav-btn">Contact</a>
       </nav>
+
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <nav class="mobile-nav" id="mobileNav">
+        <a href="index.html">Home</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="cloud.html" class="active">Cloud Service Suite</a>
+        <a href="talent.html">Talent Placement</a>
+        <a href="newsroom.html">Newsroom</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
   </div>
 
   <!-- Azure Banner -->
   <div class="page-banner"></div>
 
-  <!-- Content -->
+  <!-- Main Content -->
   <main class="content">
-    <h1 class="section-title">Microsoft Azure: Optimize</h1>
+    <h1 class="section-title">Microsoft Azure Optimization</h1>
     <p class="section-subtitle">
-      Cloud waste is real – and costly. At CoreCloud, we unlock savings through proactive Azure optimization. Our process reveals hidden inefficiencies, rightsizes resources, and ensures your environment is lean, fast, and future-ready.
+      Maximize your Azure potential with strategic optimization. Reduce costs, improve performance, and boost governance with CoreCloud’s end-to-end solutions.
     </p>
 
     <section>
       <h2 class="section-title" style="color:#004f91; text-align:center;">Our Azure Optimization Toolkit</h2>
       <div class="card-row">
         <div class="card">
-          <h2 style="color:#0066b2;">Cost Visibility</h2>
-          <p>We expose your Azure spend in real time — showing where money is wasted and where savings can be unlocked.</p>
-          <a href="contact.html" class="cta-btn" style="background-color: #0066b2;">Request Cost Audit</a>
+          <h3 style="color:#0066b2;">Cost Visibility</h3>
+          <p>Get real-time insights into your Azure spend, and pinpoint areas for cost savings.</p>
         </div>
         <div class="card">
-          <h2 style="color:#0066b2;">Rightsizing & Scaling</h2>
-          <p>We remove oversized resources, optimize autoscaling rules, and streamline environments without disruption.</p>
-          <a href="contact.html" class="cta-btn" style="background-color: #0066b2;">Scale Efficiently</a>
+          <h3 style="color:#0066b2;">Rightsizing & Scaling</h3>
+          <p>Optimize autoscaling and ensure your resources are sized to fit your actual needs.</p>
         </div>
         <div class="card">
-          <h2 style="color:#0066b2;">Governance & Tagging</h2>
-          <p>We implement policy guardrails, enforce naming and tagging, and ensure compliance is baked into your cloud.</p>
-          <a href="contact.html" class="cta-btn" style="background-color: #0066b2;">Enforce Governance</a>
+          <h3 style="color:#0066b2;">Governance & Compliance</h3>
+          <p>Enforce policies and best practices to maintain full governance across your cloud estate.</p>
         </div>
         <div class="card">
-          <h2 style="color:#0066b2;">RI & Hybrid Benefit</h2>
-          <p>We help you maximize Microsoft licensing entitlements, use Hybrid Benefits, and plan Reserved Instance strategies.</p>
-          <a href="contact.html" class="cta-btn" style="background-color: #0066b2;">Unlock Benefits</a>
+          <h3 style="color:#0066b2;">Hybrid Cloud Benefits</h3>
+          <p>Maximize your hybrid cloud investments with Microsoft’s licensing and RI strategies.</p>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2 class="section-title" style="color: #004f91;">Best Practice Framework</h2>
-      <div class="card" style="max-width: 1000px; margin: 0 auto; text-align: center;">
-        <h2 style="color: #0066b2;">Aligned to Microsoft FinOps</h2>
-        <p>We implement Microsoft’s FinOps and cost governance best practices – adapted for the realities of South African operations.</p>
-        <ul style="text-align: left; margin: 1.5rem auto; line-height: 1.8; max-width: 800px;">
-          <li> Budget forecasts, usage alerts, and cost anomaly detection</li>
-          <li> Business-aligned tagging strategy with full accountability</li>
-          <li> Optimization dashboards with actionable insights</li>
-          <li> Cloud operations that serve both finance and tech leaders</li>
-        </ul>
-        <a href="contact.html" class="cta-btn" style="background-color: #0066b2;">Run Lean with FinOps →</a>
-      </div>
+    <section>
+      <h2 class="section-title" style="color:#004f91; text-align:center;">Best Practices for Azure</h2>
+      <ul class="checklist">
+        <li> Budgeting and forecasting for cost management</li>
+        <li> Automated scaling and right-sizing</li>
+        <li> Compliance with Azure governance models</li>
+        <li> Real-time monitoring and alerts for performance optimization</li>
+      </ul>
     </section>
 
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="contact.html" class="cta-btn">Optimize Now</a>
+    </div>
   </main>
 
   <!-- Footer -->
