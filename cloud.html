@@ -22,7 +22,7 @@
     }
 
     .hero-title {
-      font-size: 2rem;  /* Adjusted to match the index page */
+      font-size: 2rem;
       color: #004f91;
       margin-bottom: 1rem;
       font-weight: 700;
@@ -31,14 +31,10 @@
 
     /* Hamburger Menu Styles */
     .hamburger {
-      display: flex;
+      display: none;
       flex-direction: column;
       cursor: pointer;
       gap: 5px;
-      position: absolute; /* Position hamburger menu at top-right */
-      top: 20px;
-      right: 20px;
-      z-index: 1002;
     }
 
     .hamburger span {
@@ -61,21 +57,24 @@
       transform: rotate(-45deg) translate(6px, -6px);
     }
 
+    /* Mobile Navigation */
     nav.mobile-nav {
       display: none;
       flex-direction: column;
       background: #ffffff;
       position: absolute;
-      top: 160px;  /* Ensures it appears below the header */
+      top: 160px;
       left: 0;
       width: 100%;
       padding: 1rem;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       z-index: 1001;
+      max-height: 500px;  /* Set a max-height */
+      overflow-y: auto;   /* Allow scrolling when content exceeds */
     }
 
     nav.mobile-nav a {
-      padding: 0.5rem 0;
+      padding: 0.8rem 0;
       color: #003366;
       text-decoration: none;
       font-weight: bold;
@@ -90,36 +89,131 @@
       display: flex;
     }
 
-    /* Set height for .small-banner */
+    /* Ensure uniform height for navigation */
     .small-banner {
-      height: 160px;  /* Set the fixed height for all pages */
+      height: 160px;  /* Ensure the header height is fixed and consistent */
       padding: 0.2rem 2rem 0;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       width: 100%;
-      position: relative; /* Ensure it's relative so it does not interfere with positioning */
     }
 
-    .logo {
-      height: 160px; /* Logo height */
-      width: auto;
-      position: absolute; /* Keep logo on the left */
-      top: 20px;
-      left: 20px;
+    /* Desktop Navigation */
+    nav.desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
     }
 
-    /* Mobile adjustments */
+    nav.desktop-nav a {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #003366;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    nav.desktop-nav a:hover,
+    nav.desktop-nav a.active {
+      color: #005fa3;
+      font-weight: 900;
+    }
+
+    /* Cloud Columns */
+    .cloud-columns {
+      display: flex;
+      flex-direction: row;
+      gap: 3rem;
+      justify-content: center;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .cloud-column {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .cloud-column h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #004f91;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .card-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 1.2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none !important;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .card p {
+      color: #ffffff;
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .aws-card {
+      background-color: #ff9900;
+      border: 1px solid #000;
+    }
+
+    .azure-card {
+      background-color: #007fff;
+      border: 1px solid #000;
+    }
+
+    /* CLOUD PAGE CTA BUTTON FIX */
+    .aws-card .cta-btn {
+      background-color: #ffffff !important;
+      color: #ff9900 !important;
+      border: 2px solid #ffffff;
+    }
+
+    .aws-card .cta-btn:hover {
+      background-color: #f2f2f2 !important;
+      color: #ff9900 !important;
+      border-color: #f2f2f2;
+    }
+
+    .azure-card .cta-btn {
+      background-color: #ffffff !important;
+      color: #007fff !important;
+      border: 2px solid #ffffff;
+    }
+
+    .azure-card .cta-btn:hover {
+      background-color: #f2f2f2 !important;
+      color: #007fff !important;
+      border-color: #f2f2f2;
+    }
+
+    /* Mobile tweaks */
     @media screen and (max-width: 768px) {
-      /* Set the same banner height for all mobile pages */
-      .page-banner {
-        height: 250px !important;  /* Ensure uniform banner height on mobile */
-      }
-
-      /* Hero title size for mobile */
-      .hero-title {
-        font-size: 2rem;
-      }
-
-      /* Show the hamburger menu */
       nav.desktop-nav {
         display: none;
       }
@@ -139,21 +233,6 @@
       .cloud-column {
         margin-bottom: 2rem;
       }
-
-      /* Move the page content down when menu is active */
-      body.menu-active {
-        padding-top: 320px; /* Adjust this value based on your needs */
-      }
-
-      /* Adjust the position of small banner when menu is open */
-      body.menu-active .small-banner {
-        top: 320px;  /* Move small banner below the hamburger menu */
-      }
-    }
-
-    /* Ensure the menu shifts the page down */
-    body.menu-active {
-      padding-top: 320px; /* This value is based on the height of your header and mobile menu */
     }
   </style>
 </head>
@@ -296,7 +375,6 @@
     document.getElementById("hamburger").addEventListener("click", function() {
       this.classList.toggle("active");
       document.getElementById("mobileMenu").classList.toggle("active");
-      document.body.classList.toggle("menu-active"); // Add this line to push the page down when the menu opens
     });
 
     document.getElementById("subscribe-form").addEventListener("submit", function (e) {
