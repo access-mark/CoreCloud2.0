@@ -129,14 +129,28 @@
 
     /* Mobile tweaks */
     @media screen and (max-width: 768px) {
+      /* Hide desktop nav on mobile */
       nav.desktop-nav {
         display: none;
       }
 
+      /* Show hamburger menu on mobile */
       .hamburger {
         display: flex;
       }
 
+      /* Adjust the logo on mobile */
+      .logo {
+        height: 320px; /* Double the logo size on mobile */
+        width: auto;
+      }
+
+      /* Adjust hero title font size for mobile */
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      /* Mobile Nav Active state */
       nav.mobile-nav.active {
         display: flex;
       }
@@ -262,27 +276,6 @@
         </a>
       </div>
     </section>
-
-    <!-- Re / Launch CTA -->
-    <section class="relaunch-cta full-width-card" style="
-      background: #ffffff;
-      color: #333;
-      text-align: center;
-      padding: 3rem 0;
-      margin: 4rem 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    ">
-      <div class="content-inner">
-        <h2 style="color: #004f91; font-size: 2rem; margin-bottom: 1rem;">Starting Out or Starting Over?</h2>
-        <p style="font-size: 1.1rem; color: #444; max-width: 800px; margin: 0 auto 2rem;">
-          Whether you’re launching your career or pivoting mid-journey, our <strong>Re / Launch Talent Hub</strong> connects you with real opportunities in South Africa’s tech landscape. Let’s move you forward — with clarity and confidence.
-        </p>
-        <a href="talent-relaunch.html" class="cta-btn" style="background: #0066b2; color: #ffffff; font-weight: bold; padding: 0.75rem 2rem; border-radius: 6px; text-decoration: none; font-size: 1.1rem;">
-          Visit Re / Launch Hub
-        </a>
-      </div>
-    </section>
   </main>
 
   <!-- Footer -->
@@ -317,25 +310,6 @@
     document.getElementById("hamburger").addEventListener("click", function() {
       this.classList.toggle("active");
       document.getElementById("mobileMenu").classList.toggle("active");
-    });
-
-    document.getElementById("subscribe-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-
-      fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
-        method: "POST",
-        body: data
-      })
-      .then(response => {
-        if (response.ok) {
-          window.location.href = "thank-you.html";
-        } else {
-          alert("Something went wrong. Please try again.");
-        }
-      })
-      .catch(() => alert("Submission failed. Please try again."));
     });
   </script>
 </body>
