@@ -38,7 +38,7 @@
       z-index: 1002; /* Ensure it's above the nav */
       position: absolute;
       top: 20px; /* Adjusted to keep the hamburger button at the top */
-      left: 20px; /* Adjust the positioning to keep it in place */
+      right: 20px; /* Move the hamburger to the right corner */
     }
 
     .hamburger span {
@@ -97,6 +97,15 @@
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       width: 100%;
       z-index: 1000; /* Ensure nav is above the header */
+      position: relative; /* Ensure it's relative so it does not interfere with positioning */
+    }
+
+    .logo {
+      height: 160px; /* Logo height */
+      width: auto;
+      position: absolute; /* Keep logo on the left */
+      top: 20px;
+      left: 20px;
     }
 
     /* Mobile adjustments */
