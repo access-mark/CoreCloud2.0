@@ -134,7 +134,7 @@ nav.mobile-nav {
   background: #ffffff;
   width: 100%;
   position: absolute;
-  top: 160px;
+  top: 160px; /* Ensures it appears below the header */
   left: 0;
   padding: 1rem;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -274,15 +274,34 @@ footer {
 
 /* Mobile tweaks */
 @media screen and (max-width: 768px) {
-  .logo {
-    height: 90px;
-  }
-  
-  h1 {
-    font-size: 2rem;
+  /* Hide desktop nav on mobile */
+  nav.desktop-nav {
+    display: none;
   }
 
+  /* Show hamburger menu on mobile */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Adjust the logo on mobile */
+  .logo {
+    max-height: 120px; /* Adjust the logo size */
+    width: auto;
+  }
+
+  /* Mobile Nav Active state */
+  nav.mobile-nav.active {
+    display: flex;
+  }
+
+  /* Adjust page banner height */
   .page-banner {
-    height: 300px;
+    height: 250px;
+  }
+
+  /* Adjust hero title font size for mobile */
+  .hero-title {
+    font-size: 2rem;
   }
 }
