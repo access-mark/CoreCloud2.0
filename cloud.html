@@ -36,6 +36,9 @@
       cursor: pointer;
       gap: 5px;
       z-index: 1002; /* Ensure it's above the nav */
+      position: absolute;
+      top: 20px; /* Adjusted to keep the hamburger button at the top */
+      left: 20px; /* Adjust the positioning to keep it in place */
     }
 
     .hamburger span {
@@ -62,7 +65,7 @@
       display: none;
       flex-direction: column;
       background: #ffffff;
-      position: absolute;
+      position: fixed; /* Changed to fixed so that it doesn't move */
       top: 160px;  /* Ensures it appears below the header */
       left: 0;
       width: 100%;
@@ -128,9 +131,14 @@
       .cloud-column {
         margin-bottom: 2rem;
       }
+
+      /* Move the page content down when menu is active */
+      body.menu-active {
+        padding-top: 320px; /* Adjust this value based on your needs */
+      }
     }
 
-    /* Ensure page shifts down when mobile menu is active */
+    /* Ensure the menu shifts the page down */
     body.menu-active {
       padding-top: 320px; /* This value is based on the height of your header and mobile menu */
     }
