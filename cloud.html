@@ -36,9 +36,9 @@
       cursor: pointer;
       gap: 5px;
       z-index: 1002; /* Ensure it's above the nav */
-      position: absolute;
-      top: 20px; /* Adjusted to keep the hamburger button at the top */
-      right: 20px; /* Move the hamburger to the right corner */
+      position: fixed; /* Fix the hamburger to the top */
+      top: 20px;
+      right: 20px;
     }
 
     .hamburger span {
@@ -65,7 +65,7 @@
       display: none;
       flex-direction: column;
       background: #ffffff;
-      position: fixed; /* Changed to fixed so that it doesn't move */
+      position: fixed; /* Changed to fixed so it doesn't scroll */
       top: 160px;  /* Ensures it appears below the header */
       left: 0;
       width: 100%;
@@ -96,8 +96,8 @@
       padding: 0.2rem 2rem 0;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       width: 100%;
-      z-index: 1000; /* Ensure nav is above the header */
       position: relative; /* Ensure it's relative so it does not interfere with positioning */
+      transition: top 0.3s ease;
     }
 
     .logo {
@@ -144,6 +144,11 @@
       /* Move the page content down when menu is active */
       body.menu-active {
         padding-top: 320px; /* Adjust this value based on your needs */
+      }
+
+      /* Adjust the position of small banner when menu is open */
+      body.menu-active .small-banner {
+        top: 320px;  /* Move small banner below the hamburger menu */
       }
     }
 
