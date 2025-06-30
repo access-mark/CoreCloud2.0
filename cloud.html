@@ -12,37 +12,8 @@
 
   <style>
     /* Page-specific styling */
-    .small-banner {
-      background-color: #ffffff;
-      padding: 0.2rem 2rem 0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      width: 100%;
-      height: 160px;  /* Ensure this is consistent across all pages */
-    }
-
-    /* Ensure desktop nav takes up the full height of the banner */
-    nav.desktop-nav {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      height: 100%;  /* This ensures the nav stays aligned */
-    }
-
-    nav.mobile-nav {
-      display: none;
-      flex-direction: column;
-      background: #ffffff;
-      width: 100%;
-      position: absolute;
-      top: 160px;  /* Adjust to appear directly below the header */
-      left: 0;
-      padding: 1rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      z-index: 1001;
-    }
-
     .page-banner {
-      height: 300px !important;  /* Ensure consistency */
+      height: 300px !important;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -50,31 +21,91 @@
       overflow: hidden;
     }
 
-    /* Main Content */
-    main.content {
-      max-width: 1400px;
-      margin: 4rem auto;
-      padding: 0 1.5rem;
-      flex: 1 0 auto;
-    }
-
-    .section {
-      margin: 3rem 0;
-    }
-
-    .section-title {
-      font-size: 1.8rem;
+    .hero-title {
+      font-size: 2rem;  /* Adjusted to match the index page */
+      color: #004f91;
+      margin-bottom: 1rem;
+      font-weight: 700;
       text-align: center;
-      color: var(--dark-blue);
-      margin-bottom: 1.5rem;
     }
 
-    /* Cards */
-    .card-grid {
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: #003366;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    nav.mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: #ffffff;
+      position: absolute;
+      top: 160px;  /* Adjust to position below the logo and header */
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1001;
+    }
+
+    nav.mobile-nav a {
+      padding: 0.5rem 0;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav.mobile-nav a:last-child {
+      border-bottom: none;
+    }
+
+    /* Cloud Columns */
+    .cloud-columns {
+      display: flex;
+      flex-direction: row;
+      gap: 3rem;
+      justify-content: center;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .cloud-column {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .cloud-column h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #004f91;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .card-group {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-      padding: 0 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
     }
 
     .card {
@@ -83,80 +114,65 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       padding: 1.2rem;
       text-align: center;
-      transition: transform 0.3s ease;
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none !important;
     }
 
     .card:hover {
       transform: translateY(-5px);
     }
 
-    .card h2,
     .card h3 {
-      color: var(--primary-blue);
-      margin-bottom: 1rem;
       font-size: 1.25rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
       font-weight: 700;
     }
 
     .card p {
-      font-size: 0.95rem;
-      color: var(--text-gray);
+      color: #ffffff;
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
     }
 
-    .card .cta-btn {
-      margin-top: auto;
-      background-color: var(--primary-blue);
-      color: #fff;
-      text-decoration: none;
-      padding: 0.75rem 1rem;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 0.95rem;
-      transition: background-color 0.3s ease;
+    .aws-card {
+      background-color: #ff9900;
+      border: 1px solid #000;
     }
 
-    .card .cta-btn:hover {
-      background-color: var(--dark-blue);
+    .azure-card {
+      background-color: #007fff;
+      border: 1px solid #000;
     }
 
-    /* Footer */
-    footer {
-      background-color: #0b1e3f;
-      color: white;
-      padding: 2rem 1rem 1rem;
-      margin-top: auto;
+    /* CLOUD PAGE CTA BUTTON FIX */
+
+    .aws-card .cta-btn {
+      background-color: #ffffff !important;
+      color: #ff9900 !important;
+      border: 2px solid #ffffff;
     }
 
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 2rem;
+    .aws-card .cta-btn:hover {
+      background-color: #f2f2f2 !important;
+      color: #ff9900 !important;
+      border-color: #f2f2f2;
     }
 
-    .footer-content p,
-    .footer-content h4 {
-      color: white;
-      margin: 0.3rem 0;
+    .azure-card .cta-btn {
+      background-color: #ffffff !important;
+      color: #007fff !important;
+      border: 2px solid #ffffff;
     }
 
-    .footer-bottom {
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      text-align: center;
+    .azure-card .cta-btn:hover {
+      background-color: #f2f2f2 !important;
+      color: #007fff !important;
+      border-color: #f2f2f2;
     }
 
-    .footer-bottom a {
-      color: red !important;
-      text-decoration: underline;
-      font-weight: bold;
-    }
-
-    /* Mobile tweaks */
     @media screen and (max-width: 768px) {
       nav.desktop-nav {
         display: none;
@@ -177,14 +193,6 @@
       .cloud-column {
         margin-bottom: 2rem;
       }
-
-      .page-banner {
-        height: 250px;
-      }
-
-      .hero-title {
-        font-size: 2rem;
-      }
     }
   </style>
 </head>
@@ -194,6 +202,8 @@
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+
+      <!-- Hamburger Icon -->
       <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
@@ -228,19 +238,122 @@
   <main class="content">
     <h1 class="hero-title">Cloud Service Suite</h1>
     <p style="text-align: center; max-width: 900px; margin: 0 auto 2rem;">
-      CoreCloud empowers South African enterprises to migrate, modernize, manage, and optimize workloads across AWS and Azure environments — driving measurable impact at every stage of the journey.
+      CoreCloud empowers South African enterprises to migrate, modernize, manage, and optimize workloads across AWS and Azure environments — driving measurable impact at every stage of the journey.<br><br>
+      Our proven delivery frameworks, combined with a curated ecosystem of world-class partners, bring deep technical expertise, modern cloud-native practices, and rigorous governance to each engagement.
     </p>
-    <!-- Content continues... -->
+
+    <div class="cloud-columns">
+      <div class="cloud-column">
+        <h2>AWS</h2>
+        <div class="card-group">
+          <div class="card aws-card">
+            <h3>AWS Migration</h3>
+            <p>Move workloads to AWS confidently with structured frameworks and minimal disruption.</p>
+            <a href="aws-migration.html" class="cta-btn">Explore Migration</a>
+          </div>
+          <div class="card aws-card">
+            <h3>AWS Modernize</h3>
+            <p>Upgrade legacy systems to modern architectures to unlock agility, scale, and cost-efficiency.</p>
+            <a href="aws-modernize.html" class="cta-btn">Modernize Now</a>
+          </div>
+          <div class="card aws-card">
+            <h3>AWS Manage</h3>
+            <p>Run cloud operations at peak performance with observability, security, and FinOps built in.</p>
+            <a href="aws-manage.html" class="cta-btn">See Managed Services</a>
+          </div>
+          <div class="card aws-card">
+            <h3>AWS Optimize</h3>
+            <p>Drive ROI through right-sizing, governance, automation, and ongoing performance tuning.</p>
+            <a href="aws-optimize.html" class="cta-btn">Start Optimizing</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="cloud-column">
+        <h2>Azure</h2>
+        <div class="card-group">
+          <div class="card azure-card">
+            <h3>Azure Migration</h3>
+            <p>Seamlessly transition to Microsoft Azure with expert-led migration blueprints and support.</p>
+            <a href="azure-migration.html" class="cta-btn">Explore Migration</a>
+          </div>
+          <div class="card azure-card">
+            <h3>Azure Modernize</h3>
+            <p>Refactor and rebuild apps on Azure with containerization, serverless, and AI-driven services.</p>
+            <a href="azure-modernize.html" class="cta-btn">Modernize Now</a>
+          </div>
+          <div class="card azure-card">
+            <h3>Azure Manage</h3>
+            <p>Operate cloud environments with Azure-native tools, secure access, and performance tracking.</p>
+            <a href="azure-manage.html" class="cta-btn">See Managed Services</a>
+          </div>
+          <div class="card azure-card">
+            <h3>Azure Optimize</h3>
+            <p>Reduce Azure costs and improve efficiency with intelligent optimization strategies.</p>
+            <a href="azure-optimize.html" class="cta-btn">Start Optimizing</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" style="margin-top: 4rem;">
+      <h2 style="color: #004f91; text-align: center;">Our Delivery Ecosystem</h2>
+      <p style="max-width: 900px; margin: 0 auto 2rem; text-align: center;">
+        At CoreCloud, we know that exceptional cloud transformation requires more than technology alone. It’s about working with partners who are masters of their domains — and who share our relentless commitment to delivering real outcomes.
+      </p>
+    </section>
   </main>
 
   <footer>
-    <!-- Footer Content -->
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton,<br>Johannesburg</p>
+      </div>
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+          <input type="email" name="email" placeholder="Enter your email" required style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
+          <button type="submit" style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
+            Subscribe
+          </button>
+        </form>
+      </div>
+      <div class="footer-right">
+        <p>Contact</p>
+        <p>Email: sales@corecloudza.com</p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
+    </div>
   </footer>
 
   <script>
     document.getElementById("hamburger").addEventListener("click", function() {
       this.classList.toggle("active");
       document.getElementById("mobileMenu").classList.toggle("active");
+    });
+
+    document.getElementById("subscribe-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+
+      fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
+        method: "POST",
+        body: data
+      })
+      .then(response => {
+        if (response.ok) {
+          window.location.href = "thank-you.html";
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      })
+      .catch(() => alert("Submission failed. Please try again."));
     });
   </script>
 </body>
