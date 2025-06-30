@@ -157,6 +157,16 @@
       display: flex;
     }
 
+    /* Page Banner */
+    .page-banner {
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      overflow: hidden;
+    }
+
     /* Main Content */
     main.content {
       max-width: 1400px;
@@ -268,13 +278,25 @@
       .logo {
         height: 90px;
       }
-      
+
       h1 {
         font-size: 2rem;
       }
 
       .page-banner {
         height: 300px;
+      }
+
+      nav.desktop-nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      nav.mobile-nav.active {
+        display: flex;
       }
     }
   </style>
@@ -294,7 +316,7 @@
         <a href="contact.html" class="nav-btn">Contact</a>
       </nav>
 
-      <!-- Hamburger Icon for Mobile Nav -->
+      <!-- Hamburger Icon -->
       <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
@@ -366,7 +388,6 @@
 
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -377,10 +398,8 @@
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
-          <input type="email" name="email" placeholder="Enter your email" required
-                 style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
-          <button type="submit"
-                  style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
+          <input type="email" name="email" placeholder="Enter your email" required style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
+          <button type="submit" style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
             Subscribe
           </button>
         </form>
@@ -397,23 +416,9 @@
   </footer>
 
   <script>
-    document.getElementById("subscribe-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-
-      fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
-        method: "POST",
-        body: data
-      })
-      .then(response => {
-        if (response.ok) {
-          window.location.href = "thank-you.html";
-        } else {
-          alert("Something went wrong. Please try again.");
-        }
-      })
-      .catch(() => alert("Submission failed. Please try again."));
+    document.getElementById("hamburger").addEventListener("click", function() {
+      this.classList.toggle("active");
+      document.getElementById("mobileNav").classList.toggle("active");
     });
   </script>
 
