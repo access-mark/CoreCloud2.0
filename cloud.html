@@ -29,6 +29,7 @@
       text-align: center;
     }
 
+    /* Hamburger Menu Styles */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -59,7 +60,7 @@
       flex-direction: column;
       background: #ffffff;
       position: absolute;
-      top: 160px;  /* Adjust to position below the logo and header */
+      top: 160px;  /* Ensures it appears below the header */
       left: 0;
       width: 100%;
       padding: 1rem;
@@ -77,6 +78,10 @@
 
     nav.mobile-nav a:last-child {
       border-bottom: none;
+    }
+
+    nav.mobile-nav.active {
+      display: flex;
     }
 
     /* Cloud Columns */
@@ -173,6 +178,36 @@
       border-color: #f2f2f2;
     }
 
+    /* Full Height for Navigation */
+    .small-banner {
+      height: 160px; /* Set the height for the header */
+      padding: 0.2rem 2rem 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      width: 100%;
+    }
+
+    nav.desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    nav.desktop-nav a {
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #003366;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+    }
+
+    nav.desktop-nav a:hover,
+    nav.desktop-nav a.active {
+      color: #005fa3;
+      font-weight: 900;
+    }
+
+    /* Mobile tweaks */
     @media screen and (max-width: 768px) {
       nav.desktop-nav {
         display: none;
