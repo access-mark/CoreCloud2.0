@@ -173,35 +173,129 @@
 </head>
 <body>
   <!-- Header -->
-  <div class="small-banner">
-    <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+<div class="small-banner">
+  <div class="banner-header">
+    <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
 
-      <nav class="desktop-nav">
-        <a href="index.html" class="nav-btn">Home</a>
-        <a href="consulting.html" class="nav-btn">Consulting</a>
-        <a href="cloud.html" class="nav-btn active">Cloud Service Suite</a>
-        <a href="talent.html" class="nav-btn">Talent Placement</a>
-        <a href="about.html" class="nav-btn">About Us</a>
-        <a href="contact.html" class="nav-btn">Contact</a>
-      </nav>
+    <!-- Desktop Navigation -->
+    <nav class="desktop-nav">
+      <a href="index.html" class="nav-btn">Home</a>
+      <a href="consulting.html" class="nav-btn">Consulting</a>
+      <a href="cloud.html" class="nav-btn active">Cloud Service Suite</a>
+      <a href="talent.html" class="nav-btn">Talent Placement</a>
+      <a href="about.html" class="nav-btn">About Us</a>
+      <a href="contact.html" class="nav-btn">Contact</a>
+    </nav>
 
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <nav class="mobile-nav" id="mobileNav">
-        <a href="index.html">Home</a>
-        <a href="consulting.html">Consulting</a>
-        <a href="cloud.html" class="active">Cloud Service Suite</a>
-        <a href="talent.html">Talent Placement</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+    <!-- Hamburger Icon (for Mobile) -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+      <a href="index.html" class="nav-btn">Home</a>
+      <a href="consulting.html" class="nav-btn">Consulting</a>
+      <a href="cloud.html" class="nav-btn active">Cloud Service Suite</a>
+      <a href="talent.html" class="nav-btn">Talent Placement</a>
+      <a href="about.html" class="nav-btn">About Us</a>
+      <a href="contact.html" class="nav-btn">Contact</a>
+    </nav>
   </div>
+</div>
+
+<!-- CSS for Navigation -->
+<style>
+  /* General Styles for Navigation */
+  .desktop-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .desktop-nav a {
+    text-decoration: none;
+    padding: 10px 15px;
+    color: #004f91;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .desktop-nav a:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* Mobile Navigation */
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    background-color: #fff;
+    padding-top: 20px;
+  }
+
+  .mobile-nav a {
+    text-decoration: none;
+    padding: 10px 15px;
+    color: #004f91;
+    font-size: 1.2rem;
+  }
+
+  .mobile-nav a:hover {
+    background-color: #f0f0f0;
+  }
+
+  /* Hamburger Icon for Mobile Nav */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 21px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: block;
+    height: 3px;
+    background-color: #333;
+    border-radius: 5px;
+  }
+
+  /* Mobile Nav visibility toggle */
+  .hamburger.active + .mobile-nav {
+    display: flex;
+  }
+
+  /* Adjustments for mobile screens */
+  @media screen and (max-width: 768px) {
+    .desktop-nav {
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .mobile-nav {
+      display: none;
+    }
+  }
+</style>
+
+<!-- JavaScript to Toggle Mobile Nav -->
+<script>
+  document.getElementById("hamburger").addEventListener("click", function () {
+    this.classList.toggle("active");
+    document.getElementById("mobileNav").classList.toggle("active");
+  });
+</script>
+
 
 
   <!-- Thin Blue Banner -->
