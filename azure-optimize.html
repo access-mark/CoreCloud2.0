@@ -10,18 +10,34 @@
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="https://access-mark.github.io/CoreCloud2.0/assets/css/styles.css" />
   <style>
-    /* Hero Title Consistency (Match Index Page) */
-    .hero-title {
-      font-size: 2rem;  /* Ensure consistency with index page */
-      color: #004f91;
-      margin-bottom: 1rem;
-      font-weight: 700;
-      text-align: center;
+    /* Thin Banner */
+    .thin-banner {
+      background-color: #0078D4;
+      height: 80px;
+      width: 100%;
     }
 
-    /* Remove the small banner and logo */
+    /* Ensure consistent header height */
     .small-banner {
-      display: none;
+      background-color: #ffffff;
+      padding: 0.2rem 2rem 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      width: 100%;
+      height: 160px;
+      position: relative;
+    }
+
+    .banner-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      height: 160px;
+      width: auto;
     }
 
     /* Mobile Nav */
@@ -117,13 +133,65 @@
     .cta-btn:hover {
       background-color: #004f91;
     }
+
+    /* Mobile tweaks */
+    @media screen and (max-width: 768px) {
+      nav.desktop-nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      nav.mobile-nav.active {
+        display: flex;
+      }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Thin Blue Banner -->
+  <div class="thin-banner"></div>
+
+  <!-- Navigation -->
+  <div class="small-banner">
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+
+      <!-- Desktop Navigation -->
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="consulting.html" class="nav-btn">Consulting</a>
+        <a href="cloud.html" class="nav-btn active">Cloud Service Suite</a>
+        <a href="talent.html" class="nav-btn">Talent Placement</a>
+        <a href="about.html" class="nav-btn">About Us</a>
+        <a href="contact.html" class="nav-btn">Contact</a>
+      </nav>
+
+      <!-- Hamburger Icon -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <nav class="mobile-nav" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="cloud.html" class="active">Cloud Service Suite</a>
+        <a href="talent.html">Talent Placement</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+
   <!-- Main Content -->
   <main class="content">
-    <h1 class="hero-title">Azure Optimization Services</h1>
+    <h1 class="section-title">Azure Optimization Services</h1>
     <p class="section-subtitle">
       Maximize ROI on Azure with CoreCloud’s optimization services. Improve performance, enforce governance, and reduce costs across your Microsoft cloud estate.
     </p>
