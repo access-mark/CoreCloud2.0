@@ -141,18 +141,23 @@
 
       /* Adjust the logo on mobile */
       .logo {
-        height: 320px; /* Double the logo size on mobile */
-        width: auto;
-      }
-
-      /* Adjust hero title font size for mobile */
-      .hero-title {
-        font-size: 2rem;
+        max-height: 120px; /* Adjust logo size for mobile */
+        width: auto; /* Keep aspect ratio */
       }
 
       /* Mobile Nav Active state */
       nav.mobile-nav.active {
         display: flex;
+      }
+
+      /* Adjust the page banner height */
+      .page-banner {
+        height: 250px; /* Adjust if needed */
+      }
+
+      /* Adjust hero title font size for mobile */
+      .hero-title {
+        font-size: 2rem;
       }
     }
   </style>
