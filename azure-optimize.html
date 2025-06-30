@@ -10,92 +10,151 @@
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="https://access-mark.github.io/CoreCloud2.0/assets/css/styles.css" />
   <style>
-    /* Thin Banner */
-    .thin-banner {
-      background-color: #0078D4;
-      height: 80px;
-      width: 100%;
+    /* Base Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    /* Header and Logo */
+    /* Color Variables */
+    :root {
+      --primary-blue: #0066b2;
+      --dark-blue: #004f91;
+      --accent-green: #48b938;
+      --accent-red: #ee1c25;
+      --accent-black: #000000;
+      --light-bg: #f4f6f8;
+      --text-gray: #444;
+    }
+
+    /* Body Styling */
+    body {
+      font-family: 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text-gray);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Typography */
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--dark-blue);
+      margin-bottom: 1.2rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--dark-blue);
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--dark-blue);
+      margin-bottom: 0.8rem;
+    }
+
+    p {
+      font-size: 1rem;
+      color: var(--text-gray);
+      margin-bottom: 1rem;
+    }
+
+    /* Header & Navigation */
     .small-banner {
-      background-color: #fff;
+      background-color: #ffffff;
+      padding: 0.2rem 2rem 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       width: 100%;
+      height: 120px; /* Fixed height for the header */
     }
 
     .banner-header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .logo {
-      max-width: 150px;
+      height: 80px; /* Consistent size */
+      width: auto; /* Maintains aspect ratio */
     }
 
     /* Desktop Nav */
-    .desktop-nav {
+    nav.desktop-nav {
       display: flex;
-      justify-content: flex-end;
       align-items: center;
-      gap: 20px;
-      width: 100%;
+      gap: 1.5rem; /* Consistent spacing */
     }
 
-    .desktop-nav a {
+    nav.desktop-nav a {
       text-decoration: none;
-      padding: 10px 15px;
-      color: #004f91;
-      font-size: 1rem;
-      transition: background-color 0.3s ease;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #003366;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
     }
 
-    .desktop-nav a:hover {
-      background-color: #f0f0f0;
+    nav.desktop-nav a:hover,
+    nav.desktop-nav a.active {
+      color: #005fa3;
+      font-weight: 900;
     }
 
-    /* Mobile Nav */
-    .mobile-nav {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      width: 100%;
-      background-color: #fff;
-      padding-top: 20px;
-      position: absolute;
-      top: 80px; /* Adjusted to prevent overlap with the header */
-      left: 0;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .mobile-nav a {
-      text-decoration: none;
-      padding: 10px 15px;
-      color: #004f91;
-      font-size: 1.2rem;
-    }
-
-    .mobile-nav a:hover {
-      background-color: #f0f0f0;
-    }
-
-    /* Hamburger Icon for Mobile Nav */
+    /* Hamburger styles */
     .hamburger {
       display: none;
       flex-direction: column;
-      justify-content: space-around;
-      width: 30px;
-      height: 21px;
       cursor: pointer;
+      gap: 5px;
     }
 
     .hamburger span {
-      display: block;
+      width: 25px;
       height: 3px;
-      background-color: #333;
-      border-radius: 5px;
+      background-color: #003366;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    /* Mobile Nav */
+    nav.mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: #ffffff;
+      width: 100%;
+      position: absolute;
+      top: 120px; /* Ensures mobile nav sits below the logo */
+      left: 0;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1001;
+    }
+
+    nav.mobile-nav a {
+      padding: 0.8rem 0;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav.mobile-nav a:last-child {
+      border-bottom: none;
+    }
+
+    nav.mobile-nav.active {
+      display: flex;
     }
 
     /* Mobile Nav visibility toggle */
@@ -103,93 +162,138 @@
       display: flex;
     }
 
-    /* Adjustments for mobile screens */
-    @media screen and (max-width: 768px) {
-      .desktop-nav {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .mobile-nav {
-        display: none;
-      }
+    /* Main Content */
+    main.content {
+      max-width: 1400px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+      flex: 1 0 auto;
     }
 
-    /* Section Styles */
+    .section {
+      margin: 3rem 0;
+    }
+
     .section-title {
+      font-size: 1.8rem;
       text-align: center;
-      font-size: 2.4rem;
-      color: #004f91;
-      margin-top: 3rem;
-      margin-bottom: 1rem;
+      color: var(--dark-blue);
+      margin-bottom: 1.5rem;
     }
 
-    .section-subtitle {
-      text-align: center;
-      font-size: 1.1rem;
-      color: #444;
-      max-width: 900px;
-      margin: 0 auto 2rem;
-    }
-
-    .card-grid.quad {
+    /* Cards */
+    .card-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      margin-top: 2rem;
+      padding: 0 2rem;
     }
 
     .card {
-      background: #ffffff;
+      background: #fff;
       border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 1.2rem;
       text-align: center;
+      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
 
-    .card h2 {
-      font-size: 1.4rem;
-      color: #0066b2;
-      margin-bottom: 0.8rem;
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h2,
+    .card h3 {
+      color: var(--primary-blue);
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+      font-weight: 700;
     }
 
     .card p {
       font-size: 0.95rem;
-      color: #333333;
+      color: var(--text-gray);
     }
 
-    .cta-btn {
-      display: inline-block;
-      margin-top: 1rem;
-      background-color: #0066b2;
-      color: #ffffff;
-      padding: 0.8rem 1.5rem;
-      font-weight: bold;
-      border-radius: 8px;
+    .card .cta-btn {
+      margin-top: auto;
+      background-color: var(--primary-blue);
+      color: #fff;
       text-decoration: none;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 0.95rem;
       transition: background-color 0.3s ease;
     }
 
-    .cta-btn:hover {
-      background-color: #004f91;
+    .card .cta-btn:hover {
+      background-color: var(--dark-blue);
+    }
+
+    /* Footer */
+    footer {
+      background-color: #0b1e3f;
+      color: white;
+      padding: 2rem 1rem 1rem;
+      margin-top: auto;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .footer-content p,
+    .footer-content h4 {
+      color: white;
+      margin: 0.3rem 0;
+    }
+
+    .footer-bottom {
+      margin-top: 1rem;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .footer-bottom a {
+      color: red !important;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    /* Mobile tweaks */
+    @media screen and (max-width: 768px) {
+      .logo {
+        height: 90px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+
+      .page-banner {
+        height: 300px;
+      }
     }
   </style>
-
 </head>
 <body>
- <header>
+  <!-- Header -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-
       <!-- Desktop Navigation -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">Home</a>
         <a href="consulting.html" class="nav-btn">Consulting</a>
-        <a href="cloud.html" class="nav-btn">Cloud Service Suite</a>
+        <a href="cloud.html" class="nav-btn active">Cloud Service Suite</a>
         <a href="talent.html" class="nav-btn">Talent Placement</a>
         <a href="about.html" class="nav-btn">About Us</a>
         <a href="contact.html" class="nav-btn">Contact</a>
@@ -213,7 +317,6 @@
       </nav>
     </div>
   </div>
-</header>
 
   <!-- Thin Blue Banner -->
   <div class="thin-banner"></div>
