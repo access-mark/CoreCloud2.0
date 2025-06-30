@@ -270,6 +270,12 @@
   </footer>
 
   <script>
+    // Hamburger menu functionality
+    document.getElementById("hamburger").addEventListener("click", function() {
+      this.classList.toggle("active");
+      document.getElementById("mobileMenu").classList.toggle("active");
+    });
+
     document.getElementById("subscribe-form").addEventListener("submit", function (e) {
       e.preventDefault();
       const form = e.target;
