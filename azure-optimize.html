@@ -10,138 +10,93 @@
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="https://access-mark.github.io/CoreCloud2.0/assets/css/styles.css" />
   <style>
-    /* Thin Banner */
-    .thin-banner {
-      background-color: #0078D4;
-      height: 80px;
+    /* Banner fix */
+    .page-banner {
+      height: 300px !important;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       width: 100%;
+      overflow: hidden;
     }
 
-    /* Header and Logo */
-    .small-banner {
-      background-color: #fff;
-      width: 100%;
-    }
-
-    .banner-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 10px 20px;
-    }
-
-    .logo {
-      max-width: 150px;
-    }
-
-    /* Desktop Nav */
-    .desktop-nav {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-      gap: 20px;
-      width: 100%;
-    }
-
-    .desktop-nav a {
-      text-decoration: none;
-      padding: 10px 15px;
+    /* Hero Title Consistency (Match Index Page) */
+    .hero-title {
+      font-size: 2rem;  /* Ensure consistency with index page */
       color: #004f91;
-      font-size: 1rem;
-      transition: background-color 0.3s ease;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-align: center;
     }
 
-    .desktop-nav a:hover {
-      background-color: #f0f0f0;
+    /* Remove the small banner and logo */
+    .small-banner {
+      display: none;
     }
 
     /* Mobile Nav */
-    .mobile-nav {
+    nav.mobile-nav {
       display: none;
       flex-direction: column;
-      align-items: center;
-      gap: 20px;
+      background: #ffffff;
+      position: absolute;
+      top: 160px;  /* Ensure it appears below the header */
+      left: 0;
       width: 100%;
-      background-color: #fff;
-      padding-top: 20px;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1001;
     }
 
-    .mobile-nav a {
+    nav.mobile-nav a {
+      padding: 0.8rem 0;
+      color: #003366;
       text-decoration: none;
-      padding: 10px 15px;
-      color: #004f91;
-      font-size: 1.2rem;
+      font-weight: bold;
+      border-bottom: 1px solid #ddd;
     }
 
-    .mobile-nav a:hover {
-      background-color: #f0f0f0;
+    nav.mobile-nav a:last-child {
+      border-bottom: none;
     }
 
-    /* Hamburger Icon for Mobile Nav */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: space-around;
-      width: 30px;
-      height: 21px;
-      cursor: pointer;
-    }
-
-    .hamburger span {
-      display: block;
-      height: 3px;
-      background-color: #333;
-      border-radius: 5px;
-    }
-
-    /* Mobile Nav visibility toggle */
-    .hamburger.active + .mobile-nav {
+    nav.mobile-nav.active {
       display: flex;
     }
 
-    /* Adjustments for mobile screens */
-    @media screen and (max-width: 768px) {
-      .desktop-nav {
-        display: none;
-      }
-
-      .hamburger {
-        display: flex;
-      }
-
-      .mobile-nav {
-        display: none;
-      }
+    /* Hamburger icon */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
     }
 
-    /* Section Styles */
-    .section-title {
-      text-align: center;
-      font-size: 2.4rem;
-      color: #004f91;
-      margin-top: 3rem;
-      margin-bottom: 1rem;
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: #003366;
+      border-radius: 2px;
+      transition: all 0.3s ease;
     }
 
-    .section-subtitle {
-      text-align: center;
-      font-size: 1.1rem;
-      color: #444;
-      max-width: 900px;
-      margin: 0 auto 2rem;
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
     }
 
-    .card-grid.quad {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
     }
 
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    /* Cards */
     .card {
-      background: #ffffff;
+      background: #fff;
       border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       padding: 1.5rem;
       text-align: center;
     }
@@ -173,50 +128,14 @@
       background-color: #004f91;
     }
   </style>
-
 </head>
 <body>
- <!-- Header -->
-  <div class="small-banner">
-    <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-
-      <!-- Desktop Navigation -->
-      <nav class="desktop-nav">
-        <a href="index.html" class="nav-btn">Home</a>
-        <a href="consulting.html" class="nav-btn">Consulting</a>
-        <a href="cloud.html" class="nav-btn active">Cloud Service Suite</a>
-        <a href="talent.html" class="nav-btn">Talent Placement</a>
-        <a href="about.html" class="nav-btn">About Us</a>
-        <a href="contact.html" class="nav-btn">Contact</a>
-      </nav>
-
-      <!-- Hamburger Icon -->
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-
-      <!-- Mobile Navigation -->
-      <nav class="mobile-nav" id="mobileNav">
-        <a href="index.html">Home</a>
-        <a href="consulting.html">Consulting</a>
-        <a href="cloud.html" class="active">Cloud Service Suite</a>
-        <a href="talent.html">Talent Placement</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </div>
-
-
-  <!-- Thin Blue Banner -->
-  <div class="thin-banner"></div>
+  <!-- Page Banner -->
+  <div class="page-banner" style="background-image: url('assets/images/consulting-bannerimage.png');"></div>
 
   <!-- Main Content -->
   <main class="content">
-    <h1 class="section-title">Azure Optimization Services</h1>
+    <h1 class="hero-title">Azure Optimization Services</h1>
     <p class="section-subtitle">
       Maximize ROI on Azure with CoreCloud’s optimization services. Improve performance, enforce governance, and reduce costs across your Microsoft cloud estate.
     </p>
