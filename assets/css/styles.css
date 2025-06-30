@@ -73,7 +73,7 @@ p {
 }
 
 .logo {
-  height: 160px;
+  height: 120px; /* Adjusted for better responsiveness */
   width: auto;
 }
 
@@ -284,5 +284,14 @@ footer {
 
   .page-banner {
     height: 300px;
+  }
+
+  /* Adjust desktop-nav for mobile */
+  .desktop-nav {
+    display: none;
+  }
+  
+  .hamburger {
+    display: flex;
   }
 }
