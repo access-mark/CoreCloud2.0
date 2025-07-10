@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us – CoreCloud</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta name="description" content="Discover the vision behind CoreCloud – led by Mark Louw, bringing 20+ years of enterprise tech, cloud strategy, and growth expertise." />
+  <style>
+    /* Hamburger styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      width: 25px;
+      height: 3px;
+      background-color: #003366;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+
+    nav.mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: #ffffff;
+      position: absolute;
+      top: 160px;
+      left: 0;
+      width: 100%;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 1001;
+    }
+
+    nav.mobile-nav a {
+      padding: 0.8rem 0;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav.mobile-nav a:last-child {
+      border-bottom: none;
+    }
+
+    nav.mobile-nav.active {
+      display: flex;
+    }
+
+    @media screen and (max-width: 768px) {
+      nav.desktop-nav {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <div class="small-banner">
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+
+      <!-- Hamburger Icon -->
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="consulting.html" class="nav-btn">Consulting</a>
+        <a href="cloud.html" class="nav-btn">Cloud Service Suite</a>
+        <a href="talent.html" class="nav-btn">Talent Placement</a>
+        <a href="about.html" class="nav-btn active">About Us</a>
+        <a href="contact.html" class="nav-btn">Contact</a>
+      </nav>
+
+      <!-- Mobile Nav -->
+      <nav class="mobile-nav" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="cloud.html">Cloud Service Suite</a>
+        <a href="talent.html">Talent Placement</a>
+        <a href="about.html" class="active">About Us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <div class="page-banner" style="background-image: url('assets/images/about-bannerimage.png');"></div>
+
+  <!-- Main Content -->
+  <main class="content" style="padding: 4rem 2rem; max-width: 1200px; margin: 0 auto;">
+    <section style="margin-bottom: 3rem;">
+      <h2 style="color: #004f91; font-size: 2.2rem; text-align: center; margin-bottom: 1.5rem;">About CoreCloud</h2>
+      <p style="font-size: 1.2rem; line-height: 1.8; text-align: center; max-width: 900px; margin: 0 auto;">
+        CoreCloud wasn’t built in a boardroom — it was forged from decades of front-line experience. After more than 20 years leading sales, strategy, and execution across South Africa’s top tech environments, I launched CoreCloud to do things differently. No red tape. No bloated nonsense. Just results.
+        <br><br>
+        CoreCloud was co-founded alongside <strong>Justine Louw</strong>, whose deep expertise in IT distribution and channel transformation helped shape our early journey. Justine has since embarked on a new professional chapter, and her contribution to CoreCloud’s foundation remains deeply valued.
+      </p>
+    </section>
+
+    <!-- Founder Section -->
+    <section style="display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; margin-bottom: 3rem;">
+      <div style="flex: 1 1 400px; background-color: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); text-align: center;">
+        <img src="assets/images/mark-final.jpg" alt="Mark Louw" style="width: 100%; max-width: 300px; border-radius: 12px; margin-bottom: 1rem;" />
+        <h3 style="color: #0066b2;">Mark Louw – The Growth Architect</h3>
+        <p>
+          With over 20 years of enterprise tech and leadership, Mark has built multimillion-rand revenue streams from the ground up. He’s driven sales excellence at the highest levels — Dell EMC, Dimension Data, and EOH to name but a few. Mark brings a bold, strategic lens to every engagement, connecting the dots between commercial outcomes, cloud execution, and real-world delivery.
+        </p>
+      </div>
+    </section>
+
+    <!-- Why CoreCloud -->
+    <section style="margin-bottom: 4rem;">
+      <h2 style="color: #004f91; font-size: 2rem; text-align: center; margin-bottom: 1.5rem;">Why CoreCloud?</h2>
+      <p style="font-size: 1.2rem; line-height: 1.8; text-align: center; max-width: 1000px; margin: 0 auto;">
+        I’ve seen the same story play out too many times: siloed delivery, poor partner execution, bloated systems, and missed growth. CoreCloud is my answer — a purpose-built ecosystem that delivers with surgical precision. I bring a rare combination of commercial instinct, technical depth, and delivery muscle. My clients don’t just move to the cloud. They grow into it — fast, smart, and future-ready.
+      </p>
+    </section>
+
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="contact.html" style="
+        display: inline-block;
+        padding: 0.9rem 2rem;
+        font-size: 1.1rem;
+        font-weight: bold;
+        background-color: #0066b2;
+        color: white;
+        border-radius: 6px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      " onmouseover="this.style.backgroundColor='#004f91'" onmouseout="this.style.backgroundColor='#0066b2'">
+        Meet With Me
+      </a>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton,<br>Johannesburg</p>
+      </div>
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+          <input type="email" name="email" placeholder="Enter your email" required
+                 style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
+          <button type="submit"
+                  style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
+            Subscribe
+          </button>
+        </form>
+      </div>
+      <div class="footer-right">
+        <p>Contact</p>
+        <p>Email: sales@corecloudza.com</p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("hamburger").addEventListener("click", function() {
+      this.classList.toggle("active");
+      document.getElementById("mobileMenu").classList.toggle("active");
+    });
+
+    document.getElementById("subscribe-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+
+      fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
+        method: "POST",
+        body: data
+      })
+      .then(response => {
+        if (response.ok) {
+          window.location.href = "thank-you.html";
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      })
+      .catch(() => alert("Submission failed. Please try again."));
+    });
+  </script>
+</body>
+</html>
