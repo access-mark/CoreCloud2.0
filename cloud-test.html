@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 
   <style>
+    /* Page-specific styling */
     .page-banner {
       height: 300px !important;
       background-size: cover;
@@ -28,6 +29,7 @@
       text-align: center;
     }
 
+    /* Hamburger Menu Styles */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -39,20 +41,23 @@
       width: 25px;
       height: 3px;
       background-color: #003366;
-      border-radius: 2px;
       transition: all 0.3s ease;
+      border-radius: 2px;
     }
 
     .hamburger.active span:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
     }
+
     .hamburger.active span:nth-child(2) {
       opacity: 0;
     }
+
     .hamburger.active span:nth-child(3) {
       transform: rotate(-45deg) translate(6px, -6px);
     }
 
+    /* Mobile Navigation */
     nav.mobile-nav {
       display: none;
       flex-direction: column;
@@ -84,6 +89,7 @@
       display: flex;
     }
 
+    /* Ensure uniform height for navigation */
     .small-banner {
       height: 160px;
       padding: 0.2rem 2rem 0;
@@ -91,6 +97,7 @@
       width: 100%;
     }
 
+    /* Desktop Navigation */
     nav.desktop-nav {
       display: flex;
       align-items: center;
@@ -112,6 +119,7 @@
       font-weight: 900;
     }
 
+    /* Cloud Columns */
     .cloud-columns {
       display: flex;
       flex-direction: row;
@@ -149,12 +157,11 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 100%;
       text-decoration: none !important;
     }
 
-    .card-content {
-      flex-grow: 1;
+    .card:hover {
+      transform: translateY(-5px);
     }
 
     .card h3 {
@@ -168,8 +175,6 @@
       color: #ffffff;
       font-size: 1rem;
       margin-bottom: 1.2rem;
-      line-height: 1.4;
-      min-height: 80px;
     }
 
     .aws-card {
@@ -187,35 +192,61 @@
       border: 1px solid #000;
     }
 
-    .aws-card .cta-btn,
-    .azure-card .cta-btn,
-    .databricks-card .cta-btn {
+    /* CTA buttons */
+    .aws-card .cta-btn {
       background-color: #ffffff !important;
-      color: inherit !important;
+      color: #ff9900 !important;
       border: 2px solid #ffffff;
     }
 
-    .aws-card .cta-btn:hover,
-    .azure-card .cta-btn:hover,
-    .databricks-card .cta-btn:hover {
+    .aws-card .cta-btn:hover {
       background-color: #f2f2f2 !important;
+      color: #ff9900 !important;
       border-color: #f2f2f2;
-      color: inherit !important;
     }
 
+    .azure-card .cta-btn {
+      background-color: #ffffff !important;
+      color: #007fff !important;
+      border: 2px solid #ffffff;
+    }
+
+    .azure-card .cta-btn:hover {
+      background-color: #f2f2f2 !important;
+      color: #007fff !important;
+      border-color: #f2f2f2;
+    }
+
+    .databricks-card .cta-btn {
+      background-color: #ffffff !important;
+      color: #ff3621 !important;
+      border: 2px solid #ffffff;
+    }
+
+    .databricks-card .cta-btn:hover {
+      background-color: #f2f2f2 !important;
+      color: #ff3621 !important;
+      border-color: #f2f2f2;
+    }
+
+    /* Mobile tweaks */
     @media screen and (max-width: 768px) {
       nav.desktop-nav {
         display: none;
       }
+
       .hamburger {
         display: flex;
       }
+
       nav.mobile-nav.active {
         display: flex;
       }
+
       .cloud-columns {
         flex-direction: column;
       }
+
       .cloud-column {
         margin-bottom: 2rem;
       }
@@ -224,16 +255,19 @@
 </head>
 
 <body>
+  <!-- Navigation -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
 
+      <!-- Hamburger Icon -->
       <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
         <span></span>
       </div>
 
+      <!-- Desktop Nav -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">Home</a>
         <a href="consulting.html" class="nav-btn">Consulting</a>
@@ -243,6 +277,7 @@
         <a href="contact.html" class="nav-btn">Contact</a>
       </nav>
 
+      <!-- Mobile Nav -->
       <nav class="mobile-nav" id="mobileMenu">
         <a href="index.html">Home</a>
         <a href="consulting.html">Consulting</a>
@@ -254,121 +289,94 @@
     </div>
   </div>
 
+  <!-- Page Banner -->
   <div class="page-banner" style="background-image: url('assets/images/cloud-banner.png');"></div>
 
   <main class="content">
     <h1 class="hero-title">Cloud Service Suite</h1>
     <p style="text-align: center; max-width: 900px; margin: 0 auto 2rem;">
-      CoreCloud empowers South African enterprises to migrate, modernize, manage, and optimize workloads across AWS, Azure, and Databricks environments — delivering measurable value through modern architectures, scalable data solutions, and actionable insights.
+      CoreCloud empowers South African enterprises to migrate, modernize, manage, and optimize workloads across AWS, Azure, and Databricks environments — driving measurable impact at every stage of the journey.<br><br>
+      Our proven delivery frameworks, combined with a curated ecosystem of world-class partners, bring deep technical expertise, modern cloud-native practices, and rigorous governance to each engagement.
     </p>
 
     <div class="cloud-columns">
-
-      <!-- AWS Column -->
       <div class="cloud-column">
         <h2>AWS</h2>
         <div class="card-group">
           <div class="card aws-card">
-            <div class="card-content">
-              <h3>AWS Migration</h3>
-              <p>Move workloads to AWS confidently with proven methodologies, secure frameworks, and minimal business disruption.</p>
-            </div>
+            <h3>AWS Migration</h3>
+            <p>Move workloads to AWS confidently with structured frameworks and minimal disruption.</p>
             <a href="aws-migration.html" class="cta-btn">Explore Migration</a>
           </div>
           <div class="card aws-card">
-            <div class="card-content">
-              <h3>AWS Modernize</h3>
-              <p>Modernize legacy systems with containerization, microservices, and cloud-native architectures that drive agility and cost-efficiency.</p>
-            </div>
+            <h3>AWS Modernize</h3>
+            <p>Upgrade legacy systems to modern architectures to unlock agility, scale, and cost-efficiency.</p>
             <a href="aws-modernize.html" class="cta-btn">Modernize Now</a>
           </div>
           <div class="card aws-card">
-            <div class="card-content">
-              <h3>AWS Manage</h3>
-              <p>Maintain operational excellence with managed services covering security, observability, and cost optimization on AWS.</p>
-            </div>
+            <h3>AWS Manage</h3>
+            <p>Run cloud operations at peak performance with observability, security, and FinOps built in.</p>
             <a href="aws-manage.html" class="cta-btn">See Managed Services</a>
           </div>
           <div class="card aws-card">
-            <div class="card-content">
-              <h3>AWS Optimize</h3>
-              <p>Unlock continuous savings through right-sizing, automation, and performance tuning of your AWS environment.</p>
-            </div>
+            <h3>AWS Optimize</h3>
+            <p>Drive ROI through right-sizing, governance, automation, and ongoing performance tuning.</p>
             <a href="aws-optimize.html" class="cta-btn">Start Optimizing</a>
           </div>
         </div>
       </div>
 
-      <!-- Azure Column -->
       <div class="cloud-column">
         <h2>Azure</h2>
         <div class="card-group">
           <div class="card azure-card">
-            <div class="card-content">
-              <h3>Azure Migration</h3>
-              <p>Seamlessly transition to Microsoft Azure with enterprise-grade migration strategies, governance, and support.</p>
-            </div>
+            <h3>Azure Migration</h3>
+            <p>Seamlessly transition to Microsoft Azure with expert-led migration blueprints and support.</p>
             <a href="azure-migration.html" class="cta-btn">Explore Migration</a>
           </div>
           <div class="card azure-card">
-            <div class="card-content">
-              <h3>Azure Modernize</h3>
-              <p>Transform legacy applications with Azure-native tools, enabling faster innovation and reduced technical debt.</p>
-            </div>
+            <h3>Azure Modernize</h3>
+            <p>Refactor and rebuild apps on Azure with containerization, serverless, and AI-driven services.</p>
             <a href="azure-modernize.html" class="cta-btn">Modernize Now</a>
           </div>
           <div class="card azure-card">
-            <div class="card-content">
-              <h3>Azure Manage</h3>
-              <p>Ensure secure, high-performance operations with Azure governance, cost control, and compliance frameworks.</p>
-            </div>
+            <h3>Azure Manage</h3>
+            <p>Operate cloud environments with Azure-native tools, secure access, and performance tracking.</p>
             <a href="azure-manage.html" class="cta-btn">See Managed Services</a>
           </div>
           <div class="card azure-card">
-            <div class="card-content">
-              <h3>Azure Optimize</h3>
-              <p>Maximize ROI on Azure by fine-tuning workloads, consolidating resources, and reducing cloud costs.</p>
-            </div>
+            <h3>Azure Optimize</h3>
+            <p>Reduce Azure costs and improve efficiency with intelligent optimization strategies.</p>
             <a href="azure-optimize.html" class="cta-btn">Start Optimizing</a>
           </div>
         </div>
       </div>
 
-      <!-- Databricks Column -->
       <div class="cloud-column">
         <h2>Databricks</h2>
         <div class="card-group">
           <div class="card databricks-card">
-            <div class="card-content">
-              <h3>Lakehouse Architecture</h3>
-              <p>Unify data warehouses and lakes into an open, scalable platform for analytics and AI workloads, eliminating silos and complexity.</p>
-            </div>
+            <h3>Lakehouse Architecture</h3>
+            <p>Unify data warehouses and lakes into an open, scalable platform for analytics and AI workloads.</p>
             <a href="databricks-lakehouse.html" class="cta-btn">Explore Lakehouse</a>
           </div>
           <div class="card databricks-card">
-            <div class="card-content">
-              <h3>Data Engineering</h3>
-              <p>Accelerate ETL pipelines and data ingestion using Databricks’ scalable engine, delivering reliable and fast data processing at lower cost.</p>
-            </div>
+            <h3>Data Engineering</h3>
+            <p>Accelerate ETL pipelines, data ingestion, and streaming workloads with Databricks’ scalable engine.</p>
             <a href="databricks-engineering.html" class="cta-btn">See Engineering</a>
           </div>
           <div class="card databricks-card">
-            <div class="card-content">
-              <h3>AI & ML Workflows</h3>
-              <p>Collaboratively build, train, and deploy machine learning models with full lifecycle management and enterprise-grade security.</p>
-            </div>
+            <h3>AI & ML Workflows</h3>
+            <p>Deploy ML models faster and manage end-to-end machine learning lifecycles collaboratively.</p>
             <a href="databricks-ml.html" class="cta-btn">Start Building AI</a>
           </div>
           <div class="card databricks-card">
-            <div class="card-content">
-              <h3>Cost Optimization</h3>
-              <p>Gain visibility into Databricks costs, optimize workloads for performance, and drive significant savings in data processing spend.</p>
-            </div>
+            <h3>Cost Optimization</h3>
+            <p>Gain visibility into Databricks costs and optimize workloads for performance and savings.</p>
             <a href="databricks-optimize.html" class="cta-btn">Optimize Costs</a>
           </div>
         </div>
       </div>
-
     </div>
 
     <section class="section" style="margin-top: 4rem;">
