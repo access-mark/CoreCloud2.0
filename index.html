@@ -11,8 +11,14 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 
   <style>
-    /* (Same styles as your original file, omitted here for brevity) */
-    /* Retain all your original styles from your index page CSS */
+    /* Additional fix to remove underlines from cards */
+    .card-grid a,
+    .card-grid a:hover,
+    .card-grid a:visited {
+      text-decoration: none;
+      color: inherit;
+    }
+
     .cta-btn {
       display: inline-block;
       background-color: #0066b2;
@@ -95,7 +101,7 @@
       </div>
     </section>
 
-    <!-- NEW Dynamic Imprinting Highlight Block -->
+    <!-- Dynamic Imprinting Highlight Block -->
     <section style="
       background: #ffffff;
       padding: 3rem 2rem;
