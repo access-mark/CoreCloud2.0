@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Re / Launch Talent Hub – CoreCloud</title>
-  <meta name="description" content="CoreCloud’s Re / Launch Talent Hub helps youth and retrenched professionals find meaningful work with purpose-driven support." />
+  <meta name="description" content="CoreCloud’s Re / Launch Talent Hub helps youth and experienced professionals relaunch careers with real support and purpose-driven opportunities." />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
     .section {
@@ -12,21 +12,18 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-
     .card-grid.triple {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
       margin-top: 1rem;
     }
-
     .card {
       background: white;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       padding: 1.5rem;
     }
-
     .cta-btn {
       display: inline-block;
       background-color: #0066b2;
@@ -39,18 +36,16 @@
       max-width: 500px;
       transition: background-color 0.3s ease;
     }
-
     .cta-btn:hover {
       background-color: #004f91;
     }
-
     .section-title {
       text-align: center;
       color: #004f91;
       font-size: 2rem;
       margin-bottom: 0.5rem;
+      font-weight: 700;
     }
-
     .subtitle {
       text-align: center;
       color: #444;
@@ -58,20 +53,18 @@
       margin: 0 auto 1.5rem;
       font-size: 1.1rem;
     }
-
     h3.section-title {
       margin-top: 2rem;
       font-size: 1.5rem;
+      text-align: center;
+      color: #004f91;
     }
-
-    /* Hamburger styles */
     .hamburger {
       display: none;
       flex-direction: column;
       cursor: pointer;
       gap: 5px;
     }
-
     .hamburger span {
       width: 25px;
       height: 3px;
@@ -79,7 +72,6 @@
       border-radius: 2px;
       transition: all 0.3s ease;
     }
-
     .hamburger.active span:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
     }
@@ -89,20 +81,18 @@
     .hamburger.active span:nth-child(3) {
       transform: rotate(-45deg) translate(6px, -6px);
     }
-
     nav.mobile-nav {
       display: none;
       flex-direction: column;
       background: #ffffff;
       position: absolute;
-      top: 160px;  /* Corrected to match the new header position */
+      top: 160px;
       left: 0;
       width: 100%;
       padding: 1rem;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
       z-index: 1001;
     }
-
     nav.mobile-nav a {
       padding: 0.5rem 0;
       color: #003366;
@@ -110,20 +100,16 @@
       font-weight: bold;
       border-bottom: 1px solid #ddd;
     }
-
     nav.mobile-nav a:last-child {
       border-bottom: none;
     }
-
     @media screen and (max-width: 768px) {
       nav.desktop-nav {
         display: none;
       }
-
       .hamburger {
         display: flex;
       }
-
       nav.mobile-nav.active {
         display: flex;
       }
@@ -131,19 +117,14 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-
-      <!-- Hamburger Icon -->
       <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
         <span></span>
       </div>
-
-      <!-- Desktop Nav -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">Home</a>
         <a href="consulting.html" class="nav-btn">Consulting</a>
@@ -153,8 +134,6 @@
         <a href="about.html" class="nav-btn">About Us</a>
         <a href="contact.html" class="nav-btn">Contact</a>
       </nav>
-
-      <!-- Mobile Nav -->
       <nav class="mobile-nav" id="mobileMenu">
         <a href="index.html">Home</a>
         <a href="consulting.html">Consulting</a>
@@ -167,29 +146,25 @@
     </div>
   </div>
 
-  <!-- Page Banner -->
   <div class="page-banner" style="background-image: url('assets/images/talent-bannerimage.png');"></div>
 
-  <!-- Title -->
   <section class="section intro">
     <h1 class="section-title">Re / Launch Talent Hub</h1>
     <p class="subtitle">
-      Whether you’re starting out or starting over, CoreCloud is committed to helping South Africans relaunch their careers with purpose. We’re backing the overlooked, the underestimated, and the experienced.
+      Whether you’re starting out or starting over, CoreCloud is committed to helping South Africans relaunch their careers with purpose. We stand behind the overlooked, the underestimated, and the experienced.
     </p>
   </section>
 
-  <!-- Why Section -->
   <section class="section">
     <h2 class="section-title">Why We Built This</h2>
     <p class="subtitle">
-      South Africa’s job market is broken — and talent is being wasted. Young professionals are denied opportunity because they lack experience. Highly skilled professionals are excluded for being “too expensive” or “overqualified.” CoreCloud is changing that.
+      South Africa’s job market leaves too many talented people behind. Young professionals get overlooked for lack of experience. Skilled professionals are passed over for being “too expensive” or “overqualified.” CoreCloud is changing that.
     </p>
     <p class="subtitle">
-      Re / Launch is more than a support page. It’s a platform to reclaim your career. We don’t do pity placements. We do purpose, partnership, and performance.
+      Re / Launch is more than a support page. It’s a platform to help you reclaim your career. We don’t do pity placements. We focus on purpose, partnership, and performance.
     </p>
   </section>
 
-  <!-- Program Tracks -->
   <section class="section">
     <h2 class="section-title">Re / Launch Program Tracks</h2>
 
@@ -197,65 +172,59 @@
     <div class="card-grid triple">
       <div class="card">
         <h2 style="color:#0066b2;">Micro Experience Projects</h2>
-        <p>Gain real-world CV content with guided project work from our partner ecosystem — build credibility without needing full-time history.</p>
+        <p>Gain real-world CV content through guided projects with our partners. Build credibility without needing years of full-time experience.</p>
       </div>
       <div class="card">
         <h2 style="color:#0066b2;">Exposure & Mentorship</h2>
-        <p>We plug you into networks that matter. Get introduced to hiring partners and mentored by professionals who’ve walked the path.</p>
+        <p>We connect you to networks that matter. Get introduced to hiring partners and mentored by professionals who’ve been where you are.</p>
       </div>
       <div class="card">
         <h2 style="color:#0066b2;">Career Tools & Support</h2>
-        <p>We help you polish your CV, enhance your LinkedIn profile, and prepare to engage the market with impact — all at no cost.</p>
+        <p>We help refine your CV, improve your LinkedIn profile, and prepare you to approach the market with confidence. All free of charge.</p>
       </div>
     </div>
 
-    <!-- Centered CTA -->
     <div style="text-align: center; margin-top: 2rem;">
       <a href="launch-form.html" class="cta-btn">Apply to Re / Launch (Youth)</a>
     </div>
 
-    <!-- Retrenched Professionals -->
     <h3 class="section-title">Relaunch for Retrenched Professionals</h3>
     <div class="card-grid triple">
       <div class="card">
         <h2 style="color:#0066b2;">Executive Network Access</h2>
-        <p>We refer your profile directly into hiring decision-makers — no cold applications, just warm intros built on trust and track record.</p>
+        <p>We introduce your profile directly to decision-makers. No cold applications, just warm connections built on trust and track record.</p>
       </div>
       <div class="card">
         <h2 style="color:#0066b2;">Flexible Work Pathways</h2>
-        <p>We support consulting, part-time, or project roles to keep you earning and active while you reframe what’s next.</p>
+        <p>We support consulting, part-time, or project work so you can stay active and earning while you plan your next move.</p>
       </div>
       <div class="card">
         <h2 style="color:#0066b2;">Profile Repositioning</h2>
-        <p>From CVs to rate framing, we help experienced professionals avoid the “overqualified” trap and highlight strategic value.</p>
+        <p>From CV updates to rate discussions, we help experienced professionals avoid the “overqualified” label and highlight their strategic value.</p>
       </div>
     </div>
 
-    <!-- Centered CTA -->
     <div style="text-align: center; margin-top: 2rem;">
       <a href="relaunch-form.html" class="cta-btn">Apply to Re / Launch (Experienced)</a>
     </div>
 
-    <!-- Graduate Program -->
     <h3 class="section-title">Future: Graduate Talent Program</h3>
     <div class="card-grid triple">
       <div class="card">
         <h2 style="color:#0066b2;">Launchpad for Next-Gen Talent</h2>
-        <p>A dedicated graduate program is in the works to attract, develop, and place top young minds into South Africa’s digital economy. Stay tuned — CoreCloud is building the future pipeline.</p>
+        <p>We’re working on a dedicated graduate program to attract, develop, and place top talent into South Africa’s digital economy. Watch this space.</p>
       </div>
     </div>
   </section>
 
-  <!-- Employer CTA -->
   <section class="section" style="text-align: center;">
     <h2 class="section-title">Employers: Want to Make an Impact?</h2>
     <p class="subtitle">
-      If you’re a company that believes in capability over credentials, and purpose over prejudice — join our Re / Launch movement. We’ll connect you to talent that’s hungry, proven, and ready to deliver.
+      If your business values capability over credentials and purpose over prejudice, join the Re / Launch movement. Let’s connect you to skilled, driven talent ready to deliver.
     </p>
     <a href="employ-form.html" class="cta-btn">Partner with CoreCloud</a>
   </section>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -295,7 +264,6 @@
       e.preventDefault();
       const form = e.target;
       const data = new FormData(form);
-
       fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
         method: "POST",
         body: data
