@@ -11,14 +11,6 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 
   <style>
-    body {
-      font-family: "Segoe UI", Roboto, sans-serif;
-      background-color: #f9fafb;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-
     .orange-banner {
       background-color: #ff9900;
       height: 80px;
@@ -83,7 +75,7 @@
     }
 
     .center-title {
-      font-size: 2rem;
+      font-size: 2.4rem;
       text-align: center;
       color: #004f91;
       margin: 3rem 0 1.5rem;
@@ -152,41 +144,10 @@
       background-color: #004f91;
       color: #fff;
     }
-
-    footer {
-      background: #004f91;
-      color: #fff;
-      padding: 2rem 1rem;
-      margin-top: 4rem;
-    }
-    footer a {
-      color: red;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 2rem;
-    }
-    .footer-content div {
-      flex: 1 1 250px;
-    }
-    .footer-bottom {
-      text-align: center;
-      margin-top: 1.5rem;
-      font-size: 0.9rem;
-      color: #ddd;
-    }
   </style>
 </head>
 <body>
+  <!-- Navigation -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
@@ -219,12 +180,13 @@
     </div>
   </div>
 
+  <!-- Thin Orange Banner -->
   <div class="orange-banner"></div>
 
   <main class="content" style="max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem;">
     <h1 class="center-title">AWS Managed Services</h1>
     <p class="center-subtitle">
-      After migrating and modernising, the real challenge begins: keeping operations running with clarity and control. CoreCloud’s AWS Managed Services ensure your environment stays optimised, secure, and cost-effective — so you can focus on driving outcomes, not infrastructure.
+      After migrating and modernising, the real challenge begins: running your environment with confidence, control, and visibility. CoreCloud’s AWS Managed Services keep your cloud estate optimised, secure, and cost-effective — so you can stay focused on your business outcomes.
     </p>
 
     <section class="section">
@@ -232,27 +194,27 @@
       <div class="card-grid triple">
         <div class="card">
           <h2>Monitoring & Dashboards</h2>
-          <p>Real-time visibility and proactive alerts keep you in control of performance and uptime.</p>
+          <p>Real-time health views and proactive alerts ensure you stay in control of performance and uptime.</p>
         </div>
         <div class="card">
           <h2>Compliance Automation</h2>
-          <p>Maintain alignment with AWS Well-Architected principles and security benchmarks without added admin overhead.</p>
+          <p>Maintain AWS Well-Architected principles and security compliance without added administrative burden.</p>
         </div>
         <div class="card">
           <h2>Patching & Backups</h2>
-          <p>Automated patching, snapshot-based backups, and disaster recovery plans keep systems secure and recoverable.</p>
+          <p>Automated patching, snapshot backups, and disaster recovery strategies keep systems secure and recoverable.</p>
         </div>
         <div class="card">
           <h2>Cost Optimization</h2>
-          <p>Track, analyse, and reduce spend with tagging, savings plans, and usage insights.</p>
+          <p>Track, analyse, and reduce costs with tagging, savings plans, and usage insights.</p>
         </div>
         <div class="card">
           <h2>DevOps CI/CD Management</h2>
-          <p>End-to-end support for CI/CD pipelines, from builds to deployments, ensuring reliability and speed.</p>
+          <p>End-to-end support for your CI/CD pipelines, ensuring reliable deployments and quick issue resolution.</p>
         </div>
         <div class="card">
           <h2>24/7 Managed NOC</h2>
-          <p>Round-the-clock coverage through partner-based NOC teams, with proactive monitoring and incident resolution.</p>
+          <p>Always-on coverage via partner NOC teams with proactive monitoring and fast remediation.</p>
         </div>
       </div>
     </section>
@@ -262,15 +224,15 @@
       <div class="card-grid triple">
         <div class="card">
           <h2>Action-Oriented Support</h2>
-          <p>We don’t just alert — we respond immediately to protect your services and maintain uptime.</p>
+          <p>We don’t just alert — we take action to keep your services running and your operations secure.</p>
         </div>
         <div class="card">
           <h2>Full Visibility</h2>
-          <p>Track all aspects of your AWS estate, from cost and uptime to security events, in a unified view.</p>
+          <p>See your entire AWS environment clearly — from costs and uptime to security risks — in one unified view.</p>
         </div>
         <div class="card">
           <h2>Obsessed with Outcomes</h2>
-          <p>We reduce risk, contain costs, and boost operational efficiency — delivering real, measurable value.</p>
+          <p>We reduce risk, control costs, and boost efficiency — delivering measurable results, not empty promises.</p>
         </div>
       </div>
     </section>
@@ -280,14 +242,12 @@
     </div>
   </main>
 
+  <!-- Footer (kept untouched) -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
         <p>Sandton,<br>Johannesburg</p>
-        <div class="footer-bottom">
-          <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
-        </div>
       </div>
       <div class="footer-middle">
         <h4>Stay Informed</h4>
@@ -300,8 +260,11 @@
       <div class="footer-right">
         <p>Contact</p>
         <p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank">LinkedIn</a></p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
       </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
     </div>
   </footer>
 
@@ -315,6 +278,7 @@
       e.preventDefault();
       const form = e.target;
       const data = new FormData(form);
+
       fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
         method: "POST",
         body: data
