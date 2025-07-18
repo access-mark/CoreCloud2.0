@@ -11,6 +11,12 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 
   <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 16px;
+      color: #333;
+    }
+
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -30,10 +36,24 @@
     .flex-columns .card {
       flex: 1 1 400px;
       min-width: 300px;
-      padding: 1.5rem;
+      padding: 2rem;
       background: #fff;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .flex-columns .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .flex-columns .card p,
+    .flex-columns .card li {
+      font-size: 1rem;
+      line-height: 1.6;
     }
 
     @media screen and (max-width: 768px) {
@@ -105,19 +125,19 @@
       <div class="flex-columns">
         <div class="card">
           <h3 style="color: #004f91; font-weight: bold;">Our Approach</h3>
-          <p style="margin-top: 1rem;">We cut through complexity and get straight to execution. Our method is practical, fast, and focused on outcomes:</p>
-          <ul style="margin-top: 1rem; padding-left: 1rem; line-height: 1.8;">
+          <p>We cut through complexity and get straight to execution. Our method is practical, fast, and focused on outcomes:</p>
+          <ul style="margin-top: 1rem; padding-left: 1rem;">
             <li><strong>Assess</strong> – Deep-dive into your business, tech, and GTM realities.</li>
             <li><strong>Design</strong> – Shape practical, no-fluff strategies aligned to your goals.</li>
             <li><strong>Deliver</strong> – Execute with precision, urgency, and measurable impact.</li>
             <li><strong>Optimise</strong> – Embed success with continuous support and improvements.</li>
           </ul>
-          <p style="margin-top: 1rem;">Our goal: turn strategy into momentum—fast.</p>
+          <p>Our goal: turn strategy into momentum—fast.</p>
         </div>
 
         <div class="card">
           <h3 style="color: #004f91; font-weight: bold;">Defined Services</h3>
-          <ul style="margin-top: 1rem; padding-left: 1rem; line-height: 1.8;">
+          <ul style="margin-top: 1rem; padding-left: 1rem;">
             <li>Fractional CRO / Executive Advisory</li>
             <li>GTM Strategy Development & Execution</li>
             <li>Channel & Partner Program Design</li>
@@ -130,8 +150,6 @@
         </div>
       </div>
     </section>
-
-    <!-- The rest of the document remains unchanged -->
   </main>
 
   <footer>
