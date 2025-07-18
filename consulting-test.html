@@ -11,12 +11,17 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 
   <style>
-    /* Core styles omitted for brevity - assume same styles as original */
     .card-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
       padding: 2rem 0;
+    }
+
+    @media screen and (max-width: 768px) {
+      .flex-columns {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -49,7 +54,7 @@
     </div>
   </div>
 
-  <div class="page-banner" style="background-image: url('assets/images/consulting-bannerimage.png'); height: 300px;"></div>
+  <div class="page-banner" style="background-image: url('assets/images/consulting-bannerimage.png'); height: 300px; background-size: cover; background-position: center;"></div>
 
   <main class="content">
     <h1 class="hero-title">Consulting That Moves the Needle</h1>
@@ -78,19 +83,33 @@
     </div>
 
     <section class="section">
-      <h2 class="section-title">Defined Services</h2>
-      <p style="text-align: center;">Clear scope. Real outcomes. Zero fluff.</p>
-      <div style="display: flex; justify-content: center; margin-top: 1rem;">
-        <ul style="text-align: left;">
-          <li>Fractional CRO / Executive Advisory</li>
-          <li>GTM Strategy Development & Execution</li>
-          <li>Channel & Partner Program Design</li>
-          <li>Sales Process Optimization & Team Coaching</li>
-          <li>Cloud Strategy, Migration & Vendor Rationalisation</li>
-          <li>Strategic Account Engagements & Revenue Ops</li>
-          <li>Leadership Advisory & Executive Coaching</li>
-          <li>Ongoing Strategic Support via Monthly Retainers</li>
-        </ul>
+      <h2 class="section-title">How We Work</h2>
+      <div class="flex-columns" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 4rem; max-width: 1200px; margin: 2rem auto;">
+        <div style="flex: 1 1 400px; min-width: 300px;">
+          <h3 style="color: #004f91; font-weight: bold;">Defined Services</h3>
+          <ul style="margin-top: 1rem; padding-left: 1rem; line-height: 1.8;">
+            <li>Fractional CRO / Executive Advisory</li>
+            <li>GTM Strategy Development & Execution</li>
+            <li>Channel & Partner Program Design</li>
+            <li>Sales Process Optimization & Team Coaching</li>
+            <li>Cloud Strategy, Migration & Vendor Rationalisation</li>
+            <li>Strategic Account Engagements & Revenue Ops</li>
+            <li>Leadership Advisory & Executive Coaching</li>
+            <li>Ongoing Strategic Support via Monthly Retainers</li>
+          </ul>
+        </div>
+
+        <div style="flex: 1 1 400px; min-width: 300px;">
+          <h3 style="color: #004f91; font-weight: bold;">Our Approach</h3>
+          <p style="margin-top: 1rem;">We cut through complexity and get straight to execution. Our method is practical, fast, and focused on outcomes:</p>
+          <ul style="margin-top: 1rem; padding-left: 1rem; line-height: 1.8;">
+            <li><strong>Assess</strong> – Deep-dive into your business, tech, and GTM realities.</li>
+            <li><strong>Design</strong> – Shape practical, no-fluff strategies aligned to your goals.</li>
+            <li><strong>Deliver</strong> – Execute with precision, urgency, and measurable impact.</li>
+            <li><strong>Optimise</strong> – Embed success with continuous support and improvements.</li>
+          </ul>
+          <p style="margin-top: 1rem;">Our goal: turn strategy into momentum—fast.</p>
+        </div>
       </div>
     </section>
 
@@ -99,35 +118,35 @@
       <div class="card-grid">
         <div class="card">
           <h2>Executive-Grade Experience</h2>
-          <p>Over two decades of boardroom, sales, and strategy experience in tech, cloud, and channel growth.</p>
+          <p>Two decades of boardroom, sales, and GTM experience in tech, cloud, and channel growth.</p>
         </div>
         <div class="card">
           <h2>Outcome-Driven</h2>
-          <p>We charge based on real value delivered. If no value is perceived, our time is billed at zero cost.</p>
+          <p>If no value is perceived, our time is billed at zero cost. We deliver real, measurable impact.</p>
         </div>
         <div class="card">
           <h2>Fractional Executive Impact</h2>
-          <p>Access seasoned leadership without the full-time cost. Flexible retainers ensure ongoing momentum.</p>
+          <p>Access seasoned leadership without full-time cost. Retainers ensure consistent momentum.</p>
         </div>
         <div class="card">
           <h2>Lean & Independent</h2>
-          <p>We’re not tied to vendors. Our advice is clean, pragmatic, and aligned to your business needs.</p>
+          <p>Vendor-agnostic and pragmatic. We recommend only what serves your business goals.</p>
         </div>
         <div class="card">
           <h2>Speed & Precision</h2>
-          <p>From diagnostics to delivery, we act fast and decisively. No delays. No waste. Just execution.</p>
+          <p>We move fast and act decisively. No bloat. No fluff. Just disciplined execution.</p>
         </div>
         <div class="card">
           <h2>South African Relevance</h2>
-          <p>Local context, global thinking. We know the market—and what it takes to lead in it.</p>
+          <p>We know the terrain. Our strategies are built for the local landscape—and to scale beyond it.</p>
         </div>
         <div class="card">
           <h2>Service Clarity & Flexibility</h2>
-          <p>Structured engagements, transparent deliverables, and scalable advisory to meet your stage of growth.</p>
+          <p>Engagements are structured, scoped, and built to scale—with full transparency.</p>
         </div>
         <div class="card">
           <h2>Proven Partner Network</h2>
-          <p>Specialist partners like Xsellerate help us go deeper and execute faster where it counts.</p>
+          <p>Our specialist partners like Xsellerate help us execute faster and go deeper where it counts.</p>
         </div>
       </div>
     </section>
@@ -135,7 +154,7 @@
     <section class="section" style="margin-top: 4rem;">
       <h2 class="section-title">Let’s Talk</h2>
       <p style="text-align: center; max-width: 900px; margin: 0 auto 2rem;">
-        Ready to unlock results? Whether you're scaling revenue or reshaping leadership—let's build something that lasts.
+        Whether you're scaling revenue or reshaping leadership—let's build something that delivers.
       </p>
       <p style="text-align: center; margin-top: 2rem;">
         <a href="contact.html" class="cta-btn">Start the Conversation</a>
