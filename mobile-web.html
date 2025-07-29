@@ -18,10 +18,22 @@
       width: 100%;
     }
     .small-banner {
-      height: 160px;
-      padding: 0.2rem 2rem 0;
+      height: auto;
+      padding: 0.2rem 2rem;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       width: 100%;
+      background-color: #fff;
+    }
+    .banner-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 0;
+    }
+    .logo {
+      height: 120px;
     }
     .hamburger {
       display: none;
@@ -82,8 +94,8 @@
 </head>
 <body>
   <div class="small-banner">
-    <div class="banner-header" style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; max-width: 1200px; margin: 0 auto;">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" style="height: 80px;" />
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
       <div class="hamburger" id="hamburger">
         <span></span><span></span><span></span>
       </div>
