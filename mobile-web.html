@@ -9,6 +9,11 @@
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
+    .orange-banner {
+      background-color: #ff9900;
+      height: 80px;
+      width: 100%;
+    }
     .page-banner {
       height: 300px;
       background-image: url('assets/images/appdev-bannerimage.png');
@@ -17,52 +22,60 @@
       background-repeat: no-repeat;
       width: 100%;
     }
-    .hero {
-      text-align: center;
-      padding: 4rem 2rem 2rem;
-      background-color: #eaf3fc;
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
     }
-    .hero h1 {
-      color: #004f91;
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 800px;
-      margin: 0 auto;
-      color: #333;
-    }
-    .section {
-      padding: 3rem 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .section h2 {
-      font-size: 2rem;
-      color: #004f91;
-      margin-bottom: 1rem;
-    }
-    .section p, .section ul {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #333;
-    }
-    .cta {
-      text-align: center;
-      margin-top: 3rem;
-    }
-    .cta a {
-      background-color: #004f91;
-      color: white;
-      padding: 12px 28px;
-      font-weight: bold;
-      border-radius: 6px;
-      text-decoration: none;
-    }
-    .cta a:hover {
+    .hamburger span {
+      width: 25px;
+      height: 3px;
       background-color: #003366;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
+    }
+    nav.mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: #ffffff;
+      width: 100%;
+      position: absolute;
+      top: 160px;
+      left: 0;
+      padding: 1rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      z-index: 1001;
+    }
+    nav.mobile-nav.active {
+      display: flex;
+    }
+    nav.mobile-nav a {
+      padding: 0.8rem 0;
+      color: #003366;
+      text-decoration: none;
+      font-weight: bold;
+      border-bottom: 1px solid #ddd;
+    }
+    nav.mobile-nav a:last-child {
+      border-bottom: none;
+    }
+    @media screen and (max-width: 768px) {
+      nav.desktop-nav {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
     }
   </style>
 </head>
@@ -82,18 +95,18 @@
         <a href="about.html" class="nav-btn">About Us</a>
         <a href="contact.html" class="nav-btn">Contact</a>
       </nav>
+      <nav class="mobile-nav" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="cloud.html" class="active">Cloud Service Suite</a>
+        <a href="talent.html">Talent Placement</a>
+        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-    <nav class="mobile-nav" id="mobileMenu" style="display: none; flex-direction: column; background: #ffffff; width: 100%; padding: 1rem; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); z-index: 1001;">
-      <a href="index.html">Home</a>
-      <a href="consulting.html">Consulting</a>
-      <a href="cloud.html">Cloud Service Suite</a>
-      <a href="talent.html">Talent Placement</a>
-      <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
-    </nav>
   </div>
-  <div class="page-banner"></div>
+    <div class="page-banner"></div>
   <header class="hero">
     <h1>Mobile & Web Development</h1>
     <p>Fast, intuitive applications that run smoothly on any device. Whether native, hybrid, or progressive—we build clean, responsive digital experiences that scale.</p>
@@ -126,8 +139,8 @@
       <p>We combine strong UX thinking with deep technical execution to deliver applications that don’t just look good—but perform under real-world pressure. Aligned to your cloud strategy and fully scalable from day one.</p>
     </section>
 
-    <section class="cta" style="padding-bottom: 3rem;">
-      <a href="contact.html">Start Your App Journey</a>
+    <section class="cta" style="padding-bottom: 3rem; text-align: center;">
+      <a href="contact.html" class="cta-btn">Start Your App Journey</a>
     </section>
   </main>
 
