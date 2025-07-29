@@ -9,17 +9,18 @@
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    .orange-banner {
-      background-color: #ff9900;
-      height: 80px;
-      width: 100%;
-    }
     .page-banner {
       height: 300px;
       background-image: url('assets/images/appdev-bannerimage.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
+      width: 100%;
+    }
+    .small-banner {
+      height: 160px;
+      padding: 0.2rem 2rem 0;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       width: 100%;
     }
     .hamburger {
@@ -80,31 +81,34 @@
   </style>
 </head>
 <body>
-  <div class="banner-header" style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 2rem; background: white;">
-  <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" style="height: 60px;" />
-  <div class="hamburger" id="hamburger">
-    <span></span><span></span><span></span>
+  <div class="small-banner">
+    <div class="banner-header" style="display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; max-width: 1200px; margin: 0 auto;">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" style="height: 80px;" />
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-btn">Home</a>
+        <a href="consulting.html" class="nav-btn">Consulting</a>
+        <a href="cloud.html" class="nav-btn active">Cloud Service Suite</a>
+        <a href="talent.html" class="nav-btn">Talent Placement</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">Dynamic Imprinting</a>
+        <a href="about.html" class="nav-btn">About Us</a>
+        <a href="contact.html" class="nav-btn">Contact</a>
+      </nav>
+      <nav class="mobile-nav" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="cloud.html" class="active">Cloud Service Suite</a>
+        <a href="talent.html">Talent Placement</a>
+        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </div>
-  <nav class="desktop-nav">
-    <a href="index.html" class="nav-btn">Home</a>
-    <a href="consulting.html" class="nav-btn">Consulting</a>
-    <a href="cloud.html" class="nav-btn active">Cloud Service Suite</a>
-    <a href="talent.html" class="nav-btn">Talent Placement</a>
-    <a href="dynamic-imprinting.html" class="nav-btn">Dynamic Imprinting</a>
-    <a href="about.html" class="nav-btn">About Us</a>
-    <a href="contact.html" class="nav-btn">Contact</a>
-  </nav>
-  <nav class="mobile-nav" id="mobileMenu">
-    <a href="index.html">Home</a>
-    <a href="consulting.html">Consulting</a>
-    <a href="cloud.html" class="active">Cloud Service Suite</a>
-    <a href="talent.html">Talent Placement</a>
-    <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</div>
-<div class="page-banner"></div>
+  <div class="page-banner"></div>
+
   <header class="hero">
     <h1>Mobile & Web Development</h1>
     <p>Fast, intuitive applications that run smoothly on any device. Whether native, hybrid, or progressive—we build clean, responsive digital experiences that scale.</p>
