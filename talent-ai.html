@@ -1,6 +1,6 @@
 <section class="section" style="margin-top: 4rem;">
-  <h2 class="section-title" >AI-Powered Talent Shortlists</h2>
-  <p class="subtitle" >
+  <h2 class="section-title">AI-Powered Talent Shortlists</h2>
+  <p class="subtitle">
     Through our partnership with <strong>Supportwave</strong>, CoreCloud gives clients AI-accelerated access to vetted, high-impact talent—fast. View the demo shortlist below.
   </p>
 
@@ -18,15 +18,39 @@
   </p>
 </section>
 
+<section class="section" style="margin-top: 4rem;">
+  <h2 class="section-title">Submit a Role</h2>
+  <p class="subtitle">Kickstart your hiring by submitting a role brief below. We'll deliver an AI-powered shortlist in no time.</p>
+  <form id="job-submission-form" style="max-width: 800px; margin: 0 auto;">
+    <div style="margin-bottom: 1rem;">
+      <label for="company">Company Name</label>
+      <input type="text" id="company" name="company" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;" />
+    </div>
+    <div style="margin-bottom: 1rem;">
+      <label for="role">Role Title</label>
+      <input type="text" id="role" name="role" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;" />
+    </div>
+    <div style="margin-bottom: 1rem;">
+      <label for="description">Role Description</label>
+      <textarea id="description" name="description" rows="5" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;"></textarea>
+    </div>
+    <div style="margin-bottom: 1rem;">
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;" />
+    </div>
+    <button type="submit" class="cta-btn" style="margin-top: 1rem;">Submit Role</button>
+  </form>
+</section>
+
 <section class="cta-card" style="margin-top: 3rem;">
-  <h2 style="font-size: 2rem; margin-bottom: 0.5rem;">Hiring More Than 10 Roles?</h2>
-  <p >Let’s talk about discounted interview bundles or dedicated monthly access plans.</p>
+  <h2>Hiring More Than 10 Roles?</h2>
+  <p>Let’s talk about discounted interview bundles or dedicated monthly access plans.</p>
   <a href="contact.html" class="cta-btn">Get in Touch</a>
 </section>
 
 <section class="section" id="ai-pricing" style="margin-top: 4rem;">
-  <h2 class="section-title" >AI Interview Pricing</h2>
-  <p class="subtitle" >
+  <h2 class="section-title">AI Interview Pricing</h2>
+  <p class="subtitle">
     Only pay when you engage. No subscriptions. No hidden fees.
   </p>
   <div class="card-grid quad">
@@ -47,3 +71,13 @@
     </div>
   </div>
 </section>
+
+<script>
+  document.getElementById("job-submission-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const payload = Object.fromEntries(formData.entries());
+    alert("Job submitted!\n" + JSON.stringify(payload, null, 2));
+    // TODO: Replace alert with actual POST to Supportwave API when credentials available
+  });
+</script>
