@@ -9,6 +9,14 @@
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
+    .page-banner {
+      height: 300px;
+      background-image: url('assets/images/appdev-bannerimage.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+    }
     .hero {
       text-align: center;
       padding: 4rem 2rem 2rem;
@@ -59,39 +67,76 @@
   </style>
 </head>
 <body>
-  <section class="hero">
+  <div class="page-banner"></div>
+  <header class="hero">
     <h1>Mobile & Web Development</h1>
     <p>Fast, intuitive applications that run smoothly on any device. Whether native, hybrid, or progressive—we build clean, responsive digital experiences that scale.</p>
-  </section>
+  </header>
 
-  <section class="section">
-    <h2>Experience Everywhere</h2>
-    <p>Our teams design and deliver mobile and web apps that adapt to your users—across platforms, screen sizes, and use cases. Speed, usability, and cloud-native performance are baked into every build.</p>
-    <ul>
-      <li>iOS, Android, and cross-platform mobile development</li>
-      <li>Single-page applications (SPA) and Progressive Web Apps (PWA)</li>
-      <li>Cloud-hosted APIs and backend integrations</li>
-      <li>CI/CD pipelines for rapid release and feedback</li>
-    </ul>
-  </section>
+  <main>
+    <section class="section">
+      <h2>Experience Everywhere</h2>
+      <p>Our teams design and deliver mobile and web apps that adapt to your users—across platforms, screen sizes, and use cases. Speed, usability, and cloud-native performance are baked into every build.</p>
+      <ul>
+        <li>iOS, Android, and cross-platform mobile development</li>
+        <li>Single-page applications (SPA) and Progressive Web Apps (PWA)</li>
+        <li>Cloud-hosted APIs and backend integrations</li>
+        <li>CI/CD pipelines for rapid release and feedback</li>
+      </ul>
+    </section>
 
-  <section class="section">
-    <h2>Use Cases We Serve</h2>
-    <ul>
-      <li>Client-facing apps (e.g. onboarding, billing, self-service)</li>
-      <li>Internal tools (approvals, dashboards, workflow automation)</li>
-      <li>Field-force enablement (offline-first mobile UX)</li>
-      <li>Product MVPs and proof-of-concept platforms</li>
-    </ul>
-  </section>
+    <section class="section">
+      <h2>Use Cases We Serve</h2>
+      <ul>
+        <li>Client-facing apps (e.g. onboarding, billing, self-service)</li>
+        <li>Internal tools (approvals, dashboards, workflow automation)</li>
+        <li>Field-force enablement (offline-first mobile UX)</li>
+        <li>Product MVPs and proof-of-concept platforms</li>
+      </ul>
+    </section>
 
-  <section class="section">
-    <h2>Design Meets Execution</h2>
-    <p>We combine strong UX thinking with deep technical execution to deliver applications that don’t just look good—but perform under real-world pressure. Aligned to your cloud strategy and fully scalable from day one.</p>
-  </section>
+    <section class="section">
+      <h2>Design Meets Execution</h2>
+      <p>We combine strong UX thinking with deep technical execution to deliver applications that don’t just look good—but perform under real-world pressure. Aligned to your cloud strategy and fully scalable from day one.</p>
+    </section>
 
-  <div class="cta">
-    <a href="contact.html">Start Your App Journey</a>
-  </div>
+    <section class="cta">
+      <a href="contact.html">Start Your App Journey</a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton,<br>Johannesburg</p>
+      </div>
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+          <input type="email" name="email" placeholder="Enter your email" required style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
+          <button type="submit" style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
+            Subscribe
+          </button>
+        </form>
+      </div>
+      <div class="footer-right">
+        <p>Contact</p>
+        <p>Email: sales@corecloudza.com</p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("hamburger")?.addEventListener("click", function() {
+      this.classList.toggle("active");
+      document.getElementById("mobileMenu")?.classList.toggle("active");
+    });
+  </script>
 </body>
 </html>
