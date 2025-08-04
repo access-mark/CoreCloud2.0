@@ -9,7 +9,6 @@
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
-
   <style>
     .page-banner {
       height: 300px !important;
@@ -19,7 +18,6 @@
       width: 100%;
       overflow: hidden;
     }
-
     .hero-title {
       font-size: 2rem;
       color: #004f91;
@@ -27,7 +25,6 @@
       font-weight: 700;
       text-align: center;
     }
-
     .cloud-columns {
       display: flex;
       flex-direction: row;
@@ -36,12 +33,10 @@
       margin-top: 3rem;
       flex-wrap: wrap;
     }
-
     .cloud-column {
       flex: 1;
       min-width: 300px;
     }
-
     .cloud-column h2 {
       text-align: center;
       margin-bottom: 1.5rem;
@@ -49,13 +44,11 @@
       font-size: 1.8rem;
       font-weight: 700;
     }
-
     .card-group {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
     }
-
     .card {
       background: #fff;
       border-radius: 12px;
@@ -67,28 +60,23 @@
       justify-content: space-between;
       text-decoration: none !important;
     }
-
     .card:hover {
       transform: translateY(-5px);
     }
-
     .card h3 {
       font-size: 1.25rem;
       color: #ffffff;
       margin-bottom: 1rem;
       font-weight: 700;
     }
-
     .card p {
       color: #ffffff;
       font-size: 1rem;
       margin-bottom: 1.2rem;
     }
-
     .aws-card { background-color: #ff9900; border: 1px solid #000; }
     .azure-card { background-color: #007fff; border: 1px solid #000; }
     .databricks-card { background-color: #ff3621; border: 1px solid #000; }
-
     .cta-btn {
       background-color: #ffffff !important;
       border: 2px solid #ffffff;
@@ -99,11 +87,9 @@
       cursor: pointer;
       text-decoration: none;
     }
-
     .aws-card .cta-btn { color: #ff9900 !important; }
     .azure-card .cta-btn { color: #007fff !important; }
     .databricks-card .cta-btn { color: #ff3621 !important; }
-
     .section {
       margin-top: 4rem;
     }
@@ -111,7 +97,6 @@
 </head>
 <body>
   <div class="page-banner" style="background-image: url('assets/images/cloud-banner.png');"></div>
-
   <main class="content">
     <h1 class="hero-title">Cloud Service Suite</h1>
     <p style="text-align: center; max-width: 900px; margin: 0 auto 2rem;">
@@ -199,34 +184,35 @@
       </div>
     </div>
 
+    <div class="cloud-columns">
+      <div class="cloud-column">
+        <h2>Application Development</h2>
+        <div class="card-group">
+          <div class="card azure-card">
+            <h3>Cloud-Native Apps</h3>
+            <p>Design and build applications that scale seamlessly in modern cloud environments.</p>
+            <a href="#" class="cta-btn">Explore Solutions</a>
+          </div>
+          <div class="card azure-card">
+            <h3>Enterprise Portals</h3>
+            <p>Develop secure, scalable portals to streamline internal operations and customer engagement.</p>
+            <a href="#" class="cta-btn">Learn More</a>
+          </div>
+          <div class="card azure-card">
+            <h3>Mobile & Web</h3>
+            <p>Deliver cross-platform mobile and web experiences powered by robust cloud infrastructure.</p>
+            <a href="#" class="cta-btn">Start Building</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <section class="section">
       <h2 style="color: #004f91; text-align: center;">Our Delivery Ecosystem</h2>
       <p style="max-width: 900px; margin: 0 auto 2rem; text-align: center;">
         At CoreCloud, we know that exceptional cloud transformation requires more than technology alone. It’s about working with partners who are masters of their domains — and who share our relentless commitment to delivering real outcomes.
       </p>
-    <div class="cloud-columns">
-  <div class="cloud-column">
-    <h2>Application Development</h2>
-    <div class="card-group">
-      <div class="card azure-card">
-        <h3>Cloud-Native Apps</h3>
-        <p>Design and build applications that scale seamlessly in modern cloud environments.</p>
-        <a href="#" class="cta-btn">Explore Solutions</a>
-      </div>
-      <div class="card azure-card">
-        <h3>Enterprise Portals</h3>
-        <p>Develop secure, scalable portals to streamline internal operations and customer engagement.</p>
-        <a href="#" class="cta-btn">Learn More</a>
-      </div>
-      <div class="card azure-card">
-        <h3>Mobile & Web</h3>
-        <p>Deliver cross-platform mobile and web experiences powered by robust cloud infrastructure.</p>
-        <a href="#" class="cta-btn">Start Building</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-$1
+    </section>
+  </main>
 </body>
 </html>
