@@ -101,19 +101,20 @@
 </style>
 </head>
 <body>
-  <div class="small-banner">
-    <div class="banner-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem;">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" style="height: 60px;" />
-      <nav class="desktop-nav">
-        <a href="index.html" class="nav-btn">Home</a>
-        <a href="consulting.html" class="nav-btn">Consulting</a>
-        <a href="cloud.html" class="nav-btn active">Cloud Service Suite</a>
-        <a href="talent.html" class="nav-btn">Talent Placement</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">Dynamic Imprinting</a>
-        <a href="about.html" class="nav-btn">About Us</a>
-        <a href="contact.html" class="nav-btn">Contact</a>
-      </nav>
-    </div>
+  <div class="small-banner" style="width: 100%; background: #fff;">
+  <div class="banner-header" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 3rem; max-width: 1200px; margin: 0 auto;">
+    <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" style="height: 48px; width: auto;" />
+    <nav class="desktop-nav">
+      <a href="index.html" class="nav-btn">Home</a>
+      <a href="consulting.html" class="nav-btn">Consulting</a>
+      <a href="cloud.html" class="nav-btn active">Cloud Service Suite</a>
+      <a href="talent.html" class="nav-btn">Talent Placement</a>
+      <a href="dynamic-imprinting.html" class="nav-btn">Dynamic Imprinting</a>
+      <a href="about.html" class="nav-btn">About Us</a>
+      <a href="contact.html" class="nav-btn">Contact</a>
+    </nav>
+  </div>
+</div>
   </div>
   <div class="page-banner" style="background-image: url('assets/images/cloud-banner.png');"></div>
   <main class="content">
@@ -232,8 +233,8 @@
         At CoreCloud, we know that exceptional cloud transformation requires more than technology alone. It’s about working with partners who are masters of their domains — and who share our relentless commitment to delivering real outcomes.
       </p>
     </section>
-  <footer>
-  <div class="footer-content">
+  <footer style="width: 100%; background: #f9f9f9; padding: 2rem 0;">
+  <div class="footer-content" style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; flex-wrap: wrap; padding: 0 2rem;">
     <div class="footer-left">
       <p><strong>CoreCloud (Pty) Ltd</strong></p>
       <p>Sandton,<br>Johannesburg</p>
@@ -254,7 +255,7 @@
       <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
     </div>
   </div>
-  <div class="footer-bottom">
+  <div class="footer-bottom" style="text-align: center; margin-top: 2rem; padding: 1rem 2rem; border-top: 1px solid #ccc;">
     <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
   </div>
 </footer>
@@ -284,5 +285,6 @@
     .catch(() => alert("Submission failed. Please try again."));
   });
 </script>
+
 </body>
 </html>
