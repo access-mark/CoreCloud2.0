@@ -274,32 +274,3 @@
   </script>
 </body>
 </html>
-
-<script>
-  document.getElementById("hamburger").addEventListener("click", function() {
-    this.classList.toggle("active");
-    document.getElementById("mobileMenu").classList.toggle("active");
-  });
-
-  document.getElementById("subscribe-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const form = e.target;
-    const data = new FormData(form);
-
-    fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
-      method: "POST",
-      body: data
-    })
-    .then(response => {
-      if (response.ok) {
-        window.location.href = "thank-you.html";
-      } else {
-        alert("Something went wrong. Please try again.");
-      }
-    })
-    .catch(() => alert("Submission failed. Please try again."));
-  });
-</script>
-
-</body>
-</html>
