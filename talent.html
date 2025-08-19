@@ -30,8 +30,17 @@
     }
     .relaunch-cta h2,.cta-card h2{font-size:2rem;margin-bottom:1rem;color:#fff;}
     .relaunch-cta p,.cta-card p{font-size:1.1rem;margin:0 auto 1.5rem;max-width:800px;color:#fff;}
-    .relaunch-cta a.cta-btn,.cta-card a.cta-btn{background:#fff;color:#004f91;font-weight:bold;padding:.75rem 2rem;border-radius:6px;text-decoration:none;display:inline-block;font-size:1.1rem;transition:all .3s ease;}
+    .relaunch-cta a.cta-btn,.cta-card a.cta-btn{
+      background:#fff;color:#004f91;font-weight:bold;padding:.75rem 2rem;border-radius:6px;
+      text-decoration:none;display:inline-block;font-size:1.1rem;transition:all .3s ease;
+    }
     .relaunch-cta a.cta-btn:hover,.cta-card a.cta-btn:hover{background:#004f91;color:#fff;}
+
+    /* Make both banners same visual size on desktop/tablet */
+    .equal-banner{
+      min-height:360px;display:flex;align-items:center;justify-content:center;flex-direction:column;box-sizing:border-box;
+    }
+    @media (max-width:768px){ .equal-banner{ min-height:unset; } }
 
     /* ---- Typography ---- */
     .section-title{ text-align:center;color:#004f91;font-size:2rem;margin-bottom:1.5rem;font-weight:700;}
@@ -60,7 +69,7 @@
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
       <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 
-      <!-- Updated global nav labels -->
+      <!-- Global nav labels -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
@@ -85,8 +94,8 @@
 
   <div class="page-banner" style="background-image:url('assets/images/talent-bannerimage.png');"></div>
 
-  <!-- Relaunch banner -->
-  <div class="relaunch-cta">
+  <!-- Top banner (now equal height) -->
+  <div class="relaunch-cta equal-banner">
     <h2>Starting Out or Starting Over?</h2>
     <p>Whether you’re a young professional launching your career or an experienced talent looking to pivot, our <strong>Re / Launch Talent Hub</strong> connects you to meaningful opportunities in the South African ICT landscape. Let’s help you take your next step with clarity, confidence, and support.</p>
     <a href="talent-relaunch.html" class="cta-btn">Visit Re / Launch Hub</a>
@@ -117,7 +126,7 @@
 
     <section class="section">
       <h2 class="section-title">Our Focus Areas</h2>
-      <!-- Add force-4 to kill flicker -->
+      <!-- Flicker-free 4/2/1 -->
       <div class="card-grid quad force-4">
         <div class="card"><h2>Cloud Engineers</h2><p>AWS, Azure, hybrid and multi-cloud professionals with infrastructure expertise.</p></div>
         <div class="card"><h2>DevOps & Automation</h2><p>CI/CD specialists, platform engineers, and automation experts.</p></div>
@@ -141,7 +150,8 @@
       </p>
     </section>
 
-    <section class="cta-card">
+    <!-- Bottom banner (now equal height) -->
+    <section class="cta-card equal-banner">
       <h2>Need Talent or Looking for Your Next Role?</h2>
       <p>We place top talent into roles that make a difference. Let’s talk.</p>
       <a href="contact.html" class="cta-btn">Start a Conversation</a>
