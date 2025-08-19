@@ -36,11 +36,16 @@
     }
     .relaunch-cta a.cta-btn:hover,.cta-card a.cta-btn:hover{background:#004f91;color:#fff;}
 
-    /* Make both banners same visual size on desktop/tablet */
+    /* Make BOTH banners exactly the same size on desktop/tablet */
     .equal-banner{
-      min-height:360px;display:flex;align-items:center;justify-content:center;flex-direction:column;box-sizing:border-box;
+      height:360px;            /* fixed visual height */
+      min-height:360px;
+      display:flex;align-items:center;justify-content:center;flex-direction:column;
+      box-sizing:border-box;padding:3rem 1rem;
     }
-    @media (max-width:768px){ .equal-banner{ min-height:unset; } }
+    .equal-banner h2{margin:0 0 1rem;}
+    .equal-banner p{margin:0 0 1.5rem;max-width:800px;}
+    @media (max-width:768px){ .equal-banner{ height:auto; min-height:unset; } }
 
     /* ---- Typography ---- */
     .section-title{ text-align:center;color:#004f91;font-size:2rem;margin-bottom:1.5rem;font-weight:700;}
@@ -94,7 +99,7 @@
 
   <div class="page-banner" style="background-image:url('assets/images/talent-bannerimage.png');"></div>
 
-  <!-- Top banner (now equal height) -->
+  <!-- Top banner (equal height) -->
   <div class="relaunch-cta equal-banner">
     <h2>Starting Out or Starting Over?</h2>
     <p>Whether you’re a young professional launching your career or an experienced talent looking to pivot, our <strong>Re / Launch Talent Hub</strong> connects you to meaningful opportunities in the South African ICT landscape. Let’s help you take your next step with clarity, confidence, and support.</p>
@@ -150,7 +155,7 @@
       </p>
     </section>
 
-    <!-- Bottom banner (now equal height) -->
+    <!-- Bottom banner (equal height) -->
     <section class="cta-card equal-banner">
       <h2>Need Talent or Looking for Your Next Role?</h2>
       <p>We place top talent into roles that make a difference. Let’s talk.</p>
