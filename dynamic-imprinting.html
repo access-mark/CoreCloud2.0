@@ -10,151 +10,99 @@
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 
+  <!-- Page-scoped styles only -->
   <style>
-    body {
-      font-family: "Segoe UI", Roboto, sans-serif;
-      background-color: #f9fafb;
-      color: #333;
-      margin: 0;
-      padding: 0;
+    /* Match hero to other pages */
+    .imprinting-page .hero-title{
+      color:#004f91; font-weight:700; text-align:center;
+      margin:2.5rem auto 1rem; font-size:2.4rem; letter-spacing:.2px;
+    }
+    .imprinting-page .hero-subtitle{
+      font-size:1.2rem; color:#555; text-align:center; max-width:900px;
+      margin:0 auto 3rem; line-height:1.6;
     }
 
-    .hero-title {
-      color: #004f91;
-      font-weight: 700;
-      text-align: center;
-      margin-top: 2.5rem;
-      margin-bottom: 1rem;
-      font-size: 2rem;
+    .imprinting-page section.section{
+      max-width:1100px; margin:0 auto 3rem; padding:0 2rem;
     }
 
-    .hero-subtitle {
-      font-size: 1.2rem;
-      color: #555;
-      text-align: center;
-      max-width: 900px;
-      margin: 0 auto 3rem auto;
-      line-height: 1.6;
+    /* Section titles aligned with rest of site */
+    .imprinting-page .section-title{
+      color:#004f91; font-weight:700; text-align:center;
+      margin-top:2rem; margin-bottom:1.5rem; font-size:2rem;
     }
 
-    section.section {
-      max-width: 1100px;
-      margin: 0 auto 3rem auto;
-      padding: 0 2rem;
+    .imprinting-page section p{
+      font-size:1.05rem; line-height:1.8; color:#444; margin-bottom:1.5rem;
+    }
+    .imprinting-page section ul{ list-style:disc; padding-left:1.5rem; margin-bottom:2rem; }
+    .imprinting-page section ul li{ margin-bottom:.75rem; }
+
+    .imprinting-page blockquote{
+      background:#f0f7ff; border-left:5px solid #004f91; padding:1rem 1.5rem;
+      font-style:italic; color:#003366; border-radius:4px; margin:2rem 0;
     }
 
-    .section-title {
-      color: #004f91;
-      font-weight: 700;
-      text-align: center;
-      margin-top: 2rem;
-      margin-bottom: 1.5rem;
-      font-size: 2rem;
+    .imprinting-page .cta-btn{
+      background-color:#0066b2; color:#fff; text-decoration:none;
+      padding:.8rem 1.6rem; font-size:1.05rem; border-radius:6px; font-weight:bold;
+      display:inline-block; transition:all .3s ease;
     }
+    .imprinting-page .cta-btn:hover{ background-color:#004f91; transform:translateY(-2px); box-shadow:0 4px 10px rgba(0,0,0,.15); }
 
-    section p {
-      font-size: 1.05rem;
-      line-height: 1.8;
-      color: #444;
-      margin-bottom: 1.5rem;
-    }
-
-    section ul {
-      list-style-type: disc;
-      padding-left: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    section ul li {
-      margin-bottom: 0.75rem;
-    }
-
-    blockquote {
-      background: #f0f7ff;
-      border-left: 5px solid #004f91;
-      padding: 1rem 1.5rem;
-      font-style: italic;
-      color: #003366;
-      border-radius: 4px;
-      margin: 2rem 0;
-    }
-
-    .cta-btn {
-      background-color: #0066b2;
-      color: #fff;
-      text-decoration: none;
-      padding: 0.8rem 1.6rem;
-      font-size: 1.05rem;
-      border-radius: 6px;
-      font-weight: bold;
-      display: inline-block;
-      transition: all 0.3s ease;
-    }
-
-    .cta-btn:hover {
-      background-color: #004f91;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-    }
-
-    @media screen and (max-width: 768px) {
-      .hero-title,
-      .section-title {
-        font-size: 1.8rem;
-      }
-
-      section.section {
-        padding: 0 1rem;
-      }
+    @media (max-width:768px){
+      .imprinting-page .hero-title,
+      .imprinting-page .section-title{ font-size:1.8rem; }
+      .imprinting-page section.section{ padding:0 1rem; }
     }
   </style>
 </head>
 
-<body>
+<body class="imprinting-page">
+  <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+
       <nav class="desktop-nav">
-        <a href="index.html" class="nav-btn">Home</a>
-        <a href="consulting.html" class="nav-btn">Consulting</a>
-        <a href="cloud.html" class="nav-btn">Cloud Service Suite</a>
-        <a href="talent.html" class="nav-btn">Talent Placement</a>
-        <a href="dynamic-imprinting.html" class="nav-btn active">Dynamic Imprinting</a>
-        <a href="about.html" class="nav-btn">About Us</a>
-        <a href="contact.html" class="nav-btn">Contact</a>
+        <a href="index.html" class="nav-btn">HOME</a>
+        <a href="consulting.html" class="nav-btn">CONSULTING</a>
+        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
+        <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
+        <a href="dynamic-imprinting.html" class="nav-btn active">DYNAMIC IMPRINTING</a>
+        <a href="about.html" class="nav-btn">ABOUT US</a>
+        <a href="contact.html" class="nav-btn">CONTACT US</a>
       </nav>
+
       <nav class="mobile-nav" id="mobileMenu">
-        <a href="index.html">Home</a>
-        <a href="consulting.html">Consulting</a>
-        <a href="cloud.html">Cloud Service Suite</a>
-        <a href="talent.html">Talent Placement</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">Dynamic Imprinting</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html">HOME</a>
+        <a href="consulting.html">CONSULTING</a>
+        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="dynamic-imprinting.html" class="active">DYNAMIC IMPRINTING</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="contact.html">CONTACT US</a>
       </nav>
     </div>
   </div>
 
-  <div class="page-banner" style="background-image: url('assets/images/dynamic-imprinting-banner.png'); height: 300px; background-size: cover; background-position: center;"></div>
+  <!-- Banner -->
+  <div class="page-banner" style="background-image:url('assets/images/dynamic-imprinting-banner.png'); height:300px; background-size:cover; background-position:center;"></div>
 
+  <!-- Hero -->
   <h1 class="hero-title">Dynamic Imprinting for Executive Transformation</h1>
   <p class="hero-subtitle">
     Real leadership begins when you show up as yourself. Dynamic Imprinting helps high-performing executives step into their true leadership identity, transforming influence, clarity, and performance.
   </p>
 
+  <!-- Body -->
   <section class="section">
     <p>You’ve built your career through results, discipline, and adaptability. You’ve earned your title, your credibility, and your seat at the table.</p>
 
     <p>But even top performers sometimes wonder in quieter moments:</p>
 
-    <blockquote>
-      “Is this truly who I’m meant to be as a leader?”
-    </blockquote>
+    <blockquote>“Is this truly who I’m meant to be as a leader?”</blockquote>
 
     <p>Reaching the top often means wearing different masks, fitting into roles, and meeting expectations under pressure. Over time, the line can blur between who you are and who you’re supposed to be.</p>
 
@@ -174,30 +122,30 @@
 
     <p>Picture being remembered not just for what you achieved but for the leader you became.</p>
 
-    <h2 class="section-title" style="margin-top: 3rem;">The Four Phases of Dynamic Imprinting</h2>
+    <h2 class="section-title" style="margin-top:3rem;">The Four Phases of Dynamic Imprinting</h2>
 
     <p><strong>Identity Excavation</strong><br>
-    We start by removing layers of titles and expectations to uncover who you really are beneath professional labels. It’s a safe, confidential exploration of values, strengths, and the identity you want to lead with.</p>
+      We start by removing layers of titles and expectations to uncover who you really are beneath professional labels. It’s a safe, confidential exploration of values, strengths, and the identity you want to lead with.</p>
 
     <p><strong>Cognitive Reprogramming</strong><br>
-    Next, we examine the beliefs and mental narratives that shape your leadership. Together, we rewrite scripts that no longer serve you, replacing them with thinking that fuels clarity and confidence.</p>
+      Next, we examine the beliefs and mental narratives that shape your leadership. Together, we rewrite scripts that no longer serve you, replacing them with thinking that fuels clarity and confidence.</p>
 
     <p><strong>Behavioural Anchoring</strong><br>
-    Insight alone changes nothing. We build new habits, rituals, and communication patterns that embed your authentic identity into daily actions so that who you want to be becomes who others experience.</p>
+      Insight alone changes nothing. We build new habits, rituals, and communication patterns that embed your authentic identity into daily actions so that who you want to be becomes who others experience.</p>
 
     <p><strong>Resonance Reinforcement</strong><br>
-    Finally, we ensure your transformation lasts. Through feedback and strategic reflection, we help you project your leadership identity consistently and powerfully.</p>
+      Finally, we ensure your transformation lasts. Through feedback and strategic reflection, we help you project your leadership identity consistently and powerfully.</p>
 
-    <h2 class="section-title" style="margin-top: 3rem;">Program Options</h2>
+    <h2 class="section-title" style="margin-top:3rem;">Program Options</h2>
 
     <p><strong>Private Executive Program (16 Weeks)</strong><br>
-    A private, intensive journey with weekly or biweekly sessions, ongoing support, and resources tailored to your needs.</p>
+      A private, intensive journey with weekly or biweekly sessions, ongoing support, and resources tailored to your needs.</p>
 
     <p><strong>Executive Intensive (3–5 Days)</strong><br>
-    A focused sprint for immediate clarity and action, plus follow-up support.</p>
+      A focused sprint for immediate clarity and action, plus follow-up support.</p>
 
     <p><strong>Strategic Advisory Retainer</strong><br>
-    Ongoing partnership for leaders who want consistent guidance and reinforcement.</p>
+      Ongoing partnership for leaders who want consistent guidance and reinforcement.</p>
 
     <p>This is identity work with business impact:</p>
 
@@ -211,19 +159,22 @@
 
     <p><strong>This isn’t about fixing what’s broken.</strong> It’s about stepping into the fullest version of who you are as a leader and creating the impact only you can achieve.</p>
 
-    <div style="text-align: center; margin-top: 3rem; margin-bottom: 3rem;">
-      <a href="contact.html" class="cta-btn">
-        Book a Confidential Consultation
-      </a>
+    <div style="text-align:center; margin:3rem 0;">
+      <a href="contact.html" class="cta-btn">Book a Confidential Consultation</a>
     </div>
   </section>
 
+  <!-- JS -->
   <script>
-    document.getElementById("hamburger").addEventListener("click", function() {
-      this.classList.toggle("active");
-      document.getElementById("mobileMenu").classList.toggle("active");
-    });
+    const burger = document.getElementById('hamburger');
+    const mobile = document.getElementById('mobileMenu');
+    if (burger && mobile) {
+      const toggle = () => { burger.classList.toggle('active'); mobile.classList.toggle('active'); };
+      burger.addEventListener('click', toggle);
+      burger.addEventListener('keypress', e => { if (e.key === 'Enter' || e.key === ' ') toggle(); });
+    }
   </script>
+
   <!-- Footer -->
   <footer>
     <div class="footer-content">
@@ -234,11 +185,11 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
+        <form id="subscribe-form" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required
-                 style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
+                 style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
           <button type="submit"
-                  style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
+                  style="background-color:#0066b2; color:#fff; border:none; padding:10px 20px; border-radius:4px; cursor:pointer;">
             Subscribe
           </button>
         </form>
@@ -246,7 +197,7 @@
       <div class="footer-right">
         <p>Contact</p>
         <p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:red; text-decoration:underline; font-weight:bold;">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -255,26 +206,17 @@
   </footer>
 
   <script>
-    document.getElementById("hamburger").addEventListener("click", function() {
-      this.classList.toggle("active");
-      document.getElementById("mobileMenu").classList.toggle("active");
-    });
-
     document.getElementById("subscribe-form").addEventListener("submit", function (e) {
       e.preventDefault();
       const form = e.target;
       const data = new FormData(form);
-
       fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
         method: "POST",
         body: data
       })
       .then(response => {
-        if (response.ok) {
-          window.location.href = "thank-you.html?type=subscribe";
-        } else {
-          alert("Something went wrong. Please try again.");
-        }
+        if (response.ok) window.location.href = "thank-you.html?type=subscribe";
+        else alert("Something went wrong. Please try again.");
       })
       .catch(() => alert("Submission failed. Please try again."));
     });
