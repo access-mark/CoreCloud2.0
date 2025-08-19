@@ -9,65 +9,6 @@
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
   <link rel="stylesheet" href="assets/css/styles.css"/>
-
-  <!-- Page-scoped styles only (does not change other pages) -->
-  <style>
-    .consulting-page .page-banner{
-      height:320px !important;
-      background-size:cover; background-position:center; background-repeat:no-repeat;
-      width:100%; overflow:hidden;
-    }
-    .consulting-page .content{
-      max-width:1200px; margin:0 auto; padding:2rem 1rem 4rem;
-    }
-    .consulting-page .hero-title{
-      font-size:2rem; margin:2rem auto 1rem; font-weight:700; text-align:center;
-      color: var(--dark-blue);
-    }
-    .consulting-page .section{ margin:3rem 0; }
-
-    /* Standardise section headers to match Home page look */
-    .consulting-page .section-title{
-      text-align:center; font-weight:800; font-size:2.2rem; margin-bottom:1rem;
-      color: var(--dark-blue);
-    }
-
-    .consulting-page .card-grid{
-      display:grid; gap:1rem; margin-top:1rem; grid-template-columns:repeat(4,1fr);
-    }
-    @media (max-width:1024px){ .consulting-page .card-grid{ grid-template-columns:repeat(2,1fr); } }
-    @media (max-width:640px){ .consulting-page .card-grid{ grid-template-columns:1fr; } }
-
-    .consulting-page .card{
-      background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);
-      padding:1.2rem; text-align:center; display:flex; flex-direction:column; gap:.5rem;
-      transition:transform .2s ease, box-shadow .2s ease;
-    }
-    .consulting-page .card:hover{ transform:translateY(-5px); box-shadow:0 6px 18px rgba(0,0,0,0.12); }
-
-    /* Do NOT override .card h2 so titles match other pages */
-    .consulting-page .card p{ margin:0; }
-
-    .consulting-page .bullets{
-      display:grid; gap:.5rem; width:100%; max-width:900px; grid-template-columns:repeat(2,minmax(0,1fr));
-    }
-    .consulting-page .bullets li{ margin-left:1rem; }
-    @media (max-width:768px){ .consulting-page .bullets{ grid-template-columns:1fr; } }
-
-    /* Match Home page CTA button style */
-    .consulting-page .cta-btn {
-      display: inline-block;
-      background-color: #0066b2;
-      color: #fff;
-      text-decoration: none;
-      padding: 0.8rem 1.6rem;
-      font-size: 1.05rem;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-    .consulting-page .cta-btn:hover { background-color: #004f91; }
-  </style>
 </head>
 
 <body class="consulting-page">
@@ -99,14 +40,14 @@
   <div class="page-banner" style="background-image:url('assets/images/consulting-bannerimage.png');"></div>
 
   <main class="content">
-    <h1 class="hero-title">Consulting Partnerships That Deliver Real Results</h1>
+    <h1 class="hero-title" style="text-align:center;">Consulting Partnerships That Deliver Real Results</h1>
     <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">
       At CoreCloud, execution means action that delivers real results. We partner with specialists who help turn strategies into measurable outcomes.
     </p>
 
     <!-- Four Pillars -->
-    <h2 class="section-title">The Four Pillars of Execution</h2>
-    <div class="card-grid">
+    <div class="section-title">The Four Pillars of Execution</div>
+    <div class="card-grid" style="margin-top:1rem;">
       <div class="card">
         <h2>Cloud</h2>
         <p>We build practical cloud strategies, modernise systems, align vendors, and design models that help businesses stay ahead.</p>
@@ -127,7 +68,7 @@
 
     <!-- Advisory Approach -->
     <section class="section">
-      <h2 class="section-title">Our Advisory Approach</h2>
+      <div class="section-title">Our Advisory Approach</div>
       <p style="text-align:center; max-width:900px; margin:0 auto 1rem;">
         We skip the buzzwords and focus on practical strategy. CoreCloud works with boards, CIOs, and business leaders to turn vision into results.
       </p>
@@ -145,7 +86,7 @@
 
     <!-- Sales Consulting -->
     <section class="section" id="sales-consulting">
-      <h2 class="section-title">Sales Consulting: People &amp; Process</h2>
+      <div class="section-title">Sales Consulting: People &amp; Process</div>
       <p style="text-align:center; max-width:900px; margin:0 auto 1.5rem;">
         We build the sales capacity and discipline that drive predictable revenue — fast.
       </p>
@@ -194,22 +135,46 @@
 
     <!-- Why Clients Choose -->
     <section class="section">
-      <h2 class="section-title">Why Clients Choose CoreCloud</h2>
+      <div class="section-title">Why Clients Choose CoreCloud</div>
       <div class="card-grid">
-        <div class="card"><h2>Executive-Grade Insights</h2><p>Boardroom experience from global tech giants and high-growth ventures, delivering insights that create real impact.</p></div>
-        <div class="card"><h2>Outcome-Obsessed</h2><p>We measure success by results, not hours. Every project is built to deliver tangible impact.</p></div>
-        <div class="card"><h2>Agile &amp; Independent</h2><p>Lean and vendor-neutral. We recommend only what’s best for your business.</p></div>
-        <div class="card"><h2>South African Context</h2><p>We know the market, its players, and how to win here.</p></div>
-        <div class="card"><h2>Strategic Operators</h2><p>We’ve sat in boardrooms, built strategies, and delivered under pressure. No buzzwords. Just results.</p></div>
-        <div class="card"><h2>Speed &amp; Scale</h2><p>We turn analysis into action and scale solutions to fit enterprise goals.</p></div>
-        <div class="card"><h2>Proven Partner Ecosystem</h2><p>Partners like Xsellerate expand our capability and accelerate delivery.</p></div>
-        <div class="card"><h2>Financial Pragmatism</h2><p>Respect for budgets. Real ROI. No hidden costs.</p></div>
+        <div class="card">
+          <h2>Executive-Grade Insights</h2>
+          <p>Boardroom experience from global tech giants and high-growth ventures, delivering insights that create real impact.</p>
+        </div>
+        <div class="card">
+          <h2>Outcome-Obsessed</h2>
+          <p>We measure success by results, not hours. Every project is built to deliver tangible impact.</p>
+        </div>
+        <div class="card">
+          <h2>Agile &amp; Independent</h2>
+          <p>Lean and vendor-neutral. We recommend only what’s best for your business.</p>
+        </div>
+        <div class="card">
+          <h2>South African Context</h2>
+          <p>We know the market, its players, and how to win here.</p>
+        </div>
+        <div class="card">
+          <h2>Strategic Operators</h2>
+          <p>We’ve sat in boardrooms, built strategies, and delivered under pressure. No buzzwords. Just results.</p>
+        </div>
+        <div class="card">
+          <h2>Speed &amp; Scale</h2>
+          <p>We turn analysis into action and scale solutions to fit enterprise goals.</p>
+        </div>
+        <div class="card">
+          <h2>Proven Partner Ecosystem</h2>
+          <p>Partners like Xsellerate expand our capability and accelerate delivery.</p>
+        </div>
+        <div class="card">
+          <h2>Financial Pragmatism</h2>
+          <p>Respect for budgets. Real ROI. No hidden costs.</p>
+        </div>
       </div>
     </section>
 
     <!-- Partnerships CTA -->
     <section class="section">
-      <h2 class="section-title">Strategic Partnerships</h2>
+      <div class="section-title">Strategic Partnerships</div>
       <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">
         Execution takes more than expertise. We collaborate with top partners who bring specialised skills and share our drive for measurable results.
       </p>
