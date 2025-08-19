@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CoreCloud Consulting Partnerships | Execution & Sales Enablement</title>
   <meta name="description" content="CoreCloud partners with leading firms like Xsellerate to deliver practical sales enablement, execution frameworks, and strategic consulting for South African businesses."/>
@@ -10,126 +10,72 @@
   <meta name="author" content="CoreCloud"/>
   <link rel="stylesheet" href="assets/css/styles.css"/>
 
+  <!-- Page-scoped styles only -->
   <style>
-    :root{
-      --cc-blue:#0066b2;
-      --cc-blue-dark:#004f91;
-      --cc-text:#222;
-      --cc-muted:#444;
-      --cc-bg:#ffffff;
-      --cc-card:#ffffff;
-      --cc-shadow:0 2px 8px rgba(0,0,0,0.08);
+    .consulting-page .page-banner{
+      height:320px !important;
+      background-size:cover; background-position:center; background-repeat:no-repeat;
+      width:100%; overflow:hidden;
     }
 
-    /* Banner */
-    .page-banner{
-      height: 320px !important;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      width: 100%;
-      overflow: hidden;
-    }
-    .small-banner{
-      background-color:#fff;
-      padding:0.2rem 2rem 0;
-      box-shadow:0 2px 4px rgba(0,0,0,0.05);
-      width:100%;
-      height:160px;
-    }
-    .banner-header{
-      display:flex; align-items:center; justify-content:space-between;
-      max-width:1200px; margin:0 auto;
-    }
-    .logo{height:160px; width:auto;}
-
-    /* Nav */
-    nav.desktop-nav a{
-      margin-left:1rem; color:#003366; text-decoration:none; font-weight:600;
-      padding:0.5rem 0.75rem; border-radius:6px;
-    }
-    nav.desktop-nav a.active, nav.desktop-nav a:hover{
-      background:#eaf3fc; color:var(--cc-blue-dark);
-    }
-    nav.mobile-nav{display:none; flex-direction:column; background:#fff; position:absolute; top:160px; left:0; width:100%; padding:1rem; box-shadow:0 2px 10px rgba(0,0,0,0.1); z-index:1001;}
-    nav.mobile-nav a{padding:0.8rem 0; color:#003366; text-decoration:none; font-weight:bold; border-bottom:1px solid #ddd;}
-    nav.mobile-nav a:last-child{border-bottom:none;}
-    nav.mobile-nav.active{display:flex;}
-
-    .hamburger{display:none; flex-direction:column; cursor:pointer; gap:5px;}
-    .hamburger span{width:25px; height:3px; background-color:#003366; transition:all .3s ease; border-radius:2px;}
-    .hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
-    .hamburger.active span:nth-child(2){opacity:0;}
-    .hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(6px,-6px);}
-
-    /* Layout */
-    .content{
+    .consulting-page .content{
       max-width:1200px; margin:0 auto; padding:2rem 1rem 4rem;
-      color:var(--cc-text);
-    }
-    .hero-title{
-      font-size:2rem; color:var(--cc-blue-dark); margin:2rem auto 1rem; font-weight:700; text-align:center;
-    }
-    .section{margin:3rem 0;}
-    .section-title{
-      text-align:center; color:var(--cc-blue); font-weight:800; font-size:1.5rem; margin-bottom:1rem;
     }
 
-    /* Grid & Cards */
-    .card-grid{
-      display:grid; gap:1rem; margin-top:1rem;
-      grid-template-columns:repeat(4,1fr);
-    }
-    @media (max-width:1024px){ .card-grid{grid-template-columns:repeat(2,1fr);} }
-    @media (max-width:640px){ .card-grid{grid-template-columns:1fr;} }
-
-    .card{
-      background:var(--cc-card); border-radius:12px; box-shadow:var(--cc-shadow);
-      padding:1.2rem; text-align:center; display:flex; flex-direction:column; justify-content:space-between;
-      text-decoration:none !important; transition:transform .2s ease, box-shadow .2s ease;
-    }
-    .card:hover{transform:translateY(-5px); box-shadow:0 6px 18px rgba(0,0,0,0.12);}
-    .card h2{color:var(--cc-blue); margin-bottom:0.75rem; font-weight:700; font-size:1.15rem;}
-    .card p{color:var(--cc-muted); font-size:1rem; margin:0;}
-
-    /* Lists */
-    .bullets{
-      display:grid; gap:0.5rem; width:100%; max-width:900px;
-      grid-template-columns:repeat(2, minmax(0,1fr));
-    }
-    .bullets li{margin-left:1rem; color:var(--cc-muted);}
-    @media (max-width:768px){ .bullets{grid-template-columns:1fr;} }
-
-    /* CTA */
-    .cta-btn{
-      background-color:var(--cc-blue); color:#fff; display:inline-block; padding:0.7rem 1.3rem;
-      border-radius:8px; text-decoration:none; font-weight:700; font-size:0.95rem; transition:background-color .25s ease;
-    }
-    .cta-btn:hover{background-color:var(--cc-blue-dark);}
-
-    /* Footer */
-    footer{background:#0b1e33; color:#dfe9f6; margin-top:3rem;}
-    .footer-content{
-      max-width:1200px; margin:0 auto; padding:2rem 1rem; display:grid; gap:2rem; grid-template-columns:1.2fr 1.8fr 1fr;
-    }
-    .footer-left p, .footer-right p{margin:0.25rem 0;}
-    .footer-middle h4{margin:0 0 .5rem 0;}
-    .footer-bottom{border-top:1px solid rgba(255,255,255,0.1); padding:0.8rem 1rem; text-align:center; color:#bcd0e6;}
-    .footer-bottom a{color:#bcd0e6; text-decoration:underline;}
-
-    @media (max-width:900px){
-      .footer-content{grid-template-columns:1fr;}
+    .consulting-page .hero-title{
+      font-size:2rem; margin:2rem auto 1rem; font-weight:700; text-align:center;
+      /* color inherits from site; uncomment if needed */
+      /* color:#004f91; */
     }
 
+    .consulting-page .section{ margin:3rem 0; }
+    .consulting-page .section-title{
+      text-align:center; font-weight:800; font-size:1.5rem; margin-bottom:1rem;
+      /* color inherits from site; uncomment if needed */
+      /* color:#0066b2; */
+    }
+
+    .consulting-page .card-grid{
+      display:grid; gap:1rem; margin-top:1rem; grid-template-columns:repeat(4,1fr);
+    }
+    @media (max-width:1024px){
+      .consulting-page .card-grid{ grid-template-columns:repeat(2,1fr); }
+    }
+    @media (max-width:640px){
+      .consulting-page .card-grid{ grid-template-columns:1fr; }
+    }
+
+    .consulting-page .card{
+      background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      padding:1.2rem; text-align:center; display:flex; flex-direction:column; gap:.5rem;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .consulting-page .card:hover{ transform:translateY(-5px); box-shadow:0 6px 18px rgba(0,0,0,0.12); }
+    .consulting-page .card h2{ margin:0 0 .5rem; font-weight:700; font-size:1.15rem; }
+    .consulting-page .card p{ margin:0; }
+
+    .consulting-page .bullets{
+      display:grid; gap:.5rem; width:100%; max-width:900px; grid-template-columns:repeat(2,minmax(0,1fr));
+    }
+    .consulting-page .bullets li{ margin-left:1rem; }
     @media (max-width:768px){
-      nav.desktop-nav{display:none;}
-      .hamburger{display:flex;}
+      .consulting-page .bullets{ grid-template-columns:1fr; }
+    }
+
+    .consulting-page .cta-btn{
+      display:inline-block; padding:.7rem 1.3rem; border-radius:8px; text-decoration:none; font-weight:700;
+      /* uses site button colors if defined; otherwise uncomment below */
+      /* background:#0066b2; color:#fff; */
+    }
+    .consulting-page .cta-btn:hover{
+      /* uncomment to match site hover if needed */
+      /* background:#004f91; */
     }
   </style>
 </head>
 
-<body>
-  <!-- Top banner & nav -->
+<body class="consulting-page">
+  <!-- Keep your existing header/nav markup so it inherits global styles -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo"/>
@@ -165,7 +111,6 @@
       At CoreCloud, execution means action that delivers real results. We partner with specialists who help turn strategies into measurable outcomes.
     </p>
 
-    <!-- Four Pillars -->
     <h2 class="section-title">The Four Pillars of Execution</h2>
     <div class="card-grid" style="margin-top:1rem;">
       <div class="card">
@@ -186,7 +131,6 @@
       </div>
     </div>
 
-    <!-- Advisory Approach -->
     <section class="section">
       <h2 class="section-title">Our Advisory Approach</h2>
       <p style="text-align:center; max-width:900px; margin:0 auto 1rem;">
@@ -204,7 +148,6 @@
       </div>
     </section>
 
-    <!-- Sales Consulting: People & Process -->
     <section class="section" id="sales-consulting">
       <h2 class="section-title">Sales Consulting: People &amp; Process</h2>
       <p style="text-align:center; max-width:900px; margin:0 auto 1.5rem;">
@@ -214,7 +157,7 @@
       <div class="card-grid">
         <div class="card" style="text-align:left;">
           <h2>People</h2>
-          <ul style="margin-left:1rem; color:var(--cc-muted); line-height:1.5;">
+          <ul style="margin-left:1rem; line-height:1.5;">
             <li>Assess team skills, coverage, role clarity &amp; leadership gaps</li>
             <li>Place proven talent via our Talent Hub</li>
             <li>Practical enablement: discovery, positioning, objection handling</li>
@@ -225,7 +168,7 @@
 
         <div class="card" style="text-align:left;">
           <h2>Process</h2>
-          <ul style="margin-left:1rem; color:var(--cc-muted); line-height:1.5;">
+          <ul style="margin-left:1rem; line-height:1.5;">
             <li>Map &amp; optimise end-to-end sales process</li>
             <li>Qualification frameworks that fit (MEDDIC, BANT)</li>
             <li>Pipeline discipline &amp; accurate forecasting</li>
@@ -237,7 +180,7 @@
 
         <div class="card" style="text-align:left;">
           <h2>Engagement Models</h2>
-          <ul style="margin-left:1rem; color:var(--cc-muted); line-height:1.5;">
+          <ul style="margin-left:1rem; line-height:1.5;">
             <li>Fractional CRO (interim sales leadership)</li>
             <li>Sales Advisory Retainer &amp; governance</li>
             <li>Project sprints (pipeline build, GTM launch)</li>
@@ -247,7 +190,7 @@
 
         <div class="card" style="text-align:left;">
           <h2>Outcomes We Drive</h2>
-          <ul style="margin-left:1rem; color:var(--cc-muted); line-height:1.5;">
+          <ul style="margin-left:1rem; line-height:1.5;">
             <li>Shorter sales cycles, higher win rates</li>
             <li>Forecasting you can trust</li>
             <li>Rep productivity uplift within 90 days</li>
@@ -257,8 +200,7 @@
       </div>
     </section>
 
-    <!-- Why CoreCloud -->
-    <section class="section">
+    <section class="section" style="margin-top:4rem;">
       <h2 class="section-title">Why Clients Choose CoreCloud</h2>
       <div class="card-grid">
         <div class="card">
@@ -296,7 +238,6 @@
       </div>
     </section>
 
-    <!-- Partnerships CTA -->
     <section class="section" style="margin-top:4rem;">
       <h2 class="section-title">Strategic Partnerships</h2>
       <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">
@@ -308,7 +249,7 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Keep your existing footer so it inherits global styles -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -320,15 +261,13 @@
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form id="subscribe-form" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;"/>
-          <button type="submit" style="background-color:var(--cc-blue); color:white; border:none; padding:10px 20px; border-radius:4px; cursor:pointer;">
-            Subscribe
-          </button>
+          <button type="submit">Subscribe</button>
         </form>
       </div>
       <div class="footer-right">
         <p>Contact</p>
         <p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:#dfe9f6; text-decoration:underline; font-weight:bold;">LinkedIn</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -339,16 +278,11 @@
   <script>
     const burger = document.getElementById("hamburger");
     const mobile = document.getElementById("mobileMenu");
-    burger.addEventListener("click", function(){
-      this.classList.toggle("active");
-      mobile.classList.toggle("active");
-    });
-    burger.addEventListener("keypress", function(e){
-      if(e.key === "Enter" || e.key === " "){
-        this.classList.toggle("active");
-        mobile.classList.toggle("active");
-      }
-    });
+    if (burger && mobile){
+      const toggle = () => { burger.classList.toggle("active"); mobile.classList.toggle("active"); };
+      burger.addEventListener("click", toggle);
+      burger.addEventListener("keypress", e => { if(e.key==="Enter"||e.key===" ") toggle(); });
+    }
   </script>
 </body>
 </html>
