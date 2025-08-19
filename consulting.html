@@ -10,10 +10,19 @@
   <meta name="author" content="CoreCloud"/>
   <link rel="stylesheet" href="assets/css/styles.css"/>
 
-  <!-- Page-scoped tweaks only -->
+  <!-- Page-scoped tweaks -->
   <style>
-    .consulting-page .hero-title { 
-      margin: 2.5rem auto 1rem; /* match App Dev hero spacing */
+    /* Match App Dev hero: size, weight, color, spacing */
+    .consulting-page .hero-title{
+      font-size: 2rem;
+      color: var(--dark-blue);
+      font-weight: 700;
+      text-align: center;
+      margin: 2.5rem auto 1rem;
+    }
+    /* Blue borders on cards (page only) */
+    .consulting-page .card{
+      border: 2px solid var(--dark-blue);
     }
   </style>
 </head>
@@ -51,7 +60,7 @@
   <div class="page-banner" style="background-image:url('assets/images/consulting-bannerimage.png');"></div>
 
   <main class="content">
-    <h1 class="hero-title" style="text-align:center;">Consulting Partnerships That Deliver Real Results</h1>
+    <h1 class="hero-title">Consulting Partnerships That Deliver Real Results</h1>
     <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">
       At CoreCloud, execution means action that delivers real results. We partner with specialists who help turn strategies into measurable outcomes.
     </p>
@@ -165,7 +174,8 @@
       <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">
         Execution takes more than expertise. We collaborate with top partners who bring specialised skills and share our drive for measurable results.
       </p>
-      <div class="card" style="background:none; box-shadow:none;">
+      <!-- Keep this one borderless so the CTA sits cleanly -->
+      <div class="card" style="background:none; box-shadow:none; border:none;">
         <a href="contact.html" class="cta-btn">Explore Sales Enablement</a>
       </div>
     </section>
@@ -199,7 +209,7 @@
     });
   </script>
 
-  <!-- JS: Force 4-up card grids on desktop, 2-up tablet, 1-up mobile (page-scoped only) -->
+  <!-- JS: 4-up desktop / 2-up tablet / 1-up mobile -->
   <script>
     (function () {
       function setGridCols() {
