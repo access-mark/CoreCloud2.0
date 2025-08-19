@@ -12,6 +12,7 @@
 </head>
 
 <body class="consulting-page">
+  <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo"/>
@@ -37,6 +38,7 @@
     </div>
   </div>
 
+  <!-- Banner -->
   <div class="page-banner" style="background-image:url('assets/images/consulting-bannerimage.png');"></div>
 
   <main class="content">
@@ -137,38 +139,14 @@
     <section class="section">
       <div class="section-title">Why Clients Choose CoreCloud</div>
       <div class="card-grid">
-        <div class="card">
-          <h2>Executive-Grade Insights</h2>
-          <p>Boardroom experience from global tech giants and high-growth ventures, delivering insights that create real impact.</p>
-        </div>
-        <div class="card">
-          <h2>Outcome-Obsessed</h2>
-          <p>We measure success by results, not hours. Every project is built to deliver tangible impact.</p>
-        </div>
-        <div class="card">
-          <h2>Agile &amp; Independent</h2>
-          <p>Lean and vendor-neutral. We recommend only what’s best for your business.</p>
-        </div>
-        <div class="card">
-          <h2>South African Context</h2>
-          <p>We know the market, its players, and how to win here.</p>
-        </div>
-        <div class="card">
-          <h2>Strategic Operators</h2>
-          <p>We’ve sat in boardrooms, built strategies, and delivered under pressure. No buzzwords. Just results.</p>
-        </div>
-        <div class="card">
-          <h2>Speed &amp; Scale</h2>
-          <p>We turn analysis into action and scale solutions to fit enterprise goals.</p>
-        </div>
-        <div class="card">
-          <h2>Proven Partner Ecosystem</h2>
-          <p>Partners like Xsellerate expand our capability and accelerate delivery.</p>
-        </div>
-        <div class="card">
-          <h2>Financial Pragmatism</h2>
-          <p>Respect for budgets. Real ROI. No hidden costs.</p>
-        </div>
+        <div class="card"><h2>Executive-Grade Insights</h2><p>Boardroom experience from global tech giants and high-growth ventures, delivering insights that create real impact.</p></div>
+        <div class="card"><h2>Outcome-Obsessed</h2><p>We measure success by results, not hours. Every project is built to deliver tangible impact.</p></div>
+        <div class="card"><h2>Agile &amp; Independent</h2><p>Lean and vendor-neutral. We recommend only what’s best for your business.</p></div>
+        <div class="card"><h2>South African Context</h2><p>We know the market, its players, and how to win here.</p></div>
+        <div class="card"><h2>Strategic Operators</h2><p>We’ve sat in boardrooms, built strategies, and delivered under pressure. No buzzwords. Just results.</p></div>
+        <div class="card"><h2>Speed &amp; Scale</h2><p>We turn analysis into action and scale solutions to fit enterprise goals.</p></div>
+        <div class="card"><h2>Proven Partner Ecosystem</h2><p>Partners like Xsellerate expand our capability and accelerate delivery.</p></div>
+        <div class="card"><h2>Financial Pragmatism</h2><p>Respect for budgets. Real ROI. No hidden costs.</p></div>
       </div>
     </section>
 
@@ -178,12 +156,14 @@
       <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">
         Execution takes more than expertise. We collaborate with top partners who bring specialised skills and share our drive for measurable results.
       </p>
-      <p style="text-align:center; margin-top:2rem;">
+      <!-- Wrap CTA in .card so it inherits .card .cta-btn styles -->
+      <div class="card" style="background:none; box-shadow:none;">
         <a href="contact.html" class="cta-btn">Explore Sales Enablement</a>
-      </p>
+      </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left"><p><strong>CoreCloud (Pty) Ltd</strong></p><p>Sandton,<br/>Johannesburg</p></div>
@@ -203,11 +183,31 @@
     <div class="footer-bottom"><p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p></div>
   </footer>
 
+  <!-- JS: mobile nav toggle -->
   <script>
     document.getElementById("hamburger").addEventListener("click", function() {
       this.classList.toggle("active");
       document.getElementById("mobileMenu").classList.toggle("active");
     });
+  </script>
+
+  <!-- JS: Force 4-up card grids on desktop, 2-up tablet, 1-up mobile -->
+  <script>
+  (function () {
+    function setGridCols() {
+      document.querySelectorAll('.card-grid').forEach(grid => {
+        if (window.innerWidth >= 1200) {
+          grid.style.gridTemplateColumns = 'repeat(4, 1fr)';
+        } else if (window.innerWidth >= 768) {
+          grid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+        } else {
+          grid.style.gridTemplateColumns = '1fr';
+        }
+      });
+    }
+    window.addEventListener('load', setGridCols);
+    window.addEventListener('resize', setGridCols);
+  })();
   </script>
 </body>
 </html>
