@@ -24,6 +24,7 @@
 
     .imprinting-page section.section{
       max-width:1100px; margin:0 auto 3rem; padding:0 2rem;
+      text-align:center; /* center the body content */
     }
 
     /* Section titles aligned with rest of site */
@@ -32,15 +33,22 @@
       margin-top:2rem; margin-bottom:1.5rem; font-size:2rem;
     }
 
-    .imprinting-page section p{
-      font-size:1.05rem; line-height:1.8; color:#444; margin-bottom:1.5rem;
+    /* Center paragraphs & quotes */
+    .imprinting-page section.section p,
+    .imprinting-page section.section blockquote{
+      text-align:center; margin-left:auto; margin-right:auto;
     }
-    .imprinting-page section ul{ list-style:disc; padding-left:1.5rem; margin-bottom:2rem; }
-    .imprinting-page section ul li{ margin-bottom:.75rem; }
+
+    /* Keep lists readable: center the block, left-align items */
+    .imprinting-page section.section ul{
+      list-style:disc; display:inline-block; text-align:left;
+      padding-left:1.25rem; margin:0 auto 2rem;
+    }
+    .imprinting-page section.section ul li{ margin-bottom:.75rem; }
 
     .imprinting-page blockquote{
       background:#f0f7ff; border-left:5px solid #004f91; padding:1rem 1.5rem;
-      font-style:italic; color:#003366; border-radius:4px; margin:2rem 0;
+      font-style:italic; color:#003366; border-radius:4px; margin:2rem auto;
     }
 
     .imprinting-page .cta-btn{
