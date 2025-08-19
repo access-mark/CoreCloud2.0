@@ -8,7 +8,24 @@
   <meta name="keywords" content="Enterprise Portals South Africa, custom portals, employee self-service, customer portal, CoreCloud apps" />
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Page-scoped tweaks: consistent responsive logo + keep header from clipping -->
   <style>
+    /* Consistent, responsive logo (page-only) */
+    .enterprise-portals-page .logo {
+      height: 140px;        /* desktop default */
+      width: auto;
+      max-width: 100%;
+      display: block;
+    }
+    @media (max-width: 1024px){ .enterprise-portals-page .logo { height: 120px; } }
+    @media (max-width: 768px) { .enterprise-portals-page .logo { height: 100px; } }
+    @media (max-width: 480px) { .enterprise-portals-page .logo { height: 80px; } }
+
+    /* Let the small header grow with the logo so it never clips */
+    .enterprise-portals-page .small-banner { height: auto; min-height: 120px; }
+
+    /* Page banner */
     .page-banner {
       height: 300px;
       background-image: url('assets/images/appdev-bannerimage.png');
@@ -17,6 +34,8 @@
       background-repeat: no-repeat;
       width: 100%;
     }
+
+    /* Local nav helpers (match the rest of the site) */
     .small-banner {
       background-color: #fff;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
@@ -31,7 +50,6 @@
       margin: 0 auto;
       padding: 1.5rem 0;
     }
-    .logo { height: 120px; }
     .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
     .hamburger span { width: 25px; height: 3px; background-color: #003366; border-radius: 2px; transition: all 0.3s ease; }
     .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
@@ -39,23 +57,13 @@
     .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
 
     nav.mobile-nav {
-      display: none;
-      flex-direction: column;
-      background: #ffffff;
-      width: 100%;
-      position: absolute;
-      top: 160px;
-      left: 0;
-      padding: 1rem;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      z-index: 1001;
+      display: none; flex-direction: column; background: #ffffff;
+      width: 100%; position: absolute; top: 160px; left: 0;
+      padding: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1001;
     }
     nav.mobile-nav.active { display: flex; }
     nav.mobile-nav a {
-      padding: 0.8rem 0;
-      color: #003366;
-      text-decoration: none;
-      font-weight: bold;
+      padding: 0.8rem 0; color: #003366; text-decoration: none; font-weight: bold;
       border-bottom: 1px solid #ddd;
     }
     nav.mobile-nav a:last-child { border-bottom: none; }
@@ -65,11 +73,11 @@
       .hamburger { display: flex; }
     }
 
+    /* Content */
     main { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; }
     .hero { text-align: center; margin-top: 3rem; }
     .hero h1 { font-size: 2.4rem; color: #004f91; margin-bottom: 1rem; font-weight: 700; }
     .hero p { font-size: 1.1rem; color: #444; max-width: 800px; margin: 0 auto; line-height: 1.6; }
-
     .section { margin-top: 3rem; }
     .section h2 { text-align: center; color: #004f91; font-size: 2rem; margin-bottom: 1rem; font-weight: 700; }
     .section p, .section ul { max-width: 900px; margin: 0 auto 1.5rem; color: #333; line-height: 1.6; font-size: 1rem; }
@@ -83,20 +91,22 @@
     .cta-btn:hover { background-color: #004f91; color: #fff; }
   </style>
 </head>
-<body>
+
+<body class="enterprise-portals-page">
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+
       <div class="hamburger" id="hamburger">
         <span></span><span></span><span></span>
       </div>
 
-      <!-- Desktop Nav -->
+      <!-- Desktop Nav (App Dev active for this page) -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
         <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="application-development.html" class="nav-btn active" aria-current="page">APP DEVELOPMENT</a>
+        <a href="application-development.html" class="nav-btn active">APP DEVELOPMENT</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
@@ -108,7 +118,7 @@
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
         <a href="cloud.html">CLOUD SUITE</a>
-        <a href="application-development.html" class="active" aria-current="page">APP DEVELOPMENT</a>
+        <a href="application-development.html" class="active">APP DEVELOPMENT</a>
         <a href="talent.html">TALENT</a>
         <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
         <a href="about.html">ABOUT</a>
@@ -185,9 +195,21 @@
   </footer>
 
   <script>
-    document.getElementById("hamburger")?.addEventListener("click", function() {
+    // Mobile nav toggle
+    document.getElementById("hamburger")?.addEventListener("click", function () {
       this.classList.toggle("active");
       document.getElementById("mobileMenu")?.classList.toggle("active");
+    });
+
+    // Simple subscribe handler (optional if you prefer plain POST action)
+    document.getElementById("subscribe-form")?.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const data = new FormData(this);
+      fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
+        method: "POST",
+        body: data
+      }).then(r => r.ok ? (window.location.href = "thank-you.html") : alert("Something went wrong. Please try again."))
+        .catch(() => alert("Submission failed. Please try again."));
     });
   </script>
 </body>
