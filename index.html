@@ -48,10 +48,15 @@
       }
     }
 
-    /* Latest News & Insights card */
+    /* Latest News & Insights: same footprint as Dynamic Imprinting banner */
+    .home-page .insights { max-width: 1100px; margin: 3rem auto; padding: 0 2rem; }
     .home-page .insights .card {
       display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem; flex-wrap: wrap; padding: 1.5rem; background: #fff;
+      gap: 1rem; flex-wrap: wrap;
+      padding: 3rem 2rem;            /* match banner padding */
+      border-radius: 12px;           /* match banner radius */
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* match banner shadow */
+      background: #fff;
     }
     .home-page .insights .card h3 { margin: 0 0 .5rem; color: var(--dark-blue, #004f91); }
     .home-page .insights .card p { margin: 0; max-width: 800px; }
@@ -128,7 +133,7 @@
       <a href="dynamic-imprinting.html" class="cta-btn">Learn More</a>
     </section>
 
-    <!-- Latest News & Insights -->
+    <!-- Latest News & Insights (now same footprint as banner + blue border) -->
     <section class="section insights">
       <h2 class="section-title">Latest News & Insights</h2>
       <div class="card">
