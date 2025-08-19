@@ -12,16 +12,36 @@
 
   <!-- Page-scoped tweaks (kept minimal) -->
   <style>
+    /* keep card links unstyled */
     .card-grid a,
     .card-grid a:hover,
     .card-grid a:visited { text-decoration: none; color: inherit; }
 
+    /* global CTA look for non-card CTAs (e.g., hero, footer) */
     .cta-btn {
-      display: inline-block; background-color: #0066b2; color: #fff;
-      text-decoration: none; padding: 0.8rem 1.6rem; font-size: 1.05rem;
-      border-radius: 6px; font-weight: bold; transition: background-color 0.3s ease;
+      display: inline-block;
+      background-color: var(--primary-blue, #0066b2);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.8rem 1.6rem;
+      font-size: 1.05rem;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
-    .cta-btn:hover { background-color: #004f91; }
+    .cta-btn:hover { background-color: var(--dark-blue, #004f91); }
+
+    /* >>> Uniform CTA buttons on all CARDS <<< */
+    .card .cta-btn {
+      width: 100%;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1rem;
+      box-sizing: border-box;
+      margin-top: auto; /* pins to bottom of the card */
+    }
 
     /* Why/What/How fixed 3/2/1 without JS */
     .home-page #focus-method-section .card-grid.lock-columns{
@@ -35,7 +55,7 @@
       .home-page #focus-method-section .card-grid.lock-columns{ grid-template-columns:1fr; }
     }
 
-    /* Banner-sized cards for Imprinting + News */
+    /* Banner-sized cards for Imprinting + News (same footprint) */
     .home-page .imprinting,
     .home-page .insights { max-width:1100px; margin:3rem auto; padding:0 2rem; }
     .home-page .imprinting .card,
@@ -45,7 +65,7 @@
     .home-page .insights .card{
       display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;
     }
-    .home-page .insights .card h3{ margin:0 0 .5rem; color:#004f91; }
+    .home-page .insights .card h3{ margin:0 0 .5rem; color:var(--dark-blue,#004f91); }
     .home-page .insights .card p{ margin:0; max-width:800px; }
   </style>
 </head>
@@ -158,7 +178,7 @@
     <section class="section">
       <h2 class="section-title">Explore Our Services</h2>
       <div class="card-grid force-4">
-        <a href="consulting.html" class="card card-dark">
+        <a href="consulting.html" class="card">
           <div>
             <h3>Consulting</h3>
             <p>Sales strategy, pipeline precision, and practical advisory to drive real performance.</p>
@@ -166,7 +186,7 @@
           <span class="cta-btn">Learn More</span>
         </a>
 
-        <a href="cloud.html" class="card card-dark">
+        <a href="cloud.html" class="card">
           <div>
             <h3>Cloud Suite</h3>
             <p>Modernise, migrate, and optimise with expert AWS and Azure teams.</p>
@@ -174,7 +194,7 @@
           <span class="cta-btn">Learn More</span>
         </a>
 
-        <a href="application-development.html" class="card card-dark">
+        <a href="application-development.html" class="card">
           <div>
             <h3>App Development</h3>
             <p>Cloud-native apps, portals, mobile &amp; web, and API integration—delivered with DevOps discipline.</p>
@@ -182,7 +202,7 @@
           <span class="cta-btn">Learn More</span>
         </a>
 
-        <a href="talent.html" class="card card-dark">
+        <a href="talent.html" class="card">
           <div>
             <h3>Talent Placement</h3>
             <p>Top talent, rigorously vetted and matched to your business needs.</p>
@@ -203,7 +223,6 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <!-- Tip: if you want JS-free submit, set action to your Apps Script URL -->
         <form id="subscribe-form" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
           <button type="submit" class="cta-btn">Subscribe</button>
