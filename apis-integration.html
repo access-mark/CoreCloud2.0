@@ -21,6 +21,23 @@
     @media (min-width: 768px) and (max-width: 1199.98px) { .card-grid.force-4 { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 767.98px) { .card-grid.force-4 { grid-template-columns: 1fr; } }
 
+    /* Full-width row CTA aligned with card grid width */
+    .row-cta { padding: 0 2rem; }
+    .row-cta .cta-btn.cta-wide {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 48px;
+      font-weight: 700;
+      text-align: center;
+      border-radius: 6px;
+    }
+    @media (min-width: 1200px) {
+      /* match the max visual width of the card grids */
+      .row-cta { max-width: 1400px; margin: 0 auto; }
+    }
+
     /* CSS-only mobile nav (checkbox hook uses global rules) */
     .nav-toggle { position: absolute; left: -9999px; }
     @media (max-width: 768px) {
@@ -173,9 +190,9 @@
       </div>
     </section>
 
-    <!-- CTA -->
-    <section class="section" style="text-align:center;">
-      <a href="contact.html" class="cta-btn">Start a Conversation</a>
+    <!-- Full-width row CTA (fixed) -->
+    <section class="section row-cta" style="text-align:center;">
+      <a href="contact.html" class="cta-btn cta-wide">Start a Conversation</a>
     </section>
   </main>
 
