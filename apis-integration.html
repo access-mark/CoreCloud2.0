@@ -21,22 +21,22 @@
     @media (min-width: 768px) and (max-width: 1199.98px) { .card-grid.force-4 { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 767.98px) { .card-grid.force-4 { grid-template-columns: 1fr; } }
 
-    /* Full-width row CTA aligned with card grid width */
-    .row-cta { padding: 0 2rem; }
-    .row-cta .cta-btn.cta-wide {
+    /* Full-width CTA that spans the grid columns (matches grid width exactly) */
+    .span-all { grid-column: 1 / -1; }
+    .span-all .cta-btn.cta-wide {
       display: inline-flex;
       align-items: center;
       justify-content: center;
       width: 100%;
       min-height: 48px;
       font-weight: 700;
-      text-align: center;
       border-radius: 6px;
+      text-align: center;
     }
-    @media (min-width: 1200px) {
-      /* match the max visual width of the card grids */
-      .row-cta { max-width: 1400px; margin: 0 auto; }
-    }
+
+    /* Safety: ensure CTA has base styling even when not inside .card */
+    .cta-btn { display:inline-block; background-color: var(--primary-blue); color:#fff; padding:0.75rem 1rem; border-radius:6px; font-weight:700; text-decoration:none; transition:background-color .3s ease; }
+    .cta-btn:hover { background-color: var(--dark-blue); }
 
     /* CSS-only mobile nav (checkbox hook uses global rules) */
     .nav-toggle { position: absolute; left: -9999px; }
@@ -190,9 +190,13 @@
       </div>
     </section>
 
-    <!-- Full-width row CTA (fixed) -->
-    <section class="section row-cta" style="text-align:center;">
-      <a href="contact.html" class="cta-btn cta-wide">Start a Conversation</a>
+    <!-- CTA that exactly matches the grid width -->
+    <section class="section">
+      <div class="card-grid force-4">
+        <div class="span-all" style="text-align:center;">
+          <a href="contact.html" class="cta-btn cta-wide">Start a Conversation</a>
+        </div>
+      </div>
     </section>
   </main>
 
