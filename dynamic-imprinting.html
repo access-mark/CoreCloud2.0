@@ -10,12 +10,12 @@
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <!-- Page-scoped styles only -->
+  <!-- Page-scoped styles only (kept light) -->
   <style>
-    /* Hero + subtitle (match site standard) */
+    /* Hero + subtitle */
     .imprinting-page .hero-title{
       color:#004f91; font-weight:700; font-size:2rem;
-      margin:2.5rem auto 1rem; text-align:center; letter-spacing:0;
+      margin:2.5rem auto 1rem; text-align:center;
     }
     .imprinting-page .hero-subtitle{
       font-size:1.2rem; color:#555; text-align:center; max-width:900px;
@@ -38,7 +38,7 @@
       text-align:center; margin-left:auto; margin-right:auto;
     }
 
-    /* Lists: center block, left-align items */
+    /* Lists: center the block, left-align items */
     .imprinting-page section.section ul{
       list-style:disc; display:inline-block; text-align:left;
       padding-left:1.25rem; margin:0 auto 2rem;
@@ -50,6 +50,7 @@
       font-style:italic; color:#003366; border-radius:4px; margin:2rem auto;
     }
 
+    /* CTA (outside cards) */
     .imprinting-page .cta-btn{
       background-color:#0066b2; color:#fff; text-decoration:none;
       padding:.8rem 1.6rem; font-size:1.05rem; border-radius:6px; font-weight:bold;
@@ -60,7 +61,7 @@
       box-shadow:0 4px 10px rgba(0,0,0,.15);
     }
 
-    /* CSS-only mobile nav (checkbox hack uses global styles) */
+    /* Ensure checkbox hack works even if global CSS is trimmed */
     .nav-toggle{ position:absolute; left:-9999px; }
     @media (max-width:768px){
       .hamburger{ display:flex; }
@@ -89,31 +90,33 @@
         <span></span><span></span><span></span>
       </label>
 
+      <!-- Desktop Nav (standard order) -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
         <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
         <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
-        <a href="dynamic-imprinting.html" class="nav-btn active">DYNAMIC IMPRINTING</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
+        <a href="dynamic-imprinting.html" class="nav-btn active">DYNAMIC IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <nav class="mobile-nav" id="mobileMenu" aria-label="Mobile">
+      <!-- Mobile Nav (same order; no stray classes) -->
+      <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
         <a href="cloud.html">CLOUD SUITE</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
-        <a href="dynamic-imprinting.html" class="active">DYNAMIC IMPRINTING</a>
         <a href="talent.html">TALENT</a>
+        <a href="dynamic-imprinting.html" class="active">DYNAMIC IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="contact.html">CONTACT</a>
       </nav>
     </div>
   </div>
 
-  <!-- Page banner (height controlled by global .page-banner) -->
+  <!-- Page banner (height from global .page-banner) -->
   <div class="page-banner" style="background-image:url('assets/images/dynamic-imprinting-banner.png');"></div>
 
   <main class="content">
@@ -202,7 +205,7 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <!-- JS-free submit -->
+        <!-- JS-free submit to Apps Script -->
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec"
               method="POST"
               style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
