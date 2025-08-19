@@ -4,11 +4,18 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CoreCloud Consulting Partnerships | Execution & Sales Enablement</title>
-  <meta name="description" content="CoreCloud partners with leading firms like Xsellerate to deliver practical sales enablement, execution frameworks, and strategic consulting for South African businesses."/>
-  <meta name="keywords" content="CoreCloud Consulting, Sales Enablement South Africa, Xsellerate, Strategic Partnerships, Sales Consulting, Business Execution"/>
+  <meta name="description" content="CoreCloud partners with leading firms to deliver practical sales enablement, execution frameworks, and strategic consulting for South African businesses."/>
+  <meta name="keywords" content="CoreCloud Consulting, Sales Enablement South Africa, Strategic Partnerships, Sales Consulting, Business Execution"/>
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
   <link rel="stylesheet" href="assets/css/styles.css"/>
+
+  <!-- Page-scoped tweaks only -->
+  <style>
+    .consulting-page .hero-title { 
+      margin: 2.5rem auto 1rem; /* match App Dev hero spacing */
+    }
+  </style>
 </head>
 
 <body class="consulting-page">
@@ -17,23 +24,25 @@
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo"/>
       <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+
       <nav class="desktop-nav">
-        <a href="index.html" class="nav-btn">Home</a>
-        <a href="consulting.html" class="nav-btn active">Consulting</a>
-        <a href="cloud.html" class="nav-btn">Cloud Service Suite</a>
-        <a href="talent.html" class="nav-btn">Talent Placement</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">Dynamic Imprinting</a>
-        <a href="about.html" class="nav-btn">About Us</a>
-        <a href="contact.html" class="nav-btn">Contact</a>
+        <a href="index.html" class="nav-btn">HOME</a>
+        <a href="consulting.html" class="nav-btn active">CONSULTING</a>
+        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
+        <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="about.html" class="nav-btn">ABOUT US</a>
+        <a href="contact.html" class="nav-btn">CONTACT US</a>
       </nav>
+
       <nav class="mobile-nav" id="mobileMenu">
-        <a href="index.html">Home</a>
-        <a href="consulting.html">Consulting</a>
-        <a href="cloud.html">Cloud Service Suite</a>
-        <a href="talent.html">Talent Placement</a>
-        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html">HOME</a>
+        <a href="consulting.html" class="active">CONSULTING</a>
+        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="contact.html">CONTACT US</a>
       </nav>
     </div>
   </div>
@@ -156,7 +165,6 @@
       <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">
         Execution takes more than expertise. We collaborate with top partners who bring specialised skills and share our drive for measurable results.
       </p>
-      <!-- Wrap CTA in .card so it inherits .card .cta-btn styles -->
       <div class="card" style="background:none; box-shadow:none;">
         <a href="contact.html" class="cta-btn">Explore Sales Enablement</a>
       </div>
@@ -191,23 +199,19 @@
     });
   </script>
 
-  <!-- JS: Force 4-up card grids on desktop, 2-up tablet, 1-up mobile -->
+  <!-- JS: Force 4-up card grids on desktop, 2-up tablet, 1-up mobile (page-scoped only) -->
   <script>
-  (function () {
-    function setGridCols() {
-      document.querySelectorAll('.card-grid').forEach(grid => {
-        if (window.innerWidth >= 1200) {
-          grid.style.gridTemplateColumns = 'repeat(4, 1fr)';
-        } else if (window.innerWidth >= 768) {
-          grid.style.gridTemplateColumns = 'repeat(2, 1fr)';
-        } else {
-          grid.style.gridTemplateColumns = '1fr';
-        }
-      });
-    }
-    window.addEventListener('load', setGridCols);
-    window.addEventListener('resize', setGridCols);
-  })();
+    (function () {
+      function setGridCols() {
+        document.querySelectorAll('.card-grid').forEach(grid => {
+          if (window.innerWidth >= 1200) grid.style.gridTemplateColumns = 'repeat(4, 1fr)';
+          else if (window.innerWidth >= 768) grid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+          else grid.style.gridTemplateColumns = '1fr';
+        });
+      }
+      window.addEventListener('load', setGridCols);
+      window.addEventListener('resize', setGridCols);
+    })();
   </script>
 </body>
 </html>
