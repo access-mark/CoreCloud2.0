@@ -13,10 +13,8 @@
   <style>
     .card-grid a,
     .card-grid a:hover,
-    .card-grid a:visited {
-      text-decoration: none;
-      color: inherit;
-    }
+    .card-grid a:visited { text-decoration: none; color: inherit; }
+
     .cta-btn {
       display: inline-block;
       background-color: #0066b2;
@@ -29,10 +27,15 @@
       transition: background-color 0.3s ease;
     }
     .cta-btn:hover { background-color: #004f91; }
+
+    /* Page-scoped: blue borders on all cards */
+    .home-page .card {
+      border: 2px solid var(--dark-blue, #004f91);
+    }
   </style>
 </head>
 
-<body>
+<body class="home-page">
   <!-- Navigation -->
   <div class="small-banner">
     <div class="banner-header">
@@ -83,8 +86,6 @@
       </p>
     </section>
 
-    <!-- (Removed Dynamic Imprinting highlight block) -->
-
     <!-- Our Focus & Method -->
     <section id="focus-method-section" class="section">
       <h2 class="section-title">Our Focus & Method</h2>
@@ -124,7 +125,6 @@
           <span class="cta-btn">Learn More</span>
         </a>
 
-        <!-- App Dev placed immediately after Cloud -->
         <a href="application-development.html" class="card card-dark">
           <div>
             <h3>App Development</h3>
