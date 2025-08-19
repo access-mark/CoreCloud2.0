@@ -10,13 +10,19 @@
   <meta name="author" content="CoreCloud"/>
   <link rel="stylesheet" href="assets/css/styles.css"/>
   <style>
+    /* Page-scope only */
     .page-banner { height: 300px !important; background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; overflow: hidden; }
-    .hero-title { font-size: 2rem; color: var(--dark-blue); margin-bottom: 1rem; font-weight: 700; text-align: center; }
+    .hero-title { font-size: 2rem; color: var(--dark-blue); font-weight: 700; text-align: center; margin: 2.5rem auto 1rem; } /* pushed down from banner */
     main.content { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+    /* Blue border on all cards in this page */
+    .appdev-page .card { border: 2px solid var(--dark-blue); }
+
+    /* Keep 4-up behavior with the small helper below */
   </style>
 </head>
 
-<body>
+<body class="appdev-page">
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo"/>
