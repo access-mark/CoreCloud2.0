@@ -9,17 +9,41 @@
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
   <link rel="stylesheet" href="assets/css/styles.css"/>
+
+  <!-- Page-scoped styles (no global CSS changes) -->
   <style>
-    /* Page scope only */
-    .page-banner { height: 300px !important; background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; overflow: hidden; }
+    /* Hero + layout */
     .hero-title { font-size: 2rem; color: var(--dark-blue); font-weight: 700; text-align: center; margin: 2.5rem auto 1rem; }
     main.content { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 4rem; }
 
-    /* Keep blue border on cards only */
+    /* Card borders (blue) */
     .appdev-page .card { border: 2px solid var(--dark-blue); }
 
-    /* Remove any borders from CTA buttons on this page only */
+    /* Remove borders from CTA buttons on this page only */
     .appdev-page .cta-btn { border: none !important; }
+
+    /* 4-up responsive grid (CSS-only, no JS) */
+    .card-grid.quad-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(240px, 1fr));
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+    @media (max-width: 1024px) {
+      .card-grid.quad-4 { grid-template-columns: repeat(2, minmax(240px, 1fr)); }
+    }
+    @media (max-width: 640px) {
+      .card-grid.quad-4 { grid-template-columns: 1fr; }
+    }
+
+    /* CSS-only hamburger (checkbox hack) */
+    .nav-toggle { position: absolute; left: -9999px; }
+    /* Show hamburger only on mobile (global CSS already hides desktop nav) */
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      /* When checked, reveal the mobile nav without JS */
+      #nav-toggle:checked ~ nav.mobile-nav { display: flex; }
+    }
   </style>
 </head>
 
@@ -27,21 +51,32 @@
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo"/>
-      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+
+      <!-- CSS-only hamburger toggle -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </label>
+
+      <!-- Desktop Nav -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
         <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
         <a href="application-development.html" class="nav-btn active">APP DEVELOPMENT</a>
+        <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT US</a>
         <a href="contact.html" class="nav-btn">CONTACT US</a>
       </nav>
+
+      <!-- Mobile Nav (revealed via checkbox, no JS) -->
       <nav class="mobile-nav" id="mobileMenu">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
         <a href="cloud.html">CLOUD SUITE</a>
         <a href="application-development.html" class="active">APP DEVELOPMENT</a>
+        <a href="talent.html">TALENT</a>
         <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
         <a href="about.html">ABOUT US</a>
         <a href="contact.html">CONTACT US</a>
@@ -49,6 +84,7 @@
     </div>
   </div>
 
+  <!-- Page Banner (height controlled by global CSS) -->
   <div class="page-banner" style="background-image:url('assets/images/appdev-bannerimage.png');"></div>
 
   <main class="content">
@@ -144,24 +180,8 @@
     </div>
   </footer>
 
+  <!-- Keep only the subscribe JS (required for form submission). Everything else is CSS-only now. -->
   <script>
-    document.getElementById("hamburger").addEventListener("click", function() {
-      this.classList.toggle("active");
-      document.getElementById("mobileMenu").classList.toggle("active");
-    });
-
-    (function () {
-      function setQuad() {
-        document.querySelectorAll('.card-grid.quad-4').forEach(grid => {
-          if (window.innerWidth >= 1200) grid.style.gridTemplateColumns = 'repeat(4, 1fr)';
-          else if (window.innerWidth >= 768) grid.style.gridTemplateColumns = 'repeat(2, 1fr)';
-          else grid.style.gridTemplateColumns = '1fr';
-        });
-      }
-      window.addEventListener('load', setQuad);
-      window.addEventListener('resize', setQuad);
-    })();
-
     document.getElementById("subscribe-form")?.addEventListener("submit", function (e) {
       e.preventDefault();
       const data = new FormData(this);
