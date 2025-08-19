@@ -23,10 +23,16 @@
     }
     .cta-btn:hover { background-color: #004f91; }
 
+    /* Match hero title to other pages */
+    .home-page .hero-title {
+      font-size: 2.4rem; font-weight: 700; letter-spacing: 0.2px;
+      color: #004f91; margin: 2.5rem auto 1rem;
+    }
+
     /* Blue borders on all cards, home only */
     .home-page .card { border: 2px solid var(--dark-blue, #004f91); }
 
-    /* Fix spacing/layout for Why/What/How */
+    /* Why/What/How spacing/layout */
     .home-page #focus-method-section .section-title { margin-bottom: 1.25rem; }
     .home-page #focus-method-section .card-grid.lock-columns {
       display: grid;
@@ -36,27 +42,22 @@
       margin: 1.5rem auto 0;
     }
     .home-page #focus-method-section .card { padding: 1.5rem; }
-
     @media (max-width: 900px) {
-      .home-page #focus-method-section .card-grid.lock-columns {
-        grid-template-columns: repeat(2, minmax(260px, 1fr));
-      }
+      .home-page #focus-method-section .card-grid.lock-columns { grid-template-columns: repeat(2, minmax(260px, 1fr)); }
     }
     @media (max-width: 600px) {
-      .home-page #focus-method-section .card-grid.lock-columns {
-        grid-template-columns: 1fr;
-      }
+      .home-page #focus-method-section .card-grid.lock-columns { grid-template-columns: 1fr; }
     }
 
-    /* Latest News & Insights: same footprint as Dynamic Imprinting banner */
+    /* Banner-sized cards for Imprinting + News */
+    .home-page .imprinting,
     .home-page .insights { max-width: 1100px; margin: 3rem auto; padding: 0 2rem; }
+    .home-page .imprinting .card,
     .home-page .insights .card {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 1rem; flex-wrap: wrap;
-      padding: 3rem 2rem;            /* match banner padding */
-      border-radius: 12px;           /* match banner radius */
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* match banner shadow */
-      background: #fff;
+      padding: 3rem 2rem; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); background: #fff;
+    }
+    .home-page .insights .card {
+      display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
     }
     .home-page .insights .card h3 { margin: 0 0 .5rem; color: var(--dark-blue, #004f91); }
     .home-page .insights .card p { margin: 0; max-width: 800px; }
@@ -114,26 +115,20 @@
       </p>
     </section>
 
-    <!-- Dynamic Imprinting Highlight Block (banner card) -->
-    <section style="
-      background: #ffffff;
-      padding: 3rem 2rem;
-      margin: 3rem auto;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      max-width: 1100px;
-      text-align: center;
-    ">
-      <h2 style="color: #004f91; font-size: 2.2rem; margin-bottom: 1rem;">
-        Dynamic Imprinting: Executive Identity Transformation
-      </h2>
-      <p style="font-size: 1.1rem; color: #444444; max-width: 900px; margin: 0 auto 2rem; line-height: 1.7;">
-        Leadership isn’t a title. It’s how you show up when it counts. Dynamic Imprinting helps executives break old habits, lead authentically, and perform under pressure. It’s how leaders turn intention into instinct and real impact.
-      </p>
-      <a href="dynamic-imprinting.html" class="cta-btn">Learn More</a>
+    <!-- Dynamic Imprinting (banner-sized with blue border) -->
+    <section class="imprinting">
+      <div class="card" style="text-align:center;">
+        <h2 style="color: #004f91; font-size: 2.2rem; margin-bottom: 1rem;">
+          Dynamic Imprinting: Executive Identity Transformation
+        </h2>
+        <p style="font-size: 1.1rem; color: #444444; max-width: 900px; margin: 0 auto 2rem; line-height: 1.7;">
+          Leadership isn’t a title. It’s how you show up when it counts. Dynamic Imprinting helps executives break old habits, lead authentically, and perform under pressure. It’s how leaders turn intention into instinct and real impact.
+        </p>
+        <a href="dynamic-imprinting.html" class="cta-btn">Learn More</a>
+      </div>
     </section>
 
-    <!-- Latest News & Insights (now same footprint as banner + blue border) -->
+    <!-- Latest News & Insights (same footprint as imprinting + blue border) -->
     <section class="section insights">
       <h2 class="section-title">Latest News & Insights</h2>
       <div class="card">
