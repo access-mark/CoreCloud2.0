@@ -10,7 +10,7 @@
   <meta name="author" content="CoreCloud"/>
   <link rel="stylesheet" href="assets/css/styles.css"/>
 
-  <!-- Page-scoped styles only -->
+  <!-- Page-scoped styles only (does not change other pages) -->
   <style>
     .consulting-page .page-banner{
       height:320px !important;
@@ -25,10 +25,13 @@
       color: var(--dark-blue);
     }
     .consulting-page .section{ margin:3rem 0; }
+
+    /* Standardise section headers to match Home page look */
     .consulting-page .section-title{
-      text-align:center; font-weight:800; font-size:1.5rem; margin-bottom:1rem;
+      text-align:center; font-weight:800; font-size:2.2rem; margin-bottom:1rem;
       color: var(--dark-blue);
     }
+
     .consulting-page .card-grid{
       display:grid; gap:1rem; margin-top:1rem; grid-template-columns:repeat(4,1fr);
     }
@@ -41,6 +44,8 @@
       transition:transform .2s ease, box-shadow .2s ease;
     }
     .consulting-page .card:hover{ transform:translateY(-5px); box-shadow:0 6px 18px rgba(0,0,0,0.12); }
+
+    /* Do NOT override .card h2 so titles match other pages */
     .consulting-page .card p{ margin:0; }
 
     .consulting-page .bullets{
@@ -49,7 +54,7 @@
     .consulting-page .bullets li{ margin-left:1rem; }
     @media (max-width:768px){ .consulting-page .bullets{ grid-template-columns:1fr; } }
 
-    /* Match home page CTA */
+    /* Match Home page CTA button style */
     .consulting-page .cta-btn {
       display: inline-block;
       background-color: #0066b2;
@@ -61,14 +66,11 @@
       font-weight: bold;
       transition: background-color 0.3s ease;
     }
-    .consulting-page .cta-btn:hover {
-      background-color: #004f91;
-    }
+    .consulting-page .cta-btn:hover { background-color: #004f91; }
   </style>
 </head>
 
 <body class="consulting-page">
-  <!-- Keep same nav structure as home -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo"/>
@@ -105,10 +107,22 @@
     <!-- Four Pillars -->
     <h2 class="section-title">The Four Pillars of Execution</h2>
     <div class="card-grid">
-      <div class="card"><h2>Cloud</h2><p>We build practical cloud strategies, modernise systems, align vendors, and design models that help businesses stay ahead.</p></div>
-      <div class="card"><h2>People</h2><p>We help build skilled teams, shaping roles and structures to support new ways of working and keep performance high.</p></div>
-      <div class="card"><h2>Process</h2><p>We bring discipline to go-to-market plans, ensure commercial clarity, and turn strategy into real business value.</p></div>
-      <div class="card"><h2>Partnerships</h2><p>We work with specialist partners who add expertise and help us deliver faster, better results.</p></div>
+      <div class="card">
+        <h2>Cloud</h2>
+        <p>We build practical cloud strategies, modernise systems, align vendors, and design models that help businesses stay ahead.</p>
+      </div>
+      <div class="card">
+        <h2>People</h2>
+        <p>We help build skilled teams, shaping roles and structures to support new ways of working and keep performance high.</p>
+      </div>
+      <div class="card">
+        <h2>Process</h2>
+        <p>We bring discipline to go-to-market plans, ensure commercial clarity, and turn strategy into real business value.</p>
+      </div>
+      <div class="card">
+        <h2>Partnerships</h2>
+        <p>We work with specialist partners who add expertise and help us deliver faster, better results.</p>
+      </div>
     </div>
 
     <!-- Advisory Approach -->
