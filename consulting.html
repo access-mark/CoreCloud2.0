@@ -10,7 +10,7 @@
   <meta name="author" content="CoreCloud"/>
   <link rel="stylesheet" href="assets/css/styles.css"/>
 
-  <!-- Page-scoped tweaks -->
+  <!-- Page-scoped tweaks only -->
   <style>
     /* Match App Dev hero: size, weight, color, spacing */
     .consulting-page .hero-title{
@@ -20,9 +20,46 @@
       text-align: center;
       margin: 2.5rem auto 1rem;
     }
-    /* Blue borders on cards (page only) */
+
+    /* Blue borders on cards (this page only) */
     .consulting-page .card{
       border: 2px solid var(--dark-blue);
+    }
+
+    /* Force 4/2/1 columns without JS wherever applied */
+    .consulting-page .card-grid.force-4{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:2rem;
+      padding:0 2rem;
+    }
+    @media (max-width: 1199px){
+      .consulting-page .card-grid.force-4{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+    }
+    @media (max-width: 767px){
+      .consulting-page .card-grid.force-4{ grid-template-columns:1fr; }
+    }
+
+    /* CSS-only mobile nav toggle */
+    .nav-toggle{ display:none; }
+    .hamburger{ display:none; }
+    @media (max-width:768px){
+      .hamburger{ display:flex; }
+      /* animate the icon when checked */
+      .hamburger span{ transition:transform .3s, opacity .3s; }
+      #nav-toggle:checked + label.hamburger span:nth-child(1){
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      #nav-toggle:checked + label.hamburger span:nth-child(2){
+        opacity:0;
+      }
+      #nav-toggle:checked + label.hamburger span:nth-child(3){
+        transform: rotate(-45deg) translate(6px, -6px);
+      }
+      /* reveal mobile nav when checked */
+      #nav-toggle:checked ~ nav.mobile-nav{
+        display:flex;
+      }
     }
   </style>
 </head>
@@ -32,26 +69,33 @@
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo"/>
-      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+
+      <!-- CSS-only toggle -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </label>
 
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn active">CONSULTING</a>
         <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
         <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
+        <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
-        <a href="about.html" class="nav-btn">ABOUT US</a>
-        <a href="contact.html" class="nav-btn">CONTACT US</a>
+        <a href="about.html" class="nav-btn">ABOUT</a>
+        <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <nav class="mobile-nav" id="mobileMenu">
+      <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html" class="active">CONSULTING</a>
         <a href="cloud.html">CLOUD SUITE</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="talent.html">TALENT</a>
         <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
-        <a href="about.html">ABOUT US</a>
-        <a href="contact.html">CONTACT US</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
       </nav>
     </div>
   </div>
@@ -67,7 +111,7 @@
 
     <!-- Four Pillars -->
     <h2 class="section-title">The Four Pillars of Execution</h2>
-    <div class="card-grid" style="margin-top:1rem;">
+    <div class="card-grid force-4" style="margin-top:1rem;">
       <div class="card">
         <h2>Cloud</h2>
         <p>We build practical cloud strategies, modernise systems, align vendors, and design models that help businesses stay ahead.</p>
@@ -110,7 +154,7 @@
       <p style="text-align:center; max-width:900px; margin:0 auto 1.5rem;">
         We build the sales capacity and discipline that drive predictable revenue — fast.
       </p>
-      <div class="card-grid">
+      <div class="card-grid force-4">
         <div class="card">
           <h2>People</h2>
           <ul style="margin-left:1rem; line-height:1.5; text-align:left;">
@@ -156,7 +200,7 @@
     <!-- Why Clients Choose -->
     <section class="section">
       <h2 class="section-title">Why Clients Choose CoreCloud</h2>
-      <div class="card-grid">
+      <div class="card-grid force-4">
         <div class="card"><h2>Executive-Grade Insights</h2><p>Boardroom experience from global tech giants and high-growth ventures, delivering insights that create real impact.</p></div>
         <div class="card"><h2>Outcome-Obsessed</h2><p>We measure success by results, not hours. Every project is built to deliver tangible impact.</p></div>
         <div class="card"><h2>Agile &amp; Independent</h2><p>Lean and vendor-neutral. We recommend only what’s best for your business.</p></div>
@@ -188,7 +232,7 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+        <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
@@ -200,28 +244,5 @@
     </div>
     <div class="footer-bottom"><p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p></div>
   </footer>
-
-  <!-- JS: mobile nav toggle -->
-  <script>
-    document.getElementById("hamburger").addEventListener("click", function() {
-      this.classList.toggle("active");
-      document.getElementById("mobileMenu").classList.toggle("active");
-    });
-  </script>
-
-  <!-- JS: 4-up desktop / 2-up tablet / 1-up mobile -->
-  <script>
-    (function () {
-      function setGridCols() {
-        document.querySelectorAll('.card-grid').forEach(grid => {
-          if (window.innerWidth >= 1200) grid.style.gridTemplateColumns = 'repeat(4, 1fr)';
-          else if (window.innerWidth >= 768) grid.style.gridTemplateColumns = 'repeat(2, 1fr)';
-          else grid.style.gridTemplateColumns = '1fr';
-        });
-      }
-      window.addEventListener('load', setGridCols);
-      window.addEventListener('resize', setGridCols);
-    })();
-  </script>
 </body>
 </html>
