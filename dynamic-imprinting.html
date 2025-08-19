@@ -22,46 +22,34 @@
       margin:0 auto 3rem; line-height:1.6;
     }
 
-    /* Body container + centering */
-    .imprinting-page section.section{
-      max-width:1100px; margin:0 auto 3rem; padding:0 2rem;
-      text-align:center;
+    /* Big card grid: one large card per row */
+    .imprinting-page .card-grid.big{
+      display:grid; grid-template-columns:1fr;
+      gap:2rem; padding:0 2rem; max-width:1100px; margin:0 auto;
     }
-    .imprinting-page .section-title{
-      color:#004f91; font-weight:700; text-align:center;
-      margin-top:2rem; margin-bottom:1.5rem; font-size:2rem;
-    }
+    .imprinting-page .card h2.section-title{ margin-top:0; }
 
-    /* Center paragraphs & quotes */
-    .imprinting-page section.section p,
-    .imprinting-page section.section blockquote{
-      text-align:center; margin-left:auto; margin-right:auto;
-    }
+    /* Center paragraphs & quotes inside the section content */
+    .imprinting-page .card p,
+    .imprinting-page .card blockquote{ text-align:center; margin-left:auto; margin-right:auto; }
 
     /* Lists: center the block, left-align items */
-    .imprinting-page section.section ul{
+    .imprinting-page .card ul{
       list-style:disc; display:inline-block; text-align:left;
       padding-left:1.25rem; margin:0 auto 2rem;
     }
-    .imprinting-page section.section ul li{ margin-bottom:.75rem; }
+    .imprinting-page .card ul li{ margin-bottom:.75rem; }
 
     .imprinting-page blockquote{
       background:#f0f7ff; border-left:5px solid #004f91; padding:1rem 1.5rem;
       font-style:italic; color:#003366; border-radius:4px; margin:2rem auto;
+      max-width:800px;
     }
 
-    /* CTA (outside cards) */
-    .imprinting-page .cta-btn{
-      background-color:#0066b2; color:#fff; text-decoration:none;
-      padding:.8rem 1.6rem; font-size:1.05rem; border-radius:6px; font-weight:bold;
-      display:inline-block; transition:all .3s ease;
-    }
-    .imprinting-page .cta-btn:hover{
-      background-color:#004f91; transform:translateY(-2px);
-      box-shadow:0 4px 10px rgba(0,0,0,.15);
-    }
+    /* CTA (uses global .cta-btn inside cards) */
+    .imprinting-page .cta-wrap{ text-align:center; margin-top:1.5rem; }
 
-    /* Ensure checkbox hack works even if global CSS is trimmed */
+    /* CSS-only mobile nav */
     .nav-toggle{ position:absolute; left:-9999px; }
     @media (max-width:768px){
       .hamburger{ display:flex; }
@@ -73,7 +61,6 @@
 
     @media (max-width:768px){
       .imprinting-page .section-title{ font-size:1.8rem; }
-      .imprinting-page section.section{ padding:0 1rem; }
     }
   </style>
 </head>
@@ -90,7 +77,7 @@
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Desktop Nav (standard order) -->
+      <!-- Desktop Nav -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
@@ -102,7 +89,7 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile Nav (same order; no stray classes) -->
+      <!-- Mobile Nav -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
@@ -126,71 +113,67 @@
       Real leadership begins when you show up as yourself. Dynamic Imprinting helps high-performing executives step into their true leadership identity, transforming influence, clarity, and performance.
     </p>
 
-    <!-- Body -->
+    <!-- Large Cards -->
     <section class="section">
-      <p>You’ve built your career through results, discipline, and adaptability. You’ve earned your title, your credibility, and your seat at the table.</p>
+      <div class="card-grid big">
+        <!-- Card 1: Opening narrative -->
+        <div class="card">
+          <h2 class="section-title">Why Dynamic Imprinting?</h2>
+          <p>You’ve built your career through results, discipline, and adaptability. You’ve earned your title, your credibility, and your seat at the table.</p>
+          <p>But even top performers sometimes wonder in quieter moments:</p>
+          <blockquote>“Is this truly who I’m meant to be as a leader?”</blockquote>
+          <p>Reaching the top often means wearing different masks, fitting into roles, and meeting expectations under pressure. Over time, the line can blur between who you are and who you’re supposed to be.</p>
+          <p><strong>Dynamic Imprinting</strong> is built to change that.</p>
+          <p>This isn’t typical coaching. It’s not therapy. It’s an identity-focused methodology for leaders who want to:</p>
+          <ul>
+            <li>Align who they are with how they lead</li>
+            <li>Show up with presence and real influence</li>
+            <li>Break old patterns and redefine leadership on their own terms</li>
+          </ul>
+          <p>Picture walking into any room — boardroom, client pitch, investor meeting — and knowing you’re not playing a part. You’re simply yourself: confident, clear, and authentic.</p>
+          <p>Picture decisions flowing from deep alignment rather than pressure to conform.</p>
+          <p>Picture being remembered not just for what you achieved but for the leader you became.</p>
+        </div>
 
-      <p>But even top performers sometimes wonder in quieter moments:</p>
+        <!-- Card 2: Four phases -->
+        <div class="card">
+          <h2 class="section-title">The Four Phases of Dynamic Imprinting</h2>
+          <p><strong>Identity Excavation</strong><br>
+            We start by removing layers of titles and expectations to uncover who you really are beneath professional labels. It’s a safe, confidential exploration of values, strengths, and the identity you want to lead with.</p>
+          <p><strong>Cognitive Reprogramming</strong><br>
+            Next, we examine the beliefs and mental narratives that shape your leadership. Together, we rewrite scripts that no longer serve you, replacing them with thinking that fuels clarity and confidence.</p>
+          <p><strong>Behavioural Anchoring</strong><br>
+            Insight alone changes nothing. We build new habits, rituals, and communication patterns that embed your authentic identity into daily actions so that who you want to be becomes who others experience.</p>
+          <p><strong>Resonance Reinforcement</strong><br>
+            Finally, we ensure your transformation lasts. Through feedback and strategic reflection, we help you project your leadership identity consistently and powerfully.</p>
+        </div>
 
-      <blockquote>“Is this truly who I’m meant to be as a leader?”</blockquote>
+        <!-- Card 3: Program options -->
+        <div class="card">
+          <h2 class="section-title">Program Options</h2>
+          <p><strong>Private Executive Program (16 Weeks)</strong><br>
+            A private, intensive journey with weekly or biweekly sessions, ongoing support, and resources tailored to your needs.</p>
+          <p><strong>Executive Intensive (3–5 Days)</strong><br>
+            A focused sprint for immediate clarity and action, plus follow-up support.</p>
+          <p><strong>Strategic Advisory Retainer</strong><br>
+            Ongoing partnership for leaders who want consistent guidance and reinforcement.</p>
+        </div>
 
-      <p>Reaching the top often means wearing different masks, fitting into roles, and meeting expectations under pressure. Over time, the line can blur between who you are and who you’re supposed to be.</p>
-
-      <p><strong>Dynamic Imprinting</strong> is built to change that.</p>
-
-      <p>This isn’t typical coaching. It’s not therapy. It’s an identity-focused methodology for leaders who want to:</p>
-
-      <ul>
-        <li>Align who they are with how they lead</li>
-        <li>Show up with presence and real influence</li>
-        <li>Break old patterns and redefine leadership on their own terms</li>
-      </ul>
-
-      <p>Picture walking into any room — boardroom, client pitch, investor meeting — and knowing you’re not playing a part. You’re simply yourself: confident, clear, and authentic.</p>
-
-      <p>Picture decisions flowing from deep alignment rather than pressure to conform.</p>
-
-      <p>Picture being remembered not just for what you achieved but for the leader you became.</p>
-
-      <h2 class="section-title" style="margin-top:3rem;">The Four Phases of Dynamic Imprinting</h2>
-
-      <p><strong>Identity Excavation</strong><br>
-        We start by removing layers of titles and expectations to uncover who you really are beneath professional labels. It’s a safe, confidential exploration of values, strengths, and the identity you want to lead with.</p>
-
-      <p><strong>Cognitive Reprogramming</strong><br>
-        Next, we examine the beliefs and mental narratives that shape your leadership. Together, we rewrite scripts that no longer serve you, replacing them with thinking that fuels clarity and confidence.</p>
-
-      <p><strong>Behavioural Anchoring</strong><br>
-        Insight alone changes nothing. We build new habits, rituals, and communication patterns that embed your authentic identity into daily actions so that who you want to be becomes who others experience.</p>
-
-      <p><strong>Resonance Reinforcement</strong><br>
-        Finally, we ensure your transformation lasts. Through feedback and strategic reflection, we help you project your leadership identity consistently and powerfully.</p>
-
-      <h2 class="section-title" style="margin-top:3rem;">Program Options</h2>
-
-      <p><strong>Private Executive Program (16 Weeks)</strong><br>
-        A private, intensive journey with weekly or biweekly sessions, ongoing support, and resources tailored to your needs.</p>
-
-      <p><strong>Executive Intensive (3–5 Days)</strong><br>
-        A focused sprint for immediate clarity and action, plus follow-up support.</p>
-
-      <p><strong>Strategic Advisory Retainer</strong><br>
-        Ongoing partnership for leaders who want consistent guidance and reinforcement.</p>
-
-      <p>This is identity work with business impact:</p>
-
-      <ul>
-        <li>Greater influence at senior levels</li>
-        <li>Sharper strategic thinking</li>
-        <li>Authentic executive presence</li>
-        <li>Sustainable high performance</li>
-        <li>A leadership brand that lasts</li>
-      </ul>
-
-      <p><strong>This isn’t about fixing what’s broken.</strong> It’s about stepping into the fullest version of who you are as a leader and creating the impact only you can achieve.</p>
-
-      <div style="text-align:center; margin:3rem 0;">
-        <a href="contact.html" class="cta-btn">Book a Confidential Consultation</a>
+        <!-- Card 4: Outcomes + CTA -->
+        <div class="card">
+          <h2 class="section-title">What Changes</h2>
+          <ul>
+            <li>Greater influence at senior levels</li>
+            <li>Sharper strategic thinking</li>
+            <li>Authentic executive presence</li>
+            <li>Sustainable high performance</li>
+            <li>A leadership brand that lasts</li>
+          </ul>
+          <p><strong>This isn’t about fixing what’s broken.</strong> It’s about stepping into the fullest version of who you are as a leader and creating the impact only you can achieve.</p>
+          <div class="cta-wrap">
+            <a href="contact.html" class="cta-btn">Book a Confidential Consultation</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
