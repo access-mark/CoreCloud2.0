@@ -10,7 +10,7 @@
   <meta name="author" content="CoreCloud"/>
   <link rel="stylesheet" href="assets/css/styles.css"/>
 
-  <!-- Page-scoped styles only -->
+  <!-- Page-scoped styles only (does not affect other pages) -->
   <style>
     .consulting-page .page-banner{
       height:320px !important;
@@ -24,26 +24,18 @@
 
     .consulting-page .hero-title{
       font-size:2rem; margin:2rem auto 1rem; font-weight:700; text-align:center;
-      /* color inherits from site; uncomment if needed */
-      /* color:#004f91; */
     }
 
     .consulting-page .section{ margin:3rem 0; }
     .consulting-page .section-title{
       text-align:center; font-weight:800; font-size:1.5rem; margin-bottom:1rem;
-      /* color inherits from site; uncomment if needed */
-      /* color:#0066b2; */
     }
 
     .consulting-page .card-grid{
       display:grid; gap:1rem; margin-top:1rem; grid-template-columns:repeat(4,1fr);
     }
-    @media (max-width:1024px){
-      .consulting-page .card-grid{ grid-template-columns:repeat(2,1fr); }
-    }
-    @media (max-width:640px){
-      .consulting-page .card-grid{ grid-template-columns:1fr; }
-    }
+    @media (max-width:1024px){ .consulting-page .card-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media (max-width:640px){ .consulting-page .card-grid{ grid-template-columns:1fr; } }
 
     .consulting-page .card{
       background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.1);
@@ -51,31 +43,33 @@
       transition:transform .2s ease, box-shadow .2s ease;
     }
     .consulting-page .card:hover{ transform:translateY(-5px); box-shadow:0 6px 18px rgba(0,0,0,0.12); }
-    .consulting-page .card h2{ margin:0 0 .5rem; font-weight:700; font-size:1.15rem; }
+
+    /* Fix: lighter, centered card titles on this page only */
+    .consulting-page .card h2{
+      margin:0 0 .5rem;
+      font-weight:600;           /* was 700 from global */
+      font-size:1.15rem;
+      text-align:center;         /* ensure centralised */
+    }
     .consulting-page .card p{ margin:0; }
 
     .consulting-page .bullets{
       display:grid; gap:.5rem; width:100%; max-width:900px; grid-template-columns:repeat(2,minmax(0,1fr));
     }
     .consulting-page .bullets li{ margin-left:1rem; }
-    @media (max-width:768px){
-      .consulting-page .bullets{ grid-template-columns:1fr; }
-    }
+    @media (max-width:768px){ .consulting-page .bullets{ grid-template-columns:1fr; } }
 
+    /* Fix: CTA button styling (scoped) */
     .consulting-page .cta-btn{
-      display:inline-block; padding:.7rem 1.3rem; border-radius:8px; text-decoration:none; font-weight:700;
-      /* uses site button colors if defined; otherwise uncomment below */
-      /* background:#0066b2; color:#fff; */
+      display:inline-block; padding:.75rem 1rem; border-radius:6px; text-decoration:none;
+      font-weight:bold; font-size:.95rem;
+      background: var(--primary-blue); color:#fff; transition: background-color .3s ease;
     }
-    .consulting-page .cta-btn:hover{
-      /* uncomment to match site hover if needed */
-      /* background:#004f91; */
-    }
+    .consulting-page .cta-btn:hover{ background: var(--dark-blue); }
   </style>
 </head>
 
 <body class="consulting-page">
-  <!-- Keep your existing header/nav markup so it inherits global styles -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo"/>
@@ -155,9 +149,9 @@
       </p>
 
       <div class="card-grid">
-        <div class="card" style="text-align:left;">
+        <div class="card">
           <h2>People</h2>
-          <ul style="margin-left:1rem; line-height:1.5;">
+          <ul style="margin-left:1rem; line-height:1.5; text-align:left;">
             <li>Assess team skills, coverage, role clarity &amp; leadership gaps</li>
             <li>Place proven talent via our Talent Hub</li>
             <li>Practical enablement: discovery, positioning, objection handling</li>
@@ -166,9 +160,9 @@
           </ul>
         </div>
 
-        <div class="card" style="text-align:left;">
+        <div class="card">
           <h2>Process</h2>
-          <ul style="margin-left:1rem; line-height:1.5;">
+          <ul style="margin-left:1rem; line-height:1.5; text-align:left;">
             <li>Map &amp; optimise end-to-end sales process</li>
             <li>Qualification frameworks that fit (MEDDIC, BANT)</li>
             <li>Pipeline discipline &amp; accurate forecasting</li>
@@ -178,9 +172,9 @@
           </ul>
         </div>
 
-        <div class="card" style="text-align:left;">
+        <div class="card">
           <h2>Engagement Models</h2>
-          <ul style="margin-left:1rem; line-height:1.5;">
+          <ul style="margin-left:1rem; line-height:1.5; text-align:left;">
             <li>Fractional CRO (interim sales leadership)</li>
             <li>Sales Advisory Retainer &amp; governance</li>
             <li>Project sprints (pipeline build, GTM launch)</li>
@@ -188,9 +182,9 @@
           </ul>
         </div>
 
-        <div class="card" style="text-align:left;">
+        <div class="card">
           <h2>Outcomes We Drive</h2>
-          <ul style="margin-left:1rem; line-height:1.5;">
+          <ul style="margin-left:1rem; line-height:1.5; text-align:left;">
             <li>Shorter sales cycles, higher win rates</li>
             <li>Forecasting you can trust</li>
             <li>Rep productivity uplift within 90 days</li>
@@ -249,7 +243,6 @@
     </section>
   </main>
 
-  <!-- Keep your existing footer so it inherits global styles -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
