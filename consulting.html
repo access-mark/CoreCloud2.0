@@ -12,7 +12,7 @@
 
   <!-- Page-scoped tweaks only -->
   <style>
-    /* Match App Dev hero: size, weight, color, spacing */
+    /* Match site-wide hero style (kept here to ensure parity if a page overrides) */
     .consulting-page .hero-title{
       font-size: 2rem;
       color: var(--dark-blue);
@@ -21,7 +21,7 @@
       margin: 2.5rem auto 1rem;
     }
 
-    /* Blue borders on cards (this page only) */
+    /* Blue borders on cards (this page only, safe alongside global rule) */
     .consulting-page .card{
       border: 2px solid var(--dark-blue);
     }
@@ -40,26 +40,17 @@
       .consulting-page .card-grid.force-4{ grid-template-columns:1fr; }
     }
 
-    /* CSS-only mobile nav toggle */
-    .nav-toggle{ display:none; }
+    /* CSS-only mobile nav toggle helpers (do NOT hide the checkbox with display:none) */
     .hamburger{ display:none; }
+    .hamburger span{ width:25px; height:3px; background:#003366; border-radius:2px; transition:transform .3s, opacity .3s; display:block; }
     @media (max-width:768px){
-      .hamburger{ display:flex; }
-      /* animate the icon when checked */
-      .hamburger span{ transition:transform .3s, opacity .3s; }
-      #nav-toggle:checked + label.hamburger span:nth-child(1){
-        transform: rotate(45deg) translate(5px, 5px);
-      }
-      #nav-toggle:checked + label.hamburger span:nth-child(2){
-        opacity:0;
-      }
-      #nav-toggle:checked + label.hamburger span:nth-child(3){
-        transform: rotate(-45deg) translate(6px, -6px);
-      }
-      /* reveal mobile nav when checked */
-      #nav-toggle:checked ~ nav.mobile-nav{
-        display:flex;
-      }
+      .hamburger{ display:flex; flex-direction:column; gap:5px; cursor:pointer; }
+      /* animate icon when checked */
+      #nav-toggle:checked + label.hamburger span:nth-child(1){ transform: rotate(45deg) translate(5px, 5px); }
+      #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity:0; }
+      #nav-toggle:checked + label.hamburger span:nth-child(3){ transform: rotate(-45deg) translate(6px, -6px); }
+      /* reveal mobile nav when checked (global CSS also has this, kept for safety) */
+      #nav-toggle:checked ~ nav.mobile-nav{ display:flex; }
     }
   </style>
 </head>
@@ -70,7 +61,7 @@
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo"/>
 
-      <!-- CSS-only toggle -->
+      <!-- CSS-only toggle (keep input accessible off-screen via global .nav-toggle rule) -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -100,7 +91,7 @@
     </div>
   </div>
 
-  <!-- Banner -->
+  <!-- Banner (height controlled by global .page-banner = 300px) -->
   <div class="page-banner" style="background-image:url('assets/images/consulting-bannerimage.png');"></div>
 
   <main class="content">
@@ -137,7 +128,7 @@
         We skip the buzzwords and focus on practical strategy. CoreCloud works with boards, CIOs, and business leaders to turn vision into results.
       </p>
       <div style="display:flex; justify-content:center; margin-top:1rem;">
-        <ul class="bullets">
+        <ul class="bullets" style="line-height:1.8; text-align:left; max-width:700px;">
           <li>Business-aligned cloud and technology strategies</li>
           <li>Sales and go-to-market diagnostics and uplift</li>
           <li>Platform architecture and vendor rationalisation</li>
@@ -232,6 +223,7 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <!-- JS-free submit -->
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;"/>
           <button type="submit" class="cta-btn">Subscribe</button>
