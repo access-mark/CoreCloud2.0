@@ -16,11 +16,17 @@
     .hero-title { font-size: 2rem; color: var(--dark-blue); font-weight: 700; text-align: center; margin: 2.5rem auto 1rem; }
     main.content { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 4rem; }
 
-    /* Card borders (blue) */
+    /* Blue card borders (global already enforces; safe to keep scoped) */
     .appdev-page .card { border: 2px solid var(--dark-blue); }
 
     /* Remove borders from CTA buttons on this page only */
     .appdev-page .cta-btn { border: none !important; }
+
+    /* Uniform CTA buttons inside the 4-up card grids (width + height consistent) */
+    .appdev-page .card-grid.quad-4 .cta-btn{
+      display: flex; align-items: center; justify-content: center;
+      width: 100%; min-height: 48px; font-weight: 700;
+    }
 
     /* 4-up responsive grid (CSS-only, no JS) */
     .card-grid.quad-4 {
@@ -38,11 +44,13 @@
 
     /* CSS-only hamburger (checkbox hack) */
     .nav-toggle { position: absolute; left: -9999px; }
-    /* Show hamburger only on mobile (global CSS already hides desktop nav) */
     @media (max-width: 768px) {
       .hamburger { display: flex; }
-      /* When checked, reveal the mobile nav without JS */
       #nav-toggle:checked ~ nav.mobile-nav { display: flex; }
+      /* hamburger to X animation */
+      #nav-toggle:checked + label.hamburger span:nth-child(1){ transform: rotate(45deg) translate(5px, 5px); }
+      #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity: 0; }
+      #nav-toggle:checked + label.hamburger span:nth-child(3){ transform: rotate(-45deg) translate(6px, -6px); }
     }
   </style>
 </head>
@@ -66,25 +74,25 @@
         <a href="application-development.html" class="nav-btn active">APP DEVELOPMENT</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
-        <a href="about.html" class="nav-btn">ABOUT US</a>
-        <a href="contact.html" class="nav-btn">CONTACT US</a>
+        <a href="about.html" class="nav-btn">ABOUT</a>
+        <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
       <!-- Mobile Nav (revealed via checkbox, no JS) -->
-      <nav class="mobile-nav" id="mobileMenu">
+      <nav class="mobile-nav" id="mobileMenu" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
         <a href="cloud.html">CLOUD SUITE</a>
         <a href="application-development.html" class="active">APP DEVELOPMENT</a>
         <a href="talent.html">TALENT</a>
         <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
-        <a href="about.html">ABOUT US</a>
-        <a href="contact.html">CONTACT US</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
       </nav>
     </div>
   </div>
 
-  <!-- Page Banner (height controlled by global CSS) -->
+  <!-- Page Banner (height controlled by global CSS: 300px desktop / 250px mobile) -->
   <div class="page-banner" style="background-image:url('assets/images/appdev-bannerimage.png');"></div>
 
   <main class="content">
@@ -164,7 +172,8 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+        <!-- JS-free submit -->
+        <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
@@ -179,18 +188,5 @@
       <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
     </div>
   </footer>
-
-  <!-- Keep only the subscribe JS (required for form submission). Everything else is CSS-only now. -->
-  <script>
-    document.getElementById("subscribe-form")?.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const data = new FormData(this);
-      fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
-        method: "POST",
-        body: data
-      }).then(r => r.ok ? (window.location.href = "thank-you.html") : alert("Something went wrong. Please try again."))
-        .catch(() => alert("Submission failed. Please try again."));
-    });
-  </script>
 </body>
 </html>
