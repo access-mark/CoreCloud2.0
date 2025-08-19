@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APIs &amp; Integration – CoreCloud</title>
+  <meta name="description" content="Well-designed APIs and event streams that connect products and data. Secure, observable, and built for developer velocity." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="CoreCloud" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+
+  <!-- Page-scoped tweaks (no global overrides) -->
+  <style>
+    /* Keep hero sizing consistent with the site */
+    .hero-title { font-size: 2rem; font-weight: 700; color: var(--dark-blue); text-align: center; margin: 2.5rem auto 1rem; }
+    .hero-subtitle { text-align: center; color: #444; max-width: 900px; margin: 0 auto 2rem; font-size: 1.1rem; }
+
+    /* Fixed 4 / 2 / 1 columns where needed (no JS) */
+    .card-grid.force-4 { display: grid; gap: 2rem; padding: 0 2rem; }
+    @media (min-width: 1200px) { .card-grid.force-4 { grid-template-columns: repeat(4, 1fr); } }
+    @media (min-width: 768px) and (max-width: 1199.98px) { .card-grid.force-4 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 767.98px) { .card-grid.force-4 { grid-template-columns: 1fr; } }
+
+    /* CSS-only mobile nav (checkbox hook uses global rules) */
+    .nav-toggle { position: absolute; left: -9999px; }
+    @media (max-width: 768px) {
+      .hamburger { display: flex; }
+      #nav-toggle:checked ~ nav.mobile-nav { display: flex; }
+      #nav-toggle:checked + label.hamburger span:nth-child(1){ transform: rotate(45deg) translate(5px,5px); }
+      #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity: 0; }
+      #nav-toggle:checked + label.hamburger span:nth-child(3){ transform: rotate(-45deg) translate(6px,-6px); }
+    }
+  </style>
+</head>
+
+<body class="appdev-page">
+  <!-- Header / Nav -->
+  <div class="small-banner">
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+
+      <!-- CSS-only hamburger toggle -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </label>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-btn">HOME</a>
+        <a href="consulting.html" class="nav-btn">CONSULTING</a>
+        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
+        <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
+        <a href="talent.html" class="nav-btn">TALENT</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="about.html" class="nav-btn">ABOUT</a>
+        <a href="contact.html" class="nav-btn">CONTACT</a>
+      </nav>
+
+      <!-- Mobile Nav -->
+      <nav class="mobile-nav" aria-label="Mobile">
+        <a href="index.html">HOME</a>
+        <a href="consulting.html">CONSULTING</a>
+        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="talent.html">TALENT</a>
+        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Page Banner (uses global .page-banner height = 300px) -->
+  <div class="page-banner" style="background-image: url('assets/images/appdev-bannerimage.png');"></div>
+
+  <main class="content">
+    <!-- Hero -->
+    <h1 class="hero-title">APIs &amp; Integration</h1>
+    <p class="hero-subtitle">
+      Well-designed APIs and event streams that connect products and data. Secure, observable, and built for developer velocity.
+    </p>
+
+    <!-- What we deliver -->
+    <section class="section">
+      <h2 class="section-title">What We Deliver</h2>
+      <div class="card-grid force-4">
+        <div class="card">
+          <h2>Product-Grade APIs</h2>
+          <p>REST, GraphQL, and gRPC endpoints with clear contracts, versioning, and SLAs. Built for scale and reuse.</p>
+        </div>
+        <div class="card">
+          <h2>Event-Driven Integration</h2>
+          <p>Publish/subscribe, queues, and streams that decouple services and power real-time experiences.</p>
+        </div>
+        <div class="card">
+          <h2>API Management &amp; Gateways</h2>
+          <p>Rate limiting, auth, monetisation, and developer portals via leading gateways and platforms.</p>
+        </div>
+        <div class="card">
+          <h2>Data &amp; System Connectivity</h2>
+          <p>Modern ETL/ELT, webhooks, and iPaaS patterns to connect SaaS, legacy, and cloud platforms.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- How we build -->
+    <section class="section">
+      <h2 class="section-title">How We Build</h2>
+      <div class="card-grid force-4">
+        <div class="card">
+          <h2>Reference Architectures</h2>
+          <p>Opinionated templates for synchronous APIs and asynchronous EDA, aligned to your cloud of choice.</p>
+        </div>
+        <div class="card">
+          <h2>Security by Design</h2>
+          <p>OAuth2/OIDC, mTLS, key rotation, WAF, and zero-trust patterns baked into every interface.</p>
+        </div>
+        <div class="card">
+          <h2>Developer Experience</h2>
+          <p>Self-serve portals, SDKs, mocks, and golden paths to accelerate onboarding and reduce cycle time.</p>
+        </div>
+        <div class="card">
+          <h2>Observability &amp; Reliability</h2>
+          <p>Tracing, metrics, structured logs, and error budgets to keep integrations healthy and predictable.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engagement models -->
+    <section class="section">
+      <h2 class="section-title">Engagement Models</h2>
+      <div class="card-grid force-4">
+        <div class="card">
+          <h2>Project Delivery</h2>
+          <p>Outcome-based API and integration workstreams with clear milestones and governance.</p>
+        </div>
+        <div class="card">
+          <h2>Platform Build-Out</h2>
+          <p>Standing up gateways, portals, CI/CD, and observability to create an integration runway.</p>
+        </div>
+        <div class="card">
+          <h2>Integration Factory</h2>
+          <p>Reusable patterns, accelerators, and a backlog engine to deliver new integrations at pace.</p>
+        </div>
+        <div class="card">
+          <h2>Advisory &amp; Reviews</h2>
+          <p>API strategy, governance, security posture, cost optimisation, and architecture reviews.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outcomes -->
+    <section class="section">
+      <h2 class="section-title">Outcomes You Can Measure</h2>
+      <div class="card-grid force-4">
+        <div class="card">
+          <h2>Faster Delivery</h2>
+          <p>Reduced lead time for new integrations with reusable contracts and pipelines.</p>
+        </div>
+        <div class="card">
+          <h2>Reliability</h2>
+          <p>Clear SLAs/SLOs, back-pressure handling, and graceful degradation under load.</p>
+        </div>
+        <div class="card">
+          <h2>Security &amp; Compliance</h2>
+          <p>Policy-driven access, auditability, and data protection aligned to your governance.</p>
+        </div>
+        <div class="card">
+          <h2>Cost &amp; Reuse</h2>
+          <p>API reuse and platform guardrails that prevent duplicate builds and waste.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="text-align:center;">
+      <a href="contact.html" class="cta-btn">Start a Conversation</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton,<br>Johannesburg</p>
+      </div>
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <!-- JS-free submit -->
+        <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec"
+              method="POST"
+              style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="email" name="email" placeholder="Enter your email" required
+                 style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-right">
+        <p>Contact</p>
+        <p>Email: sales@corecloudza.com</p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
+    </div>
+  </footer>
+</body>
+</html>
