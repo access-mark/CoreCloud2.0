@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
 
   <style>
-    /* Page-specific styling (unchanged except existing definitions) */
+    /* Page-specific (keeping your existing inline page styles) */
     .page-banner { height: 300px !important; background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; overflow: hidden; }
     .hero-title { font-size: 2rem; color: #004f91; margin-bottom: 1rem; font-weight: 700; text-align: center; }
 
@@ -34,12 +34,10 @@
     .cloud-columns { display: flex; flex-direction: row; gap: 3rem; justify-content: center; margin-top: 3rem; flex-wrap: wrap; }
     .cloud-column { flex: 1; min-width: 300px; }
 
-    /* leaving .cloud-column h2 as-is; switching markup to .section-title below */
-
     .card-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
     .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 1.2rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none !important; }
     .card:hover { transform: translateY(-5px); }
-    .card h3 { font-size: 1.25rem; color: #ffffff; margin-bottom: 1rem; font-weight: 700; } /* inline weight overrides will soften to 600 */
+    .card h3 { font-size: 1.25rem; color: #ffffff; margin-bottom: 1rem; font-weight: 700; } /* inline soften to 600 where needed */
     .card p { color: #ffffff; font-size: 1rem; margin-bottom: 1.2rem; }
 
     .aws-card { background-color: #ff9900; border: 1px solid #000; }
@@ -105,9 +103,9 @@
     </p>
 
     <div class="cloud-columns">
+      <!-- AWS -->
       <div class="cloud-column">
-        <!-- Lighter title: use section-title element instead of h2 -->
-        <div class="section-title" style="font-size:1.8rem; margin-bottom:1.5rem;">AWS</div>
+        <div class="section-title" style="font-weight:600; font-size:1.8rem; margin-bottom:1.5rem;">AWS</div>
         <div class="card-group">
           <div class="card aws-card">
             <h3 style="font-weight:600;">AWS Migration</h3>
@@ -132,8 +130,9 @@
         </div>
       </div>
 
+      <!-- Azure -->
       <div class="cloud-column">
-        <div class="section-title" style="font-size:1.8rem; margin-bottom:1.5rem;">Azure</div>
+        <div class="section-title" style="font-weight:600; font-size:1.8rem; margin-bottom:1.5rem;">Azure</div>
         <div class="card-group">
           <div class="card azure-card">
             <h3 style="font-weight:600;">Azure Migration</h3>
@@ -158,8 +157,9 @@
         </div>
       </div>
 
+      <!-- Databricks -->
       <div class="cloud-column">
-        <div class="section-title" style="font-size:1.8rem; margin-bottom:1.5rem;">Databricks</div>
+        <div class="section-title" style="font-weight:600; font-size:1.8rem; margin-bottom:1.5rem;">Databricks</div>
         <div class="card-group">
           <div class="card databricks-card">
             <h3 style="font-weight:600;">Lakehouse Architecture</h3>
@@ -183,32 +183,32 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Application Development (added section) -->
-    <div class="cloud-column" style="margin-top: 4rem;">
-      <div class="section-title" style="font-size:1.8rem; margin-bottom:1.5rem;">Application Development</div>
-      <div class="card-group">
-        <div class="card" style="background-color: #ffffff; border: 2px solid #004f91; color: #004f91;">
-          <h3 style="color: #004f91; font-weight:600;">Cloud-Native Apps</h3>
-          <p style="color: #004f91;">Design and build applications that scale seamlessly in modern cloud environments.</p>
-          <a href="cloud-native-apps.html" class="cta-btn" style="background-color: #004f91; color: #ffffff; border: 2px solid #004f91;">Explore Solutions</a>
-        </div>
-        <div class="card" style="background-color: #ffffff; border: 2px solid #004f91; color: #004f91;">
-          <h3 style="color: #004f91; font-weight:600;">Enterprise Portals</h3>
-          <p style="color: #004f91;">Develop secure, scalable portals to streamline internal operations and customer engagement.</p>
-          <a href="enterprise-portals.html" class="cta-btn" style="background-color: #004f91; color: #ffffff; border: 2px solid #004f91;">Learn More</a>
-        </div>
-        <div class="card" style="background-color: #ffffff; border: 2px solid #004f91; color: #004f91;">
-          <h3 style="color: #004f91; font-weight:600;">Mobile &amp; Web</h3>
-          <p style="color: #004f91;">Deliver cross-platform mobile and web experiences powered by robust cloud infrastructure.</p>
-          <a href="mobile-web.html" class="cta-btn" style="background-color: #004f91; color: #ffffff; border: 2px solid #004f91;">Start Building</a>
+      <!-- Application Development -->
+      <div class="cloud-column" style="margin-top: 4rem;">
+        <div class="section-title" style="font-weight:600; font-size:1.8rem; margin-bottom:1.5rem;">Application Development</div>
+        <div class="card-group">
+          <div class="card" style="background-color: #ffffff; border: 2px solid #004f91; color: #004f91;">
+            <h3 style="color: #004f91; font-weight:600;">Cloud-Native Apps</h3>
+            <p style="color: #004f91;">Design and build applications that scale seamlessly in modern cloud environments.</p>
+            <a href="cloud-native-apps.html" class="cta-btn" style="background-color: #004f91; color: #ffffff; border: 2px solid #004f91;">Explore Solutions</a>
+          </div>
+          <div class="card" style="background-color: #ffffff; border: 2px solid #004f91; color: #004f91;">
+            <h3 style="color: #004f91; font-weight:600;">Enterprise Portals</h3>
+            <p style="color: #004f91;">Develop secure, scalable portals to streamline internal operations and customer engagement.</p>
+            <a href="enterprise-portals.html" class="cta-btn" style="background-color: #004f91; color: #ffffff; border: 2px solid #004f91;">Learn More</a>
+          </div>
+          <div class="card" style="background-color: #ffffff; border: 2px solid #004f91; color: #004f91;">
+            <h3 style="color: #004f91; font-weight:600;">Mobile &amp; Web</h3>
+            <p style="color: #004f91;">Deliver cross-platform mobile and web experiences powered by robust cloud infrastructure.</p>
+            <a href="mobile-web.html" class="cta-btn" style="background-color: #004f91; color: #ffffff; border: 2px solid #004f91;">Start Building</a>
+          </div>
         </div>
       </div>
     </div>
 
     <section class="section" style="margin-top: 4rem;">
-      <div class="section-title">Our Delivery Ecosystem</div>
+      <div class="section-title" style="font-weight:600;">Our Delivery Ecosystem</div>
       <p style="max-width: 900px; margin: 0 auto 2rem; text-align: center;">
         At CoreCloud, we know that exceptional cloud transformation requires more than technology alone. It’s about working with partners who are masters of their domains and who share our relentless commitment to delivering real outcomes.
       </p>
