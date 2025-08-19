@@ -9,9 +9,7 @@
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
-
   <style>
-    /* Page-specific (keeping your existing inline page styles) */
     .page-banner { height: 300px !important; background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; overflow: hidden; }
     .hero-title { font-size: 2rem; color: #004f91; margin-bottom: 1rem; font-weight: 700; text-align: center; }
 
@@ -37,7 +35,7 @@
     .card-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
     .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 1.2rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none !important; }
     .card:hover { transform: translateY(-5px); }
-    .card h3 { font-size: 1.25rem; color: #ffffff; margin-bottom: 1rem; font-weight: 700; } /* inline soften to 600 where needed */
+    .card h3 { font-size: 1.25rem; color: #ffffff; margin-bottom: 1rem; font-weight: 700; }
     .card p { color: #ffffff; font-size: 1rem; margin-bottom: 1.2rem; }
 
     .aws-card { background-color: #ff9900; border: 1px solid #000; }
@@ -68,26 +66,25 @@
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-
       <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 
       <nav class="desktop-nav">
-        <a href="index.html" class="nav-btn">Home</a>
-        <a href="consulting.html" class="nav-btn">Consulting</a>
-        <a href="cloud.html" class="nav-btn active">Cloud Service Suite</a>
-        <a href="talent.html" class="nav-btn">Talent Placement</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">Dynamic Imprinting</a>
-        <a href="about.html" class="nav-btn">About Us</a>
-        <a href="contact.html" class="nav-btn">Contact</a>
+        <a href="index.html" class="nav-btn">HOME</a>
+        <a href="consulting.html" class="nav-btn">CONSULTING</a>
+        <a href="cloud.html" class="nav-btn active">CLOUD SUITE</a>
+        <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="about.html" class="nav-btn">ABOUT US</a>
+        <a href="contact.html" class="nav-btn">CONTACT US</a>
       </nav>
       <nav class="mobile-nav" id="mobileMenu">
-        <a href="index.html">Home</a>
-        <a href="consulting.html">Consulting</a>
-        <a href="cloud.html">Cloud Service Suite</a>
-        <a href="talent.html">Talent Placement</a>
-        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html">HOME</a>
+        <a href="consulting.html">CONSULTING</a>
+        <a href="cloud.html" class="active">CLOUD SUITE</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="about.html">ABOUT US</a>
+        <a href="contact.html">CONTACT US</a>
       </nav>
     </div>
   </div>
@@ -183,29 +180,18 @@
           </div>
         </div>
       </div>
-
-      <!-- Application Development -->
-      <div class="cloud-column" style="margin-top: 4rem;">
-        <div class="section-title" style="font-weight:600; font-size:1.8rem; margin-bottom:1.5rem;">Application Development</div>
-        <div class="card-group">
-          <div class="card" style="background-color: #ffffff; border: 2px solid #004f91; color: #004f91;">
-            <h3 style="color: #004f91; font-weight:600;">Cloud-Native Apps</h3>
-            <p style="color: #004f91;">Design and build applications that scale seamlessly in modern cloud environments.</p>
-            <a href="cloud-native-apps.html" class="cta-btn" style="background-color: #004f91; color: #ffffff; border: 2px solid #004f91;">Explore Solutions</a>
-          </div>
-          <div class="card" style="background-color: #ffffff; border: 2px solid #004f91; color: #004f91;">
-            <h3 style="color: #004f91; font-weight:600;">Enterprise Portals</h3>
-            <p style="color: #004f91;">Develop secure, scalable portals to streamline internal operations and customer engagement.</p>
-            <a href="enterprise-portals.html" class="cta-btn" style="background-color: #004f91; color: #ffffff; border: 2px solid #004f91;">Learn More</a>
-          </div>
-          <div class="card" style="background-color: #ffffff; border: 2px solid #004f91; color: #004f91;">
-            <h3 style="color: #004f91; font-weight:600;">Mobile &amp; Web</h3>
-            <p style="color: #004f91;">Deliver cross-platform mobile and web experiences powered by robust cloud infrastructure.</p>
-            <a href="mobile-web.html" class="cta-btn" style="background-color: #004f91; color: #ffffff; border: 2px solid #004f91;">Start Building</a>
-          </div>
-        </div>
-      </div>
     </div>
+
+    <!-- CTA to App Dev -->
+    <section class="section" style="margin-top: 3rem; text-align:center;">
+      <div class="section-title" style="font-weight:600;">Application Development</div>
+      <p style="max-width: 900px; margin: 0 auto 1.5rem;">
+        Looking for Cloud-Native Apps, Portals, or Mobile &amp; Web? Visit our Application Development page.
+      </p>
+      <div class="card" style="background:none; box-shadow:none;">
+        <a href="application-development.html" class="cta-btn">Explore Application Development</a>
+      </div>
+    </section>
 
     <section class="section" style="margin-top: 4rem;">
       <div class="section-title" style="font-weight:600;">Our Delivery Ecosystem</div>
@@ -257,13 +243,7 @@
         method: "POST",
         body: data
       })
-      .then(response => {
-        if (response.ok) {
-          window.location.href = "thank-you.html";
-        } else {
-          alert("Something went wrong. Please try again.");
-        }
-      })
+      .then(response => { if (response.ok) { window.location.href = "thank-you.html"; } else { alert("Something went wrong. Please try again."); } })
       .catch(() => alert("Submission failed. Please try again."));
     });
   </script>
