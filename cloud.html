@@ -9,10 +9,19 @@
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <style>
-    .page-banner { height: 300px !important; background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; overflow: hidden; }
-    .hero-title { font-size: 2rem; color: #004f91; margin-bottom: 1rem; font-weight: 700; text-align: center; }
 
+  <!-- Page-scoped tweaks (no global CSS changes) -->
+  <style>
+    /* Match hero title to other pages */
+    .cloud-page .hero-title {
+      font-size: 2rem;
+      color: #004f91;
+      margin-bottom: 1rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    /* Layout */
     .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
     .hamburger span { width: 25px; height: 3px; background-color: #003366; transition: all 0.3s ease; border-radius: 2px; }
     .hamburger.active span:nth-child(1){ transform: rotate(45deg) translate(5px, 5px); }
@@ -31,25 +40,56 @@
 
     .cloud-columns { display: flex; flex-direction: row; gap: 3rem; justify-content: center; margin-top: 3rem; flex-wrap: wrap; }
     .cloud-column { flex: 1; min-width: 300px; }
-
     .card-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; }
-    .card { background: #fff; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 1.2rem; text-align: center; display: flex; flex-direction: column; justify-content: space-between; text-decoration: none !important; }
+
+    /* Base card */
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 1.2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      text-decoration: none !important;
+      transition: transform 0.2s ease;
+    }
     .card:hover { transform: translateY(-5px); }
+
+    /* Ensure blue borders on ALL cards (including coloured ones) */
+    .cloud-page .card,
+    .cloud-page .aws-card,
+    .cloud-page .azure-card,
+    .cloud-page .databricks-card {
+      border: 2px solid var(--dark-blue, #004f91);
+    }
+
+    /* Coloured cloud tiles */
     .card h3 { font-size: 1.25rem; color: #ffffff; margin-bottom: 1rem; font-weight: 700; }
     .card p { color: #ffffff; font-size: 1rem; margin-bottom: 1.2rem; }
 
-    .aws-card { background-color: #ff9900; border: 1px solid #000; }
-    .azure-card { background-color: #007fff; border: 1px solid #000; }
-    .databricks-card { background-color: #ff3621; border: 1px solid #000; }
+    .aws-card { background-color: #ff9900; }
+    .azure-card { background-color: #007fff; }
+    .databricks-card { background-color: #ff3621; }
 
-    .aws-card .cta-btn { background-color: #ffffff !important; color: #ff9900 !important; border: 2px solid #ffffff; }
-    .aws-card .cta-btn:hover { background-color: #f2f2f2 !important; color: #ff9900 !important; border-color: #f2f2f2; }
+    /* CTA buttons inside coloured tiles */
+    .aws-card .cta-btn,
+    .azure-card .cta-btn,
+    .databricks-card .cta-btn {
+      background-color: #ffffff !important;
+      border: 2px solid #ffffff;
+    }
+    .aws-card .cta-btn { color: #ff9900 !important; }
+    .azure-card .cta-btn { color: #007fff !important; }
+    .databricks-card .cta-btn { color: #ff3621 !important; }
 
-    .azure-card .cta-btn { background-color: #ffffff !important; color: #007fff !important; border: 2px solid #ffffff; }
-    .azure-card .cta-btn:hover { background-color: #f2f2f2 !important; color: #007fff !important; border-color: #f2f2f2; }
-
-    .databricks-card .cta-btn { background-color: #ffffff !important; color: #ff3621 !important; border: 2px solid #ffffff; }
-    .databricks-card .cta-btn:hover { background-color: #f2f2f2 !important; color: #ff3621 !important; border-color: #f2f2f2; }
+    .aws-card .cta-btn:hover,
+    .azure-card .cta-btn:hover,
+    .databricks-card .cta-btn:hover {
+      background-color: #f2f2f2 !important;
+      border-color: #f2f2f2;
+    }
 
     @media screen and (max-width: 768px) {
       nav.desktop-nav { display: none; }
@@ -61,7 +101,7 @@
   </style>
 </head>
 
-<body>
+<body class="cloud-page">
   <!-- Navigation -->
   <div class="small-banner">
     <div class="banner-header">
@@ -73,15 +113,18 @@
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
         <a href="cloud.html" class="nav-btn active">CLOUD SUITE</a>
         <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
+        <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT US</a>
         <a href="contact.html" class="nav-btn">CONTACT US</a>
       </nav>
+
       <nav class="mobile-nav" id="mobileMenu">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
         <a href="cloud.html" class="active">CLOUD SUITE</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="talent.html">TALENT</a>
         <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
         <a href="about.html">ABOUT US</a>
         <a href="contact.html">CONTACT US</a>
@@ -89,7 +132,7 @@
     </div>
   </div>
 
-  <!-- Page Banner -->
+  <!-- Page Banner (height now controlled by global CSS) -->
   <div class="page-banner" style="background-image: url('assets/images/cloud-banner.png');"></div>
 
   <main class="content">
@@ -228,6 +271,7 @@
     </div>
   </footer>
 
+  <!-- Minimal JS kept (nav + subscribe). If you want these CSS-only later, say the word. -->
   <script>
     document.getElementById("hamburger").addEventListener("click", function() {
       this.classList.toggle("active");
@@ -238,7 +282,6 @@
       e.preventDefault();
       const form = e.target;
       const data = new FormData(form);
-
       fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
         method: "POST",
         body: data
