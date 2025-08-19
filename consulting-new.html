@@ -10,27 +10,23 @@
   <meta name="author" content="CoreCloud"/>
   <link rel="stylesheet" href="assets/css/styles.css"/>
 
-  <!-- Page-scoped styles only (does not affect other pages) -->
+  <!-- Page-scoped styles only (keeps other pages unchanged) -->
   <style>
     .consulting-page .page-banner{
       height:320px !important;
       background-size:cover; background-position:center; background-repeat:no-repeat;
       width:100%; overflow:hidden;
     }
-
     .consulting-page .content{
       max-width:1200px; margin:0 auto; padding:2rem 1rem 4rem;
     }
-
     .consulting-page .hero-title{
       font-size:2rem; margin:2rem auto 1rem; font-weight:700; text-align:center;
     }
-
     .consulting-page .section{ margin:3rem 0; }
     .consulting-page .section-title{
       text-align:center; font-weight:800; font-size:1.5rem; margin-bottom:1rem;
     }
-
     .consulting-page .card-grid{
       display:grid; gap:1rem; margin-top:1rem; grid-template-columns:repeat(4,1fr);
     }
@@ -44,13 +40,7 @@
     }
     .consulting-page .card:hover{ transform:translateY(-5px); box-shadow:0 6px 18px rgba(0,0,0,0.12); }
 
-    /* Fix: lighter, centered card titles on this page only */
-    .consulting-page .card h2{
-      margin:0 0 .5rem;
-      font-weight:600;           /* was 700 from global */
-      font-size:1.15rem;
-      text-align:center;         /* ensure centralised */
-    }
+    /* Do NOT override .card h2 so titles match other pages */
     .consulting-page .card p{ margin:0; }
 
     .consulting-page .bullets{
@@ -59,7 +49,7 @@
     .consulting-page .bullets li{ margin-left:1rem; }
     @media (max-width:768px){ .consulting-page .bullets{ grid-template-columns:1fr; } }
 
-    /* Fix: CTA button styling (scoped) */
+    /* CTA button outside cards needs styling */
     .consulting-page .cta-btn{
       display:inline-block; padding:.75rem 1rem; border-radius:6px; text-decoration:none;
       font-weight:bold; font-size:.95rem;
