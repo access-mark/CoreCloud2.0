@@ -1,10 +1,11 @@
 /* ===========================
    CoreCloud — assets/css/styles.css
    - Slim, transparent nav (site-wide)
-   - Logo: 160px desktop / 120px mobile
+   - Logo: 160px desktop / 120px mobile BASE, but trim 2rem top+bottom (4rem total)
+   - Guard: never smaller than 64px
    - No active pill (underline hover)
    - Normalized spacing under banner
-   - No vertical padding above/below logo (global)
+   - No vertical padding above/below logo
    =========================== */
 
 /* Reset */
@@ -21,8 +22,13 @@
   --text-gray:#444;
   --gold:#d4af37; /* underline gradient */
 
+  /* Base logo heights */
   --logo-h-desktop: 160px;
   --logo-h-mobile: 120px;
+
+  /* Trim 2rem from top and bottom => 4rem total off */
+  --logo-vertical-trim: 2rem;          /* per-side trim */
+  --logo-total-trim: calc(2 * var(--logo-vertical-trim));
 }
 
 /* Base */
@@ -59,8 +65,9 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
 .banner-header{
   display:flex; align-items:center; justify-content:space-between;
   max-width:1200px; margin:0 auto;
-  padding: 0 !important;                      /* flush container */
-  min-height: var(--logo-h-desktop);          /* header equals logo height */
+  padding: 0 !important;                       /* flush container */
+  /* Header height = trimmed logo height, but never < 64px */
+  min-height: max(64px, calc(var(--logo-h-desktop) - var(--logo-total-trim)));
 }
 .banner-header.ai-nav{
   position:sticky; top:0; z-index:1000;
@@ -68,9 +75,11 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
   border-bottom:0 !important;
   box-shadow:none !important;
 }
+/* Logo height trimmed; never < 64px */
 .logo{
-  height:var(--logo-h-desktop); width:auto;
-  display:block;               /* remove image baseline gap */
+  height: max(64px, calc(var(--logo-h-desktop) - var(--logo-total-trim)));
+  width:auto;
+  display:block; /* remove baseline gap */
   margin:0;
 }
 
@@ -181,12 +190,18 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
 @media (max-width:768px){
   nav.desktop-nav{ display:none; }
   .hamburger{ display:flex; }
-  .logo{ height:var(--logo-h-mobile); width:auto; }
+  /* Trimmed mobile logo; never < 64px */
+  .logo{
+    height: max(64px, calc(var(--logo-h-mobile) - var(--logo-total-trim)));
+  }
   .page-banner{ height:250px; }
   .hero-title{ font-size:2rem; }
 
-  /* Keep header height equal to mobile logo height */
-  .banner-header{ min-height: var(--logo-h-mobile); }
+  /* Header height equals trimmed mobile logo height */
+  .banner-header{
+    min-height: max(64px, calc(var(--logo-h-mobile) - var(--logo-total-trim)));
+  }
+
   /* Mobile overlay when ai-nav present */
   .banner-header.ai-nav #nav-toggle:checked ~ nav.mobile-nav{
     display:flex !important; position:fixed; inset:0; top:0;
