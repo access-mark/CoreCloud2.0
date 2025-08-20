@@ -1,10 +1,7 @@
 /* ===========================
    CoreCloud — assets/css/styles.css
-   - Transparent header/site-wide (no white strip, no glass)
-   - Logo: 160px desktop / 120px mobile
-   - Lighter/tighter nav (no pill)
-   - Banner taller (380/300)
-   - Global CTA styles
+   Site-wide: transparent header, logo 120/90, tighter nav,
+   banner 380/300, global CTAs, consistent cards
    =========================== */
 
 /* Reset */
@@ -21,8 +18,8 @@
   --text-gray:#444;
   --gold:#d4af37;
 
-  --logo-h-desktop: 160px;
-  --logo-h-mobile: 120px;
+  --logo-h-desktop: 120px;   /* site-wide (matches Home) */
+  --logo-h-mobile:  90px;    /* site-wide (matches Home) */
 }
 
 /* Base */
@@ -49,33 +46,34 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
   font-size:2rem; text-align:center; color:var(--dark-blue); margin-bottom:1.5rem;
 }
 
-/* Header (transparent) */
+/* Header (transparent, sticky) */
 .small-banner{
   background: transparent !important;
   box-shadow: none !important;
-  padding: .15rem .9rem 0;                /* slimmer header */
+  padding: .15rem .9rem 0;          /* slim header */
   width:100%;
 }
 .banner-header{
   display:flex; align-items:center; justify-content:space-between;
   max-width:1200px; margin:0 auto;
   background: transparent !important;
-  border: 0 !important;
-  box-shadow:none !important;
+  border:0 !important; box-shadow:none !important;
   position: sticky; top: 0; z-index: 1000;
 }
 .logo{ height:var(--logo-h-desktop); width:auto; }
 
-/* Desktop Nav (lighter/tighter, no wrap) */
+/* Desktop Nav (lighter/tighter) */
 nav.desktop-nav{ display:flex; align-items:center; gap:.75rem; flex-wrap:nowrap; }
-nav.desktop-nav a{
-  text-decoration:none; font-weight:600; font-size:.82rem; color:#1b1f23;
-  text-transform:uppercase; padding:.35rem .6rem; transition:color .2s ease;
+nav.desktop-nav .nav-btn{
+  text-decoration:none; text-transform:uppercase;
+  font-size:.82rem; font-weight:600; padding:.35rem .6rem;
+  color:#1b1f23; transition:color .2s ease;
+  white-space:nowrap;
 }
-nav.desktop-nav a:hover,
-nav.desktop-nav a.active{ color:#005fa3; }
+nav.desktop-nav .nav-btn:hover,
+nav.desktop-nav .nav-btn.active{ color:#005fa3; }
 
-/* Optional underline flourish when .ai-nav is present */
+/* Optional underline flourish when ai-nav present */
 .banner-header.ai-nav .desktop-nav .nav-btn{ position:relative; }
 .banner-header.ai-nav .desktop-nav .nav-btn::after{
   content:""; position:absolute; left:8px; right:8px; bottom:4px; height:2px;
@@ -108,12 +106,11 @@ nav.mobile-nav a:last-child{ border-bottom:none; }
   -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
   gap:1rem; border:0; box-shadow:none;
 }
-/* Hamburger morph */
 #nav-toggle:checked + label.hamburger span:nth-child(1){ transform:rotate(45deg) translate(5px,5px); }
 #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity:0; }
 #nav-toggle:checked + label.hamburger span:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
 
-/* Page Banner (taller) */
+/* Page Banner */
 .page-banner{
   height:380px;
   background-size:cover; background-position:center; background-repeat:no-repeat;
@@ -125,9 +122,7 @@ main.content{ max-width:1400px; margin:4rem auto; padding:0 1.5rem; flex:1 0 aut
 .section{ margin:3rem 0; }
 
 /* Global CTA (hero/footer/non-card) */
-.cta-btn,
-a.cta-btn,
-button.cta-btn{
+.cta-btn, a.cta-btn, button.cta-btn{
   display:inline-block;
   padding:.8rem 1.6rem;
   border-radius:6px;
