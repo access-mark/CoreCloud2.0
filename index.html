@@ -18,13 +18,11 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- LCP preload (hero) -->
+  <!-- LCP preload (safe fallback to existing PNG so it never 404s) -->
   <link rel="preload" as="image"
-        href="assets/images/index-bannerimage-1600.avif"
-        imagesrcset="assets/images/index-bannerimage-800.avif 800w,
-                     assets/images/index-bannerimage-1200.avif 1200w,
-                     assets/images/index-bannerimage-1600.avif 1600w"
-        imagesizes="(min-width:1024px) 90vw, 100vw" fetchpriority="high">
+        href="assets/images/index-bannerimage.png"
+        imagesizes="(min-width:1024px) 90vw, 100vw"
+        fetchpriority="high">
 
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
@@ -83,6 +81,7 @@
   <!-- Hero (picture replaces CSS background) -->
   <div class="hero-media">
     <picture>
+      <!-- Modern formats will be used automatically once you add these files -->
       <source type="image/avif"
               srcset="assets/images/index-bannerimage-800.avif 800w,
                       assets/images/index-bannerimage-1200.avif 1200w,
@@ -93,9 +92,11 @@
                       assets/images/index-bannerimage-1200.webp 1200w,
                       assets/images/index-bannerimage-1600.webp 1600w"
               sizes="(min-width:1024px) 90vw, 100vw">
-      <img src="assets/images/index-bannerimage-1200.jpg"
+      <!-- Guaranteed fallback to the existing PNG so the banner always shows -->
+      <img src="assets/images/index-bannerimage.png"
            alt="CoreCloud — Strategy, Cloud, Talent, Applications"
-           width="1600" height="600" decoding="async" fetchpriority="high">
+           width="1600" height="600" decoding="async" fetchpriority="high"
+           onerror="this.onerror=null; this.src='assets/images/index-bannerimage.png'">
     </picture>
   </div>
 
