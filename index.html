@@ -21,35 +21,6 @@
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/corecloud-theme.css?v=2025-08-20" />
-
-  <!-- Page-scoped layout only (no header/nav/logo rules here) -->
-  <style>
-    /* Card links unstyled */
-    .card-grid a, .card-grid a:hover, .card-grid a:visited{ text-decoration:none; color:inherit; }
-
-    /* Why/What/How fixed 3/2/1 */
-    #focus-method-section .card-grid.lock-columns{
-      display:grid; gap:2rem; max-width:1100px; margin:1.5rem auto 0;
-      grid-template-columns:repeat(3,minmax(280px,1fr));
-    }
-    @media (max-width:900px){
-      #focus-method-section .card-grid.lock-columns{ grid-template-columns:repeat(2,minmax(260px,1fr)); }
-    }
-    @media (max-width:600px){
-      #focus-method-section .card-grid.lock-columns{ grid-template-columns:1fr; }
-    }
-
-    /* Banner-sized blocks */
-    .imprinting, .insights{ max-width:1100px; margin:3rem auto; padding:0 2rem; }
-    .imprinting .card, .insights .card{
-      padding:3rem 2rem; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.1); background:#fff;
-    }
-    .insights .card{
-      display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;
-    }
-    .insights .card h3{ margin:0 0 .5rem; color:var(--dark-blue); }
-    .insights .card p{ margin:0; max-width:800px; }
-  </style>
 </head>
 
 <body class="home-page">
@@ -93,20 +64,19 @@
   <!-- Page Banner -->
   <div class="page-banner" style="background-image:url('assets/images/index-bannerimage.png');"></div>
 
-  <!-- Hero -->
+  <!-- Hero (CTA removed) -->
   <section style="text-align:center; padding:2.5rem 1rem 0; margin-bottom:0;">
     <h1 class="hero-title">From Strategy to Revenue. From Cloud to People.</h1>
     <p style="font-size:1.2rem; max-width:900px; margin:0 auto; color:#444;">
       At CoreCloud, we believe big ideas mean nothing without results. We help South African enterprises turn strategy into action and revenue. Whether it’s sharpening sales execution, modernising cloud platforms, placing top ICT talent, or building modern applications, we deliver outcomes you can measure.
     </p>
-    <a href="cloud.html" class="cta-btn" style="margin-top:2rem;">Explore Cloud Suite</a>
   </section>
 
   <main class="content">
     <!-- About CoreCloud -->
     <section style="padding:0 1rem 2rem; text-align:center; margin:0 auto 2rem; max-width:1000px;">
       <h2 class="section-title">About CoreCloud</h2>
-      <p style="font-size:1.1rem; color:#444; line-height:1.7; margin-bottom:0;">
+      <p style="font-size:1.1rem; color:#444444; line-height:1.7; margin-bottom:0;">
         CoreCloud isn’t theory. We’re about action. Our team of seasoned executives has navigated real boardroom pressure and knows how to make change stick. We deliver tangible results in sales, cloud technology, talent strategy, and application development. Clients work with us because we focus on one thing: outcomes that move the needle.
       </p>
     </section>
@@ -117,7 +87,7 @@
         <h2 class="section-title" style="margin-bottom:1rem;">
           Dynamic Imprinting: Executive Identity Transformation
         </h2>
-        <p style="font-size:1.1rem; color:#444; max-width:900px; margin:0 auto 2rem; line-height:1.7;">
+        <p style="font-size:1.1rem; color:#444444; max-width:900px; margin:0 auto 2rem; line-height:1.7;">
           Leadership isn’t a title. It’s how you show up when it counts. Dynamic Imprinting helps executives break old habits, lead authentically, and perform under pressure. It’s how leaders turn intention into instinct and real impact.
         </p>
         <a href="dynamic-imprinting.html" class="cta-btn">Learn More</a>
@@ -140,27 +110,18 @@
     <section id="focus-method-section" class="section">
       <h2 class="section-title">Our Focus &amp; Method</h2>
       <div class="card-grid lock-columns">
-        <a href="consulting.html" class="card">
-          <div>
-            <h2>Why</h2>
-            <p>Businesses across South Africa face bloated sales operations, underperforming cloud investments, and talent gaps that stall execution.</p>
-          </div>
-          <span class="cta-btn">Learn More</span>
-        </a>
-        <a href="cloud.html" class="card">
-          <div>
-            <h2>What</h2>
-            <p>CoreCloud helps businesses cut through the noise. We drive sharper sales execution, modernise cloud infrastructure, connect you to top talent, and build modern applications.</p>
-          </div>
-          <span class="cta-btn">Learn More</span>
-        </a>
-        <a href="application-development.html" class="card">
-          <div>
-            <h2>How</h2>
-            <p>We turn plans into action. Our team uses proven go-to-market models, strong partnerships, and smart automation to deliver measurable results.</p>
-          </div>
-          <span class="cta-btn">Learn More</span>
-        </a>
+        <div class="card">
+          <h2>Why</h2>
+          <p>Businesses across South Africa face bloated sales operations, underperforming cloud investments, and talent gaps that stall execution.</p>
+        </div>
+        <div class="card">
+          <h2>What</h2>
+          <p>CoreCloud helps businesses cut through the noise. We drive sharper sales execution, modernise cloud infrastructure, connect you to top talent, and build modern applications.</p>
+        </div>
+        <div class="card">
+          <h2>How</h2>
+          <p>We turn plans into action. Our team uses proven go-to-market models, strong partnerships, and smart automation to deliver measurable results.</p>
+        </div>
       </div>
     </section>
 
