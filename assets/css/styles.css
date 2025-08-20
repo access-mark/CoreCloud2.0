@@ -4,6 +4,7 @@
    - Logo: 160px desktop / 120px mobile
    - No active pill (underline hover)
    - Normalized spacing under banner
+   - No vertical padding above/below logo (global)
    =========================== */
 
 /* Reset */
@@ -48,24 +49,30 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
   font-size:2rem; text-align:center; color:var(--dark-blue); margin-bottom:1.5rem;
 }
 
-/* Header (slim + transparent) */
+/* Header (slim + transparent, no vertical padding) */
 .small-banner{
   background: transparent !important;
   box-shadow: none !important;
-  padding: .15rem .9rem 0 !important; /* slim */
+  padding: 0 .9rem 0 !important;   /* no top/bottom padding */
   width:100%;
 }
 .banner-header{
   display:flex; align-items:center; justify-content:space-between;
   max-width:1200px; margin:0 auto;
+  padding: 0 !important;                      /* flush container */
+  min-height: var(--logo-h-desktop);          /* header equals logo height */
 }
 .banner-header.ai-nav{
   position:sticky; top:0; z-index:1000;
-  background: transparent !important;  /* transparent over banner */
+  background: transparent !important;
   border-bottom:0 !important;
   box-shadow:none !important;
 }
-.logo{ height:var(--logo-h-desktop); width:auto; }
+.logo{
+  height:var(--logo-h-desktop); width:auto;
+  display:block;               /* remove image baseline gap */
+  margin:0;
+}
 
 /* Desktop Nav */
 nav.desktop-nav{ display:flex; align-items:center; gap:.75rem; flex-wrap:nowrap; }
@@ -127,7 +134,7 @@ main.content{
   padding:0 1.5rem 4rem;
   flex:1 0 auto;
 }
-/* Hero sits 2.5rem below the banner (AppDev baseline) */
+/* Hero sits 2.5rem below the banner */
 .page-banner + .content .hero-title,
 .page-banner + section .hero-title{ margin-top:2.5rem !important; }
 /* Remove extra top padding if first block is a <section> */
@@ -177,7 +184,10 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
   .logo{ height:var(--logo-h-mobile); width:auto; }
   .page-banner{ height:250px; }
   .hero-title{ font-size:2rem; }
-  /* Mobile overlay look when ai-nav present */
+
+  /* Keep header height equal to mobile logo height */
+  .banner-header{ min-height: var(--logo-h-mobile); }
+  /* Mobile overlay when ai-nav present */
   .banner-header.ai-nav #nav-toggle:checked ~ nav.mobile-nav{
     display:flex !important; position:fixed; inset:0; top:0;
     padding:5rem 1.5rem 2rem; background:rgba(255,255,255,.9);
