@@ -9,13 +9,14 @@
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/corecloud-theme.css" />
 
   <!-- Page-scoped tweaks only -->
   <style>
     /* Match hero size to site standard */
     .cloud-page .hero-title{
       font-size: 2rem;
-      color: var(--dark-blue);
+      color: var(--dark-blue, #004f91);
       font-weight: 700;
       text-align: center;
       margin: 2.5rem auto 1rem;
@@ -31,7 +32,7 @@
     .azure-card h3, .azure-card p,
     .databricks-card h3, .databricks-card p{ color:#ffffff; }
 
-    /* Tile backgrounds (borders handled by global .card rule) */
+    /* Tile backgrounds (borders come from global .card) */
     .aws-card{ background-color:#ff9900; }
     .azure-card{ background-color:#007fff; }
     .databricks-card{ background-color:#ff3621; }
@@ -42,12 +43,12 @@
       width:100%; min-height:48px;
       font-weight:700;
     }
-    /* Keep the colored-tiles CTA style (white button with brand text) */
+    /* Brand-inverted CTAs on colored tiles */
     .aws-card .cta-btn,
     .azure-card .cta-btn,
     .databricks-card .cta-btn{
       background-color:#ffffff !important;
-      border:2px solid #ffffff;
+      border:2px solid #ffffff !important;
     }
     .aws-card .cta-btn{ color:#ff9900 !important; }
     .azure-card .cta-btn{ color:#007fff !important; }
@@ -57,10 +58,10 @@
     .azure-card .cta-btn:hover,
     .databricks-card .cta-btn:hover{
       background-color:#f2f2f2 !important;
-      border-color:#f2f2f2;
+      border-color:#f2f2f2 !important;
     }
 
-    /* CSS-only hamburger visibility (global provides behavior) */
+    /* Make hamburger visible on mobile (behavior handled globally) */
     @media (max-width:768px){
       .hamburger{ display:flex; }
     }
@@ -204,7 +205,7 @@
       <p style="max-width:900px; margin:0 auto 1.5rem;">
         Looking for Cloud-Native Apps, Portals, or Mobile &amp; Web? Visit our Application Development page.
       </p>
-      <div class="card" style="background:none; box-shadow:none;">
+      <div class="card" style="background:none; box-shadow:none; border:none;">
         <a href="application-development.html" class="cta-btn">Explore Application Development</a>
       </div>
     </section>
