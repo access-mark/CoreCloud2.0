@@ -5,31 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CoreCloud Talent Placement | Elite ICT & Executive Talent South Africa</title>
   <meta name="description" content="CoreCloud connects South African businesses with elite ICT professionals, cloud specialists, and executive talent. Fast, precise, and fully vetted." />
-  <meta name="keywords" content="Talent Placement, ICT Staffing South Africa, Executive Talent, Cloud Talent, CoreCloud, Tech Recruitment, CoreCapacity, CareerWeb" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
 
-  <!-- LCP preload -->
-  <link rel="preload" as="image"
-        href="assets/images/talent-bannerimage-1600.avif"
-        imagesrcset="assets/images/talent-bannerimage-800.avif 800w,
-                     assets/images/talent-bannerimage-1200.avif 1200w,
-                     assets/images/talent-bannerimage-1600.avif 1600w"
-        imagesizes="(min-width:1024px) 90vw, 100vw" fetchpriority="high">
-
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
 
-  <!-- Page-scoped tweaks -->
   <style>
-    .relaunch-cta, .cta-card { background: linear-gradient(90deg, #0066b2 0%, #004f91 100%); color: #fff; text-align: center; padding: 3rem 1rem; margin: 3rem 0; border-radius: 8px; }
+    .relaunch-cta, .cta-card { background: linear-gradient(90deg, #0066b2 0%, #004f91 100%); color:#fff; text-align:center; padding:3rem 1rem; margin:3rem 0; border-radius:8px; }
     .relaunch-cta h2, .cta-card h2 { font-size: 2rem; margin-bottom: 1rem; color: #fff; }
     .relaunch-cta p, .cta-card p { font-size: 1.1rem; margin: 0 auto 1.5rem; max-width: 800px; color: #fff; }
-    .relaunch-cta a.cta-btn, .cta-card a.cta-btn { background: #fff; color: #004f91; font-weight: bold; padding: .75rem 2rem; border-radius: 6px; text-decoration: none; display: inline-block; font-size: 1.1rem; transition: all .3s ease; }
-    .relaunch-cta a.cta-btn:hover, .cta-card a.cta-btn:hover { background: #004f91; color: #fff; }
-    .equal-banner { height: 360px; min-height: 360px; display:flex; align-items:center; justify-content:center; flex-direction:column; box-sizing:border-box; padding: 3rem 1rem; }
-    @media (max-width:768px){ .equal-banner{ height:auto; min-height:unset; } }
-    .hero-title { font-size:2rem; font-weight:700; color:#004f91; text-align:center; margin:2.5rem auto 1rem; }
-    .section-title { text-align:center; color:#004f91; font-size:2rem; margin-bottom:1.5rem; font-weight:700; }
+    .relaunch-cta a.cta-btn, .cta-card a.cta-btn { background:#fff; color:#004f91; font-weight:bold; padding:.75rem 2rem; border-radius:6px; text-decoration:none; display:inline-block; font-size:1.1rem; transition:all .3s ease; }
+    .relaunch-cta a.cta-btn:hover, .cta-card a.cta-btn:hover { background:#004f91; color:#fff; }
+    .equal-banner { height:360px; min-height:360px; display:flex; align-items:center; justify-content:center; flex-direction:column; box-sizing:border-box; padding:3rem 1rem; }
+    .equal-banner h2 { margin:0 0 1rem; } .equal-banner p { margin:0 0 1.5rem; max-width:800px; }
+    @media (max-width:768px){ .equal-banner { height:auto; min-height:unset; } }
+    .hero-title { font-size:2rem; font-weight:700; color:var(--dark-blue); text-align:center; margin:2.5rem auto 1rem; }
+    .section-title { text-align:center; color:var(--dark-blue); font-size:2rem; margin-bottom:1.5rem; font-weight:700; }
     .subtitle { text-align:center; color:#444; font-size:1.1rem; margin:0 auto 2rem; max-width:900px; }
     .card-grid.quad .card{ background:#fff; color:#444; padding:1.5rem; border-radius:8px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.08); transition:transform .3s ease; }
     .card-grid.quad .card:hover{ transform: translateY(-5px); }
@@ -37,18 +29,15 @@
     @media (min-width:1200px){ .card-grid.force-4{ grid-template-columns: repeat(4,1fr); } }
     @media (min-width:768px) and (max-width:1199.98px){ .card-grid.force-4{ grid-template-columns: repeat(2,1fr); } }
     @media (max-width:767.98px){ .card-grid.force-4{ grid-template-columns: 1fr; } }
-    .hero-media picture, .hero-media img{ display:block; width:100%; height:auto; }
   </style>
 </head>
 
 <body class="talent-page">
-  <!-- Header -->
   <div class="small-banner">
-    <div class="banner-header ai-nav">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo"
-           width="220" height="64" decoding="async" fetchpriority="high" />
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" decoding="async" fetchpriority="high">
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
       <nav class="desktop-nav">
@@ -75,25 +64,10 @@
     </div>
   </div>
 
-<link rel="preload" as="image" href="assets/images/talent-bannerimage.png" fetchpriority="high">
-<div class="hero-media">
-  <picture>
-    <source type="image/avif"
-      srcset="assets/images/talent-bannerimage-800.avif 800w,
-              assets/images/talent-bannerimage-1200.avif 1200w,
-              assets/images/talent-bannerimage-1600.avif 1600w"
-      sizes="(min-width:1024px) 90vw, 100vw">
-    <source type="image/webp"
-      srcset="assets/images/talent-bannerimage-800.webp 800w,
-              assets/images/talent-bannerimage-1200.webp 1200w,
-              assets/images/talent-bannerimage-1600.webp 1600w"
-      sizes="(min-width:1024px) 90vw, 100vw">
-    <img src="assets/images/talent-bannerimage.png"
-         alt="CoreCloud Talent — Elite ICT & Executive Talent"
-         decoding="async" fetchpriority="high">
-  </picture>
-</div>
-
+  <!-- Hero -->
+  <div class="hero-media">
+    <img src="assets/images/talent-bannerimage.png" alt="CoreCloud Talent — Elite ICT & Executive Talent" decoding="async">
+  </div>
 
   <main class="content">
     <section class="relaunch-cta equal-banner">
@@ -104,7 +78,11 @@
 
     <section class="section intro">
       <h1 class="hero-title">Strategic Talent Placement</h1>
-      <p class="subtitle">At CoreCloud, we don’t just fill roles. We fuel performance… Our placements stick because we understand what both sides need to win.</p>
+      <p class="subtitle">
+        At CoreCloud, we don’t just fill roles. We fuel performance. Our placement model is fast, precise, and built for real impact. We connect skilled cloud, engineering, and digital talent with businesses shaping the future.<br><br>
+        Whether you’re scaling a team, modernising infrastructure, or driving digital change, we move quickly, vet thoroughly, and match people on more than just skills. We align talent with purpose, capability with context, and ambition with opportunity.<br><br>
+        Our network is built on trust. Our placements stick because we understand what both sides need to win.
+      </p>
     </section>
 
     <section class="section">
@@ -157,11 +135,14 @@
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
+          <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;">
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
-      <div class="footer-right"><p>Contact</p><p>Email: sales@corecloudza.com</p><p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:red; text-decoration:underline; font-weight:bold;">LinkedIn</a></p></div>
+      <div class="footer-right">
+        <p>Contact</p><p>Email: sales@corecloudza.com</p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener" style="color:red; text-decoration:underline; font-weight:bold;">LinkedIn</a></p>
+      </div>
     </div>
     <div class="footer-bottom"><p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p></div>
   </footer>
