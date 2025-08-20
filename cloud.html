@@ -13,7 +13,7 @@
 
   <!-- Page-scoped tweaks only -->
   <style>
-    /* Match hero size to site standard */
+    /* Hero */
     .cloud-page .hero-title{
       font-size: 2rem;
       color: var(--dark-blue, #004f91);
@@ -22,32 +22,28 @@
       margin: 2.5rem auto 1rem;
     }
 
-    /* Cloud columns layout */
+    /* Columns + card groups */
     .cloud-columns{ display:flex; flex-wrap:wrap; gap:3rem; justify-content:center; margin-top:3rem; }
     .cloud-column{ flex:1; min-width:300px; }
     .card-group{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:1.5rem; }
 
-    /* Scope white text ONLY to colored tiles */
+    /* Tile text color */
     .aws-card h3, .aws-card p,
     .azure-card h3, .azure-card p,
     .databricks-card h3, .databricks-card p{ color:#ffffff; }
 
-    /* Tile backgrounds (card borders come from global .card) */
+    /* Tile backgrounds */
     .aws-card{ background-color:#ff9900; }
     .azure-card{ background-color:#007fff; }
     .databricks-card{ background-color:#ff3621; }
 
-    /* Uniform CTAs inside tile grids */
-    .cloud-page .card-group .cta-btn{
-      display:flex; align-items:center; justify-content:center;
-      width:100%; min-height:48px;
-      font-weight:700;
-    }
-
-    /* --- CTA: remove borders everywhere --- */
+    /* CTA base: ensure no borders anywhere */
     .cta-btn{
       border:none !important;
       box-shadow:none !important;
+      display:flex; align-items:center; justify-content:center;
+      min-height:48px; font-weight:700; width:100%;
+      text-decoration:none;
     }
 
     /* Inverted CTAs on colored tiles (still no borders) */
@@ -55,22 +51,24 @@
     .azure-card .cta-btn,
     .databricks-card .cta-btn{
       background-color:#ffffff !important;
-      color:#222 !important; /* base */
+      color:#222 !important;
     }
     .aws-card .cta-btn{ color:#ff9900 !important; }
     .azure-card .cta-btn{ color:#007fff !important; }
     .databricks-card .cta-btn{ color:#ff3621 !important; }
-
     .aws-card .cta-btn:hover,
     .azure-card .cta-btn:hover,
     .databricks-card .cta-btn:hover{
       background-color:#f2f2f2 !important;
     }
 
-    /* Bottom standalone CTA section: ensure no card/border wraps it */
-    .no-frame{ background:none; box-shadow:none; border:none; }
+    /* Bottom CTA: use borderless container, not .card */
+    .cta-container{
+      background:none; border:none !important; box-shadow:none !important;
+      padding:0; margin:0 auto; max-width:900px; text-align:center;
+    }
 
-    /* Make hamburger visible on mobile (behavior handled globally) */
+    /* Mobile hamburger visibility (behavior global) */
     @media (max-width:768px){
       .hamburger{ display:flex; }
     }
@@ -83,7 +81,6 @@
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
 
-      <!-- CSS-only toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -115,7 +112,7 @@
     </div>
   </div>
 
-  <!-- Page Banner (height = 300px from global CSS) -->
+  <!-- Banner -->
   <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png');"></div>
 
   <main class="content">
@@ -208,13 +205,13 @@
       </div>
     </div>
 
-    <!-- CTA to App Dev -->
+    <!-- CTA to App Dev (no border) -->
     <section class="section" style="margin-top:3rem; text-align:center;">
       <h2 class="section-title">Application Development</h2>
       <p style="max-width:900px; margin:0 auto 1.5rem;">
         Looking for Cloud-Native Apps, Portals, or Mobile &amp; Web? Visit our Application Development page.
       </p>
-      <div class="card no-frame">
+      <div class="cta-container">
         <a href="application-development.html" class="cta-btn">Explore Application Development</a>
       </div>
     </section>
