@@ -8,69 +8,59 @@
   <meta name="keywords" content="Talent Placement, ICT Staffing South Africa, Executive Talent, Cloud Talent, CoreCloud, Tech Recruitment, CoreCapacity, CareerWeb" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
+
+  <!-- Global CSS (site-wide) -->
   <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <!-- Page-scoped tweaks only -->
+  <!-- Page-scoped tweaks only (kept light, no nav overrides) -->
   <style>
-    /* CSS-only mobile nav toggle (checkbox hack) */
-    .nav-toggle { position:absolute; left:-9999px; }
-    .hamburger { display:none; flex-direction:column; cursor:pointer; gap:5px; }
-    .hamburger span { width:25px; height:3px; background-color:#003366; border-radius:2px; transition:all .3s ease; }
-    @media (max-width:768px){
-      .hamburger{ display:flex; }
-      #nav-toggle:checked ~ nav.mobile-nav { display:flex; }
-      #nav-toggle:checked + label.hamburger span:nth-child(1){ transform:rotate(45deg) translate(5px,5px); }
-      #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity:0; }
-      #nav-toggle:checked + label.hamburger span:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
-    }
-
-    /* Equal-height feature banners */
+    /* Gradient banners (top + bottom) */
     .relaunch-cta, .cta-card {
-      background: linear-gradient(90deg,#0066b2 0%,#004f91 100%);
-      color:#fff; text-align:center; padding:3rem 1rem; margin:3rem 0; border-radius:8px;
+      background: linear-gradient(90deg, #0066b2 0%, #004f91 100%);
+      color: #fff; text-align: center; padding: 3rem 1rem; margin: 3rem 0; border-radius: 8px;
     }
-    .relaunch-cta h2, .cta-card h2 { font-size:2rem; margin-bottom:1rem; color:#fff; }
-    .relaunch-cta p, .cta-card p { font-size:1.1rem; margin:0 auto 1.5rem; max-width:800px; color:#fff; }
+    .relaunch-cta h2, .cta-card h2 { font-size: 2rem; margin-bottom: 1rem; color: #fff; }
+    .relaunch-cta p, .cta-card p { font-size: 1.1rem; margin: 0 auto 1.5rem; max-width: 800px; color: #fff; }
     .relaunch-cta a.cta-btn, .cta-card a.cta-btn {
-      background:#fff; color:#004f91; font-weight:bold; padding:.75rem 2rem; border-radius:6px;
-      text-decoration:none; display:inline-block; font-size:1.1rem; transition:all .3s ease;
+      background: #fff; color: #004f91; font-weight: bold; padding: .75rem 2rem; border-radius: 6px;
+      text-decoration: none; display: inline-block; font-size: 1.1rem; transition: all .3s ease;
     }
-    .relaunch-cta a.cta-btn:hover, .cta-card a.cta-btn:hover { background:#004f91; color:#fff; }
+    .relaunch-cta a.cta-btn:hover, .cta-card a.cta-btn:hover { background: #004f91; color: #fff; }
 
-    .equal-banner{
-      height:360px; min-height:360px;
-      display:flex; align-items:center; justify-content:center; flex-direction:column;
-      box-sizing:border-box; padding:3rem 1rem;
+    /* Optional equal height on desktop; auto on mobile */
+    .equal-banner {
+      height: 360px; min-height: 360px;
+      display: flex; align-items: center; justify-content: center; flex-direction: column;
+      box-sizing: border-box; padding: 3rem 1rem;
     }
-    .equal-banner h2{ margin:0 0 1rem; }
-    .equal-banner p{ margin:0 0 1.5rem; max-width:800px; }
-    @media (max-width:768px){ .equal-banner{ height:auto; min-height:unset; } }
+    .equal-banner h2 { margin: 0 0 1rem; }
+    .equal-banner p { margin: 0 0 1.5rem; max-width: 800px; }
+    @media (max-width: 768px){ .equal-banner { height: auto; min-height: unset; } }
 
-    /* Headings & copy */
-    .hero-title{ font-size:2rem; font-weight:700; color:#004f91; text-align:center; margin:2.5rem auto 1rem; }
-    .section-title{ text-align:center; color:#004f91; font-size:2rem; margin-bottom:1.5rem; font-weight:700; }
-    .subtitle{ text-align:center; color:#444; font-size:1.1rem; margin:0 auto 2rem; max-width:900px; }
+    /* Headings & copy (match global sizes/colors) */
+    .hero-title { font-size: 2rem; font-weight: 700; color: var(--dark-blue); text-align: center; margin: 2.5rem auto 1rem; }
+    .section-title { text-align: center; color: var(--dark-blue); font-size: 2rem; margin-bottom: 1.5rem; font-weight: 700; }
+    .subtitle { text-align: center; color: #444; font-size: 1.1rem; margin: 0 auto 2rem; max-width: 900px; }
 
-    /* Flicker-free 4/2/1 */
-    .card-grid.force-4{ display:grid; gap:2rem; padding:0 1rem; }
-    @media (min-width:1200px){ .card-grid.force-4{ grid-template-columns:repeat(4,1fr); } }
-    @media (min-width:768px) and (max-width:1199.98px){ .card-grid.force-4{ grid-template-columns:repeat(2,1fr); } }
-    @media (max-width:767.98px){ .card-grid.force-4{ grid-template-columns:1fr; } }
-
-    /* Card look (blue borders are global) */
+    /* Card visual (border comes from global .card) */
     .card-grid.quad .card{
-      background:#fff; color:#444; padding:1.5rem; border-radius:8px; text-align:center;
-      box-shadow:0 2px 8px rgba(0,0,0,.08); transition:transform .3s ease;
+      background: #fff; color: #444; padding: 1.5rem; border-radius: 8px; text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08); transition: transform .3s ease;
     }
-    .card-grid.quad .card:hover{ transform:translateY(-5px); }
-    .card-grid.quad .card h2{ color:#004f91; font-size:1.4rem; margin-bottom:.8rem; }
-    .card-grid.quad .card p{ font-size:.95rem; }
+    .card-grid.quad .card:hover{ transform: translateY(-5px); }
+
+    /* Fixed 4/2/1 grid (uses global .force-4 but safe to keep here) */
+    .card-grid.force-4 { display: grid; gap: 2rem; padding: 0 1rem; }
+    @media (min-width:1200px){ .card-grid.force-4{ grid-template-columns: repeat(4,1fr); } }
+    @media (min-width:768px) and (max-width:1199.98px){ .card-grid.force-4{ grid-template-columns: repeat(2,1fr); } }
+    @media (max-width:767.98px){ .card-grid.force-4{ grid-template-columns: 1fr; } }
   </style>
 </head>
-<body>
-  <!-- Header -->
+
+<body class="talent-page">
+  <!-- Header (transparent, slim; matches Home) -->
   <div class="small-banner">
-    <div class="banner-header">
+    <div class="banner-header ai-nav">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
 
       <!-- CSS-only toggle -->
@@ -79,7 +69,7 @@
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Desktop nav -->
+      <!-- Desktop Nav -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
@@ -91,8 +81,8 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile nav -->
-      <nav class="mobile-nav" id="mobileMenu">
+      <!-- Mobile Nav -->
+      <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
         <a href="cloud.html">CLOUD SUITE</a>
@@ -105,13 +95,11 @@
     </div>
   </div>
 
-  <!-- Page banner (height set globally) -->
+  <!-- Banner -->
   <div class="page-banner" style="background-image:url('assets/images/talent-bannerimage.png');"></div>
 
-  <!-- Main content container controls width for BOTH banners now -->
-  <main class="content" style="max-width:1200px; margin:0 auto; padding:4rem 1.5rem;">
-
-    <!-- Top banner: moved INSIDE .content so it matches bottom banner width -->
+  <main class="content">
+    <!-- Top gradient banner (inside .content so width aligns with grid) -->
     <section class="relaunch-cta equal-banner">
       <h2>Starting Out or Starting Over?</h2>
       <p>Whether you’re a young professional launching your career or an experienced talent looking to pivot, our <strong>Re / Launch Talent Hub</strong> connects you to meaningful opportunities in the South African ICT landscape. Let’s help you take your next step with clarity, confidence, and support.</p>
@@ -144,17 +132,17 @@
       <h2 class="section-title">Our Focus Areas</h2>
       <div class="card-grid quad force-4">
         <div class="card"><h2>Cloud Engineers</h2><p>AWS, Azure, hybrid and multi-cloud professionals with infrastructure expertise.</p></div>
-        <div class="card"><h2>DevOps & Automation</h2><p>CI/CD specialists, platform engineers, and automation experts.</p></div>
+        <div class="card"><h2>DevOps &amp; Automation</h2><p>CI/CD specialists, platform engineers, and automation experts.</p></div>
         <div class="card"><h2>Software Developers</h2><p>Full-stack, backend, and frontend developers across modern frameworks.</p></div>
         <div class="card"><h2>Business Analysts</h2><p>Tech-savvy BAs who bridge business goals with technical delivery.</p></div>
         <div class="card"><h2>Project Managers</h2><p>Agile, Scrum, and hybrid PMs driving high-performance delivery teams.</p></div>
         <div class="card"><h2>Program Managers</h2><p>Strategic oversight of multi-workstream initiatives and enterprise-wide change.</p></div>
-        <div class="card"><h2>Sales – Hunters & Closers</h2><p>Revenue-focused sales execs who thrive on targets, velocity, and new logos.</p></div>
+        <div class="card"><h2>Sales – Hunters &amp; Closers</h2><p>Revenue-focused sales execs who thrive on targets, velocity, and new logos.</p></div>
         <div class="card"><h2>Sales Managers</h2><p>Leaders who build, coach, and drive high-performing ICT sales teams.</p></div>
-        <div class="card"><h2>Executive – C-Suite & Leadership</h2><p>Seasoned executives and strategic leaders aligned to growth, turnaround, and transformation mandates.</p></div>
+        <div class="card"><h2>Executive – C-Suite &amp; Leadership</h2><p>Seasoned executives and strategic leaders aligned to growth, turnaround, and transformation mandates.</p></div>
         <div class="card"><h2>Data Specialists</h2><p>From data engineers to analysts, powering insight and innovation.</p></div>
         <div class="card"><h2>Solution Architects</h2><p>Strategic thinkers who design scalable, secure cloud and application architectures aligned to business goals.</p></div>
-        <div class="card"><h2>Security & Compliance Specialists</h2><p>Experts in cloud security, governance, and risk management, ensuring regulatory alignment and resilience.</p></div>
+        <div class="card"><h2>Security &amp; Compliance Specialists</h2><p>Experts in cloud security, governance, and risk management, ensuring regulatory alignment and resilience.</p></div>
       </div>
     </section>
 
@@ -165,7 +153,7 @@
       </p>
     </section>
 
-    <!-- Bottom banner (same container width as top now) -->
+    <!-- Bottom gradient banner -->
     <section class="cta-card equal-banner">
       <h2>Need Talent or Looking for Your Next Role?</h2>
       <p>We place top talent into roles that make a difference. Let’s talk.</p>
@@ -177,21 +165,20 @@
     <div class="footer-content">
       <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton,<br>Johannesburg</p>
+        <p>Sandton,<br/>Johannesburg</p>
       </div>
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <!-- JS-free submit -->
-        <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec" method="POST" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
-          <input type="email" name="email" placeholder="Enter your email" required style="padding:10px;flex:1;border:1px solid #ccc;border-radius:4px;min-width:220px;" />
+        <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
       <div class="footer-right">
         <p>Contact</p>
         <p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:red;text-decoration:underline;font-weight:bold;">LinkedIn</a></p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:red; text-decoration:underline; font-weight:bold;">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
