@@ -13,62 +13,27 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/corecloud-theme.css" />
 
-  <!-- Page-scoped tweaks: force header/nav/logo to match Home; tile styles; bottom CTA -->
+  <!-- Page-scoped: ONLY tile/grid + CTA styles -->
   <style>
-    /* === Force Cloud header to match Home (overrides any theme rules) === */
-    .cloud-page .small-banner{
-      background: transparent !important;
-      box-shadow: none !important;
-      padding: .15rem .9rem 0 !important;   /* slim header */
-      height: auto !important;
-      width: 100%;
-    }
-    .cloud-page .banner-header{
-      position: sticky !important; top: 0 !important; z-index: 1000 !important;
-      background: transparent !important;
-      border: 0 !important; box-shadow: none !important;
-      max-width: 1200px !important; margin: 0 auto !important;
-      display: flex !important; align-items: center !important; justify-content: space-between !important;
-    }
-    .cloud-page .logo{ height: 160px !important; width: auto !important; }
-    @media (max-width:768px){ .cloud-page .logo{ height: 120px !important; } }
-
-    /* Nav sizing/weight like Home */
-    .cloud-page nav.desktop-nav{ gap: .75rem !important; flex-wrap: nowrap !important; }
-    .cloud-page nav.desktop-nav .nav-btn{
-      font-size: .82rem !important; font-weight: 600 !important; padding: .35rem .6rem !important;
-      text-transform: uppercase !important; color: #1b1f23 !important; white-space: nowrap !important;
-      text-decoration: none !important;
-    }
-    .cloud-page nav.desktop-nav .nav-btn:hover,
-    .cloud-page nav.desktop-nav .nav-btn.active{ color: #005fa3 !important; }
-
-    /* Mobile overlay = readable on any banner */
-    @media (max-width:768px){
-      .cloud-page .hamburger{ display:flex; }
-      .cloud-page #nav-toggle:checked ~ nav.mobile-nav{
-        display:flex !important; position:fixed !important; inset:0 !important; top:0 !important;
-        padding:5rem 1.5rem 2rem !important; background:rgba(255,255,255,.95) !important;
-        -webkit-backdrop-filter:blur(10px) !important; backdrop-filter:blur(10px) !important;
-        flex-direction:column !important; gap:1rem !important; box-shadow:none !important;
-      }
-    }
-
     /* Page content */
     .cloud-page .hero-title{
-      font-size: 2rem; color: var(--dark-blue,#004f91); font-weight: 700; text-align: center; margin: 2.5rem auto 1rem;
+      font-size: 2rem; color: var(--dark-blue,#004f91);
+      font-weight: 700; text-align: center; margin: 2.5rem auto 1rem;
     }
+    /* Columns + card groups */
     .cloud-columns{ display:flex; flex-wrap:wrap; gap:3rem; justify-content:center; margin-top:3rem; }
     .cloud-column{ flex:1; min-width:300px; }
     .card-group{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:1.5rem; }
 
-    /* Colored cards */
+    /* Colored tiles */
     .aws-card{ background:#ff9900; }
     .azure-card{ background:#007fff; }
     .databricks-card{ background:#ff3621; }
-    .aws-card h3,.aws-card p,.azure-card h3,.azure-card p,.databricks-card h3,.databricks-card p{ color:#fff; }
+    .aws-card h3,.aws-card p,
+    .azure-card h3,.azure-card p,
+    .databricks-card h3,.databricks-card p{ color:#fff; }
 
-    /* Inverted CTAs on colored tiles (global CTA for everything else) */
+    /* Inverted CTAs on colored tiles */
     .aws-card a.cta-btn, .azure-card a.cta-btn, .databricks-card a.cta-btn{
       background:#fff !important; color:#222 !important; border:none !important;
     }
@@ -77,15 +42,14 @@
     .databricks-card a.cta-btn{ color:#ff3621 !important; }
     .aws-card a.cta-btn:hover, .azure-card a.cta-btn:hover, .databricks-card a.cta-btn:hover{ background:#f2f2f2 !important; }
 
-    /* Bottom CTA: match a single card's width using the same grid/card structure; no border */
+    /* Bottom CTA: match one card width; no border */
     .cta-card{ background:none !important; box-shadow:none !important; border:none !important; padding:0 !important; }
     .cta-card .cta-btn{ width:100%; display:block; margin:0; border:none !important; }
-
   </style>
 </head>
 
 <body class="cloud-page">
-  <!-- Header / Nav -->
+  <!-- Header / Nav (inherits site-wide styles) -->
   <div class="small-banner">
     <div class="banner-header ai-nav">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
@@ -121,7 +85,7 @@
     </div>
   </div>
 
-  <!-- Banner (global height: 380 / 300 mobile) -->
+  <!-- Banner -->
   <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png');"></div>
 
   <main class="content">
@@ -214,14 +178,13 @@
       </div>
     </div>
 
-    <!-- Bottom CTA: matches a single card width (no border) -->
+    <!-- Bottom CTA: matches a single card width -->
     <section class="section" style="margin-top:3rem; text-align:center;">
       <h2 class="section-title">Application Development</h2>
       <p style="max-width:900px; margin:0 auto 1.5rem;">
         Looking for Cloud-Native Apps, Portals, or Mobile &amp; Web? Visit our Application Development page.
       </p>
 
-      <!-- Reuse the same grid structure as card tiles to ensure identical width -->
       <div class="cloud-columns" style="margin-top:1.5rem;">
         <div class="cloud-column">
           <div class="card-group">
@@ -252,7 +215,6 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <!-- JS-free submit -->
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
           <button type="submit" class="cta-btn">Subscribe</button>
