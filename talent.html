@@ -75,14 +75,25 @@
     </div>
   </div>
 
-  <!-- Hero -->
-  <div class="hero-media">
-    <picture>
-      <source type="image/avif" srcset="assets/images/talent-bannerimage-800.avif 800w, assets/images/talent-bannerimage-1200.avif 1200w, assets/images/talent-bannerimage-1600.avif 1600w" sizes="(min-width:1024px) 90vw, 100vw">
-      <source type="image/webp" srcset="assets/images/talent-bannerimage-800.webp 800w, assets/images/talent-bannerimage-1200.webp 1200w, assets/images/talent-bannerimage-1600.webp 1600w" sizes="(min-width:1024px) 90vw, 100vw">
-      <img src="assets/images/talent-bannerimage-1200.jpg" alt="CoreCloud — Talent Placement" width="1600" height="600" decoding="async" fetchpriority="high">
-    </picture>
-  </div>
+<link rel="preload" as="image" href="assets/images/talent-bannerimage.png" fetchpriority="high">
+<div class="hero-media">
+  <picture>
+    <source type="image/avif"
+      srcset="assets/images/talent-bannerimage-800.avif 800w,
+              assets/images/talent-bannerimage-1200.avif 1200w,
+              assets/images/talent-bannerimage-1600.avif 1600w"
+      sizes="(min-width:1024px) 90vw, 100vw">
+    <source type="image/webp"
+      srcset="assets/images/talent-bannerimage-800.webp 800w,
+              assets/images/talent-bannerimage-1200.webp 1200w,
+              assets/images/talent-bannerimage-1600.webp 1600w"
+      sizes="(min-width:1024px) 90vw, 100vw">
+    <img src="assets/images/talent-bannerimage.png"
+         alt="CoreCloud Talent — Elite ICT & Executive Talent"
+         decoding="async" fetchpriority="high">
+  </picture>
+</div>
+
 
   <main class="content">
     <section class="relaunch-cta equal-banner">
