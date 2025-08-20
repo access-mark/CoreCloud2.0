@@ -19,16 +19,25 @@
     /* Blue card borders (global already enforces; safe to keep scoped) */
     .appdev-page .card { border: 2px solid var(--dark-blue); }
 
-    /* Remove borders from CTA buttons on this page only */
-    .appdev-page .cta-btn { border: none !important; }
+    /* Remove borders and outlines from CTA buttons on this page only */
+    .appdev-page .cta-btn {
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    .appdev-page .cta-btn:focus,
+    .appdev-page .cta-btn:active {
+      outline: none !important;
+      box-shadow: none !important;
+    }
 
-    /* Uniform CTA buttons inside the 4-up card grids (width + height consistent) */
+    /* Uniform CTA buttons inside the 4-up card grids */
     .appdev-page .card-grid.quad-4 .cta-btn{
       display: flex; align-items: center; justify-content: center;
       width: 100%; min-height: 48px; font-weight: 700;
     }
 
-    /* 4-up responsive grid (CSS-only, no JS) */
+    /* 4-up responsive grid */
     .card-grid.quad-4 {
       display: grid;
       grid-template-columns: repeat(4, minmax(240px, 1fr));
@@ -78,7 +87,7 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile Nav (revealed via checkbox, no JS) -->
+      <!-- Mobile Nav -->
       <nav class="mobile-nav" id="mobileMenu" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
@@ -92,7 +101,7 @@
     </div>
   </div>
 
-  <!-- Page Banner (height controlled by global CSS: 300px desktop / 250px mobile) -->
+  <!-- Page Banner -->
   <div class="page-banner" style="background-image:url('assets/images/appdev-bannerimage.png');"></div>
 
   <main class="content">
@@ -172,7 +181,6 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <!-- JS-free submit -->
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;"/>
           <button type="submit" class="cta-btn">Subscribe</button>
