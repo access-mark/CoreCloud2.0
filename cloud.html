@@ -8,10 +8,12 @@
   <meta name="keywords" content="CoreCloud, Cloud Services South Africa, AWS Migration, Azure Migration, Databricks, Cloud Modernization" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
+
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/corecloud-theme.css" />
 
-  <!-- Page-scoped tweaks only -->
+  <!-- Page-scoped tweaks (scoped to .cloud-page only) -->
   <style>
     /* Hero */
     .cloud-page .hero-title{
@@ -27,7 +29,7 @@
     .cloud-column{ flex:1; min-width:300px; }
     .card-group{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:1.5rem; }
 
-    /* Tile text color */
+    /* Coloured tiles: white text */
     .aws-card h3, .aws-card p,
     .azure-card h3, .azure-card p,
     .databricks-card h3, .databricks-card p{ color:#ffffff; }
@@ -37,38 +39,7 @@
     .azure-card{ background-color:#007fff; }
     .databricks-card{ background-color:#ff3621; }
 
-    /* --- CTA: normalized styling --- */
-    .cloud-page a.cta-btn,
-    .cloud-page button.cta-btn{
-      display:inline-block;
-      padding:14px 20px;
-      border-radius:6px;
-      background:var(--dark-blue, #004f91);
-      color:#fff;
-      font-weight:600;
-      text-decoration:none;
-      text-align:center;
-      line-height:1.2;
-      border:none !important;
-      box-shadow:none !important;
-      cursor:pointer;
-
-      min-width:220px;
-      max-width:100%;
-    }
-    .card .cta-btn{
-      display:block;
-      width:100%;
-      box-sizing:border-box;
-      margin-top:auto;
-    }
-
-    .cloud-page a.cta-btn:hover,
-    .cloud-page button.cta-btn:hover{
-      background:#003366;
-    }
-
-    /* Inverted CTAs on colored tiles */
+    /* Inverted CTAs on coloured tiles (keep global CTA styles for everything else) */
     .aws-card a.cta-btn,
     .azure-card a.cta-btn,
     .databricks-card a.cta-btn{
@@ -85,21 +56,15 @@
       background:#f2f2f2 !important;
     }
 
-    /* Bottom CTA container styled as a single grid card */
-    .cta-container{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
-      justify-content:center;
-      max-width:900px;
-      margin:0 auto;
-    }
+    /* Bottom CTA: match one column width (same as a card column), no borders */
+    .cta-container{ width:100%; }
     .cta-container .cta-btn{
-      width:100%; /* take full card width */
+      width:100%;
       display:block;
       margin:0 auto;
     }
 
-    /* Mobile hamburger */
+    /* Mobile hamburger visibility */
     @media (max-width:768px){
       .hamburger{ display:flex; }
     }
@@ -107,9 +72,9 @@
 </head>
 
 <body class="cloud-page">
-  <!-- Header / Nav -->
+  <!-- Header / Nav (transparent, consistent site-wide) -->
   <div class="small-banner">
-    <div class="banner-header">
+    <div class="banner-header ai-nav">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
@@ -143,7 +108,7 @@
     </div>
   </div>
 
-  <!-- Banner -->
+  <!-- Banner (height controlled by global CSS: 380px / 300px mobile) -->
   <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png');"></div>
 
   <main class="content">
@@ -236,14 +201,22 @@
       </div>
     </div>
 
-    <!-- CTA to App Dev aligned with card width -->
+    <!-- CTA to App Dev (same width as a single cloud column; no border) -->
     <section class="section" style="margin-top:3rem; text-align:center;">
       <h2 class="section-title">Application Development</h2>
       <p style="max-width:900px; margin:0 auto 1.5rem;">
         Looking for Cloud-Native Apps, Portals, or Mobile &amp; Web? Visit our Application Development page.
       </p>
-      <div class="cta-container">
-        <button type="button" class="cta-btn" onclick="location.href='application-development.html'">Explore Application Development</button>
+
+      <!-- Re-use the cloud-columns layout with a single column to match card column width -->
+      <div class="cloud-columns" style="margin-top:1.5rem;">
+        <div class="cloud-column">
+          <div class="cta-container">
+            <button type="button" class="cta-btn" onclick="location.href='application-development.html'">
+              Explore Application Development
+            </button>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -264,6 +237,7 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <!-- JS-free submit -->
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
           <button type="submit" class="cta-btn">Subscribe</button>
