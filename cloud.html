@@ -37,29 +37,42 @@
     .azure-card{ background-color:#007fff; }
     .databricks-card{ background-color:#ff3621; }
 
-    /* CTA base: ensure no borders anywhere */
-    .cta-btn{
+    /* --- CTA: force real button look for <a> and <button> everywhere --- */
+    .cloud-page a.cta-btn,
+    .cloud-page button.cta-btn{
+      display:inline-block;
+      padding:14px 20px;
+      border-radius:6px;
+      background:var(--dark-blue, #004f91);
+      color:#fff;
+      font-weight:600;
+      text-decoration:none;
+      text-align:center;
+      line-height:1;
       border:none !important;
       box-shadow:none !important;
-      display:flex; align-items:center; justify-content:center;
-      min-height:48px; font-weight:700; width:100%;
-      text-decoration:none;
+      cursor:pointer;
+    }
+    .cloud-page a.cta-btn:hover,
+    .cloud-page button.cta-btn:hover{
+      background:#003366;
     }
 
     /* Inverted CTAs on colored tiles (still no borders) */
-    .aws-card .cta-btn,
-    .azure-card .cta-btn,
-    .databricks-card .cta-btn{
-      background-color:#ffffff !important;
+    .aws-card a.cta-btn,
+    .azure-card a.cta-btn,
+    .databricks-card a.cta-btn{
+      background:#ffffff !important;
       color:#222 !important;
+      border:none !important;
     }
-    .aws-card .cta-btn{ color:#ff9900 !important; }
-    .azure-card .cta-btn{ color:#007fff !important; }
-    .databricks-card .cta-btn{ color:#ff3621 !important; }
-    .aws-card .cta-btn:hover,
-    .azure-card .cta-btn:hover,
-    .databricks-card .cta-btn:hover{
-      background-color:#f2f2f2 !important;
+    .aws-card a.cta-btn{ color:#ff9900 !important; }
+    .azure-card a.cta-btn{ color:#007fff !important; }
+    .databricks-card a.cta-btn{ color:#ff3621 !important; }
+    .aws-card a.cta-btn:hover,
+    .azure-card a.cta-btn:hover,
+    .databricks-card a.cta-btn:hover{
+      background:#f2f2f2 !important;
     }
 
     /* Bottom CTA: use borderless container, not .card */
@@ -205,14 +218,14 @@
       </div>
     </div>
 
-    <!-- CTA to App Dev (no border) -->
+    <!-- CTA to App Dev (true <button>, no borders) -->
     <section class="section" style="margin-top:3rem; text-align:center;">
       <h2 class="section-title">Application Development</h2>
       <p style="max-width:900px; margin:0 auto 1.5rem;">
         Looking for Cloud-Native Apps, Portals, or Mobile &amp; Web? Visit our Application Development page.
       </p>
       <div class="cta-container">
-        <a href="application-development.html" class="cta-btn">Explore Application Development</a>
+        <button type="button" class="cta-btn" onclick="location.href='application-development.html'">Explore Application Development</button>
       </div>
     </section>
 
