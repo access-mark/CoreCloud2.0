@@ -18,27 +18,26 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
+  <!-- LCP preload (hero) -->
+  <link rel="preload" as="image"
+        href="assets/images/index-bannerimage-1600.avif"
+        imagesrcset="assets/images/index-bannerimage-800.avif 800w,
+                     assets/images/index-bannerimage-1200.avif 1200w,
+                     assets/images/index-bannerimage-1600.avif 1600w"
+        imagesizes="(min-width:1024px) 90vw, 100vw" fetchpriority="high">
+
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="stylesheet" href="assets/css/corecloud-theme.css?v=2025-08-20" />
 
   <!-- Home-only tweaks -->
   <style>
-    /* Make any card link look like a card (no underline) */
     .card-grid a, .card-grid a:hover, .card-grid a:visited { text-decoration: none; color: inherit; }
-
-    /* Full-width rows inside 4-col grid */
     .card-grid.force-4 .cta-wide { grid-column: 1 / -1; }
-
-    /* Keep the news card’s internal layout comfy on large screens */
-    .insights .card .insights-wrap{
-      display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;
-    }
-    .insights .card h3{ margin:0 0 .5rem; color:var(--dark-blue,#004f91); }
+    .insights .card .insights-wrap{ display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
+    .insights .card h3{ margin:0 0 .5rem; color:#004f91; }
     .insights .card p{ margin:0; max-width:800px; }
-
-    /* Space above About section (per your last change) */
     .about-corecloud { margin: 2rem auto 2rem !important; }
+    .hero-media picture, .hero-media img{ display:block; width:100%; height:auto; }
   </style>
 </head>
 
@@ -46,7 +45,8 @@
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header ai-nav">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo"
+           width="220" height="64" decoding="async" fetchpriority="high" />
 
       <!-- CSS-only toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
@@ -80,10 +80,26 @@
     </div>
   </div>
 
-  <!-- Page Banner -->
-  <div class="page-banner" style="background-image:url('assets/images/index-bannerimage.png');"></div>
+  <!-- Hero (picture replaces CSS background) -->
+  <div class="hero-media">
+    <picture>
+      <source type="image/avif"
+              srcset="assets/images/index-bannerimage-800.avif 800w,
+                      assets/images/index-bannerimage-1200.avif 1200w,
+                      assets/images/index-bannerimage-1600.avif 1600w"
+              sizes="(min-width:1024px) 90vw, 100vw">
+      <source type="image/webp"
+              srcset="assets/images/index-bannerimage-800.webp 800w,
+                      assets/images/index-bannerimage-1200.webp 1200w,
+                      assets/images/index-bannerimage-1600.webp 1600w"
+              sizes="(min-width:1024px) 90vw, 100vw">
+      <img src="assets/images/index-bannerimage-1200.jpg"
+           alt="CoreCloud — Strategy, Cloud, Talent, Applications"
+           width="1600" height="600" decoding="async" fetchpriority="high">
+    </picture>
+  </div>
 
-  <!-- Hero -->
+  <!-- Hero copy -->
   <section style="text-align:center; padding:2.5rem 1rem 0; margin-bottom:0;">
     <h1 class="hero-title">From Strategy to Revenue. From Cloud to People.</h1>
     <p style="font-size:1.2rem; max-width:900px; margin:0 auto; color:#444;">
@@ -92,7 +108,7 @@
   </section>
 
   <main class="content">
-    <!-- About CoreCloud -->
+    <!-- About -->
     <section class="about-corecloud" style="padding:0 1rem 2rem; text-align:center; max-width:1000px;">
       <h2 class="section-title">About CoreCloud</h2>
       <p style="font-size:1.1rem; color:#444444; line-height:1.7; margin-bottom:0;">
@@ -100,7 +116,7 @@
       </p>
     </section>
 
-    <!-- Latest News & Insights (FULL width = 4 cards) -->
+    <!-- Insights -->
     <section class="section insights">
       <h2 class="section-title">Latest News &amp; Insights</h2>
       <div class="card-grid force-4">
@@ -116,64 +132,28 @@
       </div>
     </section>
 
-    <!-- Our Focus & Method -->
+    <!-- Focus / Method -->
     <section id="focus-method-section" class="section">
       <h2 class="section-title">Our Focus &amp; Method</h2>
       <div class="card-grid lock-columns">
-        <div class="card">
-          <h2>Why</h2>
-          <p>Businesses across South Africa face bloated sales operations, underperforming cloud investments, and talent gaps that stall execution.</p>
-        </div>
-        <div class="card">
-          <h2>What</h2>
-          <p>CoreCloud helps businesses cut through the noise. We drive sharper sales execution, modernise cloud infrastructure, connect you to top talent, and build modern applications.</p>
-        </div>
-        <div class="card">
-          <h2>How</h2>
-          <p>We turn plans into action. Our team uses proven go-to-market models, strong partnerships, and smart automation to deliver measurable results.</p>
-        </div>
+        <div class="card"><h2>Why</h2><p>Businesses across South Africa face bloated sales operations, underperforming cloud investments, and talent gaps that stall execution.</p></div>
+        <div class="card"><h2>What</h2><p>CoreCloud helps businesses cut through the noise. We drive sharper sales execution, modernise cloud infrastructure, connect you to top talent, and build modern applications.</p></div>
+        <div class="card"><h2>How</h2><p>We turn plans into action. Our team uses proven go-to-market models, strong partnerships, and smart automation to deliver measurable results.</p></div>
       </div>
     </section>
 
-    <!-- Explore Our Services -->
+    <!-- Services -->
     <section class="section">
       <h2 class="section-title">Explore Our Services</h2>
       <div class="card-grid force-4">
-        <a href="consulting.html" class="card">
-          <div>
-            <h3>Consulting</h3>
-            <p>Sales strategy, pipeline precision, and practical advisory to drive real performance.</p>
-          </div>
-          <span class="cta-btn">Learn More</span>
-        </a>
-
-        <a href="cloud.html" class="card">
-          <div>
-            <h3>Cloud Suite</h3>
-            <p>Modernise, migrate, and optimise with expert AWS and Azure teams.</p>
-          </div>
-          <span class="cta-btn">Learn More</span>
-        </a>
-
-        <a href="application-development.html" class="card">
-          <div>
-            <h3>App Development</h3>
-            <p>Cloud-native apps, portals, mobile &amp; web, and API integration—delivered with DevOps discipline.</p>
-          </div>
-          <span class="cta-btn">Learn More</span>
-        </a>
-
-        <a href="talent.html" class="card">
-          <div>
-            <h3>Talent Placement</h3>
-            <p>Top talent, rigorously vetted and matched to your business needs.</p>
-          </div>
-          <span class="cta-btn">Learn More</span>
-        </a>
+        <a href="consulting.html" class="card"><div><h3>Consulting</h3><p>Sales strategy, pipeline precision, and practical advisory to drive real performance.</p></div><span class="cta-btn">Learn More</span></a>
+        <a href="cloud.html" class="card"><div><h3>Cloud Suite</h3><p>Modernise, migrate, and optimise with expert AWS and Azure teams.</p></div><span class="cta-btn">Learn More</span></a>
+        <a href="application-development.html" class="card"><div><h3>App Development</h3><p>Cloud-native apps, portals, mobile &amp; web, and API integration—delivered with DevOps discipline.</p></div><span class="cta-btn">Learn More</span></a>
+        <a href="talent.html" class="card"><div><h3>Talent Placement</h3><p>Top talent, rigorously vetted and matched to your business needs.</p></div><span class="cta-btn">Learn More</span></a>
       </div>
     </section>
 
-    <!-- Dynamic Imprinting (moved BELOW services, FULL width = 4 cards) -->
+    <!-- DI -->
     <section class="section imprinting">
       <div class="card-grid force-4">
         <div class="card cta-wide" style="text-align:center;">
@@ -190,10 +170,7 @@
   <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <div class="footer-left">
-        <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton,<br>Johannesburg</p>
-      </div>
+      <div class="footer-left"><p><strong>CoreCloud (Pty) Ltd</strong></p><p>Sandton,<br>Johannesburg</p></div>
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
@@ -203,14 +180,11 @@
         </form>
       </div>
       <div class="footer-right">
-        <p>Contact</p>
-        <p>Email: sales@corecloudza.com</p>
+        <p>Contact</p><p>Email: sales@corecloudza.com</p>
         <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
-    </div>
+    <div class="footer-bottom"><p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p></div>
   </footer>
 </body>
 </html>
