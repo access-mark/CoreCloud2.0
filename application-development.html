@@ -8,68 +8,41 @@
   <meta name="keywords" content="CoreCloud, Application Development, Cloud-Native, Enterprise Portals, Mobile, Web, APIs, Integration, DevOps, South Africa"/>
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
+
+  <!-- CSS (site-wide first) -->
   <link rel="stylesheet" href="assets/css/styles.css"/>
+  <link rel="stylesheet" href="assets/css/corecloud-theme.css"/>
 
-  <!-- Page-scoped styles (no global CSS changes) -->
+  <!-- Page-scoped: content-only rules -->
   <style>
-    /* Hero + layout */
-    .hero-title { font-size: 2rem; color: var(--dark-blue); font-weight: 700; text-align: center; margin: 2.5rem auto 1rem; }
-    main.content { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 4rem; }
-
-    /* Blue card borders (global already enforces; safe to keep scoped) */
-    .appdev-page .card { border: 2px solid var(--dark-blue); }
-
-    /* Remove borders and outlines from CTA buttons on this page only */
-    .appdev-page .cta-btn {
-      border: none !important;
-      outline: none !important;
-      box-shadow: none !important;
+    .appdev-page .hero-title{
+      font-size:2rem; color:var(--dark-blue); font-weight:700;
+      text-align:center; margin:2.5rem auto 1rem;
     }
-    .appdev-page .cta-btn:focus,
-    .appdev-page .cta-btn:active {
-      outline: none !important;
-      box-shadow: none !important;
+    /* Narrower main for this page */
+    .appdev-page main.content{ max-width:1200px; margin:0 auto; padding:0 1.5rem 4rem; }
+
+    /* Optional: ensure CTA buttons inside these cards are uniform */
+    .appdev-page .card .cta-btn{
+      display:flex; align-items:center; justify-content:center;
+      width:100%; min-height:48px; font-weight:700;
+      margin-top:auto;
     }
 
-    /* Uniform CTA buttons inside the 4-up card grids */
-    .appdev-page .card-grid.quad-4 .cta-btn{
-      display: flex; align-items: center; justify-content: center;
-      width: 100%; min-height: 48px; font-weight: 700;
-    }
+    /* Borderless “Start a Conversation” block (matches Cloud’s bottom CTA style) */
+    .cta-card{ background:none !important; box-shadow:none !important; border:none !important; padding:0 !important; }
+    .cta-card .cta-btn{ width:100%; display:block; margin:0; }
 
-    /* 4-up responsive grid */
-    .card-grid.quad-4 {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(240px, 1fr));
-      gap: 2rem;
-      padding: 0 1rem;
-    }
-    @media (max-width: 1024px) {
-      .card-grid.quad-4 { grid-template-columns: repeat(2, minmax(240px, 1fr)); }
-    }
-    @media (max-width: 640px) {
-      .card-grid.quad-4 { grid-template-columns: 1fr; }
-    }
-
-    /* CSS-only hamburger (checkbox hack) */
-    .nav-toggle { position: absolute; left: -9999px; }
-    @media (max-width: 768px) {
-      .hamburger { display: flex; }
-      #nav-toggle:checked ~ nav.mobile-nav { display: flex; }
-      /* hamburger to X animation */
-      #nav-toggle:checked + label.hamburger span:nth-child(1){ transform: rotate(45deg) translate(5px, 5px); }
-      #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity: 0; }
-      #nav-toggle:checked + label.hamburger span:nth-child(3){ transform: rotate(-45deg) translate(6px, -6px); }
-    }
+    /* (Using the global .force-4 grid for consistency) */
   </style>
 </head>
 
 <body class="appdev-page">
+  <!-- Header / Nav (inherits site-wide styles) -->
   <div class="small-banner">
-    <div class="banner-header">
+    <div class="banner-header ai-nav">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo"/>
 
-      <!-- CSS-only hamburger toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -88,7 +61,7 @@
       </nav>
 
       <!-- Mobile Nav -->
-      <nav class="mobile-nav" id="mobileMenu" aria-label="Mobile">
+      <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
         <a href="cloud.html">CLOUD SUITE</a>
@@ -112,32 +85,32 @@
     </p>
 
     <h2 class="section-title">What We Build</h2>
-    <div class="card-grid quad-4" style="margin-top:1rem;">
+    <div class="card-grid force-4" style="margin-top:1rem;">
       <div class="card" style="display:flex; flex-direction:column;">
         <h2>Cloud-Native Apps</h2>
         <p>Microservices, containers, serverless—resilient and built for change.</p>
-        <a href="cloud-native-apps.html" class="cta-btn" style="margin-top:auto;">Explore</a>
+        <a href="cloud-native-apps.html" class="cta-btn">Explore</a>
       </div>
       <div class="card" style="display:flex; flex-direction:column;">
         <h2>Enterprise Portals</h2>
         <p>Secure internal &amp; customer portals that streamline operations and engagement.</p>
-        <a href="enterprise-portals.html" class="cta-btn" style="margin-top:auto;">Explore</a>
+        <a href="enterprise-portals.html" class="cta-btn">Explore</a>
       </div>
       <div class="card" style="display:flex; flex-direction:column;">
         <h2>Mobile &amp; Web</h2>
         <p>Fast, responsive experiences across devices with performance baked in.</p>
-        <a href="mobile-web.html" class="cta-btn" style="margin-top:auto;">Explore</a>
+        <a href="mobile-web.html" class="cta-btn">Explore</a>
       </div>
       <div class="card" style="display:flex; flex-direction:column;">
         <h2>APIs &amp; Integration</h2>
         <p>Well-designed APIs and event streams that connect products and data.</p>
-        <a href="apis-integration.html" class="cta-btn" style="margin-top:auto;">Explore</a>
+        <a href="apis-integration.html" class="cta-btn">Explore</a>
       </div>
     </div>
 
     <section class="section">
       <h2 class="section-title">How We Deliver</h2>
-      <div class="card-grid quad-4">
+      <div class="card-grid force-4">
         <div class="card"><h2>Architecture First</h2><p>Domain-driven design, reference architectures, and clear non-functional requirements.</p></div>
         <div class="card"><h2>DevOps &amp; CI/CD</h2><p>Automated pipelines, IaC, observability, and release cadence you can trust.</p></div>
         <div class="card"><h2>Security by Design</h2><p>Threat modelling, secrets hygiene, least privilege, and continuous testing (OWASP).</p></div>
@@ -147,7 +120,7 @@
 
     <section class="section">
       <h2 class="section-title">Engagement Models</h2>
-      <div class="card-grid quad-4">
+      <div class="card-grid force-4">
         <div class="card"><h2>Project Delivery</h2><p>Fixed-scope outcomes with clear milestones and governance.</p></div>
         <div class="card"><h2>Product Squads</h2><p>Cross-functional teams (PM, UX, Eng, QA) to build and operate.</p></div>
         <div class="card"><h2>Augmentation</h2><p>Specialist roles to uplift your team—architects, engineers, SRE.</p></div>
@@ -157,7 +130,7 @@
 
     <section class="section">
       <h2 class="section-title">Outcomes You Can Measure</h2>
-      <div class="card-grid quad-4">
+      <div class="card-grid force-4">
         <div class="card"><h2>Faster Time-to-Value</h2><p>Ship earlier with incremental releases and platform accelerators.</p></div>
         <div class="card"><h2>Reliability</h2><p>Availability targets, runbooks, and actionable telemetry from day one.</p></div>
         <div class="card"><h2>Security</h2><p>Shift-left controls and automated checks across the SDLC.</p></div>
@@ -166,7 +139,7 @@
     </section>
 
     <section class="section" style="text-align:center;">
-      <div class="card" style="background:none; box-shadow:none; border:none;">
+      <div class="card cta-card">
         <a href="contact.html" class="cta-btn">Start a Conversation</a>
       </div>
     </section>
