@@ -9,41 +9,47 @@
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
 
-  <!-- LCP preload -->
-  <link rel="preload" as="image"
-        href="assets/images/consulting-bannerimage-1600.avif"
-        imagesrcset="assets/images/consulting-bannerimage-800.avif 800w,
-                     assets/images/consulting-bannerimage-1200.avif 1200w,
-                     assets/images/consulting-bannerimage-1600.avif 1600w"
-        imagesizes="(min-width:1024px) 90vw, 100vw" fetchpriority="high">
-
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/styles.css"/>
 
-  <!-- Page-scoped tweaks -->
+  <!-- Preload: logo + current PNG hero -->
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
+
+  <!-- Page-scoped tweaks only -->
   <style>
-    .consulting-page .hero-title{ font-size:2rem; color:#004f91; font-weight:700; text-align:center; margin:2.5rem auto 1rem; }
-    .consulting-page .card{ border:2px solid var(--dark-blue); }
-    .consulting-page .card-grid.force-4{ display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:2rem; padding:0 2rem; max-width:1200px; margin:0 auto; }
-    @media (max-width:1199px){ .consulting-page .card-grid.force-4{ grid-template-columns:repeat(2,1fr); } }
-    @media (max-width:767px){ .consulting-page .card-grid.force-4{ grid-template-columns:1fr; } }
+    .consulting-page .hero-title{
+      font-size: 2rem; color: var(--dark-blue);
+      font-weight: 700; text-align: center; margin: 2.5rem auto 1rem;
+    }
+    .consulting-page .card{ border: 2px solid var(--dark-blue); }
+    .consulting-page .card-grid.force-4{
+      display:grid; grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:2rem; padding:0 2rem; max-width:1200px; margin:0 auto;
+    }
+    @media (max-width: 1199px){ .consulting-page .card-grid.force-4{ grid-template-columns:repeat(2, minmax(0,1fr)); } }
+    @media (max-width: 767px){ .consulting-page .card-grid.force-4{ grid-template-columns:1fr; } }
     .consulting-page .cta-row { margin-top: 1rem; }
-    .consulting-page .cta-row .cta-card { grid-column:1 / -1; border:none !important; box-shadow:none !important; background:transparent; padding:0; }
-    .consulting-page .cta-row .cta-btn { display:block; width:100%; text-align:center; border:none !important; box-shadow:none !important; padding:14px 20px; border-radius:6px; background:#004f91; color:#fff; font-weight:600; text-decoration:none; }
-    .hamburger{ display:none; } .hamburger span{ width:25px; height:3px; background:#003366; border-radius:2px; transition:transform .3s, opacity .3s; display:block; }
-    @media (max-width:768px){ .hamburger{ display:flex; flex-direction:column; gap:5px; cursor:pointer; } #nav-toggle:checked + label.hamburger span:nth-child(1){ transform: rotate(45deg) translate(5px, 5px); } #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity:0; } #nav-toggle:checked + label.hamburger span:nth-child(3){ transform: rotate(-45deg) translate(6px, -6px); } #nav-toggle:checked ~ nav.mobile-nav{ display:flex; } }
-    .hero-media picture, .hero-media img{ display:block; width:100%; height:auto; }
+    .consulting-page .cta-row .cta-card {
+      grid-column: 1 / -1; border: none !important; box-shadow: none !important; background: transparent; padding: 0;
+    }
+    .consulting-page .cta-row .cta-btn {
+      display:block; width:100%; text-align:center; border:none !important; box-shadow:none !important;
+      padding:14px 20px; border-radius:6px; background:var(--dark-blue); color:#fff; font-weight:600; text-decoration:none;
+    }
   </style>
 </head>
 
 <body class="consulting-page">
-  <!-- Header / Nav -->
+  <!-- Header / Nav (shared) -->
   <div class="small-banner">
     <div class="banner-header ai-nav">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo"
-           width="220" height="64" decoding="async" fetchpriority="high" />
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" decoding="async" fetchpriority="high" />
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </label>
 
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
@@ -69,25 +75,24 @@
     </div>
   </div>
 
-<link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
-<div class="hero-media">
-  <picture>
-    <source type="image/avif"
-      srcset="assets/images/consulting-bannerimage-800.avif 800w,
-              assets/images/consulting-bannerimage-1200.avif 1200w,
-              assets/images/consulting-bannerimage-1600.avif 1600w"
-      sizes="(min-width:1024px) 90vw, 100vw">
-    <source type="image/webp"
-      srcset="assets/images/consulting-bannerimage-800.webp 800w,
-              assets/images/consulting-bannerimage-1200.webp 1200w,
-              assets/images/consulting-bannerimage-1600.webp 1600w"
-      sizes="(min-width:1024px) 90vw, 100vw">
-    <img src="assets/images/consulting-bannerimage.png"
-         alt="CoreCloud Consulting — Execution & Sales Enablement"
-         decoding="async" fetchpriority="high">
-  </picture>
-</div>
-
+  <!-- Hero (picture-based) -->
+  <div class="hero-media">
+    <picture>
+      <source type="image/avif"
+              srcset="assets/images/consulting-bannerimage-800.avif 800w,
+                      assets/images/consulting-bannerimage-1200.avif 1200w,
+                      assets/images/consulting-bannerimage-1600.avif 1600w"
+              sizes="(min-width:1024px) 90vw, 100vw">
+      <source type="image/webp"
+              srcset="assets/images/consulting-bannerimage-800.webp 800w,
+                      assets/images/consulting-bannerimage-1200.webp 1200w,
+                      assets/images/consulting-bannerimage-1600.webp 1600w"
+              sizes="(min-width:1024px) 90vw, 100vw">
+      <img src="assets/images/consulting-bannerimage.png"
+           alt="CoreCloud Consulting — Execution & Sales Enablement"
+           decoding="async" fetchpriority="high">
+    </picture>
+  </div>
 
   <main class="content">
     <h1 class="hero-title">Consulting Partnerships That Deliver Real Results</h1>
@@ -95,6 +100,7 @@
       At CoreCloud, execution means action that delivers real results. We partner with specialists who help turn strategies into measurable outcomes.
     </p>
 
+    <!-- Four Pillars -->
     <h2 class="section-title">The Four Pillars of Execution</h2>
     <div class="card-grid force-4" style="margin-top:1rem;">
       <div class="card"><h2>Cloud</h2><p>We build practical cloud strategies, modernise systems, align vendors, and design models that help businesses stay ahead.</p></div>
@@ -103,6 +109,7 @@
       <div class="card"><h2>Partnerships</h2><p>We work with specialist partners who add expertise and help us deliver faster, better results.</p></div>
     </div>
 
+    <!-- Advisory Approach -->
     <section class="section">
       <h2 class="section-title">Our Advisory Approach</h2>
       <p style="text-align:center; max-width:900px; margin:0 auto 1rem;">
@@ -120,9 +127,12 @@
       </div>
     </section>
 
+    <!-- Sales Consulting -->
     <section class="section" id="sales-consulting">
       <h2 class="section-title">Sales Consulting: People &amp; Process</h2>
-      <p style="text-align:center; max-width:900px; margin:0 auto 1.5rem;">We build the sales capacity and discipline that drive predictable revenue — fast.</p>
+      <p style="text-align:center; max-width:900px; margin:0 auto 1.5rem;">
+        We build the sales capacity and discipline that drive predictable revenue — fast.
+      </p>
       <div class="card-grid force-4">
         <div class="card"><h2>People</h2><ul style="margin-left:1rem; line-height:1.5; text-align:left;"><li>Assess team skills, coverage, role clarity &amp; leadership gaps</li><li>Place proven talent via our Talent Hub</li><li>Practical enablement: discovery, positioning, objection handling</li><li>Leadership rewiring via Dynamic Imprinting</li><li>Compensation &amp; incentives aligned to outcomes</li></ul></div>
         <div class="card"><h2>Process</h2><ul style="margin-left:1rem; line-height:1.5; text-align:left;"><li>Map &amp; optimise end-to-end sales process</li><li>Qualification frameworks that fit (MEDDIC, BANT)</li><li>Pipeline discipline &amp; accurate forecasting</li><li>Refined GTM, ICPs &amp; value messaging</li><li>Channel &amp; partner programs that scale</li><li>CRM configured for visibility &amp; accountability</li></ul></div>
@@ -131,6 +141,7 @@
       </div>
     </section>
 
+    <!-- Why Clients Choose -->
     <section class="section">
       <h2 class="section-title">Why Clients Choose CoreCloud</h2>
       <div class="card-grid force-4">
@@ -145,15 +156,21 @@
       </div>
     </section>
 
+    <!-- Partnerships CTA -->
     <section class="section">
       <h2 class="section-title">Strategic Partnerships</h2>
-      <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">Execution takes more than expertise. We collaborate with top partners who bring specialised skills and share our drive for measurable results.</p>
+      <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">
+        Execution takes more than expertise. We collaborate with top partners who bring specialised skills and share our drive for measurable results.
+      </p>
       <div class="card-grid force-4 cta-row">
-        <div class="cta-card"><a href="contact.html" class="cta-btn">Explore Sales Enablement</a></div>
+        <div class="cta-card">
+          <a href="contact.html" class="cta-btn">Explore Sales Enablement</a>
+        </div>
       </div>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left"><p><strong>CoreCloud (Pty) Ltd</strong></p><p>Sandton,<br/>Johannesburg</p></div>
@@ -167,7 +184,7 @@
       </div>
       <div class="footer-right">
         <p>Contact</p><p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloudza" target="_blank">LinkedIn</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom"><p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p></div>
