@@ -1,9 +1,8 @@
 /* ===========================
-   CoreCloud — assets/css/styles.css (fixed)
-   - Removes fixed 160px header height
-   - Works with glass/sticky AI nav
-   - Larger logo (desktop & mobile)
-   - Mobile menu = full-screen overlay
+   CoreCloud — assets/css/styles.css
+   - Logo reverted: 160px desktop / 120px mobile
+   - Removed active "pill" (no bg/border on active)
+   - Glass/underline nav kept
    =========================== */
 
 /* Reset */
@@ -18,11 +17,11 @@
   --accent-black:#000000;
   --light-bg:#f4f6f8;
   --text-gray:#444;
-  --gold:#d4af37;                 /* for AI nav underline */
+  --gold:#d4af37;                 /* underline gradient */
 
-  /* Logo sizes (tweak to taste) */
-  --logo-h-desktop: 84px;         /* 80–96px is a good range */
-  --logo-h-mobile: 64px;          /* was 48px */
+  /* Logo sizes (reverted) */
+  --logo-h-desktop: 160px;
+  --logo-h-mobile: 120px;
 }
 
 /* Base */
@@ -52,7 +51,7 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
 /* Header */
 .small-banner{
   background:#fff;
-  padding:.6rem 2rem 0;           /* dynamic height (no fixed 160px) */
+  padding:.6rem 2rem 0;           /* dynamic height */
   box-shadow:0 2px 4px rgba(0,0,0,.05);
   width:100%;
 }
@@ -69,7 +68,7 @@ nav.desktop-nav a{
   text-transform:uppercase; transition:all .3s ease;
 }
 nav.desktop-nav a:hover,
-nav.desktop-nav a.active{ color:#005fa3; font-weight:900; }
+nav.desktop-nav a.active{ color:#005fa3; font-weight:900; } /* no pill */
 
 /* Mobile Nav (checkbox hack) */
 .nav-toggle{ position:absolute; left:-9999px; }
@@ -147,12 +146,12 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
 @media (max-width:768px){
   nav.desktop-nav{ display:none; }
   .hamburger{ display:flex; }
-  .logo{ height:var(--logo-h-mobile); width:auto; }
+  .logo{ height:var(--logo-h-mobile); width:auto; }  /* reverted */
   .page-banner{ height:250px; }
   .hero-title{ font-size:2rem; }
 }
 
-/* === AI-Modern Glass Nav — applies only when .ai-nav is on .banner-header === */
+/* === AI-Modern Glass Nav — works only when .ai-nav is present === */
 .banner-header.ai-nav{
   position:sticky; top:0; z-index:1000;
   background:rgba(255,255,255,.72);
@@ -161,7 +160,7 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
   border-bottom:1px solid rgba(0,79,145,.12);
   box-shadow:0 2px 18px rgba(0,0,0,.06);
 }
-/* Desktop underline + active pill */
+/* Desktop underline; NO active pill */
 .banner-header.ai-nav .desktop-nav .nav-btn{
   position:relative; padding:.55rem .85rem; border-radius:9999px; font-weight:700;
   color:#1b1f23; transition:background .2s ease;
@@ -173,8 +172,9 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
 }
 .banner-header.ai-nav .desktop-nav .nav-btn:hover::after,
 .banner-header.ai-nav .desktop-nav .nav-btn:focus-visible::after{ transform:scaleX(1); }
+/* Remove pill: no bg/border on active */
 .banner-header.ai-nav .desktop-nav .nav-btn.active{
-  background:rgba(0,79,145,.08); border:1px solid rgba(0,79,145,.15);
+  background:transparent; border:0;
 }
 
 /* Mobile overlay styling (when ai-nav present) */
