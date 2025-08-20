@@ -5,46 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Cloud Service Suite – CoreCloud</title>
   <meta name="description" content="CoreCloud empowers South African enterprises to migrate, modernize, manage, and optimize workloads across AWS, Azure, and Databricks environments." />
-  <meta name="keywords" content="CoreCloud, Cloud Services South Africa, AWS Migration, Azure Migration, Databricks, Cloud Modernization" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
 
-  <!-- LCP preload -->
-  <link rel="preload" as="image"
-        href="assets/images/cloud-banner-1600.avif"
-        imagesrcset="assets/images/cloud-banner-800.avif 800w,
-                     assets/images/cloud-banner-1200.avif 1200w,
-                     assets/images/cloud-banner-1600.avif 1600w"
-        imagesizes="(min-width:1024px) 90vw, 100vw" fetchpriority="high">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
 
-  <!-- Page-scoped -->
   <style>
-    .cloud-page .hero-title{ font-size:2rem; color:#004f91; font-weight:700; text-align:center; margin:2.5rem auto 1rem; }
+    .cloud-page .hero-title{ font-size:2rem; color:var(--dark-blue); font-weight:700; text-align:center; margin:2.5rem auto 1rem; }
     .cloud-columns{ display:flex; flex-wrap:wrap; gap:3rem; justify-content:center; margin-top:3rem; }
     .cloud-column{ flex:1; min-width:300px; }
     .card-group{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:1.5rem; }
     .aws-card{ background:#ff9900; } .azure-card{ background:#007fff; } .databricks-card{ background:#ff3621; }
     .aws-card h3,.aws-card p,.azure-card h3,.azure-card p,.databricks-card h3,.databricks-card p{ color:#fff; }
-    .aws-card a.cta-btn, .azure-card a.cta-btn, .databricks-card a.cta-btn{ background:#fff !important; border:none !important; }
+    .aws-card a.cta-btn,.azure-card a.cta-btn,.databricks-card a.cta-btn{ background:#fff !important; color:#222 !important; border:none !important; }
     .aws-card a.cta-btn{ color:#ff9900 !important; } .azure-card a.cta-btn{ color:#007fff !important; } .databricks-card a.cta-btn{ color:#ff3621 !important; }
-    .aws-card a.cta-btn:hover, .azure-card a.cta-btn:hover, .databricks-card a.cta-btn:hover{ background:#f2f2f2 !important; }
+    .aws-card a.cta-btn:hover,.azure-card a.cta-btn:hover,.databricks-card a.cta-btn:hover{ background:#f2f2f2 !important; }
     .cta-card{ background:none !important; box-shadow:none !important; border:none !important; padding:0 !important; }
     .cta-card .cta-btn{ width:100%; display:block; margin:0; border:none !important; }
-    .hero-media picture, .hero-media img{ display:block; width:100%; height:auto; }
   </style>
 </head>
 
 <body class="cloud-page">
-  <!-- Header -->
   <div class="small-banner">
-    <div class="banner-header ai-nav">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo"
-           width="220" height="64" decoding="async" fetchpriority="high" />
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" decoding="async" fetchpriority="high">
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
       <nav class="desktop-nav">
@@ -71,25 +58,10 @@
     </div>
   </div>
 
- <link rel="preload" as="image" href="assets/images/cloud-banner.png" fetchpriority="high">
-<div class="hero-media">
-  <picture>
-    <source type="image/avif"
-      srcset="assets/images/cloud-banner-800.avif 800w,
-              assets/images/cloud-banner-1200.avif 1200w,
-              assets/images/cloud-banner-1600.avif 1600w"
-      sizes="(min-width:1024px) 90vw, 100vw">
-    <source type="image/webp"
-      srcset="assets/images/cloud-banner-800.webp 800w,
-              assets/images/cloud-banner-1200.webp 1200w,
-              assets/images/cloud-banner-1600.webp 1600w"
-      sizes="(min-width:1024px) 90vw, 100vw">
-    <img src="assets/images/cloud-banner.png"
-         alt="Cloud Service Suite — AWS, Azure, Databricks"
-         decoding="async" fetchpriority="high">
-  </picture>
-</div>
-
+  <!-- Hero -->
+  <div class="hero-media">
+    <img src="assets/images/cloud-banner.png" alt="CoreCloud Cloud Suite" decoding="async">
+  </div>
 
   <main class="content">
     <h1 class="hero-title">Cloud Service Suite</h1>
@@ -99,7 +71,6 @@
     </p>
 
     <div class="cloud-columns">
-      <!-- AWS -->
       <div class="cloud-column">
         <h2 class="section-title" style="margin-bottom:1.5rem;">AWS</h2>
         <div class="card-group">
@@ -110,7 +81,6 @@
         </div>
       </div>
 
-      <!-- Azure -->
       <div class="cloud-column">
         <h2 class="section-title" style="margin-bottom:1.5rem;">Azure</h2>
         <div class="card-group">
@@ -121,7 +91,6 @@
         </div>
       </div>
 
-      <!-- Databricks -->
       <div class="cloud-column">
         <h2 class="section-title" style="margin-bottom:1.5rem;">Databricks</h2>
         <div class="card-group">
@@ -139,7 +108,9 @@
       <div class="cloud-columns" style="margin-top:1.5rem;">
         <div class="cloud-column">
           <div class="card-group">
-            <div class="card cta-card"><button type="button" class="cta-btn" onclick="location.href='application-development.html'">Explore Application Development</button></div>
+            <div class="card cta-card">
+              <button type="button" class="cta-btn" onclick="location.href='application-development.html'">Explore Application Development</button>
+            </div>
           </div>
         </div>
       </div>
@@ -147,7 +118,9 @@
 
     <section class="section" style="margin-top:4rem;">
       <h2 class="section-title">Our Delivery Ecosystem</h2>
-      <p style="max-width:900px; margin:0 auto 2rem; text-align:center;">At CoreCloud, we know that exceptional cloud transformation requires more than technology alone. It’s about working with partners who are masters of their domains and who share our relentless commitment to delivering real outcomes.</p>
+      <p style="max-width:900px; margin:0 auto 2rem; text-align:center;">
+        At CoreCloud, we know that exceptional cloud transformation requires more than technology alone. It’s about working with partners who are masters of their domains and who share our relentless commitment to delivering real outcomes.
+      </p>
     </section>
   </main>
 
@@ -158,11 +131,14 @@
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
+          <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;">
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
-      <div class="footer-right"><p>Contact</p><p>Email: sales@corecloudza.com</p><p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p></div>
+      <div class="footer-right">
+        <p>Contact</p><p>Email: sales@corecloudza.com</p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
+      </div>
     </div>
     <div class="footer-bottom"><p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p></div>
   </footer>
