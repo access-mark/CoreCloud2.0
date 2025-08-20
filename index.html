@@ -18,16 +18,14 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- LCP preload (safe fallback to existing PNG so it never 404s) -->
-  <link rel="preload" as="image"
-        href="assets/images/index-bannerimage.png"
-        imagesizes="(min-width:1024px) 90vw, 100vw"
-        fetchpriority="high">
-
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <!-- Home-only tweaks -->
+  <!-- Preload: logo + current PNG hero (never 404s) -->
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/index-bannerimage.png" fetchpriority="high">
+
+  <!-- Page-only micro tweaks -->
   <style>
     .card-grid a, .card-grid a:hover, .card-grid a:visited { text-decoration: none; color: inherit; }
     .card-grid.force-4 .cta-wide { grid-column: 1 / -1; }
@@ -35,16 +33,14 @@
     .insights .card h3{ margin:0 0 .5rem; color:#004f91; }
     .insights .card p{ margin:0; max-width:800px; }
     .about-corecloud { margin: 2rem auto 2rem !important; }
-    .hero-media picture, .hero-media img{ display:block; width:100%; height:auto; }
   </style>
 </head>
 
 <body class="home-page">
-  <!-- Header / Nav -->
+  <!-- Header / Nav (shared) -->
   <div class="small-banner">
     <div class="banner-header ai-nav">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo"
-           width="220" height="64" decoding="async" fetchpriority="high" />
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" decoding="async" fetchpriority="high" />
 
       <!-- CSS-only toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
@@ -78,26 +74,24 @@
     </div>
   </div>
 
-  <!-- Hero -->
-<link rel="preload" as="image" href="assets/images/index-bannerimage.png" fetchpriority="high">
-<div class="hero-media">
-  <picture>
-    <source type="image/avif"
-      srcset="assets/images/index-bannerimage-800.avif 800w,
-              assets/images/index-bannerimage-1200.avif 1200w,
-              assets/images/index-bannerimage-1600.avif 1600w"
-      sizes="(min-width:1024px) 90vw, 100vw">
-    <source type="image/webp"
-      srcset="assets/images/index-bannerimage-800.webp 800w,
-              assets/images/index-bannerimage-1200.webp 1200w,
-              assets/images/index-bannerimage-1600.webp 1600w"
-      sizes="(min-width:1024px) 90vw, 100vw">
-    <img src="assets/images/index-bannerimage.png"
-         alt="CoreCloud — Strategy, Cloud, Talent, Applications"
-         decoding="async" fetchpriority="high">
-  </picture>
-</div>
-
+  <!-- Hero (picture-based with PNG fallback ready now, AVIF/WEBP later) -->
+  <div class="hero-media">
+    <picture>
+      <source type="image/avif"
+              srcset="assets/images/index-bannerimage-800.avif 800w,
+                      assets/images/index-bannerimage-1200.avif 1200w,
+                      assets/images/index-bannerimage-1600.avif 1600w"
+              sizes="(min-width:1024px) 90vw, 100vw">
+      <source type="image/webp"
+              srcset="assets/images/index-bannerimage-800.webp 800w,
+                      assets/images/index-bannerimage-1200.webp 1200w,
+                      assets/images/index-bannerimage-1600.webp 1600w"
+              sizes="(min-width:1024px) 90vw, 100vw">
+      <img src="assets/images/index-bannerimage.png"
+           alt="CoreCloud — Strategy, Cloud, Talent, Applications"
+           decoding="async" fetchpriority="high">
+    </picture>
+  </div>
 
   <!-- Hero copy -->
   <section style="text-align:center; padding:2.5rem 1rem 0; margin-bottom:0;">
@@ -153,7 +147,7 @@
       </div>
     </section>
 
-    <!-- DI -->
+    <!-- Dynamic Imprinting -->
     <section class="section imprinting">
       <div class="card-grid force-4">
         <div class="card cta-wide" style="text-align:center;">
