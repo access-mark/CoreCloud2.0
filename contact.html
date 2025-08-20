@@ -2,71 +2,78 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contact CoreCloud | Book a Consult or Request Info</title>
   <meta name="description" content="Get in touch with CoreCloud – schedule a consultation, request info, or discuss partnership opportunities. Fast response, executive-level support." />
-  <meta name="keywords" content="Contact CoreCloud, Schedule a Meeting, Cloud Consulting South Africa, ICT Talent Enquiry, CoreCloud Partnerships" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
 
-  <!-- Global CSS (cache-busted) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=2" />
+  <!-- Global CSS (cache-busted to ensure latest) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
 
-  <!-- Page-scoped, fail-safe banner + small tweaks -->
+  <!-- Page-scoped banner + tiny tweaks -->
   <style>
-    /* Lock banner height to 300px and crop */
+    /* 300px locked banner (cropped) */
     .banner{
       width:100%;
-      height:300px;            /* desktop lock */
+      height:300px;
       overflow:hidden;
       background:#f4f6f8;
     }
+    .banner picture,
     .banner img{
+      display:block;
       width:100%;
       height:100%;
-      display:block;
-      object-fit:cover;        /* crop to fill */
-      object-position:center;  /* center focal point */
+      object-fit:cover;       /* crop to fill the 300px area */
+      object-position:center; /* keep center focal point */
+    }
+    @media (max-width:640px){
+      .banner{ height:220px; }
     }
 
-    /* Keep header transparent & consistent */
+    /* Keep header slim & transparent (matches your global) */
     .contact-page .small-banner{
       background: transparent !important;
       box-shadow: none !important;
       padding: 0 .9rem 0 !important;
     }
 
-    /* Optional: tighten the form card on small screens */
-    @media (max-width:640px){
-      .contact-page .form-container{ padding:1.25rem !important; }
-      .banner{ height:220px; } /* shorter banner on mobile (optional) */
-    }
-
-    /* Ensure CTA buttons use shared look even if page loaded standalone */
+    /* Ensure CTA style present even if loaded standalone */
     .contact-page .cta-btn{
       display:inline-block; min-height:48px; padding:.85rem 1.4rem;
       border:none; border-radius:6px; font-weight:700;
       background:var(--primary-blue); color:#fff; text-decoration:none;
       transition:background-color .25s ease, transform .02s ease;
       text-align:center; line-height:1;
+      cursor:pointer;
     }
     .contact-page .cta-btn:hover{ background:var(--dark-blue); }
     .contact-page .cta-btn:active{ transform:translateY(1px); }
     .contact-page .cta-btn:focus-visible{ outline:2px solid var(--dark-blue); outline-offset:2px; }
+
+    /* Tighten form padding on small screens */
+    @media (max-width:640px){
+      .contact-page .form-container{ padding:1.25rem !important; }
+    }
   </style>
+
+  <!-- Preload the banner hero for quick paint (optional but nice) -->
+  <link rel="preload" as="image" href="assets/images/contact-bannerimage.jpg" imagesizes="100vw" fetchpriority="high">
 </head>
+
 <body class="contact-page">
   <!-- Header -->
   <div class="small-banner">
     <div class="banner-header">
-      <!-- Add intrinsic dimensions to prevent CLS -->
+      <!-- Intrinsic dims to prevent CLS; CSS keeps ratio -->
       <img src="assets/images/corecloud-logo.png"
            alt="CoreCloud Logo"
            class="logo"
            width="220" height="64"
            decoding="async" />
 
-      <!-- CSS-only toggle -->
+      <!-- CSS-only mobile toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -98,12 +105,16 @@
     </div>
   </div>
 
-  <!-- Banner (reliable image-based, cropped to 300px) -->
+  <!-- Banner (reliable image-based; locked to 300px / 220px) -->
   <div class="banner">
-    <!-- Use a real file extension you have (jpg/png/webp/avif) -->
-    <img src="assets/images/contact-bannerimage.jpg"
-         alt="Contact CoreCloud – Sandton, Johannesburg"
-         loading="eager" decoding="async" />
+    <picture>
+      <!-- If you have WebP/AVIF versions, leave these; otherwise remove the <source> lines -->
+      <source type="image/avif" srcset="assets/images/contact-bannerimage.avif" />
+      <source type="image/webp" srcset="assets/images/contact-bannerimage.webp" />
+      <img src="assets/images/contact-bannerimage.jpg"
+           alt="Contact CoreCloud – Sandton, Johannesburg"
+           loading="eager" decoding="async" />
+    </picture>
   </div>
 
   <!-- Contact Section -->
