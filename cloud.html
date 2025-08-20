@@ -37,7 +37,7 @@
     .azure-card{ background-color:#007fff; }
     .databricks-card{ background-color:#ff3621; }
 
-    /* --- CTA: force real button look for <a> and <button> everywhere --- */
+    /* --- CTA: normalized sizing & styling --- */
     .cloud-page a.cta-btn,
     .cloud-page button.cta-btn{
       display:inline-block;
@@ -48,11 +48,23 @@
       font-weight:600;
       text-decoration:none;
       text-align:center;
-      line-height:1;
+      line-height:1.2;
       border:none !important;
       box-shadow:none !important;
       cursor:pointer;
+
+      /* width normalization */
+      min-width:220px;     /* consistent baseline width across CTAs */
+      max-width:100%;
     }
+    /* Make tile CTAs span full card width for perfect alignment */
+    .card .cta-btn{
+      display:block;
+      width:100%;
+      box-sizing:border-box;
+      margin-top:auto;
+    }
+
     .cloud-page a.cta-btn:hover,
     .cloud-page button.cta-btn:hover{
       background:#003366;
