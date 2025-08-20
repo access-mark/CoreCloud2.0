@@ -22,13 +22,13 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/corecloud-theme.css?v=2025-08-20" />
 
-  <!-- Page-scoped tweaks: transparent header + tighter, lighter nav -->
+  <!-- Page-scoped tweaks: transparent header + tighter, lighter nav + CTA fix -->
   <style>
-    /* Transparent header strip */
+    /* Transparent header strip (no white behind nav/logo) */
     .home-page .small-banner{
       background: transparent !important;
       box-shadow: none !important;
-      padding: .15rem .9rem 0; /* slimmer */
+      padding: .15rem .9rem 0; /* slimmer header */
     }
     .home-page .banner-header.ai-nav{
       background: transparent !important;
@@ -43,21 +43,42 @@
     .home-page .logo{ height:120px; width:auto; }
     .home-page .desktop-nav{ gap:.75rem; flex-wrap:nowrap; }
 
-    /* Lighter weight + tighter padding so it never wraps */
+    /* Tighter padding + lighter weight so text doesn’t wrap */
     .home-page .desktop-nav .nav-btn{
       font-size:.82rem;
-      font-weight:600;            /* was 700 */
-      padding:.35rem .6rem;       /* tighter */
+      font-weight:600;          /* lighter */
+      padding:.35rem .6rem;     /* tighter */
     }
-    /* Adjust underline to match tighter padding */
+    /* Match underline to tighter padding (keeps hover line centered) */
     .home-page .banner-header.ai-nav .desktop-nav .nav-btn::after{
       left:8px; right:8px; bottom:4px;
     }
 
-    /* Card link + CTA consistency */
+    /* ---- Global CTA fix (hero/footer/non-card) ---- */
+    .home-page .cta-btn,
+    .home-page a.cta-btn,
+    .home-page button.cta-btn{
+      display:inline-block;
+      padding:.8rem 1.6rem;
+      border-radius:6px;
+      background:var(--primary-blue);
+      color:#fff !important;
+      font-weight:600;
+      text-decoration:none;
+      line-height:1;
+      border:none;
+      cursor:pointer;
+      transition:background-color .25s ease, transform .02s ease;
+    }
+    .home-page .cta-btn:hover{ background:var(--dark-blue); }
+    .home-page .cta-btn:active{ transform:translateY(1px); }
+    .home-page .cta-btn:focus-visible{ outline:2px solid var(--dark-blue); outline-offset:2px; }
+
+    /* Card CTA consistency (keeps full-width inside card tiles) */
     .card-grid a, .card-grid a:hover, .card-grid a:visited{ text-decoration:none; color:inherit; }
     .card .cta-btn{
-      width:100%; min-height:48px; display:inline-flex; align-items:center; justify-content:center;
+      width:100%; min-height:48px;
+      display:inline-flex; align-items:center; justify-content:center;
       padding:0 1rem; box-sizing:border-box; margin-top:auto;
     }
 
@@ -86,7 +107,7 @@
     .home-page .insights .card h3{ margin:0 0 .5rem; color:var(--dark-blue,#004f91); }
     .home-page .insights .card p{ margin:0; max-width:800px; }
 
-    /* Mobile menu = overlay when opened */
+    /* Mobile overlay menu */
     @media (max-width:768px){
       .home-page .banner-header.ai-nav #nav-toggle:checked ~ nav.mobile-nav{
         display:flex !important; position:fixed; inset:0; top:0;
