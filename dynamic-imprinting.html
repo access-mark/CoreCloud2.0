@@ -8,10 +8,51 @@
   <meta name="keywords" content="Dynamic Imprinting, Executive Coaching, Leadership Identity, CoreCloud, Executive Presence, South Africa" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
+
   <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <!-- Page-scoped styles only -->
+  <!-- Page-scoped styles -->
   <style>
+    /* Force header to match Home */
+    .imprinting-page .small-banner{
+      background:transparent !important;
+      box-shadow:none !important;
+      padding:.15rem .9rem 0 !important;
+      height:auto !important;
+      width:100%;
+    }
+    .imprinting-page .banner-header{
+      position:sticky !important; top:0 !important; z-index:1000 !important;
+      background:transparent !important; border:0 !important; box-shadow:none !important;
+      max-width:1200px !important; margin:0 auto !important;
+      display:flex !important; align-items:center !important; justify-content:space-between !important;
+    }
+    .imprinting-page .logo{ height:160px !important; width:auto !important; }
+    @media (max-width:768px){ .imprinting-page .logo{ height:120px !important; } }
+
+    .imprinting-page nav.desktop-nav{ gap:.75rem !important; flex-wrap:nowrap !important; }
+    .imprinting-page nav.desktop-nav .nav-btn{
+      font-size:.82rem !important; font-weight:600 !important; padding:.35rem .6rem !important;
+      text-transform:uppercase !important; color:#1b1f23 !important; white-space:nowrap !important; text-decoration:none !important;
+    }
+    .imprinting-page nav.desktop-nav .nav-btn:hover,
+    .imprinting-page nav.desktop-nav .nav-btn.active{ color:#005fa3 !important; }
+
+    /* Mobile overlay menu */
+    .nav-toggle{ position:absolute; left:-9999px; }
+    @media (max-width:768px){
+      .imprinting-page .hamburger{ display:flex; }
+      .imprinting-page #nav-toggle:checked ~ nav.mobile-nav{
+        display:flex !important; position:fixed !important; inset:0 !important; top:0 !important;
+        padding:5rem 1.5rem 2rem !important; background:rgba(255,255,255,.95) !important;
+        -webkit-backdrop-filter:blur(10px) !important; backdrop-filter:blur(10px) !important;
+        flex-direction:column !important; gap:1rem !important; box-shadow:none !important;
+      }
+      .imprinting-page #nav-toggle:checked + label.hamburger span:nth-child(1){ transform:rotate(45deg) translate(5px,5px); }
+      .imprinting-page #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity:0; }
+      .imprinting-page #nav-toggle:checked + label.hamburger span:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
+    }
+
     /* Hero + subtitle */
     .imprinting-page .hero-title{
       color:#004f91; font-weight:700; font-size:2rem;
@@ -22,62 +63,53 @@
       margin:0 auto 3rem; line-height:1.6;
     }
 
-    /* Big card grid */
+    /* One-column big card grid */
     .imprinting-page .card-grid.big{
       display:grid; grid-template-columns:1fr;
       gap:2rem; padding:0 2rem; max-width:1100px; margin:0 auto;
     }
 
-    /* Card titles centralized */
-    .imprinting-page .card h2.section-title{
-      margin-top:0; text-align:center;
-    }
-
-    /* Body text aligned left */
+    /* Card content alignment */
+    .imprinting-page .card h2.section-title{ margin-top:0; text-align:center; }
     .imprinting-page .card p,
     .imprinting-page .card blockquote,
-    .imprinting-page .card ul{
-      text-align:left; margin-left:0; margin-right:0;
-    }
+    .imprinting-page .card ul{ text-align:left; margin-left:0; margin-right:0; }
 
     /* Lists */
-    .imprinting-page .card ul{
-      list-style:disc; padding-left:1.25rem; margin:0 0 2rem 0;
-    }
+    .imprinting-page .card ul{ list-style:disc; padding-left:1.25rem; margin:0 0 2rem 0; }
     .imprinting-page .card ul li{ margin-bottom:.75rem; }
 
+    /* Pull-quote */
     .imprinting-page blockquote{
       background:#f0f7ff; border-left:5px solid #004f91; padding:1rem 1.5rem;
-      font-style:italic; color:#003366; border-radius:4px; margin:2rem 0;
-      max-width:800px;
+      font-style:italic; color:#003366; border-radius:4px; margin:2rem 0; max-width:800px;
     }
 
-    /* CTA */
+    /* CTA (centered text, consistent look) */
+    .imprinting-page .cta-btn,
+    .imprinting-page a.cta-btn,
+    .imprinting-page button.cta-btn{
+      display:inline-flex; align-items:center; justify-content:center; text-align:center;
+      padding:.8rem 1.6rem; border-radius:6px; background:var(--primary-blue, #0066b2);
+      color:#fff !important; font-weight:600; text-decoration:none; line-height:1;
+      border:none; cursor:pointer; transition:background-color .25s ease, transform .02s ease;
+    }
+    .imprinting-page .cta-btn:hover{ background:var(--dark-blue, #004f91); }
+    .imprinting-page .cta-btn:active{ transform:translateY(1px); }
+    .imprinting-page .cta-btn:focus-visible{ outline:2px solid var(--dark-blue, #004f91); outline-offset:2px; }
+
     .imprinting-page .cta-wrap{ text-align:center; margin-top:1.5rem; }
 
-    /* CSS-only mobile nav */
-    .nav-toggle{ position:absolute; left:-9999px; }
-    @media (max-width:768px){
-      .hamburger{ display:flex; }
-      #nav-toggle:checked ~ nav.mobile-nav{ display:flex; }
-      #nav-toggle:checked + label.hamburger span:nth-child(1){ transform:rotate(45deg) translate(5px,5px); }
-      #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity:0; }
-      #nav-toggle:checked + label.hamburger span:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
-    }
-
-    @media (max-width:768px){
-      .imprinting-page .section-title{ font-size:1.8rem; }
-    }
+    @media (max-width:768px){ .imprinting-page .section-title{ font-size:1.8rem; } }
   </style>
 </head>
 
 <body class="imprinting-page">
   <!-- Header / Nav -->
   <div class="small-banner">
-    <div class="banner-header">
+    <div class="banner-header ai-nav">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
 
-      <!-- CSS-only toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -184,7 +216,6 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
