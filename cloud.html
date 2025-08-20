@@ -13,66 +13,73 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/corecloud-theme.css" />
 
-  <!-- Page-scoped tweaks (scoped to .cloud-page only) -->
+  <!-- Page-scoped tweaks: lock header/nav/logo to Home settings -->
   <style>
-    /* Hero */
-    .cloud-page .hero-title{
-      font-size: 2rem;
-      color: var(--dark-blue, #004f91);
-      font-weight: 700;
-      text-align: center;
-      margin: 2.5rem auto 1rem;
+    /* Transparent header + slim padding (same as Home) */
+    .cloud-page .small-banner{
+      background: transparent !important;
+      box-shadow: none !important;
+      padding: .15rem .9rem 0 !important;
+    }
+    .cloud-page .banner-header{
+      position: sticky; top: 0; z-index: 1000;
+      background: transparent !important;
+      border: 0 !important; box-shadow: none !important;
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    /* Logo size same as Home */
+    .cloud-page .logo{ height: var(--logo-h-desktop, 160px); width: auto; }
+
+    /* Nav spacing/weight same as Home */
+    .cloud-page .desktop-nav{ gap: .75rem; flex-wrap: nowrap; }
+    .cloud-page .desktop-nav .nav-btn{
+      font-size: .82rem; font-weight: 600; padding: .35rem .6rem;
+      text-transform: uppercase; text-decoration: none;
     }
 
-    /* Columns + card groups */
+    /* Mobile: same logo & overlay behavior */
+    @media (max-width:768px){
+      .cloud-page .logo{ height: var(--logo-h-mobile, 120px); }
+      .hamburger{ display:flex; }
+      .cloud-page #nav-toggle:checked ~ nav.mobile-nav{
+        display:flex !important; position:fixed; inset:0; top:0;
+        padding:5rem 1.5rem 2rem; background:rgba(255,255,255,.95);
+        -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+        flex-direction:column; gap:1rem; box-shadow:none;
+      }
+    }
+
+    /* Page-specific layout */
+    .cloud-page .hero-title{
+      font-size: 2rem; color: var(--dark-blue,#004f91);
+      font-weight: 700; text-align: center; margin: 2.5rem auto 1rem;
+    }
     .cloud-columns{ display:flex; flex-wrap:wrap; gap:3rem; justify-content:center; margin-top:3rem; }
     .cloud-column{ flex:1; min-width:300px; }
     .card-group{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:1.5rem; }
 
-    /* Coloured tiles: white text */
-    .aws-card h3, .aws-card p,
-    .azure-card h3, .azure-card p,
-    .databricks-card h3, .databricks-card p{ color:#ffffff; }
+    /* Colored cards */
+    .aws-card{ background:#ff9900; } .azure-card{ background:#007fff; } .databricks-card{ background:#ff3621; }
+    .aws-card h3,.aws-card p,.azure-card h3,.azure-card p,.databricks-card h3,.databricks-card p{ color:#fff; }
 
-    /* Tile backgrounds */
-    .aws-card{ background-color:#ff9900; }
-    .azure-card{ background-color:#007fff; }
-    .databricks-card{ background-color:#ff3621; }
-
-    /* Inverted CTAs on coloured tiles (keep global CTA styles for everything else) */
-    .aws-card a.cta-btn,
-    .azure-card a.cta-btn,
-    .databricks-card a.cta-btn{
-      background:#ffffff !important;
-      color:#222 !important;
-      border:none !important;
+    /* Inverted CTAs on colored tiles */
+    .aws-card a.cta-btn, .azure-card a.cta-btn, .databricks-card a.cta-btn{
+      background:#fff !important; color:#222 !important; border:none !important;
     }
     .aws-card a.cta-btn{ color:#ff9900 !important; }
     .azure-card a.cta-btn{ color:#007fff !important; }
     .databricks-card a.cta-btn{ color:#ff3621 !important; }
-    .aws-card a.cta-btn:hover,
-    .azure-card a.cta-btn:hover,
-    .databricks-card a.cta-btn:hover{
-      background:#f2f2f2 !important;
-    }
+    .aws-card a.cta-btn:hover, .azure-card a.cta-btn:hover, .databricks-card a.cta-btn:hover{ background:#f2f2f2 !important; }
 
-    /* Bottom CTA: match one column width (same as a card column), no borders */
+    /* Bottom CTA aligned to one column width (no border) */
     .cta-container{ width:100%; }
-    .cta-container .cta-btn{
-      width:100%;
-      display:block;
-      margin:0 auto;
-    }
-
-    /* Mobile hamburger visibility */
-    @media (max-width:768px){
-      .hamburger{ display:flex; }
-    }
+    .cta-container .cta-btn{ width:100%; display:block; margin:0 auto; border:none !important; }
   </style>
 </head>
 
 <body class="cloud-page">
-  <!-- Header / Nav (transparent, consistent site-wide) -->
+  <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header ai-nav">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
@@ -108,7 +115,7 @@
     </div>
   </div>
 
-  <!-- Banner (height controlled by global CSS: 380px / 300px mobile) -->
+  <!-- Banner (global height: 380 / 300 mobile) -->
   <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png');"></div>
 
   <main class="content">
@@ -201,14 +208,12 @@
       </div>
     </div>
 
-    <!-- CTA to App Dev (same width as a single cloud column; no border) -->
+    <!-- Bottom CTA aligned to one column (no border) -->
     <section class="section" style="margin-top:3rem; text-align:center;">
       <h2 class="section-title">Application Development</h2>
       <p style="max-width:900px; margin:0 auto 1.5rem;">
         Looking for Cloud-Native Apps, Portals, or Mobile &amp; Web? Visit our Application Development page.
       </p>
-
-      <!-- Re-use the cloud-columns layout with a single column to match card column width -->
       <div class="cloud-columns" style="margin-top:1.5rem;">
         <div class="cloud-column">
           <div class="cta-container">
@@ -237,7 +242,6 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <!-- JS-free submit -->
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
           <button type="submit" class="cta-btn">Subscribe</button>
