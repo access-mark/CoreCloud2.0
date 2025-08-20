@@ -15,7 +15,10 @@
     .relaunch-page .cta-btn,
     .relaunch-page a.cta-btn,
     .relaunch-page button.cta-btn{
-      display:inline-block;
+      display:inline-flex;                 /* center label */
+      align-items:center;
+      justify-content:center;
+      text-align:center;
       padding:.8rem 1.6rem;
       border-radius:6px;
       background:var(--primary-blue, #0066b2);
@@ -51,9 +54,12 @@
     /* Full-width CTA row inside grid */
     .card-grid.triple .grid-cta{ grid-column:1 / -1; }
     .card-grid.triple .grid-cta .cta-btn{
-      display:block;
+      display:flex;               /* full-width + centered text */
       width:100%;
       min-height:52px;
+      text-align:center;
+      align-items:center;
+      justify-content:center;
     }
 
     /* Subtitles */
