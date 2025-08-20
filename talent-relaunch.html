@@ -11,16 +11,36 @@
 
   <!-- Page-scoped styles (light; no nav overrides) -->
   <style>
+    /* Page CTA base (outside-card buttons) */
+    .relaunch-page .cta-btn,
+    .relaunch-page a.cta-btn,
+    .relaunch-page button.cta-btn{
+      display:inline-block;
+      padding:.8rem 1.6rem;
+      border-radius:6px;
+      background:var(--primary-blue, #0066b2);
+      color:#fff !important;
+      font-weight:600;
+      text-decoration:none;
+      line-height:1;
+      border:none;
+      cursor:pointer;
+      transition:background-color .25s ease, transform .02s ease;
+    }
+    .relaunch-page .cta-btn:hover{ background:var(--dark-blue, #004f91); }
+    .relaunch-page .cta-btn:active{ transform:translateY(1px); }
+    .relaunch-page .cta-btn:focus-visible{ outline:2px solid var(--dark-blue, #004f91); outline-offset:2px; }
+
     /* 3-up card grid */
     .card-grid.triple{
       display:grid;
       grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
       gap:1.5rem;
-      padding:0 2rem; /* match global card-grid padding */
+      padding:0 2rem; /* matches global card-grid padding */
       margin-top:1rem;
     }
 
-    /* Cards (global border/shadow apply; add a touch of rounding/padding) */
+    /* Cards (global border/shadow apply; add rounding/padding) */
     .relaunch-page .card{
       border-radius:10px;
       padding:1.5rem;
@@ -31,7 +51,9 @@
     /* Full-width CTA row inside grid */
     .card-grid.triple .grid-cta{ grid-column:1 / -1; }
     .card-grid.triple .grid-cta .cta-btn{
-      display:block; width:100%; min-height:52px;
+      display:block;
+      width:100%;
+      min-height:52px;
     }
 
     /* Subtitles */
@@ -195,7 +217,7 @@
       <div class="footer-right">
         <p>Contact</p>
         <p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:red; text-decoration:underline; font-weight:bold;">LinkedIn</a></p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
