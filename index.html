@@ -8,7 +8,19 @@
   <meta name="keywords" content="CoreCloud, Cloud Services South Africa, AWS Migration, Sales Consulting, Talent Placement, Application Development" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
+
+  <!-- Canonical + Social -->
+  <link rel="canonical" href="https://www.corecloudza.com/index.html" />
+  <meta property="og:title" content="CoreCloud | Cloud Consulting, AWS Services & Talent – South Africa" />
+  <meta property="og:description" content="From strategy to revenue. Cloud, talent, and application outcomes you can measure." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.corecloudza.com/index.html" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- CSS: base first, then theme -->
   <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/corecloud-theme.css?v=2025-08-20" />
 
   <!-- Page-scoped tweaks (kept minimal) -->
   <style>
@@ -17,21 +29,7 @@
     .card-grid a:hover,
     .card-grid a:visited { text-decoration: none; color: inherit; }
 
-    /* global CTA look for non-card CTAs (e.g., hero, footer) */
-    .cta-btn {
-      display: inline-block;
-      background-color: var(--primary-blue, #0066b2);
-      color: #fff;
-      text-decoration: none;
-      padding: 0.8rem 1.6rem;
-      font-size: 1.05rem;
-      border-radius: 6px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-    .cta-btn:hover { background-color: var(--dark-blue, #004f91); }
-
-    /* >>> Uniform CTA buttons on all CARDS <<< */
+    /* Uniform CTA buttons inside cards (width + bottom pin) */
     .card .cta-btn {
       width: 100%;
       min-height: 48px;
@@ -40,7 +38,7 @@
       justify-content: center;
       padding: 0 1rem;
       box-sizing: border-box;
-      margin-top: auto; /* pins to bottom of the card */
+      margin-top: auto;
     }
 
     /* Why/What/How fixed 3/2/1 without JS */
@@ -71,10 +69,10 @@
 </head>
 
 <body class="home-page">
-  <!-- Navigation -->
+  <!-- Navigation (nav stays as-is for now) -->
   <div class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="180" height="40" loading="lazy" />
 
       <!-- CSS-only toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
@@ -130,7 +128,7 @@
       </p>
     </section>
 
-    <!-- Dynamic Imprinting (banner-sized with blue border) -->
+    <!-- Dynamic Imprinting -->
     <section class="imprinting">
       <div class="card" style="text-align:center;">
         <h2 class="section-title" style="margin-bottom:1rem;">
@@ -143,7 +141,7 @@
       </div>
     </section>
 
-    <!-- Latest News & Insights (same footprint as imprinting) -->
+    <!-- Latest News & Insights -->
     <section class="section insights">
       <h2 class="section-title">Latest News &amp; Insights</h2>
       <div class="card">
@@ -231,7 +229,7 @@
       <div class="footer-right">
         <p>Contact</p>
         <p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" style="color:red; text-decoration:underline; font-weight:bold;">LinkedIn</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
