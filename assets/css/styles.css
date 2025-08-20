@@ -24,7 +24,7 @@ img { max-width: 100%; height: auto; display: block; }
   --gold:#d4af37;
 
   /* Header / Logo geometry (fixed = no layout shift) */
-  --logo-h-desktop: 100px;
+  --logo-h-desktop: 120px;
   --logo-h-mobile: 80px;
 
   /* Content width */
