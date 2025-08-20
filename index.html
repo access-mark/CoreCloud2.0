@@ -22,8 +22,22 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/corecloud-theme.css?v=2025-08-20" />
 
-  <!-- Page-scoped tweaks (minimal, non-conflicting) -->
+  <!-- Page-scoped fixes: slimmer header, no white strip, smaller nav text, no wrap -->
   <style>
+    /* Remove the white banner background & shadow on this page */
+    .home-page .small-banner{ background:transparent; box-shadow:none; padding:.25rem 1.25rem 0; }
+
+    /* Keep the glass header; make it compact */
+    .home-page .banner-header.ai-nav{ position:sticky; top:0; z-index:1000; }
+
+    /* Logo height just for this page (keeps header compact) */
+    .home-page .logo{ height:120px; width:auto; }
+    @media (max-width:768px){ .home-page .logo{ height:90px; } }
+
+    /* Nav sizing/tight layout so it doesn't wrap */
+    .home-page .desktop-nav{ gap:1rem; flex-wrap:nowrap; }
+    .home-page .desktop-nav .nav-btn{ font-size:.85rem; }
+
     /* Keep card links unstyled */
     .card-grid a,
     .card-grid a:hover,
@@ -69,7 +83,7 @@
 </head>
 
 <body class="home-page">
-  <!-- Header / Nav (glass nav enabled via .ai-nav; logo size controlled by styles.css vars) -->
+  <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header ai-nav">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
