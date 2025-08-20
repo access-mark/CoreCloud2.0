@@ -12,7 +12,6 @@
 
   <!-- Page-scoped tweaks only -->
   <style>
-    /* Match site-wide hero style (kept here to ensure parity if a page overrides) */
     .consulting-page .hero-title{
       font-size: 2rem;
       color: var(--dark-blue);
@@ -21,12 +20,10 @@
       margin: 2.5rem auto 1rem;
     }
 
-    /* Blue borders on cards (this page only, safe alongside global rule) */
     .consulting-page .card{
       border: 2px solid var(--dark-blue);
     }
 
-    /* Force 4/2/1 columns without JS wherever applied */
     .consulting-page .card-grid.force-4{
       display:grid;
       grid-template-columns:repeat(4, minmax(0,1fr));
@@ -40,16 +37,25 @@
       .consulting-page .card-grid.force-4{ grid-template-columns:1fr; }
     }
 
-    /* CSS-only mobile nav toggle helpers (do NOT hide the checkbox with display:none) */
+    /* Partnerships CTA custom */
+    .consulting-page .partnerships-cta {
+      grid-column: 1 / -1; /* span full width of grid */
+      display:flex;
+      justify-content:center;
+    }
+    .consulting-page .partnerships-cta .cta-btn {
+      width:100%;
+      max-width:100%; 
+      border:none; /* remove any border */
+    }
+
     .hamburger{ display:none; }
     .hamburger span{ width:25px; height:3px; background:#003366; border-radius:2px; transition:transform .3s, opacity .3s; display:block; }
     @media (max-width:768px){
       .hamburger{ display:flex; flex-direction:column; gap:5px; cursor:pointer; }
-      /* animate icon when checked */
       #nav-toggle:checked + label.hamburger span:nth-child(1){ transform: rotate(45deg) translate(5px, 5px); }
       #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity:0; }
       #nav-toggle:checked + label.hamburger span:nth-child(3){ transform: rotate(-45deg) translate(6px, -6px); }
-      /* reveal mobile nav when checked (global CSS also has this, kept for safety) */
       #nav-toggle:checked ~ nav.mobile-nav{ display:flex; }
     }
   </style>
@@ -60,8 +66,6 @@
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo"/>
-
-      <!-- CSS-only toggle (keep input accessible off-screen via global .nav-toggle rule) -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -91,7 +95,7 @@
     </div>
   </div>
 
-  <!-- Banner (height controlled by global .page-banner = 300px) -->
+  <!-- Banner -->
   <div class="page-banner" style="background-image:url('assets/images/consulting-bannerimage.png');"></div>
 
   <main class="content">
@@ -103,105 +107,11 @@
     <!-- Four Pillars -->
     <h2 class="section-title">The Four Pillars of Execution</h2>
     <div class="card-grid force-4" style="margin-top:1rem;">
-      <div class="card">
-        <h2>Cloud</h2>
-        <p>We build practical cloud strategies, modernise systems, align vendors, and design models that help businesses stay ahead.</p>
-      </div>
-      <div class="card">
-        <h2>People</h2>
-        <p>We help build skilled teams, shaping roles and structures to support new ways of working and keep performance high.</p>
-      </div>
-      <div class="card">
-        <h2>Process</h2>
-        <p>We bring discipline to go-to-market plans, ensure commercial clarity, and turn strategy into real business value.</p>
-      </div>
-      <div class="card">
-        <h2>Partnerships</h2>
-        <p>We work with specialist partners who add expertise and help us deliver faster, better results.</p>
-      </div>
+      <div class="card"><h2>Cloud</h2><p>We build practical cloud strategies, modernise systems, align vendors, and design models that help businesses stay ahead.</p></div>
+      <div class="card"><h2>People</h2><p>We help build skilled teams, shaping roles and structures to support new ways of working and keep performance high.</p></div>
+      <div class="card"><h2>Process</h2><p>We bring discipline to go-to-market plans, ensure commercial clarity, and turn strategy into real business value.</p></div>
+      <div class="card"><h2>Partnerships</h2><p>We work with specialist partners who add expertise and help us deliver faster, better results.</p></div>
     </div>
-
-    <!-- Advisory Approach -->
-    <section class="section">
-      <h2 class="section-title">Our Advisory Approach</h2>
-      <p style="text-align:center; max-width:900px; margin:0 auto 1rem;">
-        We skip the buzzwords and focus on practical strategy. CoreCloud works with boards, CIOs, and business leaders to turn vision into results.
-      </p>
-      <div style="display:flex; justify-content:center; margin-top:1rem;">
-        <ul class="bullets" style="line-height:1.8; text-align:left; max-width:700px;">
-          <li>Business-aligned cloud and technology strategies</li>
-          <li>Sales and go-to-market diagnostics and uplift</li>
-          <li>Platform architecture and vendor rationalisation</li>
-          <li>Talent and capability readiness assessments</li>
-          <li>Optimised delivery models and strategic partnerships</li>
-          <li>Independent board-level advisory</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Sales Consulting -->
-    <section class="section" id="sales-consulting">
-      <h2 class="section-title">Sales Consulting: People &amp; Process</h2>
-      <p style="text-align:center; max-width:900px; margin:0 auto 1.5rem;">
-        We build the sales capacity and discipline that drive predictable revenue — fast.
-      </p>
-      <div class="card-grid force-4">
-        <div class="card">
-          <h2>People</h2>
-          <ul style="margin-left:1rem; line-height:1.5; text-align:left;">
-            <li>Assess team skills, coverage, role clarity &amp; leadership gaps</li>
-            <li>Place proven talent via our Talent Hub</li>
-            <li>Practical enablement: discovery, positioning, objection handling</li>
-            <li>Leadership rewiring via Dynamic Imprinting</li>
-            <li>Compensation &amp; incentives aligned to outcomes</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Process</h2>
-          <ul style="margin-left:1rem; line-height:1.5; text-align:left;">
-            <li>Map &amp; optimise end-to-end sales process</li>
-            <li>Qualification frameworks that fit (MEDDIC, BANT)</li>
-            <li>Pipeline discipline &amp; accurate forecasting</li>
-            <li>Refined GTM, ICPs &amp; value messaging</li>
-            <li>Channel &amp; partner programs that scale</li>
-            <li>CRM configured for visibility &amp; accountability</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Engagement Models</h2>
-          <ul style="margin-left:1rem; line-height:1.5; text-align:left;">
-            <li>Fractional CRO (interim sales leadership)</li>
-            <li>Sales Advisory Retainer &amp; governance</li>
-            <li>Project sprints (pipeline build, GTM launch)</li>
-            <li>Consulting + Talent integration to fill gaps fast</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Outcomes We Drive</h2>
-          <ul style="margin-left:1rem; line-height:1.5; text-align:left;">
-            <li>Shorter sales cycles, higher win rates</li>
-            <li>Forecasting you can trust</li>
-            <li>Rep productivity uplift within 90 days</li>
-            <li>Partner-led revenue that scales without bloat</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Clients Choose -->
-    <section class="section">
-      <h2 class="section-title">Why Clients Choose CoreCloud</h2>
-      <div class="card-grid force-4">
-        <div class="card"><h2>Executive-Grade Insights</h2><p>Boardroom experience from global tech giants and high-growth ventures, delivering insights that create real impact.</p></div>
-        <div class="card"><h2>Outcome-Obsessed</h2><p>We measure success by results, not hours. Every project is built to deliver tangible impact.</p></div>
-        <div class="card"><h2>Agile &amp; Independent</h2><p>Lean and vendor-neutral. We recommend only what’s best for your business.</p></div>
-        <div class="card"><h2>South African Context</h2><p>We know the market, its players, and how to win here.</p></div>
-        <div class="card"><h2>Strategic Operators</h2><p>We’ve sat in boardrooms, built strategies, and delivered under pressure. No buzzwords. Just results.</p></div>
-        <div class="card"><h2>Speed &amp; Scale</h2><p>We turn analysis into action and scale solutions to fit enterprise goals.</p></div>
-        <div class="card"><h2>Proven Partner Ecosystem</h2><p>Partners like Xsellerate expand our capability and accelerate delivery.</p></div>
-        <div class="card"><h2>Financial Pragmatism</h2><p>Respect for budgets. Real ROI. No hidden costs.</p></div>
-      </div>
-    </section>
 
     <!-- Partnerships CTA -->
     <section class="section">
@@ -209,9 +119,10 @@
       <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">
         Execution takes more than expertise. We collaborate with top partners who bring specialised skills and share our drive for measurable results.
       </p>
-      <!-- Keep this one borderless so the CTA sits cleanly -->
-      <div class="card" style="background:none; box-shadow:none; border:none;">
-        <a href="contact.html" class="cta-btn">Explore Sales Enablement</a>
+      <div class="card-grid force-4">
+        <div class="partnerships-cta">
+          <a href="contact.html" class="cta-btn">Explore Sales Enablement</a>
+        </div>
       </div>
     </section>
   </main>
@@ -223,7 +134,6 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <!-- JS-free submit -->
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;"/>
           <button type="submit" class="cta-btn">Subscribe</button>
