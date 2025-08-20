@@ -1,9 +1,9 @@
 /* ===========================
    CoreCloud — assets/css/styles.css
+   - Slim, transparent nav (site-wide)
    - Logo: 160px desktop / 120px mobile
-   - No active pill
-   - Glass/underline nav (when .ai-nav present)
-   - Normalized spacing under banner across all pages
+   - No active pill (underline hover)
+   - Normalized spacing under banner
    =========================== */
 
 /* Reset */
@@ -18,9 +18,8 @@
   --accent-black:#000000;
   --light-bg:#f4f6f8;
   --text-gray:#444;
-  --gold:#d4af37;                 /* underline gradient */
+  --gold:#d4af37; /* underline gradient */
 
-  /* Logo sizes */
   --logo-h-desktop: 160px;
   --logo-h-mobile: 120px;
 }
@@ -49,34 +48,49 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
   font-size:2rem; text-align:center; color:var(--dark-blue); margin-bottom:1.5rem;
 }
 
-/* Header */
+/* Header (slim + transparent) */
 .small-banner{
-  background:#fff;
-  padding:.6rem 2rem 0;
-  box-shadow:0 2px 4px rgba(0,0,0,.05);
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: .15rem .9rem 0 !important; /* slim */
   width:100%;
 }
 .banner-header{
   display:flex; align-items:center; justify-content:space-between;
   max-width:1200px; margin:0 auto;
 }
+.banner-header.ai-nav{
+  position:sticky; top:0; z-index:1000;
+  background: transparent !important;  /* transparent over banner */
+  border-bottom:0 !important;
+  box-shadow:none !important;
+}
 .logo{ height:var(--logo-h-desktop); width:auto; }
 
 /* Desktop Nav */
-nav.desktop-nav{ display:flex; align-items:center; gap:1.5rem; }
-nav.desktop-nav a{
-  text-decoration:none; font-weight:700; font-size:.95rem; color:#003366;
-  text-transform:uppercase; transition:all .3s ease;
+nav.desktop-nav{ display:flex; align-items:center; gap:.75rem; flex-wrap:nowrap; }
+nav.desktop-nav .nav-btn{
+  text-decoration:none; text-transform:uppercase;
+  font-size:.82rem; font-weight:600; color:#1b1f23; white-space:nowrap;
+  padding:.35rem .6rem; position:relative; transition:color .2s ease;
 }
-nav.desktop-nav a:hover,
-nav.desktop-nav a.active{ color:#005fa3; font-weight:900; } /* no pill */
+nav.desktop-nav .nav-btn:hover,
+nav.desktop-nav .nav-btn.active{ color:#005fa3; }
+
+/* Underline hover (no pill) */
+.banner-header.ai-nav .desktop-nav .nav-btn::after{
+  content:""; position:absolute; left:8px; right:8px; bottom:4px; height:2px;
+  background:linear-gradient(90deg, var(--gold), var(--dark-blue));
+  transform:scaleX(0); transform-origin:left; transition:transform .25s ease; opacity:.9;
+}
+.banner-header.ai-nav .desktop-nav .nav-btn:hover::after,
+.banner-header.ai-nav .desktop-nav .nav-btn:focus-visible::after{ transform:scaleX(1); }
 
 /* Mobile Nav (checkbox hack) */
 .nav-toggle{ position:absolute; left:-9999px; }
 .hamburger{ display:none; flex-direction:column; cursor:pointer; gap:5px; }
 .hamburger span{ width:25px; height:3px; background:#003366; border-radius:2px; transition:all .3s ease; }
 
-/* Collapsed menu */
 nav.mobile-nav{
   display:none; flex-direction:column; background:#fff; width:100%;
   position:absolute; left:0; padding:1rem; box-shadow:0 2px 10px rgba(0,0,0,.1); z-index:1001;
@@ -86,7 +100,7 @@ nav.mobile-nav a{
 }
 nav.mobile-nav a:last-child{ border-bottom:none; }
 
-/* Open state → full-screen overlay */
+/* Open state → full-screen overlay on mobile */
 #nav-toggle:checked ~ nav.mobile-nav{
   display:flex; position:fixed; inset:0; top:0;
   padding:5rem 1.5rem 2rem;
@@ -101,29 +115,23 @@ nav.mobile-nav a:last-child{ border-bottom:none; }
 
 /* Page Banner */
 .page-banner{
-  height:300px; /* override per page if needed */
+  height:300px; /* adjust per page if needed */
   background-size:cover; background-position:center; background-repeat:no-repeat;
   width:100%; overflow:hidden;
 }
 
-/* Content
-   NOTE: normalized spacing under banner (matches AppDev):
-   - remove big top margin
-   - hero-title sits 2.5rem below banner
-   - first section after banner has no extra top padding */
+/* Content (normalized spacing under banner) */
 main.content{
   max-width:1400px;
-  margin:0 auto;                 /* was 4rem auto */
-  padding:0 1.5rem 4rem;         /* keep bottom padding */
+  margin:0 auto;                 /* removed big top margin */
+  padding:0 1.5rem 4rem;
   flex:1 0 auto;
 }
+/* Hero sits 2.5rem below the banner (AppDev baseline) */
 .page-banner + .content .hero-title,
-.page-banner + section .hero-title{
-  margin-top:2.5rem !important;
-}
-.page-banner + section{
-  padding-top:0 !important;
-}
+.page-banner + section .hero-title{ margin-top:2.5rem !important; }
+/* Remove extra top padding if first block is a <section> */
+.page-banner + section{ padding-top:0 !important; }
 
 .section{ margin:3rem 0; }
 
@@ -169,36 +177,7 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
   .logo{ height:var(--logo-h-mobile); width:auto; }
   .page-banner{ height:250px; }
   .hero-title{ font-size:2rem; }
-}
-
-/* === AI-Modern Glass Nav — only when .ai-nav is present === */
-.banner-header.ai-nav{
-  position:sticky; top:0; z-index:1000;
-  background:rgba(255,255,255,.72);
-  -webkit-backdrop-filter:saturate(180%) blur(12px);
-  backdrop-filter:saturate(180%) blur(12px);
-  border-bottom:1px solid rgba(0,79,145,.12);
-  box-shadow:0 2px 18px rgba(0,0,0,.06);
-}
-/* Desktop underline; NO active pill */
-.banner-header.ai-nav .desktop-nav .nav-btn{
-  position:relative; padding:.55rem .85rem; border-radius:9999px; font-weight:700;
-  color:#1b1f23; transition:background .2s ease;
-}
-.banner-header.ai-nav .desktop-nav .nav-btn::after{
-  content:""; position:absolute; left:12px; right:12px; bottom:6px; height:2px;
-  background:linear-gradient(90deg, var(--gold), var(--dark-blue));
-  transform:scaleX(0); transform-origin:left; transition:transform .25s ease; opacity:.85;
-}
-.banner-header.ai-nav .desktop-nav .nav-btn:hover::after,
-.banner-header.ai-nav .desktop-nav .nav-btn:focus-visible::after{ transform:scaleX(1); }
-/* Remove pill */
-.banner-header.ai-nav .desktop-nav .nav-btn.active{
-  background:transparent; border:0;
-}
-
-/* Mobile overlay styling (when ai-nav present) */
-@media (max-width:768px){
+  /* Mobile overlay look when ai-nav present */
   .banner-header.ai-nav #nav-toggle:checked ~ nav.mobile-nav{
     display:flex !important; position:fixed; inset:0; top:0;
     padding:5rem 1.5rem 2rem; background:rgba(255,255,255,.9);
@@ -211,7 +190,10 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
   }
 }
 
+/* Safety: never show mobile overlay on desktop */
+@media (min-width:769px){ nav.mobile-nav{ display:none !important; } }
+
 /* Reduced transparency preference */
 @media (prefers-reduced-transparency: reduce){
-  .banner-header.ai-nav{ background:#fff; backdrop-filter:none; -webkit-backdrop-filter:none; }
+  .banner-header.ai-nav{ background:#fff !important; backdrop-filter:none; -webkit-backdrop-filter:none; }
 }
