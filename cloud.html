@@ -53,11 +53,9 @@
       box-shadow:none !important;
       cursor:pointer;
 
-      /* width normalization */
-      min-width:220px;     /* consistent baseline width across CTAs */
+      min-width:220px;
       max-width:100%;
     }
-    /* Make tile CTAs span full card width for perfect alignment */
     .card .cta-btn{
       display:block;
       width:100%;
@@ -70,7 +68,7 @@
       background:#003366;
     }
 
-    /* Inverted CTAs on colored tiles (still no borders) */
+    /* Inverted CTAs on colored tiles */
     .aws-card a.cta-btn,
     .azure-card a.cta-btn,
     .databricks-card a.cta-btn{
@@ -87,13 +85,18 @@
       background:#f2f2f2 !important;
     }
 
-    /* Bottom CTA: use borderless container, not .card */
+    /* Bottom CTA container */
     .cta-container{
       background:none; border:none !important; box-shadow:none !important;
       padding:0; margin:0 auto; max-width:900px; text-align:center;
     }
+    .cta-container .cta-btn{
+      width:260px;   /* match card width */
+      display:block;
+      margin:0 auto;
+    }
 
-    /* Mobile hamburger visibility (behavior global) */
+    /* Mobile hamburger */
     @media (max-width:768px){
       .hamburger{ display:flex; }
     }
@@ -230,7 +233,7 @@
       </div>
     </div>
 
-    <!-- CTA to App Dev (true <button>, no borders) -->
+    <!-- CTA to App Dev -->
     <section class="section" style="margin-top:3rem; text-align:center;">
       <h2 class="section-title">Application Development</h2>
       <p style="max-width:900px; margin:0 auto 1.5rem;">
@@ -258,7 +261,6 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <!-- JS-free submit -->
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
           <button type="submit" class="cta-btn">Subscribe</button>
