@@ -20,12 +20,12 @@
       margin: 2.5rem auto 1rem;
     }
 
-    /* Blue borders on cards (this page only) */
+    /* Cards */
     .consulting-page .card{
       border: 2px solid var(--dark-blue);
     }
 
-    /* 4 / 2 / 1 responsive grid */
+    /* 4/2/1 column responsive grid */
     .consulting-page .card-grid.force-4{
       display:grid;
       grid-template-columns:repeat(4, minmax(0,1fr));
@@ -41,36 +41,32 @@
       .consulting-page .card-grid.force-4{ grid-template-columns:1fr; }
     }
 
-    /* Partnerships CTA: match grid width & remove blue border only here */
-    .consulting-page .partnerships-cta-wrap{
-      /* mirror grid outer width/padding */
-      padding:0 2rem;
-      max-width:1200px;
-      margin:0 auto;
+    /* Partnerships CTA row */
+    .consulting-page .cta-row {
+      margin-top: 1rem;
     }
-    .consulting-page .partnerships-cta{
-      display:grid;
-      grid-template-columns:repeat(4, minmax(0,1fr));
-      gap:2rem;
+    .consulting-page .cta-row .cta-card {
+      grid-column: 1 / -1; /* span all columns */
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent;
+      padding: 0;
     }
-    @media (max-width:1199px){
-      .consulting-page .partnerships-cta{ grid-template-columns:repeat(2, minmax(0,1fr)); }
-    }
-    @media (max-width:767px){
-      .consulting-page .partnerships-cta{ grid-template-columns:1fr; }
-    }
-    .consulting-page .partnerships-cta .cta-col{
-      grid-column:1 / -1; /* span all 4 columns */
-    }
-    .consulting-page .partnerships-cta .cta-btn{
-      display:block;
-      width:100%;
-      max-width:100%;
-      border:none;               /* remove blue border here only */
-      box-shadow:none;           /* ensure clean edge */
+    .consulting-page .cta-row .cta-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      border: none !important;
+      box-shadow: none !important;
+      padding: 14px 20px;
+      border-radius: 6px;
+      background: var(--dark-blue);
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
     }
 
-    /* Mobile nav toggle helpers */
+    /* Mobile nav */
     .hamburger{ display:none; }
     .hamburger span{ width:25px; height:3px; background:#003366; border-radius:2px; transition:transform .3s, opacity .3s; display:block; }
     @media (max-width:768px){
@@ -127,25 +123,13 @@
       At CoreCloud, execution means action that delivers real results. We partner with specialists who help turn strategies into measurable outcomes.
     </p>
 
-    <!-- Four Pillars (cards) -->
+    <!-- Four Pillars -->
     <h2 class="section-title">The Four Pillars of Execution</h2>
     <div class="card-grid force-4" style="margin-top:1rem;">
-      <div class="card">
-        <h2>Cloud</h2>
-        <p>We build practical cloud strategies, modernise systems, align vendors, and design models that help businesses stay ahead.</p>
-      </div>
-      <div class="card">
-        <h2>People</h2>
-        <p>We help build skilled teams, shaping roles and structures to support new ways of working and keep performance high.</p>
-      </div>
-      <div class="card">
-        <h2>Process</h2>
-        <p>We bring discipline to go-to-market plans, ensure commercial clarity, and turn strategy into real business value.</p>
-      </div>
-      <div class="card">
-        <h2>Partnerships</h2>
-        <p>We work with specialist partners who add expertise and help us deliver faster, better results.</p>
-      </div>
+      <div class="card"><h2>Cloud</h2><p>We build practical cloud strategies, modernise systems, align vendors, and design models that help businesses stay ahead.</p></div>
+      <div class="card"><h2>People</h2><p>We help build skilled teams, shaping roles and structures to support new ways of working and keep performance high.</p></div>
+      <div class="card"><h2>Process</h2><p>We bring discipline to go-to-market plans, ensure commercial clarity, and turn strategy into real business value.</p></div>
+      <div class="card"><h2>Partnerships</h2><p>We work with specialist partners who add expertise and help us deliver faster, better results.</p></div>
     </div>
 
     <!-- Advisory Approach -->
@@ -166,56 +150,21 @@
       </div>
     </section>
 
-    <!-- Sales Consulting (4 cards) -->
+    <!-- Sales Consulting -->
     <section class="section" id="sales-consulting">
       <h2 class="section-title">Sales Consulting: People &amp; Process</h2>
       <p style="text-align:center; max-width:900px; margin:0 auto 1.5rem;">
         We build the sales capacity and discipline that drive predictable revenue — fast.
       </p>
       <div class="card-grid force-4">
-        <div class="card">
-          <h2>People</h2>
-          <ul style="margin-left:1rem; line-height:1.5; text-align:left;">
-            <li>Assess team skills, coverage, role clarity &amp; leadership gaps</li>
-            <li>Place proven talent via our Talent Hub</li>
-            <li>Practical enablement: discovery, positioning, objection handling</li>
-            <li>Leadership rewiring via Dynamic Imprinting</li>
-            <li>Compensation &amp; incentives aligned to outcomes</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Process</h2>
-          <ul style="margin-left:1rem; line-height:1.5; text-align:left;">
-            <li>Map &amp; optimise end-to-end sales process</li>
-            <li>Qualification frameworks that fit (MEDDIC, BANT)</li>
-            <li>Pipeline discipline &amp; accurate forecasting</li>
-            <li>Refined GTM, ICPs &amp; value messaging</li>
-            <li>Channel &amp; partner programs that scale</li>
-            <li>CRM configured for visibility &amp; accountability</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Engagement Models</h2>
-          <ul style="margin-left:1rem; line-height:1.5; text-align:left;">
-            <li>Fractional CRO (interim sales leadership)</li>
-            <li>Sales Advisory Retainer &amp; governance</li>
-            <li>Project sprints (pipeline build, GTM launch)</li>
-            <li>Consulting + Talent integration to fill gaps fast</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h2>Outcomes We Drive</h2>
-          <ul style="margin-left:1rem; line-height:1.5; text-align:left;">
-            <li>Shorter sales cycles, higher win rates</li>
-            <li>Forecasting you can trust</li>
-            <li>Rep productivity uplift within 90 days</li>
-            <li>Partner-led revenue that scales without bloat</li>
-          </ul>
-        </div>
+        <div class="card"><h2>People</h2><ul style="margin-left:1rem; line-height:1.5; text-align:left;"><li>Assess team skills, coverage, role clarity &amp; leadership gaps</li><li>Place proven talent via our Talent Hub</li><li>Practical enablement: discovery, positioning, objection handling</li><li>Leadership rewiring via Dynamic Imprinting</li><li>Compensation &amp; incentives aligned to outcomes</li></ul></div>
+        <div class="card"><h2>Process</h2><ul style="margin-left:1rem; line-height:1.5; text-align:left;"><li>Map &amp; optimise end-to-end sales process</li><li>Qualification frameworks that fit (MEDDIC, BANT)</li><li>Pipeline discipline &amp; accurate forecasting</li><li>Refined GTM, ICPs &amp; value messaging</li><li>Channel &amp; partner programs that scale</li><li>CRM configured for visibility &amp; accountability</li></ul></div>
+        <div class="card"><h2>Engagement Models</h2><ul style="margin-left:1rem; line-height:1.5; text-align:left;"><li>Fractional CRO (interim sales leadership)</li><li>Sales Advisory Retainer &amp; governance</li><li>Project sprints (pipeline build, GTM launch)</li><li>Consulting + Talent integration to fill gaps fast</li></ul></div>
+        <div class="card"><h2>Outcomes We Drive</h2><ul style="margin-left:1rem; line-height:1.5; text-align:left;"><li>Shorter sales cycles, higher win rates</li><li>Forecasting you can trust</li><li>Rep productivity uplift within 90 days</li><li>Partner-led revenue that scales without bloat</li></ul></div>
       </div>
     </section>
 
-    <!-- Why Clients Choose (8 cards) -->
+    <!-- Why Clients Choose -->
     <section class="section">
       <h2 class="section-title">Why Clients Choose CoreCloud</h2>
       <div class="card-grid force-4">
@@ -230,19 +179,16 @@
       </div>
     </section>
 
-    <!-- Strategic Partnerships + CTA (borderless button, grid-width match) -->
+    <!-- Partnerships CTA -->
     <section class="section">
       <h2 class="section-title">Strategic Partnerships</h2>
       <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">
         Execution takes more than expertise. We collaborate with top partners who bring specialised skills and share our drive for measurable results.
       </p>
 
-      <!-- CTA spans same total width as 4-card grid -->
-      <div class="partnerships-cta-wrap">
-        <div class="partnerships-cta">
-          <div class="cta-col">
-            <a href="contact.html" class="cta-btn">Explore Sales Enablement</a>
-          </div>
+      <div class="card-grid force-4 cta-row">
+        <div class="cta-card">
+          <a href="contact.html" class="cta-btn">Explore Sales Enablement</a>
         </div>
       </div>
     </section>
