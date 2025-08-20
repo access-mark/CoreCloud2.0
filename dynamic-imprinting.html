@@ -10,7 +10,7 @@
   <meta name="author" content="CoreCloud" />
   <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <!-- Page-scoped styles only (kept light) -->
+  <!-- Page-scoped styles only -->
   <style>
     /* Hero + subtitle */
     .imprinting-page .hero-title{
@@ -22,31 +22,37 @@
       margin:0 auto 3rem; line-height:1.6;
     }
 
-    /* Big card grid: one large card per row */
+    /* Big card grid */
     .imprinting-page .card-grid.big{
       display:grid; grid-template-columns:1fr;
       gap:2rem; padding:0 2rem; max-width:1100px; margin:0 auto;
     }
-    .imprinting-page .card h2.section-title{ margin-top:0; }
 
-    /* Center paragraphs & quotes inside the section content */
+    /* Card titles centralized */
+    .imprinting-page .card h2.section-title{
+      margin-top:0; text-align:center;
+    }
+
+    /* Body text aligned left */
     .imprinting-page .card p,
-    .imprinting-page .card blockquote{ text-align:center; margin-left:auto; margin-right:auto; }
-
-    /* Lists: center the block, left-align items */
+    .imprinting-page .card blockquote,
     .imprinting-page .card ul{
-      list-style:disc; display:inline-block; text-align:left;
-      padding-left:1.25rem; margin:0 auto 2rem;
+      text-align:left; margin-left:0; margin-right:0;
+    }
+
+    /* Lists */
+    .imprinting-page .card ul{
+      list-style:disc; padding-left:1.25rem; margin:0 0 2rem 0;
     }
     .imprinting-page .card ul li{ margin-bottom:.75rem; }
 
     .imprinting-page blockquote{
       background:#f0f7ff; border-left:5px solid #004f91; padding:1rem 1.5rem;
-      font-style:italic; color:#003366; border-radius:4px; margin:2rem auto;
+      font-style:italic; color:#003366; border-radius:4px; margin:2rem 0;
       max-width:800px;
     }
 
-    /* CTA (uses global .cta-btn inside cards) */
+    /* CTA */
     .imprinting-page .cta-wrap{ text-align:center; margin-top:1.5rem; }
 
     /* CSS-only mobile nav */
@@ -103,7 +109,7 @@
     </div>
   </div>
 
-  <!-- Page banner (height from global .page-banner) -->
+  <!-- Page banner -->
   <div class="page-banner" style="background-image:url('assets/images/dynamic-imprinting-banner.png');"></div>
 
   <main class="content">
@@ -116,7 +122,7 @@
     <!-- Large Cards -->
     <section class="section">
       <div class="card-grid big">
-        <!-- Card 1: Opening narrative -->
+        <!-- Card 1 -->
         <div class="card">
           <h2 class="section-title">Why Dynamic Imprinting?</h2>
           <p>You’ve built your career through results, discipline, and adaptability. You’ve earned your title, your credibility, and your seat at the table.</p>
@@ -135,7 +141,7 @@
           <p>Picture being remembered not just for what you achieved but for the leader you became.</p>
         </div>
 
-        <!-- Card 2: Four phases -->
+        <!-- Card 2 -->
         <div class="card">
           <h2 class="section-title">The Four Phases of Dynamic Imprinting</h2>
           <p><strong>Identity Excavation</strong><br>
@@ -148,7 +154,7 @@
             Finally, we ensure your transformation lasts. Through feedback and strategic reflection, we help you project your leadership identity consistently and powerfully.</p>
         </div>
 
-        <!-- Card 3: Program options -->
+        <!-- Card 3 -->
         <div class="card">
           <h2 class="section-title">Program Options</h2>
           <p><strong>Private Executive Program (16 Weeks)</strong><br>
@@ -159,7 +165,7 @@
             Ongoing partnership for leaders who want consistent guidance and reinforcement.</p>
         </div>
 
-        <!-- Card 4: Outcomes + CTA -->
+        <!-- Card 4 -->
         <div class="card">
           <h2 class="section-title">What Changes</h2>
           <ul>
@@ -188,7 +194,6 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <!-- JS-free submit to Apps Script -->
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec"
               method="POST"
               style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
