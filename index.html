@@ -18,25 +18,29 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- CSS: base then theme (if present). This page works with just styles.css too -->
+  <!-- CSS: base first, then theme -->
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/corecloud-theme.css?v=2025-08-20" />
 
-  <!-- Page-scoped fixes so the glass nav plays nicely with your current CSS -->
+  <!-- Page-scoped tweaks (minimal, non-conflicting) -->
   <style>
-    /* --- Compat fixes (Home only) --- */
-    .home-page .small-banner{ height:auto; padding: .6rem 2rem 0; }
-    .home-page .logo{ height:56px; width:auto; }
     /* Keep card links unstyled */
     .card-grid a,
     .card-grid a:hover,
     .card-grid a:visited { text-decoration: none; color: inherit; }
+
     /* Uniform CTA buttons inside cards (width + bottom pin) */
     .card .cta-btn {
-      width: 100%; min-height: 48px;
-      display: inline-flex; align-items: center; justify-content: center;
-      padding: 0 1rem; box-sizing: border-box; margin-top: auto;
+      width: 100%;
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1rem;
+      box-sizing: border-box;
+      margin-top: auto;
     }
+
     /* Why/What/How fixed 3/2/1 without JS */
     .home-page #focus-method-section .card-grid.lock-columns{
       display:grid; gap:2rem; max-width:1100px; margin:1.5rem auto 0;
@@ -48,7 +52,8 @@
     @media (max-width: 600px){
       .home-page #focus-method-section .card-grid.lock-columns{ grid-template-columns:1fr; }
     }
-    /* Banner-sized cards for Imprinting + News */
+
+    /* Banner-sized cards for Imprinting + News (same footprint) */
     .home-page .imprinting,
     .home-page .insights { max-width:1100px; margin:3rem auto; padding:0 2rem; }
     .home-page .imprinting .card,
@@ -60,63 +65,11 @@
     }
     .home-page .insights .card h3{ margin:0 0 .5rem; color:var(--dark-blue,#004f91); }
     .home-page .insights .card p{ margin:0; max-width:800px; }
-
-    /* === AI-Modern Nav (glass + underline) — page-scoped preview === */
-    .banner-header.ai-nav{
-      position: sticky; top: 0; z-index: 1000;
-      background: rgba(255,255,255,.72);
-      -webkit-backdrop-filter: saturate(180%) blur(12px);
-      backdrop-filter: saturate(180%) blur(12px);
-      border-bottom: 1px solid rgba(0,79,145,.12);
-      box-shadow: 0 2px 18px rgba(0,0,0,.06);
-    }
-    .desktop-nav .nav-btn{
-      position: relative;
-      padding: .55rem .85rem;
-      border-radius: 9999px;
-      font-weight: 700;
-      color: #1b1f23;
-      transition: background .2s ease;
-    }
-    .desktop-nav .nav-btn::after{
-      content:"";
-      position:absolute; left:12px; right:12px; bottom:6px; height:2px;
-      background: linear-gradient(90deg, #d4af37, #004f91);
-      transform: scaleX(0); transform-origin:left;
-      transition: transform .25s ease; opacity: .85;
-    }
-    .desktop-nav .nav-btn:hover::after,
-    .desktop-nav .nav-btn:focus-visible::after{ transform: scaleX(1); }
-    .desktop-nav .nav-btn.active{
-      background: rgba(0,79,145,.08);
-      border: 1px solid rgba(0,79,145,.15);
-    }
-
-    /* Mobile overlay (override your default 160px top) */
-    @media (max-width:768px){
-      #nav-toggle:checked ~ nav.mobile-nav{
-        display: flex !important;
-        position: fixed; inset: 0;
-        padding: 5rem 1.5rem 2rem;
-        background: rgba(255,255,255,.9);
-        -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-        flex-direction: column; gap: 1rem; box-shadow:none; top:0 !important;
-      }
-      nav.mobile-nav a{
-        padding: .9rem 1rem; border-radius: 12px;
-        background: rgba(0,79,145,.06);
-        border: 1px solid rgba(0,79,145,.12);
-        font-weight: 700;
-      }
-    }
-    @media (prefers-reduced-transparency: reduce){
-      .banner-header.ai-nav{ background:#fff; backdrop-filter:none; -webkit-backdrop-filter:none; }
-    }
   </style>
 </head>
 
 <body class="home-page">
-  <!-- Navigation -->
+  <!-- Header / Nav (glass nav enabled via .ai-nav; logo size controlled by styles.css vars) -->
   <div class="small-banner">
     <div class="banner-header ai-nav">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
@@ -156,7 +109,7 @@
   <!-- Page Banner -->
   <div class="page-banner" style="background-image:url('assets/images/index-bannerimage.png');"></div>
 
-  <!-- Hero Text -->
+  <!-- Hero -->
   <section style="text-align:center; padding:2.5rem 1rem 1rem;">
     <h1 class="hero-title">From Strategy to Revenue. From Cloud to People.</h1>
     <p style="font-size:1.2rem; max-width:900px; margin:0 auto; color:#444;">
