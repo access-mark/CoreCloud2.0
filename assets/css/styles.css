@@ -1,14 +1,16 @@
 /* ===========================
    CoreCloud — assets/css/styles.css
-   - Slim, transparent nav (site-wide)
-   - Logo: 200px desktop / 150px mobile BASE, trim 2rem top+bottom
-   - Guard: never smaller than 64px
-   - No active pill (underline hover)
-   - Normalized spacing under banner
+   Central source of truth
+   - Stable header + logo (no CLS)
+   - Slim transparent nav
+   - Picture-based hero ready (and legacy .page-banner supported)
+   - Consistent grids/CTAs/footer
    =========================== */
 
 /* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; }
+img { max-width: 100%; height: auto; display: block; }
 
 /* Vars */
 :root{
@@ -19,20 +21,20 @@
   --accent-black:#000000;
   --light-bg:#f4f6f8;
   --text-gray:#444;
-  --gold:#d4af37; /* underline gradient */
+  --gold:#d4af37;
 
-  /* Base logo heights (increased) */
-  --logo-h-desktop: 200px; /* was 160px */
-  --logo-h-mobile: 150px;  /* was 120px */
+  /* Header / Logo geometry (fixed = no layout shift) */
+  --logo-h-desktop: 80px;
+  --logo-h-mobile: 64px;
+  --logo-aspect: 220 / 64; /* update if your logo aspect differs */
 
-  /* Trim 2rem from top and bottom => 4rem total off */
-  --logo-vertical-trim: 2rem;          /* per-side trim */
-  --logo-total-trim: calc(2 * var(--logo-vertical-trim));
+  /* Content width */
+  --container: 1200px;
 }
 
 /* Base */
 body{
-  font-family:'Segoe UI', Roboto, sans-serif;
+  font-family:'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
   background-color:var(--light-bg);
   color:var(--text-gray);
   line-height:1.6;
@@ -54,32 +56,31 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
   font-size:2rem; text-align:center; color:var(--dark-blue); margin-bottom:1.5rem;
 }
 
-/* Header (slim + transparent, no vertical padding) */
+/* ===== Header / Nav ===== */
 .small-banner{
   background: transparent !important;
   box-shadow: none !important;
-  padding: 0 .9rem 0 !important;   /* no top/bottom padding */
+  padding: 0 .9rem 0 !important;
   width:100%;
 }
 .banner-header{
   display:flex; align-items:center; justify-content:space-between;
-  max-width:1200px; margin:0 auto;
-  padding: 0 !important;                       /* flush container */
-  /* Header height = trimmed logo height, but never < 64px */
-  min-height: max(64px, calc(var(--logo-h-desktop) - var(--logo-total-trim)));
+  max-width:var(--container); margin:0 auto;
+  padding:0 !important;
+  min-height: var(--logo-h-desktop); /* fixed height prevents CLS */
+  position: relative;
 }
 .banner-header.ai-nav{
   position:sticky; top:0; z-index:1000;
   background: transparent !important;
-  border-bottom:0 !important;
-  box-shadow:none !important;
+  border-bottom:0 !important; box-shadow:none !important;
 }
-/* Logo height trimmed; never < 64px */
+
+/* Logo: reserve exact space with aspect-ratio so width is known immediately */
 .logo{
-  height: max(64px, calc(var(--logo-h-desktop) - var(--logo-total-trim)));
-  width:auto;
-  display:block; /* remove baseline gap */
-  margin:0;
+  height: var(--logo-h-desktop);
+  width: auto; aspect-ratio: var(--logo-aspect);
+  display:block; margin:0;
 }
 
 /* Desktop Nav */
@@ -92,7 +93,7 @@ nav.desktop-nav .nav-btn{
 nav.desktop-nav .nav-btn:hover,
 nav.desktop-nav .nav-btn.active{ color:#005fa3; }
 
-/* Underline hover (no pill) */
+/* Underline hover (no pills) */
 .banner-header.ai-nav .desktop-nav .nav-btn::after{
   content:""; position:absolute; left:8px; right:8px; bottom:4px; height:2px;
   background:linear-gradient(90deg, var(--gold), var(--dark-blue));
@@ -111,11 +112,11 @@ nav.mobile-nav{
   position:absolute; left:0; padding:1rem; box-shadow:0 2px 10px rgba(0,0,0,.1); z-index:1001;
 }
 nav.mobile-nav a{
-  padding:.8rem 0; color:#003366; text-decoration:none; font-weight:bold; border-bottom:1px solid #ddd;
+  padding:.8rem 0; color:#003366; text-decoration:none; font-weight:700; border-bottom:1px solid #ddd;
 }
 nav.mobile-nav a:last-child{ border-bottom:none; }
 
-/* Open state → full-screen overlay on mobile */
+/* Open = full-screen overlay on mobile */
 #nav-toggle:checked ~ nav.mobile-nav{
   display:flex; position:fixed; inset:0; top:0;
   padding:5rem 1.5rem 2rem;
@@ -128,29 +129,32 @@ nav.mobile-nav a:last-child{ border-bottom:none; }
 #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity:0; }
 #nav-toggle:checked + label.hamburger span:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
 
-/* Page Banner */
+/* ===== Hero / Banner ===== */
+
+/* New hero (picture-based). Keeps height flexible; use real image dimensions. */
+.hero-media picture, .hero-media img{ display:block; width:100%; height:auto; }
+
+/* Legacy CSS banner still supported until all pages migrate */
 .page-banner{
-  height:300px; /* adjust per page if needed */
-  background-size:cover; background-position:center; background-repeat:no-repeat;
+  height:300px; background-size:cover; background-position:center; background-repeat:no-repeat;
   width:100%; overflow:hidden;
 }
 
-/* Content (normalized spacing under banner) */
+/* Content spacing after hero/banner */
 main.content{
-  max-width:1400px;
-  margin:0 auto;                 /* removed big top margin */
-  padding:0 1.5rem 4rem;
+  max-width: calc(var(--container) + 200px);
+  margin:0 auto; padding:0 1.5rem 4rem;
   flex:1 0 auto;
 }
-/* Hero sits 2.5rem below the banner */
+/* If first block is a hero title below a banner, keep consistent spacing */
 .page-banner + .content .hero-title,
 .page-banner + section .hero-title{ margin-top:2.5rem !important; }
-/* Remove extra top padding if first block is a <section> */
 .page-banner + section{ padding-top:0 !important; }
 
+/* Sections */
 .section{ margin:3rem 0; }
 
-/* Cards */
+/* ===== Cards / Grids ===== */
 .card-grid{
   display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
   gap:2rem; padding:0 2rem;
@@ -166,42 +170,36 @@ main.content{
 .card .cta-btn{
   margin-top:auto; background:var(--primary-blue); color:#fff; text-decoration:none;
   padding:.75rem 1rem; border-radius:6px; font-weight:bold; font-size:.95rem; transition:background-color .3s ease;
-  display:flex; align-items:center; justify-content:center; min-height:48px;
+  display:flex; align-items:center; justify-content:center; min-height:48px; border:0;
 }
 .card .cta-btn:hover{ background:var(--dark-blue); }
 
-/* Fixed grid when required */
+/* Fixed 4/2/1 grid when required */
 .card-grid.force-4{ display:grid; gap:2rem; padding:0 2rem; }
 @media (min-width:1200px){ .card-grid.force-4{ grid-template-columns:repeat(4,1fr); } }
 @media (min-width:768px) and (max-width:1199.98px){ .card-grid.force-4{ grid-template-columns:repeat(2,1fr); } }
 @media (max-width:767.98px){ .card-grid.force-4{ grid-template-columns:1fr; } }
 
-/* Footer */
+/* ===== Footer ===== */
 footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto; }
 .footer-content{
-  max-width:1200px; margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:2rem;
+  max-width:var(--container); margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:2rem;
 }
 .footer-content p, .footer-content h4{ color:#fff; margin:.3rem 0; }
 .footer-bottom{ margin-top:1rem; font-size:.85rem; text-align:center; }
 .footer-bottom a{ color:red !important; text-decoration:underline; font-weight:bold; }
 
-/* Mobile */
+/* ===== Mobile ===== */
 @media (max-width:768px){
   nav.desktop-nav{ display:none; }
   .hamburger{ display:flex; }
-  /* Trimmed mobile logo; never < 64px */
-  .logo{
-    height: max(64px, calc(var(--logo-h-mobile) - var(--logo-total-trim)));
-  }
+
+  .banner-header{ min-height: var(--logo-h-mobile); }
+  .logo{ height: var(--logo-h-mobile); }
+
   .page-banner{ height:250px; }
   .hero-title{ font-size:2rem; }
 
-  /* Header height equals trimmed mobile logo height */
-  .banner-header{
-    min-height: max(64px, calc(var(--logo-h-mobile) - var(--logo-total-trim)));
-  }
-
-  /* Mobile overlay when ai-nav present */
   .banner-header.ai-nav #nav-toggle:checked ~ nav.mobile-nav{
     display:flex !important; position:fixed; inset:0; top:0;
     padding:5rem 1.5rem 2rem; background:rgba(255,255,255,.9);
