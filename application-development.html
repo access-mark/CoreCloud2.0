@@ -5,41 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Application Development – CoreCloud</title>
   <meta name="description" content="Cloud-native application development, enterprise portals, mobile & web, and API integration—delivered with DevOps, security, and performance discipline."/>
-  <meta name="keywords" content="CoreCloud, Application Development, Cloud-Native, Enterprise Portals, Mobile, Web, APIs, Integration, DevOps, South Africa"/>
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
 
-  <!-- LCP preload -->
-  <link rel="preload" as="image"
-        href="assets/images/appdev-bannerimage-1600.avif"
-        imagesrcset="assets/images/appdev-bannerimage-800.avif 800w,
-                     assets/images/appdev-bannerimage-1200.avif 1200w,
-                     assets/images/appdev-bannerimage-1600.avif 1600w"
-        imagesizes="(min-width:1024px) 90vw, 100vw" fetchpriority="high">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/styles.css"/>
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
 
-  <!-- Page-scoped -->
   <style>
-    .appdev-page .hero-title{ font-size:2rem; color:#004f91; font-weight:700; text-align:center; margin:2.5rem auto 1rem; }
+    .appdev-page .hero-title{ font-size:2rem; color:var(--dark-blue); font-weight:700; text-align:center; margin:2.5rem auto 1rem; }
     .appdev-page main.content{ max-width:1200px; margin:0 auto; padding:0 1.5rem 4rem; }
     .appdev-page .card .cta-btn{ display:flex; align-items:center; justify-content:center; width:100%; min-height:48px; font-weight:700; margin-top:auto; }
     .cta-card{ background:none !important; box-shadow:none !important; border:none !important; padding:0 !important; }
     .cta-wide{ grid-column:1 / -1; }
     .cta-card .cta-btn{ width:100%; display:block; margin:0; }
-    .hero-media picture, .hero-media img{ display:block; width:100%; height:auto; }
   </style>
 </head>
 
 <body class="appdev-page">
-  <!-- Header -->
   <div class="small-banner">
-    <div class="banner-header ai-nav">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo"
-           width="220" height="64" decoding="async" fetchpriority="high" />
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" decoding="async" fetchpriority="high">
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
       <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
       <nav class="desktop-nav">
@@ -66,29 +53,17 @@
     </div>
   </div>
 
-<link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high">
-<div class="hero-media">
-  <picture>
-    <source type="image/avif"
-      srcset="assets/images/appdev-bannerimage-800.avif 800w,
-              assets/images/appdev-bannerimage-1200.avif 1200w,
-              assets/images/appdev-bannerimage-1600.avif 1600w"
-      sizes="(min-width:1024px) 90vw, 100vw">
-    <source type="image/webp"
-      srcset="assets/images/appdev-bannerimage-800.webp 800w,
-              assets/images/appdev-bannerimage-1200.webp 1200w,
-              assets/images/appdev-bannerimage-1600.webp 1600w"
-      sizes="(min-width:1024px) 90vw, 100vw">
-    <img src="assets/images/appdev-bannerimage.png"
-         alt="Application Development — Cloud-Native, Portals, Mobile & Web"
-         decoding="async" fetchpriority="high">
-  </picture>
-</div>
-
+  <!-- Hero -->
+  <div class="hero-media">
+    <img src="assets/images/appdev-bannerimage.png" alt="CoreCloud Application Development" decoding="async">
+  </div>
 
   <main class="content">
     <h1 class="hero-title">Application Development</h1>
-    <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">We design and deliver cloud-native applications, portals, and digital experiences that scale. Built with modern architectures, shipped with DevOps discipline, and secured by design.</p>
+    <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">
+      We design and deliver cloud-native applications, portals, and digital experiences that scale.
+      Built with modern architectures, shipped with DevOps discipline, and secured by design.
+    </p>
 
     <h2 class="section-title">What We Build</h2>
     <div class="card-grid force-4" style="margin-top:1rem;">
@@ -130,7 +105,9 @@
 
     <section class="section">
       <div class="card-grid force-4">
-        <div class="card cta-card cta-wide"><a href="contact.html" class="cta-btn">Start a Conversation</a></div>
+        <div class="card cta-card cta-wide">
+          <a href="contact.html" class="cta-btn">Start a Conversation</a>
+        </div>
       </div>
     </section>
   </main>
@@ -142,11 +119,14 @@
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;"/>
+          <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;">
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
-      <div class="footer-right"><p>Contact</p><p>Email: sales@corecloudza.com</p><p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p></div>
+      <div class="footer-right">
+        <p>Contact</p><p>Email: sales@corecloudza.com</p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener" style="color:red; text-decoration:underline; font-weight:bold;">LinkedIn</a></p>
+      </div>
     </div>
     <div class="footer-bottom"><p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p></div>
   </footer>
