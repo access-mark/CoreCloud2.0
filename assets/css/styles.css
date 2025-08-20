@@ -1,4 +1,4 @@
-/* ===========================
+no banners showing now check css /* ===========================
    CoreCloud — assets/css/styles.css
    Central source of truth
    - Stable header + logo (no CLS)
@@ -23,11 +23,11 @@ img { max-width: 100%; height: auto; display: block; }
   --text-gray:#444;
   --gold:#d4af37;
 
-  /* Header / Logo geometry */
+  /* Header / Logo geometry (fixed = no layout shift) */
   --logo-h-desktop: 120px;
   --logo-h-mobile: 80px;
 
-  /* Banner */
+  /* Banner standard (locked height, contain) */
   --banner-height: 300px;
   --banner-bg: var(--light-bg);
 
@@ -50,6 +50,7 @@ h2{ font-size:1.8rem; font-weight:600; color:var(--dark-blue); margin-bottom:1re
 h3{ font-size:1.4rem; font-weight:600; color:var(--dark-blue); margin-bottom:.8rem; }
 p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
 
+/* Standard titles */
 .hero-title{
   font-size:2rem; font-weight:700; color:var(--dark-blue);
   text-align:center; margin:2.5rem auto 1rem;
@@ -69,13 +70,13 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
   display:flex; align-items:center; justify-content:space-between;
   max-width:var(--container); margin:0 auto;
   padding:0 !important;
-  min-height: var(--logo-h-desktop);
+  min-height: var(--logo-h-desktop); /* prevents CLS */
   position: sticky; top: 0; z-index: 1000;
   background: transparent !important;
   border-bottom:0 !important; box-shadow:none !important;
 }
 
-/* Logo */
+/* ✅ Logo: preserves ratio, never stretched */
 .logo{
   max-height: var(--logo-h-desktop);
   width: auto;
@@ -95,6 +96,7 @@ nav.desktop-nav .nav-btn{
 nav.desktop-nav .nav-btn:hover,
 nav.desktop-nav .nav-btn.active{ color:#005fa3; }
 
+/* Underline hover (no pills) */
 .banner-header .desktop-nav .nav-btn::after{
   content:""; position:absolute; left:8px; right:8px; bottom:4px; height:2px;
   background:linear-gradient(90deg, var(--gold), var(--dark-blue));
@@ -103,7 +105,7 @@ nav.desktop-nav .nav-btn.active{ color:#005fa3; }
 .banner-header .desktop-nav .nav-btn:hover::after,
 .banner-header .desktop-nav .nav-btn:focus-visible::after{ transform:scaleX(1); }
 
-/* Mobile Nav */
+/* Mobile Nav (checkbox hack) */
 .nav-toggle{ position:absolute; left:-9999px; }
 .hamburger{ display:none; flex-direction:column; cursor:pointer; gap:5px; }
 .hamburger span{ width:25px; height:3px; background:#003366; border-radius:2px; transition:all .3s ease; }
@@ -117,6 +119,7 @@ nav.mobile-nav a{
 }
 nav.mobile-nav a:last-child{ border-bottom:none; }
 
+/* Open = full-screen overlay on mobile */
 #nav-toggle:checked ~ nav.mobile-nav{
   display:flex; position:fixed; inset:0; top:0;
   padding:5rem 1.5rem 2rem;
@@ -124,42 +127,30 @@ nav.mobile-nav a:last-child{ border-bottom:none; }
   -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
   gap:1rem; border:0; box-shadow:none;
 }
+/* Hamburger morph */
 #nav-toggle:checked + label.hamburger span:nth-child(1){ transform:rotate(45deg) translate(5px,5px); }
 #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity:0; }
 #nav-toggle:checked + label.hamburger span:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
 
 /* ===== Hero / Banner (STANDARDIZED) ===== */
-
-/* Picture-based hero */
-.hero-media{
-  display:flex;
-  align-items:center;
-  justify-content:center;
+/* Both picture-based (.hero-media img) and legacy background (.page-banner) behave the same. */
+.hero-media,
+.hero-media picture,
+.hero-media img,
+.page-banner{
+  display:block;
   width:100%;
   height: var(--banner-height);
-  background: var(--banner-bg);
-  overflow:hidden;
-}
-.hero-media picture{ width:100%; height:100%; display:block; }
-.hero-media img{
-  width:100%;
-  height:100%;
-  object-fit: contain;
-  display:block;
-}
-
-/* Legacy background-image banner */
-.page-banner{
-  width:100%;
-  height: var(--banner-height) !important;
-  background-position: center !important;
-  background-repeat: no-repeat !important;
-  background-size: contain !important;
-  background-color: var(--banner-bg) !important;
+  max-height: var(--banner-height);
+  object-fit: contain;              /* always show full image */
+  background-size: contain;         /* for background-image banners */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--banner-bg); /* letterbox color */
   overflow:hidden;
 }
 
-/* Content spacing */
+/* Content spacing after hero/banner */
 main.content{
   max-width: calc(var(--container) + 200px);
   margin:0 auto; padding:0 1.5rem 4rem;
@@ -169,6 +160,7 @@ main.content{
 .page-banner + section .hero-title{ margin-top:2.5rem !important; }
 .page-banner + section{ padding-top:0 !important; }
 
+/* Sections */
 .section{ margin:3rem 0; }
 
 /* ===== Cards / Grids ===== */
@@ -191,6 +183,7 @@ main.content{
 }
 .card .cta-btn:hover{ background:var(--dark-blue); }
 
+/* Fixed 4/2/1 grid when required */
 .card-grid.force-4{ display:grid; gap:2rem; padding:0 2rem; }
 @media (min-width:1200px){ .card-grid.force-4{ grid-template-columns:repeat(4,1fr); } }
 @media (min-width:768px) and (max-width:1199.98px){ .card-grid.force-4{ grid-template-columns:repeat(2,1fr); } }
@@ -227,8 +220,10 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
   }
 }
 
+/* Safety: never show mobile overlay on desktop */
 @media (min-width:769px){ nav.mobile-nav{ display:none !important; } }
 
+/* Reduced transparency preference */
 @media (prefers-reduced-transparency: reduce){
   .banner-header{ background:#fff !important; backdrop-filter:none; -webkit-backdrop-filter:none; }
 }
