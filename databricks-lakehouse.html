@@ -7,121 +7,87 @@
   <meta name="description" content="CoreCloud delivers Databricks Lakehouse solutions that unify data lakes, warehouses, and AI workloads for South African enterprises." />
   <link rel="stylesheet" href="assets/css/styles.css" />
 
+  <!-- Page-scoped styles -->
   <style>
-    .red-banner {
-      background-color: #ff3621;
-      height: 80px;
-      width: 100%;
+    .red-banner{ background:#ff3621; height:80px; width:100%; }
+
+    .center-title{
+      font-size:2.4rem; text-align:center; color:#004f91;
+      margin:3rem 0 1.5rem; font-weight:700;
+    }
+    .center-subtitle{
+      text-align:center; color:#444; font-size:1.1rem;
+      margin:0 auto 2rem; max-width:900px; line-height:1.6;
+    }
+    .section-title{
+      text-align:center; color:#004f91; font-size:2rem;
+      margin-bottom:2rem; font-weight:700;
     }
 
-    .center-title {
-      font-size: 2.4rem;
-      text-align: center;
-      color: #004f91;
-      margin: 3rem 0 1.5rem;
-      font-weight: 700;
+    .card-grid.triple{
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
+      gap:2rem; margin-top:2rem; padding:0 1rem;
     }
+    .card{
+      background:#fff; color:#444; padding:1.5rem; border-radius:12px;
+      text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.08); transition:transform .3s ease;
+      border:2px solid var(--dark-blue);
+    }
+    .card:hover{ transform:translateY(-5px); }
+    .card h2{ color:#ff3621; font-size:1.4rem; margin-bottom:.8rem; font-weight:700; }
+    .card p{ font-size:.95rem; color:#444; }
 
-    .center-subtitle {
-      text-align: center;
-      color: #444;
-      font-size: 1.1rem;
-      margin: 0 auto 2rem;
-      max-width: 900px;
-      line-height: 1.6;
+    .cta-btn{
+      display:inline-block; background:#ff3621; color:#fff; text-decoration:none;
+      padding:.75rem 1.5rem; border-radius:8px; font-weight:700; font-size:1rem;
+      transition:background-color .25s ease;
     }
-
-    .section-title {
-      text-align: center;
-      color: #004f91;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      font-weight: 700;
-    }
-
-    .card-grid.triple {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-      padding: 0 1rem;
-    }
-
-    .card {
-      background: #ffffff;
-      color: #444;
-      padding: 1.5rem;
-      border-radius: 8px;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-    }
-
-    .card h2 {
-      color: #ff3621;
-      font-size: 1.4rem;
-      margin-bottom: 0.8rem;
-      font-weight: 700;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-      color: #444;
-    }
-
-    .cta-btn {
-      display: inline-block;
-      background-color: #ff3621;
-      color: #fff;
-      text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      font-weight: bold;
-      font-size: 1rem;
-      transition: background-color 0.3s ease;
-    }
-
-    .cta-btn:hover {
-      background-color: #cc2d1b;
-      color: #fff;
-    }
+    .cta-btn:hover{ background:#cc2d1b; color:#fff; }
   </style>
 </head>
-<body>
+<body class="lakehouse-page">
+  <!-- Header / Nav (matches global checkbox-hack nav) -->
   <div class="small-banner">
-    <div class="banner-header">
+    <div class="banner-header ai-nav">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-      <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+
+      <!-- CSS-only mobile toggle -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </label>
+
+      <!-- Desktop Nav -->
       <nav class="desktop-nav">
-        <a href="index.html">Home</a>
-        <a href="cloud.html" class="active">Cloud Service Suite</a>
-        <a href="consulting.html">Consulting</a>
-        <a href="talent.html">Talent Placement</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
+        <a href="index.html" class="nav-btn">HOME</a>
+        <a href="consulting.html" class="nav-btn">CONSULTING</a>
+        <a href="cloud.html" class="nav-btn active">CLOUD SUITE</a>
+        <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
+        <a href="talent.html" class="nav-btn">TALENT</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="about.html" class="nav-btn">ABOUT</a>
+        <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
-      <nav class="mobile-nav" id="mobileMenu">
-        <a href="index.html">Home</a>
-        <a href="cloud.html" class="active">Cloud Service Suite</a>
-        <a href="consulting.html">Consulting</a>
-        <a href="talent.html">Talent Placement</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact</a>
+
+      <!-- Mobile Nav -->
+      <nav class="mobile-nav" id="mobileMenu" aria-label="Mobile">
+        <a href="index.html">HOME</a>
+        <a href="consulting.html">CONSULTING</a>
+        <a href="cloud.html" class="active">CLOUD SUITE</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="talent.html">TALENT</a>
+        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
       </nav>
     </div>
   </div>
 
+  <!-- Databricks red strip under header -->
   <div class="red-banner"></div>
 
-  <main class="content" style="max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem;">
+  <!-- Main -->
+  <main class="content" style="max-width:1200px; margin:0 auto; padding:4rem 1.5rem;">
     <h1 class="center-title">Databricks Lakehouse Architecture</h1>
     <p class="center-subtitle">
       CoreCloud delivers Databricks Lakehouse solutions that unify data lakes, data warehousing, and AI into a single open architecture. Eliminate silos, simplify pipelines, and power faster analytics and innovation across your enterprise.
@@ -171,11 +137,12 @@
       </div>
     </section>
 
-    <div style="text-align: center; margin-top: 3rem;">
+    <div style="text-align:center; margin-top:3rem;">
       <a href="contact.html" class="cta-btn">Discuss Lakehouse Architecture →</a>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -185,27 +152,24 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
-          <input type="email" name="email" placeholder="Enter your email" required style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
-          <button type="submit" style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">Subscribe</button>
+        <!-- JS-free submit -->
+        <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec"
+              method="POST"
+              style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="email" name="email" placeholder="Enter your email" required
+                 style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
+          <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
       <div class="footer-right">
         <p>Contact</p>
         <p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
+        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:red; text-decoration:underline; font-weight:bold;">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
     </div>
   </footer>
-
-  <script>
-    document.getElementById("hamburger").addEventListener("click", function() {
-      this.classList.toggle("active");
-      document.getElementById("mobileMenu").classList.toggle("active");
-    });
-  </script>
 </body>
 </html>
