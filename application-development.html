@@ -22,18 +22,16 @@
     /* Narrower main for this page */
     .appdev-page main.content{ max-width:1200px; margin:0 auto; padding:0 1.5rem 4rem; }
 
-    /* Optional: ensure CTA buttons inside these cards are uniform */
+    /* Uniform CTAs inside cards */
     .appdev-page .card .cta-btn{
       display:flex; align-items:center; justify-content:center;
       width:100%; min-height:48px; font-weight:700;
       margin-top:auto;
     }
 
-    /* Borderless “Start a Conversation” block (matches Cloud’s bottom CTA style) */
+    /* Bottom CTA uses a card shell but no border/shadow */
     .cta-card{ background:none !important; box-shadow:none !important; border:none !important; padding:0 !important; }
     .cta-card .cta-btn{ width:100%; display:block; margin:0; }
-
-    /* (Using the global .force-4 grid for consistency) */
   </style>
 </head>
 
@@ -138,9 +136,12 @@
       </div>
     </section>
 
-    <section class="section" style="text-align:center;">
-      <div class="card cta-card">
-        <a href="contact.html" class="cta-btn">Start a Conversation</a>
+    <!-- Bottom CTA: same width as a single card -->
+    <section class="section">
+      <div class="card-grid force-4">
+        <div class="card cta-card">
+          <a href="contact.html" class="cta-btn">Start a Conversation</a>
+        </div>
       </div>
     </section>
   </main>
