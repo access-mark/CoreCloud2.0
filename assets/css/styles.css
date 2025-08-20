@@ -3,7 +3,7 @@
    Central source of truth
    - Stable header + logo (no CLS)
    - Slim transparent nav
-   - Picture-based hero ready (and legacy .page-banner supported)
+   - Picture-based hero ready (legacy .page-banner still supported)
    - Consistent grids/CTAs/footer
    =========================== */
 
@@ -146,7 +146,6 @@ main.content{
   margin:0 auto; padding:0 1.5rem 4rem;
   flex:1 0 auto;
 }
-/* If first block is a hero title below a banner, keep consistent spacing */
 .page-banner + .content .hero-title,
 .page-banner + section .hero-title{ margin-top:2.5rem !important; }
 .page-banner + section{ padding-top:0 !important; }
