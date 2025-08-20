@@ -1,3 +1,12 @@
+/* ===========================
+   CoreCloud — assets/css/styles.css
+   Central source of truth
+   - Stable header + logo (no CLS)
+   - Slim transparent nav
+   - Banners cropped to 300px (cover)
+   - Consistent grids/CTAs/footer
+   =========================== */
+
 /* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { height: 100%; }
@@ -17,6 +26,10 @@ img { max-width: 100%; height: auto; display: block; }
   /* Header / Logo geometry (fixed = no layout shift) */
   --logo-h-desktop: 120px;
   --logo-h-mobile: 80px;
+
+  /* Banner standard (locked height, cropped) */
+  --banner-height: 300px;              /* desktop */
+  --banner-bg: var(--light-bg);
 
   /* Content width */
   --container: 1200px;
@@ -63,13 +76,13 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
   border-bottom:0 !important; box-shadow:none !important;
 }
 
-/* ✅ Logo: intrinsic aspect ratio preserved, never stretched */
+/* Logo: preserves ratio, never stretched */
 .logo{
-  max-height: var(--logo-h-desktop);  /* fits inside header */
-  width: auto;                        /* width flows naturally */
-  height: auto;                       /* preserve ratio */
+  max-height: var(--logo-h-desktop);
+  width: auto;
+  height: auto;
   display: block;
-  object-fit: contain;                /* safety net for odd source dims */
+  object-fit: contain;
   margin: 0;
 }
 
@@ -119,15 +132,35 @@ nav.mobile-nav a:last-child{ border-bottom:none; }
 #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity:0; }
 #nav-toggle:checked + label.hamburger span:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
 
-/* ===== Hero / Banner ===== */
+/* ===== Hero / Banner (CROPPED @ 300px) ===== */
 
-/* New hero (picture-based). Keeps height flexible; use real image dimensions. */
-.hero-media picture, .hero-media img{ display:block; width:100%; height:auto; }
+/* Picture-based hero */
+.hero-media{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  height: var(--banner-height);
+  background: var(--banner-bg);
+  overflow:hidden;
+}
+.hero-media picture{ width:100%; height:100%; display:block; }
+.hero-media img{
+  width:100%;
+  height:100%;
+  object-fit: cover;   /* crop to fill */
+  display:block;
+}
 
-/* Legacy CSS banner still supported until all pages migrate */
+/* Legacy background-image banner */
 .page-banner{
-  height:300px; background-size:cover; background-position:center; background-repeat:no-repeat;
-  width:100%; overflow:hidden;
+  width:100%;
+  height: var(--banner-height) !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;   /* crop to fill */
+  background-color: var(--banner-bg) !important;
+  overflow:hidden;
 }
 
 /* Content spacing after hero/banner */
@@ -186,7 +219,10 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
   .banner-header{ min-height: var(--logo-h-mobile); }
   .logo{ max-height: var(--logo-h-mobile); }
 
-  .page-banner{ height:250px; }
+  /* Optional: if you want a shorter banner on mobile, uncomment:
+  :root{ --banner-height: 220px; }
+  */
+
   .hero-title{ font-size:2rem; }
 
   .banner-header #nav-toggle:checked ~ nav.mobile-nav{
