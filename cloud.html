@@ -32,7 +32,7 @@
     .azure-card h3, .azure-card p,
     .databricks-card h3, .databricks-card p{ color:#ffffff; }
 
-    /* Tile backgrounds (borders come from global .card) */
+    /* Tile backgrounds (card borders come from global .card) */
     .aws-card{ background-color:#ff9900; }
     .azure-card{ background-color:#007fff; }
     .databricks-card{ background-color:#ff3621; }
@@ -43,12 +43,19 @@
       width:100%; min-height:48px;
       font-weight:700;
     }
-    /* Brand-inverted CTAs on colored tiles */
+
+    /* --- CTA: remove borders everywhere --- */
+    .cta-btn{
+      border:none !important;
+      box-shadow:none !important;
+    }
+
+    /* Inverted CTAs on colored tiles (still no borders) */
     .aws-card .cta-btn,
     .azure-card .cta-btn,
     .databricks-card .cta-btn{
       background-color:#ffffff !important;
-      border:2px solid #ffffff !important;
+      color:#222 !important; /* base */
     }
     .aws-card .cta-btn{ color:#ff9900 !important; }
     .azure-card .cta-btn{ color:#007fff !important; }
@@ -58,8 +65,10 @@
     .azure-card .cta-btn:hover,
     .databricks-card .cta-btn:hover{
       background-color:#f2f2f2 !important;
-      border-color:#f2f2f2 !important;
     }
+
+    /* Bottom standalone CTA section: ensure no card/border wraps it */
+    .no-frame{ background:none; box-shadow:none; border:none; }
 
     /* Make hamburger visible on mobile (behavior handled globally) */
     @media (max-width:768px){
@@ -205,7 +214,7 @@
       <p style="max-width:900px; margin:0 auto 1.5rem;">
         Looking for Cloud-Native Apps, Portals, or Mobile &amp; Web? Visit our Application Development page.
       </p>
-      <div class="card" style="background:none; box-shadow:none; border:none;">
+      <div class="card no-frame">
         <a href="application-development.html" class="cta-btn">Explore Application Development</a>
       </div>
     </section>
