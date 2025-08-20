@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CoreCloud | Cloud Consulting, AWS Services & Talent – South Africa</title>
   <meta name="description" content="CoreCloud helps South African enterprises drive real results through precise sales consulting, cloud modernisation, elite ICT talent placement, and application development." />
-  <meta name="keywords" content="CoreCloud, Cloud Services South Africa, AWS Migration, Sales Consulting, Talent Placement, Application Development" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
 
@@ -21,11 +20,11 @@
   <!-- CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <!-- Preload: logo + current PNG hero (never 404s) -->
+  <!-- Preload: logo + home hero for faster LCP -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/index-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-only micro tweaks -->
+  <!-- Home-only tweaks -->
   <style>
     .card-grid a, .card-grid a:hover, .card-grid a:visited { text-decoration: none; color: inherit; }
     .card-grid.force-4 .cta-wide { grid-column: 1 / -1; }
@@ -37,18 +36,16 @@
 </head>
 
 <body class="home-page">
-  <!-- Header / Nav (shared) -->
+  <!-- Header / Nav -->
   <div class="small-banner">
-    <div class="banner-header ai-nav">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" decoding="async" fetchpriority="high" />
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" decoding="async" fetchpriority="high">
 
-      <!-- CSS-only toggle -->
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Desktop -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn active">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
@@ -60,7 +57,6 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html" class="active">HOME</a>
         <a href="consulting.html">CONSULTING</a>
@@ -74,23 +70,9 @@
     </div>
   </div>
 
-  <!-- Hero (picture-based with PNG fallback ready now, AVIF/WEBP later) -->
+  <!-- Hero -->
   <div class="hero-media">
-    <picture>
-      <source type="image/avif"
-              srcset="assets/images/index-bannerimage-800.avif 800w,
-                      assets/images/index-bannerimage-1200.avif 1200w,
-                      assets/images/index-bannerimage-1600.avif 1600w"
-              sizes="(min-width:1024px) 90vw, 100vw">
-      <source type="image/webp"
-              srcset="assets/images/index-bannerimage-800.webp 800w,
-                      assets/images/index-bannerimage-1200.webp 1200w,
-                      assets/images/index-bannerimage-1600.webp 1600w"
-              sizes="(min-width:1024px) 90vw, 100vw">
-      <img src="assets/images/index-bannerimage.png"
-           alt="CoreCloud — Strategy, Cloud, Talent, Applications"
-           decoding="async" fetchpriority="high">
-    </picture>
+    <img src="assets/images/index-bannerimage.png" alt="CoreCloud — Strategy, Cloud, Talent, Applications" decoding="async" fetchpriority="high">
   </div>
 
   <!-- Hero copy -->
@@ -169,7 +151,7 @@
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form id="subscribe-form" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
+          <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;">
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
