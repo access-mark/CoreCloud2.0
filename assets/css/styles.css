@@ -3,7 +3,7 @@
    Central source of truth
    - Stable header + logo (no CLS)
    - Slim transparent nav
-   - Picture-based hero ready (legacy .page-banner still supported)
+   - Picture-based hero (legacy .page-banner still supported)
    - Consistent grids/CTAs/footer
    =========================== */
 
@@ -26,7 +26,6 @@ img { max-width: 100%; height: auto; display: block; }
   /* Header / Logo geometry (fixed = no layout shift) */
   --logo-h-desktop: 80px;
   --logo-h-mobile: 64px;
-  --logo-aspect: 220 / 64; /* update if your logo aspect differs */
 
   /* Content width */
   --container: 1200px;
@@ -68,19 +67,19 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
   max-width:var(--container); margin:0 auto;
   padding:0 !important;
   min-height: var(--logo-h-desktop); /* fixed height prevents CLS */
-  position: relative;
-}
-.banner-header.ai-nav{
-  position:sticky; top:0; z-index:1000;
+  position: sticky; top: 0; z-index: 1000; /* keep header stable */
   background: transparent !important;
   border-bottom:0 !important; box-shadow:none !important;
 }
 
-/* Logo: reserve exact space with aspect-ratio so width is known immediately */
+/* ✅ Logo: intrinsic aspect ratio preserved, never stretched */
 .logo{
-  height: var(--logo-h-desktop);
-  width: auto; aspect-ratio: var(--logo-aspect);
-  display:block; margin:0;
+  max-height: var(--logo-h-desktop);  /* fits inside header */
+  width: auto;                        /* width flows naturally */
+  height: auto;                       /* preserve ratio */
+  display: block;
+  object-fit: contain;                /* safety net for odd source dims */
+  margin: 0;
 }
 
 /* Desktop Nav */
@@ -94,13 +93,13 @@ nav.desktop-nav .nav-btn:hover,
 nav.desktop-nav .nav-btn.active{ color:#005fa3; }
 
 /* Underline hover (no pills) */
-.banner-header.ai-nav .desktop-nav .nav-btn::after{
+.banner-header .desktop-nav .nav-btn::after{
   content:""; position:absolute; left:8px; right:8px; bottom:4px; height:2px;
   background:linear-gradient(90deg, var(--gold), var(--dark-blue));
   transform:scaleX(0); transform-origin:left; transition:transform .25s ease; opacity:.9;
 }
-.banner-header.ai-nav .desktop-nav .nav-btn:hover::after,
-.banner-header.ai-nav .desktop-nav .nav-btn:focus-visible::after{ transform:scaleX(1); }
+.banner-header .desktop-nav .nav-btn:hover::after,
+.banner-header .desktop-nav .nav-btn:focus-visible::after{ transform:scaleX(1); }
 
 /* Mobile Nav (checkbox hack) */
 .nav-toggle{ position:absolute; left:-9999px; }
@@ -194,18 +193,18 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
   .hamburger{ display:flex; }
 
   .banner-header{ min-height: var(--logo-h-mobile); }
-  .logo{ height: var(--logo-h-mobile); }
+  .logo{ max-height: var(--logo-h-mobile); }
 
   .page-banner{ height:250px; }
   .hero-title{ font-size:2rem; }
 
-  .banner-header.ai-nav #nav-toggle:checked ~ nav.mobile-nav{
+  .banner-header #nav-toggle:checked ~ nav.mobile-nav{
     display:flex !important; position:fixed; inset:0; top:0;
     padding:5rem 1.5rem 2rem; background:rgba(255,255,255,.9);
     -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
     flex-direction:column; gap:1rem; box-shadow:none;
   }
-  .banner-header.ai-nav nav.mobile-nav a{
+  .banner-header nav.mobile-nav a{
     padding:.9rem 1rem; border-radius:12px;
     background:rgba(0,79,145,.06); border:1px solid rgba(0,79,145,.12); font-weight:700;
   }
@@ -216,5 +215,5 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
 
 /* Reduced transparency preference */
 @media (prefers-reduced-transparency: reduce){
-  .banner-header.ai-nav{ background:#fff !important; backdrop-filter:none; -webkit-backdrop-filter:none; }
+  .banner-header{ background:#fff !important; backdrop-filter:none; -webkit-backdrop-filter:none; }
 }
