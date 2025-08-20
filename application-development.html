@@ -19,7 +19,6 @@
       font-size:2rem; color:var(--dark-blue); font-weight:700;
       text-align:center; margin:2.5rem auto 1rem;
     }
-    /* Narrower main for this page */
     .appdev-page main.content{ max-width:1200px; margin:0 auto; padding:0 1.5rem 4rem; }
 
     /* Uniform CTAs inside cards */
@@ -29,8 +28,9 @@
       margin-top:auto;
     }
 
-    /* Bottom CTA uses a card shell but no border/shadow */
+    /* Bottom CTA spans the width of 4 cards */
     .cta-card{ background:none !important; box-shadow:none !important; border:none !important; padding:0 !important; }
+    .cta-wide{ grid-column:1 / -1; } /* <-- spans all 4 columns */
     .cta-card .cta-btn{ width:100%; display:block; margin:0; }
   </style>
 </head>
@@ -136,10 +136,10 @@
       </div>
     </section>
 
-    <!-- Bottom CTA: same width as a single card -->
+    <!-- Bottom CTA: full width (spans 4 columns) -->
     <section class="section">
       <div class="card-grid force-4">
-        <div class="card cta-card">
+        <div class="card cta-card cta-wide">
           <a href="contact.html" class="cta-btn">Start a Conversation</a>
         </div>
       </div>
