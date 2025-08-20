@@ -22,59 +22,9 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/corecloud-theme.css?v=2025-08-20" />
 
-  <!-- Page-scoped tweaks: transparent header + tighter, lighter nav + CTA fix -->
+  <!-- Page-scoped tweaks: ONLY page content layout (no header/nav/logo rules here) -->
   <style>
-    /* Transparent header strip (no white behind nav/logo) */
-    .home-page .small-banner{
-      background: transparent !important;
-      box-shadow: none !important;
-      padding: .15rem .9rem 0; /* slimmer header */
-    }
-    .home-page .banner-header.ai-nav{
-      background: transparent !important;
-      -webkit-backdrop-filter: none !important;
-      backdrop-filter: none !important;
-      border-bottom: 0 !important;
-      box-shadow: none !important;
-      position: sticky; top: 0; z-index: 1000;
-    }
-
-    /* Logo + nav sizing */
-    .home-page .logo{ height:120px; width:auto; }
-    .home-page .desktop-nav{ gap:.75rem; flex-wrap:nowrap; }
-
-    /* Tighter padding + lighter weight so text doesn’t wrap */
-    .home-page .desktop-nav .nav-btn{
-      font-size:.82rem;
-      font-weight:600;          /* lighter */
-      padding:.35rem .6rem;     /* tighter */
-    }
-    /* Match underline to tighter padding (keeps hover line centered) */
-    .home-page .banner-header.ai-nav .desktop-nav .nav-btn::after{
-      left:8px; right:8px; bottom:4px;
-    }
-
-    /* ---- Global CTA fix (hero/footer/non-card) ---- */
-    .home-page .cta-btn,
-    .home-page a.cta-btn,
-    .home-page button.cta-btn{
-      display:inline-block;
-      padding:.8rem 1.6rem;
-      border-radius:6px;
-      background:var(--primary-blue);
-      color:#fff !important;
-      font-weight:600;
-      text-decoration:none;
-      line-height:1;
-      border:none;
-      cursor:pointer;
-      transition:background-color .25s ease, transform .02s ease;
-    }
-    .home-page .cta-btn:hover{ background:var(--dark-blue); }
-    .home-page .cta-btn:active{ transform:translateY(1px); }
-    .home-page .cta-btn:focus-visible{ outline:2px solid var(--dark-blue); outline-offset:2px; }
-
-    /* Card CTA consistency (keeps full-width inside card tiles) */
+    /* Card CTA consistency */
     .card-grid a, .card-grid a:hover, .card-grid a:visited{ text-decoration:none; color:inherit; }
     .card .cta-btn{
       width:100%; min-height:48px;
@@ -83,40 +33,27 @@
     }
 
     /* Why/What/How fixed 3/2/1 */
-    .home-page #focus-method-section .card-grid.lock-columns{
+    #focus-method-section .card-grid.lock-columns{
       display:grid; gap:2rem; max-width:1100px; margin:1.5rem auto 0;
       grid-template-columns:repeat(3,minmax(280px,1fr));
     }
     @media (max-width:900px){
-      .home-page #focus-method-section .card-grid.lock-columns{ grid-template-columns:repeat(2,minmax(260px,1fr)); }
+      #focus-method-section .card-grid.lock-columns{ grid-template-columns:repeat(2,minmax(260px,1fr)); }
     }
     @media (max-width:600px){
-      .home-page #focus-method-section .card-grid.lock-columns{ grid-template-columns:1fr; }
+      #focus-method-section .card-grid.lock-columns{ grid-template-columns:1fr; }
     }
 
-    /* Banner-sized cards */
-    .home-page .imprinting,
-    .home-page .insights{ max-width:1100px; margin:3rem auto; padding:0 2rem; }
-    .home-page .imprinting .card,
-    .home-page .insights .card{
+    /* Banner-sized blocks */
+    .imprinting, .insights{ max-width:1100px; margin:3rem auto; padding:0 2rem; }
+    .imprinting .card, .insights .card{
       padding:3rem 2rem; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.1); background:#fff;
     }
-    .home-page .insights .card{
+    .insights .card{
       display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;
     }
-    .home-page .insights .card h3{ margin:0 0 .5rem; color:var(--dark-blue,#004f91); }
-    .home-page .insights .card p{ margin:0; max-width:800px; }
-
-    /* Mobile overlay menu */
-    @media (max-width:768px){
-      .home-page .banner-header.ai-nav #nav-toggle:checked ~ nav.mobile-nav{
-        display:flex !important; position:fixed; inset:0; top:0;
-        padding:5rem 1.5rem 2rem; background:rgba(255,255,255,.95);
-        -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
-        flex-direction:column; gap:1rem; box-shadow:none;
-      }
-      .home-page .logo{ height:90px; }
-    }
+    .insights .card h3{ margin:0 0 .5rem; color:var(--dark-blue); }
+    .insights .card p{ margin:0; max-width:800px; }
   </style>
 </head>
 
@@ -171,10 +108,10 @@
   </section>
 
   <main class="content">
-    <!-- About CoreCloud (no top divider line) -->
+    <!-- About CoreCloud -->
     <section style="padding:0 1rem 2rem; text-align:center; margin:0 auto 2rem; max-width:1000px;">
       <h2 class="section-title">About CoreCloud</h2>
-      <p style="font-size:1.1rem; color:#444444; line-height:1.7; margin-bottom:0;">
+      <p style="font-size:1.1rem; color:#444; line-height:1.7; margin-bottom:0;">
         CoreCloud isn’t theory. We’re about action. Our team of seasoned executives has navigated real boardroom pressure and knows how to make change stick. We deliver tangible results in sales, cloud technology, talent strategy, and application development. Clients work with us because we focus on one thing: outcomes that move the needle.
       </p>
     </section>
@@ -185,7 +122,7 @@
         <h2 class="section-title" style="margin-bottom:1rem;">
           Dynamic Imprinting: Executive Identity Transformation
         </h2>
-        <p style="font-size:1.1rem; color:#444444; max-width:900px; margin:0 auto 2rem; line-height:1.7;">
+        <p style="font-size:1.1rem; color:#444; max-width:900px; margin:0 auto 2rem; line-height:1.7;">
           Leadership isn’t a title. It’s how you show up when it counts. Dynamic Imprinting helps executives break old habits, lead authentically, and perform under pressure. It’s how leaders turn intention into instinct and real impact.
         </p>
         <a href="dynamic-imprinting.html" class="cta-btn">Learn More</a>
@@ -254,38 +191,4 @@
         <a href="talent.html" class="card">
           <div>
             <h3>Talent Placement</h3>
-            <p>Top talent, rigorously vetted and matched to your business needs.</p>
-          </div>
-          <span class="cta-btn">Learn More</span>
-        </a>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-left">
-        <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton,<br>Johannesburg</p>
-      </div>
-      <div class="footer-middle">
-        <h4>Stay Informed</h4>
-        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
-          <button type="submit" class="cta-btn">Subscribe</button>
-        </form>
-      </div>
-      <div class="footer-right">
-        <p>Contact</p>
-        <p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
-    </div>
-  </footer>
-</body>
-</html>
+            <p>Top talent, rigorously vetted and matched to your business needs
