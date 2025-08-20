@@ -9,64 +9,11 @@
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
 
-  <!-- Use local stylesheet + cache buster -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=aws-migration-fix1" />
+  <!-- Global site styles (controls nav/logo sizing/spacing) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=aws-migration-clean" />
 
-  <!-- Page-scoped overrides to perfectly match Home’s header/nav -->
-  <style id="aws-migration-fix">
-    /* Transparent, slim header like Home */
-    .aws-migration-page .small-banner{
-      background: transparent !important;
-      box-shadow: none !important;
-      padding: 0 .9rem 0 !important; /* no extra top/bottom padding */
-      width: 100%;
-    }
-    .aws-migration-page .banner-header{
-      position: sticky; top: 0; z-index: 1000;
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .aws-migration-page .banner-header.ai-nav{
-      background: transparent !important;
-      border: 0 !important; box-shadow: none !important;
-    }
-
-    /* Logo size (matches Home) */
-    .aws-migration-page .logo{ height:160px !important; width:auto !important; }
-    @media (max-width:768px){ .aws-migration-page .logo{ height:120px !important; } }
-
-    /* Desktop nav spacing/weight like Home */
-    .aws-migration-page nav.desktop-nav{ gap:.75rem !important; flex-wrap:nowrap !important; }
-    .aws-migration-page nav.desktop-nav .nav-btn{
-      font-size:.82rem !important; font-weight:600 !important; line-height:1 !important;
-      padding:.35rem .6rem !important; text-transform:uppercase !important; white-space:nowrap !important;
-      text-decoration:none !important;
-    }
-    .aws-migration-page nav.desktop-nav .nav-btn:hover,
-    .aws-migration-page nav.desktop-nav .nav-btn.active{ color:#005fa3 !important; }
-
-    /* Mobile overlay (checkbox hack) */
-    .aws-migration-page .nav-toggle{ position:absolute; left:-9999px; }
-    .aws-migration-page .hamburger{ display:none; flex-direction:column; cursor:pointer; gap:5px; }
-    .aws-migration-page .hamburger span{ width:25px; height:3px; background:#003366; border-radius:2px; transition:all .3s ease; }
-
-    /* Reveal full-screen mobile menu when checked */
-    #nav-toggle:checked ~ nav.mobile-nav{
-      display:flex !important; position:fixed !important; inset:0 !important; top:0 !important;
-      padding:5rem 1.5rem 2rem !important; background:rgba(255,255,255,.95) !important;
-      -webkit-backdrop-filter:blur(10px) !important; backdrop-filter:blur(10px) !important;
-      flex-direction:column !important; gap:1rem !important; box-shadow:none !important;
-    }
-    /* Morph hamburger to X */
-    #nav-toggle:checked + label.hamburger span:nth-child(1){ transform:rotate(45deg) translate(5px,5px); }
-    #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity:0; }
-    #nav-toggle:checked + label.hamburger span:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
-
-    @media (max-width:768px){
-      .aws-migration-page .hamburger{ display:flex; }
-    }
-
-    /* Page-specific helpers (cards/checklist spacing) */
+  <!-- Page-scoped styles: content ONLY -->
+  <style>
     .center-subtitle{
       text-align:center; color:#444; font-size:1.1rem;
       margin:0 auto 2rem; max-width:900px; line-height:1.6;
@@ -77,7 +24,7 @@
     .card{
       background:#fff; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,.08);
       padding:1.5rem; max-width:360px; flex:1 1 300px; text-align:center;
-      border:2px solid var(--dark-blue); /* matches global card border look */
+      /* border comes from global .card (dark-blue) */
     }
     .card h3{ font-size:1.2rem; color:#0066b2; margin-bottom:.8rem; }
     .card p{ font-size:.95rem; color:#333; }
@@ -89,7 +36,8 @@
     ul.checklist li::before{
       content:"✔"; margin-right:.5rem; color:green; font-weight:bold;
     }
-    /* CTA button (uses site look) */
+
+    /* Standalone CTA (outside cards) */
     .cta-btn{
       display:inline-block; margin-top:2rem; background:var(--primary-blue);
       color:#fff; padding:.8rem 1.5rem; font-weight:bold; border-radius:8px; text-decoration:none;
@@ -100,7 +48,7 @@
 </head>
 
 <body class="aws-migration-page">
-  <!-- Header / Nav -->
+  <!-- Header / Nav (inherits global: slim transparent, logo size, underline hover) -->
   <div class="small-banner">
     <div class="banner-header ai-nav">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
@@ -169,11 +117,11 @@
       <h2 class="section-title">What We Deliver</h2>
       <div style="display:flex; justify-content:center;">
         <ul class="checklist">
-          <li>Cloud Readiness Assessments & Business Case Justification</li>
-          <li>Detailed Migration Planning & Proof-of-Concept Pilots</li>
-          <li>Workload Segmentation, Prioritization & Landing Zone Design</li>
+          <li>Cloud Readiness Assessments &amp; Business Case Justification</li>
+          <li>Detailed Migration Planning &amp; Proof-of-Concept Pilots</li>
+          <li>Workload Segmentation, Prioritization &amp; Landing Zone Design</li>
           <li>Secure, Automated Migration Execution with Minimal Downtime</li>
-          <li>Post-Migration Validation, Optimization & Governance Controls</li>
+          <li>Post-Migration Validation, Optimization &amp; Governance Controls</li>
         </ul>
       </div>
     </section>
@@ -224,7 +172,6 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <!-- JS-free submit -->
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec"
               method="POST"
               style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
