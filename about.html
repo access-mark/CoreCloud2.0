@@ -9,6 +9,7 @@
 
   <!-- Page-scoped tweaks (minimal) -->
   <style>
+    /* Hero + intro */
     .about-page .hero-title{
       font-size:2rem; font-weight:700; color:var(--dark-blue);
       text-align:center; margin:2.5rem auto 1rem;
@@ -17,9 +18,28 @@
       font-size:1.2rem; line-height:1.8; text-align:center;
       max-width:900px; margin:0 auto;
     }
+
+    /* Bio card */
     .about-page .bio-card{ max-width:700px; margin:0 auto; }
     .about-page .bio-card img{
       width:100%; max-width:300px; border-radius:12px; margin:0 auto 1rem; display:block;
+    }
+
+    /* Page CTA — consistent look, centered, mobile-friendly */
+    .about-page .page-cta{ text-align:center; margin-top:2rem; }
+    .about-page .page-cta .cta-btn{
+      display:inline-block; width:auto; min-height:48px;
+      padding:.85rem 1.6rem; border-radius:6px;
+      background:var(--primary-blue); color:#fff !important;
+      font-weight:700; text-decoration:none; line-height:1;
+      border:none; box-shadow:none; cursor:pointer;
+      transition:background-color .25s ease, transform .02s ease;
+    }
+    .about-page .page-cta .cta-btn:hover{ background:var(--dark-blue); }
+    .about-page .page-cta .cta-btn:active{ transform:translateY(1px); }
+    .about-page .page-cta .cta-btn:focus-visible{ outline:2px solid var(--dark-blue); outline-offset:2px; }
+    @media (max-width:640px){
+      .about-page .page-cta .cta-btn{ width:100%; max-width:520px; }
     }
   </style>
 </head>
@@ -65,7 +85,7 @@
   <!-- Banner -->
   <div class="page-banner" style="background-image:url('assets/images/about-bannerimage.png');"></div>
 
-  <!-- NOTE: no top padding here to keep spacing consistent with other pages -->
+  <!-- No top padding to keep spacing consistent with other pages -->
   <main class="content" style="max-width:1200px; margin:0 auto; padding:0 1.5rem 4rem;">
     <h1 class="hero-title">About CoreCloud</h1>
 
@@ -105,8 +125,8 @@
       </p>
     </section>
 
-    <div style="text-align:center; margin-top:2rem;">
-      <a href="contact.html" class="cta-btn">Meet With Me</a>
+    <div class="page-cta">
+      <a href="contact.html" class="cta-btn" aria-label="Meet With Me">Meet With Me</a>
     </div>
   </main>
 
