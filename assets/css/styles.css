@@ -1,11 +1,12 @@
 /* ===========================
    CoreCloud — assets/css/styles.css
    - Slim, transparent nav (site-wide)
-   - Logo: 160px desktop / 120px mobile BASE, but trim 2rem top+bottom (4rem total)
+   - Logo: 160px desktop / 120px mobile BASE, trimmed by 2rem per-side
+   - + Add 1rem top & bottom spacing around logo (via margin)
    - Guard: never smaller than 64px
    - No active pill (underline hover)
    - Normalized spacing under banner
-   - No vertical padding above/below logo
+   - No header padding; spacing comes from logo margins
    =========================== */
 
 /* Reset */
@@ -29,6 +30,9 @@
   /* Trim 2rem from top and bottom => 4rem total off */
   --logo-vertical-trim: 2rem;          /* per-side trim */
   --logo-total-trim: calc(2 * var(--logo-vertical-trim));
+
+  /* Extra vertical spacing around the logo (requested: 1rem top & bottom) */
+  --logo-extra-y: 1rem;
 }
 
 /* Base */
@@ -55,7 +59,7 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
   font-size:2rem; text-align:center; color:var(--dark-blue); margin-bottom:1.5rem;
 }
 
-/* Header (slim + transparent, no vertical padding) */
+/* Header (slim + transparent, no header padding) */
 .small-banner{
   background: transparent !important;
   box-shadow: none !important;
@@ -66,7 +70,7 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
   display:flex; align-items:center; justify-content:space-between;
   max-width:1200px; margin:0 auto;
   padding: 0 !important;                       /* flush container */
-  /* Header height = trimmed logo height, but never < 64px */
+  /* Header min-height = trimmed logo height, but never < 64px */
   min-height: max(64px, calc(var(--logo-h-desktop) - var(--logo-total-trim)));
 }
 .banner-header.ai-nav{
@@ -75,12 +79,14 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
   border-bottom:0 !important;
   box-shadow:none !important;
 }
-/* Logo height trimmed; never < 64px */
+
+/* Logo height trimmed; never < 64px
+   + add 1rem top & bottom spacing via margin */
 .logo{
   height: max(64px, calc(var(--logo-h-desktop) - var(--logo-total-trim)));
   width:auto;
-  display:block; /* remove baseline gap */
-  margin:0;
+  display:block;           /* remove baseline gap */
+  margin: var(--logo-extra-y) 0;  /* << added vertical spacing */
 }
 
 /* Desktop Nav */
@@ -190,14 +196,16 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
 @media (max-width:768px){
   nav.desktop-nav{ display:none; }
   .hamburger{ display:flex; }
-  /* Trimmed mobile logo; never < 64px */
+
+  /* Trimmed mobile logo; never < 64px; keep the same 1rem vertical spacing */
   .logo{
     height: max(64px, calc(var(--logo-h-mobile) - var(--logo-total-trim)));
+    margin: var(--logo-extra-y) 0;
   }
   .page-banner{ height:250px; }
   .hero-title{ font-size:2rem; }
 
-  /* Header height equals trimmed mobile logo height */
+  /* Header min-height equals trimmed mobile logo height (actual header will be logo height + margins) */
   .banner-header{
     min-height: max(64px, calc(var(--logo-h-mobile) - var(--logo-total-trim)));
   }
