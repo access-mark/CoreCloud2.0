@@ -18,17 +18,17 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- CSS: base first, then theme -->
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link rel="stylesheet" href="assets/css/corecloud-theme.css?v=2025-08-20" />
 
-  <!-- Page-scoped tweaks: transparent header, slimmer height, smaller nav text (no wrap) -->
+  <!-- Page-scoped tweaks: transparent header + tighter, lighter nav -->
   <style>
-    /* Fully transparent header strip (no white behind logo/nav) */
+    /* Transparent header strip */
     .home-page .small-banner{
       background: transparent !important;
       box-shadow: none !important;
-      padding: .25rem 1.25rem 0; /* slimmer header */
+      padding: .15rem .9rem 0; /* slimmer */
     }
     .home-page .banner-header.ai-nav{
       background: transparent !important;
@@ -39,37 +39,43 @@
       position: sticky; top: 0; z-index: 1000;
     }
 
-    /* Logo + nav sizing so items don't wrap */
-    .home-page .logo{ height:120px; width:auto; }  /* adjust here if you want larger/smaller */
-    .home-page .desktop-nav{ gap: 1rem; flex-wrap: nowrap; }
-    .home-page .desktop-nav .nav-btn{ font-size: .85rem; }
+    /* Logo + nav sizing */
+    .home-page .logo{ height:120px; width:auto; }
+    .home-page .desktop-nav{ gap:.75rem; flex-wrap:nowrap; }
 
-    /* Keep card links unstyled */
-    .card-grid a,
-    .card-grid a:hover,
-    .card-grid a:visited { text-decoration: none; color: inherit; }
+    /* Lighter weight + tighter padding so it never wraps */
+    .home-page .desktop-nav .nav-btn{
+      font-size:.82rem;
+      font-weight:600;            /* was 700 */
+      padding:.35rem .6rem;       /* tighter */
+    }
+    /* Adjust underline to match tighter padding */
+    .home-page .banner-header.ai-nav .desktop-nav .nav-btn::after{
+      left:8px; right:8px; bottom:4px;
+    }
 
-    /* Uniform CTA buttons inside cards (width + bottom pin) */
+    /* Card link + CTA consistency */
+    .card-grid a, .card-grid a:hover, .card-grid a:visited{ text-decoration:none; color:inherit; }
     .card .cta-btn{
       width:100%; min-height:48px; display:inline-flex; align-items:center; justify-content:center;
       padding:0 1rem; box-sizing:border-box; margin-top:auto;
     }
 
-    /* Why/What/How fixed 3/2/1 without JS */
+    /* Why/What/How fixed 3/2/1 */
     .home-page #focus-method-section .card-grid.lock-columns{
       display:grid; gap:2rem; max-width:1100px; margin:1.5rem auto 0;
       grid-template-columns:repeat(3,minmax(280px,1fr));
     }
-    @media (max-width: 900px){
+    @media (max-width:900px){
       .home-page #focus-method-section .card-grid.lock-columns{ grid-template-columns:repeat(2,minmax(260px,1fr)); }
     }
-    @media (max-width: 600px){
+    @media (max-width:600px){
       .home-page #focus-method-section .card-grid.lock-columns{ grid-template-columns:1fr; }
     }
 
-    /* Banner-sized cards for Imprinting + News (same footprint) */
+    /* Banner-sized cards */
     .home-page .imprinting,
-    .home-page .insights { max-width:1100px; margin:3rem auto; padding:0 2rem; }
+    .home-page .insights{ max-width:1100px; margin:3rem auto; padding:0 2rem; }
     .home-page .imprinting .card,
     .home-page .insights .card{
       padding:3rem 2rem; border-radius:12px; box-shadow:0 2px 10px rgba(0,0,0,0.1); background:#fff;
@@ -80,7 +86,7 @@
     .home-page .insights .card h3{ margin:0 0 .5rem; color:var(--dark-blue,#004f91); }
     .home-page .insights .card p{ margin:0; max-width:800px; }
 
-    /* Mobile menu stays an overlay ONLY when opened (readable on top of banner) */
+    /* Mobile menu = overlay when opened */
     @media (max-width:768px){
       .home-page .banner-header.ai-nav #nav-toggle:checked ~ nav.mobile-nav{
         display:flex !important; position:fixed; inset:0; top:0;
@@ -90,10 +96,6 @@
       }
       .home-page .logo{ height:90px; }
     }
-
-    /* Optional: if banner is dark and you need white nav text, add 'nav-contrast' to banner-header */
-    /* .home-page .banner-header.nav-contrast .desktop-nav .nav-btn{ color:#fff; }
-       .home-page .banner-header.nav-contrast .hamburger span{ background:#fff; } */
   </style>
 </head>
 
