@@ -2,107 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Enterprise Portals | CoreCloud</title>
   <meta name="description" content="CoreCloud designs and delivers secure, scalable enterprise portals for employees, customers, and partners—built to spec and aligned to your cloud strategy." />
-  <meta name="keywords" content="Enterprise Portals South Africa, custom portals, employee self-service, customer portal, CoreCloud apps" />
   <meta name="author" content="CoreCloud" />
-  <link rel="stylesheet" href="assets/css/styles.css" />
-
-  <!-- Page-scoped tweaks: consistent responsive logo + keep header from clipping -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=4" />
+  <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high" />
   <style>
-    /* Consistent, responsive logo (page-only) */
-    .enterprise-portals-page .logo {
-      height: 140px;        /* desktop default */
-      width: auto;
-      max-width: 100%;
-      display: block;
-    }
-    @media (max-width: 1024px){ .enterprise-portals-page .logo { height: 120px; } }
-    @media (max-width: 768px) { .enterprise-portals-page .logo { height: 100px; } }
-    @media (max-width: 480px) { .enterprise-portals-page .logo { height: 80px; } }
-
-    /* Let the small header grow with the logo so it never clips */
-    .enterprise-portals-page .small-banner { height: auto; min-height: 120px; }
-
-    /* Page banner */
-    .page-banner {
-      height: 300px;
-      background-image: url('assets/images/appdev-bannerimage.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      width: 100%;
-    }
-
-    /* Local nav helpers (match the rest of the site) */
-    .small-banner {
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      padding: 0.2rem 2rem;
-      width: 100%;
-    }
-    .banner-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 1.5rem 0;
-    }
-    .hamburger { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
-    .hamburger span { width: 25px; height: 3px; background-color: #003366; border-radius: 2px; transition: all 0.3s ease; }
-    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .hamburger.active span:nth-child(2) { opacity: 0; }
-    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
-
-    nav.mobile-nav {
-      display: none; flex-direction: column; background: #ffffff;
-      width: 100%; position: absolute; top: 160px; left: 0;
-      padding: 1rem; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1001;
-    }
-    nav.mobile-nav.active { display: flex; }
-    nav.mobile-nav a {
-      padding: 0.8rem 0; color: #003366; text-decoration: none; font-weight: bold;
-      border-bottom: 1px solid #ddd;
-    }
-    nav.mobile-nav a:last-child { border-bottom: none; }
-
-    @media screen and (max-width: 768px) {
-      nav.desktop-nav { display: none; }
-      .hamburger { display: flex; }
-    }
-
-    /* Content */
-    main { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; }
-    .hero { text-align: center; margin-top: 3rem; }
-    .hero h1 { font-size: 2.4rem; color: #004f91; margin-bottom: 1rem; font-weight: 700; }
-    .hero p { font-size: 1.1rem; color: #444; max-width: 800px; margin: 0 auto; line-height: 1.6; }
-    .section { margin-top: 3rem; }
-    .section h2 { text-align: center; color: #004f91; font-size: 2rem; margin-bottom: 1rem; font-weight: 700; }
-    .section p, .section ul { max-width: 900px; margin: 0 auto 1.5rem; color: #333; line-height: 1.6; font-size: 1rem; }
-    .section ul { list-style: disc; padding-left: 2rem; }
-
-    .cta-btn {
-      display: inline-block; background-color: #0066b2; color: #fff; text-decoration: none;
-      padding: 0.75rem 1.5rem; border-radius: 6px; font-weight: bold; font-size: 1rem;
-      transition: background-color 0.3s ease;
-    }
-    .cta-btn:hover { background-color: #004f91; color: #fff; }
+    /* Page-scoped content only */
+    main { max-width:1200px; margin:0 auto; padding:0 1.5rem 4rem; }
+    .hero { text-align:center; margin-top:2rem; }
+    .hero h1 { font-size:2.2rem; color:var(--dark-blue); font-weight:700; margin-bottom:.8rem; }
+    .hero p { font-size:1.1rem; color:#444; max-width:900px; margin:0 auto; line-height:1.6; }
+    .section { margin-top:3rem; }
+    .section h2 { text-align:center; color:var(--dark-blue); font-size:2rem; margin-bottom:1rem; font-weight:700; }
+    .section p, .section ul { max-width:900px; margin:0 auto 1.5rem; color:#333; line-height:1.6; font-size:1rem; }
+    .section ul { list-style:disc; padding-left:2rem; }
+    .cta { text-align:center; padding:2rem 0 3rem; }
   </style>
 </head>
 
 <body class="enterprise-portals-page">
+  <!-- Header / Nav (global, CSS-only) -->
   <div class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" />
 
-      <div class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-      </div>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Desktop Nav (App Dev active for this page) -->
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
         <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
@@ -113,7 +42,6 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile Nav -->
       <nav class="mobile-nav" id="mobileMenu" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
@@ -127,7 +55,10 @@
     </div>
   </div>
 
-  <div class="page-banner"></div>
+  <!-- Standard image hero (visible, cropped to fixed height by global CSS) -->
+  <div class="hero-media">
+    <img src="assets/images/appdev-bannerimage.png" alt="Enterprise Portals – CoreCloud" loading="eager" decoding="async" />
+  </div>
 
   <header class="hero">
     <h1>Enterprise Portals</h1>
@@ -162,11 +93,12 @@
       </ul>
     </section>
 
-    <section class="cta" style="padding-bottom: 3rem; text-align: center;">
+    <section class="cta">
       <a href="contact.html" class="cta-btn">Discuss Your Portal</a>
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -176,41 +108,23 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px;">
-          <input type="email" name="email" placeholder="Enter your email" required style="padding: 10px; flex: 1; border: 1px solid #ccc; border-radius: 4px; min-width: 220px;" />
-          <button type="submit" style="background-color: #0066b2; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
-            Subscribe
-          </button>
+        <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec"
+              method="POST"
+              style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="email" name="email" placeholder="Enter your email" required
+                 style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
+          <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
       <div class="footer-right">
         <p>Contact</p>
-        <p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener" style="color:var(--primary-blue); text-decoration:underline; font-weight:600;">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
       <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
     </div>
   </footer>
-
-  <script>
-    // Mobile nav toggle
-    document.getElementById("hamburger")?.addEventListener("click", function () {
-      this.classList.toggle("active");
-      document.getElementById("mobileMenu")?.classList.toggle("active");
-    });
-
-    // Simple subscribe handler (optional if you prefer plain POST action)
-    document.getElementById("subscribe-form")?.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const data = new FormData(this);
-      fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
-        method: "POST",
-        body: data
-      }).then(r => r.ok ? (window.location.href = "thank-you.html") : alert("Something went wrong. Please try again."))
-        .catch(() => alert("Submission failed. Please try again."));
-    });
-  </script>
 </body>
 </html>
