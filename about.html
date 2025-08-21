@@ -4,40 +4,23 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us – CoreCloud</title>
-  <meta name="description" content="CoreCloud turns strategy into measurable results across consulting, cloud, talent, and executive transformation. Built in South Africa for impact at enterprise scale."/>
+  <meta name="description" content="Discover the vision behind CoreCloud, led by Mark Louw, bringing over 20 years of enterprise tech, cloud strategy, and growth expertise."/>
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
 
-  <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
 
-  <!-- Page-scoped (content-only, no global overrides) -->
   <style>
-    .about-page .lead { font-size:1.15rem; line-height:1.8; max-width:1000px; margin:0 auto; }
-    .about-page .principles { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); padding:0 2rem; }
-    .about-page .principles .card { border:2px solid var(--dark-blue); }
-    .about-page .bio-card { max-width:820px; margin:0 auto; }
-    .about-page .bio-photo { width:100%; max-width:320px; border-radius:12px; margin:0 auto 1rem; display:block; }
-    .about-page .page-cta { text-align:center; margin-top:2rem; }
+    .about-page .hero-title{ font-size:2rem; font-weight:700; color:var(--dark-blue); text-align:center; margin:2.5rem auto 1rem; }
+    .about-page .about-intro{ font-size:1.1rem; line-height:1.8; text-align:left; max-width:1000px; margin:0 auto; }
+    .about-page .bio-card{ max-width:720px; margin:0 auto; }
+    .about-page .bio-card img{ width:100%; max-width:300px; border-radius:12px; margin:0 auto 1rem; display:block; }
+    .about-page .page-cta{ text-align:center; margin-top:2rem; }
+    .about-page .page-cta .cta-btn{ display:inline-block; min-height:48px; padding:.85rem 1.6rem; border-radius:6px; background:var(--primary-blue); color:#fff !important; font-weight:700; text-decoration:none; line-height:1; border:none; box-shadow:none; cursor:pointer; transition:background-color .25s ease, transform .02s ease; }
+    .about-page .page-cta .cta-btn:hover{ background:var(--dark-blue); } .about-page .page-cta .cta-btn:active{ transform:translateY(1px); }
+    @media (max-width:640px){ .about-page .page-cta .cta-btn{ width:100%; max-width:520px; } }
   </style>
-
-  <!-- JSON-LD (optional but nice for SEO) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"AboutPage",
-    "name":"About CoreCloud",
-    "url":"https://www.corecloudza.com/about.html",
-    "about":{
-      "@type":"Organization",
-      "name":"CoreCloud (Pty) Ltd",
-      "url":"https://www.corecloudza.com/",
-      "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
-      "sameAs":["https://www.linkedin.com/company/corecloudza"]
-    }
-  }
-  </script>
 </head>
 
 <body class="about-page">
@@ -49,7 +32,7 @@
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <nav class="desktop-nav" aria-label="Primary">
+      <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
         <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
@@ -57,7 +40,7 @@
         <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
         <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
-        <a href="about.html" class="nav-btn active" aria-current="page">ABOUT</a>
+        <a href="about.html" class="nav-btn active">ABOUT</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
@@ -69,7 +52,7 @@
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html">RE / LAUNCH</a>
         <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
-        <a href="about.html" class="active" aria-current="page">ABOUT</a>
+        <a href="about.html" class="active">ABOUT</a>
         <a href="contact.html">CONTACT</a>
       </nav>
     </div>
@@ -77,126 +60,42 @@
 
   <!-- Hero -->
   <div class="hero-media">
-    <img src="assets/images/about-bannerimage.png" alt="About CoreCloud — Strategy into Execution" decoding="async" loading="eager">
+    <img src="assets/images/about-bannerimage.png" alt="About CoreCloud" decoding="async">
   </div>
 
-  <main class="content" id="main">
+  <main class="content" style="max-width:1200px; margin:0 auto; padding:0 1.5rem 4rem;">
     <h1 class="hero-title">About CoreCloud</h1>
 
-    <!-- Who we are -->
-    <section class="section" aria-labelledby="who">
-      <h2 id="who" class="section-title">Who We Are</h2>
-      <p class="lead">
-        CoreCloud was built on a simple belief: <strong>strategy means nothing without execution</strong>.
-        We’re a South African partner that blends boardroom strategy, modern cloud engineering, elite ICT talent,
-        and executive transformation into one integrated offering. Our mission is clear — help enterprises move faster,
-        spend smarter, and lead with confidence in a digital-first economy.
+    <section style="margin-bottom:3rem;">
+      <p class="about-intro">
+        CoreCloud wasn’t built in a boardroom. It was shaped through decades of first-hand experience. After more than 20 years leading sales, strategy, and delivery across South Africa’s top technology environments, I launched CoreCloud to do things differently: no red tape, no wasted time—just outcomes you can measure.
+        <br><br>
+        CoreCloud was co-founded with <strong>Justine Louw</strong>, whose channel and distribution expertise helped shape our early journey. She has since moved on to new opportunities, and her contribution remains part of our foundation.
       </p>
     </section>
 
-    <!-- Why we exist -->
-    <section class="section" aria-labelledby="why">
-      <h2 id="why" class="section-title">Why We Exist</h2>
-      <p class="lead">
-        South African enterprises operate under pressure: rising costs, scarce talent, complex platforms, and aggressive growth targets.
-        The result? Projects stall. Spend balloons. Momentum slips. CoreCloud exists to reverse that pattern — bringing
-        <strong>clarity, pace, and performance</strong> to environments where delivery has slowed down.
-      </p>
-    </section>
-
-    <!-- What makes us different -->
-    <section class="section" aria-labelledby="difference">
-      <h2 id="difference" class="section-title">What Makes Us Different</h2>
-      <div class="card-grid force-4" style="margin-top:1rem;">
-        <div class="card">
-          <h3>Execution Obsessed</h3>
-          <p>No slide dumps. No handovers to nowhere. We stay until value is real, measured, and running in production.</p>
-        </div>
-        <div class="card">
-          <h3>Four Integrated Pillars</h3>
-          <p><strong>Consulting</strong>, <strong>Cloud</strong>, <strong>Talent</strong>, and <strong>Dynamic Imprinting</strong> — engineered to work together.</p>
-        </div>
-        <div class="card">
-          <h3>South African Context</h3>
-          <p>We understand budgets, buying cycles, and delivery realities here. We turn constraints into an advantage.</p>
-        </div>
-        <div class="card">
-          <h3>Outcome Discipline</h3>
-          <p>Clear metrics. Clear milestones. Clear accountability. If it doesn’t create impact, it doesn’t belong.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- The pillars -->
-    <section class="section" aria-labelledby="pillars">
-      <h2 id="pillars" class="section-title">Our Four Pillars</h2>
-      <div class="card-grid force-4">
-        <a href="consulting.html" class="card">
-          <h3>Consulting</h3>
-          <p>Advisory that becomes action: GTM precision, operating models, and board-level guidance tied to measurable outcomes.</p>
-          <span class="cta-btn">Explore Consulting</span>
-        </a>
-        <a href="cloud.html" class="card">
-          <h3>Cloud Suite</h3>
-          <p>AWS, Azure, and Databricks — migration, modernisation, managed services, and cost optimisation with real FinOps discipline.</p>
-          <span class="cta-btn">Explore Cloud</span>
-        </a>
-        <a href="talent.html" class="card">
-          <h3>Talent</h3>
-          <p>Curated ICT and executive talent. Fully vetted. Precisely matched. Ready to deliver from day one.</p>
-          <span class="cta-btn">Explore Talent</span>
-        </a>
-        <a href="dynamic-imprinting.html" class="card">
-          <h3>Dynamic Imprinting</h3>
-          <p>A bespoke executive methodology that rewires identity, presence, and performance under pressure.</p>
-          <span class="cta-btn">Explore Dynamic Imprinting</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- Principles -->
-    <section class="section" aria-labelledby="principles">
-      <h2 id="principles" class="section-title">Principles We Live By</h2>
-      <div class="principles">
-        <div class="card"><h3>Execution First</h3><p>Ideas matter. Results matter more.</p></div>
-        <div class="card"><h3>Clarity Over Noise</h3><p>Simplify decisions. Eliminate waste. Focus on impact.</p></div>
-        <div class="card"><h3>Partnership</h3><p>We work with you, not around you. Shared ownership, shared wins.</p></div>
-        <div class="card"><h3>Integrity</h3><p>No vendor agendas. No bloat. Just what moves the needle.</p></div>
-      </div>
-    </section>
-
-    <!-- Founder / story -->
-    <section class="section" aria-labelledby="founder">
-      <h2 id="founder" class="section-title">The Founder</h2>
-      <div class="card bio-card" style="text-align:left;">
-        <img src="assets/images/mark-final.jpg" alt="Mark Louw — Founder & Growth Architect" class="bio-photo">
-        <h3>Mark Louw — Growth Architect</h3>
+    <section style="display:flex; justify-content:center; margin-bottom:3rem;">
+      <div class="card bio-card">
+        <img src="assets/images/mark-final.jpg" alt="Mark Louw">
+        <h3>Mark Louw — The Growth Architect</h3>
         <p>
-          With 20+ years across enterprise tech, Mark has led high-performing sales and delivery teams at Dell EMC,
-          Dimension Data, and EOH. He connects commercial outcomes to cloud execution — turning strategy into revenue,
-          not technical debt.
-        </p>
-        <p>
-          CoreCloud was co-founded with <strong>Justine Louw</strong>, whose channel and distribution expertise shaped our early journey.
-          She has since moved on to new opportunities. Her contribution remains a valued part of CoreCloud’s foundation.
+          With over two decades in enterprise technology and leadership, Mark has built multimillion-rand revenue streams and led high-performance teams at Dell EMC, Dimension Data, and EOH. He brings a sharp, commercial lens to every engagement, connecting go-to-market execution, cloud strategy, and practical delivery so clients grow into the cloud—not just move to it.
         </p>
       </div>
     </section>
 
-    <!-- Promise + Vision -->
-    <section class="section" aria-labelledby="promise">
-      <h2 id="promise" class="section-title">Our Promise & Vision</h2>
-      <p class="lead" style="text-align:center; max-width:900px;">
-        We don’t sell hype. We deliver execution — in your cloud, in your teams, and in your leadership.
-        Our vision is to be the most trusted execution partner for enterprises across South Africa.
+    <section style="margin-bottom:3rem;">
+      <h2 class="section-title">Why CoreCloud?</h2>
+      <p class="about-intro" style="max-width:1000px;">
+        The industry repeats the same traps: siloed projects, weak follow-through, bloated ops, and missed revenue. CoreCloud is a counter-model—lean, pragmatic, and operator-led. We blend executive-grade commercial insight with deep technical delivery and a partner ecosystem designed for speed, reuse, and measurable ROI.
       </p>
-      <div class="page-cta">
-        <a href="contact.html" class="cta-btn" aria-label="Start a conversation with CoreCloud">Start a Conversation</a>
-      </div>
     </section>
+
+    <div class="page-cta">
+      <a href="contact.html" class="cta-btn" aria-label="Meet With Me">Meet With Me</a>
+    </div>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left"><p><strong>CoreCloud (Pty) Ltd</strong></p><p>Sandton,<br/>Johannesburg</p></div>
@@ -209,8 +108,8 @@
         </form>
       </div>
       <div class="footer-right">
-        <p>Contact</p><p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener" style="color:red; text-decoration:underline; font-weight:bold;">LinkedIn</a></p>
+        <p>Contact</p><p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom"><p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p></div>
