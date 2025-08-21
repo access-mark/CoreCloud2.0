@@ -14,32 +14,32 @@
   <meta property="og:title" content="Contact CoreCloud" />
   <meta property="og:description" content="Schedule a consultation, request info, or discuss partnership opportunities." />
   <meta property="og:url" content="https://www.corecloudza.com/contact.html" />
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/contact-bannerimage.webp" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/contact-bannerimage.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contact CoreCloud" />
   <meta name="twitter:description" content="Executive-level support. Fast response." />
-  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/contact-bannerimage.webp" />
+  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/contact-bannerimage.png" />
 
-  <!-- Global CSS (cache-busted) -->
+  <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=3" />
 
-  <!-- Preload hero used by <picture> (match the actual sources to avoid double-downloads) -->
-  <link rel="preload" as="image"
-        imagesrcset="assets/images/contact-bannerimage.avif 1920w, assets/images/contact-bannerimage.webp 1920w"
-        imagesizes="100vw"
-        fetchpriority="high" />
+  <!-- Preload banner -->
+  <link rel="preload" as="image" href="assets/images/contact-bannerimage.png" fetchpriority="high">
 
   <!-- Page-scoped styles -->
   <style>
-    /* Banner locked height; center-cropped */
-    .banner{ width:100%; height:300px; overflow:hidden; background:#f4f6f8; }
-    .banner picture,.banner img{ display:block; width:100%; height:100%; object-fit:cover; object-position:center; }
-    @media (max-width:640px){ .banner{ height:220px; } }
+    .banner {
+      width:100%; height:300px; overflow:hidden; background:#f4f6f8;
+    }
+    .banner img {
+      display:block; width:100%; height:100%;
+      object-fit:cover; object-position:center;
+    }
+    @media (max-width:640px){
+      .banner { height:220px; }
+    }
 
-    /* Keep header slim & transparent */
-    .contact-page .small-banner{ background:transparent!important; box-shadow:none!important; padding:0 .9rem 0!important; }
-
-    /* Ensure CTA parity if loaded standalone */
+    /* CTA styling */
     .contact-page .cta-btn{
       display:inline-block; min-height:48px; padding:.85rem 1.4rem;
       border:none; border-radius:6px; font-weight:700;
@@ -58,44 +58,20 @@
 
     /* Form */
     .form-container{ display:flex; flex-direction:column; gap:1rem; padding:2rem; background:#fff; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,.05); }
-    .form-row{ display:flex; gap:1rem; flex-wrap:wrap; }
-    .form-control{ padding:.75rem; border:1px solid #ccc; border-radius:8px; font:inherit; width:100%; }
+    .form-control{ padding:.75rem; border:1px solid #ccc; border-radius:8px; font:inherit; }
     .form-control:focus{ outline:2px solid var(--primary-blue); outline-offset:1px; }
     .visually-hidden{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; border:0; }
 
-    @media (max-width:640px){ .contact-page .form-container{ padding:1.25rem!important; } }
+    @media (max-width:640px){
+      .contact-page .form-container{ padding:1.25rem!important; }
+    }
 
-    /* Footer link normalization */
+    /* Footer links */
     .footer-right a{ color:var(--primary-blue); text-decoration:underline; font-weight:600; }
   </style>
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"Organization",
-        "@id":"https://www.corecloudza.com/#org",
-        "name":"CoreCloud (Pty) Ltd",
-        "url":"https://www.corecloudza.com/",
-        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
-        "sameAs":["https://www.linkedin.com/company/corecloudza"]
-      },
-      {
-        "@type":"ContactPage",
-        "mainEntityOfPage":"https://www.corecloudza.com/contact.html",
-        "name":"Contact CoreCloud",
-        "about":{"@id":"https://www.corecloudza.com/#org"}
-      }
-    ]
-  }
-  </script>
 </head>
 
 <body class="contact-page">
-  <a href="#main" class="visually-hidden">Skip to content</a>
-
   <!-- Header -->
   <div class="small-banner">
     <div class="banner-header">
@@ -105,13 +81,11 @@
            width="220" height="64"
            decoding="async" />
 
-      <!-- CSS-only mobile toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Desktop Nav -->
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
@@ -123,7 +97,6 @@
         <a href="contact.html" class="nav-btn active" aria-current="page">CONTACT</a>
       </nav>
 
-      <!-- Mobile Nav -->
       <nav class="mobile-nav" id="mobileMenu" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
@@ -139,14 +112,10 @@
 
   <!-- Banner -->
   <div class="banner">
-    <picture>
-      <source type="image/avif" srcset="assets/images/contact-bannerimage.avif" />
-      <source type="image/webp" srcset="assets/images/contact-bannerimage.webp" />
-      <img src="assets/images/contact-bannerimage.webp"
-           alt="Contact CoreCloud – Sandton, Johannesburg"
-           loading="eager" decoding="async"
-           width="1920" height="300" fetchpriority="high" />
-    </picture>
+    <img src="assets/images/contact-bannerimage.png"
+         alt="Contact CoreCloud – Sandton, Johannesburg"
+         width="1920" height="300"
+         loading="eager" decoding="async" fetchpriority="high" />
   </div>
 
   <!-- Contact -->
@@ -157,8 +126,7 @@
         <h2 id="talk-impact" style="color:#004f91;">Let’s Talk Impact</h2>
         <p>Start a conversation that moves the needle — strategy, talent, cloud transformation.</p>
         <p><strong>CoreCloud (Pty) Ltd</strong><br>Sandton,<br>Johannesburg</p>
-        <p><strong>Email:</strong> <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer">@corecloudza</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener">@corecloudza</a></p>
 
         <div class="quote-box" aria-label="CoreCloud principles">
           <p style="font-style:italic;">“Execution isn’t optional. It’s the business.”</p>
@@ -173,72 +141,25 @@
         <h2 id="send-message" style="color:#004f91;">Send a Message</h2>
 
         <!-- Contact form -->
-        <form action="https://formsubmit.co/mark@corecloudza.com" method="POST" class="form-container" novalidate>
-          <!-- FormSubmit config -->
+        <form action="https://formsubmit.co/mark@corecloudza.com" method="POST" class="form-container">
           <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=contact" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_subject" value="New website enquiry — Contact page" />
           <input type="hidden" name="_autoresponse" value="Thanks for contacting CoreCloud. We’ll get back to you shortly." />
-          <!-- Spam traps -->
           <label class="visually-hidden" for="cc_hny">Do not fill</label>
           <input class="visually-hidden" type="text" id="cc_hny" name="_honey" autocomplete="off" tabindex="-1" aria-hidden="true" />
-          <input type="hidden" name="_cc_time" id="cc_time" value="0" />
 
-          <!-- Name + Company -->
-          <div class="form-row">
-            <div style="flex:1 1 240px;">
-              <label for="name" class="visually-hidden">Your Name</label>
-              <input class="form-control" id="name" name="name" placeholder="Your Name" required autocomplete="name" />
-            </div>
-            <div style="flex:1 1 240px;">
-              <label for="company" class="visually-hidden">Company (optional)</label>
-              <input class="form-control" id="company" name="company" placeholder="Company (optional)" autocomplete="organization" />
-            </div>
-          </div>
+          <label class="visually-hidden" for="name">Your Name</label>
+          <input class="form-control" id="name" name="name" placeholder="Your Name" required autocomplete="name" />
 
-          <!-- Email + Phone -->
-          <div class="form-row">
-            <div style="flex:1 1 240px;">
-              <label for="email" class="visually-hidden">Your Email</label>
-              <input class="form-control" id="email" type="email" name="email" placeholder="Your Email" required autocomplete="email" inputmode="email" />
-            </div>
-            <div style="flex:1 1 240px;">
-              <label for="phone" class="visually-hidden">Phone (optional)</label>
-              <input class="form-control" id="phone" type="tel" name="phone" placeholder="Phone (optional)" autocomplete="tel" inputmode="tel" />
-            </div>
-          </div>
+          <label class="visually-hidden" for="email">Your Email</label>
+          <input class="form-control" id="email" type="email" name="email" placeholder="Your Email" required autocomplete="email" />
 
-          <!-- Reason -->
-          <div>
-            <label for="reason" class="visually-hidden">Reason for Contact</label>
-            <select id="reason" name="reason" class="form-control" required>
-              <option value="" selected disabled>Reason for contact</option>
-              <option>Book a cloud consult</option>
-              <option>Application development enquiry</option>
-              <option>Talent placement enquiry</option>
-              <option>Dynamic Imprinting</option>
-              <option>Partnership</option>
-              <option>Other</option>
-            </select>
-          </div>
+          <label class="visually-hidden" for="message">Your Message</label>
+          <textarea class="form-control" id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
 
-          <!-- Message -->
-          <div>
-            <label for="message" class="visually-hidden">Your Message</label>
-            <textarea class="form-control" id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-          </div>
-
-          <!-- Consent -->
-          <div>
-            <input type="checkbox" id="consent" name="consent" required />
-            <label for="consent">I agree that CoreCloud may contact me about this enquiry.</label>
-          </div>
-
-          <!-- Helpful for replies -->
-          <input type="hidden" name="_replyto" value="" />
-
-          <button type="submit" class="cta-btn" style="width:100%;" aria-label="Send message to CoreCloud">Send Message</button>
+          <button type="submit" class="cta-btn" style="width:100%;">Send Message</button>
         </form>
       </section>
     </div>
@@ -262,7 +183,7 @@
           <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
           <label class="visually-hidden" for="newsletter_email">Email</label>
           <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
-          <button type="submit" class="cta-btn" aria-label="Subscribe to CoreCloud newsletter">Subscribe</button>
+          <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
 
@@ -277,17 +198,5 @@
       <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
     </div>
   </footer>
-
-  <!-- Light time-on-page spam check -->
-  <script>
-    (function(){
-      var start = Date.now();
-      window.addEventListener('beforeunload', function(){
-        var s = Math.max(0, Math.round((Date.now() - start) / 1000));
-        var f = document.getElementById('cc_time');
-        if (f) f.value = String(s);
-      });
-    })();
-  </script>
 </body>
 </html>
