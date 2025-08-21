@@ -385,3 +385,17 @@ h1, .hero-title{ line-height: 1.3; }
   margin-top: 1.5rem;
 }
 
+/* Ensure all cards align CTA buttons to bottom */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card .cta-btn {
+  margin-top: auto;        /* pushes button to the bottom */
+  width: 100%;             /* full card width */
+  box-sizing: border-box;  /* avoids overflow issues */
+  text-align: center;      /* centers text inside */
+  display: inline-block;
+}
