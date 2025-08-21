@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CoreCloud | Cloud Consulting, AWS Services & Talent – South Africa</title>
   <meta name="description" content="CoreCloud helps South African enterprises drive real results through precise sales consulting, cloud modernisation, elite ICT talent placement, and application development." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
+  <meta name="theme-color" content="#004f91" />
 
   <!-- Canonical + Social -->
   <link rel="canonical" href="https://www.corecloudza.com/index.html" />
@@ -17,29 +18,39 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
+  <!-- Preconnects (minimal + safe) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- harmless even though you use system fonts -->
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin> <!-- if you add GA later, no harm -->
 
-  <!-- Preload -->
-  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/images/index-bannerimage.png" fetchpriority="high">
+  <!-- Global CSS (cache-busted) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=6" />
 
-  <!-- Home-only tweaks (kept minimal) -->
+  <!-- Preload LCP hero + logo -->
+  <link rel="preload" as="image" href="assets/images/index-bannerimage.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" />
+
+  <!-- Home-only tiny tweaks (no layout changes) -->
   <style>
-    .card-grid a, .card-grid a:hover, .card-grid a:visited { text-decoration: none; color: inherit; }
-    .card-grid.force-4 .cta-wide { grid-column: 1 / -1; }
-    .about-corecloud { margin: 2rem auto 2rem !important; }
-
-    /* Ensure uniform hero spacing (avoid inline padding conflicts) */
-    .home-page .hero-intro{
-      text-align:center;
-      padding: 1.5rem 1rem 0 !important; /* matches global tightened spacing */
-      margin-bottom: 0;
-    }
-
-    /* Dynamic Imprinting CTA text color fix */
-    .imprinting .cta-btn { color: #fff !important; }
+    /* Consistent hero spacing */
+    .home-page .hero-intro{ text-align:center; padding:1.5rem 1rem 0 !important; margin-bottom:0; }
+    /* CTA text color on Dynamic Imprinting card */
+    .imprinting .cta-btn{ color:#fff !important; }
+    /* Kill default link styling inside cards */
+    .card-grid a, .card-grid a:hover, .card-grid a:visited{ text-decoration:none; color:inherit; }
+    .about-corecloud{ margin:2rem auto 2rem !important; }
   </style>
+
+  <!-- Organization JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"CoreCloud",
+    "url":"https://www.corecloudza.com/",
+    "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
+    "sameAs":["https://www.linkedin.com/company/corecloudza"]
+  }
+  </script>
 </head>
 
 <body class="home-page">
@@ -50,7 +61,7 @@
            alt="CoreCloud"
            class="logo"
            width="220" height="64"
-           decoding="async" fetchpriority="high" />
+           decoding="async" />
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
@@ -81,16 +92,21 @@
     </div>
   </div>
 
-  <!-- Hero -->
+  <!-- Hero (LCP). Uses modern formats with fallback. -->
   <div class="hero-media">
-    <img
-      src="assets/images/index-bannerimage.png"
-      alt="CoreCloud — Strategy, Cloud, Talent, Applications"
-      decoding="async"
-      fetchpriority="high" />
+    <picture>
+      <source srcset="assets/images/index-bannerimage.avif" type="image/avif" />
+      <source srcset="assets/images/index-bannerimage.webp" type="image/webp" />
+      <img
+        src="assets/images/index-bannerimage.png"
+        alt="CoreCloud — Strategy, Cloud, Talent, Applications"
+        decoding="async"
+        fetchpriority="high"
+        width="1920" height="500" />
+    </picture>
   </div>
 
-  <!-- Hero copy (now classed, no inline padding) -->
+  <!-- Hero copy -->
   <section class="hero-intro">
     <h1 class="hero-title">From Strategy to Revenue. From Cloud to People.</h1>
     <p style="font-size:1.2rem; max-width:900px; margin:0 auto; color:#444;">
@@ -161,5 +177,8 @@
     </div>
     <div class="footer-bottom"><p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p></div>
   </footer>
+
+  <!-- (If you add scripts later) Always add defer -->
+  <!-- <script src="assets/js/app.js" defer></script> -->
 </body>
 </html>
