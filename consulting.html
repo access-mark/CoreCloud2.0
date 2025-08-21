@@ -8,55 +8,36 @@
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
 
-  <!-- Global CSS (cache-busted) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=debug1"/>
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css"/>
 
-  <!-- Page-scoped fallback (so banner still shows even if global CSS didn't load) -->
+  <!-- Preload (faster LCP) -->
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
+
+  <!-- Page-scoped minimal tweaks (content-only) -->
   <style>
-    /* Fallback header sizing (matches your global defaults) */
-    .banner-header{ display:flex; align-items:center; justify-content:space-between; max-width:1200px; margin:0 auto; min-height:120px; padding:0 14px; }
-    .logo{ max-height:120px; height:auto; width:auto; display:block; }
+    /* Standardized, reliable banner: 300px high, cropped */
+    .banner{ width:100%; height:300px; overflow:hidden; background:#f4f6f8; border-bottom:1px solid rgba(0,0,0,.05); }
+    .banner > img{ width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
 
-    /* Reliable image-based banner (clamped & cropped to 300px) */
-    .banner {
-      width:100%;
-      height:300px;
-      overflow:hidden;
-      background:#f4f6f8;
-      border-bottom:1px solid rgba(0,0,0,.05);
+    .consulting-page .hero-title{ font-size:2rem; color:var(--dark-blue); font-weight:700; text-align:center; margin:2.5rem auto 1rem; }
+    .consulting-page .card{ border:2px solid var(--dark-blue); }
+    .consulting-page .card-grid.force-4{
+      display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:2rem; padding:0 2rem; max-width:1200px; margin:0 auto;
     }
-    .banner > img {
-      width:100%;
-      height:100%;
-      object-fit:cover;      /* crop to fill, keep aspect */
-      object-position:center;
-      display:block;
-    }
-
-    /* Simple layout helpers */
-    .small-banner{ padding:0 .9rem; }
-    main.content{ max-width:1400px; margin:0 auto; padding:0 1.5rem 4rem; }
-    .hero-title{ font-size:2rem; font-weight:700; color:#004f91; text-align:center; margin:2.5rem auto 1rem; }
-    .section-title{ font-size:2rem; text-align:center; color:#004f91; margin:1.5rem 0; }
-    .card-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:2rem; padding:0 2rem; }
-    .card{ background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,.1); border:2px solid #004f91; padding:1.2rem; text-align:center; }
-
-    /* Diagnostic block */
-    .diag {
-      font: 14px/1.4 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-      background:#fffaf0; color:#222; border:1px solid #f0d9a9; border-left:5px solid #f0b429;
-      padding:10px 12px; margin:12px auto; max-width:1200px; border-radius:6px;
-    }
-    .diag strong { font-weight:700; }
-    .ok { color:#1d7a1a; font-weight:700; }
-    .bad { color:#b00020; font-weight:700; }
-
-    /* Mobile */
-    @media (max-width:768px){
-      .banner-header{ min-height:80px; }
-      .logo{ max-height:80px; }
+    @media (max-width:1199px){ .consulting-page .card-grid.force-4{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:767px){
+      .consulting-page .card-grid.force-4{ grid-template-columns:1fr; }
       .banner{ height:240px; }
     }
+    .consulting-page .cta-row{ margin-top:1rem; }
+    .consulting-page .cta-row .cta-card{ grid-column:1 / -1; border:none !important; box-shadow:none !important; background:transparent; padding:0; }
+    .consulting-page .cta-row .cta-btn{
+      display:block; width:100%; text-align:center; border:none !important; box-shadow:none !important;
+      padding:14px 20px; border-radius:6px; background:var(--dark-blue); color:#fff; font-weight:600; text-decoration:none;
+    }
+    .consulting-page .cta-row .cta-btn:hover{ background:var(--primary-blue); }
   </style>
 </head>
 
@@ -66,8 +47,10 @@
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" decoding="async" fetchpriority="high">
 
-      <!-- Minimal nav so we isolate banner debugging; restore your full nav after this works -->
-      <nav class="desktop-nav" style="display:flex; gap:.75rem;">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
+
+      <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn active">CONSULTING</a>
         <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
@@ -77,25 +60,25 @@
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
+
+      <nav class="mobile-nav" aria-label="Mobile">
+        <a href="index.html">HOME</a>
+        <a href="consulting.html" class="active">CONSULTING</a>
+        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="talent.html">TALENT</a>
+        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="about.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
     </div>
   </div>
 
-  <!-- ✅ Image-based banner (most reliable) -->
+  <!-- ✅ Standardized image banner -->
   <div class="banner">
-    <!-- IMPORTANT: confirm the exact file name + extension + case on your server -->
-    <img id="consultingHero" src="assets/images/consulting-bannerimage.png"
+    <img src="assets/images/consulting-bannerimage.png"
          alt="CoreCloud Consulting — Execution & Sales Enablement"
          decoding="async" loading="eager">
-  </div>
-
-  <!-- Live diagnostic -->
-  <div class="diag" id="diagBox">
-    Checking banner path: <code>assets/images/consulting-bannerimage.png</code> … <strong id="diagStatus">testing</strong>
-    <div style="margin-top:6px;">
-      Quick opens: 
-      <a href="assets/images/consulting-bannerimage.png" target="_blank" rel="noopener">open image directly</a> •
-      <a href="assets/css/styles.css?v=debug1" target="_blank" rel="noopener">open CSS (verify it loads)</a>
-    </div>
   </div>
 
   <main class="content">
@@ -105,28 +88,81 @@
     </p>
 
     <h2 class="section-title">The Four Pillars of Execution</h2>
-    <div class="card-grid" style="margin-top:1rem;">
-      <div class="card"><h2>Cloud</h2><p>Practical cloud strategies, modernisation, and operating models to keep you ahead.</p></div>
-      <div class="card"><h2>People</h2><p>Build and enable high-performing teams aligned to new ways of working.</p></div>
-      <div class="card"><h2>Process</h2><p>Disciplined GTM, commercial clarity, and repeatable execution.</p></div>
-      <div class="card"><h2>Partnerships</h2><p>Specialist partners to accelerate delivery with quality.</p></div>
+    <div class="card-grid force-4" style="margin-top:1rem;">
+      <div class="card"><h2>Cloud</h2><p>We build practical cloud strategies, modernise systems, align vendors, and design models that help businesses stay ahead.</p></div>
+      <div class="card"><h2>People</h2><p>We help build skilled teams, shaping roles and structures to support new ways of working and keep performance high.</p></div>
+      <div class="card"><h2>Process</h2><p>We bring discipline to go-to-market plans, ensure commercial clarity, and turn strategy into real business value.</p></div>
+      <div class="card"><h2>Partnerships</h2><p>We work with specialist partners who add expertise and help us deliver faster, better results.</p></div>
     </div>
+
+    <section class="section">
+      <h2 class="section-title">Our Advisory Approach</h2>
+      <p style="text-align:center; max-width:900px; margin:0 auto 1rem;">
+        We skip the buzzwords and focus on practical strategy. CoreCloud works with boards, CIOs, and business leaders to turn vision into results.
+      </p>
+      <div style="display:flex; justify-content:center; margin-top:1rem;">
+        <ul class="bullets" style="line-height:1.8; text-align:left; max-width:700px;">
+          <li>Business-aligned cloud and technology strategies</li>
+          <li>Sales and go-to-market diagnostics and uplift</li>
+          <li>Platform architecture and vendor rationalisation</li>
+          <li>Talent and capability readiness assessments</li>
+          <li>Optimised delivery models and strategic partnerships</li>
+          <li>Independent board-level advisory</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="sales-consulting">
+      <h2 class="section-title">Sales Consulting: People &amp; Process</h2>
+      <p style="text-align:center; max-width:900px; margin:0 auto 1.5rem;">We build the sales capacity and discipline that drive predictable revenue — fast.</p>
+      <div class="card-grid force-4">
+        <div class="card"><h2>People</h2><ul style="margin-left:1rem; line-height:1.5; text-align:left;"><li>Assess team skills, coverage, role clarity &amp; leadership gaps</li><li>Place proven talent via our Talent Hub</li><li>Practical enablement: discovery, positioning, objection handling</li><li>Leadership rewiring via Dynamic Imprinting</li><li>Compensation &amp; incentives aligned to outcomes</li></ul></div>
+        <div class="card"><h2>Process</h2><ul style="margin-left:1rem; line-height:1.5; text-align:left;"><li>Map &amp; optimise end-to-end sales process</li><li>Qualification frameworks that fit (MEDDIC, BANT)</li><li>Pipeline discipline &amp; accurate forecasting</li><li>Refined GTM, ICPs &amp; value messaging</li><li>Channel &amp; partner programs that scale</li><li>CRM configured for visibility &amp; accountability</li></ul></div>
+        <div class="card"><h2>Engagement Models</h2><ul style="margin-left:1rem; line-height:1.5; text-align:left;"><li>Fractional CRO (interim sales leadership)</li><li>Sales Advisory Retainer &amp; governance</li><li>Project sprints (pipeline build, GTM launch)</li><li>Consulting + Talent integration to fill gaps fast</li></ul></div>
+        <div class="card"><h2>Outcomes We Drive</h2><ul style="margin-left:1rem; line-height:1.5; text-align:left;"><li>Shorter sales cycles, higher win rates</li><li>Forecasting you can trust</li><li>Rep productivity uplift within 90 days</li><li>Partner-led revenue that scales without bloat</li></ul></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Why Clients Choose CoreCloud</h2>
+      <div class="card-grid force-4">
+        <div class="card"><h2>Executive-Grade Insights</h2><p>Boardroom experience from global tech giants and high-growth ventures, delivering insights that create real impact.</p></div>
+        <div class="card"><h2>Outcome-Obsessed</h2><p>We measure success by results, not hours. Every project is built to deliver tangible impact.</p></div>
+        <div class="card"><h2>Agile &amp; Independent</h2><p>Lean and vendor-neutral. We recommend only what’s best for your business.</p></div>
+        <div class="card"><h2>South African Context</h2><p>We know the market, its players, and how to win here.</p></div>
+        <div class="card"><h2>Strategic Operators</h2><p>We’ve sat in boardrooms, built strategies, and delivered under pressure. No buzzwords. Just results.</p></div>
+        <div class="card"><h2>Speed &amp; Scale</h2><p>We turn analysis into action and scale solutions to fit enterprise goals.</p></div>
+        <div class="card"><h2>Proven Partner Ecosystem</h2><p>Partners like Xsellerate expand our capability and accelerate delivery.</p></div>
+        <div class="card"><h2>Financial Pragmatism</h2><p>Respect for budgets. Real ROI. No hidden costs.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">Strategic Partnerships</h2>
+      <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">Execution takes more than expertise. We collaborate with top partners who bring specialised skills and share our drive for measurable results.</p>
+      <div class="card-grid force-4 cta-row">
+        <div class="cta-card"><a href="contact.html" class="cta-btn">Explore Sales Enablement</a></div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <div class="footer-bottom"><p>&copy; 2025 CoreCloud. All rights reserved.</p></div>
+    <div class="footer-content">
+      <div class="footer-left"><p><strong>CoreCloud (Pty) Ltd</strong></p><p>Sandton,<br/>Johannesburg</p></div>
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="email" name="email" placeholder="Enter your email" required style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;">
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-right">
+        <p>Contact</p><p>Email: sales@corecloudza.com</p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener">LinkedIn</a></p>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p></div>
   </footer>
-
-  <!-- Tiny diagnostic: tells you if the banner URL actually loads -->
-  <script>
-    (function(){
-      var url = "assets/images/consulting-bannerimage.png"; // <- your current path
-      var status = document.getElementById("diagStatus");
-      var img = new Image();
-      img.onload = function(){ status.textContent = "FOUND"; status.className = "ok"; };
-      img.onerror = function(){ status.textContent = "NOT FOUND (check name/path/case)"; status.className = "bad"; };
-      img.src = url + "?cb=" + Date.now(); // bust cache
-    })();
-  </script>
 </body>
 </html>
