@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Application Development – CoreCloud</title>
   <meta name="description" content="Cloud-native application development, enterprise portals, mobile & web, and API integration—delivered with DevOps, security, and performance discipline."/>
-  <meta name="robots" content="index, follow"/>
-  <meta name="author" content="CoreCloud"/>
+  <link rel="canonical" href="https://www.corecloudza.com/application-development.html"/>
 
-  <link rel="stylesheet" href="assets/css/styles.css"/>
-  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Application Development – CoreCloud"/>
+  <meta property="og:description" content="Cloud-native apps, portals, mobile & web, and APIs—built with DevOps discipline and security by design."/>
+  <meta property="og:url" content="https://www.corecloudza.com/application-development.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Application Development – CoreCloud"/>
+  <meta name="twitter:description" content="Cloud-native apps, portals, mobile & web, and APIs—built with DevOps discipline and security by design."/>
+  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
 
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=3"/>
+  <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
+
+  <!-- Page-scoped helpers (content only) -->
   <style>
     .appdev-page .hero-title{ font-size:2rem; color:var(--dark-blue); font-weight:700; text-align:center; margin:2.5rem auto 1rem; }
     .appdev-page main.content{ max-width:1200px; margin:0 auto; padding:0 1.5rem 4rem; }
@@ -19,21 +32,55 @@
     .cta-wide{ grid-column:1 / -1; }
     .cta-card .cta-btn{ width:100%; display:block; margin:0; }
   </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+          {"@type":"ListItem","position":2,"name":"Application Development","item":"https://www.corecloudza.com/application-development.html"}
+        ]
+      },
+      {
+        "@type":"Organization",
+        "@id":"https://www.corecloudza.com/#org",
+        "name":"CoreCloud (Pty) Ltd",
+        "url":"https://www.corecloudza.com/",
+        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
+        "sameAs":["https://www.linkedin.com/company/corecloudza"]
+      },
+      {
+        "@type":"Service",
+        "name":"Application Development",
+        "provider":{"@id":"https://www.corecloudza.com/#org"},
+        "areaServed":{"@type":"Country","name":"South Africa"},
+        "url":"https://www.corecloudza.com/application-development.html",
+        "description":"Cloud-native apps, enterprise portals, mobile & web, and API integration with DevOps, security, and performance discipline."
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="appdev-page">
+  <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" decoding="async" fetchpriority="high">
+      <!-- Intrinsic dimensions prevent CLS -->
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
         <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="application-development.html" class="nav-btn active">APP DEVELOPMENT</a>
+        <a href="application-development.html" class="nav-btn active" aria-current="page">APP DEVELOPMENT</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
@@ -44,7 +91,7 @@
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
         <a href="cloud.html">CLOUD SUITE</a>
-        <a href="application-development.html" class="active">APP DEVELOPMENT</a>
+        <a href="application-development.html" class="active" aria-current="page">APP DEVELOPMENT</a>
         <a href="talent.html">TALENT</a>
         <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
         <a href="about.html">ABOUT</a>
@@ -53,12 +100,12 @@
     </div>
   </div>
 
-  <!-- Hero -->
+  <!-- Standard, image-based hero (uses global .hero-media rules) -->
   <div class="hero-media">
-    <img src="assets/images/appdev-bannerimage.png" alt="CoreCloud Application Development" decoding="async">
+    <img src="assets/images/appdev-bannerimage.png" alt="CoreCloud Application Development" loading="eager" decoding="async"/>
   </div>
 
-  <main class="content">
+  <main class="content" id="main">
     <h1 class="hero-title">Application Development</h1>
     <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">
       We design and deliver cloud-native applications, portals, and digital experiences that scale.
@@ -112,9 +159,13 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <div class="footer-left"><p><strong>CoreCloud (Pty) Ltd</strong></p><p>Sandton,<br/>Johannesburg</p></div>
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton,<br/>Johannesburg</p>
+      </div>
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
@@ -124,8 +175,9 @@
         </form>
       </div>
       <div class="footer-right">
-        <p>Contact</p><p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener" style="color:red; text-decoration:underline; font-weight:bold;">LinkedIn</a></p>
+        <p>Contact</p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener" style="color:var(--primary-blue); text-decoration:underline; font-weight:600;">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom"><p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p></div>
