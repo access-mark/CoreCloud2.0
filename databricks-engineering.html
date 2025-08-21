@@ -8,36 +8,34 @@
   <meta name="description" content="CoreCloud designs Databricks data engineering pipelines to streamline ETL, reduce costs, and deliver fast insights for South African enterprises." />
   <link rel="canonical" href="https://www.corecloudza.com/databricks-engineering.html" />
 
-  <!-- Open Graph / Twitter -->
+  <!-- OG / Twitter -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Databricks Data Engineering – CoreCloud" />
   <meta property="og:description" content="Automated, scalable Databricks pipelines for clean, reliable data and faster insight." />
   <meta property="og:url" content="https://www.corecloudza.com/databricks-engineering.html" />
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.webp" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Databricks Data Engineering – CoreCloud" />
   <meta name="twitter:description" content="Automated, scalable Databricks pipelines for clean, reliable data and faster insight." />
-  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/cloud-banner.webp" />
+  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
 
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=3" />
 
-  <!-- Preload hero (matches picture below) -->
-  <link rel="preload" as="image"
-        imagesrcset="assets/images/cloud-banner.webp 1920w, assets/images/cloud-banner.png 1920w"
-        imagesizes="100vw" fetchpriority="high" />
-
-  <!-- Page-scoped content helpers only -->
+  <!-- Page helpers -->
   <style>
-    .hero-title{ font-size:2rem; font-weight:700; color:var(--dark-blue); text-align:center; margin:2.5rem auto 1rem; }
-    .center-subtitle{ text-align:center; color:#444; font-size:1.1rem; margin:0 auto 2rem; max-width:900px; line-height:1.6; }
-    .section-title{ text-align:center; color:#004f91; font-size:2rem; margin-bottom:2rem; font-weight:700; }
+    /* Match the working banner pattern from cloud/AWS pages */
+    .page-banner{width:100%;height:300px;overflow:hidden;background:#f4f6f8 center/cover no-repeat;}
+    @media (max-width:768px){.page-banner{height:220px;}}
 
-    .card-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; margin-top:2rem; padding:0 1rem; }
-    .card{ background:#fff; color:#444; padding:1.5rem; border-radius:12px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.08); border:2px solid var(--dark-blue); transition:transform .3s ease; }
+    .hero-title{font-size:2rem;font-weight:700;color:var(--dark-blue);text-align:center;margin:2.5rem auto 1rem;}
+    .center-subtitle{ text-align:center;color:#444;font-size:1.1rem;margin:0 auto 2rem;max-width:900px;line-height:1.6; }
+    .section-title{ text-align:center;color:#004f91;font-size:2rem;margin-bottom:2rem;font-weight:700; }
+
+    .card-grid{ display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem;padding:0 1rem; }
+    .card{ background:#fff;color:#444;padding:1.5rem;border-radius:12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.08);border:2px solid var(--dark-blue);transition:transform .3s ease; }
     .card:hover{ transform:translateY(-5px); }
-    .card h3{ color:#ff3621; font-size:1.3rem; margin-bottom:.8rem; font-weight:700; } /* Databricks accent */
-    .card p{ font-size:.95rem; color:#444; }
+    .card h3{ color:#ff3621;font-size:1.3rem;margin-bottom:.8rem;font-weight:700; } /* Databricks accent */
 
     /* Footer link normalisation */
     .footer-right a{ color:var(--primary-blue); text-decoration:underline; font-weight:600; }
@@ -77,7 +75,7 @@
   </script>
 </head>
 <body class="databricks-page">
-  <!-- Header / Nav (standard) -->
+  <!-- Header -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" />
@@ -111,16 +109,8 @@
     </div>
   </div>
 
-  <!-- Standard Cloud Banner (shared with home page) -->
-  <div class="page-banner" role="img" aria-label="CoreCloud cloud services banner">
-    <picture>
-      <source type="image/webp" srcset="assets/images/cloud-banner.webp" />
-      <img src="assets/images/cloud-banner.png"
-           alt="CoreCloud cloud services"
-           width="1920" height="300"
-           loading="eager" decoding="async" fetchpriority="high" />
-    </picture>
-  </div>
+  <!-- Banner (identical pattern to cloud/AWS) -->
+  <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png?v=2');"></div>
 
   <!-- Main -->
   <main class="content" id="main">
@@ -177,7 +167,6 @@
       <a href="contact.html" class="cta-btn">Talk Data Engineering</a>
     </div>
 
-    <!-- Cross-links (Databricks cluster) -->
     <div class="related-links" style="text-align:center;margin-top:2rem;" aria-label="Related Databricks services">
       <a href="databricks-lakehouse.html">Lakehouse</a> •
       <a href="databricks-ml.html">Machine Learning</a> •
