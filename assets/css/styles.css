@@ -322,3 +322,38 @@ h1, .hero-title{ line-height: 1.3; }
 
 /* 4) Optional: keep card copy neat */
 .card p{ margin-bottom:0; }
+
+/* ===== Alignment Policy: Corporate Clean ===== */
+/* Headings centered; body copy left-aligned site-wide */
+
+/* Keep hero/section headings centered */
+.hero-title,
+.section-title { text-align: center; }
+
+/* Default all readable content to left-aligned (overrides page-level center styles) */
+.content p,
+.content li,
+.content ul,
+.content ol,
+.content .subtitle,
+.content .quote-box,
+.content .card p,
+.content .card li,
+.content .card ul,
+.content .card ol {
+  text-align: left !important;
+}
+
+/* Make card headings left-aligned as well (most pages had center) */
+.content .card h2,
+.content .card h3 { text-align: left !important; }
+
+/* Keep CTAs and single-line callouts centered where it makes sense */
+.content .cta,
+.content .cta-card,
+.content .equal-banner,
+.content .grid-cta,
+.content .cta-btn { text-align: center; }
+
+/* Tables (future-proofing) */
+.content table { margin-left: 0; margin-right: auto; }
