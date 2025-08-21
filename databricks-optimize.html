@@ -1,72 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Databricks Cost Optimization – CoreCloud</title>
   <meta name="description" content="CoreCloud helps South African enterprises reduce Databricks costs and improve performance through expert tuning and consumption insights." />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="canonical" href="https://www.corecloudza.com/databricks-optimize.html" />
 
-  <!-- Page-scoped tweaks to match global header + polish cards -->
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Databricks Cost Optimization – CoreCloud" />
+  <meta property="og:description" content="Cut Databricks spend without sacrificing performance — assessment, tuning, governance, visibility." />
+  <meta property="og:url" content="https://www.corecloudza.com/databricks-optimize.html" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Databricks Cost Optimization – CoreCloud" />
+  <meta name="twitter:description" content="Cut Databricks spend without sacrificing performance — assessment, tuning, governance, visibility." />
+  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
+
+  <!-- Page-scoped helpers (light) -->
   <style>
-    .red-banner{ background:#ff3621; height:80px; width:100%; }
+    .center-title{font-size:2.4rem;text-align:center;color:#004f91;margin:3rem 0 1.5rem;font-weight:700;}
+    .center-subtitle{ text-align:center;color:#444;font-size:1.1rem;margin:0 auto 2rem;max-width:900px;line-height:1.6; }
+    .section-title{ text-align:center;color:#004f91;font-size:2rem;margin-bottom:2rem;font-weight:700; }
 
-    .center-title{
-      font-size:2.4rem; text-align:center; color:#004f91;
-      margin:3rem 0 1.5rem; font-weight:700;
-    }
-    .center-subtitle{
-      text-align:center; color:#444; font-size:1.1rem;
-      margin:0 auto 2rem; max-width:900px; line-height:1.6;
-    }
-    .section-title{
-      text-align:center; color:#004f91; font-size:2rem;
-      margin-bottom:2rem; font-weight:700;
-    }
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem;padding:0 1rem;}
+    .card{background:#fff;color:#444;padding:1.5rem;border-radius:12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.08);transition:transform .3s ease;border:2px solid var(--dark-blue);}
+    .card:hover{transform:translateY(-5px);}
+    .card h2,.card h3{color:#ff3621;font-size:1.3rem;margin-bottom:.8rem;font-weight:700;} /* Databricks accent */
+    .card p{font-size:.95rem;color:#444;}
 
-    .card-grid.triple{
-      display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
-      gap:2rem; margin-top:2rem; padding:0 1rem;
-    }
-    .card{
-      background:#fff; color:#444; padding:1.5rem; border-radius:12px;
-      text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.08); transition:transform .3s ease;
-      border:2px solid var(--dark-blue);
-    }
-    .card:hover{ transform:translateY(-5px); }
-    .card h2{ color:#ff3621; font-size:1.4rem; margin-bottom:.8rem; font-weight:700; }
-    .card p{ font-size:.95rem; color:#444; }
-
-    .cta-btn{
-      display:inline-block; background:#ff3621; color:#fff; text-decoration:none;
-      padding:.75rem 1.5rem; border-radius:8px; font-weight:700; font-size:1rem;
-      transition:background-color .25s ease;
-    }
-    .cta-btn:hover{ background:#cc2d1b; color:#fff; }
-
-    /* Ensure header matches global slim/transparent look on this page too */
-    .small-banner{ background:transparent !important; box-shadow:none !important; padding:0 .9rem 0 !important; }
-    .banner-header{ max-width:1200px; margin:0 auto; }
+    /* Footer link normalisation */
+    .footer-right a{color:var(--primary-blue);text-decoration:underline;font-weight:600;}
   </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+          {"@type":"ListItem","position":2,"name":"Cloud Suite","item":"https://www.corecloudza.com/cloud.html"},
+          {"@type":"ListItem","position":3,"name":"Databricks Cost Optimization","item":"https://www.corecloudza.com/databricks-optimize.html"}
+        ]
+      },
+      {
+        "@type":"Organization",
+        "@id":"https://www.corecloudza.com/#org",
+        "name":"CoreCloud (Pty) Ltd",
+        "url":"https://www.corecloudza.com/",
+        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
+        "sameAs":["https://www.linkedin.com/company/corecloudza"]
+      },
+      {
+        "@type":"Service",
+        "name":"Databricks Cost Optimization",
+        "provider":{"@id":"https://www.corecloudza.com/#org"},
+        "areaServed":{"@type":"Country","name":"South Africa"},
+        "url":"https://www.corecloudza.com/databricks-optimize.html",
+        "description":"Reduce Databricks spend via workload assessments, cluster tuning, governance policies, and cost visibility."
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="databricks-cost-page">
-  <!-- Header / Nav (CSS-only toggle; no JS needed) -->
+  <!-- Header / Nav -->
   <div class="small-banner">
-    <div class="banner-header ai-nav">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" />
 
-      <!-- Mobile toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Desktop Nav -->
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn active">CLOUD SUITE</a>
+        <a href="cloud.html" class="nav-btn active" aria-current="page">CLOUD SUITE</a>
         <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
@@ -74,11 +94,10 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile Nav -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html" class="active">CLOUD SUITE</a>
+        <a href="cloud.html" class="active" aria-current="page">CLOUD SUITE</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
         <a href="talent.html">TALENT</a>
         <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
@@ -88,62 +107,62 @@
     </div>
   </div>
 
-  <!-- Databricks red strip under header -->
-  <div class="red-banner"></div>
+  <!-- Standard Cloud Banner (shared with home/AWS) -->
+  <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png?v=2');"></div>
 
   <!-- Main -->
-  <main class="content" style="max-width:1200px; margin:0 auto; padding:4rem 1.5rem;">
+  <main class="content" id="main">
     <h1 class="center-title">Databricks Cost Optimization</h1>
     <p class="center-subtitle">
-      Running Databricks shouldn’t break your cloud budget. CoreCloud helps South African enterprises analyze and control Databricks costs, optimizing resource usage without sacrificing performance or scalability.
+      Running Databricks shouldn’t break your cloud budget. CoreCloud helps South African enterprises analyse and control Databricks costs, optimising resource usage without sacrificing performance or scalability.
     </p>
 
     <section class="section">
       <h2 class="section-title">Optimization Services</h2>
-      <div class="card-grid triple">
+      <div class="card-grid">
         <div class="card">
           <h2>Workload Assessment</h2>
-          <p>Analyze cluster usage and workload patterns to identify cost-saving opportunities.</p>
+          <p>Analyse cluster usage and workload patterns to identify cost-saving opportunities.</p>
         </div>
         <div class="card">
           <h2>Cluster Tuning</h2>
-          <p>Configure Databricks clusters for right-sized performance and efficient resource allocation.</p>
+          <p>Right-size clusters, autoscaling, and spot usage for efficient performance.</p>
         </div>
         <div class="card">
           <h2>Cost Visibility</h2>
-          <p>Implement monitoring and dashboards for complete visibility into Databricks spend across environments.</p>
+          <p>Dashboards and alerts for full visibility into Databricks spend across environments.</p>
         </div>
         <div class="card">
           <h2>Governance Policies</h2>
-          <p>Design cost controls and user governance to prevent runaway spending.</p>
+          <p>Quotas, tags, and guardrails to prevent runaway spending.</p>
         </div>
         <div class="card">
-          <h2>Reserved Instance Planning</h2>
-          <p>Maximize savings with effective planning for committed cloud resources and Databricks consumption discounts.</p>
+          <h2>Reserved/Committed Planning</h2>
+          <p>Maximise savings with committed cloud resources and Databricks consumption discounts.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
       <h2 class="section-title">Why CoreCloud?</h2>
-      <div class="card-grid triple">
+      <div class="card-grid">
         <div class="card">
           <h2>Local Understanding</h2>
-          <p>We tailor optimization strategies for South African financial realities and multi-cloud usage patterns.</p>
+          <p>Strategies tuned for South African financial realities and multi-cloud patterns.</p>
         </div>
         <div class="card">
           <h2>Speed to Savings</h2>
-          <p>We rapidly identify savings opportunities to deliver quick wins and sustainable cost reductions.</p>
+          <p>Quick wins + sustained reductions through targeted optimisation.</p>
         </div>
         <div class="card">
           <h2>Outcome Focused</h2>
-          <p>Our cost optimization services tie directly to business objectives and measurable results.</p>
+          <p>Every recommendation maps to business objectives and measurable results.</p>
         </div>
       </div>
     </section>
 
-    <div style="text-align:center; margin-top:3rem;">
-      <a href="contact.html" class="cta-btn">Start Optimizing →</a>
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="contact.html" class="cta-btn">Start Optimising</a>
     </div>
   </main>
 
@@ -157,26 +176,22 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <!-- JS-free submit for consistency -->
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec"
               method="POST"
-              style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+              style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required
-                 style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
+                 style="padding:10px;flex:1;border:1px solid #ccc;border-radius:4px;min-width:220px;" />
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
       <div class="footer-right">
-        <p>Contact</p>
-        <p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:red; text-decoration:underline; font-weight:bold;">LinkedIn</a></p>
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved. |
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="terms.html">Terms</a>
-      </p>
+      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
     </div>
   </footer>
 </body>
