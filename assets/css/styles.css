@@ -31,7 +31,7 @@ img { max-width: 100%; height: auto; display: block; }
   --container: 1200px;
 
   /* Hero/banner heights */
-  --hero-h-desktop: 400px;
+  --hero-h-desktop: 500px;
   --hero-h-mobile: 220px;
 }
 
