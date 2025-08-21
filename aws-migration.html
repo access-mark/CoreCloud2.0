@@ -9,38 +9,21 @@
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
 
-  <!-- Global CSS (cache-busted so latest styles definitely load) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=aws-migration-hero-fallback" />
+  <!-- Global site styles (cache-busted to avoid stale CSS) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
 
-  <!-- Preload one likely hero to speed LCP (safe even if it 404s) -->
-  <link rel="preload" as="image" href="assets/images/cloud-banner.png" imagesizes="100vw" imagesrcset="assets/images/cloud-banner.png 1200w" />
-
-  <!-- Page-scoped: rock-solid 300px hero + content-only styles -->
+  <!-- Page-scoped: safe fallback so the banner shows even if CSS cache lingers -->
   <style>
-    /* 300px hero that ALWAYS renders something */
-    .hero-300{
+    .page-banner{
       width:100%;
-      height:300px;          /* desktop lock */
-      overflow:hidden;
-      background:#e9f1fb;    /* visible even if image fails */
-      position:relative;
-    }
-    .hero-300 img{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:cover;      /* crop to fill */
-      object-position:center;
-    }
-    /* If all images fail, add a classy gradient so it's obvious */
-    .hero-300.hero-fail{
-      background:linear-gradient(135deg, #dfeafe, #c7dfff);
+      height:300px;               /* desktop lock */
+      background: #f4f6f8 center / cover no-repeat;
+      overflow:hidden; display:block;
     }
     @media (max-width:768px){
-      .hero-300{ height:220px; }  /* mobile height */
+      .page-banner{ height:220px; } /* mobile lock */
     }
-
-    /* Content-only styles you had */
+    /* Local content-only helpers */
     .center-subtitle{
       text-align:center; color:#444; font-size:1.1rem;
       margin:0 auto 2rem; max-width:900px; line-height:1.6;
@@ -55,13 +38,11 @@
     }
     .card h3{ font-size:1.2rem; color:#0066b2; margin-bottom:.8rem; }
     .card p{ font-size:.95rem; color:#333; }
-
     ul.checklist{
       list-style:none; padding-left:0; font-size:1.05rem; color:#333; line-height:1.8;
       max-width:800px; margin:1rem auto;
     }
     ul.checklist li::before{ content:"✔"; margin-right:.5rem; color:green; font-weight:bold; }
-
     .cta-btn{
       display:inline-block; margin-top:2rem; background:var(--primary-blue);
       color:#fff; padding:.8rem 1.5rem; font-weight:bold; border-radius:8px; text-decoration:none;
@@ -74,12 +55,8 @@
 <body class="aws-migration-page">
   <!-- Header / Nav -->
   <div class="small-banner">
-    <div class="banner-header ai-nav">
-      <img src="assets/images/corecloud-logo.png"
-           alt="CoreCloud Logo"
-           class="logo"
-           width="220" height="64"
-           decoding="async" />
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" />
 
       <!-- CSS-only toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
@@ -87,7 +64,7 @@
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Desktop -->
+      <!-- Desktop Nav -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
@@ -99,7 +76,7 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile -->
+      <!-- Mobile Nav -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
@@ -113,13 +90,8 @@
     </div>
   </div>
 
-  <!-- Bullet-proof hero (tries several filenames, then shows gradient) -->
-  <section class="hero-300" aria-label="AWS Hero">
-    <img id="aws-hero"
-         src="assets/images/cloud-banner.png?v=1"
-         alt="AWS cloud banner"
-         loading="eager" decoding="async" />
-  </section>
+  <!-- Standardized banner (300px desktop crop) -->
+  <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png?v=2');"></div>
 
   <!-- Main Content -->
   <main class="content">
@@ -223,32 +195,5 @@
       <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
     </div>
   </footer>
-
-  <!-- Tiny fallback script: try common filenames, then show gradient if all fail -->
-  <script>
-    (function(){
-      var img = document.getElementById('aws-hero');
-      if(!img) return;
-
-      var tries = [
-        'assets/images/cloud-banner.png',
-        'assets/images/cloud-banner.jpg',
-        'assets/images/cloud-bannerimage.png',
-        'assets/images/cloud-bannerimage.jpg'
-      ];
-      var i = 0;
-
-      img.onerror = function(){
-        i++;
-        if(i < tries.length){
-          img.src = tries[i] + '?v=' + Date.now();
-        }else{
-          var hero = img.closest('.hero-300');
-          if(hero){ hero.classList.add('hero-fail'); }
-          img.remove(); // hide broken image icon
-        }
-      };
-    })();
-  </script>
 </body>
 </html>
