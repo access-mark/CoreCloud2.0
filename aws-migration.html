@@ -9,11 +9,35 @@
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
 
-  <!-- Global site styles -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <!-- Global site styles (cache-busted) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=aws-migration-heroimg" />
 
-  <!-- Page-scoped content tweaks -->
+  <!-- Preload hero for faster LCP -->
+  <link rel="preload" as="image" href="assets/images/cloud-banner.png" imagesrcset="
+        assets/images/cloud-banner.png 1200w
+      " imagesizes="100vw" />
+
+  <!-- Page-scoped: reliable 300px hero + content-only tweaks -->
   <style>
+    /* Fail-safe hero: always shows, crops to 300px on desktop */
+    .hero-300{
+      width:100%;
+      height:300px;            /* lock desktop height */
+      overflow:hidden;
+      background:#f4f6f8;
+    }
+    .hero-300 img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;        /* crop to fill */
+      object-position:center;  /* center focal point */
+    }
+    @media (max-width: 768px){
+      .hero-300{ height:220px; } /* mobile shorter */
+    }
+
+    /* Content-only styles from your previous version */
     .center-subtitle{
       text-align:center; color:#444; font-size:1.1rem;
       margin:0 auto 2rem; max-width:900px; line-height:1.6;
@@ -24,6 +48,7 @@
     .card{
       background:#fff; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,.08);
       padding:1.5rem; max-width:360px; flex:1 1 300px; text-align:center;
+      border:2px solid var(--dark-blue); /* match global look explicitly */
     }
     .card h3{ font-size:1.2rem; color:#0066b2; margin-bottom:.8rem; }
     .card p{ font-size:.95rem; color:#333; }
@@ -32,9 +57,7 @@
       list-style:none; padding-left:0; font-size:1.05rem; color:#333; line-height:1.8;
       max-width:800px; margin:1rem auto;
     }
-    ul.checklist li::before{
-      content:"✔"; margin-right:.5rem; color:green; font-weight:bold;
-    }
+    ul.checklist li::before{ content:"✔"; margin-right:.5rem; color:green; font-weight:bold; }
 
     .cta-btn{
       display:inline-block; margin-top:2rem; background:var(--primary-blue);
@@ -87,8 +110,12 @@
     </div>
   </div>
 
-  <!-- AWS-style Page Banner (same as AWS Managed Services) -->
-  <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png');"></div>
+  <!-- Reliable hero (300px crop) -->
+  <section class="hero-300" aria-label="AWS Cloud">
+    <img src="assets/images/cloud-banner.png"
+         alt="AWS cloud banner"
+         loading="eager" decoding="async" />
+  </section>
 
   <!-- Main Content -->
   <main class="content">
