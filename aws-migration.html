@@ -9,41 +9,21 @@
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
 
-  <!-- Global site styles (controls nav/logo sizing/spacing) -->
+  <!-- Global site styles -->
   <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <!-- Preload the banner for faster LCP -->
-  <link rel="preload" as="image" href="assets/images/cloud-banner.png" imagesizes="100vw" />
-
-  <!-- Page-scoped styles: content ONLY + standardized 300px banner -->
+  <!-- Page-scoped content tweaks -->
   <style>
-    /* Standardized cropped hero (300px) */
-    .banner{
-      width:100%;
-      height:300px;
-      overflow:hidden;
-      background:#f4f6f8;
-    }
-    .banner img{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:cover;        /* crop to fill the 300px area */
-      object-position:center;  /* center focal point */
-    }
-
     .center-subtitle{
       text-align:center; color:#444; font-size:1.1rem;
       margin:0 auto 2rem; max-width:900px; line-height:1.6;
     }
-
     .card-row{
       display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; margin-top:2rem;
     }
     .card{
       background:#fff; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,.08);
       padding:1.5rem; max-width:360px; flex:1 1 300px; text-align:center;
-      /* global .card (dark-blue border) is already in styles.css; this keeps visuals consistent */
     }
     .card h3{ font-size:1.2rem; color:#0066b2; margin-bottom:.8rem; }
     .card p{ font-size:.95rem; color:#333; }
@@ -56,33 +36,26 @@
       content:"✔"; margin-right:.5rem; color:green; font-weight:bold;
     }
 
-    /* Standalone CTA (outside cards) – use shared button look */
     .cta-btn{
       display:inline-block; margin-top:2rem; background:var(--primary-blue);
       color:#fff; padding:.8rem 1.5rem; font-weight:bold; border-radius:8px; text-decoration:none;
       transition:background-color .25s ease;
     }
     .cta-btn:hover{ background:var(--dark-blue); }
-
-    /* Optional: shorter banner on narrow screens */
-    @media (max-width: 640px){
-      .banner{ height:220px; }
-    }
   </style>
 </head>
 
 <body class="aws-migration-page">
-  <!-- Header / Nav (inherits global: slim transparent, logo size, underline hover) -->
+  <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header ai-nav">
-      <!-- Intrinsic size prevents CLS and preserves aspect -->
       <img src="assets/images/corecloud-logo.png"
            alt="CoreCloud Logo"
            class="logo"
            width="220" height="64"
            decoding="async" />
 
-      <!-- CSS-only toggle -->
+      <!-- Nav toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -114,12 +87,8 @@
     </div>
   </div>
 
-  <!-- Standardized 300px cropped banner -->
-  <div class="banner">
-    <img src="assets/images/cloud-banner.png"
-         alt="AWS Migration – Cloud banner"
-         loading="eager" decoding="async" />
-  </div>
+  <!-- AWS-style Page Banner (same as AWS Managed Services) -->
+  <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png');"></div>
 
   <!-- Main Content -->
   <main class="content">
