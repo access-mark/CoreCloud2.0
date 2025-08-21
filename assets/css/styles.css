@@ -341,42 +341,38 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
     height: var(--hero-h-mobile) !important;
   }
 }
-/* === Card link cleanup (global) === */
-.card a,
-.card a:hover,
-.card a:visited {
-  text-decoration: none !important;
-  color: inherit !important;
-  display: block;      /* whole card is clickable */
-  height: 100%;        /* clickable area = full card */
-}
-/* === Fix: Remove underlines from card CTA links === */
-.card a,
-.card a:visited,
-.card a:hover,
-.card a:active {
-  text-decoration: none !important;
-  color: inherit !important;
-}
 
-.card .cta-btn,
-.card a.cta-btn {
-  text-decoration: none !important;
-  color: #fff !important;   /* keep buttons white */
-}
-/* === About pillars: remove underline when the CARD itself is a link === */
+/* === Linked cards & CTAs — single source of truth (no conflicts) === */
+/* When the entire card is a link: keep flex so the CTA can pin to the bottom */
 a.card,
 a.card:link,
 a.card:visited,
 a.card:hover,
 a.card:active {
   text-decoration: none !important;
-  color: inherit !important;     /* keep headings/body using card colors */
-  display: block;                /* ensure full-card box behavior */
+  color: inherit !important;
+  display: flex;                 /* keep flex layout */
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  height: 100%;
 }
 
-/* Keep CTA text looking like a button even inside linked cards */
+/* CTA inside any card (linked or not): full width, pinned to bottom, no underline */
+.card .cta-btn,
+.card a.cta-btn,
 a.card .cta-btn {
+  margin-top: auto;
+  width: 100%;
+  min-height: 48px;
+  text-align: center;
+  box-sizing: border-box;
   text-decoration: none !important;
   color: #fff !important;
+}
+
+/* Inline links inside cards that are NOT CTAs keep clean look */
+.card a:not(.cta-btn) {
+  text-decoration: none !important;
+  color: inherit !important;
 }
