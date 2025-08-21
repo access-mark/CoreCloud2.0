@@ -9,35 +9,38 @@
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
 
-  <!-- Global site styles (cache-busted) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=aws-migration-heroimg" />
+  <!-- Global CSS (cache-busted so latest styles definitely load) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=aws-migration-hero-fallback" />
 
-  <!-- Preload hero for faster LCP -->
-  <link rel="preload" as="image" href="assets/images/cloud-banner.png" imagesrcset="
-        assets/images/cloud-banner.png 1200w
-      " imagesizes="100vw" />
+  <!-- Preload one likely hero to speed LCP (safe even if it 404s) -->
+  <link rel="preload" as="image" href="assets/images/cloud-banner.png" imagesizes="100vw" imagesrcset="assets/images/cloud-banner.png 1200w" />
 
-  <!-- Page-scoped: reliable 300px hero + content-only tweaks -->
+  <!-- Page-scoped: rock-solid 300px hero + content-only styles -->
   <style>
-    /* Fail-safe hero: always shows, crops to 300px on desktop */
+    /* 300px hero that ALWAYS renders something */
     .hero-300{
       width:100%;
-      height:300px;            /* lock desktop height */
+      height:300px;          /* desktop lock */
       overflow:hidden;
-      background:#f4f6f8;
+      background:#e9f1fb;    /* visible even if image fails */
+      position:relative;
     }
     .hero-300 img{
       width:100%;
       height:100%;
       display:block;
-      object-fit:cover;        /* crop to fill */
-      object-position:center;  /* center focal point */
+      object-fit:cover;      /* crop to fill */
+      object-position:center;
     }
-    @media (max-width: 768px){
-      .hero-300{ height:220px; } /* mobile shorter */
+    /* If all images fail, add a classy gradient so it's obvious */
+    .hero-300.hero-fail{
+      background:linear-gradient(135deg, #dfeafe, #c7dfff);
+    }
+    @media (max-width:768px){
+      .hero-300{ height:220px; }  /* mobile height */
     }
 
-    /* Content-only styles from your previous version */
+    /* Content-only styles you had */
     .center-subtitle{
       text-align:center; color:#444; font-size:1.1rem;
       margin:0 auto 2rem; max-width:900px; line-height:1.6;
@@ -48,7 +51,7 @@
     .card{
       background:#fff; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,.08);
       padding:1.5rem; max-width:360px; flex:1 1 300px; text-align:center;
-      border:2px solid var(--dark-blue); /* match global look explicitly */
+      border:2px solid var(--dark-blue);
     }
     .card h3{ font-size:1.2rem; color:#0066b2; margin-bottom:.8rem; }
     .card p{ font-size:.95rem; color:#333; }
@@ -78,7 +81,7 @@
            width="220" height="64"
            decoding="async" />
 
-      <!-- Nav toggle -->
+      <!-- CSS-only toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
@@ -110,9 +113,10 @@
     </div>
   </div>
 
-  <!-- Reliable hero (300px crop) -->
-  <section class="hero-300" aria-label="AWS Cloud">
-    <img src="assets/images/cloud-banner.png"
+  <!-- Bullet-proof hero (tries several filenames, then shows gradient) -->
+  <section class="hero-300" aria-label="AWS Hero">
+    <img id="aws-hero"
+         src="assets/images/cloud-banner.png?v=1"
          alt="AWS cloud banner"
          loading="eager" decoding="async" />
   </section>
@@ -219,5 +223,32 @@
       <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
     </div>
   </footer>
+
+  <!-- Tiny fallback script: try common filenames, then show gradient if all fail -->
+  <script>
+    (function(){
+      var img = document.getElementById('aws-hero');
+      if(!img) return;
+
+      var tries = [
+        'assets/images/cloud-banner.png',
+        'assets/images/cloud-banner.jpg',
+        'assets/images/cloud-bannerimage.png',
+        'assets/images/cloud-bannerimage.jpg'
+      ];
+      var i = 0;
+
+      img.onerror = function(){
+        i++;
+        if(i < tries.length){
+          img.src = tries[i] + '?v=' + Date.now();
+        }else{
+          var hero = img.closest('.hero-300');
+          if(hero){ hero.classList.add('hero-fail'); }
+          img.remove(); // hide broken image icon
+        }
+      };
+    })();
+  </script>
 </body>
 </html>
