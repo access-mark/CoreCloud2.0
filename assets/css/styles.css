@@ -341,3 +341,12 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
     height: var(--hero-h-mobile) !important;
   }
 }
+/* === Card link cleanup (global) === */
+.card a,
+.card a:hover,
+.card a:visited {
+  text-decoration: none !important;
+  color: inherit !important;
+  display: block;      /* whole card is clickable */
+  height: 100%;        /* clickable area = full card */
+}
