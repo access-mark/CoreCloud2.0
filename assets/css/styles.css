@@ -399,3 +399,50 @@ h1, .hero-title{ line-height: 1.3; }
   text-align: center;      /* centers text inside */
   display: inline-block;
 }
+
+/* ===== FINAL OVERRIDES: Cards & CTAs (safe, no deletions) ===== */
+
+/* Make grid rows keep cards the same height */
+.card-grid,
+.card-grid.force-4 {
+  align-items: stretch;
+}
+
+/* Card layout uses flex + gap so spacing is consistent */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.25rem;            /* restores space between body and CTA */
+  height: 100%;
+  min-height: 100%;
+}
+
+/* Headings/body inside cards: left aligned and rely on gap for spacing */
+.card h2,
+.card h3 { 
+  margin: 0;
+  text-align: left;
+}
+.card p,
+.card ul,
+.card ol { 
+  margin: 0;
+  text-align: left;
+}
+
+/* CTA inside cards:
+   - full card width
+   - pinned to the bottom
+   - consistent height
+*/
+.card .cta-btn,
+.card a.cta-btn,
+.card button.cta-btn {
+  margin-top: auto;
+  width: 100%;
+  min-height: 48px;
+  align-self: stretch !important;
+  text-align: center;
+  box-sizing: border-box;
+}
