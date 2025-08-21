@@ -282,3 +282,43 @@ h1, .hero-title{ line-height: 1.3; }
 .cta-btn{
   color: #fff !important;
 }
+
+/* ===== PATCH: CTA + Cards parity (append-only) ===== */
+
+/* 1) Global CTA (site-wide) */
+.cta-btn{
+  display:inline-block;
+  min-height:48px;
+  padding:.85rem 1.4rem;
+  border:none;
+  border-radius:8px;
+  font-weight:700;
+  background:var(--primary-blue);
+  color:#fff !important;        /* keep your existing white override */
+  text-decoration:none;
+  text-align:center;
+  line-height:1;
+  cursor:pointer;
+  transition:background-color .25s ease, transform .02s ease;
+}
+.cta-btn:hover{ background:var(--dark-blue); }
+.cta-btn:active{ transform:translateY(1px); }
+.cta-btn:focus-visible{ outline:2px solid var(--dark-blue); outline-offset:2px; }
+
+/* 2) Cards — cover both h2 and h3 consistently */
+.card h2,
+.card h3{
+  font-size:1.25rem;
+  margin-bottom:1rem;
+  font-weight:700;
+  color:var(--primary-blue);
+}
+
+/* 3) Databricks accent (red headings on cards only for Databricks pages) */
+.databricks-page .card h2,
+.databricks-page .card h3{
+  color:#ff3621;
+}
+
+/* 4) Optional: keep card copy neat */
+.card p{ margin-bottom:0; }
