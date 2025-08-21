@@ -1,68 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Databricks Data Engineering – CoreCloud</title>
   <meta name="description" content="CoreCloud designs Databricks data engineering pipelines to streamline ETL, reduce costs, and deliver fast insights for South African enterprises." />
+  <link rel="canonical" href="https://www.corecloudza.com/databricks-engineering.html" />
 
-  <!-- Use the unified site stylesheet so the header/nav/logo/spacing are consistent -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=databricks-1" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Databricks Data Engineering – CoreCloud" />
+  <meta property="og:description" content="Automated, scalable Databricks pipelines for clean, reliable data and faster insight." />
+  <meta property="og:url" content="https://www.corecloudza.com/databricks-engineering.html" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Databricks Data Engineering – CoreCloud" />
+  <meta name="twitter:description" content="Automated, scalable Databricks pipelines for clean, reliable data and faster insight." />
+  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/cloud-banner.webp" />
 
-  <!-- Page-scoped styles (content only) -->
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
+
+  <!-- Preload hero (matches picture below) -->
+  <link rel="preload" as="image"
+        imagesrcset="assets/images/cloud-banner.webp 1920w, assets/images/cloud-banner.png 1920w"
+        imagesizes="100vw" fetchpriority="high" />
+
+  <!-- Page-scoped content helpers only -->
   <style>
-    .red-banner{ background:#ff3621; height:80px; width:100%; }
+    .hero-title{ font-size:2rem; font-weight:700; color:var(--dark-blue); text-align:center; margin:2.5rem auto 1rem; }
+    .center-subtitle{ text-align:center; color:#444; font-size:1.1rem; margin:0 auto 2rem; max-width:900px; line-height:1.6; }
+    .section-title{ text-align:center; color:#004f91; font-size:2rem; margin-bottom:2rem; font-weight:700; }
 
-    .hero-title{
-      font-size:2rem; font-weight:700; color:var(--dark-blue);
-      text-align:center; margin:2.5rem auto 1rem;
-    }
-    .center-subtitle{
-      text-align:center; color:#444; font-size:1.1rem;
-      margin:0 auto 2rem; max-width:900px; line-height:1.6;
-    }
-    .section-title{
-      text-align:center; color:#004f91; font-size:2rem; margin-bottom:2rem; font-weight:700;
-    }
-
-    .card-grid.triple{
-      display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
-      gap:2rem; margin-top:2rem; padding:0 1rem;
-    }
-    .card{
-      background:#fff; color:#444; padding:1.5rem; border-radius:12px;
-      text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.08); transition:transform .3s ease;
-      border:2px solid var(--dark-blue);
-    }
+    .card-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; margin-top:2rem; padding:0 1rem; }
+    .card{ background:#fff; color:#444; padding:1.5rem; border-radius:12px; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.08); border:2px solid var(--dark-blue); transition:transform .3s ease; }
     .card:hover{ transform:translateY(-5px); }
-    .card h2{ color:#ff3621; font-size:1.4rem; margin-bottom:.8rem; font-weight:700; }
+    .card h3{ color:#ff3621; font-size:1.3rem; margin-bottom:.8rem; font-weight:700; } /* Databricks accent */
     .card p{ font-size:.95rem; color:#444; }
 
-    .cta-btn{
-      display:inline-block; background:#ff3621; color:#fff; text-decoration:none;
-      padding:.75rem 1.5rem; border-radius:8px; font-weight:700; font-size:1rem;
-      transition:background-color .25s ease;
-    }
-    .cta-btn:hover{ background:#cc2d1b; color:#fff; }
+    /* Footer link normalisation */
+    .footer-right a{ color:var(--primary-blue); text-decoration:underline; font-weight:600; }
   </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+          {"@type":"ListItem","position":2,"name":"Cloud Suite","item":"https://www.corecloudza.com/cloud.html"},
+          {"@type":"ListItem","position":3,"name":"Databricks Data Engineering","item":"https://www.corecloudza.com/databricks-engineering.html"}
+        ]
+      },
+      {
+        "@type":"Organization",
+        "@id":"https://www.corecloudza.com/#org",
+        "name":"CoreCloud (Pty) Ltd",
+        "url":"https://www.corecloudza.com/",
+        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
+        "sameAs":["https://www.linkedin.com/company/corecloudza"]
+      },
+      {
+        "@type":"Service",
+        "name":"Databricks Data Engineering",
+        "provider":{"@id":"https://www.corecloudza.com/#org"},
+        "areaServed":{"@type":"Country","name":"South Africa"},
+        "url":"https://www.corecloudza.com/databricks-engineering.html",
+        "description":"Design and operate automated Databricks pipelines with Delta Lake reliability, governance, and cost-optimised Spark."
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="databricks-page">
-  <!-- Header / Nav (global slim/transparent) -->
+  <!-- Header / Nav (standard) -->
   <div class="small-banner">
-    <div class="banner-header ai-nav">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" />
 
-      <!-- CSS-only mobile toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Desktop Nav (uppercase + consistent order) -->
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn active">CLOUD SUITE</a>
+        <a href="cloud.html" class="nav-btn active" aria-current="page">CLOUD SUITE</a>
         <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
@@ -70,11 +98,10 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile Nav (checkbox hack uses global CSS) -->
-      <nav class="mobile-nav" id="mobileMenu" aria-label="Mobile">
+      <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html" class="active">CLOUD SUITE</a>
+        <a href="cloud.html" class="active" aria-current="page">CLOUD SUITE</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
         <a href="talent.html">TALENT</a>
         <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
@@ -84,11 +111,17 @@
     </div>
   </div>
 
-  <!-- Databricks red strip -->
-  <div class="red-banner"></div>
+  <!-- Standard banner (CLS-safe) -->
+  <div class="page-banner" role="img" aria-label="Databricks data engineering banner">
+    <picture>
+      <source type="image/webp" srcset="assets/images/cloud-banner.webp" />
+      <img src="assets/images/cloud-banner.png" alt="Data engineering in the cloud"
+           loading="eager" decoding="async" width="1920" height="300" fetchpriority="high" />
+    </picture>
+  </div>
 
   <!-- Main -->
-  <main class="content">
+  <main class="content" id="main">
     <h1 class="hero-title">Databricks Data Engineering</h1>
     <p class="center-subtitle">
       Modern analytics starts with clean, reliable data. CoreCloud’s Databricks Data Engineering services empower South African enterprises to build automated, scalable pipelines for ingesting, transforming, and governing data efficiently.
@@ -96,50 +129,57 @@
 
     <section class="section">
       <h2 class="section-title">Key Capabilities</h2>
-      <div class="card-grid triple">
+      <div class="card-grid">
         <div class="card">
-          <h2>ETL Pipeline Automation</h2>
+          <h3>ETL Pipeline Automation</h3>
           <p>Accelerate time-to-insight with scalable, reusable pipelines that reduce manual data wrangling.</p>
         </div>
         <div class="card">
-          <h2>Delta Lake Reliability</h2>
+          <h3>Delta Lake Reliability</h3>
           <p>Ensure ACID compliance and data quality for trustworthy analytics and reporting.</p>
         </div>
         <div class="card">
-          <h2>Cost-Optimized Spark</h2>
+          <h3>Cost-Optimized Spark</h3>
           <p>Leverage Databricks’ managed Spark clusters for lower operational costs and high performance.</p>
         </div>
         <div class="card">
-          <h2>Streaming Data</h2>
+          <h3>Streaming Data</h3>
           <p>Handle real-time workloads and deliver immediate insights for mission-critical applications.</p>
         </div>
         <div class="card">
-          <h2>Unified Governance</h2>
-          <p>Integrate data governance frameworks to align with POPIA and enterprise compliance needs.</p>
+          <h3>Unified Governance</h3>
+          <p>Integrate governance aligned to POPIA and enterprise compliance needs.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
       <h2 class="section-title">Why CoreCloud?</h2>
-      <div class="card-grid triple">
+      <div class="card-grid">
         <div class="card">
-          <h2>Local Experience</h2>
-          <p>Deep expertise designing pipelines suited to South Africa’s data and regulatory landscape.</p>
+          <h3>Local Experience</h3>
+          <p>Pipelines tuned for South Africa’s data realities and regulatory landscape.</p>
         </div>
         <div class="card">
-          <h2>Accelerated Delivery</h2>
-          <p>Rapid implementation ensures faster returns and lower project risk.</p>
+          <h3>Accelerated Delivery</h3>
+          <p>Rapid implementation reduces risk and speeds up value capture.</p>
         </div>
         <div class="card">
-          <h2>End-to-End Support</h2>
-          <p>From architecture to managed services, we ensure your data pipelines run flawlessly.</p>
+          <h3>End-to-End Support</h3>
+          <p>From architecture to managed services — stable, observable, and cost-aware.</p>
         </div>
       </div>
     </section>
 
     <div style="text-align:center; margin-top:3rem;">
-      <a href="contact.html" class="cta-btn">Talk Data Engineering →</a>
+      <a href="contact.html" class="cta-btn">Talk Data Engineering</a>
+    </div>
+
+    <!-- Cross-links (Databricks cluster) -->
+    <div class="related-links" style="text-align:center;margin-top:2rem;" aria-label="Related Databricks services">
+      <a href="databricks-lakehouse.html">Lakehouse</a> •
+      <a href="databricks-ml.html">Machine Learning</a> •
+      <a href="databricks-optimize.html">Cost Optimisation</a>
     </div>
   </main>
 
@@ -153,7 +193,6 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <!-- JS-free submit -->
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec"
               method="POST"
               style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
@@ -163,9 +202,9 @@
         </form>
       </div>
       <div class="footer-right">
-        <p>Contact</p>
-        <p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:red; text-decoration:underline; font-weight:bold;">LinkedIn</a></p>
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
