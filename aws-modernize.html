@@ -1,90 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CoreCloud AWS Modernization | Refactor, Rebuild & Replatform</title>
-  <meta name="description" content="CoreCloud helps South African enterprises modernize legacy systems on AWS through expert refactoring, replatforming, and cloud-native rebuilds — built for scale and agility." />
-  <meta name="keywords" content="AWS Modernization, CoreCloud, Cloud Refactoring, Replatforming, Application Modernization, Cloud Native, AWS South Africa" />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="CoreCloud" />
+  <meta name="description" content="CoreCloud helps South African enterprises modernise legacy systems on AWS through expert refactoring, replatforming, and cloud-native rebuilds — built for scale and agility." />
+  <link rel="canonical" href="https://www.corecloudza.com/aws-modernization.html" />
 
-  <!-- Use the site-wide stylesheet so nav/logo match everywhere -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=aws-modernize-fix" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CoreCloud AWS Modernization | Refactor, Rebuild & Replatform" />
+  <meta property="og:description" content="Modernise on AWS with replatforming, refactoring, and cloud-native rebuilds delivered with real execution." />
+  <meta property="og:url" content="https://www.corecloudza.com/aws-modernization.html" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CoreCloud AWS Modernization | Refactor, Rebuild & Replatform" />
+  <meta name="twitter:description" content="Modernise on AWS with replatforming, refactoring, and cloud-native rebuilds delivered with real execution." />
+  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
 
-  <!-- Page-scoped content styles only -->
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
+
+  <!-- Page-scoped helpers (content only) -->
   <style>
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      color: var(--dark-blue, #004f91);
-      margin-bottom: 1.5rem;
-      font-weight: 700;
-    }
-    .section-subtitle {
-      text-align: center;
-      font-size: 1.1rem;
-      color: #444;
-      max-width: 900px;
-      margin: 0 auto 2rem;
-      line-height: 1.6;
-    }
+    .section-title{ text-align:center;font-size:2rem;color:var(--dark-blue);margin-bottom:1.5rem;font-weight:700; }
+    .section-subtitle{ text-align:center;font-size:1.1rem;color:#444;max-width:900px;margin:0 auto 2rem;line-height:1.6; }
 
-    .card-grid.triple {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-      padding: 0 1rem;
-    }
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-      padding: 1.5rem;
-      text-align: center;
-      /* global .card adds the blue border */
-    }
-    .card h2 {
-      font-size: 1.4rem;
-      color: #0066b2;
-      margin-bottom: 0.8rem;
-      font-weight: 700;
-    }
-    .card p { font-size: 0.95rem; color: #333; }
+    .card-grid{ display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem;padding:0 1rem; }
+    .card{ background:#fff;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.08);padding:1.5rem;text-align:center;border:2px solid var(--dark-blue); }
+    .card h2,.card h3{ font-size:1.3rem;color:#0066b2;margin-bottom:.8rem;font-weight:700; }
+    .card p{ font-size:.95rem;color:#333; }
 
-    /* Standalone CTA */
-    .cta-btn{
-      display:inline-block;
-      margin-top:2rem;
-      background:var(--primary-blue, #0066b2);
-      color:#fff;
-      padding:.8rem 1.5rem;
-      font-weight:700;
-      border-radius:8px;
-      text-decoration:none;
-      transition:background-color .25s ease;
-    }
-    .cta-btn:hover{ background:var(--dark-blue, #004f91); }
+    /* Footer link normalisation */
+    .footer-right a{ color:var(--primary-blue);text-decoration:underline;font-weight:600; }
   </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+          {"@type":"ListItem","position":2,"name":"Cloud Suite","item":"https://www.corecloudza.com/cloud.html"},
+          {"@type":"ListItem","position":3,"name":"AWS Modernization","item":"https://www.corecloudza.com/aws-modernization.html"}
+        ]
+      },
+      {
+        "@type":"Organization",
+        "@id":"https://www.corecloudza.com/#org",
+        "name":"CoreCloud (Pty) Ltd",
+        "url":"https://www.corecloudza.com/",
+        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
+        "sameAs":["https://www.linkedin.com/company/corecloudza"]
+      },
+      {
+        "@type":"Service",
+        "name":"AWS Modernization Services",
+        "provider":{"@id":"https://www.corecloudza.com/#org"},
+        "areaServed":{"@type":"Country","name":"South Africa"},
+        "url":"https://www.corecloudza.com/aws-modernization.html",
+        "description":"Replatform, refactor, and rebuild on AWS using automation, IaC, and modern DevOps for measurable outcomes."
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="aws-modernize-page">
-  <!-- Header / Nav (inherits global slim transparent nav + logo sizing) -->
+  <!-- Header / Nav -->
   <div class="small-banner">
-    <div class="banner-header ai-nav">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" />
 
-      <!-- CSS-only hamburger toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Desktop Nav -->
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn active">CLOUD SUITE</a>
+        <a href="cloud.html" class="nav-btn active" aria-current="page">CLOUD SUITE</a>
         <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
@@ -92,11 +91,10 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile Nav -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html" class="active">CLOUD SUITE</a>
+        <a href="cloud.html" class="active" aria-current="page">CLOUD SUITE</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
         <a href="talent.html">TALENT</a>
         <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
@@ -106,29 +104,29 @@
     </div>
   </div>
 
-  <!-- Page Banner (keeps spacing consistent with other pages) -->
-  <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png');"></div>
+  <!-- Standard Cloud Banner -->
+  <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png?v=2');"></div>
 
   <!-- Main Content -->
-  <main class="content">
+  <main class="content" id="main">
     <h1 class="hero-title">AWS Modernization Services</h1>
     <p class="section-subtitle">
-      Modernization is where cloud transformation becomes real. CoreCloud helps South African enterprises unlock the full potential of AWS through strategies that deliver agility, automation, and measurable cost savings. Whether you’re untangling legacy systems or rebuilding for the future, our frameworks turn ambition into architecture.
+      Modernisation is where cloud transformation becomes real. CoreCloud helps South African enterprises unlock the full potential of AWS through strategies that deliver agility, automation, and measurable cost savings. Whether you’re untangling legacy systems or rebuilding for the future, our frameworks turn ambition into architecture.
     </p>
 
     <section class="section">
       <h2 class="section-title">Core Modernization Pillars</h2>
-      <div class="card-grid triple">
+      <div class="card-grid">
         <div class="card">
-          <h2>Replatform</h2>
+          <h3>Replatform</h3>
           <p>Shift applications onto fully managed AWS services without major code changes, reducing operational overhead and speeding up value delivery.</p>
         </div>
         <div class="card">
-          <h2>Refactor</h2>
+          <h3>Refactor</h3>
           <p>Redesign legacy applications to align with microservices, containers, and event-driven architecture using native AWS services.</p>
         </div>
         <div class="card">
-          <h2>Rebuild</h2>
+          <h3>Rebuild</h3>
           <p>Build cloud-native applications from scratch — serverless, scalable, and ready for modern DevOps pipelines.</p>
         </div>
       </div>
@@ -136,42 +134,42 @@
 
     <section class="section">
       <h2 class="section-title">What You Get with CoreCloud</h2>
-      <div class="card-grid triple">
+      <div class="card-grid">
         <div class="card">
-          <h2>Readiness Assessment</h2>
-          <p>We evaluate technical debt, business drivers, and current architecture to shape a tailored modernization plan.</p>
+          <h3>Readiness Assessment</h3>
+          <p>We evaluate technical debt, business drivers, and current architecture to shape a tailored modernisation plan.</p>
         </div>
         <div class="card">
-          <h2>Roadmap &amp; POC</h2>
-          <p>We deliver a phased modernization strategy, with timelines, cost models, and proof-of-concept deployments to reduce risk.</p>
+          <h3>Roadmap &amp; POC</h3>
+          <p>Phased modernisation strategy with timelines, cost models, and proof-of-concept deployments to reduce risk.</p>
         </div>
         <div class="card">
-          <h2>Hands-On Modernization</h2>
-          <p>We execute replatforming, refactoring, and cloud-native development using automation, Infrastructure as Code, and modern DevOps practices.</p>
+          <h3>Hands-On Modernisation</h3>
+          <p>Execution across replatforming, refactoring, and cloud-native development with automation and Infrastructure as Code.</p>
         </div>
       </div>
     </section>
 
     <section class="section">
       <h2 class="section-title">Why CoreCloud?</h2>
-      <div class="card-grid triple">
+      <div class="card-grid">
         <div class="card">
-          <h2>AWS-Certified Teams</h2>
-          <p>We bring certified cloud specialists who execute modernization projects with real-world experience across diverse industries.</p>
+          <h3>AWS-Certified Teams</h3>
+          <p>Certified specialists with real-world delivery across diverse industries.</p>
         </div>
         <div class="card">
-          <h2>Outcome-Focused</h2>
-          <p>Our success is measured by stability, performance, and tangible business outcomes, not theoretical diagrams or software licenses.</p>
+          <h3>Outcome-Focused</h3>
+          <p>Measured by stability, performance, and business outcomes — not diagrams or licences.</p>
         </div>
         <div class="card">
-          <h2>Built for Scale</h2>
-          <p>Our frameworks are designed for companies scaling from 50 to 5,000 users, combining governance with agility.</p>
+          <h3>Built for Scale</h3>
+          <p>Frameworks for teams from 50 to 5,000 users, balancing governance with agility.</p>
         </div>
       </div>
     </section>
 
-    <div style="text-align:center; margin-top:3rem;">
-      <a href="contact.html" class="cta-btn">Let’s Modernize →</a>
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="contact.html" class="cta-btn">Let’s Modernise</a>
     </div>
   </main>
 
@@ -185,16 +183,16 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+        <form id="subscribe-form" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required
-                 style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
+                 style="padding:10px;flex:1;border:1px solid #ccc;border-radius:4px;min-width:220px;" />
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
       <div class="footer-right">
-        <p>Contact</p>
-        <p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:red; text-decoration:underline; font-weight:bold;">LinkedIn</a></p>
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
