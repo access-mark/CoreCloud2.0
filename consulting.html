@@ -8,14 +8,13 @@
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
 
-  <!-- Global CSS (use your latest version if you cache-bust) -->
+  <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css"/>
 
-  <!-- Preload (nice-to-have for faster LCP) -->
+  <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-only content tweaks (no header/banner rules here) -->
   <style>
     .consulting-page .hero-title{
       font-size:2rem; color:var(--dark-blue); font-weight:700;
@@ -28,28 +27,31 @@
     }
     @media (max-width:1199px){ .consulting-page .card-grid.force-4{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
     @media (max-width:767px){ .consulting-page .card-grid.force-4{ grid-template-columns:1fr; } }
+
     .consulting-page .cta-row{ margin-top:1rem; }
-    .consulting-page .cta-row .cta-card{ grid-column:1 / -1; border:none !important; box-shadow:none !important; background:transparent; padding:0; }
+    .consulting-page .cta-row .cta-card{ grid-column:1 / -1; border:none !important; background:transparent; padding:0; }
     .consulting-page .cta-row .cta-btn{
-      display:block; width:100%; text-align:center; border:none !important; box-shadow:none !important;
-      padding:14px 20px; border-radius:6px; background:var(--dark-blue); color:#fff; font-weight:600; text-decoration:none;
+      display:block; width:100%; text-align:center;
+      padding:14px 20px; border-radius:6px;
+      background:var(--dark-blue); color:#fff; font-weight:600; text-decoration:none;
+      transition:background-color 0.3s ease;
     }
     .consulting-page .cta-row .cta-btn:hover{ background:var(--primary-blue); }
   </style>
 </head>
 
 <body class="consulting-page">
-  <!-- Header / Nav -->
+  <!-- Header -->
   <div class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" decoding="async" fetchpriority="high">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" fetchpriority="high">
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn active">CONSULTING</a>
+        <a href="consulting.html" class="nav-btn active" aria-current="page">CONSULTING</a>
         <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
         <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
@@ -60,7 +62,7 @@
 
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
-        <a href="consulting.html" class="active">CONSULTING</a>
+        <a href="consulting.html" class="active" aria-current="page">CONSULTING</a>
         <a href="cloud.html">CLOUD SUITE</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
         <a href="talent.html">TALENT</a>
@@ -71,13 +73,14 @@
     </div>
   </div>
 
-  <!-- ✅ Standardised hero—uses global .hero-media rules -->
+  <!-- Hero -->
   <div class="hero-media">
     <img
       src="assets/images/consulting-bannerimage.png"
       alt="CoreCloud Consulting — Execution & Sales Enablement"
       decoding="async"
-      loading="eager">
+      loading="eager"
+      width="1920" height="400">
   </div>
 
   <main class="content">
