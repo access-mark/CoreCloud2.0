@@ -8,37 +8,15 @@
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
 
-  <!-- Global CSS (cache-busted to avoid stale rules) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=force-banner-1"/>
+  <!-- Global CSS (use your latest version if you cache-bust) -->
+  <link rel="stylesheet" href="assets/css/styles.css"/>
 
-  <!-- Preload -->
+  <!-- Preload (nice-to-have for faster LCP) -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped styles (safe; do not touch site header/nav classes) -->
+  <!-- Page-only content tweaks (no header/banner rules here) -->
   <style>
-    /* Fail-safe banner that will render even if global .page-banner rules get overridden */
-    .banner-hero{
-      width:100%;
-      height:300px;              /* lock height on desktop */
-      overflow:hidden;
-      background:#f4f6f8;        /* letterbox color while image decodes */
-      position:relative;
-    }
-    .banner-hero img{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:cover;          /* crop to fill area */
-      object-position:center;    /* keep the center in view */
-    }
-
-    /* Mobile tweak: slightly shorter if you prefer */
-    @media (max-width: 768px){
-      .banner-hero{ height: 240px; }
-    }
-
-    /* Content-only tweaks */
     .consulting-page .hero-title{
       font-size:2rem; color:var(--dark-blue); font-weight:700;
       text-align:center; margin:2.5rem auto 1rem;
@@ -93,8 +71,8 @@
     </div>
   </div>
 
-  <!-- ✅ Bulletproof banner (uses <img>, not CSS background) -->
-  <div class="banner-hero">
+  <!-- ✅ Standardised hero—uses global .hero-media rules -->
+  <div class="hero-media">
     <img
       src="assets/images/consulting-bannerimage.png"
       alt="CoreCloud Consulting — Execution & Sales Enablement"
