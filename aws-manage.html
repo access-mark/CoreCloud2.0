@@ -12,21 +12,16 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
 
-  <!-- Page-scoped tweaks (kept minimal + consistent with site) -->
+  <!-- Preload hero for faster LCP -->
+  <link rel="preload" as="image" href="assets/images/cloud-banner.png" imagesizes="100vw" />
+
+  <!-- Page-scoped tweaks (minimal) -->
   <style>
-    /* Transparent/glass header like the rest of the site */
+    /* Keep header transparent like the rest of the site */
     .awsms-page .small-banner{
       background: transparent !important;
       box-shadow: none !important;
-      padding: .15rem .9rem 0 !important;
-    }
-    .awsms-page .banner-header.ai-nav{
-      background: transparent !important;
-      -webkit-backdrop-filter: none !important;
-      backdrop-filter: none !important;
-      border-bottom: 0 !important;
-      box-shadow: none !important;
-      position: sticky; top: 0; z-index: 1000;
+      padding: 0 .9rem 0 !important;
     }
 
     /* Local headings consistent with global scale */
@@ -54,38 +49,18 @@
       margin-top: 2rem;
       padding: 0 1rem;
     }
-
-    /* Use global .card look (blue border), just ensure hover is nice */
-    .card:hover{ transform: translateY(-5px); }
-
-    /* Local CTA helper (inherits shared look) */
-    .awsms-page .cta-btn{
-      display:inline-block; min-height:48px; padding:.85rem 1.4rem;
-      border:none; border-radius:6px; font-weight:700;
-      background:var(--primary-blue); color:#fff; text-decoration:none;
-      transition:background-color .25s ease, transform .02s ease;
-      text-align:center; line-height:1;
-    }
-    .awsms-page .cta-btn:hover{ background:var(--dark-blue); }
-    .awsms-page .cta-btn:active{ transform:translateY(1px); }
-    .awsms-page .cta-btn:focus-visible{ outline:2px solid var(--dark-blue); outline-offset:2px; }
-
-    /* Mobile overlay menu readability (checkbox hack already in global CSS) */
-    @media (max-width:768px){
-      .awsms-page #nav-toggle:checked ~ nav.mobile-nav{
-        display:flex !important; position:fixed !important; inset:0 !important; top:0 !important;
-        padding:5rem 1.5rem 2rem !important; background:rgba(255,255,255,.95) !important;
-        -webkit-backdrop-filter:blur(10px) !important; backdrop-filter:blur(10px) !important;
-        flex-direction:column !important; gap:1rem !important; box-shadow:none !important;
-      }
-    }
   </style>
 </head>
 <body class="awsms-page">
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header ai-nav">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+      <!-- Intrinsic dimensions prevent CLS -->
+      <img src="assets/images/corecloud-logo.png"
+           alt="CoreCloud Logo"
+           class="logo"
+           width="220" height="64"
+           decoding="async" />
 
       <!-- CSS-only toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
@@ -93,7 +68,7 @@
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Desktop Nav (consistent order + labels) -->
+      <!-- Desktop Nav -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
@@ -119,8 +94,12 @@
     </div>
   </div>
 
-  <!-- Page Banner (keeps spacing consistent across the site) -->
-  <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png');"></div>
+  <!-- NEW Standardized Banner (300px tall, cropped cover) -->
+  <div class="banner">
+    <img src="assets/images/cloud-banner.png"
+         alt="Cloud banner – CoreCloud AWS Managed Services"
+         loading="eager" decoding="async" />
+  </div>
 
   <main class="content" style="max-width:1200px; margin:0 auto; padding:4rem 1.5rem;">
     <h1 class="hero-title">AWS Managed Services</h1>
@@ -182,7 +161,7 @@
     </div>
   </footer>
 
-  <!-- Optional subscribe redirect (matches other pages using JS) -->
+  <!-- Optional subscribe redirect -->
   <script>
     (function(){
       var form = document.getElementById('subscribe-form');
