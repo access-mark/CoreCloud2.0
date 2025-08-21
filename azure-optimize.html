@@ -1,65 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CoreCloud Azure Optimize | Cost, Governance & Performance</title>
   <meta name="description" content="Maximize ROI on Azure with CoreCloud’s optimization services. Improve performance, enforce governance, and reduce costs across your Microsoft cloud estate." />
-  <meta name="keywords" content="Azure Optimization, CoreCloud, Cloud Cost Management, Azure Governance, Performance Tuning, Cloud Efficiency, South Africa" />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="CoreCloud" />
+  <link rel="canonical" href="https://www.corecloudza.com/azure-optimization.html" />
 
-  <!-- Use unified site CSS so header/nav/logo/spacing are consistent -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=azure-opt-fix" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CoreCloud Azure Optimize | Cost, Governance & Performance" />
+  <meta property="og:description" content="Run lean on Azure: cost visibility, rightsizing, governance, and licensing benefits — executed by CoreCloud." />
+  <meta property="og:url" content="https://www.corecloudza.com/azure-optimization.html" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CoreCloud Azure Optimize | Cost, Governance & Performance" />
+  <meta name="twitter:description" content="Run lean on Azure: cost visibility, rightsizing, governance, and licensing benefits — executed by CoreCloud." />
+  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
 
-  <!-- Page-scoped styles (content only) -->
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
+
+  <!-- Page-scoped helpers (content only) -->
   <style>
-    .section-subtitle{
-      text-align:center; font-size:1.1rem; color:#444;
-      max-width:900px; margin:0 auto 2rem; line-height:1.6;
-    }
+    .section-subtitle{ text-align:center;font-size:1.1rem;color:#444;max-width:900px;margin:0 auto 2rem;line-height:1.6; }
 
-    /* 4-up grid for pillars */
-    .card-grid.quad{
-      display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
-      gap:2rem; margin-top:2rem; padding:0 1rem;
-    }
-    .card{
-      background:#fff; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,.1);
-      padding:1.5rem; text-align:center; border:2px solid var(--dark-blue);
-    }
-    .card h2{ font-size:1.4rem; color:#0066b2; margin-bottom:.8rem; }
-    .card p{ font-size:.95rem; color:#333; }
-
-    .cta-btn{
-      display:inline-block; margin-top:1rem; background:var(--primary-blue,#0066b2);
-      color:#fff; padding:.8rem 1.5rem; font-weight:700; border-radius:8px; text-decoration:none;
-      transition:background-color .25s ease;
-    }
-    .cta-btn:hover{ background:var(--dark-blue,#004f91); }
-
-    /* Thin Blue Banner under header */
-    .thin-banner{ background:#0078D4; height:80px; width:100%; }
+    .card-grid{ display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem;padding:0 1rem; }
+    .card{ background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.1);padding:1.5rem;text-align:center;border:2px solid var(--dark-blue); }
+    .card h2,.card h3{ font-size:1.4rem;color:#0066b2;margin-bottom:.8rem;font-weight:700; }
+    .card p{ font-size:.95rem;color:#333; }
+    .footer-right a{ color:var(--primary-blue);text-decoration:underline;font-weight:600; }
   </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+          {"@type":"ListItem","position":2,"name":"Cloud Suite","item":"https://www.corecloudza.com/cloud.html"},
+          {"@type":"ListItem","position":3,"name":"Azure Optimization","item":"https://www.corecloudza.com/azure-optimization.html"}
+        ]
+      },
+      {
+        "@type":"Organization",
+        "@id":"https://www.corecloudza.com/#org",
+        "name":"CoreCloud (Pty) Ltd",
+        "url":"https://www.corecloudza.com/",
+        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
+        "sameAs":["https://www.linkedin.com/company/corecloudza"]
+      },
+      {
+        "@type":"Service",
+        "name":"Azure Optimization Services",
+        "provider":{"@id":"https://www.corecloudza.com/#org"},
+        "areaServed":{"@type":"Country","name":"South Africa"},
+        "url":"https://www.corecloudza.com/azure-optimization.html",
+        "description":"Cost visibility, rightsizing, governance, and licensing strategy to maximize Azure ROI."
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="azure-optimization-page">
-
-  <!-- Header / Nav (global slim/transparent) -->
+  <!-- Header / Nav -->
   <div class="small-banner">
-    <div class="banner-header ai-nav">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" />
 
-      <!-- CSS-only mobile toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Desktop Navigation -->
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn active">CLOUD SUITE</a>
+        <a href="cloud.html" class="nav-btn active" aria-current="page">CLOUD SUITE</a>
         <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
@@ -67,11 +88,10 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile Navigation -->
       <nav class="mobile-nav" id="mobileMenu" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html" class="active">CLOUD SUITE</a>
+        <a href="cloud.html" class="active" aria-current="page">CLOUD SUITE</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
         <a href="talent.html">TALENT</a>
         <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
@@ -81,11 +101,11 @@
     </div>
   </div>
 
-  <!-- Thin Blue Banner -->
-  <div class="thin-banner"></div>
+  <!-- Standard Cloud Banner (shared with cloud suite) -->
+  <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png?v=2');"></div>
 
   <!-- Main Content -->
-  <main class="content">
+  <main class="content" id="main">
     <h1 class="hero-title">Azure Optimization Services</h1>
     <p class="section-subtitle">
       Maximize ROI on Azure with CoreCloud’s optimization services. Improve performance, enforce governance, and reduce costs across your Microsoft cloud estate.
@@ -93,25 +113,25 @@
 
     <section class="section">
       <h2 class="section-title">Azure Optimization: Our Pillars</h2>
-      <div class="card-grid quad">
+      <div class="card-grid">
         <div class="card">
-          <h2>Cost Visibility</h2>
-          <p>We expose your Azure spend in real-time — showing where money is wasted and where savings can be unlocked.</p>
+          <h3>Cost Visibility</h3>
+          <p>Expose spend in real time — highlight waste, surface anomalies, and unlock savings.</p>
           <a href="contact.html" class="cta-btn">Request Cost Audit</a>
         </div>
         <div class="card">
-          <h2>Rightsizing &amp; Scaling</h2>
-          <p>We remove oversized resources, optimize autoscaling rules, and streamline environments without disruption.</p>
+          <h3>Rightsizing &amp; Scaling</h3>
+          <p>Remove oversized resources, tune autoscaling, and streamline environments without disruption.</p>
           <a href="contact.html" class="cta-btn">Scale Efficiently</a>
         </div>
         <div class="card">
-          <h2>Governance &amp; Tagging</h2>
-          <p>We implement policy guardrails, enforce naming and tagging, and ensure compliance is baked into your cloud.</p>
+          <h3>Governance &amp; Tagging</h3>
+          <p>Policy guardrails, naming, and tagging standards so compliance is built in — not bolted on.</p>
           <a href="contact.html" class="cta-btn">Enforce Governance</a>
         </div>
         <div class="card">
-          <h2>RI &amp; Hybrid Benefit</h2>
-          <p>We help you maximize Microsoft licensing entitlements, use Hybrid Benefits, and plan Reserved Instance strategies.</p>
+          <h3>RI &amp; Hybrid Benefit</h3>
+          <p>Maximise licensing entitlements, apply Azure Hybrid Benefit, and plan Reserved Instance strategies.</p>
           <a href="contact.html" class="cta-btn">Unlock Benefits</a>
         </div>
       </div>
@@ -119,16 +139,16 @@
 
     <section class="section">
       <h2 class="section-title">Best Practice Framework</h2>
-      <div class="card" style="max-width:1000px; margin:0 auto; text-align:center;">
-        <h2>Aligned to Microsoft FinOps</h2>
-        <p>We implement Microsoft’s FinOps and cost governance best practices — adapted for the realities of South African operations.</p>
-        <ul style="text-align:left; margin:1.5rem auto; line-height:1.8; max-width:800px;">
-          <li>Budget forecasts, usage alerts, and cost anomaly detection</li>
-          <li>Business-aligned tagging strategy with full accountability</li>
+      <div class="card" style="max-width:1000px;margin:0 auto;text-align:center;">
+        <h3>Aligned to Microsoft FinOps</h3>
+        <p>We implement Microsoft’s FinOps and cost governance practices — adapted for South African operations.</p>
+        <ul style="text-align:left;margin:1.5rem auto;line-height:1.8;max-width:800px;list-style:none;padding-left:0;">
+          <li>Budget forecasts, usage alerts, and anomaly detection</li>
+          <li>Business-aligned tagging with clear cost ownership</li>
           <li>Optimization dashboards with actionable insights</li>
-          <li>Cloud operations that serve both finance and tech leaders</li>
+          <li>Cloud operations that serve finance and engineering</li>
         </ul>
-        <a href="contact.html" class="cta-btn">Run Lean with FinOps →</a>
+        <a href="contact.html" class="cta-btn">Run Lean with FinOps</a>
       </div>
     </section>
   </main>
@@ -143,16 +163,16 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+        <form id="subscribe-form" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required
-                 style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
+                 style="padding:10px;flex:1;border:1px solid #ccc;border-radius:4px;min-width:220px;" />
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
       <div class="footer-right">
-        <p>Contact</p>
-        <p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:red; text-decoration:underline; font-weight:bold;">LinkedIn</a></p>
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
@@ -160,20 +180,23 @@
     </div>
   </footer>
 
-  <!-- Optional: JS-free submit already works via action. This keeps your current redirect behavior. -->
+  <!-- Optional subscribe redirect (keeps your current behavior) -->
   <script>
-    document.getElementById("subscribe-form").addEventListener("submit", function (e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-      fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
-        method: "POST",
-        body: data
-      }).then(r => {
-        if (r.ok) window.location.href = "thank-you.html";
-        else alert("Something went wrong. Please try again.");
-      }).catch(() => alert("Submission failed. Please try again."));
-    });
+    (function(){
+      var form = document.getElementById('subscribe-form');
+      if(!form) return;
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var data = new FormData(form);
+        fetch("https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec", {
+          method: "POST",
+          body: data
+        }).then(function(res){
+          if(res.ok){ window.location.href = "thank-you.html?type=subscribe"; }
+          else{ alert("Something went wrong. Please try again."); }
+        }).catch(function(){ alert("Submission failed. Please try again."); });
+      });
+    })();
   </script>
 </body>
 </html>
