@@ -364,3 +364,19 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
   text-decoration: none !important;
   color: #fff !important;   /* keep buttons white */
 }
+/* === About pillars: remove underline when the CARD itself is a link === */
+a.card,
+a.card:link,
+a.card:visited,
+a.card:hover,
+a.card:active {
+  text-decoration: none !important;
+  color: inherit !important;     /* keep headings/body using card colors */
+  display: block;                /* ensure full-card box behavior */
+}
+
+/* Keep CTA text looking like a button even inside linked cards */
+a.card .cta-btn {
+  text-decoration: none !important;
+  color: #fff !important;
+}
