@@ -3,7 +3,7 @@
    Central source of truth
    - Stable header + logo (no CLS)
    - Slim transparent nav
-   - Picture-based hero (legacy .page-banner still supported)
+   - Standardised banners (300px desktop, 220px mobile)
    - Consistent grids/CTAs/footer
    =========================== */
 
@@ -23,7 +23,7 @@ img { max-width: 100%; height: auto; display: block; }
   --text-gray:#444;
   --gold:#d4af37;
 
-  /* Header / Logo geometry (fixed = no layout shift) */
+  /* Header / Logo geometry */
   --logo-h-desktop: 120px;
   --logo-h-mobile: 80px;
 
@@ -66,19 +66,18 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
   display:flex; align-items:center; justify-content:space-between;
   max-width:var(--container); margin:0 auto;
   padding:0 !important;
-  min-height: var(--logo-h-desktop); /* fixed height prevents CLS */
-  position: sticky; top: 0; z-index: 1000; /* keep header stable */
+  min-height: var(--logo-h-desktop);
+  position: sticky; top: 0; z-index: 1000;
   background: transparent !important;
   border-bottom:0 !important; box-shadow:none !important;
 }
 
-/* ✅ Logo: intrinsic aspect ratio preserved, never stretched */
+/* ✅ Logo: never stretched */
 .logo{
-  max-height: var(--logo-h-desktop);  /* fits inside header */
-  width: auto;                        /* width flows naturally */
-  height: auto;                       /* preserve ratio */
+  max-height: var(--logo-h-desktop);
+  width: auto; height: auto;
   display: block;
-  object-fit: contain;                /* safety net for odd source dims */
+  object-fit: contain;
   margin: 0;
 }
 
@@ -92,7 +91,7 @@ nav.desktop-nav .nav-btn{
 nav.desktop-nav .nav-btn:hover,
 nav.desktop-nav .nav-btn.active{ color:#005fa3; }
 
-/* Underline hover (no pills) */
+/* Underline hover */
 .banner-header .desktop-nav .nav-btn::after{
   content:""; position:absolute; left:8px; right:8px; bottom:4px; height:2px;
   background:linear-gradient(90deg, var(--gold), var(--dark-blue));
@@ -101,7 +100,7 @@ nav.desktop-nav .nav-btn.active{ color:#005fa3; }
 .banner-header .desktop-nav .nav-btn:hover::after,
 .banner-header .desktop-nav .nav-btn:focus-visible::after{ transform:scaleX(1); }
 
-/* Mobile Nav (checkbox hack) */
+/* Mobile Nav */
 .nav-toggle{ position:absolute; left:-9999px; }
 .hamburger{ display:none; flex-direction:column; cursor:pointer; gap:5px; }
 .hamburger span{ width:25px; height:3px; background:#003366; border-radius:2px; transition:all .3s ease; }
@@ -115,7 +114,6 @@ nav.mobile-nav a{
 }
 nav.mobile-nav a:last-child{ border-bottom:none; }
 
-/* Open = full-screen overlay on mobile */
 #nav-toggle:checked ~ nav.mobile-nav{
   display:flex; position:fixed; inset:0; top:0;
   padding:5rem 1.5rem 2rem;
@@ -123,20 +121,32 @@ nav.mobile-nav a:last-child{ border-bottom:none; }
   -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
   gap:1rem; border:0; box-shadow:none;
 }
-/* Hamburger morph */
 #nav-toggle:checked + label.hamburger span:nth-child(1){ transform:rotate(45deg) translate(5px,5px); }
 #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity:0; }
 #nav-toggle:checked + label.hamburger span:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
 
 /* ===== Hero / Banner ===== */
 
-/* New hero (picture-based). Keeps height flexible; use real image dimensions. */
-.hero-media picture, .hero-media img{ display:block; width:100%; height:auto; }
-
-/* Legacy CSS banner still supported until all pages migrate */
+/* Standardised 300px banners (crop) */
 .page-banner{
-  height:300px; background-size:cover; background-position:center; background-repeat:no-repeat;
-  width:100%; overflow:hidden;
+  width:100%;
+  height:300px;
+  background: var(--light-bg) center / cover no-repeat;
+  display:block; overflow:hidden;
+}
+.hero-media{
+  width:100%; height:300px; overflow:hidden; display:block;
+  background: var(--light-bg);
+}
+.hero-media img, .hero-media picture{
+  width:100%; height:100%;
+  object-fit:cover; object-position:center; display:block;
+}
+
+/* Mobile tweak */
+@media (max-width:768px){
+  .page-banner{ height:220px; }
+  .hero-media{ height:220px; }
 }
 
 /* Content spacing after hero/banner */
@@ -195,7 +205,6 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
   .banner-header{ min-height: var(--logo-h-mobile); }
   .logo{ max-height: var(--logo-h-mobile); }
 
-  .page-banner{ height:250px; }
   .hero-title{ font-size:2rem; }
 
   .banner-header #nav-toggle:checked ~ nav.mobile-nav{
