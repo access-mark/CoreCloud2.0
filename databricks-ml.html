@@ -1,68 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Databricks AI & Machine Learning – CoreCloud</title>
-  <meta name="description" content="CoreCloud empowers South African businesses to build and deploy AI and machine learning models on Databricks, unlocking faster insights and measurable outcomes." />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta name="description" content="CoreCloud empowers South African businesses to build and deploy AI/ML on Databricks, unlocking faster insights and measurable outcomes." />
+  <link rel="canonical" href="https://www.corecloudza.com/databricks-ml.html" />
 
-  <!-- Page-scoped styles (kept light; uses global tokens/classes) -->
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Databricks AI & Machine Learning – CoreCloud" />
+  <meta property="og:description" content="Build, track, and operationalise AI/ML on Databricks for real outcomes." />
+  <meta property="og:url" content="https://www.corecloudza.com/databricks-ml.html" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Databricks AI & Machine Learning – CoreCloud" />
+  <meta name="twitter:description" content="Build, track, and operationalise AI/ML on Databricks for real outcomes." />
+  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
+
+  <!-- Page-scoped helpers (light; uses global tokens) -->
   <style>
-    .red-banner{ background:#ff3621; height:80px; width:100%; }
+    .center-title{font-size:2.4rem;text-align:center;color:#004f91;margin:3rem 0 1.5rem;font-weight:700;}
+    .center-subtitle{ text-align:center;color:#444;font-size:1.1rem;margin:0 auto 2rem;max-width:900px;line-height:1.6; }
+    .section-title{ text-align:center;color:#004f91;font-size:2rem;margin-bottom:2rem;font-weight:700; }
 
-    .center-title{
-      font-size:2.4rem; text-align:center; color:#004f91;
-      margin:3rem 0 1.5rem; font-weight:700;
-    }
-    .center-subtitle{
-      text-align:center; color:#444; font-size:1.1rem;
-      margin:0 auto 2rem; max-width:900px; line-height:1.6;
-    }
-    .section-title{
-      text-align:center; color:#004f91; font-size:2rem;
-      margin-bottom:2rem; font-weight:700;
-    }
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem;padding:0 1rem;}
+    .card{background:#fff;color:#444;padding:1.5rem;border-radius:12px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.08);transition:transform .3s ease;border:2px solid var(--dark-blue);}
+    .card:hover{transform:translateY(-5px);}
+    .card h2,.card h3{color:#ff3621;font-size:1.3rem;margin-bottom:.8rem;font-weight:700;} /* Databricks accent */
+    .card p{font-size:.95rem;color:#444;}
 
-    .card-grid.triple{
-      display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
-      gap:2rem; margin-top:2rem; padding:0 1rem;
-    }
-    .card{
-      background:#fff; color:#444; padding:1.5rem; border-radius:12px;
-      text-align:center; box-shadow:0 2px 8px rgba(0,0,0,.08); transition:transform .3s ease;
-      border:2px solid var(--dark-blue);
-    }
-    .card:hover{ transform:translateY(-5px); }
-    .card h2{ color:#ff3621; font-size:1.4rem; margin-bottom:.8rem; font-weight:700; }
-    .card p{ font-size:.95rem; color:#444; }
-
-    .cta-btn{
-      display:inline-block; background:#ff3621; color:#fff; text-decoration:none;
-      padding:.75rem 1.5rem; border-radius:8px; font-weight:700; font-size:1rem;
-      transition:background-color .25s ease;
-    }
-    .cta-btn:hover{ background:#cc2d1b; color:#fff; }
+    /* Footer link normalisation */
+    .footer-right a{color:var(--primary-blue);text-decoration:underline;font-weight:600;}
   </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+          {"@type":"ListItem","position":2,"name":"Cloud Suite","item":"https://www.corecloudza.com/cloud.html"},
+          {"@type":"ListItem","position":3,"name":"Databricks AI & Machine Learning","item":"https://www.corecloudza.com/databricks-ml.html"}
+        ]
+      },
+      {
+        "@type":"Organization",
+        "@id":"https://www.corecloudza.com/#org",
+        "name":"CoreCloud (Pty) Ltd",
+        "url":"https://www.corecloudza.com/",
+        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
+        "sameAs":["https://www.linkedin.com/company/corecloudza"]
+      },
+      {
+        "@type":"Service",
+        "name":"Databricks AI & Machine Learning",
+        "provider":{"@id":"https://www.corecloudza.com/#org"},
+        "areaServed":{"@type":"Country","name":"South Africa"},
+        "url":"https://www.corecloudza.com/databricks-ml.html",
+        "description":"End-to-end AI/ML on Databricks: development, MLflow tracking, deployment, and governance for measurable outcomes."
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="aiml-page">
-  <!-- Header / Nav (matches global checkbox-hack pattern) -->
+  <!-- Header / Nav -->
   <div class="small-banner">
-    <div class="banner-header ai-nav">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" />
 
-      <!-- CSS-only mobile toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Desktop Nav -->
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn active">CLOUD SUITE</a>
+        <a href="cloud.html" class="nav-btn active" aria-current="page">CLOUD SUITE</a>
         <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
@@ -70,11 +94,10 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile Nav -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html" class="active">CLOUD SUITE</a>
+        <a href="cloud.html" class="active" aria-current="page">CLOUD SUITE</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
         <a href="talent.html">TALENT</a>
         <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
@@ -84,11 +107,11 @@
     </div>
   </div>
 
-  <!-- Databricks red strip under header -->
-  <div class="red-banner"></div>
+  <!-- Standard Cloud Banner (shared with home/AWS) -->
+  <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png?v=2');"></div>
 
   <!-- Main -->
-  <main class="content" style="max-width:1200px; margin:0 auto; padding:4rem 1.5rem;">
+  <main class="content" id="main">
     <h1 class="center-title">Databricks AI &amp; Machine Learning</h1>
     <p class="center-subtitle">
       Artificial Intelligence shouldn’t stay stuck in labs. CoreCloud helps South African enterprises move models into production with Databricks’ collaborative AI and ML platform — delivering faster insights and real business outcomes.
@@ -96,10 +119,10 @@
 
     <section class="section">
       <h2 class="section-title">Our AI/ML Services</h2>
-      <div class="card-grid triple">
+      <div class="card-grid">
         <div class="card">
           <h2>Model Development</h2>
-          <p>Design and train machine learning models using Databricks’ collaborative notebooks and modern frameworks.</p>
+          <p>Design and train machine learning models using Databricks notebooks and modern frameworks.</p>
         </div>
         <div class="card">
           <h2>MLflow Tracking</h2>
@@ -122,10 +145,10 @@
 
     <section class="section">
       <h2 class="section-title">Why CoreCloud?</h2>
-      <div class="card-grid triple">
+      <div class="card-grid">
         <div class="card">
           <h2>Hands-On Execution</h2>
-          <p>We deliver working ML solutions focused on measurable ROI — not slideware.</p>
+          <p>Working ML solutions focused on measurable ROI — not slideware.</p>
         </div>
         <div class="card">
           <h2>Local Market Focus</h2>
@@ -138,8 +161,8 @@
       </div>
     </section>
 
-    <div style="text-align:center; margin-top:3rem;">
-      <a href="contact.html" class="cta-btn">Explore AI &amp; ML →</a>
+    <div style="text-align:center;margin-top:3rem;">
+      <a href="contact.html" class="cta-btn">Explore AI &amp; ML</a>
     </div>
   </main>
 
@@ -150,32 +173,25 @@
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
         <p>Sandton,<br>Johannesburg</p>
       </div>
-
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <!-- JS-free submit (consistent across pages) -->
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec"
               method="POST"
-              style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+              style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required
-                 style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
+                 style="padding:10px;flex:1;border:1px solid #ccc;border-radius:4px;min-width:220px;" />
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
-
       <div class="footer-right">
-        <p>Contact</p>
-        <p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:red; text-decoration:underline; font-weight:bold;">LinkedIn</a></p>
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>
     </div>
-
     <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved. |
-        <a href="privacy.html">Privacy Policy</a> |
-        <a href="terms.html">Terms</a>
-      </p>
+      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
     </div>
   </footer>
 </body>
