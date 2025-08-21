@@ -23,21 +23,13 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=3" />
 
-  <!-- Preload banner -->
+  <!-- Preload hero image used below -->
   <link rel="preload" as="image" href="assets/images/contact-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped styles -->
+  <!-- Page-scoped styles (no banner height overrides needed now) -->
   <style>
-    .banner {
-      width:100%; height:300px; overflow:hidden; background:#f4f6f8;
-    }
-    .banner img {
-      display:block; width:100%; height:100%;
-      object-fit:cover; object-position:center;
-    }
-    @media (max-width:640px){
-      .banner { height:220px; }
-    }
+    /* Keep header slim & transparent */
+    .contact-page .small-banner{ background:transparent!important; box-shadow:none!important; padding:0 .9rem 0!important; }
 
     /* CTA styling */
     .contact-page .cta-btn{
@@ -86,6 +78,7 @@
         <span></span><span></span><span></span>
       </label>
 
+      <!-- Desktop Nav -->
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
@@ -98,6 +91,7 @@
         <a href="contact.html" class="nav-btn active" aria-current="page">CONTACT</a>
       </nav>
 
+      <!-- Mobile Nav -->
       <nav class="mobile-nav" id="mobileMenu" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
@@ -112,12 +106,13 @@
     </div>
   </div>
 
-  <!-- Banner -->
-  <div class="banner">
-    <img src="assets/images/contact-bannerimage.png"
-         alt="Contact CoreCloud – Sandton, Johannesburg"
-         width="1920" height="300"
-         loading="eager" decoding="async" fetchpriority="high" />
+  <!-- Hero (standardized height via global .hero-media rules) -->
+  <div class="hero-media">
+    <img
+      src="assets/images/contact-bannerimage.png"
+      alt="Contact CoreCloud – Sandton, Johannesburg"
+      width="1920" height="500"
+      loading="eager" decoding="async" fetchpriority="high" />
   </div>
 
   <!-- Contact -->
@@ -144,14 +139,16 @@
 
         <!-- Contact form -->
         <form action="https://formsubmit.co/mark@corecloudza.com" method="POST" class="form-container">
+          <!-- FormSubmit config -->
           <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=contact" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_subject" value="New website enquiry — Contact page" />
           <input type="hidden" name="_autoresponse" value="Thanks for contacting CoreCloud. We’ll get back to you shortly." />
+          <!-- Honeypot -->
           <label class="visually-hidden" for="cc_hny">Do not fill</label>
           <input class="visually-hidden" type="text" id="cc_hny" name="_honey" autocomplete="off" tabindex="-1" aria-hidden="true" />
-
+          <!-- Fields -->
           <label class="visually-hidden" for="name">Your Name</label>
           <input class="form-control" id="name" name="name" placeholder="Your Name" required autocomplete="name" />
 
