@@ -7,12 +7,12 @@
    - Consistent grids/CTAs/footer
    =========================== */
 
-/* ===== Reset ===== */
+/* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { height: 100%; }
 img { max-width: 100%; height: auto; display: block; }
 
-/* ===== Vars ===== */
+/* Vars */
 :root{
   --primary-blue:#0066b2;
   --dark-blue:#004f91;
@@ -35,31 +35,28 @@ img { max-width: 100%; height: auto; display: block; }
   --hero-h-mobile: 220px;
 }
 
-/* ===== Base ===== */
+/* Base */
 body{
   font-family:'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
   background-color:var(--light-bg);
   color:var(--text-gray);
   line-height:1.6;
-  display:flex;
-  flex-direction:column;
-  min-height:100vh;
+  display:flex; flex-direction:column; min-height:100vh;
 }
 
-/* ===== Typography ===== */
+/* Typography */
 h1{ font-size:2.8rem; font-weight:700; color:var(--dark-blue); margin-bottom:1.2rem; line-height:1.3; }
-h2{ font-size:1.8rem; font-weight:600; color:var(--dark-blue); margin-bottom:1rem; }
+h2{ font-size:1.8rem; font-weight:600; color:var(--dark-blue); margin-bottom:1rem; line-height:1.4; }
 h3{ font-size:1.4rem; font-weight:600; color:var(--dark-blue); margin-bottom:.8rem; }
 p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
 
 /* Standard titles */
 .hero-title{
   font-size:2rem; font-weight:700; color:var(--dark-blue);
-  text-align:center; margin:2.5rem auto 1rem; line-height:1.3;
+  text-align:center; margin:2.5rem auto 1rem;
 }
 .section-title{
-  font-size:2rem; text-align:center; color:var(--dark-blue);
-  margin-bottom:1.5rem; line-height:1.4;
+  font-size:2rem; text-align:center; color:var(--dark-blue); margin-bottom:1.5rem;
 }
 
 /* ===== Header / Nav ===== */
@@ -135,8 +132,6 @@ nav.mobile-nav a:last-child{ border-bottom:none; }
 #nav-toggle:checked + label.hamburger span:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
 
 /* ===== Hero / Banner (standardised) ===== */
-
-/* Image-based hero */
 .hero-media{
   width:100%;
   height: var(--hero-h-desktop);
@@ -148,16 +143,16 @@ nav.mobile-nav a:last-child{ border-bottom:none; }
   width:100%;
   height:100%;
   display:block;
-  object-fit: cover;         /* crop-to-fill the fixed height */
+  object-fit: cover;
   object-position: center;
 }
 
-/* Legacy background-image banner (kept for older pages) */
+/* Legacy background-image banner support */
 .page-banner{
   width:100%;
   height: var(--hero-h-desktop);
   overflow:hidden;
-  background-size: cover;    /* crop-to-fill */
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-color:#f4f6f8;
@@ -169,10 +164,11 @@ main.content{
   margin:0 auto; padding:0 1.5rem 4rem;
   flex:1 0 auto;
 }
-/* Tighter, consistent space between banner and hero title on image-hero pages */
+/* Tighter, consistent space between banner and hero title */
 .hero-media + .content .hero-title,
-.hero-media + section .hero-title{ margin-top:1.5rem !important; }
-
+.hero-media + section .hero-title{
+  margin-top: 1.5rem !important;
+}
 .page-banner + .content .hero-title,
 .page-banner + section .hero-title{ margin-top:2.5rem !important; }
 .page-banner + section{ padding-top:0 !important; }
@@ -180,70 +176,7 @@ main.content{
 /* Sections */
 .section{ margin:3rem 0; }
 
-/* ===== Cards / Grids ===== */
-.card-grid{
-  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
-  gap:2rem; padding:0 2rem;
-}
-/* Fixed 4/2/1 grid when required */
-.card-grid.force-4{ display:grid; gap:2rem; padding:0 2rem; }
-@media (min-width:1200px){ .card-grid.force-4{ grid-template-columns:repeat(4,1fr); } }
-@media (min-width:768px) and (max-width:1199.98px){ .card-grid.force-4{ grid-template-columns:repeat(2,1fr); } }
-@media (max-width:767.98px){ .card-grid.force-4{ grid-template-columns:1fr; } }
-
-/* Grid rows keep cards the same height */
-.card-grid,
-.card-grid.force-4 { align-items: stretch; }
-
-/* Cards — unified (spacing via gap; bottom-pinned CTA) */
-.card{
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  gap:1.35rem;                  /* breathing room between sections */
-  height:100%;
-  min-height:100%;
-  padding:1.5rem;               /* uniform inside spacing */
-  border-radius:12px;
-  background:#fff;
-  box-shadow:0 2px 8px rgba(0,0,0,.1);
-  border:2px solid var(--dark-blue) !important;
-  text-align:left;              /* default: readable, left-aligned */
-}
-.card h2,
-.card h3{
-  margin:0;
-  font-size:1.25rem;
-  font-weight:700;
-  color:var(--primary-blue);
-  text-align:left;
-}
-.card p,
-.card ul,
-.card ol{
-  margin:0;
-  text-align:left;
-  font-size:.95rem;
-  color:var(--text-gray);
-}
-/* Databricks accent (page-level class) */
-.databricks-page .card h2,
-.databricks-page .card h3{ color:#ff3621; }
-
-/* CTA inside cards: full width + pinned to bottom */
-.card .cta-btn,
-.card a.cta-btn,
-.card button.cta-btn{
-  margin-top:auto;              /* pushes CTA to the bottom */
-  width:100%;
-  min-height:48px;
-  align-self:stretch;
-  text-align:center;
-  box-sizing:border-box;
-  display:inline-block;
-}
-
-/* ===== Global CTA (site-wide) ===== */
+/* ===== CTAs (global) ===== */
 .cta-btn{
   display:inline-block;
   min-height:48px;
@@ -263,18 +196,66 @@ main.content{
 .cta-btn:active{ transform:translateY(1px); }
 .cta-btn:focus-visible{ outline:2px solid var(--dark-blue); outline-offset:2px; }
 
-/* ===== Footer ===== */
-footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto; }
-.footer-content{
-  max-width:var(--container); margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:2rem;
+/* ===== Cards / Grids ===== */
+.card-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  gap:2rem; padding:0 2rem; align-items:stretch;
 }
-.footer-content p, .footer-content h4{ color:#fff; margin:.3rem 0; }
-.footer-bottom{ margin-top:1rem; font-size:.85rem; text-align:center; }
-.footer-bottom a{ color:red !important; text-decoration:underline; font-weight:bold; }
+
+/* Fixed 4/2/1 when required */
+.card-grid.force-4{ display:grid; gap:2rem; padding:0 2rem; align-items:stretch; }
+@media (min-width:1200px){ .card-grid.force-4{ grid-template-columns:repeat(4,1fr); } }
+@media (min-width:768px) and (max-width:1199.98px){ .card-grid.force-4{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:767.98px){ .card-grid.force-4{ grid-template-columns:1fr; } }
+
+/* Card (final, single source of truth) */
+.card{
+  background:#fff;
+  border:2px solid var(--dark-blue);
+  border-radius:8px;
+  box-shadow:0 2px 6px rgba(0,0,0,.06);
+  padding:1.5rem;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  gap:1.25rem;
+  height:100%;
+  min-height:100%;
+  text-align:left; /* headings centered globally, content left; cards left by default */
+}
+
+/* Card headings */
+.card h2, .card h3{
+  font-size:1.25rem; font-weight:700; color:var(--primary-blue);
+  margin:0; text-align:left;
+}
+
+/* Databricks accent (page-scoped) */
+.databricks-page .card h2,
+.databricks-page .card h3{ color:#ff3621; }
+
+/* Card copy spacing uses the card gap; remove bottom margins */
+.card p, .card ul, .card ol{ margin:0; text-align:left; }
+
+/* CTA inside cards: full width, pinned to bottom */
+.card .cta-btn,
+.card a.cta-btn,
+.card button.cta-btn{
+  margin-top:auto;
+  width:100%;
+  min-height:48px;
+  align-self:stretch !important;
+  text-align:center;
+  box-sizing:border-box;
+  display:inline-block;
+}
 
 /* ===== Alignment Policy: Corporate Clean ===== */
-/* Headings centered globally; body copy left-aligned */
-.hero-title, .section-title { text-align:center; }
+/* Keep hero/section headings centered */
+.hero-title, .section-title{ text-align:center; }
+
+/* Default readable content to left-aligned site-wide */
 .content p,
 .content li,
 .content ul,
@@ -285,14 +266,26 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
 .content .card li,
 .content .card ul,
 .content .card ol { text-align:left !important; }
-/* Keep CTAs and one-line callouts centered where it makes sense */
+
+/* Keep CTAs and single-line callouts centered where it makes sense */
 .content .cta,
 .content .cta-card,
 .content .equal-banner,
 .content .grid-cta,
 .content .cta-btn { text-align:center; }
+
 /* Tables (future-proofing) */
 .content table { margin-left:0; margin-right:auto; }
+
+/* ===== Footer ===== */
+footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto; }
+.footer-content{
+  max-width:var(--container); margin:0 auto;
+  display:flex; flex-wrap:wrap; justify-content:space-between; gap:2rem;
+}
+.footer-content p, .footer-content h4{ color:#fff; margin:.3rem 0; }
+.footer-bottom{ margin-top:1rem; font-size:.85rem; text-align:center; }
+.footer-bottom a{ color:red !important; text-decoration:underline; font-weight:bold; }
 
 /* ===== Mobile ===== */
 @media (max-width:768px){
@@ -330,7 +323,9 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
 
 /* ===== Banner HARD-FIX overrides (wins against old rules) ===== */
 .hero-media,
-.page-banner{ min-height: var(--hero-h-desktop) !important; }
+.page-banner{
+  min-height: var(--hero-h-desktop) !important;
+}
 .hero-media img,
 .hero-media picture > img{
   width:100% !important;
