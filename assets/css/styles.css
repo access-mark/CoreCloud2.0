@@ -350,3 +350,17 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
   display: block;      /* whole card is clickable */
   height: 100%;        /* clickable area = full card */
 }
+/* === Fix: Remove underlines from card CTA links === */
+.card a,
+.card a:visited,
+.card a:hover,
+.card a:active {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.card .cta-btn,
+.card a.cta-btn {
+  text-decoration: none !important;
+  color: #fff !important;   /* keep buttons white */
+}
