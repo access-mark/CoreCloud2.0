@@ -1,67 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CoreCloud Azure Modernization | Transform Legacy to Cloud-Native</title>
   <meta name="description" content="CoreCloud helps South African businesses modernize legacy systems into secure, scalable Azure-native solutions. Embrace cloud-native innovation and accelerate business outcomes." />
-  <meta name="keywords" content="Azure Modernization, CoreCloud, Cloud Native, Application Refactoring, Azure Innovation, Legacy Transformation, Cloud Services South Africa" />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="CoreCloud" />
+  <link rel="canonical" href="https://www.corecloudza.com/azure-modernization.html" />
 
-  <!-- Use unified site CSS so header/nav/logo/spacing are consistent -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=azure-modernization-fix" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CoreCloud Azure Modernization | Transform Legacy to Cloud-Native" />
+  <meta property="og:description" content="Assess, redesign, refactor and automate on Azure — delivered with clear milestones and governance." />
+  <meta property="og:url" content="https://www.corecloudza.com/azure-modernization.html" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CoreCloud Azure Modernization | Transform Legacy to Cloud-Native" />
+  <meta name="twitter:description" content="Assess, redesign, refactor and automate on Azure — delivered with clear milestones and governance." />
+  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
 
-  <!-- Page-scoped styles only (content/layout) -->
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
+
+  <!-- Page-scoped helpers (content only) -->
   <style>
-    .section-subtitle{
-      text-align:center; font-size:1.1rem; color:#444;
-      max-width:900px; margin:0 auto 2rem; line-height:1.6;
-    }
+    .section-subtitle{ text-align:center;font-size:1.1rem;color:#444;max-width:900px;margin:0 auto 2rem;line-height:1.6; }
 
-    /* 4-up grid for the pillars section */
-    .card-grid.quad{
-      display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr));
-      gap:2rem; margin-top:2rem; padding:0 1rem;
-    }
-    .card{
-      background:#fff; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,.08);
-      padding:1.5rem; text-align:center; border:2px solid var(--dark-blue);
-    }
-    .card h2{ font-size:1.4rem; color:#0066b2; margin-bottom:.8rem; }
-    .card p{ font-size:.95rem; color:#333; }
+    .card-grid{ display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem;padding:0 1rem; }
+    .card{ background:#fff;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.08);padding:1.5rem;text-align:center;border:2px solid var(--dark-blue); }
+    .card h2,.card h3{ font-size:1.35rem;color:#0066b2;margin-bottom:.8rem;font-weight:700; }
+    .card p{ font-size:.95rem;color:#333; }
 
-    .cta-btn{
-      display:inline-block; margin-top:1rem; background:var(--primary-blue,#0066b2);
-      color:#fff; padding:.8rem 1.5rem; font-weight:700; border-radius:8px; text-decoration:none;
-      transition:background-color .25s ease;
-    }
-    .cta-btn:hover{ background:var(--dark-blue,#004f91); }
-
-    /* Flex row helper for the two list sections */
-    .card-row{
-      display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; margin-top:2rem; padding:0 1rem;
-    }
+    .card-row{ display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-top:2rem;padding:0 1rem; }
+    .footer-right a{ color:var(--primary-blue);text-decoration:underline;font-weight:600; }
   </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+          {"@type":"ListItem","position":2,"name":"Cloud Suite","item":"https://www.corecloudza.com/cloud.html"},
+          {"@type":"ListItem","position":3,"name":"Azure Modernization","item":"https://www.corecloudza.com/azure-modernization.html"}
+        ]
+      },
+      {
+        "@type":"Organization",
+        "@id":"https://www.corecloudza.com/#org",
+        "name":"CoreCloud (Pty) Ltd",
+        "url":"https://www.corecloudza.com/",
+        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
+        "sameAs":["https://www.linkedin.com/company/corecloudza"]
+      },
+      {
+        "@type":"Service",
+        "name":"Azure Modernization Services",
+        "provider":{"@id":"https://www.corecloudza.com/#org"},
+        "areaServed":{"@type":"Country","name":"South Africa"},
+        "url":"https://www.corecloudza.com/azure-modernization.html",
+        "description":"Legacy assessment, architecture redesign, migration/refactoring, and cloud-native DevOps on Microsoft Azure."
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="azure-modernization-page">
-
-  <!-- Header / Nav (global slim/transparent) -->
+  <!-- Header / Nav -->
   <div class="small-banner">
-    <div class="banner-header ai-nav">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" />
 
-      <!-- CSS-only mobile toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Desktop Navigation -->
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn active">CLOUD SUITE</a>
+        <a href="cloud.html" class="nav-btn active" aria-current="page">CLOUD SUITE</a>
         <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
@@ -69,11 +90,10 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile Navigation -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html" class="active">CLOUD SUITE</a>
+        <a href="cloud.html" class="active" aria-current="page">CLOUD SUITE</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
         <a href="talent.html">TALENT</a>
         <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
@@ -83,37 +103,37 @@
     </div>
   </div>
 
-  <!-- Page banner (consistent site spacing) -->
-  <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png');"></div>
+  <!-- Standard Cloud Banner (shared) -->
+  <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png?v=2');"></div>
 
   <!-- Main Content -->
-  <main class="content">
+  <main class="content" id="main">
     <h1 class="hero-title">Azure Modernization Services</h1>
     <p class="section-subtitle">
-      CoreCloud helps South African businesses modernize legacy systems into secure, scalable Azure-native solutions. Embrace cloud-native innovation and accelerate business outcomes.
+      CoreCloud modernises legacy systems into secure, scalable Azure-native solutions. Embrace cloud-native innovation and accelerate outcomes.
     </p>
 
     <section class="section">
       <h2 class="section-title">Modernization Pillars</h2>
-      <div class="card-grid quad">
+      <div class="card-grid">
         <div class="card">
-          <h2>Legacy Assessment</h2>
-          <p>We assess technical debt, system dependencies, and scalability limits for your current legacy environment.</p>
+          <h3>Legacy Assessment</h3>
+          <p>Identify technical debt, dependencies, and scalability limits across your estate.</p>
           <a href="contact.html" class="cta-btn">Get Assessed</a>
         </div>
         <div class="card">
-          <h2>Architecture Redesign</h2>
-          <p>We redesign your systems with microservices, containers, and cloud-native patterns for high scalability and reliability.</p>
+          <h3>Architecture Redesign</h3>
+          <p>Microservices, containers, and event-driven patterns for resilience and scale.</p>
           <a href="contact.html" class="cta-btn">Redesign Now</a>
         </div>
         <div class="card">
-          <h2>Migration & Refactoring</h2>
-          <p>We intelligently migrate and refactor your legacy apps to Azure with minimal disruption and strong continuity.</p>
+          <h3>Migration &amp; Refactoring</h3>
+          <p>Move and refactor with minimal disruption using proven Azure tooling.</p>
           <a href="contact.html" class="cta-btn">Refactor Smart</a>
         </div>
         <div class="card">
-          <h2>Cloud-Native DevOps</h2>
-          <p>We enable CI/CD, automated testing, and observability for a smooth, agile, and secure cloud-native pipeline.</p>
+          <h3>Cloud-Native DevOps</h3>
+          <p>CI/CD, automated testing, and observability for fast, safe delivery.</p>
           <a href="contact.html" class="cta-btn">Enable DevOps</a>
         </div>
       </div>
@@ -123,11 +143,11 @@
       <h2 class="section-title">Outcomes We Deliver</h2>
       <div class="card-row">
         <div class="card" style="max-width:700px;">
-          <ul style="line-height:1.8; text-align:center; list-style:none; padding-left:0; margin:0;">
-            <li>Accelerate innovation with cloud-native architecture</li>
-            <li>Modernize legacy systems with minimal disruption</li>
-            <li>Enable agile operations with cloud-native DevOps</li>
-            <li>Improve scalability, availability, and security</li>
+          <ul style="line-height:1.8;text-align:center;list-style:none;padding-left:0;margin:0;">
+            <li>Faster innovation with cloud-native patterns</li>
+            <li>Modernised legacy with minimal disruption</li>
+            <li>Agile operations with DevOps baked in</li>
+            <li>Improved scalability, availability, and security</li>
           </ul>
         </div>
       </div>
@@ -137,16 +157,16 @@
       <h2 class="section-title">Microsoft Cloud Adoption Framework</h2>
       <div class="card-row">
         <div class="card" style="max-width:700px;">
-          <ul style="line-height:1.8; text-align:center; list-style:none; padding-left:0; margin:0;">
-            <li>Strategy & governance aligned to Microsoft’s CAF</li>
-            <li>Enterprise landing zones for security, policy & compliance</li>
-            <li>Execution with Azure Migrate, Defender for Cloud & more</li>
-            <li>Partner-led delivery with SLAs and clear accountability</li>
+          <ul style="line-height:1.8;text-align:center;list-style:none;padding-left:0;margin:0;">
+            <li>Strategy &amp; governance aligned to Microsoft CAF</li>
+            <li>Enterprise landing zones for policy &amp; compliance</li>
+            <li>Execution with Azure Migrate, Defender for Cloud &amp; more</li>
+            <li>Partner-led delivery with SLAs and accountability</li>
           </ul>
         </div>
       </div>
-      <div style="text-align:center; margin-top:1.5rem;">
-        <a href="contact.html" class="cta-btn">Start Your Modernization →</a>
+      <div style="text-align:center;margin-top:1.5rem;">
+        <a href="contact.html" class="cta-btn">Start Your Modernization</a>
       </div>
     </section>
   </main>
@@ -163,16 +183,16 @@
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec"
               method="POST"
-              style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+              style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required
-                 style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
+                 style="padding:10px;flex:1;border:1px solid #ccc;border-radius:4px;min-width:220px;" />
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
       <div class="footer-right">
-        <p>Contact</p>
-        <p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:red; text-decoration:underline; font-weight:bold;">LinkedIn</a></p>
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
