@@ -18,39 +18,29 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Preconnects (minimal + safe) -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- harmless even though you use system fonts -->
-  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin> <!-- if you add GA later, no harm -->
+  <!-- Global CSS (use your working file/version) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
 
-  <!-- Global CSS (cache-busted) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=6" />
+  <!-- Preload the two LCP-related images -->
+  <link rel="preload" as="image" href="assets/images/index-bannerimage.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png">
 
-  <!-- Preload LCP hero + logo -->
-  <link rel="preload" as="image" href="assets/images/index-bannerimage.webp" fetchpriority="high" />
-  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" />
-
-  <!-- Home-only tiny tweaks (no layout changes) -->
+  <!-- Page-only tiny tweaks (no banner logic here to avoid conflicts) -->
   <style>
-    /* Consistent hero spacing */
-    .home-page .hero-intro{ text-align:center; padding:1.5rem 1rem 0 !important; margin-bottom:0; }
-    /* CTA text color on Dynamic Imprinting card */
-    .imprinting .cta-btn{ color:#fff !important; }
-    /* Kill default link styling inside cards */
+    /* Uniform hero spacing beneath the banner (matches other pages) */
+    .home-page .hero-intro{ text-align:center; padding:1.5rem 1rem 0 !important; margin:0 !important; }
+
+    /* Make the final “Dynamic Imprinting” card span full width in the 4-col grid */
+    .card-grid.force-4 .cta-wide{ grid-column: 1 / -1; }
+
+    /* Keep links inside cards unstyled like the card text */
     .card-grid a, .card-grid a:hover, .card-grid a:visited{ text-decoration:none; color:inherit; }
+
+    /* CTA text color on the Dynamic Imprinting card */
+    .imprinting .cta-btn{ color:#fff !important; }
+
     .about-corecloud{ margin:2rem auto 2rem !important; }
   </style>
-
-  <!-- Organization JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Organization",
-    "name":"CoreCloud",
-    "url":"https://www.corecloudza.com/",
-    "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
-    "sameAs":["https://www.linkedin.com/company/corecloudza"]
-  }
-  </script>
 </head>
 
 <body class="home-page">
@@ -92,18 +82,14 @@
     </div>
   </div>
 
-  <!-- Hero (LCP). Uses modern formats with fallback. -->
+  <!-- Hero (simple, bulletproof) -->
   <div class="hero-media">
-    <picture>
-      <source srcset="assets/images/index-bannerimage.avif" type="image/avif" />
-      <source srcset="assets/images/index-bannerimage.webp" type="image/webp" />
-      <img
-        src="assets/images/index-bannerimage.png"
-        alt="CoreCloud — Strategy, Cloud, Talent, Applications"
-        decoding="async"
-        fetchpriority="high"
-        width="1920" height="500" />
-    </picture>
+    <img
+      src="assets/images/index-bannerimage.png"
+      alt="CoreCloud — Strategy, Cloud, Talent, Applications"
+      decoding="async"
+      fetchpriority="high"
+      width="1920" height="500" />
   </div>
 
   <!-- Hero copy -->
@@ -137,10 +123,22 @@
     <section class="section">
       <h2 class="section-title">Explore Our Services</h2>
       <div class="card-grid force-4">
-        <a href="consulting.html" class="card"><div><h3>Consulting</h3><p>Sales strategy, pipeline precision, and practical advisory to drive real performance.</p></div><span class="cta-btn">Learn More</span></a>
-        <a href="cloud.html" class="card"><div><h3>Cloud Suite</h3><p>Modernise, migrate, and optimise with expert AWS and Azure teams.</p></div><span class="cta-btn">Learn More</span></a>
-        <a href="application-development.html" class="card"><div><h3>App Development</h3><p>Cloud-native apps, portals, mobile &amp; web, and API integration—delivered with DevOps discipline.</p></div><span class="cta-btn">Learn More</span></a>
-        <a href="talent.html" class="card"><div><h3>Talent Placement</h3><p>Top talent, rigorously vetted and matched to your business needs.</p></div><span class="cta-btn">Learn More</span></a>
+        <a href="consulting.html" class="card">
+          <div><h3>Consulting</h3><p>Sales strategy, pipeline precision, and practical advisory to drive real performance.</p></div>
+          <span class="cta-btn">Learn More</span>
+        </a>
+        <a href="cloud.html" class="card">
+          <div><h3>Cloud Suite</h3><p>Modernise, migrate, and optimise with expert AWS and Azure teams.</p></div>
+          <span class="cta-btn">Learn More</span>
+        </a>
+        <a href="application-development.html" class="card">
+          <div><h3>App Development</h3><p>Cloud-native apps, portals, mobile &amp; web, and API integration—delivered with DevOps discipline.</p></div>
+          <span class="cta-btn">Learn More</span>
+        </a>
+        <a href="talent.html" class="card">
+          <div><h3>Talent Placement</h3><p>Top talent, rigorously vetted and matched to your business needs.</p></div>
+          <span class="cta-btn">Learn More</span>
+        </a>
       </div>
     </section>
 
@@ -177,8 +175,5 @@
     </div>
     <div class="footer-bottom"><p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p></div>
   </footer>
-
-  <!-- (If you add scripts later) Always add defer -->
-  <!-- <script src="assets/js/app.js" defer></script> -->
 </body>
 </html>
