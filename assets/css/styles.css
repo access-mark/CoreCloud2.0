@@ -3,7 +3,7 @@
    Central source of truth
    - Stable header + logo (no CLS)
    - Slim transparent nav
-   - Picture-based hero (legacy .page-banner still supported)
+   - Standardised hero/banner (300/220 cover-crop)
    - Consistent grids/CTAs/footer
    =========================== */
 
@@ -27,8 +27,12 @@ img { max-width: 100%; height: auto; display: block; }
   --logo-h-desktop: 120px;
   --logo-h-mobile: 80px;
 
-  /* Content width */
+  /* Container width */
   --container: 1200px;
+
+  /* Hero/banner heights */
+  --hero-h-desktop: 300px;
+  --hero-h-mobile: 220px;
 }
 
 /* Base */
@@ -66,13 +70,13 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
   display:flex; align-items:center; justify-content:space-between;
   max-width:var(--container); margin:0 auto;
   padding:0 !important;
-  min-height: var(--logo-h-desktop); /* fixed height prevents CLS */
-  position: sticky; top: 0; z-index: 1000; /* keep header stable */
+  min-height: var(--logo-h-desktop);
+  position: sticky; top: 0; z-index: 1000;
   background: transparent !important;
   border-bottom:0 !important; box-shadow:none !important;
 }
 
-/* ✅ Logo: intrinsic aspect ratio preserved, never stretched */
+/* Logo never stretches */
 .logo{
   max-height: var(--logo-h-desktop);
   width: auto;
@@ -92,7 +96,7 @@ nav.desktop-nav .nav-btn{
 nav.desktop-nav .nav-btn:hover,
 nav.desktop-nav .nav-btn.active{ color:#005fa3; }
 
-/* Underline hover (no pills) */
+/* Underline hover */
 .banner-header .desktop-nav .nav-btn::after{
   content:""; position:absolute; left:8px; right:8px; bottom:4px; height:2px;
   background:linear-gradient(90deg, var(--gold), var(--dark-blue));
@@ -123,37 +127,37 @@ nav.mobile-nav a:last-child{ border-bottom:none; }
   -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
   gap:1rem; border:0; box-shadow:none;
 }
-/* Hamburger morph */
 #nav-toggle:checked + label.hamburger span:nth-child(1){ transform:rotate(45deg) translate(5px,5px); }
 #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity:0; }
 #nav-toggle:checked + label.hamburger span:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
 
-/* ===== Hero / Banner ===== */
+/* ===== Hero / Banner (standardised) ===== */
 
-/* New hero (picture-based) */
+/* Image-based hero */
 .hero-media{
   width:100%;
-  height:360px;         /* desktop lock */
+  height: var(--hero-h-desktop);
   overflow:hidden;
   background:#f4f6f8;
 }
-.hero-media picture, 
+.hero-media picture,
 .hero-media img{
-  display:block;
   width:100%;
   height:100%;
-  object-fit:cover;
-  object-position:center;
+  display:block;
+  object-fit: cover;         /* crop-to-fill the fixed height */
+  object-position: center;
 }
 
-/* Legacy .page-banner still supported */
+/* Legacy background-image banner (kept for older pages) */
 .page-banner{
-  height:360px;         /* desktop lock */
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
   width:100%;
+  height: var(--hero-h-desktop);
   overflow:hidden;
+  background-size: cover;    /* crop-to-fill */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color:#f4f6f8;
 }
 
 /* Content spacing after hero/banner */
@@ -212,10 +216,11 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
   .banner-header{ min-height: var(--logo-h-mobile); }
   .logo{ max-height: var(--logo-h-mobile); }
 
-  .page-banner,
-  .hero-media{ height:220px; }   /* mobile lock */
-
   .hero-title{ font-size:2rem; }
+
+  /* Mobile hero/banner height */
+  .hero-media{ height: var(--hero-h-mobile); }
+  .page-banner{ height: var(--hero-h-mobile); }
 
   .banner-header #nav-toggle:checked ~ nav.mobile-nav{
     display:flex !important; position:fixed; inset:0; top:0;
@@ -235,4 +240,25 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
 /* Reduced transparency preference */
 @media (prefers-reduced-transparency: reduce){
   .banner-header{ background:#fff !important; backdrop-filter:none; -webkit-backdrop-filter:none; }
+}
+
+/* ===== Banner HARD-FIX overrides (wins against old rules) ===== */
+.hero-media,
+.page-banner{
+  min-height: var(--hero-h-desktop) !important;
+}
+.hero-media img,
+.hero-media picture > img{
+  width:100% !important;
+  height:100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display:block !important;
+}
+@media (max-width:768px){
+  .hero-media,
+  .page-banner{
+    min-height: var(--hero-h-mobile) !important;
+    height: var(--hero-h-mobile) !important;
+  }
 }
