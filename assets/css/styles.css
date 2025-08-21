@@ -1,16 +1,12 @@
 /* ===========================
    CoreCloud — assets/css/styles.css
-   Central source of truth
-   - Stable header + logo (no CLS)
-   - Slim transparent nav
-   - Standardised banners (300px desktop, 220px mobile)
-   - Consistent grids/CTAs/footer
+   Stable header/logo + unified 300px banners
    =========================== */
 
 /* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { height: 100%; }
-img { max-width: 100%; height: auto; display: block; }
+img { max-width: 100%; display: block; }
 
 /* Vars */
 :root{
@@ -27,7 +23,11 @@ img { max-width: 100%; height: auto; display: block; }
   --logo-h-desktop: 120px;
   --logo-h-mobile: 80px;
 
-  /* Content width */
+  /* Banner */
+  --banner-height-desktop: 300px;
+  --banner-height-mobile: 220px;
+
+  /* Content */
   --container: 1200px;
 }
 
@@ -41,7 +41,7 @@ body{
 }
 
 /* Typography */
-h1{ font-size:2.8rem; font-weight:700; color:var(--dark-blue); margin-bottom:1.2rem; }
+h1{ font-size:2.2rem; font-weight:700; color:var(--dark-blue); margin-bottom:1.2rem; }
 h2{ font-size:1.8rem; font-weight:600; color:var(--dark-blue); margin-bottom:1rem; }
 h3{ font-size:1.4rem; font-weight:600; color:var(--dark-blue); margin-bottom:.8rem; }
 p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
@@ -72,13 +72,10 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
   border-bottom:0 !important; box-shadow:none !important;
 }
 
-/* ✅ Logo: never stretched */
+/* Logo (no stretch) */
 .logo{
   max-height: var(--logo-h-desktop);
-  width: auto; height: auto;
-  display: block;
-  object-fit: contain;
-  margin: 0;
+  width:auto; height:auto; object-fit:contain;
 }
 
 /* Desktop Nav */
@@ -100,7 +97,7 @@ nav.desktop-nav .nav-btn.active{ color:#005fa3; }
 .banner-header .desktop-nav .nav-btn:hover::after,
 .banner-header .desktop-nav .nav-btn:focus-visible::after{ transform:scaleX(1); }
 
-/* Mobile Nav */
+/* Mobile Nav (checkbox hack) */
 .nav-toggle{ position:absolute; left:-9999px; }
 .hamburger{ display:none; flex-direction:column; cursor:pointer; gap:5px; }
 .hamburger span{ width:25px; height:3px; background:#003366; border-radius:2px; transition:all .3s ease; }
@@ -125,41 +122,45 @@ nav.mobile-nav a:last-child{ border-bottom:none; }
 #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity:0; }
 #nav-toggle:checked + label.hamburger span:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
 
-/* ===== Hero / Banner ===== */
+/* ===== Banner System (Unified) ===== */
 
-/* Standardised 300px banners (crop) */
-.page-banner{
-  width:100%;
-  height:300px;
-  background: var(--light-bg) center / cover no-repeat;
-  display:block; overflow:hidden;
-}
+/* IMAGE-BASED HERO */
 .hero-media{
-  width:100%; height:300px; overflow:hidden; display:block;
+  width:100%;
+  height: var(--banner-height-desktop);
+  overflow:hidden;
   background: var(--light-bg);
 }
-.hero-media img, .hero-media picture{
-  width:100%; height:100%;
-  object-fit:cover; object-position:center; display:block;
+.hero-media img{
+  width:100%;
+  height:100%;
+  object-fit: cover;      /* fill + crop */
+  object-position: center;
+  display:block;
 }
 
-/* Mobile tweak */
-@media (max-width:768px){
-  .page-banner{ height:220px; }
-  .hero-media{ height:220px; }
+/* LEGACY CSS BACKGROUND BANNER */
+.page-banner{
+  width:100%;
+  height: var(--banner-height-desktop);
+  background-size: cover;        /* fill + crop */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--light-bg);
+  overflow:hidden;
 }
 
-/* Content spacing after hero/banner */
+/* Content spacing after banner */
 main.content{
   max-width: calc(var(--container) + 200px);
   margin:0 auto; padding:0 1.5rem 4rem;
   flex:1 0 auto;
 }
 .page-banner + .content .hero-title,
-.page-banner + section .hero-title{ margin-top:2.5rem !important; }
+.page-banner + section .hero-title{ margin-top:2.0rem !important; }
 .page-banner + section{ padding-top:0 !important; }
 
-/* Sections */
+/* ===== Sections ===== */
 .section{ margin:3rem 0; }
 
 /* ===== Cards / Grids ===== */
@@ -205,7 +206,11 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
   .banner-header{ min-height: var(--logo-h-mobile); }
   .logo{ max-height: var(--logo-h-mobile); }
 
-  .hero-title{ font-size:2rem; }
+  .hero-title{ font-size:1.8rem; }
+
+  /* Mobile banner height */
+  .hero-media{ height: var(--banner-height-mobile); }
+  .page-banner{ height: var(--banner-height-mobile); }
 
   .banner-header #nav-toggle:checked ~ nav.mobile-nav{
     display:flex !important; position:fixed; inset:0; top:0;
@@ -219,7 +224,7 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
   }
 }
 
-/* Safety: never show mobile overlay on desktop */
+/* Desktop safety: never show mobile overlay */
 @media (min-width:769px){ nav.mobile-nav{ display:none !important; } }
 
 /* Reduced transparency preference */
