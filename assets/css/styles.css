@@ -262,3 +262,23 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
     height: var(--hero-h-mobile) !important;
   }
 }
+
+/* ===========================
+   ADDITIONS: Global typography + hero spacing + CTA text color
+   (Appended only; no other changes)
+   =========================== */
+
+/* Tighter, consistent space between banner and hero title */
+.hero-media + .content .hero-title,
+.hero-media + section .hero-title{
+  margin-top: 1.5rem !important;
+}
+
+/* Keep headings crisp */
+h1, .hero-title{ line-height: 1.3; }
+.section-title{ line-height: 1.4; }
+
+/* Force white CTA text everywhere */
+.cta-btn{
+  color: #fff !important;
+}
