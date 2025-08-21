@@ -17,23 +17,32 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Global CSS (cache-busted while iterating) -->
+  <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=5" />
 
-  <!-- Preload: logo + hero (match actual files that exist) -->
+  <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/index-bannerimage.png" fetchpriority="high">
 
-  <!-- Home-only small tweaks (no banner rules here to avoid conflicts) -->
+  <!-- Home-only tweaks -->
   <style>
     .card-grid a, .card-grid a:hover, .card-grid a:visited { text-decoration: none; color: inherit; }
     .card-grid.force-4 .cta-wide { grid-column: 1 / -1; }
-    .insights .card .insights-wrap{
-      display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap;
-    }
-    .insights .card h3{ margin:0 0 .5rem; color:#004f91; }
-    .insights .card p{ margin:0; max-width:800px; }
     .about-corecloud { margin: 2rem auto 2rem !important; }
+
+    /* Ensure uniform hero spacing */
+    .home-page .hero-title {
+      font-size: 2rem;
+      color: var(--dark-blue);
+      font-weight: 700;
+      text-align: center;
+      margin: 2.5rem auto 1rem; /* matches consulting page */
+    }
+
+    /* Dynamic Imprinting CTA text color fix */
+    .imprinting .cta-btn {
+      color: #fff !important;
+    }
   </style>
 </head>
 
@@ -76,7 +85,7 @@
     </div>
   </div>
 
-  <!-- Hero (uses global .hero-media rules: 300px desktop / 220px mobile, cover-crop) -->
+  <!-- Hero -->
   <div class="hero-media">
     <img
       src="assets/images/index-bannerimage.png"
@@ -102,21 +111,7 @@
       </p>
     </section>
 
-    <!-- Insights -->
-    <section class="section insights">
-      <h2 class="section-title">Latest News &amp; Insights</h2>
-      <div class="card-grid force-4">
-        <div class="card cta-wide">
-          <div class="insights-wrap">
-            <div>
-              <h3>CoreCloud Updates</h3>
-              <p>Case studies, announcements, and roles we’re hiring for — published on our LinkedIn page.</p>
-            </div>
-            <a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener" class="cta-btn">Follow on LinkedIn</a>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- ✂️ Removed Insights section -->
 
     <!-- Focus / Method -->
     <section id="focus-method-section" class="section">
