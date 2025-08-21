@@ -1,12 +1,16 @@
 /* ===========================
    CoreCloud — assets/css/styles.css
-   Stable header/logo + unified 300px banners
+   Central source of truth
+   - Stable header + logo (no CLS)
+   - Slim transparent nav
+   - Picture-based hero (legacy .page-banner still supported)
+   - Consistent grids/CTAs/footer
    =========================== */
 
 /* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { height: 100%; }
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 
 /* Vars */
 :root{
@@ -19,15 +23,11 @@ img { max-width: 100%; display: block; }
   --text-gray:#444;
   --gold:#d4af37;
 
-  /* Header / Logo geometry */
+  /* Header / Logo geometry (fixed = no layout shift) */
   --logo-h-desktop: 120px;
   --logo-h-mobile: 80px;
 
-  /* Banner */
-  --banner-height-desktop: 300px;
-  --banner-height-mobile: 220px;
-
-  /* Content */
+  /* Content width */
   --container: 1200px;
 }
 
@@ -41,7 +41,7 @@ body{
 }
 
 /* Typography */
-h1{ font-size:2.2rem; font-weight:700; color:var(--dark-blue); margin-bottom:1.2rem; }
+h1{ font-size:2.8rem; font-weight:700; color:var(--dark-blue); margin-bottom:1.2rem; }
 h2{ font-size:1.8rem; font-weight:600; color:var(--dark-blue); margin-bottom:1rem; }
 h3{ font-size:1.4rem; font-weight:600; color:var(--dark-blue); margin-bottom:.8rem; }
 p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
@@ -66,16 +66,20 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
   display:flex; align-items:center; justify-content:space-between;
   max-width:var(--container); margin:0 auto;
   padding:0 !important;
-  min-height: var(--logo-h-desktop);
-  position: sticky; top: 0; z-index: 1000;
+  min-height: var(--logo-h-desktop); /* fixed height prevents CLS */
+  position: sticky; top: 0; z-index: 1000; /* keep header stable */
   background: transparent !important;
   border-bottom:0 !important; box-shadow:none !important;
 }
 
-/* Logo (no stretch) */
+/* ✅ Logo: intrinsic aspect ratio preserved, never stretched */
 .logo{
-  max-height: var(--logo-h-desktop);
-  width:auto; height:auto; object-fit:contain;
+  max-height: var(--logo-h-desktop);  /* fits inside header */
+  width: auto;                        /* width flows naturally */
+  height: auto;                       /* preserve ratio */
+  display: block;
+  object-fit: contain;                /* safety net for odd source dims */
+  margin: 0;
 }
 
 /* Desktop Nav */
@@ -88,7 +92,7 @@ nav.desktop-nav .nav-btn{
 nav.desktop-nav .nav-btn:hover,
 nav.desktop-nav .nav-btn.active{ color:#005fa3; }
 
-/* Underline hover */
+/* Underline hover (no pills) */
 .banner-header .desktop-nav .nav-btn::after{
   content:""; position:absolute; left:8px; right:8px; bottom:4px; height:2px;
   background:linear-gradient(90deg, var(--gold), var(--dark-blue));
@@ -111,6 +115,7 @@ nav.mobile-nav a{
 }
 nav.mobile-nav a:last-child{ border-bottom:none; }
 
+/* Open = full-screen overlay on mobile */
 #nav-toggle:checked ~ nav.mobile-nav{
   display:flex; position:fixed; inset:0; top:0;
   padding:5rem 1.5rem 2rem;
@@ -118,49 +123,33 @@ nav.mobile-nav a:last-child{ border-bottom:none; }
   -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
   gap:1rem; border:0; box-shadow:none;
 }
+/* Hamburger morph */
 #nav-toggle:checked + label.hamburger span:nth-child(1){ transform:rotate(45deg) translate(5px,5px); }
 #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity:0; }
 #nav-toggle:checked + label.hamburger span:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
 
-/* ===== Banner System (Unified) ===== */
+/* ===== Hero / Banner ===== */
 
-/* IMAGE-BASED HERO */
-.hero-media{
-  width:100%;
-  height: var(--banner-height-desktop);
-  overflow:hidden;
-  background: var(--light-bg);
-}
-.hero-media img{
-  width:100%;
-  height:100%;
-  object-fit: cover;      /* fill + crop */
-  object-position: center;
-  display:block;
-}
+/* New hero (picture-based). Keeps height flexible; use real image dimensions. */
+.hero-media picture, .hero-media img{ display:block; width:100%; height:auto; }
 
-/* LEGACY CSS BACKGROUND BANNER */
+/* Legacy CSS banner still supported until all pages migrate */
 .page-banner{
-  width:100%;
-  height: var(--banner-height-desktop);
-  background-size: cover;        /* fill + crop */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: var(--light-bg);
-  overflow:hidden;
+  height:300px; background-size:cover; background-position:center; background-repeat:no-repeat;
+  width:100%; overflow:hidden;
 }
 
-/* Content spacing after banner */
+/* Content spacing after hero/banner */
 main.content{
   max-width: calc(var(--container) + 200px);
   margin:0 auto; padding:0 1.5rem 4rem;
   flex:1 0 auto;
 }
 .page-banner + .content .hero-title,
-.page-banner + section .hero-title{ margin-top:2.0rem !important; }
+.page-banner + section .hero-title{ margin-top:2.5rem !important; }
 .page-banner + section{ padding-top:0 !important; }
 
-/* ===== Sections ===== */
+/* Sections */
 .section{ margin:3rem 0; }
 
 /* ===== Cards / Grids ===== */
@@ -206,11 +195,8 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
   .banner-header{ min-height: var(--logo-h-mobile); }
   .logo{ max-height: var(--logo-h-mobile); }
 
-  .hero-title{ font-size:1.8rem; }
-
-  /* Mobile banner height */
-  .hero-media{ height: var(--banner-height-mobile); }
-  .page-banner{ height: var(--banner-height-mobile); }
+  .page-banner{ height:250px; }
+  .hero-title{ font-size:2rem; }
 
   .banner-header #nav-toggle:checked ~ nav.mobile-nav{
     display:flex !important; position:fixed; inset:0; top:0;
@@ -224,7 +210,7 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
   }
 }
 
-/* Desktop safety: never show mobile overlay */
+/* Safety: never show mobile overlay on desktop */
 @media (min-width:769px){ nav.mobile-nav{ display:none !important; } }
 
 /* Reduced transparency preference */
