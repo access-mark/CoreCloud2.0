@@ -17,33 +17,15 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Global CSS (cache-busted) -->
+  <!-- Global CSS (cache-busted while iterating) -->
   <link rel="stylesheet" href="assets/css/styles.css?v=5" />
 
-  <!-- Preload: logo + hero -->
+  <!-- Preload: logo + hero (match actual files that exist) -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/index-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-only banner safety ( forces height + crop ) -->
+  <!-- Home-only small tweaks (no banner rules here to avoid conflicts) -->
   <style>
-    .home-page .hero-media{
-      width:100%;
-      height:300px;           /* desktop lock */
-      overflow:hidden;
-      background:#f4f6f8;
-    }
-    .home-page .hero-media img{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:cover;       /* crop to fill the 300px */
-      object-position:center;
-    }
-    @media (max-width:768px){
-      .home-page .hero-media{ height:220px; } /* mobile lock */
-    }
-
-    /* Small home-only niceties */
     .card-grid a, .card-grid a:hover, .card-grid a:visited { text-decoration: none; color: inherit; }
     .card-grid.force-4 .cta-wide { grid-column: 1 / -1; }
     .insights .card .insights-wrap{
@@ -94,16 +76,13 @@
     </div>
   </div>
 
-  <!-- Hero (robust, shows even if one format is missing) -->
+  <!-- Hero (uses global .hero-media rules: 300px desktop / 220px mobile, cover-crop) -->
   <div class="hero-media">
-    <picture>
-      <source srcset="assets/images/index-bannerimage.avif" type="image/avif">
-      <source srcset="assets/images/index-bannerimage.webp" type="image/webp">
-      <!-- Fallback — keep the PNG you already have -->
-      <img src="assets/images/index-bannerimage.png"
-           alt="CoreCloud — Strategy, Cloud, Talent, Applications"
-           decoding="async" fetchpriority="high" />
-    </picture>
+    <img
+      src="assets/images/index-bannerimage.png"
+      alt="CoreCloud — Strategy, Cloud, Talent, Applications"
+      decoding="async"
+      fetchpriority="high" />
   </div>
 
   <!-- Hero copy -->
