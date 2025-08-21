@@ -8,19 +8,45 @@
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
 
-  <!-- Global CSS (cache-busted just in case) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=3"/>
+  <!-- Global CSS (cache-busted to avoid stale rules) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=force-banner-1"/>
 
-  <!-- Preload for snappier paint -->
+  <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped tweaks (content-only; nothing that touches header/nav/banner) -->
+  <!-- Page-scoped styles (safe; do not touch site header/nav classes) -->
   <style>
-    .consulting-page .hero-title{ font-size:2rem; color:var(--dark-blue); font-weight:700; text-align:center; margin:2.5rem auto 1rem; }
+    /* Fail-safe banner that will render even if global .page-banner rules get overridden */
+    .banner-hero{
+      width:100%;
+      height:300px;              /* lock height on desktop */
+      overflow:hidden;
+      background:#f4f6f8;        /* letterbox color while image decodes */
+      position:relative;
+    }
+    .banner-hero img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;          /* crop to fill area */
+      object-position:center;    /* keep the center in view */
+    }
+
+    /* Mobile tweak: slightly shorter if you prefer */
+    @media (max-width: 768px){
+      .banner-hero{ height: 240px; }
+    }
+
+    /* Content-only tweaks */
+    .consulting-page .hero-title{
+      font-size:2rem; color:var(--dark-blue); font-weight:700;
+      text-align:center; margin:2.5rem auto 1rem;
+    }
     .consulting-page .card{ border:2px solid var(--dark-blue); }
     .consulting-page .card-grid.force-4{
-      display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:2rem; padding:0 2rem; max-width:1200px; margin:0 auto;
+      display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:2rem; padding:0 2rem; max-width:1200px; margin:0 auto;
     }
     @media (max-width:1199px){ .consulting-page .card-grid.force-4{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
     @media (max-width:767px){ .consulting-page .card-grid.force-4{ grid-template-columns:1fr; } }
@@ -67,8 +93,14 @@
     </div>
   </div>
 
-  <!-- ✅ Legacy background banner (works with your global .page-banner CSS) -->
-  <div class="page-banner" style="background-image:url('assets/images/consulting-bannerimage.png');"></div>
+  <!-- ✅ Bulletproof banner (uses <img>, not CSS background) -->
+  <div class="banner-hero">
+    <img
+      src="assets/images/consulting-bannerimage.png"
+      alt="CoreCloud Consulting — Execution & Sales Enablement"
+      decoding="async"
+      loading="eager">
+  </div>
 
   <main class="content">
     <h1 class="hero-title">Consulting Partnerships That Deliver Real Results</h1>
