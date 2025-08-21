@@ -1,68 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CoreCloud Azure Migration | Seamless Cloud Transitions for SA Enterprises</title>
   <meta name="description" content="Modernize your business with CoreCloud's Azure migration services. Achieve resilience, security, and innovation in the Microsoft cloud, tailored for South African enterprises." />
-  <meta name="keywords" content="Azure Migration, Cloud Migration South Africa, CoreCloud, Azure Services, Azure Readiness, Microsoft Cloud, Azure Modernization" />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="CoreCloud" />
+  <link rel="canonical" href="https://www.corecloudza.com/azure-migration.html" />
 
-  <!-- Use local, unified site CSS so header/nav/logo/spacing are consistent -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=azure-migration-fix" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="CoreCloud Azure Migration | Seamless Cloud Transitions for SA Enterprises" />
+  <meta property="og:description" content="Secure, low-risk Azure migrations with governance-first landing zones and clear delivery milestones." />
+  <meta property="og:url" content="https://www.corecloudza.com/azure-migration.html" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="CoreCloud Azure Migration | Seamless Cloud Transitions for SA Enterprises" />
+  <meta name="twitter:description" content="Secure, low-risk Azure migrations with governance-first landing zones and clear delivery milestones." />
+  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
 
-  <!-- Page-scoped content styles only -->
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
+
+  <!-- Page-scoped helpers (content only) -->
   <style>
-    .section-subtitle{
-      text-align:center; font-size:1.1rem; color:#444;
-      max-width:900px; margin:0 auto 2rem; line-height:1.6;
-    }
-    .card-row{
-      display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; margin-top:2rem;
-      padding:0 1rem;
-    }
-    .card{
-      background:#fff; border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,.08);
-      padding:1.5rem; max-width:360px; flex:1 1 300px; text-align:center;
-      border:2px solid var(--dark-blue); /* matches global card look */
-    }
-    .card h3{ font-size:1.2rem; color:#0066b2; margin-bottom:.8rem; }
-    .card p{ font-size:.95rem; color:#333; }
-
-    ul.checklist{
-      list-style:none; padding-left:0; font-size:1.05rem; color:#333; line-height:1.8;
-      max-width:800px; margin:1rem auto;
-    }
-    ul.checklist li::before{
-      content:"✔"; margin-right:.5rem; color:green; font-weight:bold;
-    }
-
-    .cta-btn{
-      display:inline-block; margin-top:2rem; background:var(--primary-blue,#0066b2);
-      color:#fff; padding:.8rem 1.5rem; font-weight:700; border-radius:8px; text-decoration:none;
-      transition:background-color .25s ease;
-    }
-    .cta-btn:hover{ background:var(--dark-blue,#004f91); }
+    .section-subtitle{ text-align:center;font-size:1.1rem;color:#444;max-width:900px;margin:0 auto 2rem;line-height:1.6; }
+    .card-row{ display:flex;flex-wrap:wrap;justify-content:center;gap:2rem;margin-top:2rem;padding:0 1rem; }
+    .card{ background:#fff;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.08);padding:1.5rem;max-width:360px;flex:1 1 300px;text-align:center;border:2px solid var(--dark-blue); }
+    .card h3{ font-size:1.2rem;color:#0066b2;margin-bottom:.8rem;font-weight:700; }
+    .card p{ font-size:.95rem;color:#333; }
+    ul.checklist{ list-style:none;padding-left:0;font-size:1.05rem;color:#333;line-height:1.8;max-width:800px;margin:1rem auto; }
+    ul.checklist li::before{ content:"✔";margin-right:.5rem;color:green;font-weight:bold; }
+    .cta-btn{ display:inline-block;margin-top:2rem;background:var(--primary-blue);color:#fff;padding:.8rem 1.5rem;font-weight:700;border-radius:8px;text-decoration:none;transition:background-color .25s ease; }
+    .cta-btn:hover{ background:var(--dark-blue); }
+    .footer-right a{ color:var(--primary-blue);text-decoration:underline;font-weight:600; }
   </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+          {"@type":"ListItem","position":2,"name":"Cloud Suite","item":"https://www.corecloudza.com/cloud.html"},
+          {"@type":"ListItem","position":3,"name":"Azure Migration","item":"https://www.corecloudza.com/azure-migration.html"}
+        ]
+      },
+      {
+        "@type":"Organization",
+        "@id":"https://www.corecloudza.com/#org",
+        "name":"CoreCloud (Pty) Ltd",
+        "url":"https://www.corecloudza.com/",
+        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
+        "sameAs":["https://www.linkedin.com/company/corecloudza"]
+      },
+      {
+        "@type":"Service",
+        "name":"Azure Migration Services",
+        "provider":{"@id":"https://www.corecloudza.com/#org"},
+        "areaServed":{"@type":"Country","name":"South Africa"},
+        "url":"https://www.corecloudza.com/azure-migration.html",
+        "description":"Azure readiness, landing zones, secure migration execution, and post-migration optimisation with CoreCloud."
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="azure-migration-page">
-  <!-- Header / Nav (site-wide slim/transparent) -->
+  <!-- Header / Nav -->
   <div class="small-banner">
-    <div class="banner-header ai-nav">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" />
 
-      <!-- CSS-only mobile toggle -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Desktop Nav -->
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn active">CLOUD SUITE</a>
+        <a href="cloud.html" class="nav-btn active" aria-current="page">CLOUD SUITE</a>
         <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
@@ -70,11 +91,10 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile Nav -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html" class="active">CLOUD SUITE</a>
+        <a href="cloud.html" class="active" aria-current="page">CLOUD SUITE</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
         <a href="talent.html">TALENT</a>
         <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
@@ -84,42 +104,41 @@
     </div>
   </div>
 
-  <!-- Page Banner (keeps spacing consistent across site) -->
-  <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png');"></div>
+  <!-- Standard Cloud Banner (shared with AWS pages) -->
+  <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png?v=2');"></div>
 
   <!-- Main Content -->
-  <main class="content">
+  <main class="content" id="main">
     <h1 class="hero-title">Azure Migration Services</h1>
     <p class="section-subtitle">
-      Migrating to Azure isn’t just a technology move—it’s a strategic shift. CoreCloud helps South African enterprises unlock the true value of Microsoft’s cloud, enabling secure, scalable, and innovative business transformation.<br><br>
-      We design Azure journeys that respect your legacy systems while delivering modern architectures ready for AI, analytics, and agile operations.
+      Migrating to Azure isn’t just a technology move — it’s a strategic shift. CoreCloud helps South African enterprises unlock the true value of Microsoft’s cloud, enabling secure, scalable, and innovative transformation. We design journeys that respect legacy while delivering modern architectures ready for AI, analytics, and agile operations.
     </p>
 
     <h2 class="section-title">Why Migrate to Azure?</h2>
     <div class="card-row">
       <div class="card">
         <h3>Seamless Microsoft Integration</h3>
-        <p>Azure offers unmatched synergy with Microsoft 365, Dynamics, and Windows Server, accelerating productivity and reducing change friction.</p>
+        <p>Azure synergy with Microsoft 365, Dynamics, and Windows Server reduces friction and accelerates adoption.</p>
       </div>
       <div class="card">
-        <h3>Security & Trust</h3>
-        <p>Multilayered security, strong compliance posture, and data sovereignty controls — crucial for South African regulatory environments.</p>
+        <h3>Security &amp; Trust</h3>
+        <p>Strong compliance posture and data sovereignty controls suited to South African regulatory environments.</p>
       </div>
       <div class="card">
         <h3>Innovation at Scale</h3>
-        <p>Tap into 200+ Azure services — AI, ML, and modern data platforms — to gain a competitive edge.</p>
+        <p>200+ Azure services — AI, ML, and modern data platforms — to sharpen competitive edge.</p>
       </div>
     </div>
 
     <section class="section">
       <h2 class="section-title">What We Deliver</h2>
-      <div style="display:flex; justify-content:center;">
+      <div style="display:flex;justify-content:center;">
         <ul class="checklist">
-          <li>Azure Readiness Assessments tailored for South African enterprises</li>
-          <li>Secure migration planning leveraging the Microsoft Cloud Adoption Framework</li>
-          <li>Landing zone designs to meet security, compliance, and governance needs</li>
-          <li>Seamless migration execution with minimal disruption to business operations</li>
-          <li>Post-migration optimization for performance, cost, and future innovation</li>
+          <li>Azure readiness assessments tailored for SA enterprises</li>
+          <li>Secure migration planning via the Microsoft Cloud Adoption Framework</li>
+          <li>Landing zones for security, compliance, and governance</li>
+          <li>Seamless execution with minimal business disruption</li>
+          <li>Post-migration optimisation for performance and cost</li>
         </ul>
       </div>
     </section>
@@ -128,40 +147,40 @@
     <div class="card-row">
       <div class="card">
         <h3>1. Discovery</h3>
-        <p>Assess workloads, security requirements, and business objectives to define your optimal Azure roadmap.</p>
+        <p>Assess workloads, security, and objectives to define your Azure roadmap.</p>
       </div>
       <div class="card">
         <h3>2. Planning</h3>
-        <p>Design migration waves using proven Azure methodologies and align stakeholders for smooth transitions.</p>
+        <p>Design migration waves with proven methodologies and aligned stakeholders.</p>
       </div>
       <div class="card">
         <h3>3. Migration</h3>
-        <p>Execute with trusted tools like Azure Migrate, ensuring integrity, security, and controlled cutovers.</p>
+        <p>Execute using Azure Migrate and complementary tooling for secure, controlled cutovers.</p>
       </div>
       <div class="card">
-        <h3>4. Optimization</h3>
-        <p>Tune performance, manage costs, and enable governance for sustainable operations.</p>
+        <h3>4. Optimisation</h3>
+        <p>Right-size resources, manage costs, and enable governance for sustainability.</p>
       </div>
     </div>
 
     <section class="section">
       <h2 class="section-title">Why CoreCloud?</h2>
-      <div style="display:flex; justify-content:center;">
+      <div style="display:flex;justify-content:center;">
         <ul class="checklist">
-          <li>Deep experience with Microsoft’s Azure ecosystem and SA enterprise environments</li>
-          <li>Certified Azure professionals guiding every phase</li>
-          <li>Pragmatic approach — measurable results and accountability</li>
-          <li>Tailored solutions for SMMEs to large corporates</li>
+          <li>Deep Azure ecosystem experience in SA enterprise contexts</li>
+          <li>Certified Azure professionals at every phase</li>
+          <li>Pragmatic delivery — measurable results and accountability</li>
+          <li>Solutions tailored from SMME to listed enterprise</li>
         </ul>
       </div>
     </section>
 
     <div style="text-align:center;">
-      <a href="contact.html" class="cta-btn">Start Your Azure Migration →</a>
+      <a href="contact.html" class="cta-btn">Start Your Azure Migration</a>
     </div>
   </main>
 
-  <!-- Footer (JS-free subscribe) -->
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -173,16 +192,16 @@
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec"
               method="POST"
-              style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+              style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
           <input type="email" name="email" placeholder="Enter your email" required
-                 style="padding:10px; flex:1; border:1px solid #ccc; border-radius:4px; min-width:220px;" />
+                 style="padding:10px;flex:1;border:1px solid #ccc;border-radius:4px;min-width:220px;" />
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
       <div class="footer-right">
-        <p>Contact</p>
-        <p>Email: sales@corecloudza.com</p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" style="color:red; text-decoration:underline; font-weight:bold;">LinkedIn</a></p>
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
