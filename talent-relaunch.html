@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Re / Launch Talent Hub – CoreCloud</title>
   <meta name="description" content="CoreCloud’s Re / Launch Talent Hub helps youth and experienced professionals relaunch careers with real support and purpose-driven opportunities." />
+  <link rel="canonical" href="https://www.corecloudza.com/talent-relaunch.html" />
 
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
@@ -15,6 +16,15 @@
 
   <!-- Page-scoped styles (content-only) -->
   <style>
+    /* Focus-visible skip link (safe local fallback if not defined globally) */
+    .visually-hidden-focusable {
+      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+    }
+    .visually-hidden-focusable:focus {
+      position:static; width:auto; height:auto; padding:.5rem .75rem; background:#004f91; color:#fff;
+      border-radius:4px; z-index:10000; display:inline-block;
+    }
+
     /* Page CTA base (outside-card buttons) */
     .relaunch-page .cta-btn,
     .relaunch-page a.cta-btn,
@@ -47,7 +57,7 @@
       margin-top:1rem;
     }
 
-    /* Cards (global border/shadow apply; add rounding/padding) */
+    /* Cards */
     .relaunch-page .card{
       border-radius:10px;
       padding:1.5rem;
@@ -71,7 +81,7 @@
       text-align:center; color:#444; max-width:900px; margin:0 auto 2rem; font-size:1.1rem;
     }
 
-    /* Remove link underlines inside card grids if any */
+    /* Unstyled links inside card grid (match body text color) */
     .card-grid a, .card-grid a:hover, .card-grid a:visited{ text-decoration:none; color:inherit; }
   </style>
 </head>
@@ -90,23 +100,27 @@
         <span></span><span></span><span></span>
       </label>
 
+      <!-- Desktop Nav -->
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
         <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
         <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
-        <a href="talent.html" class="nav-btn active" aria-current="page">TALENT</a>
+        <a href="talent.html" class="nav-btn">TALENT</a>
+        <a href="talent-relaunch.html" class="nav-btn active" aria-current="page">RE / LAUNCH</a>
         <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
+      <!-- Mobile Nav -->
       <nav class="mobile-nav" id="mobileMenu" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
         <a href="cloud.html">CLOUD SUITE</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
-        <a href="talent.html" class="active" aria-current="page">TALENT</a>
+        <a href="talent.html">TALENT</a>
+        <a href="talent-relaunch.html" class="active" aria-current="page">RE / LAUNCH</a>
         <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="contact.html">CONTACT</a>
@@ -211,11 +225,12 @@
     <div class="footer-content">
       <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton,<br>Johannesburg</p>
+        <p>Sandton,<br/>Johannesburg</p>
       </div>
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <!-- JS-free submit -->
         <form action="https://script.google.com/macros/s/AKfycbwd0e7vA6PVRfFiZpDqUEcWVWoGsdORCAKIp6Lf512U70P44VQlftdkb1V3uGQbocy8/exec"
               method="POST"
               style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
@@ -227,7 +242,7 @@
       <div class="footer-right">
         <p>Contact</p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-        <p><a href="https://linkedin.com/company/corecloud-africa" target="_blank" rel="noopener" style="color: red; text-decoration: underline; font-weight: bold;">LinkedIn</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener">LinkedIn</a></p>
       </div>
     </div>
     <div class="footer-bottom">
