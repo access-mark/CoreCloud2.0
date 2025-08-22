@@ -400,3 +400,37 @@ footer, footer p, footer h4, footer strong {
 .footer-right .linkedin-link:hover {
   opacity: 0.85;  /* subtle fade, no color shift */
 }
+/* Footer global text white */
+footer, footer p, footer h4, footer strong {
+  color: #fff !important;
+}
+
+/* Email links inside footer always white */
+.footer-right a[href^="mailto:"] {
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: 500;
+}
+.footer-right a[href^="mailto:"]:hover {
+  text-decoration: underline;
+}
+
+/* Legal links permanent red */
+.footer-bottom .legal-link {
+  color: #ee1c25 !important;  /* permanent red */
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* LinkedIn permanent blue */
+.footer-right .linkedin-link {
+  color: #0066b2 !important;  /* CoreCloud primary blue */
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* Keep hover consistent */
+.footer-bottom .legal-link:hover,
+.footer-right .linkedin-link:hover {
+  opacity: 0.85;  /* subtle fade, no color shift */
+}
