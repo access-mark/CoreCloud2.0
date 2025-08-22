@@ -529,3 +529,57 @@ footer strong {
   text-decoration: underline;
   font-weight: 600;
 }
+
+/* Footer layout */
+footer {
+  background: #0b1e3f;
+  color: #fff;
+  padding: 2rem 1rem 1rem;
+  margin-top: auto;
+}
+
+.footer-content {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-left p,
+.footer-right p {
+  margin: 0.3rem 0;
+}
+
+/* Email always white */
+.email-link {
+  color: #fff !important;
+  text-decoration: none;
+}
+.email-link:hover {
+  text-decoration: underline;
+}
+
+/* LinkedIn permanent blue */
+.linkedin-link {
+  color: #0066b2 !important;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* Privacy + Terms permanent red */
+.legal-link {
+  color: #ee1c25 !important;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* Bottom copyright bar */
+.footer-bottom {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 1rem;
+}
