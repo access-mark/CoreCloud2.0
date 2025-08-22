@@ -495,3 +495,37 @@ footer strong {
   .site-footer .footer-left,
   .site-footer .footer-right{ margin:0 auto; }
 }
+
+/* Centered footer layout */
+.footer-content.centered {
+  text-align: center;
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Email always white */
+.footer-content .email-link {
+  color: #fff !important;
+  text-decoration: none;
+}
+.footer-content .email-link:hover {
+  text-decoration: underline;
+}
+
+/* LinkedIn permanent blue */
+.footer-content .linkedin-link {
+  color: #0066b2 !important;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* Legal links permanent red */
+.footer-bottom .legal-link {
+  color: #ee1c25 !important;
+  text-decoration: underline;
+  font-weight: 600;
+}
