@@ -413,3 +413,85 @@ footer strong {
 .footer-right .linkedin-link:hover {
   opacity: 0.85;  /* subtle fade, no color shift */
 }
+
+/* ===== Polished Footer (overrides) ===== */
+.site-footer{
+  background:#0b1e3f;
+  color:#fff;
+  margin-top:auto;
+  border-top:1px solid rgba(255,255,255,.08);
+}
+
+.site-footer .footer-content{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  align-items: start;
+}
+
+.site-footer p,
+.site-footer h4,
+.site-footer strong { color:#fff; }
+
+.site-footer .footer-contact { margin-top:.5rem; }
+
+/* Bottom bar */
+.site-footer .footer-bottom{
+  border-top:1px solid rgba(255,255,255,.08);
+  padding: .9rem 1.5rem;
+  text-align:center;
+  font-size:.92rem;
+  color:#fff;
+}
+.site-footer .footer-bottom .sep{
+  display:inline-block; padding:0 .5rem; color:#fff; opacity:.8;
+}
+
+/* Permanent link colors */
+.site-footer .legal-link{
+  color:#ee1c25 !important;        /* permanent red */
+  text-decoration:underline;
+  font-weight:600;
+}
+.site-footer .linkedin-link{
+  color:#0066b2 !important;         /* permanent blue */
+  text-decoration:underline;
+  font-weight:600;
+}
+
+/* Email is always white */
+.site-footer .mailto-link{
+  color:#fff !important;
+  text-decoration:none;
+  font-weight:500;
+}
+.site-footer .mailto-link:hover{ text-decoration:underline; }
+
+/* Neutralize all other footer links to white by default */
+.site-footer a{
+  color:#fff;
+  text-decoration:none;
+}
+.site-footer a:hover{ text-decoration:underline; }
+
+/* Make sure our permanent colors win even on hover/focus */
+.site-footer .legal-link:hover,
+.site-footer .legal-link:focus,
+.site-footer .linkedin-link:hover,
+.site-footer .linkedin-link:focus{
+  opacity:.9;                        /* subtle feedback, no color shift */
+  text-decoration:underline;
+}
+
+/* Mobile stacking */
+@media (max-width: 768px){
+  .site-footer .footer-content{
+    grid-template-columns: 1fr;
+    text-align:center;
+  }
+  .site-footer .footer-left,
+  .site-footer .footer-right{ margin:0 auto; }
+}
