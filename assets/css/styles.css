@@ -1,10 +1,11 @@
 /* ===========================
    CoreCloud — assets/css/styles.css
-   Central source of truth
+   Single source of truth
    - Stable header + logo (no CLS)
    - Slim transparent nav
    - Standardised hero/banner (500/220 cover-crop)
-   - Consistent grids/CTAs/footer
+   - Consistent grids, cards, CTAs
+   - Branded footer (white text; legal red; LinkedIn blue)
    =========================== */
 
 /* ===== Reset ===== */
@@ -12,7 +13,7 @@
 html, body { height: 100%; }
 img { max-width: 100%; height: auto; display: block; }
 
-/* ===== Vars ===== */
+/* ===== CSS Vars ===== */
 :root{
   --primary-blue:#0066b2;
   --dark-blue:#004f91;
@@ -41,25 +42,22 @@ body{
   background-color:var(--light-bg);
   color:var(--text-gray);
   line-height:1.6;
-  display:flex;
-  flex-direction:column;
-  min-height:100vh;
+  display:flex; flex-direction:column; min-height:100vh;
 }
 
 /* ===== Typography ===== */
 h1{ font-size:2.8rem; font-weight:700; color:var(--dark-blue); margin-bottom:1.2rem; line-height:1.3; }
-h2{ font-size:1.8rem; font-weight:600; color:var(--dark-blue); margin-bottom:1rem; }
+h2{ font-size:1.8rem; font-weight:600; color:var(--dark-blue); margin-bottom:1rem; line-height:1.4; }
 h3{ font-size:1.4rem; font-weight:600; color:var(--dark-blue); margin-bottom:.8rem; }
 p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
 
 /* Standard titles */
 .hero-title{
   font-size:2rem; font-weight:700; color:var(--dark-blue);
-  text-align:center; margin:2.5rem auto 1rem; line-height:1.3;
+  text-align:center; margin:2.5rem auto 1rem;
 }
 .section-title{
-  font-size:2rem; text-align:center; color:var(--dark-blue);
-  margin-bottom:1.5rem; line-height:1.4;
+  font-size:2rem; text-align:center; color:var(--dark-blue); margin-bottom:1.5rem;
 }
 
 /* ===== Header / Nav ===== */
@@ -82,11 +80,7 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
 /* Logo never stretches */
 .logo{
   max-height: var(--logo-h-desktop);
-  width: auto;
-  height: auto;
-  display: block;
-  object-fit: contain;
-  margin: 0;
+  width: auto; height: auto; object-fit: contain; display:block; margin:0;
 }
 
 /* Desktop Nav */
@@ -134,9 +128,7 @@ nav.mobile-nav a:last-child{ border-bottom:none; }
 #nav-toggle:checked + label.hamburger span:nth-child(2){ opacity:0; }
 #nav-toggle:checked + label.hamburger span:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
 
-/* ===== Hero / Banner (standardised) ===== */
-
-/* Image-based hero */
+/* ===== Hero / Banner ===== */
 .hero-media{
   width:100%;
   height: var(--hero-h-desktop);
@@ -145,34 +137,28 @@ nav.mobile-nav a:last-child{ border-bottom:none; }
 }
 .hero-media picture,
 .hero-media img{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit: cover;         /* crop-to-fill the fixed height */
-  object-position: center;
+  width:100%; height:100%; display:block;
+  object-fit: cover; object-position: center;
 }
 
-/* Legacy background-image banner (kept for older pages) */
+/* Background-image banner support */
 .page-banner{
   width:100%;
   height: var(--hero-h-desktop);
   overflow:hidden;
-  background-size: cover;    /* crop-to-fill */
-  background-position: center;
-  background-repeat: no-repeat;
+  background-size: cover; background-position: center; background-repeat: no-repeat;
   background-color:#f4f6f8;
 }
 
-/* Content spacing after hero/banner */
+/* ===== Content spacing ===== */
 main.content{
   max-width: calc(var(--container) + 200px);
   margin:0 auto; padding:0 1.5rem 4rem;
   flex:1 0 auto;
 }
-/* Tighter, consistent space between banner and hero title on image-hero pages */
+/* Tighter, consistent space between banner and hero title */
 .hero-media + .content .hero-title,
-.hero-media + section .hero-title{ margin-top:1.5rem !important; }
-
+.hero-media + section .hero-title{ margin-top: 1.5rem !important; }
 .page-banner + .content .hero-title,
 .page-banner + section .hero-title{ margin-top:2.5rem !important; }
 .page-banner + section{ padding-top:0 !important; }
@@ -180,101 +166,85 @@ main.content{
 /* Sections */
 .section{ margin:3rem 0; }
 
-/* ===== Cards / Grids ===== */
-.card-grid{
-  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
-  gap:2rem; padding:0 2rem;
-}
-/* Fixed 4/2/1 grid when required */
-.card-grid.force-4{ display:grid; gap:2rem; padding:0 2rem; }
-@media (min-width:1200px){ .card-grid.force-4{ grid-template-columns:repeat(4,1fr); } }
-@media (min-width:768px) and (max-width:1199.98px){ .card-grid.force-4{ grid-template-columns:repeat(2,1fr); } }
-@media (max-width:767.98px){ .card-grid.force-4{ grid-template-columns:1fr; } }
-
-/* Grid rows keep cards the same height */
-.card-grid,
-.card-grid.force-4 { align-items: stretch; }
-
-/* Cards — unified (spacing via gap; bottom-pinned CTA) */
-.card{
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  gap:1.35rem;                  /* breathing room between sections */
-  height:100%;
-  min-height:100%;
-  padding:1.5rem;               /* uniform inside spacing */
-  border-radius:12px;
-  background:#fff;
-  box-shadow:0 2px 8px rgba(0,0,0,.1);
-  border:2px solid var(--dark-blue) !important;
-  text-align:left;              /* default: readable, left-aligned */
-}
-.card h2,
-.card h3{
-  margin:0;
-  font-size:1.25rem;
-  font-weight:700;
-  color:var(--primary-blue);
-  text-align:left;
-}
-.card p,
-.card ul,
-.card ol{
-  margin:0;
-  text-align:left;
-  font-size:.95rem;
-  color:var(--text-gray);
-}
-/* Databricks accent (page-level class) */
-.databricks-page .card h2,
-.databricks-page .card h3{ color:#ff3621; }
-
-/* CTA inside cards: full width + pinned to bottom */
-.card .cta-btn,
-.card a.cta-btn,
-.card button.cta-btn{
-  margin-top:auto;              /* pushes CTA to the bottom */
-  width:100%;
-  min-height:48px;
-  align-self:stretch;
-  text-align:center;
-  box-sizing:border-box;
-  display:inline-block;
-}
-
-/* ===== Global CTA (site-wide) ===== */
+/* ===== CTAs (global) ===== */
 .cta-btn{
-  display:inline-block;
-  min-height:48px;
-  padding:.85rem 1.4rem;
-  border:none;
-  border-radius:8px;
-  font-weight:700;
-  background:var(--primary-blue);
-  color:#fff !important;
-  text-decoration:none;
-  text-align:center;
-  line-height:1;
-  cursor:pointer;
+  display:inline-block; min-height:48px; padding:.85rem 1.4rem;
+  border:none; border-radius:8px; font-weight:700;
+  background:var(--primary-blue); color:#fff !important;
+  text-decoration:none; text-align:center; line-height:1; cursor:pointer;
   transition:background-color .25s ease, transform .02s ease;
 }
 .cta-btn:hover{ background:var(--dark-blue); }
 .cta-btn:active{ transform:translateY(1px); }
 .cta-btn:focus-visible{ outline:2px solid var(--dark-blue); outline-offset:2px; }
 
-/* ===== Footer ===== */
-footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto; }
-.footer-content{
-  max-width:var(--container); margin:0 auto; display:flex; flex-wrap:wrap; justify-content:space-between; gap:2rem;
+/* ===== Cards / Grids ===== */
+.card-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  gap:2rem; padding:0 2rem; align-items:stretch;
 }
-.footer-content p, .footer-content h4{ color:#fff; margin:.3rem 0; }
-.footer-bottom{ margin-top:1rem; font-size:.85rem; text-align:center; }
-.footer-bottom a{ color:red !important; text-decoration:underline; font-weight:bold; }
+/* Fixed 4/2/1 when required */
+.card-grid.force-4{ display:grid; gap:2rem; padding:0 2rem; align-items:stretch; }
+@media (min-width:1200px){ .card-grid.force-4{ grid-template-columns:repeat(4,1fr); } }
+@media (min-width:768px) and (max-width:1199.98px){ .card-grid.force-4{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:767.98px){ .card-grid.force-4{ grid-template-columns:1fr; } }
 
-/* ===== Alignment Policy: Corporate Clean ===== */
-/* Headings centered globally; body copy left-aligned */
-.hero-title, .section-title { text-align:center; }
+/* Card */
+.card{
+  background:#fff;
+  border:2px solid var(--dark-blue);
+  border-radius:8px;
+  box-shadow:0 2px 6px rgba(0,0,0,.06);
+  padding:1.5rem;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  gap:1.25rem;           /* space between heading/body/CTA */
+  height:100%;
+  min-height:100%;
+  text-align:left;
+}
+.card h2, .card h3{
+  font-size:1.25rem; font-weight:700; color:var(--primary-blue);
+  margin:0; text-align:left;
+}
+/* Databricks accent (page-scoped) */
+.databricks-page .card h2, .databricks-page .card h3{ color:#ff3621; }
+.card p, .card ul, .card ol{ margin:0; text-align:left; }
+
+/* CTA inside cards: full width, pinned to bottom */
+.card .cta-btn,
+.card a.cta-btn,
+.card button.cta-btn{
+  margin-top:auto; width:100%; min-height:48px;
+  align-self:stretch; text-align:center; box-sizing:border-box; display:inline-block;
+}
+
+/* Inline links inside cards that are NOT CTAs keep clean look */
+.card a:not(.cta-btn){
+  text-decoration:none !important; color:inherit !important;
+}
+
+/* ===== Linked Card: opt-in only (for “Four Pillars” etc.) ===== */
+/* Do NOT globally force flex on all a.card; use .linked-card */
+a.card{ display:block; color:inherit; text-decoration:none; }
+a.card:link, a.card:visited, a.card:hover, a.card:active{
+  color:inherit; text-decoration:none;
+}
+
+/* Opt-in utility: make an anchor card behave like a flex card with pinned CTA */
+.linked-card{
+  display:flex !important;
+  flex-direction:column !important;
+  justify-content:flex-start !important;
+  gap:1.25rem !important;
+  height:100% !important;
+}
+.linked-card .cta-btn{ margin-top:auto !important; }
+
+/* ===== Alignment Policy ===== */
+.hero-title, .section-title{ text-align:center; }
 .content p,
 .content li,
 .content ul,
@@ -285,14 +255,47 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
 .content .card li,
 .content .card ul,
 .content .card ol { text-align:left !important; }
-/* Keep CTAs and one-line callouts centered where it makes sense */
-.content .cta,
-.content .cta-card,
-.content .equal-banner,
-.content .grid-cta,
-.content .cta-btn { text-align:center; }
-/* Tables (future-proofing) */
+
+/* Tables */
 .content table { margin-left:0; margin-right:auto; }
+
+/* ===== Footer (branded) ===== */
+footer{
+  background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
+}
+.footer-content{
+  max-width:var(--container); margin:0 auto;
+  display:flex; justify-content:space-between; align-items:flex-start;
+  flex-wrap:wrap; gap:2rem; text-align:center;
+}
+.footer-left, .footer-center, .footer-right{ flex:1 1 250px; }
+.footer-left p, .footer-center p, .footer-right p{ margin:.3rem 0; }
+
+footer p, footer h4, footer strong{ color:#fff; }
+
+/* Email always white */
+.email-link,
+.footer-right a[href^="mailto:"]{
+  color:#fff !important; text-decoration:none; font-weight:500;
+}
+.email-link:hover,
+.footer-right a[href^="mailto:"]:hover{ text-decoration:underline; }
+
+/* LinkedIn permanent blue */
+.linkedin-link{
+  color:#0066b2 !important; text-decoration:underline; font-weight:600;
+}
+
+/* Privacy + Terms permanent red */
+.legal-link{
+  color:#ee1c25 !important; text-decoration:underline; font-weight:600;
+}
+
+/* Footer bottom bar */
+.footer-bottom{
+  margin-top:1.5rem; font-size:.85rem; text-align:center;
+  border-top:1px solid rgba(255,255,255,0.15); padding-top:1rem; color:#fff;
+}
 
 /* ===== Mobile ===== */
 @media (max-width:768px){
@@ -301,7 +304,6 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
 
   .banner-header{ min-height: var(--logo-h-mobile); }
   .logo{ max-height: var(--logo-h-mobile); }
-
   .hero-title{ font-size:2rem; }
 
   /* Mobile hero/banner height */
@@ -320,29 +322,19 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
   }
 }
 
-/* Safety: never show mobile overlay on desktop */
-@media (min-width:769px){ nav.mobile-nav{ display:none !important; } }
-
-/* Reduced transparency preference */
+/* ===== Reduced transparency preference ===== */
 @media (prefers-reduced-transparency: reduce){
   .banner-header{ background:#fff !important; backdrop-filter:none; -webkit-backdrop-filter:none; }
 }
 
-/* ===== Banner HARD-FIX overrides (wins against old rules) ===== */
-.hero-media,
-.page-banner{ min-height: var(--hero-h-desktop) !important; }
-.hero-media img,
-.hero-media picture > img{
-  width:100% !important;
-  height:100% !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  display:block !important;
+/* ===== Banner Hard-Fix overrides ===== */
+.hero-media, .page-banner{ min-height: var(--hero-h-desktop) !important; }
+.hero-media img, .hero-media picture > img{
+  width:100% !important; height:100% !important;
+  object-fit: cover !important; object-position: center !important; display:block !important;
 }
 @media (max-width:768px){
-  .hero-media,
-  .page-banner{
-    min-height: var(--hero-h-mobile) !important;
-    height: var(--hero-h-mobile) !important;
+  .hero-media, .page-banner{
+    min-height: var(--hero-h-mobile) !important; height: var(--hero-h-mobile) !important;
   }
 }
