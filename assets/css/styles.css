@@ -208,7 +208,7 @@ main.content{
 @media (min-width:768px) and (max-width:1199.98px){ .card-grid.force-4{ grid-template-columns:repeat(2,1fr); } }
 @media (max-width:767.98px){ .card-grid.force-4{ grid-template-columns:1fr; } }
 
-/* Card (final, single source of truth) */
+/* Card (single source of truth) */
 .card{
   background:#fff;
   border:2px solid var(--dark-blue);
@@ -222,7 +222,7 @@ main.content{
   gap:1.25rem;
   height:100%;
   min-height:100%;
-  text-align:left; /* headings centered globally, content left; cards left by default */
+  text-align:left;
 }
 
 /* Card headings */
@@ -251,11 +251,30 @@ main.content{
   display:inline-block;
 }
 
+/* Linked cards & CTAs — keep clean look, no underlines */
+a.card,
+a.card:link,
+a.card:visited,
+a.card:hover,
+a.card:active {
+  text-decoration: none !important;
+  color: inherit !important;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  height: 100%;
+}
+.card a:not(.cta-btn) {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
 /* ===== Alignment Policy: Corporate Clean ===== */
 /* Keep hero/section headings centered */
 .hero-title, .section-title{ text-align:center; }
 
-/* Default readable content to left-aligned site-wide */
+/* Default readable content left-aligned site-wide */
 .content p,
 .content li,
 .content ul,
@@ -277,14 +296,59 @@ main.content{
 /* Tables (future-proofing) */
 .content table { margin-left:0; margin-right:auto; }
 
-/* ===== Footer ===== */
-footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto; }
-.footer-content{
-  max-width:var(--container); margin:0 auto;
-  display:flex; flex-wrap:wrap; justify-content:space-between; gap:2rem;
+/* ===== Footer (final, deduped & branded) ===== */
+footer {
+  background: #0b1e3f;
+  color: #fff;
+  padding: 2rem 1rem 1rem;
+  margin-top: auto;
 }
-.footer-content p, .footer-content h4{ color:#fff; margin:.3rem 0; }
-.footer-bottom{ margin-top:1rem; font-size:.85rem; text-align:center; }
+.footer-content {
+  max-width: var(--container);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.footer-left, .footer-middle, .footer-right { flex: 1 1 250px; }
+.footer-content p, .footer-content h4, .footer-content strong { color:#fff; margin:.3rem 0; }
+
+/* Email always white */
+.email-link,
+.footer-right a[href^="mailto:"] {
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: 500;
+}
+.email-link:hover,
+.footer-right a[href^="mailto:"]:hover { text-decoration: underline; }
+
+/* LinkedIn permanent blue (add class="linkedin-link" on the anchor) */
+.linkedin-link,
+.footer-right a[href*="linkedin.com"] {
+  color: #0066b2 !important;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* Privacy + Terms permanent red (add class="legal-link" on those anchors) */
+.legal-link {
+  color: #ee1c25 !important;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+/* Bottom copyright bar */
+.footer-bottom {
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  text-align: center;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding-top: 1rem;
+  color:#fff;
+}
 
 /* ===== Mobile ===== */
 @media (max-width:768px){
@@ -310,10 +374,10 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
     padding:.9rem 1rem; border-radius:12px;
     background:rgba(0,79,145,.06); border:1px solid rgba(0,79,145,.12); font-weight:700;
   }
-}
 
-/* Safety: never show mobile overlay on desktop */
-@media (min-width:769px){ nav.mobile-nav{ display:none !important; } }
+  .footer-content { text-align:center; }
+  .footer-left, .footer-middle, .footer-right { flex: 1 1 100%; }
+}
 
 /* Reduced transparency preference */
 @media (prefers-reduced-transparency: reduce){
@@ -339,302 +403,4 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
     min-height: var(--hero-h-mobile) !important;
     height: var(--hero-h-mobile) !important;
   }
-}
-
-/* === Linked cards & CTAs — single source of truth (no conflicts) === */
-/* When the entire card is a link: keep flex so the CTA can pin to the bottom */
-a.card,
-a.card:link,
-a.card:visited,
-a.card:hover,
-a.card:active {
-  text-decoration: none !important;
-  color: inherit !important;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 1.25rem;
-  height: 100%;
-}
-
-/* CTA inside any card (linked or not): full width, pinned to bottom, no underline */
-.card .cta-btn,
-.card a.cta-btn,
-a.card .cta-btn {
-  margin-top: auto;
-  width: 100%;
-  min-height: 48px;
-  text-align: center;
-  box-sizing: border-box;
-  text-decoration: none !important;
-  color: #fff !important;
-}
-
-/* Inline links inside cards that are NOT CTAs keep clean look */
-.card a:not(.cta-btn) {
-  text-decoration: none !important;
-  color: inherit !important;
-}
-
-/* ===== Footer (final, deduped & branded) ===== */
-footer,
-footer p,
-footer h4,
-footer strong {
-  color: #fff !important;
-}
-
-/* Email links inside footer always white */
-.footer-right a[href^="mailto:"] {
-  color: #fff !important;
-  text-decoration: none;
-  font-weight: 500;
-}
-.footer-right a[href^="mailto:"]:hover {
-  text-decoration: underline;
-}
-
-/* Legal links permanent red (use class="legal-link") */
-.footer-bottom .legal-link {
-  color: #ee1c25 !important;  /* permanent red */
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-/* LinkedIn permanent blue (use class="linkedin-link") */
-.footer-right .linkedin-link {
-  color: #0066b2 !important;  /* CoreCloud primary blue */
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-/* Hover consistency */
-.footer-bottom .legal-link:hover,
-.footer-right .linkedin-link:hover {
-  opacity: 0.85;  /* subtle fade, no color shift */
-}
-
-/* ===== Polished Footer (overrides) ===== */
-.site-footer{
-  background:#0b1e3f;
-  color:#fff;
-  margin-top:auto;
-  border-top:1px solid rgba(255,255,255,.08);
-}
-
-.site-footer .footer-content{
-  max-width: var(--container);
-  margin: 0 auto;
-  padding: 2rem 1.5rem;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 2rem;
-  align-items: start;
-}
-
-.site-footer p,
-.site-footer h4,
-.site-footer strong { color:#fff; }
-
-.site-footer .footer-contact { margin-top:.5rem; }
-
-/* Bottom bar */
-.site-footer .footer-bottom{
-  border-top:1px solid rgba(255,255,255,.08);
-  padding: .9rem 1.5rem;
-  text-align:center;
-  font-size:.92rem;
-  color:#fff;
-}
-.site-footer .footer-bottom .sep{
-  display:inline-block; padding:0 .5rem; color:#fff; opacity:.8;
-}
-
-/* Permanent link colors */
-.site-footer .legal-link{
-  color:#ee1c25 !important;        /* permanent red */
-  text-decoration:underline;
-  font-weight:600;
-}
-.site-footer .linkedin-link{
-  color:#0066b2 !important;         /* permanent blue */
-  text-decoration:underline;
-  font-weight:600;
-}
-
-/* Email is always white */
-.site-footer .mailto-link{
-  color:#fff !important;
-  text-decoration:none;
-  font-weight:500;
-}
-.site-footer .mailto-link:hover{ text-decoration:underline; }
-
-/* Neutralize all other footer links to white by default */
-.site-footer a{
-  color:#fff;
-  text-decoration:none;
-}
-.site-footer a:hover{ text-decoration:underline; }
-
-/* Make sure our permanent colors win even on hover/focus */
-.site-footer .legal-link:hover,
-.site-footer .legal-link:focus,
-.site-footer .linkedin-link:hover,
-.site-footer .linkedin-link:focus{
-  opacity:.9;                        /* subtle feedback, no color shift */
-  text-decoration:underline;
-}
-
-/* Mobile stacking */
-@media (max-width: 768px){
-  .site-footer .footer-content{
-    grid-template-columns: 1fr;
-    text-align:center;
-  }
-  .site-footer .footer-left,
-  .site-footer .footer-right{ margin:0 auto; }
-}
-
-/* Centered footer layout */
-.footer-content.centered {
-  text-align: center;
-  max-width: var(--container);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* Email always white */
-.footer-content .email-link {
-  color: #fff !important;
-  text-decoration: none;
-}
-.footer-content .email-link:hover {
-  text-decoration: underline;
-}
-
-/* LinkedIn permanent blue */
-.footer-content .linkedin-link {
-  color: #0066b2 !important;
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-/* Legal links permanent red */
-.footer-bottom .legal-link {
-  color: #ee1c25 !important;
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-/* Footer layout */
-footer {
-  background: #0b1e3f;
-  color: #fff;
-  padding: 2rem 1rem 1rem;
-  margin-top: auto;
-}
-
-.footer-content {
-  max-width: var(--container);
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.footer-left p,
-.footer-right p {
-  margin: 0.3rem 0;
-}
-
-/* Email always white */
-.email-link {
-  color: #fff !important;
-  text-decoration: none;
-}
-.email-link:hover {
-  text-decoration: underline;
-}
-
-/* LinkedIn permanent blue */
-.linkedin-link {
-  color: #0066b2 !important;
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-/* Privacy + Terms permanent red */
-.legal-link {
-  color: #ee1c25 !important;
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-/* Bottom copyright bar */
-.footer-bottom {
-  margin-top: 1.5rem;
-  font-size: 0.85rem;
-  text-align: center;
-  border-top: 1px solid rgba(255,255,255,0.15);
-  padding-top: 1rem;
-}
-
-/* Footer layout */
-footer {
-  background: #0b1e3f;
-  color: #fff;
-  padding: 2rem 1rem;
-  margin-top: auto;
-}
-
-.footer-content {
-  max-width: var(--container);
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  text-align: center;
-  gap: 2rem;
-}
-
-/* Columns */
-.footer-left,
-.footer-center,
-.footer-right {
-  flex: 1 1 250px;
-}
-
-.footer-left p,
-.footer-right p,
-.footer-center p {
-  margin: 0.3rem 0;
-}
-
-/* Email always white */
-.email-link {
-  color: #fff !important;
-  text-decoration: none;
-}
-.email-link:hover {
-  text-decoration: underline;
-}
-
-/* LinkedIn permanent blue */
-.linkedin-link {
-  color: #0066b2 !important;
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-/* Privacy + Terms permanent red */
-.legal-link {
-  color: #ee1c25 !important;
-  text-decoration: underline;
-  font-weight: 600;
 }
