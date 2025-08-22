@@ -285,7 +285,6 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
 }
 .footer-content p, .footer-content h4{ color:#fff; margin:.3rem 0; }
 .footer-bottom{ margin-top:1rem; font-size:.85rem; text-align:center; }
-.footer-bottom a{ color:red !important; text-decoration:underline; font-weight:bold; }
 
 /* ===== Mobile ===== */
 @media (max-width:768px){
@@ -351,7 +350,7 @@ a.card:hover,
 a.card:active {
   text-decoration: none !important;
   color: inherit !important;
-  display: flex;                 /* keep flex layout */
+  display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 1.25rem;
@@ -376,32 +375,12 @@ a.card .cta-btn {
   text-decoration: none !important;
   color: inherit !important;
 }
-/* Footer global text white */
-footer, footer p, footer h4, footer strong {
-  color: #fff !important;
-}
 
-/* Legal links permanent red */
-.footer-bottom .legal-link {
-  color: #ee1c25 !important;  /* permanent red */
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-/* LinkedIn permanent blue */
-.footer-right .linkedin-link {
-  color: #0066b2 !important;  /* CoreCloud primary blue */
-  text-decoration: underline;
-  font-weight: 600;
-}
-
-/* Keep hover consistent */
-.footer-bottom .legal-link:hover,
-.footer-right .linkedin-link:hover {
-  opacity: 0.85;  /* subtle fade, no color shift */
-}
-/* Footer global text white */
-footer, footer p, footer h4, footer strong {
+/* ===== Footer (final, deduped & branded) ===== */
+footer,
+footer p,
+footer h4,
+footer strong {
   color: #fff !important;
 }
 
@@ -415,21 +394,21 @@ footer, footer p, footer h4, footer strong {
   text-decoration: underline;
 }
 
-/* Legal links permanent red */
+/* Legal links permanent red (use class="legal-link") */
 .footer-bottom .legal-link {
   color: #ee1c25 !important;  /* permanent red */
   text-decoration: underline;
   font-weight: 600;
 }
 
-/* LinkedIn permanent blue */
+/* LinkedIn permanent blue (use class="linkedin-link") */
 .footer-right .linkedin-link {
   color: #0066b2 !important;  /* CoreCloud primary blue */
   text-decoration: underline;
   font-weight: 600;
 }
 
-/* Keep hover consistent */
+/* Hover consistency */
 .footer-bottom .legal-link:hover,
 .footer-right .linkedin-link:hover {
   opacity: 0.85;  /* subtle fade, no color shift */
