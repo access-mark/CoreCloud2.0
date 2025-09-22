@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+# Point crawlers to sitemap
 Sitemap: https://www.corecloudza.com/sitemap.xml
