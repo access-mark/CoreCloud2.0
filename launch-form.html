@@ -2,67 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Apply to Re / Launch – Youth Track</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apply – Re/Launch Youth Track | CoreCloud</title>
+  <meta name="description" content="Apply for CoreCloud’s Re/Launch Youth Track. Fast-tracked entry into ICT roles across cloud, dev, data and security." />
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    body { font-family:'Segoe UI', Roboto, sans-serif; background:#f4f6f8; padding:2rem; max-width:800px; margin:auto; }
-    h1 { color:#004f91; text-align:center; margin-bottom:1rem; }
-    form { background:#fff; padding:2rem; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+    body { font-family:'Segoe UI', Roboto, sans-serif; }
+    .hero-media img { width:100%; height:auto; }
+    .section { padding:2rem 1.25rem; }
+    .intro .subtitle { max-width:900px; margin:0 auto; }
+    .form-wrap { max-width:800px; margin:2rem auto; background:#fff; padding:2rem; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,.06); }
     label { display:block; margin-top:1rem; font-weight:600; }
-    input, select, textarea { width:100%; padding:.5rem; margin-top:.3rem; border:1px solid #ccc; border-radius:5px; }
-    button { margin-top:2rem; background:#0066b2; color:#fff; padding:.75rem 1.5rem; border:none; border-radius:5px; font-weight:bold; width:100%; cursor:pointer; }
+    input, select, textarea { width:100%; padding:.6rem; margin-top:.35rem; border:1px solid #cfd8dc; border-radius:8px; }
+    button { margin-top:1.5rem; background:#0066b2; color:#fff; border:none; padding:.9rem 1.4rem; width:100%; border-radius:8px; font-weight:700; cursor:pointer; }
     button:hover { background:#004f91; }
   </style>
 </head>
-<body>
-  <h1>Apply to Re / Launch (Youth Track)</h1>
+<body class="talent-page">
+  <!-- Slim header -->
+  <div class="small-banner">
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" />
+      <nav class="desktop-nav" aria-label="Primary">
+        <a href="index.html" class="nav-btn">HOME</a>
+        <a href="consulting.html" class="nav-btn">CONSULTING</a>
+        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
+        <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
+        <a href="talent.html" class="nav-btn">TALENT</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="about.html" class="nav-btn">ABOUT</a>
+        <a href="contact.html" class="nav-btn">CONTACT</a>
+      </nav>
+    </div>
+  </div>
 
-  <form id="launchForm" action="https://formsubmit.co/mark@corecloudza.com" method="POST" accept-charset="UTF-8">
-    <!-- FormSubmit config -->
-    <input type="hidden" name="_subject" value="Re/Launch – Youth Track Application">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=launch">
-    <input type="hidden" name="_cc" value="sales@corecloudza.com">
-    <!-- Honeypot -->
-    <input type="text" name="_honey" style="display:none">
+  <!-- Hero -->
+  <div class="hero-media">
+    <img src="assets/images/talent-bannerimage.png" alt="Re/Launch Youth Track – CoreCloud" width="1920" height="400" loading="eager" decoding="async">
+  </div>
 
-    <label for="name">Full Name</label>
-    <input type="text" id="name" name="Full Name" autocomplete="name" required>
+  <main class="content">
+    <section class="section intro">
+      <h1 class="hero-title">Re/Launch – Youth Track</h1>
+      <p class="subtitle">
+        Ready to break into ICT? Apply for roles across cloud, dev, data, and security. We move fast, match on capability and potential, and help you get placed.
+      </p>
+    </section>
 
-    <label for="age">Age</label>
-    <input type="number" id="age" name="Age" min="16" max="35" required>
+    <section class="section">
+      <div class="form-wrap">
+        <form id="launchForm" action="https://formsubmit.co/mark@corecloudza.com" method="POST" accept-charset="UTF-8">
+          <!-- FormSubmit config -->
+          <input type="hidden" name="_subject" value="Re/Launch – Youth Track Application">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=launch">
+          <input type="hidden" name="_cc" value="sales@corecloudza.com">
+          <!-- Honeypot -->
+          <input type="text" name="_honey" style="display:none">
 
-    <label for="email">Email Address</label>
-    <input type="email" id="email" name="Email" autocomplete="email" required>
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="Full Name" autocomplete="name" required>
 
-    <label for="phone">Phone Number</label>
-    <input type="tel" id="phone" name="Phone" autocomplete="tel">
+          <label for="age">Age</label>
+          <input type="number" id="age" name="Age" min="16" max="35" required>
 
-    <label for="location">City / Province</label>
-    <input type="text" id="location" name="Location" autocomplete="address-level2">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="Email" autocomplete="email" required>
 
-    <label for="education">Education Level</label>
-    <select id="education" name="Education" required>
-      <option value="" selected disabled>Select your education level</option>
-      <option value="Matric">Matric</option>
-      <option value="Diploma">Diploma</option>
-      <option value="Degree">Degree</option>
-      <option value="Other">Other</option>
-    </select>
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="Phone" autocomplete="tel">
 
-    <label for="interests">Career Interests</label>
-    <textarea id="interests" name="Career Interests" rows="3"></textarea>
+          <label for="location">City / Province</label>
+          <input type="text" id="location" name="Location" autocomplete="address-level2">
 
-    <label for="linkedin">LinkedIn Profile (optional)</label>
-    <input type="url" id="linkedin" name="LinkedIn Profile" placeholder="https://www.linkedin.com/in/…">
+          <label for="education">Education Level</label>
+          <select id="education" name="Education" required>
+            <option value="" selected disabled>Select your education level</option>
+            <option value="Matric">Matric</option>
+            <option value="Diploma">Diploma</option>
+            <option value="Degree">Degree</option>
+            <option value="Other">Other</option>
+          </select>
 
-    <label for="consent">
-      <input id="consent" type="checkbox" name="Consent" required>
-      I consent to CoreCloud contacting me regarding opportunities.
-    </label>
+          <label for="interests">Career Interests</label>
+          <textarea id="interests" name="Career Interests" rows="3" placeholder="e.g., Cloud Engineer, Software Developer, SOC Analyst"></textarea>
 
-    <button type="submit">Submit Application</button>
-  </form>
+          <label for="linkedin">LinkedIn Profile (optional)</label>
+          <input type="url" id="linkedin" name="LinkedIn Profile" placeholder="https://www.linkedin.com/in/…">
+
+          <label for="consent">
+            <input id="consent" type="checkbox" name="Consent" required>
+            I consent to CoreCloud contacting me regarding opportunities.
+          </label>
+
+          <button type="submit">Submit Application</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-bottom" style="text-align:center; padding:1.25rem 1rem;">
+      <p>&copy; 2025 CoreCloud. <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
+    </div>
+  </footer>
 </body>
 </html>
