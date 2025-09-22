@@ -1,20 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.corecloudza.com/</loc></url>
-  <url><loc>https://www.corecloudza.com/index.html</loc></url>
+
+  <!-- Root -->
+  <url>
+    <loc>https://www.corecloudza.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Core pages -->
   <url><loc>https://www.corecloudza.com/consulting.html</loc></url>
   <url><loc>https://www.corecloudza.com/cloud.html</loc></url>
+  <url><loc>https://www.corecloudza.com/application-development.html</loc></url>
+  <url><loc>https://www.corecloudza.com/talent.html</loc></url>
+  <url><loc>https://www.corecloudza.com/talent-relaunch.html</loc></url>
+  <url><loc>https://www.corecloudza.com/talent-employer.html</loc></url>
+  <url><loc>https://www.corecloudza.com/dynamic-imprinting.html</loc></url>
+  <url><loc>https://www.corecloudza.com/contact.html</loc></url>
+
+  <!-- AWS subpages -->
   <url><loc>https://www.corecloudza.com/aws-migration.html</loc></url>
   <url><loc>https://www.corecloudza.com/aws-modernize.html</loc></url>
   <url><loc>https://www.corecloudza.com/aws-manage.html</loc></url>
   <url><loc>https://www.corecloudza.com/aws-optimize.html</loc></url>
+
+  <!-- Azure subpages -->
   <url><loc>https://www.corecloudza.com/azure-migration.html</loc></url>
   <url><loc>https://www.corecloudza.com/azure-modernize.html</loc></url>
   <url><loc>https://www.corecloudza.com/azure-manage.html</loc></url>
   <url><loc>https://www.corecloudza.com/azure-optimize.html</loc></url>
-  <url><loc>https://www.corecloudza.com/talent.html</loc></url>
-  <url><loc>https://www.corecloudza.com/resources.html</loc></url>
-  <url><loc>https://www.corecloudza.com/contact.html</loc></url>
-  <url><loc>https://www.corecloudza.com/thanks.html</loc></url>
-</urlset>
 
+  <!-- Utility pages -->
+  <url><loc>https://www.corecloudza.com/thank-you.html</loc></url>
+  <url><loc>https://www.corecloudza.com/404.html</loc></url>
+
+</urlset>
