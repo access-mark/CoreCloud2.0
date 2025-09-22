@@ -45,6 +45,7 @@
       border-radius: 5px;
       font-weight: bold;
       width: 100%;
+      cursor: pointer;
     }
     button:hover {
       background-color: #004f91;
@@ -53,18 +54,27 @@
 </head>
 <body>
   <h1>Partner with CoreCloud (Employer Form)</h1>
-  <form id="employerForm">
+
+  <form id="employerForm" action="https://formsubmit.co/mark@corecloudza.com" method="POST" accept-charset="UTF-8">
+    <!-- FormSubmit config -->
+    <input type="hidden" name="_subject" value="New Employer Partnership Submission">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=employer">
+    <input type="hidden" name="_cc" value="sales@corecloudza.com">
+    <!-- Honeypot -->
+    <input type="text" name="_honey" style="display:none">
+
     <label for="company">Company Name</label>
     <input type="text" id="company" name="Company Name" required>
 
-    <label for="contact">Your Name & Surname</label>
+    <label for="contact">Your Name &amp; Surname</label>
     <input type="text" id="contact" name="Contact Person" required>
 
     <label for="email">Email Address</label>
     <input type="email" id="email" name="Email" required>
 
     <label for="phone">Phone Number</label>
-    <input type="text" id="phone" name="Phone Number">
+    <input type="tel" id="phone" name="Phone Number">
 
     <label for="website">Company Website</label>
     <input type="url" id="website" name="Website">
@@ -76,28 +86,11 @@
     <textarea id="interest" name="Talent Needs" rows="4"></textarea>
 
     <label for="consent">
-      <input type="checkbox" name="Consent" required />
+      <input id="consent" type="checkbox" name="Consent" required>
       I consent to CoreCloud contacting me about talent solutions.
     </label>
 
     <button type="submit">Submit Partnership Form</button>
   </form>
-
-  <script>
-    document.getElementById('employerForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-
-      fetch("https://script.google.com/a/macros/corecloudza.com/s/AKfycbwu72Al8RJQ_xUdiKlNnku3H7gc_3nGdC79H3LckpR4V_DrpoORsdnwiwb8B0QlU2rl/exec", {
-        method: "POST",
-        body: new URLSearchParams(data)
-      }).then(() => {
-        window.location.href = "thank-you.html?type=contact";
-      }).catch(() => {
-        alert("There was a problem submitting your form. Please try again later.");
-      });
-    });
-  </script>
 </body>
 </html>
