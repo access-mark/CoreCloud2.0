@@ -6,63 +6,26 @@
   <title>Apply to Re / Launch – Retrenched Professionals</title>
   <link rel="stylesheet" href="assets/css/styles.css" />
   <style>
-    body {
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      background-color: #f4f6f8;
-      padding: 2rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    h1 {
-      color: #004f91;
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-    form {
-      background: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    label {
-      display: block;
-      margin-top: 1rem;
-      font-weight: 600;
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 0.5rem;
-      margin-top: 0.3rem;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-    button {
-      margin-top: 2rem;
-      background-color: #0066b2;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
-      width: 100%;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #004f91;
-    }
+    body { font-family:'Segoe UI', Roboto, sans-serif; background:#f4f6f8; padding:2rem; max-width:800px; margin:auto; }
+    h1 { color:#004f91; text-align:center; margin-bottom:1rem; }
+    form { background:#fff; padding:2rem; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.05); }
+    label { display:block; margin-top:1rem; font-weight:600; }
+    input, select, textarea { width:100%; padding:.5rem; margin-top:.3rem; border:1px solid #ccc; border-radius:5px; }
+    button { margin-top:2rem; background:#0066b2; color:#fff; padding:.75rem 1.5rem; border:none; border-radius:5px; font-weight:bold; width:100%; cursor:pointer; }
+    button:hover { background:#004f91; }
   </style>
 </head>
 <body>
   <h1>Apply to Re / Launch (Experienced Track)</h1>
 
-  <form id="relaunchForm" action="https://formsubmit.co/YOUR_TOKEN_STRING" method="POST" accept-charset="UTF-8">
+  <form id="relaunchForm" action="https://formsubmit.co/mark@corecloudza.com" method="POST" accept-charset="UTF-8">
     <!-- FormSubmit config -->
     <input type="hidden" name="_subject" value="Re/Launch – Experienced Track Application">
     <input type="hidden" name="_template" value="table">
     <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=relaunch">
+    <input type="hidden" name="_cc" value="sales@corecloudza.com">
+    <!-- Honeypot -->
     <input type="text" name="_honey" style="display:none">
-    <!-- CC to second email (comma-separate if more) -->
-    <input type="hidden" name="_cc" value="SECOND@corecloudza.com">
 
     <label for="name">Full Name</label>
     <input type="text" id="name" name="Full Name" autocomplete="name" required>
