@@ -12,68 +12,107 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
+      margin: 0;
       text-align: center;
+      padding: 2rem;
     }
     .message {
       background: #fff;
       padding: 2rem 3rem;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 720px;
+      width: 100%;
+    }
+    .logo {
+      display:block;
+      margin: 0 auto 1rem;
+      height: 56px;
+      width: auto;
     }
     h1 {
       color: #004f91;
       font-size: 2rem;
+      margin: 0 0 .5rem;
     }
     p {
       color: #333;
       font-size: 1.1rem;
+      margin: 0 0 1rem;
     }
-    a {
+    a.btn {
       display: inline-block;
       margin-top: 1rem;
-      color: #0066b2;
-      text-decoration: underline;
+      background: #0066b2;
+      color: #fff;
+      padding: .8rem 1.3rem;
+      border-radius: 6px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background .2s ease;
     }
+    a.btn:hover { background: #004f91; }
+    .subtle { color:#666; font-size:.95rem; margin-top:.5rem; }
   </style>
 </head>
 <body>
   <div class="message">
+    <img class="logo" src="assets/images/corecloud-logo.png" alt="CoreCloud" height="56" />
     <h1 id="main-heading">Thank You!</h1>
     <p id="sub-message">We’ve received your submission and will be in touch soon.</p>
-    <a href="index.html">Return to Home</a>
+    <a class="btn" href="index.html">Back to Home</a>
+    <p class="subtle">If you didn’t mean to land here, you can safely close this tab.</p>
   </div>
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const type = params.get("type");
+    const rawType = (params.get("type") || "").toLowerCase();
+
+    // Normalise synonyms so redirects like ?type=newsletter and ?type=subscribe both work
+    const typeMap = {
+      newsletter: "newsletter",
+      subscribe: "newsletter",
+      launch: "launch",
+      relaunch: "relaunch",
+      contact: "contact",
+      employer: "employer"
+    };
+    const type = typeMap[rawType] || "default";
 
     const heading = document.getElementById("main-heading");
     const message = document.getElementById("sub-message");
 
     const responses = {
-      subscribe: {
+      newsletter: {
         heading: "You're Subscribed!",
-        message: "Thanks for signing up. We'll keep you informed with fresh cloud insights and growth updates."
+        message: "Thanks for signing up. We’ll keep you informed with practical cloud, talent, and growth insights."
       },
       launch: {
-        heading: "Thank You for Applying!",
-        message: "Your Launch application has been received. We'll be in touch with next steps shortly."
+        heading: "Application Received",
+        message: "Your Youth Track application is in. We’ll review and share next steps shortly."
       },
       relaunch: {
-        heading: "Thank You for Reaching Out!",
-        message: "We’ve received your Relaunch application and will support you on your journey back into the workforce."
+        heading: "Application Received",
+        message: "Your Experienced Track application is in. Our team will review and get back to you."
       },
       contact: {
-        heading: "Thank You for Reaching Out!",
-        message: "We’ve received your message and will respond to you shortly."
+        heading: "Thanks for Reaching Out",
+        message: "We’ve received your message. A CoreCloud consultant will respond shortly."
+      },
+      employer: {
+        heading: "Thanks for Partnering",
+        message: "Your employer submission is in. We’ll connect to refine role requirements and next steps."
+      },
+      default: {
+        heading: "Thank You!",
+        message: "We’ve received your submission and will be in touch soon."
       }
     };
 
-    if (responses[type]) {
-      heading.textContent = responses[type].heading;
-      message.textContent = responses[type].message;
-    }
+    heading.textContent = responses[type].heading;
+    message.textContent = responses[type].message;
+    document.title = `${responses[type].heading} – CoreCloud`;
   </script>
 </body>
 </html>
