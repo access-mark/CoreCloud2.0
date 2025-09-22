@@ -45,6 +45,7 @@
       border-radius: 5px;
       font-weight: bold;
       width: 100%;
+      cursor: pointer;
     }
     button:hover {
       background-color: #004f91;
@@ -53,24 +54,34 @@
 </head>
 <body>
   <h1>Apply to Re / Launch (Youth Track)</h1>
-  <form id="launchForm">
+
+  <form id="launchForm" action="https://formsubmit.co/YOUR_EXISTING_TOKEN" method="POST" accept-charset="UTF-8">
+    <!-- FormSubmit config -->
+    <input type="hidden" name="_subject" value="Re/Launch – Youth Track Application">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=launch">
+    <input type="text" name="_honey" style="display:none">
+    <!-- CC to second email -->
+    <input type="hidden" name="_cc" value="SECOND@corecloudza.com">
+
     <label for="name">Full Name</label>
-    <input type="text" id="name" name="Full Name" required>
+    <input type="text" id="name" name="Full Name" autocomplete="name" required>
 
     <label for="age">Age</label>
-    <input type="number" id="age" name="Age" required>
+    <input type="number" id="age" name="Age" min="16" max="35" required>
 
     <label for="email">Email Address</label>
-    <input type="email" id="email" name="Email" required>
+    <input type="email" id="email" name="Email" autocomplete="email" required>
 
     <label for="phone">Phone Number</label>
-    <input type="text" id="phone" name="Phone">
+    <input type="tel" id="phone" name="Phone" autocomplete="tel">
 
     <label for="location">City / Province</label>
-    <input type="text" id="location" name="Location">
+    <input type="text" id="location" name="Location" autocomplete="address-level2">
 
     <label for="education">Education Level</label>
-    <select id="education" name="Education">
+    <select id="education" name="Education" required>
+      <option value="" selected disabled>Select your education level</option>
       <option value="Matric">Matric</option>
       <option value="Diploma">Diploma</option>
       <option value="Degree">Degree</option>
@@ -81,28 +92,14 @@
     <textarea id="interests" name="Career Interests" rows="3"></textarea>
 
     <label for="linkedin">LinkedIn Profile (optional)</label>
-    <input type="url" id="linkedin" name="LinkedIn Profile">
+    <input type="url" id="linkedin" name="LinkedIn Profile" placeholder="https://www.linkedin.com/in/…">
 
-    <label><input type="checkbox" name="Consent" required> I consent to CoreCloud contacting me regarding opportunities.</label>
+    <label for="consent">
+      <input id="consent" type="checkbox" name="Consent" required>
+      I consent to CoreCloud contacting me regarding opportunities.
+    </label>
 
     <button type="submit">Submit Application</button>
   </form>
-
-  <script>
-    document.getElementById('launchForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const form = e.target;
-      const data = new FormData(form);
-
-      fetch("https://script.google.com/a/macros/corecloudza.com/s/AKfycbwu72Al8RJQ_xUdiKlNnku3H7gc_3nGdC79H3LckpR4V_DrpoORsdnwiwb8B0QlU2rl/exec", {
-        method: "POST",
-        body: data
-      }).then(() => {
-        window.location.href = "thank-you.html?type=launch";
-      }).catch(() => {
-        alert("There was a problem submitting your application. Please try again later.");
-      });
-    });
-  </script>
 </body>
 </html>
