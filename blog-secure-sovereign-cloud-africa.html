@@ -35,6 +35,9 @@
     .next-prev{ display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
     .next-prev a{ text-decoration:none; color:#0d3b66; font-weight:700; }
     .next-prev a:hover{ text-decoration:underline; }
+    table{ width:100%; border-collapse:collapse; margin:1rem 0; }
+    th,td{ border:1px solid #e4e8f1; padding:.6rem; text-align:left; }
+    thead th{ background:#f7f9fc; }
   </style>
 
   <!-- JSON-LD -->
@@ -61,9 +64,7 @@
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" loading="lazy" />
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </label>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
@@ -137,6 +138,31 @@
         <li><strong>5G + fintech rails:</strong> digital ID and payments unlock new workloads.</li>
         <li><strong>Sovereign options:</strong> patterns that preserve control for sensitive data.</li>
       </ul>
+
+      <!-- Added depth modules -->
+      <h2>30-Day Sovereignty Checklist</h2>
+      <ol>
+        <li><strong>Data map (Days 1–3):</strong> classify data (PII, financial, regulated) and note residency constraints.</li>
+        <li><strong>Guardrails (Days 4–7):</strong> org policies for regions, keys, encryption at rest/in transit, logging retention.</li>
+        <li><strong>Landing zone (Days 8–14):</strong> baseline with least-privilege IAM, network egress control, break-glass process.</li>
+        <li><strong>Controls (Days 15–21):</strong> enforce region allow-list, KMS/HSM ownership, backup locality, disaster patterns.</li>
+        <li><strong>Board-level reporting (Days 22–30):</strong> POPIA control coverage %, failing controls, MTTR, and open risks.</li>
+      </ol>
+      <div class="inline-note">Tip: publish a 1-pager that names “where data lives, who holds keys, how access is revoked”.</div>
+
+      <h2>Residency & Key Management — Decision Matrix</h2>
+      <table>
+        <thead><tr><th>Workload</th><th>Data Residency</th><th>Keys</th><th>Pattern</th></tr></thead>
+        <tbody>
+          <tr><td>FSI core records</td><td>In-country</td><td>Customer-managed (HSM/KMS)</td><td>Single region + cross-AZ, local backups</td></tr>
+          <tr><td>Analytics on PII</td><td>In-country primary</td><td>Customer-managed</td><td>Pseudonymise; export only aggregates</td></tr>
+          <tr><td>Public web</td><td>Global OK</td><td>Provider-managed</td><td>Multi-region CDN with WAF</td></tr>
+        </tbody>
+      </table>
+
+      <h2>FAQ: POPIA & Cross-Border</h2>
+      <p><strong>Can I process SA PII outside SA?</strong> Yes, if adequate protection is ensured and contracts reflect it. Sensitive workloads should default to in-country.</p>
+      <p><strong>Who should hold the keys?</strong> For regulated data, prefer customer-managed keys with separation of duties.</p>
 
       <div class="inline-cta">
         <strong>Make sovereignty practical.</strong>
