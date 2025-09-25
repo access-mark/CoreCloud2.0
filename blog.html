@@ -40,6 +40,13 @@
     .breadcrumbs a{ color:inherit; text-decoration:none; }
     .pagination{ display:flex; justify-content:center; gap:.5rem; margin:1rem auto 2rem; }
     .pagination a{ border:1px solid #d3dbea; padding:.5rem .8rem; border-radius:8px; text-decoration:none; color:#0d3b66; }
+
+    /* Active tab highlight */
+    .blog-filter .tag[aria-selected="true"]{
+      background:#eef3fa;
+      border-color:#b9c7e1;
+      font-weight:700;
+    }
   </style>
 </head>
 
@@ -224,5 +231,39 @@
       </p>
     </div>
   </footer>
+
+  <!-- Category filter script -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tags  = Array.from(document.querySelectorAll('.blog-filter .tag'));
+    const cards = Array.from(document.querySelectorAll('.blog-grid .post-card'));
+
+    function applyFilter(filter) {
+      const f = (filter || 'all').toLowerCase();
+      // update tab state
+      tags.forEach(t => t.setAttribute('aria-selected',
+        String(t.textContent.trim().toLowerCase() === f)));
+      // show/hide cards based on category (text before the • in .post-meta)
+      cards.forEach(card => {
+        const meta = card.querySelector('.post-meta');
+        const cat = meta ? meta.textContent.split('•')[0].trim().toLowerCase() : '';
+        card.style.display = (f === 'all' || cat === f) ? '' : 'none';
+      });
+    }
+
+    // click to filter
+    tags.forEach(tag => {
+      tag.addEventListener('click', (e) => {
+        e.preventDefault();
+        const filter = tag.textContent.trim().toLowerCase();
+        history.replaceState(null, '', filter === 'all' ? 'blog.html' : `#${filter}`);
+        applyFilter(filter);
+      });
+    });
+
+    // deep-link support: #cloud, #talent, etc.
+    applyFilter(location.hash ? location.hash.slice(1) : 'all');
+  });
+  </script>
 </body>
 </html>
