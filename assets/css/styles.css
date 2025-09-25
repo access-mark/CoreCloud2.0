@@ -424,3 +424,51 @@ footer strong {
   text-decoration: underline;
   color: var(--primary-blue);
 }
+/* ==== Blog page fixes (mobile & visual parity) ==== */
+
+/* Match .card style: blue border + subtle shadow */
+.blog-page .post-card{
+  background:#fff;
+  border:2px solid var(--dark-blue);
+  border-radius:8px;
+  box-shadow:0 2px 6px rgba(0,0,0,.06);
+}
+
+/* Prevent long words/links from causing horizontal scroll */
+.blog-page .post-title,
+.blog-page .post-excerpt{
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+/* Remove underlines on titles (keeps your clean look) */
+.blog-page .post-title a{
+  text-decoration:none;
+  color:inherit;
+}
+
+/* Use auto-fit to avoid ghost columns; keep within container */
+.blog-page .blog-grid{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 1rem;              /* tighter edges to avoid overflow */
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+/* Mobile: force single column, tighten spacing/padding */
+@media (max-width: 600px){
+  .blog-page .blog-grid{
+    grid-template-columns: 1fr !important;
+    padding: 0 .75rem;
+    gap: .75rem;
+  }
+  .blog-page .post-card{
+    padding: 1rem;
+  }
+}
+
+/* Pagination wraps on small screens (prevents horizontal scroll) */
+.blog-page .pagination{
+  flex-wrap: wrap;
+}
