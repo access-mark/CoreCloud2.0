@@ -1,105 +1,203 @@
-<!-- File: blog.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Insights & Blog | CoreCloud — Cloud, Consulting & Talent</title>
-<meta name="description" content="CoreCloud insights on cloud cost control, sales execution, app development, and talent in South Africa. Actionable guides, checklists, and case-based lessons." />
-<meta name="robots" content="index, follow" />
-<meta name="author" content="CoreCloud" />
-<meta name="theme-color" content="#004f91" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Insights & Blog | CoreCloud — Cloud, Consulting & Talent</title>
+  <meta name="description" content="CoreCloud insights on cloud cost control, sales execution, app development, and talent in South Africa." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="CoreCloud" />
+  <meta name="theme-color" content="#004f91" />
 
+  <!-- Canonical + Social -->
+  <link rel="canonical" href="https://www.corecloudza.com/blog.html" />
+  <meta property="og:title" content="CoreCloud Insights & Blog — Practical guides that drive results" />
+  <meta property="og:description" content="From strategy to revenue. Cloud, talent, and application outcomes you can measure." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.corecloudza.com/blog.html" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-<!-- Canonical + Social -->
-<link rel="canonical" href="https://www.corecloudza.com/blog.html" />
-<meta property="og:title" content="CoreCloud Insights & Blog — Practical guides that drive results" />
-<meta property="og:description" content="From strategy to revenue. Cloud, talent, and application outcomes you can measure." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.corecloudza.com/blog.html" />
-<meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg" />
-<meta name="twitter:card" content="summary_large_image" />
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
 
+  <!-- Preload key images -->
+  <link rel="preload" as="image" href="assets/images/index-bannerimage.png" imagesizes="100vw" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png">
 
-<!-- Global CSS -->
-<link rel="stylesheet" href="assets/css/styles.css?v=5" />
-
-
-<!-- Preload key images (use existing assets if available) -->
-<link rel="preload" as="image" href="assets/images/index-bannerimage.png" imagesizes="100vw" fetchpriority="high">
-<link rel="preload" as="image" href="assets/images/corecloud-logo.png">
-
-
-<style>
-/* Page-scoped tweaks for blog */
-.blog-page .hero-intro{ text-align:center; padding:1.5rem 1rem 0 !important; margin:0 !important; }
-.blog-filter{ display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center; margin:1rem auto 0; }
-.blog-filter .tag{ border:1px solid #cfd9ea; padding:.4rem .7rem; border-radius:999px; font-size:.9rem; cursor:pointer; }
-.blog-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; padding:1rem; max-width:1200px; margin:0 auto; }
-.post-card{ display:flex; flex-direction:column; border:1px solid #e4e8f1; border-radius:12px; padding:1rem; background:#fff; transition:transform .15s ease, box-shadow .15s ease; }
-.post-card:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,.06); }
-.post-meta{ font-size:.85rem; color:#666; margin:.25rem 0 .5rem; }
-.post-title{ font-size:1.1rem; margin:.25rem 0 .5rem; color:#0d3b66; font-weight:700; }
-.post-excerpt{ color:#444; line-height:1.6; }
-.post-cta{ margin-top:auto; align-self:flex-start; }
-.breadcrumbs{ max-width:1200px; margin:0 auto; padding:0 1rem; color:#5a6b85; font-size:.9rem; }
-.breadcrumbs a{ color:inherit; text-decoration:none; }
-.pagination{ display:flex; justify-content:center; gap:.5rem; margin:1rem auto 2rem; }
-.pagination a{ border:1px solid #d3dbea; padding:.5rem .8rem; border-radius:8px; text-decoration:none; color:#0d3b66; }
-</style>
+  <style>
+    .blog-page .hero-intro{ text-align:center; padding:1.5rem 1rem 0 !important; margin:0 !important; }
+    .blog-filter{ display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center; margin:1rem auto 0; }
+    .blog-filter .tag{ border:1px solid #cfd9ea; padding:.4rem .7rem; border-radius:999px; font-size:.9rem; text-decoration:none; color:#0d3b66; }
+    .blog-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; padding:1rem; max-width:1200px; margin:0 auto; }
+    .post-card{ display:flex; flex-direction:column; border:1px solid #e4e8f1; border-radius:12px; padding:1rem; background:#fff; transition:transform .15s ease, box-shadow .15s ease; }
+    .post-card:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,.06); }
+    .post-meta{ font-size:.85rem; color:#666; margin:.25rem 0 .5rem; }
+    .post-title{ font-size:1.1rem; margin:.25rem 0 .5rem; color:#0d3b66; font-weight:700; }
+    .post-excerpt{ color:#444; line-height:1.6; }
+    .post-cta{ margin-top:auto; align-self:flex-start; }
+    .breadcrumbs{ max-width:1200px; margin:0 auto; padding:0 1rem; color:#5a6b85; font-size:.9rem; }
+    .breadcrumbs a{ color:inherit; text-decoration:none; }
+    .pagination{ display:flex; justify-content:center; gap:.5rem; margin:1rem auto 2rem; }
+    .pagination a{ border:1px solid #d3dbea; padding:.5rem .8rem; border-radius:8px; text-decoration:none; color:#0d3b66; }
+  </style>
 </head>
 
-
 <body class="blog-page">
-<!-- Header / Nav (copied from index; add BLOG link) -->
-<div class="small-banner">
-<div class="banner-header">
-<img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" />
+  <!-- Header / Nav -->
+  <div class="small-banner">
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" />
 
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </label>
 
-<input type="checkbox" id="nav-toggle" class="nav-toggle" />
-<label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
-<span></span><span></span><span></span>
-</label>
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-btn">HOME</a>
+        <a href="consulting.html" class="nav-btn">CONSULTING</a>
+        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
+        <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
+        <a href="talent.html" class="nav-btn">TALENT</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="about.html" class="nav-btn">ABOUT</a>
+        <a href="blog.html" class="nav-btn active" aria-current="page">BLOG</a>
+        <a href="contact.html" class="nav-btn">CONTACT</a>
+      </nav>
 
+      <nav class="mobile-nav" aria-label="Mobile">
+        <a href="index.html">HOME</a>
+        <a href="consulting.html">CONSULTING</a>
+        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="talent.html">TALENT</a>
+        <a href="talent-relaunch.html">RE / LAUNCH</a>
+        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="about.html">ABOUT</a>
+        <a href="blog.html" class="active" aria-current="page">BLOG</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </div>
+  </div>
 
-<nav class="desktop-nav">
-<a href="index.html" class="nav-btn">HOME</a>
-<a href="consulting.html" class="nav-btn">CONSULTING</a>
-<a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-<a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
-<a href="talent.html" class="nav-btn">TALENT</a>
-<a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-<a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
-<a href="about.html" class="nav-btn">ABOUT</a>
-<a href="blog.html" class="nav-btn active" aria-current="page">BLOG</a>
-<a href="contact.html" class="nav-btn">CONTACT</a>
-</nav>
+  <!-- Hero -->
+  <div class="hero-media">
+    <img src="assets/images/index-bannerimage.png" alt="CoreCloud — Insights" decoding="async" loading="eager" fetchpriority="high" width="1920" height="500" />
+  </div>
 
+  <!-- Intro -->
+  <section class="hero-intro">
+    <h1 class="hero-title">Insights that turn plans into results</h1>
+    <p style="font-size:1.2rem; max-width:900px; margin:0 auto; color:#444;">Practical, SA-relevant guidance on cloud cost control, sales execution, talent, and modern apps. No fluff — just what works.</p>
 
-<nav class="mobile-nav" aria-label="Mobile">
-<a href="index.html">HOME</a>
-<a href="consulting.html">CONSULTING</a>
-<a href="cloud.html">CLOUD SUITE</a>
-<a href="application-development.html">APP DEVELOPMENT</a>
-<a href="talent.html">TALENT</a>
-<a href="talent-relaunch.html">RE / LAUNCH</a>
-<a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
-<a href="about.html">ABOUT</a>
-<a href="blog.html" class="active" aria-current="page">BLOG</a>
-<a href="contact.html">CONTACT</a>
-</nav>
-</div>
-</div>
+    <div class="blog-filter" role="tablist" aria-label="Categories">
+      <a href="#" class="tag" role="tab" aria-selected="true">All</a>
+      <a href="#" class="tag" role="tab">Cloud</a>
+      <a href="#" class="tag" role="tab">Consulting</a>
+      <a href="#" class="tag" role="tab">Talent</a>
+      <a href="#" class="tag" role="tab">Leadership</a>
+      <a href="#" class="tag" role="tab">Apps</a>
+    </div>
+  </section>
 
+  <main class="content">
+    <!-- Breadcrumbs -->
+    <div class="breadcrumbs"><a href="index.html">Home</a> / Blog</div>
 
-<!-- Hero -->
-<div class="hero-media">
-<img src="assets/images/index-bannerimage.png" alt="CoreCloud — Insights" decoding="async" loading="eager" fetchpriority="high" width="1920" height="500" />
-</div>
+    <!-- Blog grid -->
+    <section class="section">
+      <div class="blog-grid">
+        <article class="post-card">
+          <div class="post-meta">Cloud • 25 Sep 2025</div>
+          <h2 class="post-title"><a href="blog-eliminating-cloud-waste.html">Eliminating Waste: The Fastest ROI in Cloud</a></h2>
+          <p class="post-excerpt">Where cloud spend leaks — and how SA teams plug it in 30 days without slowing delivery. A practical playbook.</p>
+          <a class="cta-btn post-cta" href="blog-eliminating-cloud-waste.html">Read More</a>
+        </article>
 
+        <article class="post-card">
+          <div class="post-meta">Talent • 25 Sep 2025</div>
+          <h2 class="post-title"><a href="blog-ict-talent-access-not-shortage.html">South Africa Isn’t Short on Talent — It’s Short on Access</a></h2>
+          <p class="post-excerpt">Why “no talent available” is a myth. The right sourcing model unlocks an overlooked pool of elite ICT pros.</p>
+          <a class="cta-btn post-cta" href="blog-ict-talent-access-not-shortage.html">Read More</a>
+        </article>
 
-<!-- Intro -->
-<section class="hero-intro">
-<h1 class="hero-title">Insights that turn plans into results</h1>
+        <article class="post-card">
+          <div class="post-meta">Consulting • 25 Sep 2025</div>
+          <h2 class="post-title"><a href="blog-rewire-sales-engine-90-days.html">Rewiring a Sales Engine in 90 Days</a></h2>
+          <p class="post-excerpt">Precision pipeline, partner leverage, and execution rhythms that move revenue without hiring a small army.</p>
+          <a class="cta-btn post-cta" href="blog-rewire-sales-engine-90-days.html">Read More</a>
+        </article>
+
+        <article class="post-card">
+          <div class="post-meta">Leadership • 25 Sep 2025</div>
+          <h2 class="post-title"><a href="blog-leadership-identity-level.html">Leadership at Identity Level</a></h2>
+          <p class="post-excerpt">Training doesn’t stick under pressure. Identity-level shifts do. How executives make new instincts real.</p>
+          <a class="cta-btn post-cta" href="blog-leadership-identity-level.html">Read More</a>
+        </article>
+
+        <article class="post-card">
+          <div class="post-meta">Apps • 25 Sep 2025</div>
+          <h2 class="post-title"><a href="blog-low-code-high-impact.html">Low-Code, High Impact</a></h2>
+          <p class="post-excerpt">When to build fast with low-code vs when to go custom. A decision guide that avoids rework.</p>
+          <a class="cta-btn post-cta" href="blog-low-code-high-impact.html">Read More</a>
+        </article>
+
+        <article class="post-card">
+          <div class="post-meta">Cloud • 25 Sep 2025</div>
+          <h2 class="post-title"><a href="blog-databricks-cost-quick-wins.html">Databricks Cost: Quick Wins</a></h2>
+          <p class="post-excerpt">Right-size clusters, trim idle, and fix the three config traps that quietly burn budget.</p>
+          <a class="cta-btn post-cta" href="blog-databricks-cost-quick-wins.html">Read More</a>
+        </article>
+      </div>
+
+      <div class="pagination" aria-label="Pagination">
+        <a href="#" aria-label="Previous">«</a>
+        <a href="#" aria-current="page">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#" aria-label="Next">»</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton<br>Johannesburg<br>South Africa</p>
+      </div>
+
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-right">
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
+    </div>
+  </footer>
+</body>
 </html>
