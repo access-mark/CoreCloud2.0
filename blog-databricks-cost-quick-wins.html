@@ -1,175 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Databricks Cost: Quick Wins | CoreCloud Insights</title>
-  <meta name="description" content="Three configuration fixes that save SA teams thousands a month on Databricks — without slowing delivery." />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="CoreCloud" />
-  <meta name="theme-color" content="#004f91" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Databricks Cost: Quick Wins | CoreCloud Insights</title>
+<meta name="description" content="Right-size clusters, trim idle, and fix the three config traps that quietly burn budget — without slowing delivery." />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="CoreCloud" />
+<meta name="theme-color" content="#004f91" />
 
-  <!-- Canonical + Social -->
-  <link rel="canonical" href="https://www.corecloudza.com/blog-databricks-cost-quick-wins.html" />
-  <meta property="og:title" content="Databricks Cost: Quick Wins — CoreCloud" />
-  <meta property="og:description" content="Right-size clusters, kill idle, and use spot where it makes sense." />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://www.corecloudza.com/blog-databricks-cost-quick-wins.html" />
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
+<!-- Canonical + Social -->
+<link rel="canonical" href="https://www.corecloudza.com/blog-databricks-cost-quick-wins.html" />
+<meta property="og:title" content="Databricks Cost: Quick Wins — CoreCloud" />
+<meta property="og:description" content="Quick, practical moves to cut DBU burn and keep performance." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.corecloudza.com/blog-databricks-cost-quick-wins.html" />
+<meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
+<link rel="stylesheet" href="assets/css/styles.css?v=5" />
 
-  <style>
-    .post-wrap{ max-width:900px; margin:0 auto; padding:1rem; }
-    .post-header h1{ margin:1rem 0 .5rem; }
-    .post-meta{ color:#5a6b85; font-size:.9rem; }
-    .post-hero{ height:300px; background:#eef3fa url('assets/images/index-bannerimage.png') center/cover no-repeat; border-radius:12px; }
-    .post-body{ color:#222; line-height:1.8; font-size:1.05rem; }
-    .post-body h2{ color:#0d3b66; margin-top:1.4rem; }
-    .inline-cta{ background:#0d3b66; color:#fff; padding:1rem 1.2rem; border-radius:12px; margin:1.5rem 0; }
-    .inline-cta .cta-btn{ margin-top:.8rem; }
-    .related{ border-top:1px solid #e4e8f1; margin-top:2rem; padding-top:1rem; }
-    .next-prev{ display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
-    .next-prev a{ text-decoration:none; color:#0d3b66; font-weight:700; }
-    .next-prev a:hover{ text-decoration:underline; }
-  </style>
+<style>
+  .post-wrap{ max-width:900px; margin:0 auto; padding:1rem; }
+  .post-header h1{ margin:1rem 0 .5rem; }
+  .post-meta{ color:#5a6b85; font-size:.9rem; }
+  .post-hero{ height:300px; background:#eef3fa url('assets/images/index-bannerimage.png') center/cover no-repeat; border-radius:12px; }
+  .post-body{ color:#222; line-height:1.8; font-size:1.05rem; }
+  .post-body h2{ color:#0d3b66; margin-top:1.4rem; }
+  .inline-note{ background:#f7fafc; border:1px solid #e4e8f1; border-radius:10px; padding:.8rem 1rem; margin:1rem 0; font-size:.95rem; color:#5a6b85; }
+  .inline-cta{ background:#0d3b66; color:#fff; padding:1rem 1.2rem; border-radius:12px; margin:1.5rem 0; }
+  .inline-cta .cta-btn{ margin-top:.8rem; }
+  .related{ border-top:1px solid #e4e8f1; margin-top:2rem; padding-top:1rem; }
+  .next-prev{ display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+  .next-prev a{ text-decoration:none; color:#0d3b66; font-weight:700; }
+  .next-prev a:hover{ text-decoration:underline; }
+</style>
 
-  <!-- Article JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"BlogPosting",
-    "headline":"Databricks Cost: Quick Wins",
-    "description":"Three configuration fixes that save thousands a month on Databricks — without slowing delivery.",
-    "author":{"@type":"Organization","name":"CoreCloud"},
-    "publisher":{"@type":"Organization","name":"CoreCloud","logo":{"@type":"ImageObject","url":"https://www.corecloudza.com/assets/images/corecloud-logo.png"}},
-    "datePublished":"2025-09-25",
-    "image":"https://www.corecloudza.com/assets/images/social-blog.jpg",
-    "mainEntityOfPage":"https://www.corecloudza.com/blog-databricks-cost-quick-wins.html"
-  }
-  </script>
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BlogPosting",
+  "headline":"Databricks Cost: Quick Wins",
+  "description":"Right-size clusters, trim idle, and fix config traps that quietly burn budget — without slowing delivery.",
+  "author":{"@type":"Person","name":"Mark Louw"},
+  "publisher":{"@type":"Organization","name":"CoreCloud","logo":{"@type":"ImageObject","url":"https://www.corecloudza.com/assets/images/corecloud-logo.png"}},
+  "datePublished":"2025-09-10",
+  "image":"https://www.corecloudza.com/assets/images/social-blog.jpg",
+  "mainEntityOfPage":"https://www.corecloudza.com/blog-databricks-cost-quick-wins.html"
+}
+</script>
 </head>
 
-<body class="post-page">
-  <!-- Header / Nav -->
-  <div class="small-banner">
-    <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" loading="lazy" />
+<body class="post-page databricks-page">
+<!-- Header / Nav -->
+<div class="small-banner">
+  <div class="banner-header">
+    <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" />
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+    <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
+    <nav class="desktop-nav">
+      <a href="index.html" class="nav-btn">HOME</a>
+      <a href="consulting.html" class="nav-btn">CONSULTING</a>
+      <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
+      <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
+      <a href="talent.html" class="nav-btn">TALENT</a>
+      <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
+      <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+      <a href="about.html" class="nav-btn">ABOUT</a>
+      <a href="blog.html" class="nav-btn active" aria-current="page">BLOG</a>
+      <a href="contact.html" class="nav-btn">CONTACT</a>
+    </nav>
+    <nav class="mobile-nav" aria-label="Mobile">
+      <a href="index.html">HOME</a>
+      <a href="consulting.html">CONSULTING</a>
+      <a href="cloud.html">CLOUD SUITE</a>
+      <a href="application-development.html">APP DEVELOPMENT</a>
+      <a href="talent.html">TALENT</a>
+      <a href="talent-relaunch.html">RE / LAUNCH</a>
+      <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+      <a href="about.html">ABOUT</a>
+      <a href="blog.html" class="active" aria-current="page">BLOG</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
+  </div>
+</div>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </label>
+<div class="post-wrap">
+  <nav class="breadcrumbs" aria-label="Breadcrumbs"><a href="index.html">Home</a> / <a href="blog.html">Blog</a> / Cloud</nav>
 
-      <nav class="desktop-nav">
-        <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
-        <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
-        <a href="about.html" class="nav-btn">ABOUT</a>
-        <a href="blog.html" class="nav-btn active" aria-current="page">BLOG</a>
-        <a href="contact.html" class="nav-btn">CONTACT</a>
-      </nav>
+  <header class="post-header">
+    <div class="post-hero" role="img" aria-label="Databricks cost controls"></div>
+    <h1>Databricks Cost: Quick Wins</h1>
+    <div class="post-meta">Cloud • 10 Sep 2025 • 5-minute read</div>
+  </header>
 
-      <nav class="mobile-nav" aria-label="Mobile">
-        <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html">CLOUD SUITE</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
-        <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
-        <a href="about.html">ABOUT</a>
-        <a href="blog.html" class="active" aria-current="page">BLOG</a>
-        <a href="contact.html">CONTACT</a>
-      </nav>
+  <article class="post-body">
+    <p>Databricks is powerful — and easy to overspend on. These moves cut DBU burn fast while keeping performance.</p>
+
+    <h2>Quick Wins</h2>
+    <ul>
+      <li><strong>Job clusters &gt; all-purpose:</strong> per-job spin-up; kill after run.</li>
+      <li><strong>Autoscaling min=0:</strong> allow full scale-to-zero on low-traffic jobs.</li>
+      <li><strong>Spot/preemptible mix:</strong> 50–70% workers spot where workloads tolerate retries.</li>
+      <li><strong>Photon runtimes:</strong> enable for SQL/ETL boosts at same DBUs.</li>
+      <li><strong>Delta caching + Z-ordering:</strong> reduce IO and scan costs on hot tables.</li>
+    </ul>
+
+    <h2>Guardrails</h2>
+    <ul>
+      <li>Max cluster size caps per workspace; tag owner/cost-centre on clusters & jobs.</li>
+      <li>Auto-terminate after 10–15 min idle; block “no-limit” autoscaling.</li>
+      <li>SQL endpoints with size tiers; archive/compact small files weekly.</li>
+    </ul>
+
+    <h2>Watch These Metrics</h2>
+    <ul>
+      <li><strong>DBU per job/run:</strong> trend by pipeline</li>
+      <li><strong>Cluster idle %:</strong> per workspace</li>
+      <li><strong>Failed-due-to-preemption:</strong> keep &lt; 3% per week</li>
+      <li><strong>Small-file ratio:</strong> files &lt; 128MB / total</li>
+    </ul>
+
+    <div class="inline-cta">
+      <strong>Need a Databricks tune-up?</strong>
+      <p style="margin:.5rem 0 0">We’ll baseline, apply quick wins, and hand over guardrails in two weeks.</p>
+      <a class="cta-btn" href="contact.html">Optimise my workspace</a>
+    </div>
+
+    <div class="next-prev">
+      <a href="blog-eliminating-cloud-waste.html">← Eliminating Waste: The Fastest ROI in Cloud</a>
+      <a href="blog-secure-sovereign-cloud-africa.html">Building a Secure & Sovereign Cloud Future for Africa →</a>
+    </div>
+
+    <section class="related">
+      <h3>You might also like</h3>
+      <ul>
+        <li><a href="blog-eliminating-cloud-waste.html">Eliminating Waste: The Fastest ROI in Cloud</a></li>
+        <li><a href="blog-low-code-high-impact.html">Low-Code, High Impact</a></li>
+        <li><a href="cloud.html">CoreCloud Cloud Suite</a></li>
+      </ul>
+    </section>
+  </article>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-left">
+      <p><strong>CoreCloud (Pty) Ltd</strong></p>
+      <p>Sandton<br>Johannesburg<br>South Africa</p>
+    </div>
+
+    <div class="footer-middle">
+      <h4>Stay Informed</h4>
+      <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+      <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+        <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+        <label class="visually-hidden" for="newsletter_email">Email</label>
+        <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+        <button type="submit" class="cta-btn">Subscribe</button>
+      </form>
+    </div>
+
+    <div class="footer-right">
+      <p><strong>Contact</strong></p>
+      <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+      <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+      <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
     </div>
   </div>
 
-  <div class="post-wrap">
-    <nav class="breadcrumbs" aria-label="Breadcrumbs"><a href="index.html">Home</a> / <a href="blog.html">Blog</a> / Databricks Cost</nav>
-
-    <header class="post-header">
-      <div class="post-hero" role="img" aria-label="Databricks cost optimisation"></div>
-      <h1>Databricks Cost: Quick Wins</h1>
-      <div class="post-meta">Cloud • 25 Sep 2025 • 4-minute read</div>
-    </header>
-
-    <article class="post-body">
-      <p>Databricks is powerful — but misconfigured, it’s a silent budget drain. These three quick wins save most SA teams 20–30% in month one.</p>
-
-      <h2>1) Right-size clusters</h2>
-      <p>Most jobs run fine on smaller worker types. Benchmark your biggest notebooks, then drop size by one tier. Savings: 10–15% instantly.</p>
-
-      <h2>2) Idle termination</h2>
-      <p>Default is 120 minutes. Set auto-termination to 10–15 min. Use job clusters, not all-day interactive. Savings: thousands on forgotten workloads.</p>
-
-      <h2>3) Spot vs on-demand</h2>
-      <p>Non-prod and batch jobs? Use spot. Mix with on-demand for SLAs. Savings: 60–70% on dev/test cycles.</p>
-
-      <div class="inline-cta">
-        <strong>Want a Databricks health check?</strong>
-        <p style="margin:.5rem 0 0">We’ll review your workspace config and highlight 3 savings moves in under an hour.</p>
-        <a class="cta-btn" href="contact.html">Book a check</a>
-      </div>
-
-      <div class="next-prev">
-        <a href="blog-low-code-high-impact.html">← Low-Code, High Impact</a>
-        <a href="blog-eliminating-cloud-waste.html">Eliminating Waste: The Fastest ROI in Cloud →</a>
-      </div>
-
-      <section class="related">
-        <h3>You might also like</h3>
-        <ul>
-          <li><a href="blog-rewire-sales-engine-90-days.html">Rewiring a Sales Engine in 90 Days</a></li>
-          <li><a href="blog-leadership-identity-level.html">Leadership at Identity Level</a></li>
-          <li><a href="blog-ict-talent-access-not-shortage.html">South Africa Isn’t Short on Talent — It’s Short on Access</a></li>
-        </ul>
-      </section>
-    </article>
+  <div class="footer-bottom">
+    <p>&copy; 2025 CoreCloud. All rights reserved. |
+      <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+      <a href="terms.html" class="legal-link">Terms</a>
+    </p>
   </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-left">
-        <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton<br>Johannesburg<br>South Africa</p>
-      </div>
-
-      <div class="footer-middle">
-        <h4>Stay Informed</h4>
-        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
-          <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
-          <button type="submit" class="cta-btn">Subscribe</button>
-        </form>
-      </div>
-
-      <div class="footer-right">
-        <p><strong>Contact</strong></p>
-        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
-        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved. |
-        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-        <a href="terms.html" class="legal-link">Terms</a>
-      </p>
-    </div>
-  </footer>
+</footer>
 </body>
 </html>
