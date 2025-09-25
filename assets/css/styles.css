@@ -413,3 +413,14 @@ footer strong {
 .footer-right .linkedin-link:hover {
   opacity: 0.85;  /* subtle fade, no color shift */
 }
+
+/* ===== Blog Post Titles ===== */
+.post-title a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+.post-title a:hover,
+.post-title a:focus {
+  text-decoration: underline;
+  color: var(--primary-blue);
+}
