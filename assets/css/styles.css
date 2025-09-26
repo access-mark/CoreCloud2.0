@@ -424,6 +424,7 @@ footer strong {
   text-decoration: underline;
   color: var(--primary-blue);
 }
+
 /* ==== Blog page fixes (mobile & visual parity) ==== */
 
 /* Match .card style: blue border + subtle shadow */
@@ -472,6 +473,7 @@ footer strong {
 .blog-page .pagination{
   flex-wrap: wrap;
 }
+
 /* ---------- Blog layout fixes ---------- */
 .page-wrap {max-width: 1200px; margin: 0 auto; padding: 16px;}
 @media (min-width: 768px){ .page-wrap {padding: 24px;} }
@@ -546,10 +548,13 @@ footer strong {
 /* Ensure blog hero/banner text scales */
 .blog-hero h1 { font-size: clamp(1.4rem, 3.8vw, 2.2rem); margin: 0 0 6px; }
 .blog-hero p  { font-size: clamp(.95rem, 2.4vw, 1.05rem); margin: 0; }
+
 /* ===== HOTFIX: scope helpers so they don't break other pages ===== */
 
-/* neutralise container padding when nested under .content */
-.content .container { max-width: var(--container); margin: 0 auto; padding: 0; }
+/* (Removed global) .content .container { ... }  */
+/* Scope to pages only */
+.lowcode .content .container { padding: 0; }
+.sovereign .content .container { padding: 0; }
 
 /* Low-Code scoped */
 .lowcode .container { max-width: var(--container); margin: 0 auto; padding: 16px; }
