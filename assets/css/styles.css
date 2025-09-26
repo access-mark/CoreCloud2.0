@@ -472,3 +472,77 @@ footer strong {
 .blog-page .pagination{
   flex-wrap: wrap;
 }
+/* ---------- Blog layout fixes ---------- */
+.page-wrap {max-width: 1200px; margin: 0 auto; padding: 16px;}
+@media (min-width: 768px){ .page-wrap {padding: 24px;} }
+
+.blog-tabs {
+  display: flex; gap: 8px; border-bottom: 1px solid rgba(0,0,0,0.08);
+  overflow-x: auto; white-space: nowrap; padding-bottom: 8px; margin-bottom: 16px;
+  scrollbar-width: thin;
+}
+.blog-tabs a {
+  flex: 0 0 auto; padding: 8px 12px; border-radius: 999px;
+  font-weight: 600; text-decoration: none; color: #0b3d72;
+  border: 1px solid rgba(11,61,114,0.15);
+}
+.blog-tabs a.active { background: rgba(0,79,145,0.08); border-color: #004f91; }
+
+/* Responsive grid */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  align-items: stretch;
+}
+
+/* Card */
+.p-card {
+  display: flex; flex-direction: column;
+  border: 2px solid #004f91; /* CoreCloud blue */
+  border-radius: 12px;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.p-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.08); }
+
+/* Image handling */
+.p-card img, .p-card .thumb {
+  width: 100%; height: auto; display: block;
+  aspect-ratio: 16/9; object-fit: cover;
+}
+
+/* Card body */
+.p-card .body { padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+.p-card .kicker { font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; color: #0b3d72; opacity:.9; }
+.p-card h3 { font-size: clamp(1rem, 2.5vw, 1.15rem); margin: 0; color: #0b3d72; line-height: 1.25; }
+.p-card p { margin: 0; color: #333; line-height: 1.5; }
+.p-card .meta { margin-top: auto; font-size: .85rem; color: #567; opacity:.9; }
+.p-card a { text-decoration: none; color: inherit; }
+
+/* Long words/links */
+.p-card h3, .p-card p { word-wrap: break-word; overflow-wrap: anywhere; }
+
+/* Make external link row wrap nicely */
+.p-card .ext { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+
+/* Top Story luminous border (optional) */
+.p-card.top-story { position: relative; border-color: #0af; }
+.p-card.top-story::before {
+  content:""; position:absolute; inset:-2px; border-radius: 14px;
+  background: radial-gradient(120% 120% at 50% -10%, rgba(0,178,255,.35), rgba(0,79,145,.15), transparent 70%);
+  z-index:0; filter: blur(4px); pointer-events:none;
+}
+.p-card.top-story .body, .p-card.top-story img { position: relative; z-index:1; }
+
+/* Footer CTA row alignment on mobile grids (if used inside cards) */
+.cta-row { display:flex; flex-wrap:wrap; gap:10px; }
+
+/* Utility for small muted text */
+.muted { color:#5a6b7a; opacity:.85; font-size:.9rem; }
+
+/* Ensure blog hero/banner text scales */
+.blog-hero h1 { font-size: clamp(1.4rem, 3.8vw, 2.2rem); margin: 0 0 6px; }
+.blog-hero p  { font-size: clamp(.95rem, 2.4vw, 1.05rem); margin: 0; }
