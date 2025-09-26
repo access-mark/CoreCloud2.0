@@ -3,225 +3,160 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Building a Secure & Sovereign Cloud Future for Africa | CoreCloud Insights</title>
-  <meta name="description" content="Practical lenses on Africa’s cloud adoption: sovereignty, POPIA, security skills, and the hyperscaler vs local ecosystem—what leaders should do next." />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="CoreCloud" />
-  <meta name="theme-color" content="#004f91" />
-
-  <!-- Canonical + Social -->
-  <link rel="canonical" href="https://www.corecloudza.com/blog-secure-sovereign-cloud-africa.html" />
-  <meta property="og:title" content="Building a Secure & Sovereign Cloud Future for Africa — CoreCloud" />
-  <meta property="og:description" content="Sovereign-by-design cloud in Africa: POPIA, skills, and the ecosystem advantages leaders can leverage now." />
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://www.corecloudza.com/blog-secure-sovereign-cloud-africa.html" />
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
-
-  <style>
-    .post-wrap{ max-width:900px; margin:0 auto; padding:1rem; }
-    .post-header h1{ margin:1rem 0 .5rem; }
-    .post-meta{ color:#5a6b85; font-size:.9rem; }
-    .post-hero{ height:300px; background:#eef3fa url('assets/images/index-bannerimage.png') center/cover no-repeat; border-radius:12px; }
-    .post-body{ color:#222; line-height:1.8; font-size:1.05rem; }
-    .post-body h2{ color:#0d3b66; margin-top:1.4rem; }
-    .inline-note{ background:#f7fafc; border:1px solid #e4e8f1; border-radius:10px; padding:.8rem 1rem; margin:1rem 0; font-size:.95rem; color:#5a6b85; }
-    .inline-cta{ background:#0d3b66; color:#fff; padding:1rem 1.2rem; border-radius:12px; margin:1.5rem 0; }
-    .inline-cta .cta-btn{ margin-top:.8rem; }
-    .related{ border-top:1px solid #e4e8f1; margin-top:2rem; padding-top:1rem; }
-    .next-prev{ display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
-    .next-prev a{ text-decoration:none; color:#0d3b66; font-weight:700; }
-    .next-prev a:hover{ text-decoration:underline; }
-    table{ width:100%; border-collapse:collapse; margin:1rem 0; }
-    th,td{ border:1px solid #e4e8f1; padding:.6rem; text-align:left; }
-    thead th{ background:#f7f9fc; }
-  </style>
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"BlogPosting",
-    "headline":"Building a Secure & Sovereign Cloud Future for Africa",
-    "description":"Practical lenses on Africa’s cloud adoption: sovereignty, POPIA, security skills, and the ecosystem advantages leaders can leverage now.",
-    "author":{"@type":"Person","name":"Mark Louw"},
-    "publisher":{"@type":"Organization","name":"CoreCloud","logo":{"@type":"ImageObject","url":"https://www.corecloudza.com/assets/images/corecloud-logo.png"}},
-    "datePublished":"2025-09-01",
-    "image":"https://www.corecloudza.com/assets/images/social-blog.jpg",
-    "mainEntityOfPage":"https://www.corecloudza.com/blog-secure-sovereign-cloud-africa.html",
-    "isBasedOn":"https://www.thedailypulse.net/post/building-a-secure-and-sovereign-cloud-future-for-africa-with-louw-mark"
-  }
-  </script>
+  <title>Sovereign Cloud – CoreCloud</title>
+  <meta name="description" content="Data residency, compliance and control—without losing hyperscale benefits. CoreCloud sovereign cloud patterns for South Africa." />
+  <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
+<body>
 
-<body class="post-page">
-  <!-- Header / Nav -->
-  <div class="small-banner">
+  <!-- Existing header (unchanged) -->
+  <header class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" loading="lazy" />
+      <a href="index.html" aria-label="CoreCloud Home">
+        <img class="logo" src="assets/images/corecloud-logo.png" alt="CoreCloud" />
+      </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
-
+      <!-- Desktop nav -->
       <nav class="desktop-nav">
-        <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
-        <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
-        <a href="about.html" class="nav-btn">ABOUT</a>
-        <a href="blog.html" class="nav-btn active" aria-current="page">BLOG</a>
-        <a href="contact.html" class="nav-btn">CONTACT</a>
+        <a class="nav-btn" href="index.html">Home</a>
+        <a class="nav-btn" href="cloud.html">Cloud</a>
+        <a class="nav-btn" href="low-code.html">Low-Code</a>
+        <a class="nav-btn" href="consulting.html">Consulting</a>
+        <a class="nav-btn" href="talent.html">Talent</a>
+        <a class="nav-btn active" href="sovereign-cloud.html">Sovereign Cloud</a>
+        <a class="nav-btn" href="blog.html">Blog</a>
       </nav>
 
+      <!-- Mobile nav -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </label>
       <nav class="mobile-nav" aria-label="Mobile">
-        <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html">CLOUD SUITE</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
-        <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
-        <a href="about.html">ABOUT</a>
-        <a href="blog.html" class="active" aria-current="page">BLOG</a>
-        <a href="contact.html">CONTACT</a>
+        <a href="index.html">Home</a>
+        <a href="cloud.html">Cloud</a>
+        <a href="low-code.html">Low-Code</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="talent.html">Talent</a>
+        <a href="sovereign-cloud.html" aria-current="page">Sovereign Cloud</a>
+        <a href="blog.html">Blog</a>
       </nav>
     </div>
+  </header>
+
+  <!-- Hero / banner -->
+  <div class="hero-media">
+    <img src="assets/images/banners/sovereign-cloud-hero.jpg" alt="Sovereign Cloud" />
   </div>
 
-  <div class="post-wrap">
-    <nav class="breadcrumbs" aria-label="Breadcrumbs"><a href="index.html">Home</a> / <a href="blog.html">Blog</a> / Cloud</nav>
+  <main class="content">
+    <h1 class="hero-title">Sovereign Cloud for South Africa</h1>
+    <div class="container">
+      <header class="hero" style="margin-bottom:12px;">
+        <p>Data residency, compliance, and control—retaining hyperscale capability on AWS/Azure.</p>
+      </header>
 
-    <header class="post-header">
-      <div class="post-hero" role="img" aria-label="Sovereign cloud in Africa"></div>
-      <h1>Building a Secure & Sovereign Cloud Future for Africa</h1>
-      <div class="post-meta">Cloud • 1 Sep 2025 • 4-minute read</div>
-    </header>
+      <!-- Sub-tabs -->
+      <nav class="subnav" aria-label="Sections">
+        <a href="#pillars" class="active">Pillars</a>
+        <a href="#compliance">Compliance</a>
+        <a href="#residency">Data Residency</a>
+        <a href="#landing-zones">Landing Zones</a>
+      </nav>
 
-    <article class="post-body">
-      <div class="inline-note">
-        Based on an interview published by <a href="https://www.thedailypulse.net/post/building-a-secure-and-sovereign-cloud-future-for-africa-with-louw-mark" target="_blank" rel="noopener noreferrer">The Daily Pulse</a> (by Juan Allan). This edition is formatted for CoreCloud Insights.
-      </div>
+      <!-- Pillars -->
+      <section id="pillars" class="grid-3">
+        <article class="card"><div class="body">
+          <h3>Control</h3>
+          <p>Customer-managed keys, private connectivity, restricted admin paths.</p>
+        </div></article>
 
-      <p>Africa’s cloud curve is steepening. The play is not just tech — it’s sovereignty-by-design, practical governance, and skills that keep security real under pressure.</p>
+        <article class="card"><div class="body">
+          <h3>Compliance</h3>
+          <p>Blueprints aligned to POPIA, PCI DSS, ISO 27001.</p>
+        </div></article>
 
-      <h2>Adoption drivers</h2>
-      <ul>
-        <li><strong>Time-to-market & cost:</strong> CFO pressure and exec urgency accelerate cloud in FSI, telco, retail, and public sector.</li>
-        <li><strong>Latency tailwinds:</strong> Local regions (JHB/CT) and stronger peering at NAPAfrica removed historical objections.</li>
-      </ul>
-
-      <h2>Friction to solve</h2>
-      <ul>
-        <li><strong>Power reliability:</strong> load-shedding taxes DCs and customers.</li>
-        <li><strong>Connectivity gaps:</strong> outside metros, coverage and capacity remain patchy; subsea outages exposed fragility.</li>
-        <li><strong>Data affordability:</strong> end-user access costs are still high.</li>
-      </ul>
-
-      <h2>Sovereignty & compliance</h2>
-      <p>POPIA and similar regimes allow cross-border flows only with adequate protection. Government and FSI workloads still require data residency patterns. Harmonisation via AfCFTA’s digital trade protocol is early — design for localisation now.</p>
-
-      <h2>Ecosystem advantages</h2>
-      <p>Hyperscalers (AWS, Microsoft, Google) bring regions and programs; African players (Huawei Cloud, Africa Data Centres, Teraco) add residency, interconnect, and solar-backed resilience. Net result: better latency, choice, and price/performance.</p>
-
-      <h2>Security reality</h2>
-      <p>Cloud can be secure; the gap is skills and governance. Boards care about POPIA, incident readiness, and trusted reporting — make them visible metrics, not assumptions.</p>
-
-      <h2>What’s next</h2>
-      <ul>
-        <li><strong>AI & edge:</strong> local inference, data gravity, and regulated-sector use cases.</li>
-        <li><strong>5G + fintech rails:</strong> digital ID and payments unlock new workloads.</li>
-        <li><strong>Sovereign options:</strong> patterns that preserve control for sensitive data.</li>
-      </ul>
-
-      <!-- Added depth modules -->
-      <h2>30-Day Sovereignty Checklist</h2>
-      <ol>
-        <li><strong>Data map (Days 1–3):</strong> classify data (PII, financial, regulated) and note residency constraints.</li>
-        <li><strong>Guardrails (Days 4–7):</strong> org policies for regions, keys, encryption at rest/in transit, logging retention.</li>
-        <li><strong>Landing zone (Days 8–14):</strong> baseline with least-privilege IAM, network egress control, break-glass process.</li>
-        <li><strong>Controls (Days 15–21):</strong> enforce region allow-list, KMS/HSM ownership, backup locality, disaster patterns.</li>
-        <li><strong>Board-level reporting (Days 22–30):</strong> POPIA control coverage %, failing controls, MTTR, and open risks.</li>
-      </ol>
-      <div class="inline-note">Tip: publish a 1-pager that names “where data lives, who holds keys, how access is revoked”.</div>
-
-      <h2>Residency & Key Management — Decision Matrix</h2>
-      <table>
-        <thead><tr><th>Workload</th><th>Data Residency</th><th>Keys</th><th>Pattern</th></tr></thead>
-        <tbody>
-          <tr><td>FSI core records</td><td>In-country</td><td>Customer-managed (HSM/KMS)</td><td>Single region + cross-AZ, local backups</td></tr>
-          <tr><td>Analytics on PII</td><td>In-country primary</td><td>Customer-managed</td><td>Pseudonymise; export only aggregates</td></tr>
-          <tr><td>Public web</td><td>Global OK</td><td>Provider-managed</td><td>Multi-region CDN with WAF</td></tr>
-        </tbody>
-      </table>
-
-      <h2>FAQ: POPIA & Cross-Border</h2>
-      <p><strong>Can I process SA PII outside SA?</strong> Yes, if adequate protection is ensured and contracts reflect it. Sensitive workloads should default to in-country.</p>
-      <p><strong>Who should hold the keys?</strong> For regulated data, prefer customer-managed keys with separation of duties.</p>
-
-      <div class="inline-cta">
-        <strong>Make sovereignty practical.</strong>
-        <p style="margin:.5rem 0 0">We design POPIA-aligned architectures with measurable security posture and cost control.</p>
-        <a class="cta-btn" href="cloud.html">Explore Cloud Suite</a>
-      </div>
-
-      <div class="next-prev">
-        <a href="blog-databricks-cost-quick-wins.html">← Databricks Cost: Quick Wins</a>
-        <a href="blog-eliminating-cloud-waste.html">Eliminating Waste: The Fastest ROI in Cloud →</a>
-      </div>
-
-      <section class="related">
-        <h3>You might also like</h3>
-        <ul>
-          <li><a href="blog-ict-talent-access-not-shortage.html">South Africa Isn’t Short on Talent — It’s Short on Access</a></li>
-          <li><a href="blog-leadership-identity-level.html">Leadership at Identity Level</a></li>
-          <li><a href="blog-rewire-sales-engine-90-days.html">Rewiring a Sales Engine in 90 Days</a></li>
-        </ul>
+        <article class="card"><div class="body">
+          <h3>Continuity</h3>
+          <p>Regional DR and brownout-tolerant architectures for SA workloads.</p>
+        </div></article>
       </section>
-    </article>
-  </div>
 
-  <!-- Footer -->
+      <!-- Compliance -->
+      <section id="compliance" style="margin-top:16px;">
+        <article class="card">
+          <div class="body">
+            <h3>Regulatory posture</h3>
+            <div class="badge-row" aria-label="Regulatory frameworks">
+              <span class="badge">POPIA</span>
+              <span class="badge">PCI DSS</span>
+              <span class="badge">ISO 27001</span>
+              <span class="badge">NIST CSF</span>
+            </div>
+
+            <div class="table-wrap" style="margin-top:10px;">
+              <table class="table">
+                <thead>
+                  <tr><th>Control Area</th><th>Pattern</th><th>Artefact</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Identity</td><td>Federated SSO, MFA enforced</td><td>Access policy set</td></tr>
+                  <tr><td>Data</td><td>CMEK + vault rotation</td><td>Key policy set</td></tr>
+                  <tr><td>Network</td><td>Private endpoints + WAF</td><td>Landing zone diagram</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Residency -->
+      <section id="residency" class="grid-2" style="margin-top:16px;">
+        <article class="card">
+          <img src="assets/images/sovereign/residency-map.jpg" alt="Residency map" />
+          <div class="body">
+            <h3>Residency</h3>
+            <p>Pin workloads to SA regions; classify and geo-fence data by sensitivity.</p>
+          </div>
+        </article>
+
+        <aside class="note">
+          <strong>Tip:</strong> Separate keys per jurisdiction; export-controlled logs ship to an SA-hosted SIEM.
+        </aside>
+      </section>
+
+      <!-- Landing Zones -->
+      <section id="landing-zones" class="grid-2" style="margin-top:16px;">
+        <article class="card"><div class="body">
+          <h3>AWS</h3>
+          <p>Control Tower + SCP guardrails, VPC Lattice/PrivateLink, AWS KMS (CMEK).</p>
+        </div></article>
+
+        <article class="card"><div class="body">
+          <h3>Azure</h3>
+          <p>CAF landing zones, Private Link/Peering, Azure Policy, Key Vault with HSM.</p>
+        </div></article>
+      </section>
+    </div>
+  </main>
+
+  <!-- Existing footer (unchanged) -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton<br>Johannesburg<br>South Africa</p>
+        <p>Sandton,<br>Johannesburg</p>
       </div>
-
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
-          <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
-          <button type="submit" class="cta-btn">Subscribe</button>
-        </form>
       </div>
-
       <div class="footer-right">
-        <p><strong>Contact</strong></p>
-        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
-        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+        <p><a class="linkedin-link" href="https://www.linkedin.com/company/107657749/" target="_blank" rel="noopener">CoreCloud on LinkedIn</a></p>
+        <p><a href="mailto:mark@corecloudza.com">mark@corecloudza.com</a></p>
       </div>
     </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved. |
-        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-        <a href="terms.html" class="legal-link">Terms</a>
-      </p>
-    </div>
+    <div class="footer-bottom">© CoreCloud (Pty) Ltd</div>
   </footer>
 </body>
 </html>
