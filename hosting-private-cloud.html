@@ -19,21 +19,18 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=6" />
 
   <!-- Preload banner -->
   <link rel="preload" as="image" href="assets/images/coretech-bannerimage.png" imagesizes="100vw" fetchpriority="high">
 
-  <!-- Page-scoped tweak: center hero title + intro only on this page -->
+  <!-- Page-scoped tiny tweak if needed; your global CSS already centers hosting hero -->
   <style>
-    .hosting-page .hero-intro{
-      max-width:900px; margin:2rem auto 1rem; text-align:center !important;
-    }
+    /* Safety: enforce centered hero intro just for this page */
+    .hosting-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center !important; }
     .hosting-page .hero-intro .hero-title,
     .hosting-page .hero-intro h1,
-    .hosting-page .hero-intro p{
-      text-align:center !important;
-    }
+    .hosting-page .hero-intro p{ text-align:center !important; }
   </style>
 </head>
 
@@ -91,49 +88,52 @@
   <section class="hero-intro">
     <h1 class="hero-title">Hosting &amp; Private Cloud</h1>
     <p>
-      Not every workload belongs in hyperscale. We engineer the right venue—Hosted Private Cloud, On-Prem, or Hybrid—so you cut cost, hit latency targets, and meet SA compliance without losing agility.
+      Not every workload belongs in hyperscale. We engineer the right venue — Hosted Private Cloud, On-Prem, or Hybrid — so you cut cost, hit latency targets, and meet SA compliance without losing agility.
     </p>
   </section>
 
   <main class="content">
-    <!-- Why -->
+    <!-- Hybrid stance (high up the page) -->
     <section class="section">
-      <h2 class="section-title">Why companies are moving off pure hyperscale</h2>
+      <h2 class="section-title">Hybrid: The Only Way to Balance Cost, Speed &amp; Control</h2>
       <div class="card-grid">
-        <div class="card">
-          <h3>Predictable cost</h3>
-          <p>Steady ERP, DB, and integration workloads often run cheaper hosted or on-prem than in elastic hyperscale.</p>
-        </div>
-        <div class="card">
-          <h3>Locality &amp; compliance</h3>
-          <p>Keep data in South Africa to simplify POPIA and industry rules. Minimise cross-region egress and surprises.</p>
-        </div>
-        <div class="card">
-          <h3>Latency &amp; reliability</h3>
-          <p>Lower jitter for trading/analytics. Clear SLAs, backup, and DR with real accountability.</p>
-        </div>
+        <div class="card"><h3>Cost that stays flat</h3><p>Steady workloads don’t need burst pricing. Host or run on-prem for predictable monthly spend; keep cloud for what must scale.</p></div>
+        <div class="card"><h3>Performance where it matters</h3><p>Place latency-sensitive systems close to users and data. Use cloud for global reach, ML, and managed services.</p></div>
+        <div class="card"><h3>Compliance by design</h3><p>Keep regulated data resident in SA. Reduce cross-border egress and audit friction while retaining cloud agility.</p></div>
+        <div class="card"><h3>Resilience you can prove</h3><p>Clear SLAs, backup and DR across venues. Test failover without betting the business on one provider.</p></div>
+        <div class="card"><h3>Vendor leverage</h3><p>A multi-venue posture improves pricing power and avoids single-stack lock-in.</p></div>
       </div>
     </section>
 
-    <!-- How we decide -->
-    <section class="section" id="venue-decision">
-      <h2 class="section-title">How we choose the best venue</h2>
+    <!-- Why shift from pure hyperscale -->
+    <section class="section">
+      <h2 class="section-title">Why companies are moving off pure hyperscale</h2>
+      <div class="card-grid">
+        <div class="card"><h3>Predictable cost</h3><p>Steady ERP, DB, and integration workloads often run cheaper hosted or on-prem than in elastic hyperscale.</p></div>
+        <div class="card"><h3>Locality &amp; compliance</h3><p>Keep data in South Africa to simplify POPIA and industry rules. Minimise cross-region egress and surprises.</p></div>
+        <div class="card"><h3>Latency &amp; reliability</h3><p>Lower jitter for trading/analytics. Clear SLAs, backup, and DR with real accountability.</p></div>
+      </div>
+    </section>
+
+    <!-- What goes where -->
+    <section class="section" id="placement">
+      <h2 class="section-title">What Goes Where</h2>
       <div class="card-grid force-4">
         <div class="card">
           <h3>Public Cloud</h3>
-          <p>Elastic and bursty, modern services, AI/ML, global reach. Use when elasticity or managed services win.</p>
+          <p>Use for burst, modern services, global reach, analytics/ML, event spikes, and greenfield apps.</p>
         </div>
         <div class="card">
-          <h3>Hosted Private Cloud</h3>
-          <p>Local DCs, predictable cost, SA data locality, bundled DR. Ideal for steady line-of-business systems.</p>
+          <h3>Hosted Private Cloud (SA)</h3>
+          <p>Run steady ERP/DB/integration stacks for predictable cost, locality, and bundled DR.</p>
         </div>
         <div class="card">
           <h3>On-Prem Private Cloud</h3>
-          <p>Dell VxRail, HPE GreenLake, Nutanix AHV. Subscription consumption, full control, modern automation.</p>
+          <p>Keep ultra-low latency, data-gravity, or sovereignty workloads under your control with cloud-like ops.</p>
         </div>
         <div class="card">
-          <h3>Hybrid by design</h3>
-          <p>Keep cloud where it wins; host the rest. Unified landing zone, identity, guardrails, and observability.</p>
+          <h3>Hybrid by Design</h3>
+          <p>Shared identity, guardrails, monitoring, and finops — move fast in cloud, run efficient off-cloud.</p>
         </div>
       </div>
     </section>
@@ -144,7 +144,7 @@
       <div class="card-grid force-4">
         <div class="card">
           <h3>Hosted Private Cloud (SA)</h3>
-          <p>Teraco, Liquid, Dimension Data, BCX—CoreCloud as single point of accountability with clear SLAs.</p>
+          <p>Teraco, Liquid, Dimension Data, BCX — CoreCloud as single point of accountability with clear SLAs.</p>
           <ul>
             <li>Backup, DR, monthly reporting</li>
             <li>Burst to AWS/Azure for peaks</li>
@@ -228,22 +228,10 @@
     <section class="section" id="faq">
       <h2 class="section-title">FAQ</h2>
       <div class="card-grid">
-        <div class="card">
-          <h3>Will we lose cloud agility?</h3>
-          <p>No. We keep burst/innovation in AWS/Azure where it wins and place steady workloads on hosted/on-prem for cost and control.</p>
-        </div>
-        <div class="card">
-          <h3>What about vendor lock-in?</h3>
-          <p>We’re vendor-neutral. Designs are portable across Dell, HPE, Nutanix and major SA DC providers.</p>
-        </div>
-        <div class="card">
-          <h3>How fast can we repatriate?</h3>
-          <p>Quick wins within weeks. We prioritise high-cost, low-elasticity workloads first to fund the rest.</p>
-        </div>
-        <div class="card">
-          <h3>Do you handle operations?</h3>
-          <p>Yes. SLA-backed managed services with monitoring, backup/DR, patching, and compliance reviews.</p>
-        </div>
+        <div class="card"><h3>Will we lose cloud agility?</h3><p>No. We keep burst/innovation in AWS/Azure where it wins and place steady workloads on hosted/on-prem for cost and control.</p></div>
+        <div class="card"><h3>What about vendor lock-in?</h3><p>We’re vendor-neutral. Designs are portable across Dell, HPE, Nutanix and major SA DC providers.</p></div>
+        <div class="card"><h3>How fast can we repatriate?</h3><p>Quick wins within weeks. We prioritise high-cost, low-elasticity workloads first to fund the rest.</p></div>
+        <div class="card"><h3>Do you handle operations?</h3><p>Yes. SLA-backed managed services with monitoring, backup/DR, patching, and compliance reviews.</p></div>
       </div>
     </section>
   </main>
