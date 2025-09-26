@@ -23,6 +23,18 @@
 
   <!-- Preload banner -->
   <link rel="preload" as="image" href="assets/images/coretech-bannerimage.png" imagesizes="100vw" fetchpriority="high">
+
+  <!-- Page-scoped tweak: center hero title + intro only on this page -->
+  <style>
+    .hosting-page .hero-intro{
+      max-width:900px; margin:2rem auto 1rem; text-align:center !important;
+    }
+    .hosting-page .hero-intro .hero-title,
+    .hosting-page .hero-intro h1,
+    .hosting-page .hero-intro p{
+      text-align:center !important;
+    }
+  </style>
 </head>
 
 <body class="hosting-page">
