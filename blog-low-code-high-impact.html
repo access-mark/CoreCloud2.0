@@ -3,129 +3,212 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Low-Code Application Delivery – CoreCloud</title>
-  <meta name="description" content="Ship enterprise apps faster with governance, security and scale using CoreCloud’s low-code delivery patterns." />
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <title>Low-Code, High Impact | CoreCloud Insights</title>
+  <meta name="description" content="When to build fast with low-code vs when to go custom. A decision guide that avoids rework and ships value sooner." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="CoreCloud" />
+  <meta name="theme-color" content="#004f91" />
+
+  <!-- Canonical + Social -->
+  <link rel="canonical" href="https://www.corecloudza.com/blog-low-code-high-impact.html" />
+  <meta property="og:title" content="Low-Code, High Impact — CoreCloud" />
+  <meta property="og:description" content="A practical decision guide: when low-code wins, when to go custom, and how to avoid rework." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://www.corecloudza.com/blog-low-code-high-impact.html" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
+
+  <style>
+    .post-wrap{ max-width:900px; margin:0 auto; padding:1rem; }
+    .post-header h1{ margin:1rem 0 .5rem; }
+    .post-meta{ color:#5a6b85; font-size:.9rem; }
+    .post-hero{ height:300px; background:#eef3fa url('assets/images/index-bannerimage.png') center/cover no-repeat; border-radius:12px; }
+    .post-body{ color:#222; line-height:1.8; font-size:1.05rem; }
+    .post-body h2{ color:#0d3b66; margin-top:1.4rem; }
+    .inline-note{ background:#f7fafc; border:1px solid #e4e8f1; border-radius:10px; padding:.8rem 1rem; margin:1rem 0; font-size:.95rem; color:#5a6b85; }
+    .inline-cta{ background:#0d3b66; color:#fff; padding:1rem 1.2rem; border-radius:12px; margin:1.5rem 0; }
+    .inline-cta .cta-btn{ margin-top:.8rem; }
+    .related{ border-top:1px solid #e4e8f1; margin-top:2rem; padding-top:1rem; }
+    .next-prev{ display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+    .next-prev a{ text-decoration:none; color:#0d3b66; font-weight:700; }
+    .next-prev a:hover{ text-decoration:underline; }
+    table{ width:100%; border-collapse:collapse; margin:1rem 0; }
+    th,td{ border:1px solid #e4e8f1; padding:.6rem; text-align:left; }
+    thead th{ background:#f7f9fc; }
+  </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BlogPosting",
+    "headline":"Low-Code, High Impact",
+    "description":"When to build fast with low-code vs when to go custom. A decision guide that avoids rework and ships value sooner.",
+    "author":{"@type":"Person","name":"Mark Louw"},
+    "publisher":{"@type":"Organization","name":"CoreCloud","logo":{"@type":"ImageObject","url":"https://www.corecloudza.com/assets/images/corecloud-logo.png"}},
+    "datePublished":"2025-09-15",
+    "image":"https://www.corecloudza.com/assets/images/social-blog.jpg",
+    "mainEntityOfPage":"https://www.corecloudza.com/blog-low-code-high-impact.html"
+  }
+  </script>
 </head>
-<body>
-  <!-- Header -->
-  <header class="small-banner">
+
+<body class="post-page">
+  <!-- Header / Nav -->
+  <div class="small-banner">
     <div class="banner-header">
-      <a href="index.html" aria-label="CoreCloud Home">
-        <img class="logo" src="assets/images/corecloud-logo.png" alt="CoreCloud" />
-      </a>
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" />
 
-      <!-- Desktop nav -->
-      <nav class="desktop-nav">
-        <a class="nav-btn" href="index.html">Home</a>
-        <a class="nav-btn" href="cloud.html">Cloud</a>
-        <a class="nav-btn active" href="low-code.html">Low-Code</a>
-        <a class="nav-btn" href="consulting.html">Consulting</a>
-        <a class="nav-btn" href="talent.html">Talent</a>
-        <a class="nav-btn" href="sovereign-cloud.html">Sovereign Cloud</a>
-        <a class="nav-btn" href="blog.html">Blog</a>
-      </nav>
-
-      <!-- Mobile nav -->
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle Navigation">
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </label>
+
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-btn">HOME</a>
+        <a href="consulting.html" class="nav-btn">CONSULTING</a>
+        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
+        <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
+        <a href="talent.html" class="nav-btn">TALENT</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="about.html" class="nav-btn">ABOUT</a>
+        <a href="blog.html" class="nav-btn active" aria-current="page">BLOG</a>
+        <a href="contact.html" class="nav-btn">CONTACT</a>
+      </nav>
+
       <nav class="mobile-nav" aria-label="Mobile">
-        <a href="index.html">Home</a>
-        <a href="cloud.html">Cloud</a>
-        <a href="low-code.html" aria-current="page">Low-Code</a>
-        <a href="consulting.html">Consulting</a>
-        <a href="talent.html">Talent</a>
-        <a href="sovereign-cloud.html">Sovereign Cloud</a>
-        <a href="blog.html">Blog</a>
+        <a href="index.html">HOME</a>
+        <a href="consulting.html">CONSULTING</a>
+        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="talent.html">TALENT</a>
+        <a href="talent-relaunch.html">RE / LAUNCH</a>
+        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="about.html">ABOUT</a>
+        <a href="blog.html" class="active" aria-current="page">BLOG</a>
+        <a href="contact.html">CONTACT</a>
       </nav>
     </div>
-  </header>
-
-  <!-- Hero -->
-  <div class="hero-media">
-    <img src="assets/images/banners/low-code-hero.jpg" alt="Low-code delivery" />
   </div>
 
-  <main class="content">
-    <h1 class="hero-title">Low-Code Application Delivery</h1>
+  <div class="post-wrap">
+    <nav class="breadcrumbs" aria-label="Breadcrumbs"><a href="index.html">Home</a> / <a href="blog.html">Blog</a> / Apps</nav>
 
-    <!-- Intro -->
-    <section class="section">
-      <div class="card">
-        <h3>Velocity without losing control</h3>
-        <p>Ship enterprise apps 3–5× faster with reusable components, CI/CD, and guardrails aligned to corporate standards on AWS/Azure.</p>
-        <a class="cta-btn" href="#features">See how</a>
-      </div>
-    </section>
+    <header class="post-header">
+      <div class="post-hero" role="img" aria-label="Low-code versus custom development"></div>
+      <h1>Low-Code, High Impact</h1>
+      <div class="post-meta">Apps • 15 Sep 2025 • 5-minute read</div>
+    </header>
 
-    <!-- Features (responsive via .card-grid) -->
-    <section id="features" class="section">
-      <h2 class="section-title">Features</h2>
-      <div class="card-grid">
-        <article class="card">
-          <h3>Governed Components</h3>
-          <p>Pre-approved UI/data patterns cut review cycles and raise consistency.</p>
-        </article>
-        <article class="card">
-          <h3>Cloud-Native</h3>
-          <p>Deploy to AWS/Azure with observability, policies and cost controls baked in.</p>
-        </article>
-        <article class="card">
-          <h3>Security by Design</h3>
-          <p>SSO, secrets, and policies standardised across apps from day one.</p>
-        </article>
-      </div>
-    </section>
+    <article class="post-body">
+      <p>Low-code is the fastest way to prove value — until it isn’t. Here’s a simple way South African teams choose the right path, avoid rework, and keep shipping.</p>
 
-    <!-- Stacks -->
-    <section id="stacks" class="section">
-      <h2 class="section-title">Supported Stacks</h2>
-      <div class="card-grid">
-        <article class="card">
-          <h3>Platforms</h3>
-          <p>Power Apps, OutSystems, Retool, AppSheet.</p>
-        </article>
-        <article class="card">
-          <h3>Integration</h3>
-          <p>REST/GraphQL, event buses, data gateways, service catalogs.</p>
-        </article>
-        <article class="card">
-          <h3>Ops &amp; Quality</h3>
-          <p>CI/CD, policy as code, automated testing, environment promotion.</p>
-        </article>
-      </div>
-    </section>
+      <h2>When low-code wins</h2>
+      <ul>
+        <li><strong>Unsettled requirements:</strong> you need to learn from users quickly.</li>
+        <li><strong>Internal workflows/approvals:</strong> forms, tasks, SLAs, basic integrations.</li>
+        <li><strong>Departmental apps:</strong> 100–1,000 users; moderate data volumes.</li>
+        <li><strong>Shortage of senior engineers:</strong> let BAs/analysts build with guardrails.</li>
+      </ul>
 
-    <!-- Commercials -->
-    <section id="pricing" class="section">
-      <h2 class="section-title">Commercials</h2>
-      <div class="card">
-        <p><strong>Prototype Sprint:</strong> 1 app, 3 modules — 2–3 weeks</p>
-        <p><strong>Scale Squad:</strong> Product + Dev + QA — Quarterly cadence</p>
-        <a class="cta-btn" href="contact.html">Talk to us</a>
+      <h2>When to go custom</h2>
+      <ul>
+        <li><strong>High change-rate & complex rules:</strong> domain logic that keeps evolving.</li>
+        <li><strong>Performance & scale:</strong> strict latency, heavy concurrency, or data gravity.</li>
+        <li><strong>Deep integrations:</strong> event-driven, streaming, bespoke protocols.</li>
+        <li><strong>Strategic IP:</strong> core differentiation should live in custom code.</li>
+      </ul>
+
+      <h2>Decision matrix</h2>
+      <table>
+        <thead><tr><th>Dimension</th><th>Low-Code First</th><th>Hybrid</th><th>Custom</th></tr></thead>
+        <tbody>
+          <tr><td>Complexity</td><td>Low–Medium</td><td>Medium–High</td><td>High</td></tr>
+          <tr><td>Change rate</td><td>High (learn fast)</td><td>Medium</td><td>Low (well-understood)</td></tr>
+          <tr><td>Integration depth</td><td>APIs/webhooks</td><td>APIs + events</td><td>Streaming/protocols</td></tr>
+          <tr><td>Compliance</td><td>Standard controls</td><td>Custom controls</td><td>Strict/sector-specific</td></tr>
+          <tr><td>Scale & perf</td><td>Moderate</td><td>Selective hotspots</td><td>High/real-time</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Anti-rework guardrails</h2>
+      <ul>
+        <li><strong>Two-tier architecture:</strong> workflows/UI in low-code; domain services in APIs so you can swap UIs later.</li>
+        <li><strong>Data exits:</strong> ensure export to your lake/warehouse; avoid lock-in.</li>
+        <li><strong>IAM & audit:</strong> SSO, least-privilege roles, field-level logs on PII updates.</li>
+        <li><strong>Versioned configs:</strong> treat low-code configs as code (git + environments).</li>
+      </ul>
+
+      <h2>30-day path: prototype → production</h2>
+      <ol>
+        <li><strong>Week 1:</strong> map user journeys; build a clickable flow; define “done” metrics.</li>
+        <li><strong>Week 2:</strong> connect to sandbox APIs; implement 2–3 golden paths.</li>
+        <li><strong>Week 3:</strong> add access control, error handling, and audit; non-prod UAT with 10–20 users.</li>
+        <li><strong>Week 4:</strong> load test the hotspots; instrument logs + metrics; go-live with rollback plan.</li>
+      </ol>
+
+      <div class="inline-cta">
+        <strong>Need to ship in weeks?</strong>
+        <p style="margin:.5rem 0 0">We deliver low-code MVPs with clean exits to custom services — so you never paint yourself into a corner.</p>
+        <a class="cta-btn" href="application-development.html">See App Development</a>
       </div>
-    </section>
-  </main>
+
+      <div class="next-prev">
+        <a href="blog-rewire-sales-engine-90-days.html">← Rewiring a Sales Engine in 90 Days</a>
+        <a href="blog-databricks-cost-quick-wins.html">Databricks Cost: Quick Wins →</a>
+      </div>
+
+      <section class="related">
+        <h3>You might also like</h3>
+        <ul>
+          <li><a href="blog-eliminating-cloud-waste.html">Eliminating Waste: The Fastest ROI in Cloud</a></li>
+          <li><a href="blog-databricks-cost-quick-wins.html">Databricks Cost: Quick Wins</a></li>
+          <li><a href="blog-secure-sovereign-cloud-africa.html">Secure & Sovereign Cloud for Africa</a></li>
+        </ul>
+      </section>
+    </article>
+  </div>
 
   <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton,<br>Johannesburg</p>
+        <p>Sandton<br>Johannesburg<br>South Africa</p>
       </div>
+
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
       </div>
+
       <div class="footer-right">
-        <p><a class="linkedin-link" href="https://www.linkedin.com/company/107657749/" target="_blank" rel="noopener">CoreCloud on LinkedIn</a></p>
-        <p><a href="mailto:mark@corecloudza.com">mark@corecloudza.com</a></p>
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
-    <div class="footer-bottom">© CoreCloud (Pty) Ltd</div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
+    </div>
   </footer>
 </body>
 </html>
