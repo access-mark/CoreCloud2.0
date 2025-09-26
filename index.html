@@ -27,11 +27,17 @@
 
   <!-- Page-only tiny tweaks -->
   <style>
-    .home-page .hero-intro { text-align:center; padding:1.5rem 1rem 0 !important; margin:0 !important; }
-    .card-grid.force-4 .cta-wide { grid-column: 1 / -1; }
-    .card-grid a, .card-grid a:hover, .card-grid a:visited { text-decoration:none; color:inherit; }
-    .imprinting .cta-btn { color:#fff !important; }
-    .about-corecloud { margin:2rem auto 2rem !important; }
+    .home-page .hero-intro{ text-align:center; padding:1.5rem 1rem 0 !important; margin:0 !important; }
+    .card-grid.force-4 .cta-wide{ grid-column: 1 / -1; }
+    .card-grid a, .card-grid a:hover, .card-grid a:visited{ text-decoration:none; color:inherit; }
+    .imprinting .cta-btn{ color:#fff !important; }
+    .about-corecloud{ margin:2rem auto 2rem !important; }
+
+    /* Extra spacing above Best Venue strip */
+    .best-venue-section{
+      margin-top:4rem !important;
+      padding-top:2rem;
+    }
   </style>
 </head>
 
@@ -89,8 +95,8 @@
     </p>
   </section>
 
-  <!-- Best Venue strip -->
-  <section id="venue-decision" class="section" style="padding:0 1rem 2rem; text-align:center; max-width:1000px; margin:0 auto;">
+  <!-- Best Venue strip (now with extra spacing) -->
+  <section id="venue-decision" class="section best-venue-section" style="padding:0 1rem 2rem; text-align:center; max-width:1000px; margin:0 auto;">
     <h2 class="section-title">Best Venue for Your Workload</h2>
     <p style="font-size:1.05rem; color:#444; line-height:1.7; max-width:1000px; margin:0 auto 1rem;">
       Not every workload belongs in hyperscale. We map each one to the venue that wins on <strong>cost</strong>, <strong>latency</strong>, <strong>resilience</strong>, and <strong>compliance</strong>.
