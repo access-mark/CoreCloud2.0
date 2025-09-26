@@ -40,6 +40,8 @@
     thead th{ background:#f7f9fc; }
 
     /* --- Mobile hardening (scoped to .post-page) --- */
+    .post-page{ overflow-x:hidden; } /* prevent stray horizontal scroll */
+
     .post-page .post-wrap{
       max-width: 900px;
       margin: 0 auto;
@@ -56,6 +58,10 @@
       word-break: break-word;
       overflow-wrap: anywhere;
     }
+    /* media and code safety */
+    .post-page img, .post-page video{ max-width:100%; height:auto; }
+    .post-page pre, .post-page code{ white-space:pre-wrap; word-break:break-word; }
+
     /* tables scroll within container */
     .post-page .post-body table{
       width:100%;
