@@ -666,3 +666,8 @@ footer strong {
   max-width: 900px;
   margin: 2rem auto 1rem; /* keeps your standard rhythm */
 }
+/* === Extra spacing above Best Venue strip === */
+.best-venue-section {
+  margin-top: 4rem !important;  /* increase top margin */
+  padding-top: 2rem;            /* add internal breathing room */
+}
