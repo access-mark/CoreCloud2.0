@@ -655,3 +655,14 @@ footer strong {
 @media (max-width:600px){
   .lowcode .container, .sovereign .container { padding:14px; }
 }
+/* === Hosting page alignment (page-scoped) === */
+.hosting-page .hero-intro,
+.hosting-page .hero-intro h1,
+.hosting-page .hero-intro p {
+  text-align: left !important;
+}
+
+.hosting-page .hero-intro {
+  max-width: 900px;
+  margin: 2rem auto 1rem; /* keeps your standard rhythm */
+}
