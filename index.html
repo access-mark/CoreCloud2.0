@@ -18,28 +18,20 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Global CSS (use your working file/version) -->
+  <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=5" />
 
-  <!-- Preload the two LCP-related images -->
+  <!-- Preload LCP images -->
   <link rel="preload" as="image" href="assets/images/index-bannerimage.png" imagesizes="100vw" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png">
 
-  <!-- Page-only tiny tweaks (no banner logic here to avoid conflicts) -->
+  <!-- Page-only tiny tweaks -->
   <style>
-    /* Uniform hero spacing beneath the banner (matches other pages) */
-    .home-page .hero-intro{ text-align:center; padding:1.5rem 1rem 0 !important; margin:0 !important; }
-
-    /* Make the final “Dynamic Imprinting” card span full width in the 4-col grid */
-    .card-grid.force-4 .cta-wide{ grid-column: 1 / -1; }
-
-    /* Keep links inside cards unstyled like the card text */
-    .card-grid a, .card-grid a:hover, .card-grid a:visited{ text-decoration:none; color:inherit; }
-
-    /* CTA text color on the Dynamic Imprinting card */
-    .imprinting .cta-btn{ color:#fff !important; }
-
-    .about-corecloud{ margin:2rem auto 2rem !important; }
+    .home-page .hero-intro { text-align:center; padding:1.5rem 1rem 0 !important; margin:0 !important; }
+    .card-grid.force-4 .cta-wide { grid-column: 1 / -1; }
+    .card-grid a, .card-grid a:hover, .card-grid a:visited { text-decoration:none; color:inherit; }
+    .imprinting .cta-btn { color:#fff !important; }
+    .about-corecloud { margin:2rem auto 2rem !important; }
   </style>
 </head>
 
@@ -47,11 +39,7 @@
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png"
-           alt="CoreCloud"
-           class="logo"
-           width="220" height="64"
-           decoding="async" />
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" />
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
@@ -62,6 +50,7 @@
         <a href="index.html" class="nav-btn active" aria-current="page">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
         <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
+        <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
         <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
@@ -75,6 +64,7 @@
         <a href="index.html" class="active" aria-current="page">HOME</a>
         <a href="consulting.html">CONSULTING</a>
         <a href="cloud.html">CLOUD SUITE</a>
+        <a href="hosting-private-cloud.html">HOSTING</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html">RE / LAUNCH</a>
@@ -86,13 +76,9 @@
     </div>
   </div>
 
-  <!-- Hero (simple, bulletproof) -->
+  <!-- Hero -->
   <div class="hero-media">
-    <img
-      src="assets/images/index-bannerimage.png"
-      alt="CoreCloud — Strategy, Cloud, Talent, Applications"
-      decoding="async" loading="eager" fetchpriority="high"
-      width="1920" height="500" />
+    <img src="assets/images/index-bannerimage.png" alt="CoreCloud — Strategy, Cloud, Talent, Applications" decoding="async" loading="eager" fetchpriority="high" width="1920" height="500" />
   </div>
 
   <!-- Hero copy -->
@@ -101,6 +87,17 @@
     <p style="font-size:1.2rem; max-width:900px; margin:0 auto; color:#444;">
       At CoreCloud, we believe big ideas mean nothing without results. We help South African enterprises turn strategy into action and revenue. Whether it’s sharpening sales execution, modernising cloud platforms, placing top ICT talent, or building modern applications, we deliver outcomes you can measure.
     </p>
+  </section>
+
+  <!-- Best Venue strip -->
+  <section id="venue-decision" class="section" style="padding:0 1rem 2rem; text-align:center; max-width:1000px; margin:0 auto;">
+    <h2 class="section-title">Best Venue for Your Workload</h2>
+    <p style="font-size:1.05rem; color:#444; line-height:1.7; max-width:1000px; margin:0 auto 1rem;">
+      Not every workload belongs in hyperscale. We map each one to the venue that wins on <strong>cost</strong>, <strong>latency</strong>, <strong>resilience</strong>, and <strong>compliance</strong>.
+    </p>
+    <div class="cta-row" style="justify-content:center;">
+      <a href="hosting-private-cloud.html" class="cta-btn">Explore Hosting &amp; Private Cloud</a>
+    </div>
   </section>
 
   <main class="content">
@@ -126,6 +123,10 @@
     <section class="section">
       <h2 class="section-title">Explore Our Services</h2>
       <div class="card-grid force-4">
+        <a href="hosting-private-cloud.html" class="card">
+          <div><h3>Hosting &amp; Private Cloud</h3><p>Hosted private cloud and on-prem options for predictable cost, SA locality, and low latency.</p></div>
+          <span class="cta-btn">Learn More</span>
+        </a>
         <a href="consulting.html" class="card">
           <div><h3>Consulting</h3><p>Sales strategy, pipeline precision, and practical advisory to drive real performance.</p></div>
           <span class="cta-btn">Learn More</span>
@@ -159,42 +160,42 @@
     </section>
   </main>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-left">
-      <p><strong>CoreCloud (Pty) Ltd</strong></p>
-      <p>Sandton<br>Johannesburg<br>South Africa</p>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton<br>Johannesburg<br>South Africa</p>
+      </div>
+
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-right">
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+      </div>
     </div>
 
-    <div class="footer-middle">
-      <h4>Stay Informed</h4>
-      <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-      <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-        <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
-        <label class="visually-hidden" for="newsletter_email">Email</label>
-        <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
-        <button type="submit" class="cta-btn">Subscribe</button>
-      </form>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
     </div>
-
-    <div class="footer-right">
-      <p><strong>Contact</strong></p>
-      <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-      <p>Phone: <a href="mailto:sales@corecloudza.com">{+27) 011 568 8667</a></p>
-      <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 CoreCloud. All rights reserved. |
-      <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-      <a href="terms.html" class="legal-link">Terms</a>
-    </p>
-  </div>
-</footer>
+  </footer>
 </body>
 </html>
