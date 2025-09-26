@@ -1,76 +1,258 @@
-<!-- MAIN CONTENT ONLY for hosting-private-cloud.html -->
-<main>
-  <section>
-    <h1>Hosting & Private Cloud</h1>
-    <p>Repatriate the right workloads and keep the agility you need. We design and run Hosted Private Cloud and On-Prem solutions — with the option to burst to AWS/Azure when it pays.</p>
-    <p>
-      <a href="#assessment">Book a Workload Assessment</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hosting & Private Cloud – CoreCloud</title>
+  <meta name="description" content="Repatriate the right workloads. CoreCloud designs and runs Hosted Private Cloud and On-Prem solutions in South Africa, with the option to burst to AWS/Azure where it wins." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="CoreCloud" />
+  <meta name="theme-color" content="#004f91" />
+
+  <!-- Canonical + Social -->
+  <link rel="canonical" href="https://www.corecloudza.com/hosting-private-cloud.html" />
+  <meta property="og:title" content="Hosting & Private Cloud – CoreCloud" />
+  <meta property="og:description" content="Hosted private cloud and on-prem solutions engineered for cost, performance, and SA compliance. Dell, HPE, Nutanix + burst to AWS/Azure." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.corecloudza.com/hosting-private-cloud.html" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Global CSS (match your site) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
+
+  <!-- Optional: Preload logo (consistent with index) -->
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png">
+</head>
+
+<body>
+  <!-- Header / Nav (copied pattern, HOSTING active) -->
+  <div class="small-banner">
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png"
+           alt="CoreCloud"
+           class="logo"
+           width="220" height="64"
+           decoding="async" />
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </label>
+
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-btn">HOME</a>
+        <a href="consulting.html" class="nav-btn">CONSULTING</a>
+        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
+        <a href="hosting-private-cloud.html" class="nav-btn active" aria-current="page">HOSTING</a>
+        <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
+        <a href="talent.html" class="nav-btn">TALENT</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="about.html" class="nav-btn">ABOUT</a>
+        <a href="blog.html" class="nav-btn">BLOG</a>
+        <a href="contact.html" class="nav-btn">CONTACT</a>
+      </nav>
+
+      <nav class="mobile-nav" aria-label="Mobile">
+        <a href="index.html">HOME</a>
+        <a href="consulting.html">CONSULTING</a>
+        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="hosting-private-cloud.html" class="active" aria-current="page">HOSTING</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="talent.html">TALENT</a>
+        <a href="talent-relaunch.html">RE / LAUNCH</a>
+        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="about.html">ABOUT</a>
+        <a href="blog.html">BLOG</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Optional banner image (use your current hero style or omit if not available) -->
+  <!--
+  <div class="hero-media">
+    <img
+      src="assets/images/hosting-banner.jpg"
+      alt="CoreCloud Hosting & Private Cloud"
+      decoding="async" loading="eager" fetchpriority="high"
+      width="1920" height="500" />
+  </div>
+  -->
+
+  <!-- Page Intro -->
+  <section class="hero-intro">
+    <h1 class="hero-title">Hosting &amp; Private Cloud</h1>
+    <p style="font-size:1.2rem; max-width:900px; margin:0 auto; color:#444;">
+      Not every workload belongs in hyperscale. We design and run Hosted Private Cloud and On-Prem solutions in South Africa — with the option to burst to AWS/Azure where it pays.
+    </p>
+    <p style="margin-top:0.75rem;">
+      <a href="#assessment" class="cta-btn">Book a Workload Assessment</a>
       &nbsp;|&nbsp;
-      <a href="#options">See your options</a>
+      <a href="#options" class="cta-btn" style="background:none; color:#004f91;">See your options</a>
     </p>
   </section>
 
-  <section>
-    <h2>Why companies are moving off pure hyperscale</h2>
-    <ul>
-      <li><strong>Total cost you can predict:</strong> ERP, databases, integration hubs often run cheaper hosted/on-prem.</li>
-      <li><strong>Locality & compliance:</strong> Keep data in SA, simplify POPIA, reduce egress.</li>
-      <li><strong>Latency & reliability:</strong> Lower jitter for trading/analytics; clear SLAs with DR.</li>
-    </ul>
-  </section>
+  <main class="content">
+    <!-- Why move off pure hyperscale -->
+    <section class="section" style="padding:0 1rem 2rem; text-align:center; max-width:1000px; margin:0 auto;">
+      <h2 class="section-title">Why companies are moving off pure hyperscale</h2>
+      <p style="font-size:1.1rem; color:#444444; line-height:1.7;">
+        Predictable workloads often run cheaper hosted or on-prem. SA data laws and latency targets make locality matter. CoreCloud helps you switch without disruption — and keep public cloud for what it does best.
+      </p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Total cost you can predict</h3>
+          <p>Lower steady-state spend for ERP, databases, integration hubs, and line-of-business systems.</p>
+        </div>
+        <div class="card">
+          <h3>Locality &amp; compliance</h3>
+          <p>Keep data in South Africa to simplify POPIA and industry requirements. Reduce cross-region egress.</p>
+        </div>
+        <div class="card">
+          <h3>Latency &amp; reliability</h3>
+          <p>Lower jitter for trading and analytics. Clear SLAs with backup and DR built-in.</p>
+        </div>
+      </div>
+    </section>
 
-  <section id="options">
-    <h2>Your options with CoreCloud</h2>
+    <!-- Options -->
+    <section id="options" class="section">
+      <h2 class="section-title">Your options with CoreCloud</h2>
+      <div class="card-grid force-4">
+        <div class="card">
+          <h3>Hosted Private Cloud (South Africa)</h3>
+          <p>Local datacentres (Teraco, Liquid, Dimension Data, BCX) with CoreCloud as your single point of accountability.</p>
+          <ul>
+            <li>Clear SLAs, backup, DR, and monthly reporting</li>
+            <li>Burst to AWS/Azure for peak demand</li>
+            <li>Per-workload cost baselines before you move</li>
+          </ul>
+        </div>
 
-    <h3>Hosted Private Cloud (South Africa)</h3>
-    <ul>
-      <li>Local DCs (Teraco, Liquid, Dimension Data, BCX) with CoreCloud as single point of accountability</li>
-      <li>Clear SLAs, backup, DR, and monthly reporting</li>
-      <li>Burst to AWS/Azure for peak demand</li>
-      <li>Per-workload cost baselines before you move</li>
-    </ul>
+        <div class="card">
+          <h3>On-Prem Private Cloud (Dell, HPE, Nutanix)</h3>
+          <p>Dell VxRail, HPE GreenLake, or Nutanix AHV — modern infrastructure with cloud-like operations.</p>
+          <ul>
+            <li>Subscription consumption models; avoid heavy CapEx</li>
+            <li>Automation, monitoring, and governance baked in</li>
+            <li>Integrates with your existing investments</li>
+          </ul>
+        </div>
 
-    <h3>On-Prem Private Cloud (Dell, HPE, Nutanix)</h3>
-    <ul>
-      <li>Dell VxRail, HPE GreenLake, or Nutanix AHV — modern infra with cloud-like ops</li>
-      <li>Subscription consumption models; avoid heavy CapEx</li>
-      <li>Automation, monitoring, and governance baked in</li>
-      <li>Integrates with your existing investments</li>
-    </ul>
+        <div class="card">
+          <h3>Hybrid: keep cloud where it wins</h3>
+          <p>Use AWS/Azure for burst, AI/ML, serverless, and global reach. Keep predictable, regulated workloads on hosted/on-prem.</p>
+          <ul>
+            <li>Unified landing zone, identity, and guardrails</li>
+            <li>End-to-end visibility of spend and performance</li>
+          </ul>
+        </div>
 
-    <h3>Hybrid: keep cloud where it wins</h3>
-    <ul>
-      <li>Use AWS/Azure for burst, AI/ML, serverless, global reach</li>
-      <li>Keep predictable, regulated workloads hosted/on-prem</li>
-      <li>Unified landing zone, identity, and guardrails</li>
-      <li>End-to-end visibility of spend and performance</li>
-    </ul>
-  </section>
+        <div class="card">
+          <h3>Managed Services</h3>
+          <p>SLA-backed operations for hosted/on-prem and hybrid estates.</p>
+          <ul>
+            <li>Monitoring, backup/DR, patching</li>
+            <li>Monthly cost/performance reviews</li>
+            <li>Continuous improvement roadmap</li>
+          </ul>
+        </div>
+      </div>
+    </section>
 
-  <section id="assessment">
-    <h2>Workload Assessment (2–3 weeks)</h2>
-    <p>We benchmark each workload across cost, latency, resilience, and compliance — then deliver a venue plan with run-cost projections and a migration roadmap.</p>
-    <ul>
-      <li>Inventory & baselining</li>
-      <li>Cost & performance modelling</li>
-      <li>Risk & compliance mapping</li>
-      <li>Move sequence & quick wins</li>
-    </ul>
-    <p><a href="contact.html">Book a call</a></p>
-  </section>
+    <!-- Assessment -->
+    <section id="assessment" class="section" style="padding:0 1rem 2rem; text-align:center; max-width:1000px; margin:0 auto;">
+      <h2 class="section-title">Workload Assessment (2–3 weeks)</h2>
+      <p style="font-size:1.1rem; color:#444444; line-height:1.7;">
+        We benchmark each workload across cost, latency, resilience, and compliance — then deliver a venue plan with run-cost projections and a migration roadmap.
+      </p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>What’s included</h3>
+          <ul>
+            <li>Inventory &amp; baselining</li>
+            <li>Cost &amp; performance modelling</li>
+            <li>Risk &amp; compliance mapping</li>
+            <li>Move sequence &amp; quick wins</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Outcomes</h3>
+          <ul>
+            <li>Per-workload venue decision (Cloud / Hosted / On-Prem)</li>
+            <li>12-month run-rate and savings plan</li>
+            <li>Migrate-back plan with zero-downtime options</li>
+            <li>Executive deck to support the decision</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:1rem;">
+        <a href="contact.html" class="cta-btn">Book a call</a>
+      </p>
+    </section>
 
-  <section>
-    <h2>FAQ</h2>
-    <h3>Will we lose cloud agility?</h3>
-    <p>No. We keep burst/innovation in AWS/Azure where it wins and place steady workloads on hosted/on-prem for cost and control.</p>
+    <!-- FAQ -->
+    <section class="section">
+      <h2 class="section-title">FAQ</h2>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Will we lose cloud agility?</h3>
+          <p>No. We keep burst/innovation in AWS/Azure where it wins and place steady workloads on hosted/on-prem for cost and control.</p>
+        </div>
+        <div class="card">
+          <h3>What about vendor lock-in?</h3>
+          <p>We’re vendor-neutral. Designs are portable across Dell, HPE, Nutanix and major SA DC providers.</p>
+        </div>
+        <div class="card">
+          <h3>How fast can we repatriate?</h3>
+          <p>Quick wins within weeks. We prioritise high-cost, low-elasticity workloads first to fund the rest.</p>
+        </div>
+        <div class="card">
+          <h3>Do you handle operations?</h3>
+          <p>Yes. Managed services with local SLAs, monitoring, backup/DR, and monthly reviews.</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <h3>What about vendor lock-in?</h3>
-    <p>We’re vendor-neutral. Designs are portable across Dell, HPE, Nutanix and major SA DC providers.</p>
+  <!-- Footer (your pattern, with fixed phone link) -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton<br>Johannesburg<br>South Africa</p>
+      </div>
 
-    <h3>How fast can we repatriate?</h3>
-    <p>Quick wins within weeks. We prioritise high-cost, low-elasticity workloads first to fund the rest.</p>
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
 
-    <h3>Do you handle operations?</h3>
-    <p>Yes. Managed services with local SLAs, monitoring, backup/DR, and monthly reviews.</p>
-  </section>
-</main>
+      <div class="footer-right">
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
