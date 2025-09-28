@@ -28,21 +28,25 @@
   <style>
     .appdev-page .hero-title{ font-size:2rem; color:var(--dark-blue); font-weight:700; text-align:center; margin:2.2rem auto .9rem; }
     .appdev-page main.content{ max-width:1200px; margin:0 auto; padding:0 1.5rem 4rem; }
+    .appdev-page .section{ margin:2rem 0 !important; }
+    .appdev-page .section-title{ margin-bottom:.85rem; }
+
+    /* Narrative containers + lists (no cards) */
+    .appdev-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .appdev-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
+    .appdev-page .kv-list{ margin:.3rem 0 0 1.25rem; line-height:1.7; }
+    .appdev-page .kv-list li{ margin:.35rem 0; }
+    .appdev-page .kv{ font-weight:700; color:var(--dark-blue); }
+    .appdev-page .desc{ display:block; margin-left:.9rem; color:#444; }
+
+    /* Keep cards ONLY for the bottom “What We Build” section */
     .appdev-page .card .cta-btn{ display:flex; align-items:center; justify-content:center; width:100%; min-height:48px; font-weight:700; margin-top:auto; }
     .cta-card{ background:none !important; box-shadow:none !important; border:none !important; padding:0 !important; }
     .cta-wide{ grid-column:1 / -1; }
-    .cta-card .cta-btn{ width:100%; display:block; margin:0; }
 
-    /* Give bullets inside cards breathing room */
-    .appdev-page .card ul{
-      margin:.35rem 0 0 1.25rem !important;
-      padding-left:1.05rem !important;
-      list-style-position:outside;
-    }
-    .appdev-page .card li{ margin:.35rem 0; }
-
-    /* Slightly tighter section rhythm */
-    .appdev-page .section-title{ margin-bottom:.85rem; }
+    /* Centered CTA (not a card) */
+    .appdev-page .cta-row{ display:flex; justify-content:center; margin-top:1rem; }
+    .appdev-page .cta-row .cta-btn{ min-width:240px; }
 
     /* Nav squeeze (desktop) */
     nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
@@ -91,7 +95,6 @@
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
-      <!-- Intrinsic dimensions prevent CLS -->
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
@@ -130,7 +133,7 @@
     </div>
   </div>
 
-  <!-- Standard, image-based hero (uses global .hero-media rules) -->
+  <!-- Hero -->
   <div class="hero-media">
     <img src="assets/images/appdev-bannerimage.png" alt="CoreCloud Application Development" loading="eager" decoding="async"/>
   </div>
@@ -142,49 +145,50 @@
       Built with modern architectures, shipped with DevOps discipline, and secured by design.
     </p>
 
-    <h2 class="section-title">What We Build</h2>
-    <div class="card-grid force-4" style="margin-top:1rem;">
-      <div class="card" style="display:flex; flex-direction:column;"><h2>Cloud-Native Apps</h2><p>Microservices, containers, serverless—resilient and built for change.</p><a href="cloud-native-apps.html" class="cta-btn">Explore</a></div>
-      <div class="card" style="display:flex; flex-direction:column;"><h2>Enterprise Portals</h2><p>Secure internal &amp; customer portals that streamline operations and engagement.</p><a href="enterprise-portals.html" class="cta-btn">Explore</a></div>
-      <div class="card" style="display:flex; flex-direction:column;"><h2>Mobile &amp; Web</h2><p>Fast, responsive experiences across devices with performance baked in.</p><a href="mobile-web.html" class="cta-btn">Explore</a></div>
-      <div class="card" style="display:flex; flex-direction:column;"><h2>APIs &amp; Integration</h2><p>Well-designed APIs and event streams that connect products and data.</p><a href="apis-integration.html" class="cta-btn">Explore</a></div>
+    <!-- Off-cards narrative sections -->
+    <section class="section narrative" aria-labelledby="how-title">
+      <h2 id="how-title" class="section-title">How We Deliver</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Architecture First:</span><span class="desc">Domain-driven design, reference architectures, and clear non-functional requirements.</span></li>
+        <li><span class="kv">DevOps &amp; CI/CD:</span><span class="desc">Automated pipelines, IaC, observability, and a release cadence you can trust.</span></li>
+        <li><span class="kv">Security by Design:</span><span class="desc">Threat modelling, secrets hygiene, least privilege, and continuous testing (OWASP).</span></li>
+        <li><span class="kv">Quality &amp; Performance:</span><span class="desc">Automated tests, load &amp; resilience testing, SLOs and error budgets.</span></li>
+      </ul>
+    </section>
+
+    <section class="section narrative" aria-labelledby="engage-title">
+      <h2 id="engage-title" class="section-title">Engagement Models</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Project Delivery:</span><span class="desc">Fixed-scope outcomes with clear milestones and governance.</span></li>
+        <li><span class="kv">Product Squads:</span><span class="desc">Cross-functional teams (PM, UX, Eng, QA) to build and operate.</span></li>
+        <li><span class="kv">Augmentation:</span><span class="desc">Specialist roles to uplift your team — architects, engineers, SRE.</span></li>
+        <li><span class="kv">Advisory &amp; Review:</span><span class="desc">Architecture reviews, pipeline hardening, security &amp; cost optimisation.</span></li>
+      </ul>
+    </section>
+
+    <section class="section narrative" aria-labelledby="outcomes-title">
+      <h2 id="outcomes-title" class="section-title">Outcomes You Can Measure</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Faster Time-to-Value:</span><span class="desc">Ship earlier with incremental releases and platform accelerators.</span></li>
+        <li><span class="kv">Reliability:</span><span class="desc">Availability targets, runbooks, and actionable telemetry from day one.</span></li>
+        <li><span class="kv">Security:</span><span class="desc">Shift-left controls and automated checks across the SDLC.</span></li>
+        <li><span class="kv">Cost Control:</span><span class="desc">FinOps guardrails, right-sizing, and utilisation insights.</span></li>
+      </ul>
+    </section>
+
+    <!-- Plain centered CTA (not a card) -->
+    <div class="cta-row">
+      <a href="contact.html" class="cta-btn">Start a Conversation</a>
     </div>
 
-    <section class="section">
-      <h2 class="section-title">How We Deliver</h2>
-      <div class="card-grid force-4">
-        <div class="card"><h2>Architecture First</h2><p>Domain-driven design, reference architectures, and clear non-functional requirements.</p></div>
-        <div class="card"><h2>DevOps &amp; CI/CD</h2><p>Automated pipelines, IaC, observability, and release cadence you can trust.</p></div>
-        <div class="card"><h2>Security by Design</h2><p>Threat modelling, secrets hygiene, least privilege, and continuous testing (OWASP).</p></div>
-        <div class="card"><h2>Quality &amp; Performance</h2><p>Automated tests, load &amp; resilience testing, SLOs and error budgets.</p></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Engagement Models</h2>
-      <div class="card-grid force-4">
-        <div class="card"><h2>Project Delivery</h2><p>Fixed-scope outcomes with clear milestones and governance.</p></div>
-        <div class="card"><h2>Product Squads</h2><p>Cross-functional teams (PM, UX, Eng, QA) to build and operate.</p></div>
-        <div class="card"><h2>Augmentation</h2><p>Specialist roles to uplift your team—architects, engineers, SRE.</p></div>
-        <div class="card"><h2>Advisory &amp; Review</h2><p>Architecture reviews, pipeline hardening, security &amp; cost optimisation.</p></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <h2 class="section-title">Outcomes You Can Measure</h2>
-      <div class="card-grid force-4">
-        <div class="card"><h2>Faster Time-to-Value</h2><p>Ship earlier with incremental releases and platform accelerators.</p></div>
-        <div class="card"><h2>Reliability</h2><p>Availability targets, runbooks, and actionable telemetry from day one.</p></div>
-        <div class="card"><h2>Security</h2><p>Shift-left controls and automated checks across the SDLC.</p></div>
-        <div class="card"><h2>Cost Control</h2><p>FinOps guardrails, right-sizing, and utilisation insights.</p></div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="card-grid force-4">
-        <div class="card cta-card cta-wide">
-          <a href="contact.html" class="cta-btn">Start a Conversation</a>
-        </div>
+    <!-- Moved to the bottom: still cards -->
+    <section class="section" aria-labelledby="build-title">
+      <h2 id="build-title" class="section-title">What We Build</h2>
+      <div class="card-grid force-4" style="margin-top:1rem;">
+        <div class="card" style="display:flex; flex-direction:column;"><h2>Cloud-Native Apps</h2><p>Microservices, containers, serverless—resilient and built for change.</p><a href="cloud-native-apps.html" class="cta-btn">Explore</a></div>
+        <div class="card" style="display:flex; flex-direction:column;"><h2>Enterprise Portals</h2><p>Secure internal &amp; customer portals that streamline operations and engagement.</p><a href="enterprise-portals.html" class="cta-btn">Explore</a></div>
+        <div class="card" style="display:flex; flex-direction:column;"><h2>Mobile &amp; Web</h2><p>Fast, responsive experiences across devices with performance baked in.</p><a href="mobile-web.html" class="cta-btn">Explore</a></div>
+        <div class="card" style="display:flex; flex-direction:column;"><h2>APIs &amp; Integration</h2><p>Well-designed APIs and event streams that connect products and data.</p><a href="apis-integration.html" class="cta-btn">Explore</a></div>
       </div>
     </section>
   </main>
