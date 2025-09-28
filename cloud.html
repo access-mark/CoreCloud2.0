@@ -27,7 +27,6 @@
     .databricks-card h3{ color:#ff3621; }
     .aws-card p, .azure-card p, .databricks-card p{ color:var(--text-gray); }
     .aws-card a.cta-btn, .azure-card a.cta-btn, .databricks-card a.cta-btn{
-      /* use standard CoreCloud CTA */
       background:var(--primary-blue) !important; color:#fff !important;
     }
 
@@ -38,11 +37,11 @@
     /* Small helper for the hybrid callout under hero */
     .hybrid-callout { max-width:1000px; margin:0 auto; text-align:center; }
 
-    /* Align "Operate Cloud Well" (and any .narrative blocks) with the main content grid */
+    /* Align narrative blocks (incl. “When Cloud Is the Best Venue”) with main grid */
     .cloud-page .narrative{
-      max-width: calc(var(--container) + 200px) !important; /* same as .content */
+      max-width: calc(var(--container) + 200px) !important;
       margin: 0 auto !important;
-      padding: 0 1.5rem !important; /* same side padding as .content */
+      padding: 0 1.5rem !important;
     }
     .cloud-page .narrative p,
     .cloud-page .narrative ul{
@@ -112,15 +111,15 @@
       We put those workloads on AWS and Azure; steady, regulated, or latency-critical workloads often run better on <a href="hosting-private-cloud.html">Hosted or On-Prem</a>. Hybrid by design — governed by default.
     </p>
 
-    <!-- Why Cloud (framing for this page specifically) -->
-    <section class="section" style="margin-top:2rem;">
+    <!-- When Cloud Is the Best Venue (bullets instead of cards) -->
+    <section class="section narrative" style="margin-top:2rem;">
       <h2 class="section-title">When Cloud Is the Best Venue</h2>
-      <div class="card-grid force-4">
-        <div class="card"><h3>Elastic demand</h3><p>Seasonal/peaky workloads, serverless, event-driven, burst compute.</p></div>
-        <div class="card"><h3>Modern services</h3><p>Fully-managed databases, analytics, AI/ML, messaging, and integration.</p></div>
-        <div class="card"><h3>Global reach</h3><p>Low-friction expansion and multi-region patterns for scale and resilience.</p></div>
-        <div class="card"><h3>Speed with guardrails</h3><p>Landing zones, identity, policies, and FinOps so teams can move fast safely.</p></div>
-      </div>
+      <ul>
+        <li><strong>Elastic demand:</strong> seasonal/peaky workloads, serverless, event-driven, burst compute.</li>
+        <li><strong>Modern services:</strong> fully-managed databases, analytics, AI/ML, messaging, and integration.</li>
+        <li><strong>Global reach:</strong> low-friction expansion and multi-region patterns for scale and resilience.</li>
+        <li><strong>Speed with guardrails:</strong> landing zones, identity, policies, and FinOps so teams can move fast safely.</li>
+      </ul>
     </section>
 
     <!-- AWS / Azure / Databricks columns -->
