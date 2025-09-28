@@ -33,6 +33,12 @@
     .imprinting .cta-btn{ color:#fff !important; }
     .about-corecloud{ margin:2rem auto 2rem !important; }
     .best-venue-section{ margin-top:4rem !important; padding-top:2rem; }
+
+    /* Desktop nav squeeze (short labels) */
+    @media (min-width: 769px){
+      nav.desktop-nav { gap:.55rem; }
+      nav.desktop-nav .nav-btn { font-size:.78rem; padding:.30rem .50rem; }
+    }
   </style>
 </head>
 
@@ -47,29 +53,31 @@
         <span></span><span></span><span></span>
       </label>
 
+      <!-- Short labels on desktop -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn active" aria-current="page">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="finops.html" class="nav-btn">FINOPS &amp; GOVERNANCE</a>
-        <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP DEV</a>
+        <a href="cloud.html" class="nav-btn" aria-label="Cloud Suite">CLOUD</a>
+        <a href="finops.html" class="nav-btn" aria-label="FinOps & Governance">FINOPS</a>
+        <a href="hosting-private-cloud.html" class="nav-btn" aria-label="Hosting & Private Cloud">HOSTING</a>
+        <a href="application-development.html" class="nav-btn" aria-label="Application Development">APPS</a>
         <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html" class="nav-btn" aria-label="Re/Launch">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn" aria-label="Dynamic Imprinting">IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="blog.html" class="nav-btn">BLOG</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
+      <!-- Full labels on mobile -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html" class="active" aria-current="page">HOME</a>
         <a href="consulting.html">CONSULTING</a>
         <a href="cloud.html">CLOUD SUITE</a>
         <a href="finops.html">FINOPS &amp; GOVERNANCE</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEV</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
         <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html">RE / LAUNCH</a>
