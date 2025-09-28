@@ -26,13 +26,22 @@
 
   <!-- Page-scoped tweaks -->
   <style>
-    /* Center the hero intro (wins over any global left-align) */
+    /* Center the hero intro */
     .hosting-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center !important; }
     .hosting-page .hero-intro .hero-title,
     .hosting-page .hero-intro h1,
     .hosting-page .hero-intro p{ text-align:center !important; }
 
-    /* Bullet indent fix for all ULs inside cards on this page */
+    /* Narrative containers + key-value bullets */
+    .hosting-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .hosting-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
+    .hosting-page .kv-list{ margin:.4rem 0 0 1.75rem; padding:0; line-height:1.7; }
+    .hosting-page .kv-list li{ margin:.5rem 0; }
+    .hosting-page .kv{ font-weight:700; color:var(--dark-blue); }
+    .hosting-page .desc{ display:block; margin-left:1rem; color:#444; }
+    @media (max-width:600px){ .hosting-page .desc{ margin-left:.75rem; } }
+
+    /* Bullet indent fix for ULs inside the (remaining) cards */
     .hosting-page .card ul{
       margin: .35rem 0 0 1.25rem !important;
       padding-left: 1.05rem !important;
@@ -46,7 +55,7 @@
     }
     footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
 
-    /* Shortened desktop nav spacing (optional squeeze) */
+    /* Shortened desktop nav spacing */
     nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
   </style>
 </head>
@@ -114,50 +123,50 @@
   </section>
 
   <main class="content">
-    <!-- Hybrid stance (high up the page) -->
-    <section class="section">
+    <!-- Hybrid stance (narrative bullets) -->
+    <section class="section narrative">
       <h2 class="section-title">Hybrid: The Only Way to Balance Cost, Speed &amp; Control</h2>
-      <div class="card-grid">
-        <div class="card"><h3>Cost that stays flat</h3><p>Steady workloads don’t need burst pricing. Host or run on-prem for predictable monthly spend; keep cloud for what must scale.</p></div>
-        <div class="card"><h3>Performance where it matters</h3><p>Place latency-sensitive systems close to users and data. Use cloud for global reach, ML, and managed services.</p></div>
-        <div class="card"><h3>Compliance by design</h3><p>Keep regulated data resident in SA. Reduce cross-border egress and audit friction while retaining cloud agility.</p></div>
-        <div class="card"><h3>Resilience you can prove</h3><p>Clear SLAs, backup and DR across venues. Test failover without betting the business on one provider.</p></div>
-        <div class="card"><h3>Vendor leverage</h3><p>A multi-venue posture improves pricing power and avoids single-stack lock-in.</p></div>
-      </div>
+      <ul class="kv-list">
+        <li><span class="kv">Cost that stays flat:</span><span class="desc">Steady workloads don’t need burst pricing. Host or on-prem for predictable monthly spend; keep cloud for what must scale.</span></li>
+        <li><span class="kv">Performance where it matters:</span><span class="desc">Place latency-sensitive systems close to users and data. Use cloud for global reach, ML, and managed services.</span></li>
+        <li><span class="kv">Compliance by design:</span><span class="desc">Keep regulated data resident in SA. Reduce cross-border egress and audit friction while retaining cloud agility.</span></li>
+        <li><span class="kv">Resilience you can prove:</span><span class="desc">Clear SLAs, backup and DR across venues. Test failover without betting on one provider.</span></li>
+        <li><span class="kv">Vendor leverage:</span><span class="desc">A multi-venue posture improves pricing power and avoids single-stack lock-in.</span></li>
+      </ul>
     </section>
 
-    <!-- Built for SA -->
-    <section class="section">
+    <!-- Built for SA (narrative bullets) -->
+    <section class="section narrative">
       <h2 class="section-title">Built for South Africa</h2>
-      <div class="card-grid">
-        <div class="card"><h3>POPIA &amp; industry rules</h3><p>Keep regulated data resident in SA; minimise cross-border egress and audit friction.</p></div>
-        <div class="card"><h3>Low jitter, local reach</h3><p>Place latency-sensitive systems close to customers, branches, and trading venues.</p></div>
-        <div class="card"><h3>Power &amp; resilience</h3><p>SLA-bound power redundancy and DR tested in SA data centres you can actually visit.</p></div>
-      </div>
+      <ul class="kv-list">
+        <li><span class="kv">POPIA &amp; industry rules:</span><span class="desc">Keep regulated data in SA; minimise cross-border egress and audit friction.</span></li>
+        <li><span class="kv">Low jitter, local reach:</span><span class="desc">Place latency-sensitive systems close to customers, branches, and trading venues.</span></li>
+        <li><span class="kv">Power &amp; resilience:</span><span class="desc">SLA-bound power redundancy and DR tested in SA data centres you can visit.</span></li>
+      </ul>
     </section>
 
-    <!-- Guardrails / FinOps -->
-    <section class="section">
+    <!-- Guardrails / FinOps (narrative bullets) -->
+    <section class="section narrative">
       <h2 class="section-title">Guardrails, FinOps &amp; Observability</h2>
-      <div class="card-grid force-4">
-        <div class="card"><h3>Unified identity</h3><p>Single sign-on and consistent roles across cloud and hosted/on-prem estates.</p></div>
-        <div class="card"><h3>Policy as code</h3><p>Landing zones and guardrails that stop drift before it starts.</p></div>
-        <div class="card"><h3>Clear cost lines</h3><p>Per-workload cost views and alerts; no more blended “mystery” bills.</p></div>
-        <div class="card"><h3>Real SLOs</h3><p>SLIs/SLOs tracked across venues; DR rehearsed, documented, and provable.</p></div>
-      </div>
+      <ul class="kv-list">
+        <li><span class="kv">Unified identity:</span><span class="desc">Single sign-on and consistent roles across cloud and hosted/on-prem estates.</span></li>
+        <li><span class="kv">Policy as code:</span><span class="desc">Landing zones and guardrails that stop drift before it starts.</span></li>
+        <li><span class="kv">Clear cost lines:</span><span class="desc">Per-workload cost views and alerts; no more blended “mystery” bills.</span></li>
+        <li><span class="kv">Real SLOs:</span><span class="desc">SLIs/SLOs tracked across venues; DR rehearsed, documented, and provable.</span></li>
+      </ul>
     </section>
 
-    <!-- Why shift from pure hyperscale -->
-    <section class="section">
-      <h2 class="section-title">Why companies are moving off pure hyperscale</h2>
-      <div class="card-grid">
-        <div class="card"><h3>Predictable cost</h3><p>Steady ERP, DB, and integration workloads often run cheaper hosted or on-prem than in elastic hyperscale.</p></div>
-        <div class="card"><h3>Locality &amp; compliance</h3><p>Data residency in SA simplifies POPIA and industry rules. Minimise cross-region egress.</p></div>
-        <div class="card"><h3>Latency &amp; reliability</h3><p>Lower jitter for trading/analytics. Clear SLAs, backup, and DR with real accountability.</p></div>
-      </div>
+    <!-- Why move off pure hyperscale (narrative bullets) -->
+    <section class="section narrative">
+      <h2 class="section-title">Why Companies Are Moving Off Pure Hyperscale</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Predictable cost:</span><span class="desc">Steady ERP, DB, and integration workloads often run cheaper hosted or on-prem than in elastic hyperscale.</span></li>
+        <li><span class="kv">Locality &amp; compliance:</span><span class="desc">Data residency in SA simplifies POPIA and industry rules; minimise cross-region egress.</span></li>
+        <li><span class="kv">Latency &amp; reliability:</span><span class="desc">Lower jitter for trading/analytics. Clear SLAs, backup, and DR with real accountability.</span></li>
+      </ul>
     </section>
 
-    <!-- What Goes Where -->
+    <!-- What Goes Where (kept as cards) -->
     <section class="section" id="placement">
       <h2 class="section-title">What Goes Where</h2>
       <div class="card-grid force-4">
@@ -180,7 +189,54 @@
       </div>
     </section>
 
-    <!-- Options -->
+    <!-- Assessment (now narrative, not cards) -->
+    <section class="section narrative" id="assessment">
+      <h2 class="section-title">Workload Assessment (2–3 weeks)</h2>
+      <h3 style="margin:.6rem 0 .35rem; color:var(--dark-blue);">What we do</h3>
+      <ul class="kv-list" style="margin-left:1.75rem;">
+        <li>Inventory &amp; baselining</li>
+        <li>Cost &amp; performance modelling</li>
+        <li>Risk &amp; compliance mapping</li>
+        <li>Move sequence &amp; quick wins</li>
+      </ul>
+
+      <h3 style="margin:1rem 0 .35rem; color:var(--dark-blue);">What you get</h3>
+      <ul class="kv-list" style="margin-left:1.75rem;">
+        <li>Per-workload venue decision (Cloud / Hosted / On-Prem)</li>
+        <li>12-month run-rate and savings plan</li>
+        <li>Migrate-back plan with zero-downtime options</li>
+        <li>Executive deck to support the decision</li>
+      </ul>
+      <p style="text-align:center; margin-top:.8rem;">
+        <a href="contact.html" class="cta-btn">Book your assessment</a>
+      </p>
+    </section>
+
+    <!-- Engagement models (now narrative, not cards) -->
+    <section class="section narrative" id="engagement">
+      <h2 class="section-title">Engagement models</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Assessment:</span><span class="desc">Fixed-scope, fixed-fee workload assessment and venue plan.</span></li>
+        <li><span class="kv">Build / Migrate:</span><span class="desc">Deploy hosted/on-prem stacks; migrate the right workloads first.</span></li>
+        <li><span class="kv">Run / Optimise:</span><span class="desc">Managed services with monthly cost/perf reviews and CI roadmap.</span></li>
+        <li><span class="kv">Talent Augmentation:</span><span class="desc">Hybrid cloud, infra, and automation specialists to extend your team.</span></li>
+      </ul>
+    </section>
+
+    <!-- FAQ (now narrative, not cards) -->
+    <section class="section narrative" id="faq">
+      <h2 class="section-title">FAQ</h2>
+      <h3>Will we lose cloud agility?</h3>
+      <p>No. Keep burst/innovation in AWS/Azure where it wins and place steady workloads on hosted/on-prem for cost and control.</p>
+      <h3>What about vendor lock-in?</h3>
+      <p>Vendor-neutral designs portable across Dell, HPE, Nutanix and major SA DC providers.</p>
+      <h3>How fast can we repatriate?</h3>
+      <p>Quick wins within weeks. Prioritise high-cost, low-elasticity workloads first to fund the rest.</p>
+      <h3>Do you handle operations?</h3>
+      <p>Yes. SLA-backed managed services with monitoring, backup/DR, patching, and compliance reviews.</p>
+    </section>
+
+    <!-- OPTIONS moved to the very bottom (kept as cards) -->
     <section class="section" id="options">
       <h2 class="section-title">Your options with CoreCloud</h2>
       <div class="card-grid force-4">
@@ -226,54 +282,6 @@
           </ul>
           <a href="contact.html" class="cta-btn">Enquire now</a>
         </div>
-      </div>
-    </section>
-
-    <!-- Assessment -->
-    <section class="section" id="assessment">
-      <h2 class="section-title">Workload Assessment (2–3 weeks)</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>What we do</h3>
-          <ul>
-            <li>Inventory &amp; baselining</li>
-            <li>Cost &amp; performance modelling</li>
-            <li>Risk &amp; compliance mapping</li>
-            <li>Move sequence &amp; quick wins</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>What you get</h3>
-          <ul>
-            <li>Per-workload venue decision (Cloud / Hosted / On-Prem)</li>
-            <li>12-month run-rate and savings plan</li>
-            <li>Migrate-back plan with zero-downtime options</li>
-            <li>Executive deck to support the decision</li>
-          </ul>
-          <a href="contact.html" class="cta-btn">Book your assessment</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Engagement models -->
-    <section class="section" id="engagement">
-      <h2 class="section-title">Engagement models</h2>
-      <div class="card-grid force-4">
-        <div class="card"><h3>Assessment</h3><p>Fixed-scope, fixed-fee workload assessment and venue plan.</p></div>
-        <div class="card"><h3>Build / Migrate</h3><p>Deploy hosted/on-prem stacks; migrate the right workloads first.</p></div>
-        <div class="card"><h3>Run / Optimise</h3><p>Managed services with monthly cost/perf reviews and CI roadmap.</p></div>
-        <div class="card"><h3>Talent Augmentation</h3><p>Hybrid cloud, infra, and automation specialists to extend your team.</p></div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <h2 class="section-title">FAQ</h2>
-      <div class="card-grid">
-        <div class="card"><h3>Will we lose cloud agility?</h3><p>No. Keep burst/innovation in AWS/Azure where it wins and place steady workloads on hosted/on-prem for cost and control.</p></div>
-        <div class="card"><h3>What about vendor lock-in?</h3><p>Vendor-neutral designs portable across Dell, HPE, Nutanix and major SA DC providers.</p></div>
-        <div class="card"><h3>How fast can we repatriate?</h3><p>Quick wins within weeks. Prioritise high-cost, low-elasticity workloads first to fund the rest.</p></div>
-        <div class="card"><h3>Do you handle operations?</h3><p>Yes. SLA-backed managed services with monitoring, backup/DR, patching, and compliance reviews.</p></div>
       </div>
     </section>
   </main>
