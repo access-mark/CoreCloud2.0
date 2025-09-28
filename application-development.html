@@ -20,17 +20,38 @@
   <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=3"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=8"/>
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
   <!-- Page-scoped helpers (content only) -->
   <style>
-    .appdev-page .hero-title{ font-size:2rem; color:var(--dark-blue); font-weight:700; text-align:center; margin:2.5rem auto 1rem; }
+    .appdev-page .hero-title{ font-size:2rem; color:var(--dark-blue); font-weight:700; text-align:center; margin:2.2rem auto .9rem; }
     .appdev-page main.content{ max-width:1200px; margin:0 auto; padding:0 1.5rem 4rem; }
     .appdev-page .card .cta-btn{ display:flex; align-items:center; justify-content:center; width:100%; min-height:48px; font-weight:700; margin-top:auto; }
     .cta-card{ background:none !important; box-shadow:none !important; border:none !important; padding:0 !important; }
     .cta-wide{ grid-column:1 / -1; }
     .cta-card .cta-btn{ width:100%; display:block; margin:0; }
+
+    /* Give bullets inside cards breathing room */
+    .appdev-page .card ul{
+      margin:.35rem 0 0 1.25rem !important;
+      padding-left:1.05rem !important;
+      list-style-position:outside;
+    }
+    .appdev-page .card li{ margin:.35rem 0; }
+
+    /* Slightly tighter section rhythm */
+    .appdev-page .section-title{ margin-bottom:.85rem; }
+
+    /* Nav squeeze (desktop) */
+    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
+
+    /* Footer phone link = white */
+    footer .footer-right a[href^="tel:"]{
+      color:#fff !important; text-decoration:none; font-weight:500;
+    }
+    footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
   </style>
 
   <!-- JSON-LD -->
@@ -76,17 +97,18 @@
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
+      <!-- Shortened labels for consistency -->
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="finops.html" class="nav-btn">FINOPS &amp; GOVERNANCE</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn active" aria-current="page">APP DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
+        <a href="application-development.html" class="nav-btn active" aria-current="page">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="blog.html" class="nav-btn">BLOG</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
@@ -94,13 +116,13 @@
 
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
         <a href="application-development.html" class="active" aria-current="page">APP DEVELOPMENT</a>
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html">BLOG</a>
         <a href="contact.html">CONTACT</a>
@@ -167,42 +189,54 @@
     </section>
   </main>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-left">
-      <p><strong>CoreCloud (Pty) Ltd</strong></p>
-      <p>Sandton<br>Johannesburg<br>South Africa</p>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton<br>Johannesburg<br>South Africa</p>
+      </div>
+
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-right">
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+      </div>
     </div>
 
-    <div class="footer-middle">
-      <h4>Stay Informed</h4>
-      <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-      <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-        <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
-        <label class="visually-hidden" for="newsletter_email">Email</label>
-        <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
-        <button type="submit" class="cta-btn">Subscribe</button>
-      </form>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
     </div>
+  </footer>
 
-    <div class="footer-right">
-      <p><strong>Contact</strong></p>
-      <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-      <p>Phone: <a href="mailto:sales@corecloudza.com">{+27) 011 568 8667</a></p>
-      <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 CoreCloud. All rights reserved. |
-      <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-      <a href="terms.html" class="legal-link">Terms</a>
-    </p>
-  </div>
-</footer>
+  <!-- Auto-highlight current nav -->
+  <script>
+  (function(){
+    var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+      var href = (a.getAttribute('href') || '').toLowerCase();
+      if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+      else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
+    });
+  })();
+  </script>
 </body>
 </html>
