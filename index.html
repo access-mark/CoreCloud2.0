@@ -19,37 +19,53 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=6" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=7" />
 
   <!-- Preload LCP images -->
   <link rel="preload" as="image" href="assets/images/index-bannerimage.png" imagesizes="100vw" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png">
 
-  <!-- Page-only tweaks: narrative layout + tighter rhythm -->
+  <!-- Page-only tweaks: narrative layout + tight rhythm + alignment fix -->
   <style>
+    /* Rhythm tweaks */
     .home-page .hero-intro{ text-align:center; padding:1.25rem 1rem 0 !important; margin:0 !important; }
-    .home-page .section{ margin:2rem 0 !important; } /* tighter than global */
+    .home-page .section{ margin:2rem 0 !important; }        /* tighter than global */
     .home-page .section-title{ margin-bottom:.85rem !important; }
-    .home-page .best-venue-section{ margin-top:3rem !important; padding-top:1rem; }
     .home-page .about-corecloud{ margin:1.5rem auto 1.75rem !important; }
 
-    /* Narrative blocks */
-    .home-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .home-page .narrative h3{
-      font-size:1.15rem; font-weight:700; color:var(--dark-blue);
-      margin:.9rem 0 .35rem;
-    }
-    .home-page .narrative p{
-      margin:.55rem 0; line-height:1.7; color:#444;
-    }
-    .home-page .narrative .lead{ font-size:1.06rem; }
+    /* Nav squeeze for desktop (short labels already applied) */
+    nav.desktop-nav { gap: .55rem; }
+    nav.desktop-nav .nav-btn { font-size: .78rem; padding: .30rem .50rem; }
 
-    /* Recent wins list – compact, readable */
-    .home-page .wins{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    /* Narrative blocks: lock all to same centering/width as About */
+    .home-page .about-corecloud,
+    .home-page .best-venue-section,
+    .home-page #focus-method-section,
+    .home-page .narrative,
+    .home-page .wins{
+      max-width: 1000px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+
+    /* Hybrid callout stays centered, with modest top space */
+    .home-page .best-venue-section{ text-align:center; margin-top:3rem !important; }
+
+    /* Narrative typography */
+    .home-page .narrative h3{
+      font-size:1.12rem; font-weight:700; color:var(--dark-blue);
+      margin:.85rem 0 .35rem;
+    }
+    .home-page .narrative p{ margin:.52rem 0; line-height:1.7; color:#444; }
+    .home-page .narrative .lead{ font-size:1.05rem; }
+
+    /* Wins list – compact, readable */
     .home-page .wins ul{ margin:.5rem 0 0 1.25rem; padding:0; }
     .home-page .wins li{ margin:.4rem 0; }
 
-    /* Services grid moved to bottom; keep spacing compact */
+    /* Services grid at bottom; keep spacing compact and avoid over-wide padding */
     .home-page .services-bottom .card-grid{ padding:0 1rem; }
     .card-grid a, .card-grid a:hover, .card-grid a:visited{ text-decoration:none; color:inherit; }
   </style>
@@ -114,10 +130,10 @@
     </p>
   </section>
 
-  <!-- Hybrid stance -->
-  <section id="venue-decision" class="section best-venue-section" style="text-align:center; max-width:1000px; margin:0 auto;">
+  <!-- Hybrid stance (centered callout) -->
+  <section id="venue-decision" class="section best-venue-section">
     <h2 class="section-title">Hybrid Isn’t Optional — It’s the Operating Model</h2>
-    <p style="font-size:1.02rem; color:#444; line-height:1.7; max-width:1000px; margin:0 auto .5rem;">
+    <p style="font-size:1.02rem; color:#444; line-height:1.7; max-width:1000px; margin:0 auto .6rem;">
       One venue cannot win on cost, performance, and risk at the same time. We place <strong>each workload</strong> where it wins — cloud for elasticity and services; hosted or on-prem for predictable, low-latency, compliant run.
     </p>
     <div class="cta-row" style="justify-content:center;">
@@ -127,7 +143,7 @@
 
   <main class="content">
     <!-- About -->
-    <section class="about-corecloud" style="padding:0 1rem 1.5rem; text-align:center; max-width:1000px;">
+    <section class="about-corecloud" style="text-align:center;">
       <h2 class="section-title">About CoreCloud</h2>
       <p style="font-size:1.02rem; color:#444; line-height:1.7; margin-bottom:0;">
         Operators, not theorists. We’ve been under real boardroom pressure and know how to land change. Sales, cloud, talent, and applications — focused on outcomes that move the needle.
