@@ -19,14 +19,55 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=6" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=8" />
 
   <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/finops-bannerimage.png" imagesizes="100vw" fetchpriority="high">
 
-  <!-- Page-scoped tiny tweak (keeps intro tight) -->
+  <!-- Page-scoped: narrative-first, lighter UI -->
   <style>
     .finops-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center; }
+    .finops-page .section{ margin:2rem 0 !important; }
+    .finops-page .section-title{ margin-bottom:.8rem !important; }
+
+    /* Narrative containers + lists */
+    .finops-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .finops-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
+    .finops-page .kv-list{ margin:.4rem 0 0 1.75rem; padding:0; line-height:1.7; }
+    .finops-page .kv-list li{ margin:.5rem 0; }
+    .finops-page .kv{ font-weight:700; color:var(--dark-blue); }
+    .finops-page .desc{ display:block; margin-left:1rem; color:#444; }
+    @media (max-width:600px){ .finops-page .desc{ margin-left:.75rem; } }
+
+    /* Lighter panels (less blocky than full cards) */
+    .finops-page .grid-2, .finops-page .grid-3{ display:grid; gap:1rem; padding:0 1rem; max-width:1100px; margin:0 auto; }
+    @media (min-width:900px){
+      .finops-page .grid-2{ grid-template-columns:1fr 1fr; }
+      .finops-page .grid-3{ grid-template-columns:1fr 1fr 1fr; }
+    }
+    .finops-page .panel{
+      background:#fff; border:1px solid rgba(0,79,145,.18); border-radius:10px;
+      padding:1rem 1.1rem; box-shadow:0 2px 6px rgba(0,0,0,.04);
+    }
+    .finops-page .panel h3, .finops-page .panel h4{ margin:0 0 .4rem; color:var(--dark-blue); font-size:1.05rem; }
+    .finops-page .panel ul{ margin:.25rem 0 0 1.2rem; }
+    .finops-page .panel li{ margin:.3rem 0; }
+
+    /* Keep a stronger card look only for engagement CTAs */
+    .finops-page .cta-cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.25rem; padding:0 1rem; max-width:1100px; margin:0 auto; }
+    .finops-page .cta-cards .card{ border:2px solid var(--dark-blue); border-radius:8px; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.06); padding:1.25rem; display:flex; flex-direction:column; gap:.75rem; }
+    .finops-page .cta-cards .card h3{ margin:0 0 .35rem; color:var(--primary-blue); font-size:1.1rem; }
+    .finops-page .cta-cards .card .cta-btn{ margin-top:auto; }
+
+    /* Recent wins list (not cards) */
+    .finops-page .wins{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .finops-page .wins ul{ margin:.4rem 0 0 1.2rem; }
+    .finops-page .wins li{ margin:.35rem 0; }
+
+    /* Shortened nav + footer phone = white */
+    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
+    footer .footer-right a[href^="tel:"]{ color:#fff !important; text-decoration:none; font-weight:500; }
+    footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
   </style>
 </head>
 
@@ -41,34 +82,35 @@
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Desktop nav (includes FINOPS for this page so you can test) -->
+      <!-- Shortened labels -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="finops.html" class="nav-btn active" aria-current="page">FINOPS &amp; GOVERNANCE</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn active" aria-current="page">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
+        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="blog.html" class="nav-btn">BLOG</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile nav -->
+      <!-- Mobile -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html">CLOUD SUITE</a>
-        <a href="finops.html" class="active" aria-current="page">FINOPS &amp; GOVERNANCE</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
+        <a href="finops.html" class="active" aria-current="page">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="application-development.html">APP DEV</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html">BLOG</a>
         <a href="contact.html">CONTACT</a>
@@ -94,88 +136,85 @@
   </section>
 
   <main class="content">
-    <!-- Why FinOps (outcomes first) -->
-    <section class="section">
-      <h2 class="section-title">What You Get in 90 Days</h2>
-      <div class="card-grid force-4">
-        <div class="card"><h3>12–35% run-rate reduction</h3><p>Quick wins on waste: idle, over-provisioned, wrong tier, &amp; forgotten resources.</p></div>
-        <div class="card"><h3>Showback you can defend</h3><p>Per-workload cost lines that match how your exec team makes decisions.</p></div>
-        <div class="card"><h3>Guardrails that hold</h3><p>Budgets, tags, and policies enforced in code across venues — less drift.</p></div>
-        <div class="card"><h3>Visibility end-to-end</h3><p>Dashboards that cover cloud, hosted, and on-prem — one truth for finance &amp; tech.</p></div>
+    <!-- Outcomes first (bullets, not cards) -->
+    <section class="section narrative" aria-labelledby="outcomes-title">
+      <h2 id="outcomes-title" class="section-title">What You Get in 90 Days</h2>
+      <ul class="kv-list">
+        <li><span class="kv">12–35% run-rate reduction:</span><span class="desc">quick wins on idle/over-provisioned resources, wrong tiers, and forgotten spend.</span></li>
+        <li><span class="kv">Showback you can defend:</span><span class="desc">per-workload cost lines that match how execs make decisions.</span></li>
+        <li><span class="kv">Guardrails that hold:</span><span class="desc">budgets, tags, and policies enforced in code across venues — less drift.</span></li>
+        <li><span class="kv">Visibility end-to-end:</span><span class="desc">dashboards for cloud + hosted + on-prem — one truth for finance & tech.</span></li>
+      </ul>
+    </section>
+
+    <!-- Operating loop (bullets, not cards) -->
+    <section class="section narrative" aria-labelledby="loop-title">
+      <h2 id="loop-title" class="section-title">The FinOps Operating Loop</h2>
+      <ul class="kv-list">
+        <li><span class="kv">1) Baseline:</span><span class="desc">tag audit, account structure, cost sources, shared services, and noisy neighbours.</span></li>
+        <li><span class="kv">2) Optimise:</span><span class="desc">rightsizing, reservations/SPs, storage tiering, K8s/VM allocation, idle cleanup.</span></li>
+        <li><span class="kv">3) Govern:</span><span class="desc">budgets & alerts, policy-as-code, golden tags, RBAC, preventive controls.</span></li>
+        <li><span class="kv">4) Operate:</span><span class="desc">monthly reviews, anomaly watch, chargeback/showback, SLO tracking.</span></li>
+      </ul>
+    </section>
+
+    <!-- Capabilities (lighter panels) -->
+    <section class="section" aria-labelledby="cap-title">
+      <h2 id="cap-title" class="section-title">Capabilities That Stick</h2>
+      <div class="grid-3">
+        <div class="panel"><h3>Tagging that survives reality</h3><p>Golden tag set, backfill strategy, and break-glass rules for shared services.</p></div>
+        <div class="panel"><h3>Budgets & anomaly detection</h3><p>Portfolio and per-workload budgets, alerts, and weekly variance reviews.</p></div>
+        <div class="panel"><h3>RI/SP & capacity planning</h3><p>Coverage targets, commitment sizing, and contract timing to avoid shelf-ware.</p></div>
+        <div class="panel"><h3>K8s & VM cost allocation</h3><p>Requests vs usage, namespace/project split, and showback that makes sense.</p></div>
+        <div class="panel"><h3>Policy-as-code guardrails</h3><p>Preventive controls for regions, sizes, storage classes, backup & DR minimums.</p></div>
+        <div class="panel"><h3>Unified dashboards</h3><p>Cloud + hosted + on-prem: one glass for finance, platform, and app owners.</p></div>
       </div>
     </section>
 
-    <!-- How we do it -->
-    <section class="section">
-      <h2 class="section-title">The FinOps Operating Loop</h2>
-      <div class="card-grid force-4">
-        <div class="card"><h3>1) Baseline</h3><p>Tag audit, account structure, cost sources, shared services, and noisy neighbours.</p></div>
-        <div class="card"><h3>2) Optimise</h3><p>Rightsize, reservations/SPs, storage tiering, K8s/VM allocation, and idle cleanup.</p></div>
-        <div class="card"><h3>3) Govern</h3><p>Budgets &amp; alerts, policy-as-code, golden tags, RBAC, and enforced guardrails.</p></div>
-        <div class="card"><h3>4) Operate</h3><p>Monthly reviews, anomaly watch, chargeback/showback, and SLO tracking.</p></div>
+    <!-- SA context (lighter panels) -->
+    <section class="section" aria-labelledby="sa-title">
+      <h2 id="sa-title" class="section-title">Built for South Africa</h2>
+      <div class="grid-3">
+        <div class="panel"><h3>POPIA-aligned cost views</h3><p>Separate residency-sensitive workloads; minimise cross-border egress surprises.</p></div>
+        <div class="panel"><h3>Latency & locality economics</h3><p>Model cost vs jitter for on-prem/hosted placement without losing cloud services.</p></div>
+        <div class="panel"><h3>Vendor leverage</h3><p>Multi-venue posture that improves pricing power with hyperscalers and DC partners.</p></div>
       </div>
     </section>
 
-    <!-- Capabilities -->
-    <section class="section">
-      <h2 class="section-title">Capabilities That Stick</h2>
-      <div class="card-grid">
-        <div class="card"><h3>Tagging that survives reality</h3><p>Golden tag set, backfill strategy, and break-glass rules for shared services.</p></div>
-        <div class="card"><h3>Budgets &amp; anomaly detection</h3><p>Portfolio and per-workload budgets, alerts, and weekly variance reviews.</p></div>
-        <div class="card"><h3>RI/SP &amp; capacity planning</h3><p>Coverage targets, commitment sizing, and contract timing to avoid shelf-ware.</p></div>
-        <div class="card"><h3>K8s &amp; VM cost allocation</h3><p>CPU/mem requests vs usage, namespace/project split, and showback that makes sense.</p></div>
-        <div class="card"><h3>Policy-as-code guardrails</h3><p>Preventive controls for regions, sizes, storage classes, backup &amp; DR minimums.</p></div>
-        <div class="card"><h3>Unified dashboards</h3><p>Cloud + hosted + on-prem: one glass for finance, platform, and app owners.</p></div>
-      </div>
-    </section>
-
-    <!-- SA context -->
-    <section class="section">
-      <h2 class="section-title">Built for South Africa</h2>
-      <div class="card-grid">
-        <div class="card"><h3>POPIA-aligned cost views</h3><p>Separate residency-sensitive workloads; minimise cross-border egress surprises.</p></div>
-        <div class="card"><h3>Latency &amp; locality economics</h3><p>Model cost vs jitter for on-prem/hosted placement without losing cloud services.</p></div>
-        <div class="card"><h3>Vendor leverage</h3><p>Multi-venue posture that improves pricing power with hyperscalers and DC partners.</p></div>
-      </div>
-    </section>
-
-    <!-- Offerings / options -->
-    <section class="section">
-      <h2 class="section-title">How We Engage</h2>
-      <div class="card-grid force-4">
+    <!-- Engagement options (keep strong cards + CTAs) -->
+    <section class="section" aria-labelledby="engage-title">
+      <h2 id="engage-title" class="section-title">How We Engage</h2>
+      <div class="cta-cards">
         <div class="card">
           <h3>FinOps Assessment (2–3 weeks)</h3>
           <ul>
-            <li>Cost baseline &amp; tag audit</li>
-            <li>Waste &amp; rightsizing plan</li>
-            <li>Guardrail &amp; budget blueprint</li>
+            <li>Cost baseline & tag audit</li>
+            <li>Waste & rightsizing plan</li>
+            <li>Guardrail & budget blueprint</li>
             <li>12-month savings roadmap</li>
           </ul>
           <a href="contact.html" class="cta-btn">Start the Assessment</a>
         </div>
-
         <div class="card">
           <h3>Implement</h3>
           <ul>
             <li>Budgets/alerts, anomaly detection</li>
             <li>Policy-as-code guardrails</li>
-            <li>RI/SP &amp; capacity coverage</li>
-            <li>Unified dashboards &amp; showback</li>
+            <li>RI/SP & capacity coverage</li>
+            <li>Unified dashboards & showback</li>
           </ul>
           <a href="contact.html" class="cta-btn">Plan My Implement</a>
         </div>
-
         <div class="card">
-          <h3>Run &amp; Optimise</h3>
+          <h3>Run & Optimise</h3>
           <ul>
             <li>Monthly cost/perf reviews</li>
-            <li>Continuous rightsizing &amp; tiering</li>
-            <li>Variance root-cause &amp; actions</li>
+            <li>Continuous rightsizing & tiering</li>
+            <li>Variance root-cause & actions</li>
             <li>Quarterly roadmap refresh</li>
           </ul>
           <a href="contact.html" class="cta-btn">Operate with CoreCloud</a>
         </div>
-
         <div class="card">
           <h3>Talent Augmentation</h3>
           <p>FinOps analysts, platform engineers, and SREs who keep hybrid honest on cost and SLOs.</p>
@@ -184,25 +223,25 @@
       </div>
     </section>
 
-    <!-- Recent wins -->
-    <section class="section">
-      <h2 class="section-title">Recent Wins Through Partner Collective</h2>
-      <div class="card-grid force-4">
-        <div class="card"><h3>-28% run-rate</h3><p>Tag hygiene + rightsizing + storage tiering; budgets enforced in policy.</p></div>
-        <div class="card"><h3>90% tag coverage</h3><p>Golden tags + backfill automation → clean showback in 30 days.</p></div>
-        <div class="card"><h3>SP coverage +22pts</h3><p>Commitment re-profiled; avoided over-commit while locking the upside.</p></div>
-        <div class="card"><h3>Drift near zero</h3><p>Guardrails on region/size/storage stopped misconfig before it shipped.</p></div>
-      </div>
+    <!-- Recent wins (simple list) -->
+    <section class="section wins" aria-labelledby="wins-title">
+      <h2 id="wins-title" class="section-title">Recent Wins Through Partner Collective</h2>
+      <ul>
+        <li><strong>−28% run-rate:</strong> tag hygiene + rightsizing + storage tiering; budgets enforced in policy.</li>
+        <li><strong>90% tag coverage:</strong> golden tags + backfill automation → clean showback in 30 days.</li>
+        <li><strong>SP coverage +22 pts:</strong> commitment re-profiled; avoided over-commit while locking upside.</li>
+        <li><strong>Drift near zero:</strong> guardrails on region/size/storage stopped misconfig before it shipped.</li>
+      </ul>
     </section>
 
-    <!-- FAQ -->
-    <section class="section" id="faq">
-      <h2 class="section-title">FAQ</h2>
-      <div class="card-grid">
-        <div class="card"><h3>Do you need a specific tool?</h3><p>No. We work with your stack (native or third-party). The operating loop matters more than the logo.</p></div>
-        <div class="card"><h3>Will this slow delivery?</h3><p>Guardrails are preventive, not bureaucratic. Teams move faster when defaults are safe and budgets are clear.</p></div>
-        <div class="card"><h3>Can you cover hosted/on-prem?</h3><p>Yes. We normalise data from hosted and on-prem to the same dashboards and showback model.</p></div>
-        <div class="card"><h3>What if tags are a mess?</h3><p>We start with coverage &gt;90%: golden tag set, backfill plan, and exceptions for shared services.</p></div>
+    <!-- FAQ (lighter panels for scannability) -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title">FAQ</h2>
+      <div class="grid-2">
+        <div class="panel"><h3>Do you need a specific tool?</h3><p>No. We work with your stack (native or third-party). The operating loop matters more than the logo.</p></div>
+        <div class="panel"><h3>Will this slow delivery?</h3><p>Guardrails are preventive, not bureaucratic. Teams move faster when defaults are safe and budgets are clear.</p></div>
+        <div class="panel"><h3>Can you cover hosted/on-prem?</h3><p>Yes. We normalise data from hosted and on-prem to the same dashboards and showback model.</p></div>
+        <div class="panel"><h3>What if tags are a mess?</h3><p>We start with coverage &gt;90%: golden tag set, backfill plan, and exceptions for shared services.</p></div>
       </div>
     </section>
   </main>
@@ -244,5 +283,17 @@
       </p>
     </div>
   </footer>
+
+  <!-- Auto-highlight current nav -->
+  <script>
+  (function(){
+    var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+      var href = (a.getAttribute('href') || '').toLowerCase();
+      if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+      else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
+    });
+  })();
+  </script>
 </body>
 </html>
