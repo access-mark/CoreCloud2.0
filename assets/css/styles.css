@@ -671,3 +671,9 @@ footer strong {
   margin-top: 4rem !important;  /* increase top margin */
   padding-top: 2rem;            /* add internal breathing room */
 }
+/* Nav squeeze for desktop */
+nav.desktop-nav { gap: .55rem; }
+nav.desktop-nav .nav-btn {
+  font-size: .78rem;       /* was .82rem */
+  padding: .30rem .50rem;  /* was .35rem .6rem */
+}
