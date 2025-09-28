@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Consulting — Go-to-Market & Execution | CoreCloud</title>
-  <meta name="description" content="Operator-led consulting that connects GTM, people, and platform. Practical sales enablement and execution frameworks that land results in South Africa."/>
+  <meta name="description" content="Operator-led consulting that connects GTM, people, and platform. Practical sales enablement, revenue operations, and venue-neutral platform strategy that land results in South Africa."/>
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
 
@@ -15,44 +15,59 @@
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped, lightweight narrative styling -->
+  <!-- Page-scoped narrative styling (lightweight) -->
   <style>
-    .consulting-page .hero-title{
-      font-size:2rem; color:var(--dark-blue); font-weight:700;
-      text-align:center; margin:2rem auto .75rem;
-    }
-    .consulting-page .intro { text-align:center; max-width:1000px; margin:0 auto 1.25rem; padding:0 1rem; }
     .consulting-page .section{ margin:2rem 0 !important; }
     .consulting-page .section-title{ margin-bottom:.75rem !important; }
 
-    /* Narrative blocks */
-    .consulting-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .consulting-page .narrative h3{ font-size:1.12rem; font-weight:700; color:var(--dark-blue); margin:.75rem 0 .3rem; }
-    .consulting-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
-    .consulting-page .narrative ul{ margin:.3rem 0 0 1.25rem; }
-    .consulting-page .narrative li{ margin:.35rem 0; }
+    .consulting-page .hero-title{
+      font-size:2rem; color:var(--dark-blue); font-weight:700;
+      text-align:center; margin:2rem auto .6rem;
+    }
+    .consulting-page .intro{ text-align:center; max-width:1000px; margin:0 auto 1.1rem; padding:0 1rem; color:#444; }
 
-    /* Simple responsive 2-column lists without heavy cards */
-    .consulting-page .grid-2{ display:grid; gap:1rem; }
-    @media (min-width:900px){ .consulting-page .grid-2{ grid-template-columns: 1fr 1fr; } }
+    /* Narrative containers */
+    .consulting-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .consulting-page .narrative h3{ font-size:1.12rem; font-weight:700; color:var(--dark-blue); margin:.7rem 0 .25rem; }
+    .consulting-page .narrative p{ margin:.45rem 0; line-height:1.7; color:#444; }
+    .consulting-page .narrative .lead{ font-size:1.05rem; }
+    .consulting-page .narrative ul{ margin:.3rem 0 0 1.2rem; }
+    .consulting-page .narrative li{ margin:.32rem 0; }
+
+    /* Light panels (non-blocky) */
+    .consulting-page .grid-2, .consulting-page .grid-3{ display:grid; gap:1rem; }
+    @media (min-width:900px){
+      .consulting-page .grid-2{ grid-template-columns: 1fr 1fr; }
+      .consulting-page .grid-3{ grid-template-columns: 1fr 1fr 1fr; }
+    }
     .consulting-page .panel{
       background:#fff; border:1px solid rgba(0,79,145,.18); border-radius:10px;
       padding:1rem 1.1rem; box-shadow:0 2px 6px rgba(0,0,0,.04);
     }
-    .consulting-page .panel h3{ margin:.1rem 0 .4rem; }
+    .consulting-page .panel h4{ margin:0 0 .35rem; font-size:1.02rem; color:var(--dark-blue); }
 
-    /* Pillars row — light, non-card chips */
-    .consulting-page .pillars{ max-width:1000px; margin:0 auto; padding:0 1rem; display:flex; flex-wrap:wrap; gap:.5rem; justify-content:center; }
-    .consulting-page .pill{
+    /* Chips */
+    .consulting-page .chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
+    .consulting-page .chip{
       border:1px solid rgba(0,79,145,.2); background:#fff; border-radius:999px;
-      padding:.5rem .9rem; font-weight:700; color:#0b3d72;
+      padding:.45rem .75rem; font-weight:700; color:#0b3d72; font-size:.92rem;
     }
 
-    /* CTA row */
-    .consulting-page .cta-wrap{ display:flex; justify-content:center; margin-top:.75rem; }
+    /* Checklists */
+    .consulting-page .checklist li{ list-style:none; position:relative; padding-left:1.2rem; }
+    .consulting-page .checklist li::before{
+      content:"✓"; position:absolute; left:0; top:0; color:var(--accent-green); font-weight:800;
+    }
+
+    /* Metric lines */
+    .consulting-page .metrics{ display:grid; gap:.4rem; }
+    .consulting-page .metric{ display:flex; justify-content:space-between; gap:.75rem; border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; }
+    .consulting-page .metric b{ color:#0b3d72; }
+
+    /* CTA */
+    .consulting-page .cta-wrap{ display:flex; justify-content:center; margin-top:.85rem; }
   </style>
 </head>
-
 <body class="consulting-page">
   <!-- Header -->
   <div class="small-banner">
@@ -109,104 +124,230 @@
   <main class="content">
     <h1 class="hero-title">Consulting That Lands Results</h1>
     <p class="intro">
-      We connect <strong>GTM</strong>, <strong>people</strong>, and <strong>platform</strong> so strategy turns into revenue. No buzzwords. Just operator-led execution that moves the needle in South Africa.
+      We connect <strong>GTM</strong>, <strong>people</strong>, and <strong>platform</strong> so strategy turns into revenue. Operator-led, vendor-neutral, built for the South African market.
     </p>
 
-    <!-- Light “pillars” chips instead of a heavy card grid -->
-    <section class="section">
-      <h2 class="section-title">The Four Pillars of Execution</h2>
-      <div class="pillars">
-        <span class="pill">Cloud</span>
-        <span class="pill">People</span>
-        <span class="pill">Process</span>
-        <span class="pill">Partnerships</span>
-      </div>
-    </section>
-
-    <!-- Narrative: What / How / Where we focus -->
+    <!-- Where we help -->
     <section class="section narrative">
-      <h2 class="section-title">What We Do</h2>
-      <h3>GTM & Commercial</h3>
-      <p>Sharper ICPs, value messaging, and partner motions that raise win-rates. Forecasts you can trust and a pipeline you can govern.</p>
-
-      <h3>Platform & Vendor Strategy</h3>
-      <p>Venue-neutral decisions across cloud, hosted, and on-prem; right sizing vendors and spend to outcomes — not slideware.</p>
-
-      <h3>People & Capability</h3>
-      <p>Teams designed for how you sell and deliver today. We fill gaps fast through Talent Hub and build habits that stick via Dynamic Imprinting.</p>
-
-      <div class="cta-wrap">
-        <a href="contact.html" class="cta-btn">Talk to Consulting</a>
-      </div>
-    </section>
-
-    <!-- Sales Consulting: People + Process (simple 2-col panels) -->
-    <section class="section narrative" id="sales-consulting">
-      <h2 class="section-title">Sales Consulting: People &amp; Process</h2>
-      <p class="lead">Predictable revenue comes from clear roles, disciplined process, and enablement that’s actually used.</p>
-
-      <div class="grid-2">
+      <h2 class="section-title">Where We Help (Fast)</h2>
+      <div class="grid-3">
         <div class="panel">
-          <h3>People</h3>
-          <ul>
-            <li>Team skills, coverage & role clarity</li>
-            <li>Practical enablement: discovery, positioning, objections</li>
-            <li>Leadership rewiring via Dynamic Imprinting</li>
-            <li>Comp plans aligned to outcomes</li>
-            <li>Talent Hub placements that land impact</li>
+          <h4>GTM & Commercial</h4>
+          <ul class="checklist">
+            <li>ICP & value narrative that wins</li>
+            <li>Partner motions & co-sell that convert</li>
+            <li>Forecast you can run the business on</li>
+            <li>Repeatable pipeline build & governance</li>
           </ul>
         </div>
         <div class="panel">
-          <h3>Process</h3>
+          <h4>Platform & Spend</h4>
+          <ul class="checklist">
+            <li>Venue decisions (Cloud / Hosted / On-Prem)</li>
+            <li>Right-sizing vendors & commitments</li>
+            <li>Guardrails: identity, tagging, budgets, SLOs</li>
+            <li>FinOps cadence across venues</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>People & Capability</h4>
+          <ul class="checklist">
+            <li>Role clarity, playbooks, scorecards</li>
+            <li>Practical enablement that sticks</li>
+            <li>Leadership rewiring (Dynamic Imprinting)</li>
+            <li>Talent Hub placements to close gaps</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Operator framework -->
+    <section class="section narrative">
+      <h2 class="section-title">Operator Framework: Diagnose → Design → Do → Drive</h2>
+      <div class="grid-2">
+        <div class="panel">
+          <h4>Diagnose</h4>
+          <p>Use the data you already have — pipeline, win/loss, sales stages, cloud bills, SLAs, latency — to pinpoint friction and wasted spend.</p>
+          <div class="chips">
+            <span class="chip">Win/Loss</span>
+            <span class="chip">Stage-to-Stage</span>
+            <span class="chip">Run-Rate</span>
+            <span class="chip">Latency</span>
+            <span class="chip">DR Posture</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h4>Design</h4>
+          <p>Venue-neutral options with trade-offs. Sales motions aligned to ICP. Clear ownership, cadence, and dashboards.</p>
+          <div class="chips">
+            <span class="chip">Decision Log</span>
+            <span class="chip">Guardrails</span>
+            <span class="chip">Playbooks</span>
+            <span class="chip">Scorecards</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h4>Do</h4>
+          <p>Self-funding quick wins first: high cost, low elasticity workloads; highest-leverage GTM fixes; fill critical people gaps.</p>
+          <div class="chips">
+            <span class="chip">Blue/Green</span>
+            <span class="chip">Feature Flags</span>
+            <span class="chip">Rightsizing</span>
+            <span class="chip">Partner Co-Sell</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h4>Drive</h4>
+          <p>Monthly reviews of run-rate, latency/SLOs, forecast hygiene, and pipeline quality. Keep hybrid fast and under control.</p>
+          <div class="chips">
+            <span class="chip">SLA/SLO</span>
+            <span class="chip">Showback</span>
+            <span class="chip">Anomaly Flags</span>
+            <span class="chip">Next Best Move</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 90-day uplift -->
+    <section class="section narrative">
+      <h2 class="section-title">90-Day Uplift Plan</h2>
+      <div class="grid-3">
+        <div class="panel">
+          <h4>Weeks 0–2: Baseline & Focus</h4>
           <ul>
-            <li>End-to-end sales process mapped & simplified</li>
-            <li>Fit-for-purpose qualification (MEDDIC, BANT)</li>
-            <li>Pipeline hygiene & honest forecasting</li>
-            <li>Channel programs that scale without bloat</li>
+            <li>GTM & platform diagnostics (lightweight)</li>
+            <li>Venue candidates + GTM constraint map</li>
+            <li>Agree targets & quick-win slate</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Weeks 3–6: Execute Quick Wins</h4>
+          <ul>
+            <li>Rightsize 3–5 workloads / commitments</li>
+            <li>ICP/messaging refresh + stage hygiene</li>
+            <li>Fill 1–2 critical roles via Talent Hub</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Weeks 7–12: Scale & Lock-In</h4>
+          <ul>
+            <li>Guardrails live (ID, tags, budgets, SLO)</li>
+            <li>Partner motions & co-sell rhythm</li>
+            <li>Exec deck: outcomes + next 2 quarters</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sales consulting deeper -->
+    <section class="section narrative" id="sales-consulting">
+      <h2 class="section-title">Sales Consulting: People &amp; Process</h2>
+      <p class="lead">Predictable revenue = clear roles, honest pipeline, enforceable process, and enablement that’s used on calls — not filed.</p>
+      <div class="grid-2">
+        <div class="panel">
+          <h4>People</h4>
+          <ul>
+            <li>Coverage model, role charters, and scorecards</li>
+            <li>Enablement: discovery, positioning, objection handling</li>
+            <li>Leadership rewiring via Dynamic Imprinting</li>
+            <li>Comp & SPIFFs aligned to behaviour change</li>
+            <li>Talent Hub placements (ICs & leadership)</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Process</h4>
+          <ul>
+            <li>Stage definitions & entry/exit criteria</li>
+            <li>Qualification (MEDDIC/MEDDPICC fit-for-purpose)</li>
+            <li>Pipeline hygiene & forecast discipline</li>
+            <li>Partner program design & co-sell plays</li>
             <li>CRM configured for visibility & accountability</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Engagement models + Outcomes (compact) -->
+    <!-- Artifacts you keep -->
     <section class="section narrative">
-      <h2 class="section-title">How We Engage</h2>
-      <div class="grid-2">
+      <h2 class="section-title">Artifacts You Keep</h2>
+      <div class="grid-3">
         <div class="panel">
-          <h3>Engagement Models</h3>
+          <h4>GTM</h4>
           <ul>
-            <li>Fractional CRO (interim leadership)</li>
-            <li>Advisory Retainer & governance cadence</li>
-            <li>Targeted sprints (pipeline build, GTM launch)</li>
-            <li>Consulting + Talent integration to close gaps</li>
+            <li>ICP & value narrative</li>
+            <li>Stage map + entry/exit criteria</li>
+            <li>Partner playbook & co-sell guide</li>
           </ul>
         </div>
         <div class="panel">
-          <h3>Outcomes We Drive</h3>
+          <h4>Platform</h4>
           <ul>
-            <li>Shorter cycles & higher win-rates</li>
-            <li>Forecast accuracy you can run the business on</li>
-            <li>Rep productivity uplift in 90 days</li>
-            <li>Partner-led revenue that scales</li>
+            <li>Per-workload venue decision + TCO (12/36m)</li>
+            <li>Guardrails: ID, tagging, budgets, backup/DR</li>
+            <li>FinOps dashboards + anomaly rules</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>People</h4>
+          <ul>
+            <li>Role charters & scorecards</li>
+            <li>Enablement kits (talk tracks, call plans)</li>
+            <li>Org roadmap + hiring plan</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Why CoreCloud (kept concise, less “blocky”) -->
+    <!-- Signals you might need us -->
     <section class="section narrative">
-      <h2 class="section-title">Why CoreCloud</h2>
-      <ul>
-        <li><strong>Strategic operators:</strong> boardroom-tested, delivery-obsessed.</li>
-        <li><strong>Outcome over optics:</strong> measured by results, not slide count.</li>
-        <li><strong>Independent & pragmatic:</strong> vendor-neutral, SA context.</li>
-        <li><strong>Partner collective:</strong> specialists accelerate value without adding bloat.</li>
+      <h2 class="section-title">Signals You Might Need Us</h2>
+      <ul class="checklist">
+        <li>High cloud bill, low elasticity; DR/compliance risk unclear</li>
+        <li>Forecast swings weekly; partner revenue is ad-hoc</li>
+        <li>Deals stall between stages; no common qualification</li>
+        <li>Too many vendors; no single operating rhythm</li>
+        <li>Good strategy on paper, slow value in production</li>
       </ul>
-      <div class="cta-wrap">
-        <a href="contact.html" class="cta-btn">Start a Conversation</a>
+    </section>
+
+    <!-- Results & Benchmarks -->
+    <section class="section narrative">
+      <h2 class="section-title">Results & Benchmarks</h2>
+      <div class="metrics">
+        <div class="metric"><span>Run-rate reduction on steady workloads</span><b>20–40%</b></div>
+        <div class="metric"><span>Latency improvement on data/analytics</span><b>25–50%</b></div>
+        <div class="metric"><span>Forecast accuracy (within ±10%)</span><b>90 days</b></div>
+        <div class="metric"><span>Pipeline hygiene (stale opps removal)</span><b>&gt;30% in 6 weeks</b></div>
+        <div class="metric"><span>Partner-sourced revenue contribution</span><b>+10–25 pts</b></div>
       </div>
     </section>
+
+    <!-- Case snapshots (compact) -->
+    <section class="section narrative">
+      <h2 class="section-title">Case Snapshots</h2>
+      <p><strong>ERP Cost Reset:</strong> Re-venue placement to hosted private cloud with Azure burst for peak. <em>−32% run-rate</em>, DR bundled, zero disruption to month-end.</p>
+      <p><strong>Trading Analytics:</strong> On-prem GPU + S3-compatible store; cloud for global insights. <em>−48% latency</em>, faster model refresh.</p>
+      <p><strong>Payments Core Migration:</strong> Blue/green + feature flags. <em>Zero-downtime cutover</em>, lower incident rate post-move.</p>
+      <p><strong>Sales Reset:</strong> ICP & stage hygiene, MEDDPICC, partner co-sell. <em>Win-rate up, forecast variance down</em> in two quarters.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section narrative">
+      <h2 class="section-title">FAQ</h2>
+      <h3>Are you vendor-neutral?</h3>
+      <p>Yes. We design for the workload and business outcome — across cloud, hosted, and on-prem — with clear trade-offs.</p>
+      <h3>How quickly do we see value?</h3>
+      <p>Within the first month we target self-funding quick wins (spend, latency, or sales hygiene) that pay for the next steps.</p>
+      <h3>Can you work with our partners?</h3>
+      <p>We prefer it. Our partner collective accelerates delivery; we’ll also integrate your preferred vendors.</p>
+      <h3>Do you stay on to run it?</h3>
+      <p>We can. Options include advisory cadence, embedded operators, and managed services through our collective.</p>
+    </section>
+
+    <div class="cta-wrap">
+      <a href="contact.html" class="cta-btn">Book an Intro Call</a>
+    </div>
   </main>
 
   <!-- Footer -->
