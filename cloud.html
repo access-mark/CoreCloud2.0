@@ -3,69 +3,57 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cloud — Public Cloud Where It Wins | CoreCloud</title>
+  <title>Cloud Suite – Public Cloud Where It Wins | CoreCloud</title>
   <meta name="description" content="Public cloud where it wins. We modernise and operate AWS, Azure, and Databricks with guardrails and FinOps — as part of a hybrid estate with hosted/on-prem for predictable, low-latency, compliant run." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
-  <link rel="canonical" href="https://www.corecloudza.com/cloud.html" />
-  <meta property="og:title" content="Cloud — Public Cloud Where It Wins | CoreCloud" />
-  <meta property="og:description" content="Modernise and operate AWS, Azure, and Databricks with guardrails and FinOps — as part of a hybrid estate." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.corecloudza.com/cloud.html" />
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png" />
 
   <link rel="stylesheet" href="assets/css/styles.css?v=6" />
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/images/cloud-banner.png" fetchpriority="high">
 
   <style>
-    /* Page rhythm */
-    .cloud-page .section{ margin:2rem 0 !important; }
-    .cloud-page .section-title{ margin-bottom:.85rem !important; }
+    .cloud-page .hero-title{ font-size:2rem; color:var(--dark-blue); font-weight:700; text-align:center; margin:2.5rem auto 1rem; }
+    .cloud-columns{ display:flex; flex-wrap:wrap; gap:3rem; justify-content:center; margin-top:3rem; }
+    .cloud-column{ flex:1; min-width:300px; }
+    .card-group{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:1.5rem; }
 
-    .cloud-page .hero-title{
-      font-size:2rem; color:var(--dark-blue); font-weight:700;
-      text-align:center; margin:2.2rem auto .8rem;
-    }
-
-    /* Hybrid callout under hero */
-    .hybrid-callout { max-width:1000px; margin:0 auto 1.5rem; text-align:center; }
-
-    /* Vendor columns */
-    .cloud-columns{ display:flex; flex-wrap:wrap; gap:2.25rem; justify-content:center; margin-top:1.5rem; }
-    .cloud-column{ flex:1; min-width:320px; }
-    .card-group{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:1.25rem; }
-
-    /* Brand-consistent vendor cards (light look; vendor color on headings only) */
+    /* Brand-consistent vendor cards (keep CoreCloud card look; vendor color only on headings) */
     .aws-card, .azure-card, .databricks-card{
-      background:#fff !important; border:2px solid var(--dark-blue); border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,.06); padding:1.25rem;
-      display:flex; flex-direction:column; gap:.8rem;
+      background:#fff !important; border:2px solid var(--dark-blue); border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,.06); padding:1.5rem;
+      display:flex; flex-direction:column; gap:1rem;
     }
-    .aws-card h3{ color:#ff9900; margin:.1rem 0 .25rem; }
-    .azure-card h3{ color:#007fff; margin:.1rem 0 .25rem; }
-    .databricks-card h3{ color:#ff3621; margin:.1rem 0 .25rem; }
-    .aws-card p, .azure-card p, .databricks-card p{ color:var(--text-gray); margin:0; }
+    .aws-card h3{ color:#ff9900; }
+    .azure-card h3{ color:#007fff; }
+    .databricks-card h3{ color:#ff3621; }
+    .aws-card p, .azure-card p, .databricks-card p{ color:var(--text-gray); }
     .aws-card a.cta-btn, .azure-card a.cta-btn, .databricks-card a.cta-btn{
+      /* use standard CoreCloud CTA */
       background:var(--primary-blue) !important; color:#fff !important;
     }
-
-    /* Narrative: Operate Cloud Well */
-    .cloud-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .cloud-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
-    .cloud-page .narrative ul{ margin:.25rem 0 0 1.2rem; }
-    .cloud-page .narrative li{ margin:.32rem 0; }
 
     /* CTA wrapper */
     .cta-card{ background:none !important; box-shadow:none !important; border:none !important; padding:0 !important; }
     .cta-card .cta-btn{ width:100%; display:block; margin:0; border:none !important; }
 
-    /* Nav squeeze (labels are shortened) */
-    nav.desktop-nav { gap:.55rem; }
-    nav.desktop-nav .nav-btn { font-size:.78rem; padding:.30rem .50rem; }
+    /* Small helper for the hybrid callout under hero */
+    .hybrid-callout { max-width:1000px; margin:0 auto; text-align:center; }
 
-    /* Footer phone always white (safety if global not cached yet) */
-    footer .footer-right a[href^="tel:"]{ color:#fff !important; text-decoration:none; font-weight:500; }
-    footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
+    /* Align "Operate Cloud Well" (and any .narrative blocks) with the main content grid */
+    .cloud-page .narrative{
+      max-width: calc(var(--container) + 200px) !important; /* same as .content */
+      margin: 0 auto !important;
+      padding: 0 1.5rem !important; /* same side padding as .content */
+    }
+    .cloud-page .narrative p,
+    .cloud-page .narrative ul{
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cloud-page .narrative ul{
+      padding-left: 1.2rem;
+      margin-left: 0;
+    }
   </style>
 </head>
 
@@ -78,18 +66,17 @@
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Shortened labels -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULT</a>
-        <a href="cloud.html" class="nav-btn active" aria-current="page">CLOUD</a>
-        <a href="finops.html" class="nav-btn">FINOPS</a>
+        <a href="consulting.html" class="nav-btn">CONSULTING</a>
+        <a href="cloud.html" class="nav-btn active" aria-current="page">CLOUD SUITE</a>
+        <a href="finops.html" class="nav-btn">FINOPS &amp; GOVERNANCE</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
+        <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
+        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="blog.html" class="nav-btn">BLOG</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
@@ -97,15 +84,15 @@
 
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULT</a>
-        <a href="cloud.html" class="active" aria-current="page">CLOUD</a>
-        <a href="finops.html">FINOPS</a>
+        <a href="consulting.html">CONSULTING</a>
+        <a href="cloud.html" class="active" aria-current="page">CLOUD SUITE</a>
+        <a href="finops.html">FINOPS &amp; GOVERNANCE</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEV</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
         <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE/LAUNCH</a>
-        <a href="dynamic-imprinting.html">IMPRINTING</a>
+        <a href="talent-relaunch.html">RE / LAUNCH</a>
+        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html">BLOG</a>
         <a href="contact.html">CONTACT</a>
@@ -119,41 +106,27 @@
   </div>
 
   <main class="content">
-    <h1 class="hero-title">Cloud — Public Cloud Where It Wins</h1>
-    <p class="hybrid-callout">
-      One venue cannot win on cost, performance, and risk at the same time. <strong>Cloud wins for elasticity, services, and global reach.</strong>
-      We place those workloads on AWS and Azure; steady, regulated, or latency-critical systems often run better on
-      <a href="hosting-private-cloud.html">Hosted/On-Prem</a>. Hybrid by design — governed by default.
+    <h1 class="hero-title">Cloud Suite — Public Cloud Where It Wins</h1>
+    <p class="hybrid-callout" style="font-size:1.05rem; color:#444; line-height:1.7; margin-bottom:2rem;">
+      One venue cannot win on cost, performance, and risk at the same time. <strong>Cloud wins for elasticity, global reach, and rich managed services.</strong>
+      We put those workloads on AWS and Azure; steady, regulated, or latency-critical workloads often run better on <a href="hosting-private-cloud.html">Hosted or On-Prem</a>. Hybrid by design — governed by default.
     </p>
 
-    <!-- Why Cloud (for this page specifically) -->
-    <section class="section">
+    <!-- Why Cloud (framing for this page specifically) -->
+    <section class="section" style="margin-top:2rem;">
       <h2 class="section-title">When Cloud Is the Best Venue</h2>
       <div class="card-grid force-4">
         <div class="card"><h3>Elastic demand</h3><p>Seasonal/peaky workloads, serverless, event-driven, burst compute.</p></div>
-        <div class="card"><h3>Modern services</h3><p>Managed databases, analytics, AI/ML, messaging, and integration.</p></div>
+        <div class="card"><h3>Modern services</h3><p>Fully-managed databases, analytics, AI/ML, messaging, and integration.</p></div>
         <div class="card"><h3>Global reach</h3><p>Low-friction expansion and multi-region patterns for scale and resilience.</p></div>
         <div class="card"><h3>Speed with guardrails</h3><p>Landing zones, identity, policies, and FinOps so teams can move fast safely.</p></div>
       </div>
     </section>
 
-    <!-- Operate Cloud Well (narrative, non-blocky) -->
-    <section class="section narrative">
-      <h2 class="section-title">Operate Cloud Well</h2>
-      <p class="lead">Modernisation without control just moves problems. We wire in a run model teams actually use.</p>
-      <ul>
-        <li><strong>Landing zones &amp; identity:</strong> account/subscription structure, network, SSO, and least-privilege by default.</li>
-        <li><strong>Policy-as-code:</strong> guardrails for regions, SKUs, data residency, backups, and encryption — enforced, not emailed.</li>
-        <li><strong>Observability &amp; SLOs:</strong> metrics, traces, logs, runbooks, and error budgets that keep the lights on.</li>
-        <li><strong>Resilience patterns:</strong> backup/DR tested, multi-AZ/region where it pays, chaos drills where it matters.</li>
-        <li><strong>FinOps cadence:</strong> tags, budgets, anomaly flags, rightsizing, and showback that drive behaviour change.</li>
-      </ul>
-    </section>
-
     <!-- AWS / Azure / Databricks columns -->
     <div class="cloud-columns">
       <div class="cloud-column">
-        <h2 class="section-title" style="margin-bottom:1.1rem;">AWS</h2>
+        <h2 class="section-title" style="margin-bottom:1.5rem;">AWS</h2>
         <div class="card-group">
           <div class="card aws-card">
             <h3>AWS Migration</h3>
@@ -179,7 +152,7 @@
       </div>
 
       <div class="cloud-column">
-        <h2 class="section-title" style="margin-bottom:1.1rem;">Azure</h2>
+        <h2 class="section-title" style="margin-bottom:1.5rem;">Azure</h2>
         <div class="card-group">
           <div class="card azure-card">
             <h3>Azure Migration</h3>
@@ -205,7 +178,7 @@
       </div>
 
       <div class="cloud-column">
-        <h2 class="section-title" style="margin-bottom:1.1rem;">Databricks</h2>
+        <h2 class="section-title" style="margin-bottom:1.5rem;">Databricks</h2>
         <div class="card-group">
           <div class="card databricks-card">
             <h3>Lakehouse Architecture</h3>
@@ -232,12 +205,12 @@
     </div>
 
     <!-- Cross-link to Hosting for steady/local workloads -->
-    <section class="section" style="margin-top:2.5rem; text-align:center;">
+    <section class="section" style="margin-top:3rem; text-align:center;">
       <h2 class="section-title">Not Every Workload Belongs in Hyperscale</h2>
-      <p style="max-width:900px; margin:0 auto 1.2rem;">
+      <p style="max-width:900px; margin:0 auto 1.5rem;">
         Steady ERP, DB, and integration systems often run cheaper and closer to users on Hosted or On-Prem — with clear SLAs and DR.
       </p>
-      <div class="cloud-columns" style="margin-top:1rem;">
+      <div class="cloud-columns" style="margin-top:1.5rem;">
         <div class="cloud-column">
           <div class="card-group">
             <div class="card cta-card">
@@ -248,10 +221,10 @@
       </div>
     </section>
 
-    <!-- Delivery ecosystem -->
-    <section class="section" style="margin-top:3rem;">
+    <!-- Delivery ecosystem (keep minimal copy) -->
+    <section class="section" style="margin-top:4rem;">
       <h2 class="section-title">Our Delivery Ecosystem</h2>
-      <p style="max-width:900px; margin:0 auto 1.5rem; text-align:center;">
+      <p style="max-width:900px; margin:0 auto 2rem; text-align:center;">
         We deliver with a curated partner collective — deep expertise, measured outcomes, and accountability in production.
       </p>
     </section>
