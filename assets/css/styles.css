@@ -677,3 +677,21 @@ nav.desktop-nav .nav-btn {
   font-size: .78rem;       /* was .82rem */
   padding: .30rem .50rem;  /* was .35rem .6rem */
 }
+/* Home — align the Hybrid section with the main content grid */
+.home-page .best-venue-section{
+  max-width: calc(var(--container) + 200px) !important;
+  margin: 0 auto !important;
+  padding: 0 1.5rem 0 !important; /* same side padding as .content */
+}
+
+/* Keep the copy readable and centered */
+.home-page .best-venue-section p{
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Tighten heading spacing to match your rhythm */
+.home-page .best-venue-section .section-title{
+  margin-bottom: .6rem !important;
+}
