@@ -2,41 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CoreCloud Consulting Partnerships | Execution & Sales Enablement</title>
-  <meta name="description" content="CoreCloud partners with leading firms to deliver practical sales enablement, execution frameworks, and strategic consulting for South African businesses."/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Consulting — Go-to-Market & Execution | CoreCloud</title>
+  <meta name="description" content="Operator-led consulting that connects GTM, people, and platform. Practical sales enablement and execution frameworks that land results in South Africa."/>
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=8"/>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
 
+  <!-- Page-scoped, lightweight narrative styling -->
   <style>
     .consulting-page .hero-title{
       font-size:2rem; color:var(--dark-blue); font-weight:700;
-      text-align:center; margin:2.5rem auto 1rem;
+      text-align:center; margin:2rem auto .75rem;
     }
-    .consulting-page .card{ border:2px solid var(--dark-blue); }
-    .consulting-page .card-grid.force-4{
-      display:grid; grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:2rem; padding:0 2rem; max-width:1200px; margin:0 auto;
-    }
-    @media (max-width:1199px){ .consulting-page .card-grid.force-4{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
-    @media (max-width:767px){ .consulting-page .card-grid.force-4{ grid-template-columns:1fr; } }
+    .consulting-page .intro { text-align:center; max-width:1000px; margin:0 auto 1.25rem; padding:0 1rem; }
+    .consulting-page .section{ margin:2rem 0 !important; }
+    .consulting-page .section-title{ margin-bottom:.75rem !important; }
 
-    .consulting-page .cta-row{ margin-top:1rem; }
-    .consulting-page .cta-row .cta-card{ grid-column:1 / -1; border:none !important; background:transparent; padding:0; }
-    .consulting-page .cta-row .cta-btn{
-      display:block; width:100%; text-align:center;
-      padding:14px 20px; border-radius:6px;
-      background:var(--dark-blue); color:#fff; font-weight:600; text-decoration:none;
-      transition:background-color 0.3s ease;
+    /* Narrative blocks */
+    .consulting-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .consulting-page .narrative h3{ font-size:1.12rem; font-weight:700; color:var(--dark-blue); margin:.75rem 0 .3rem; }
+    .consulting-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
+    .consulting-page .narrative ul{ margin:.3rem 0 0 1.25rem; }
+    .consulting-page .narrative li{ margin:.35rem 0; }
+
+    /* Simple responsive 2-column lists without heavy cards */
+    .consulting-page .grid-2{ display:grid; gap:1rem; }
+    @media (min-width:900px){ .consulting-page .grid-2{ grid-template-columns: 1fr 1fr; } }
+    .consulting-page .panel{
+      background:#fff; border:1px solid rgba(0,79,145,.18); border-radius:10px;
+      padding:1rem 1.1rem; box-shadow:0 2px 6px rgba(0,0,0,.04);
     }
-    .consulting-page .cta-row .cta-btn:hover{ background:var(--primary-blue); }
+    .consulting-page .panel h3{ margin:.1rem 0 .4rem; }
+
+    /* Pillars row — light, non-card chips */
+    .consulting-page .pillars{ max-width:1000px; margin:0 auto; padding:0 1rem; display:flex; flex-wrap:wrap; gap:.5rem; justify-content:center; }
+    .consulting-page .pill{
+      border:1px solid rgba(0,79,145,.2); background:#fff; border-radius:999px;
+      padding:.5rem .9rem; font-weight:700; color:#0b3d72;
+    }
+
+    /* CTA row */
+    .consulting-page .cta-wrap{ display:flex; justify-content:center; margin-top:.75rem; }
   </style>
 </head>
 
@@ -44,22 +57,23 @@
   <!-- Header -->
   <div class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" fetchpriority="high">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high">
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
+      <!-- Shortened nav labels -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn active" aria-current="page">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="finops.html" class="nav-btn">FINOPS &amp; GOVERNANCE</a>
+        <a href="consulting.html" class="nav-btn active" aria-current="page">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
+        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="blog.html" class="nav-btn">BLOG</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
@@ -67,13 +81,15 @@
 
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
-        <a href="consulting.html" class="active" aria-current="page">CONSULTING</a>
-        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="consulting.html" class="active" aria-current="page">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
+        <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="application-development.html">APP DEV</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html">BLOG</a>
         <a href="contact.html">CONTACT</a>
@@ -85,113 +101,150 @@
   <div class="hero-media">
     <img
       src="assets/images/consulting-bannerimage.png"
-      alt="CoreCloud Consulting — Execution & Sales Enablement"
-      decoding="async"
-      loading="eager"
+      alt="CoreCloud Consulting — Operator-led execution"
+      decoding="async" loading="eager"
       width="1920" height="400">
   </div>
 
   <main class="content">
-    <h1 class="hero-title">Consulting Partnerships That Deliver Real Results</h1>
-    <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">
-      At CoreCloud, execution means action that delivers real results. We partner with specialists who help turn strategies into measurable outcomes.
+    <h1 class="hero-title">Consulting That Lands Results</h1>
+    <p class="intro">
+      We connect <strong>GTM</strong>, <strong>people</strong>, and <strong>platform</strong> so strategy turns into revenue. No buzzwords. Just operator-led execution that moves the needle in South Africa.
     </p>
 
-    <h2 class="section-title">The Four Pillars of Execution</h2>
-    <div class="card-grid force-4" style="margin-top:1rem;">
-      <div class="card"><h2>Cloud</h2><p>We build practical cloud strategies, modernise systems, align vendors, and design models that help businesses stay ahead.</p></div>
-      <div class="card"><h2>People</h2><p>We help build skilled teams, shaping roles and structures to support new ways of working and keep performance high.</p></div>
-      <div class="card"><h2>Process</h2><p>We bring discipline to go-to-market plans, ensure commercial clarity, and turn strategy into real business value.</p></div>
-      <div class="card"><h2>Partnerships</h2><p>We work with specialist partners who add expertise and help us deliver faster, better results.</p></div>
-    </div>
-
+    <!-- Light “pillars” chips instead of a heavy card grid -->
     <section class="section">
-      <h2 class="section-title">Our Advisory Approach</h2>
-      <p style="text-align:center; max-width:900px; margin:0 auto 1rem;">
-        We skip the buzzwords and focus on practical strategy. CoreCloud works with boards, CIOs, and business leaders to turn vision into results.
-      </p>
-      <div style="display:flex; justify-content:center; margin-top:1rem;">
-        <ul class="bullets" style="line-height:1.8; text-align:left; max-width:700px;">
-          <li>Business-aligned cloud and technology strategies</li>
-          <li>Sales and go-to-market diagnostics and uplift</li>
-          <li>Platform architecture and vendor rationalisation</li>
-          <li>Talent and capability readiness assessments</li>
-          <li>Optimised delivery models and strategic partnerships</li>
-          <li>Independent board-level advisory</li>
-        </ul>
+      <h2 class="section-title">The Four Pillars of Execution</h2>
+      <div class="pillars">
+        <span class="pill">Cloud</span>
+        <span class="pill">People</span>
+        <span class="pill">Process</span>
+        <span class="pill">Partnerships</span>
       </div>
     </section>
 
-    <section class="section" id="sales-consulting">
+    <!-- Narrative: What / How / Where we focus -->
+    <section class="section narrative">
+      <h2 class="section-title">What We Do</h2>
+      <h3>GTM & Commercial</h3>
+      <p>Sharper ICPs, value messaging, and partner motions that raise win-rates. Forecasts you can trust and a pipeline you can govern.</p>
+
+      <h3>Platform & Vendor Strategy</h3>
+      <p>Venue-neutral decisions across cloud, hosted, and on-prem; right sizing vendors and spend to outcomes — not slideware.</p>
+
+      <h3>People & Capability</h3>
+      <p>Teams designed for how you sell and deliver today. We fill gaps fast through Talent Hub and build habits that stick via Dynamic Imprinting.</p>
+
+      <div class="cta-wrap">
+        <a href="contact.html" class="cta-btn">Talk to Consulting</a>
+      </div>
+    </section>
+
+    <!-- Sales Consulting: People + Process (simple 2-col panels) -->
+    <section class="section narrative" id="sales-consulting">
       <h2 class="section-title">Sales Consulting: People &amp; Process</h2>
-      <p style="text-align:center; max-width:900px; margin:0 auto 1.5rem;">We build the sales capacity and discipline that drive predictable revenue — fast.</p>
-      <div class="card-grid force-4">
-        <div class="card"><h2>People</h2><ul style="margin-left:1rem; line-height:1.5; text-align:left;"><li>Assess team skills, coverage, role clarity &amp; leadership gaps</li><li>Place proven talent via our Talent Hub</li><li>Practical enablement: discovery, positioning, objection handling</li><li>Leadership rewiring via Dynamic Imprinting</li><li>Compensation &amp; incentives aligned to outcomes</li></ul></div>
-        <div class="card"><h2>Process</h2><ul style="margin-left:1rem; line-height:1.5; text-align:left;"><li>Map &amp; optimise end-to-end sales process</li><li>Qualification frameworks that fit (MEDDIC, BANT)</li><li>Pipeline discipline &amp; accurate forecasting</li><li>Refined GTM, ICPs &amp; value messaging</li><li>Channel &amp; partner programs that scale</li><li>CRM configured for visibility &amp; accountability</li></ul></div>
-        <div class="card"><h2>Engagement Models</h2><ul style="margin-left:1rem; line-height:1.5; text-align:left;"><li>Fractional CRO (interim sales leadership)</li><li>Sales Advisory Retainer &amp; governance</li><li>Project sprints (pipeline build, GTM launch)</li><li>Consulting + Talent integration to fill gaps fast</li></ul></div>
-        <div class="card"><h2>Outcomes We Drive</h2><ul style="margin-left:1rem; line-height:1.5; text-align:left;"><li>Shorter sales cycles, higher win rates</li><li>Forecasting you can trust</li><li>Rep productivity uplift within 90 days</li><li>Partner-led revenue that scales without bloat</li></ul></div>
+      <p class="lead">Predictable revenue comes from clear roles, disciplined process, and enablement that’s actually used.</p>
+
+      <div class="grid-2">
+        <div class="panel">
+          <h3>People</h3>
+          <ul>
+            <li>Team skills, coverage & role clarity</li>
+            <li>Practical enablement: discovery, positioning, objections</li>
+            <li>Leadership rewiring via Dynamic Imprinting</li>
+            <li>Comp plans aligned to outcomes</li>
+            <li>Talent Hub placements that land impact</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Process</h3>
+          <ul>
+            <li>End-to-end sales process mapped & simplified</li>
+            <li>Fit-for-purpose qualification (MEDDIC, BANT)</li>
+            <li>Pipeline hygiene & honest forecasting</li>
+            <li>Channel programs that scale without bloat</li>
+            <li>CRM configured for visibility & accountability</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2 class="section-title">Why Clients Choose CoreCloud</h2>
-      <div class="card-grid force-4">
-        <div class="card"><h2>Executive-Grade Insights</h2><p>Boardroom experience from global tech giants and high-growth ventures, delivering insights that create real impact.</p></div>
-        <div class="card"><h2>Outcome-Obsessed</h2><p>We measure success by results, not hours. Every project is built to deliver tangible impact.</p></div>
-        <div class="card"><h2>Agile &amp; Independent</h2><p>Lean and vendor-neutral. We recommend only what’s best for your business.</p></div>
-        <div class="card"><h2>South African Context</h2><p>We know the market, its players, and how to win here.</p></div>
-        <div class="card"><h2>Strategic Operators</h2><p>We’ve sat in boardrooms, built strategies, and delivered under pressure. No buzzwords. Just results.</p></div>
-        <div class="card"><h2>Speed &amp; Scale</h2><p>We turn analysis into action and scale solutions to fit enterprise goals.</p></div>
-        <div class="card"><h2>Proven Partner Ecosystem</h2><p>Partners expand our capability and accelerate delivery.</p></div>
-        <div class="card"><h2>Financial Pragmatism</h2><p>Respect for budgets. Real ROI. No hidden costs.</p></div>
+    <!-- Engagement models + Outcomes (compact) -->
+    <section class="section narrative">
+      <h2 class="section-title">How We Engage</h2>
+      <div class="grid-2">
+        <div class="panel">
+          <h3>Engagement Models</h3>
+          <ul>
+            <li>Fractional CRO (interim leadership)</li>
+            <li>Advisory Retainer & governance cadence</li>
+            <li>Targeted sprints (pipeline build, GTM launch)</li>
+            <li>Consulting + Talent integration to close gaps</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Outcomes We Drive</h3>
+          <ul>
+            <li>Shorter cycles & higher win-rates</li>
+            <li>Forecast accuracy you can run the business on</li>
+            <li>Rep productivity uplift in 90 days</li>
+            <li>Partner-led revenue that scales</li>
+          </ul>
+        </div>
       </div>
     </section>
 
-    <section class="section">
-      <h2 class="section-title">Strategic Partnerships</h2>
-      <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">Execution takes more than expertise. We collaborate with top partners who bring specialised skills and share our drive for measurable results.</p>
-      <div class="card-grid force-4 cta-row">
-        <div class="cta-card"><a href="contact.html" class="cta-btn">Explore Sales Enablement</a></div>
+    <!-- Why CoreCloud (kept concise, less “blocky”) -->
+    <section class="section narrative">
+      <h2 class="section-title">Why CoreCloud</h2>
+      <ul>
+        <li><strong>Strategic operators:</strong> boardroom-tested, delivery-obsessed.</li>
+        <li><strong>Outcome over optics:</strong> measured by results, not slide count.</li>
+        <li><strong>Independent & pragmatic:</strong> vendor-neutral, SA context.</li>
+        <li><strong>Partner collective:</strong> specialists accelerate value without adding bloat.</li>
+      </ul>
+      <div class="cta-wrap">
+        <a href="contact.html" class="cta-btn">Start a Conversation</a>
       </div>
     </section>
   </main>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-left">
-      <p><strong>CoreCloud (Pty) Ltd</strong></p>
-      <p>Sandton<br>Johannesburg<br>South Africa</p>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton<br>Johannesburg<br>South Africa</p>
+      </div>
+
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-right">
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+      </div>
     </div>
 
-    <div class="footer-middle">
-      <h4>Stay Informed</h4>
-      <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-      <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-        <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
-        <label class="visually-hidden" for="newsletter_email">Email</label>
-        <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
-        <button type="submit" class="cta-btn">Subscribe</button>
-      </form>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
     </div>
-
-    <div class="footer-right">
-      <p><strong>Contact</strong></p>
-      <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-      <p>Phone: <a href="mailto:sales@corecloudza.com">{+27) 011 568 8667</a></p>
-      <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 CoreCloud. All rights reserved. |
-      <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-      <a href="terms.html" class="legal-link">Terms</a>
-    </p>
-  </div>
-</footer>
+  </footer>
 </body>
 </html>
