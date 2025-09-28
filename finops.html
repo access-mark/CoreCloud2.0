@@ -68,6 +68,25 @@
     nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
     footer .footer-right a[href^="tel:"]{ color:#fff !important; text-decoration:none; font-weight:500; }
     footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
+
+    /* ---------- Bullet indent fix (panels + CTA cards) ---------- */
+    .finops-page .panel ul,
+    .finops-page .cta-cards .card ul{
+      margin: .35rem 0 0 1.25rem !important;   /* add left margin */
+      padding-left: 1.05rem !important;        /* push bullets away from border */
+      list-style-position: outside;
+    }
+    .finops-page .panel li,
+    .finops-page .cta-cards .card li{
+      margin: .35rem 0;                        /* breathing room per item */
+    }
+    @media (max-width: 600px){
+      .finops-page .panel ul,
+      .finops-page .cta-cards .card ul{
+        margin-left: 1.1rem;
+        padding-left: 1rem;
+      }
+    }
   </style>
 </head>
 
