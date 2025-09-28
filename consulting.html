@@ -7,9 +7,19 @@
   <meta name="description" content="Operator-grade consulting that lands change: sales execution, GTM discipline, platform modernisation, and partnerships that deliver measurable outcomes."/>
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
+  <meta name="theme-color" content="#004f91"/>
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=6"/>
+  <!-- Canonical + Social -->
+  <link rel="canonical" href="https://www.corecloudza.com/consulting.html" />
+  <meta property="og:title" content="Consulting Partnerships | CoreCloud" />
+  <meta property="og:description" content="Operator-grade consulting that lands change: sales execution, GTM discipline, platform modernisation, and partnerships that deliver measurable outcomes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.corecloudza.com/consulting.html" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/consulting-bannerimage.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Global CSS (bump version if you don’t see changes) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=7"/>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
@@ -21,64 +31,52 @@
       font-size:2rem; color:var(--dark-blue); font-weight:700;
       text-align:center; margin:2.2rem auto .8rem;
     }
-    .consulting-page .intro { text-align:center; max-width:980px; margin:0 auto 1.25rem; }
+    .consulting-page .intro { text-align:center; max-width:980px; margin:0 auto 1.1rem; }
 
     /* Narrative blocks */
     .consulting-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
     .consulting-page .narrative h3{
       font-size:1.15rem; font-weight:700; color:var(--dark-blue);
-      margin:.9rem 0 .35rem;
+      margin:.85rem 0 .35rem;
     }
-    .consulting-page .narrative p{ margin:.55rem 0; line-height:1.7; color:#444; }
+    .consulting-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
     .consulting-page .narrative .lead{ font-size:1.06rem; }
 
-    /* Signals list */
-    .signals { max-width:1000px; margin:0 auto 1.5rem; padding:0 1rem; }
+    /* Signals list (bullets, no ticks) */
+    .signals { max-width:1000px; margin:0 auto 1.4rem; padding:0 1rem; }
     .signals ul{ margin:.25rem 0 0 1.25rem; line-height:1.7; }
-    .signals li{ margin:.35rem 0; }
+    .signals li{ margin:.3rem 0; }
 
-    /* Four pillars: light cards */
-    .consulting-page .pillars{
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:1.25rem; max-width:1100px; margin:1rem auto 1.5rem; padding:0 1rem;
-    }
-    .consulting-page .pillars .card{
-      border:2px solid var(--dark-blue); background:#fff; border-radius:8px; padding:1rem 1.1rem;
-      box-shadow:0 2px 6px rgba(0,0,0,.06);
-    }
-    .consulting-page .pillars .card h3{ margin:0 0 .4rem; color:var(--primary-blue); }
-
-    /* Sales consulting detail blocks */
+    /* Lighter cards to avoid “blocky” feel */
+    .consulting-page .pillars,
     .consulting-page .detail-grid{
       display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:1.25rem; max-width:1100px; margin:1rem auto 1.5rem; padding:0 1rem;
+      gap:1.1rem; max-width:1100px; margin:1rem auto 1.4rem; padding:0 1rem;
     }
+    .consulting-page .pillars .card,
     .consulting-page .detail-grid .card{
-      border:2px solid var(--dark-blue); background:#fff; border-radius:8px; padding:1rem 1.1rem;
-      box-shadow:0 2px 6px rgba(0,0,0,.06);
+      border:1px solid rgba(0,79,145,.28); background:#fff; border-radius:10px; padding:1rem 1.1rem;
+      box-shadow:0 4px 14px rgba(0,0,0,.05);
     }
+    .consulting-page .pillars .card h3,
     .consulting-page .detail-grid .card h3{ margin:0 0 .4rem; color:var(--primary-blue); }
-    .consulting-page .detail-grid .card ul{ margin:.25rem 0 0 1.25rem; }
-    .consulting-page .detail-grid .card li{ margin:.32rem 0; }
+
+    .consulting-page .detail-grid .card ul{ margin:.2rem 0 0 1.25rem; }
+    .consulting-page .detail-grid .card li{ margin:.28rem 0; list-style:disc; }
 
     /* CTA row */
     .consulting-page .cta-row{ display:flex; justify-content:center; margin:1rem 0 0; padding:0 1rem; }
     .consulting-page .cta-btn{ min-width:240px; }
 
-    /* Replace any tick styles with plain bullets */
-    .consulting-page .checklist{ margin:.25rem 0 0 1.25rem; padding:0; }
-    .consulting-page .checklist li{ list-style:disc; margin:.32rem 0; padding-left:0; }
-    .consulting-page .checklist li::before{ content:none; }
+    /* Tighten section rhythm on this page */
+    .consulting-page .section{ margin:1.9rem 0 !important; }
+    .consulting-page .section-title{ margin-bottom:.75rem !important; }
 
-    /* Footer phone link = white */
+    /* Footer phone link = white (page-safe; also present globally) */
     footer .footer-right a[href^="tel:"]{
       color:#fff !important; text-decoration:none; font-weight:500;
     }
     footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
-
-    /* Tighten section rhythm on this page */
-    .consulting-page .section{ margin:2rem 0 !important; }
-    .consulting-page .section-title{ margin-bottom:.85rem !important; }
   </style>
 </head>
 
@@ -161,7 +159,7 @@
       <div class="pillars">
         <div class="card"><h3>Cloud</h3><p>Practical strategy, landing zones, and modernisation across AWS/Azure, hosted, and on-prem — each workload where it wins.</p></div>
         <div class="card"><h3>People</h3><p>Right roles, clear coverage, practical enablement, and leaders who drive the rhythm.</p></div>
-        <div class="card"><h3>Process</h3><p>GTM discipline, qualification that fits, CRM for visibility, and forecasting you can trust.</p></div>
+        <div class="card"><h3>Process</h3><p>GTM discipline, right-fit qualification, CRM for visibility, and forecasting you can trust.</p></div>
         <div class="card"><h3>Partnerships</h3><p>Specialist partners wired in for speed and scale — vendor-neutral, outcome-first.</p></div>
       </div>
     </section>
@@ -176,7 +174,7 @@
       <div class="detail-grid">
         <div class="card">
           <h3>People</h3>
-          <ul class="checklist">
+          <ul>
             <li>Assess skills, coverage, role clarity &amp; leadership gaps</li>
             <li>Place proven talent via the CoreCloud Talent Hub</li>
             <li>Enablement that works: discovery, positioning, objection handling</li>
@@ -187,7 +185,7 @@
 
         <div class="card">
           <h3>Process</h3>
-          <ul class="checklist">
+          <ul>
             <li>Map &amp; optimise end-to-end sales motions</li>
             <li>Right-fit qualification (MEDDIC, BANT) for your market</li>
             <li>Pipeline hygiene &amp; forecast discipline</li>
@@ -198,7 +196,7 @@
 
         <div class="card">
           <h3>Engagement Models</h3>
-          <ul class="checklist">
+          <ul>
             <li>Fractional CRO (interim sales leadership)</li>
             <li>Advisory retainer &amp; governance cadence</li>
             <li>Project sprints: pipeline build, GTM launch, forecast reset</li>
@@ -208,7 +206,7 @@
 
         <div class="card">
           <h3>Outcomes We Drive</h3>
-          <ul class="checklist">
+          <ul>
             <li>Shorter cycles, higher win rates</li>
             <li>Forecasts you can take to the board</li>
             <li>Rep productivity uplift inside 90 days</li>
