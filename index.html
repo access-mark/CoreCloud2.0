@@ -25,23 +25,33 @@
   <link rel="preload" as="image" href="assets/images/index-bannerimage.png" imagesizes="100vw" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png">
 
-  <!-- Page-only tiny tweaks -->
+  <!-- Page-only tweaks: narrative layout + tighter rhythm -->
   <style>
-    .home-page .hero-intro{ text-align:center; padding:1.5rem 1rem 0 !important; margin:0 !important; }
-    .card-grid.force-4 .cta-wide{ grid-column: 1 / -1; }
-    .card-grid a, .card-grid a:hover, .card-grid a:visited{ text-decoration:none; color:inherit; }
-    .imprinting .cta-btn{ color:#fff !important; }
-    .about-corecloud{ margin:2rem auto 2rem !important; }
-    .best-venue-section{ margin-top:4rem !important; padding-top:2rem; }
-    /* Desktop nav squeeze */
-    @media (min-width: 769px){
-      nav.desktop-nav { gap:.55rem; }
-      nav.desktop-nav .nav-btn { font-size:.78rem; padding:.30rem .50rem; }
+    .home-page .hero-intro{ text-align:center; padding:1.25rem 1rem 0 !important; margin:0 !important; }
+    .home-page .section{ margin:2rem 0 !important; } /* tighter than global */
+    .home-page .section-title{ margin-bottom:.85rem !important; }
+    .home-page .best-venue-section{ margin-top:3rem !important; padding-top:1rem; }
+    .home-page .about-corecloud{ margin:1.5rem auto 1.75rem !important; }
+
+    /* Narrative blocks */
+    .home-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .home-page .narrative h3{
+      font-size:1.15rem; font-weight:700; color:var(--dark-blue);
+      margin:.9rem 0 .35rem;
     }
-    /* Narrative sections: readable width */
-    .narrative { max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .narrative p { font-size:1.05rem; line-height:1.7; }
-    .narrative h3 { margin-top:1.25rem; }
+    .home-page .narrative p{
+      margin:.55rem 0; line-height:1.7; color:#444;
+    }
+    .home-page .narrative .lead{ font-size:1.06rem; }
+
+    /* Recent wins list – compact, readable */
+    .home-page .wins{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .home-page .wins ul{ margin:.5rem 0 0 1.25rem; padding:0; }
+    .home-page .wins li{ margin:.4rem 0; }
+
+    /* Services grid moved to bottom; keep spacing compact */
+    .home-page .services-bottom .card-grid{ padding:0 1rem; }
+    .card-grid a, .card-grid a:hover, .card-grid a:visited{ text-decoration:none; color:inherit; }
   </style>
 </head>
 
@@ -56,35 +66,34 @@
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Short labels on desktop -->
+      <!-- Shortened nav labels -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn active" aria-current="page">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn" aria-label="Cloud Suite">CLOUD</a>
-        <a href="finops.html" class="nav-btn" aria-label="FinOps & Governance">FINOPS</a>
-        <a href="hosting-private-cloud.html" class="nav-btn" aria-label="Hosting & Private Cloud">HOSTING</a>
-        <a href="application-development.html" class="nav-btn" aria-label="Application Development">APPS</a>
-        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn">FINOPS</a>
+        <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
+        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn" aria-label="Re/Launch">RE/LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn" aria-label="Dynamic Imprinting">IMPRINTING</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="blog.html" class="nav-btn">BLOG</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Full labels on mobile -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html" class="active" aria-current="page">HOME</a>
-        <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html">CLOUD SUITE</a>
-        <a href="finops.html">FINOPS &amp; GOVERNANCE</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
+        <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="application-development.html">APP DEV</a>
         <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html">BLOG</a>
         <a href="contact.html">CONTACT</a>
@@ -100,15 +109,15 @@
   <!-- Hero copy -->
   <section class="hero-intro">
     <h1 class="hero-title">From Strategy to Revenue. From Cloud to People.</h1>
-    <p style="font-size:1.2rem; max-width:900px; margin:0 auto; color:#444;">
+    <p style="font-size:1.1rem; max-width:900px; margin:0 auto; color:#444;">
       Big ideas mean nothing without results. We help South African enterprises turn strategy into action and revenue — sharper sales execution, modernised cloud, elite ICT talent, and disciplined app delivery.
     </p>
   </section>
 
   <!-- Hybrid stance -->
-  <section id="venue-decision" class="section best-venue-section" style="padding:0 1rem 2rem; text-align:center; max-width:1000px; margin:0 auto;">
+  <section id="venue-decision" class="section best-venue-section" style="text-align:center; max-width:1000px; margin:0 auto;">
     <h2 class="section-title">Hybrid Isn’t Optional — It’s the Operating Model</h2>
-    <p style="font-size:1.05rem; color:#444; line-height:1.7; max-width:1000px; margin:0 auto 1rem;">
+    <p style="font-size:1.02rem; color:#444; line-height:1.7; max-width:1000px; margin:0 auto .5rem;">
       One venue cannot win on cost, performance, and risk at the same time. We place <strong>each workload</strong> where it wins — cloud for elasticity and services; hosted or on-prem for predictable, low-latency, compliant run.
     </p>
     <div class="cta-row" style="justify-content:center;">
@@ -118,86 +127,123 @@
 
   <main class="content">
     <!-- About -->
-    <section class="about-corecloud narrative" style="text-align:center;">
+    <section class="about-corecloud" style="padding:0 1rem 1.5rem; text-align:center; max-width:1000px;">
       <h2 class="section-title">About CoreCloud</h2>
-      <p>
-        Operators, not theorists. We’ve been under real boardroom pressure and know how to land change.
-        Sales, cloud, talent, and applications — focused on outcomes that move the needle.
+      <p style="font-size:1.02rem; color:#444; line-height:1.7; margin-bottom:0;">
+        Operators, not theorists. We’ve been under real boardroom pressure and know how to land change. Sales, cloud, talent, and applications — focused on outcomes that move the needle.
       </p>
     </section>
 
-    <!-- Focus / Method (narrative) -->
+    <!-- Our Focus & Method (narrative) -->
     <section id="focus-method-section" class="section narrative">
       <h2 class="section-title">Our Focus &amp; Method</h2>
+
       <h3>Why</h3>
-      <p>Bloated sales ops, underperforming cloud, and talent gaps stall execution. We cut noise and remove friction.</p>
+      <p class="lead">
+        SA enterprises are paying for elasticity they don’t use, running platforms that drift from standards, and missing revenue because GTM and delivery aren’t connected. We remove that friction.
+      </p>
+
       <h3>What</h3>
-      <p>Sharper sales, modernised platforms, disciplined delivery, and the right people to run it — measured in revenue and run-rate.</p>
+      <p>
+        We align four engines to a single outcome. <strong>GTM execution</strong> that sharpens pipeline, partner motions, and win-rates. <strong>Platform modernisation</strong> across AWS/Azure, hosted private cloud, and on-prem so each workload runs where it wins.
+        <strong>Talent</strong> that stabilises ops and accelerates delivery. <strong>Applications</strong> delivered with discipline — secure, observable, and maintainable from day one.
+      </p>
+
       <h3>How</h3>
-      <p>Proven GTM models, strong partners, and smart automation — with real accountability and clear operating rhythms.</p>
+      <p>
+        We run an operator’s rhythm: <em>Diagnose → Design → Do → Drive</em>. Diagnose with data (bills, telemetry, SLAs). Design venue-neutral options with clear trade-offs. Do the highest-value moves first to self-fund the rest. Drive with governance — monthly cost/perf reviews, decision logs, and change windows that respect the business calendar.
+      </p>
+
+      <h3>Principles</h3>
+      <p>
+        <strong>Workload first.</strong> No platform bias. <strong>Guardrails over gates.</strong> Teams move fast within policy.
+        <strong>Measure everything.</strong> Revenue lift, run-rate down, latency, reliability, and dev lead-time.
+        <strong>Make value obvious.</strong> Before/after, trade-offs, and next best move — executive-ready.
+      </p>
+
+      <h3>Outcomes</h3>
+      <p>
+        Typical results: 20–40% run-rate reduction on steady workloads, double-digit latency improvements for data/analytics, faster cycle time for change, and fewer incidents because ops is designed — not inherited.
+      </p>
     </section>
 
-    <!-- Venue Decision Framework (narrative) -->
+    <!-- The Venue Decision Framework (narrative) -->
     <section class="section narrative">
       <h2 class="section-title">The Venue Decision Framework</h2>
+      <p class="lead">
+        The question isn’t “cloud or not.” It’s <em>which venue per workload</em> — public cloud for elasticity and services, hosted private cloud for predictable run, or on-prem for control and locality — and how to operate the whole estate as one platform.
+      </p>
+
       <h3>1) Discover</h3>
-      <p>Inventory and baseline cost, performance, risk, and data gravity per workload.</p>
+      <p>
+        Baseline cost, performance, risk, and data gravity per workload: usage patterns, seasonality, egress, storage tiers, licensing, network paths, DR posture, and POPIA zones. Map dependencies so moves don’t break upstream processes or SLAs.
+      </p>
+
       <h3>2) Model</h3>
-      <p>Compare Cloud vs Hosted vs On-Prem on run-rate, latency, DR, and compliance to surface the winning venue.</p>
+      <p>
+        Compare Cloud vs Hosted vs On-Prem over 12/36 months. Include burst economics, commitments, co-lo fees, power, support, and people time. Add latency maps, DR patterns (RPO/RTO), and security controls so the cheapest option isn’t the riskiest.
+      </p>
+
       <h3>3) Decide</h3>
-      <p>Per-workload placement and sequencing with self-funding quick wins first.</p>
+      <p>
+        Rank each workload on five axes: cost, latency, reliability/DR, compliance, change velocity. Pick self-funding quick wins first (high cost, low elasticity), sequence by dependencies, and publish a migration playbook with clear owners and dates.
+      </p>
+
       <h3>4) Operate</h3>
-      <p>Guardrails, FinOps, and SRE-grade run so hybrid stays fast, visible, and under control.</p>
+      <p>
+        Standardise landing zones across venues: identity, networking, tagging, budgets, backups, and observability.
+        Run FinOps as a cadence (showback, anomaly flags, rightsizing) and SRE practices to protect SLOs. Monthly reviews track run-rate, latency, incidents, and the next move.
+      </p>
+
+      <h3>You get</h3>
+      <p>
+        An executive deck with options and trade-offs, a per-workload venue decision with 12/36-month TCO, a phased migration plan with risk controls, and an operating model (guardrails, dashboards, review rhythm) that keeps hybrid fast and under control.
+      </p>
     </section>
 
-    <!-- Recent Wins (narrative) -->
-    <section class="section narrative">
+    <!-- Recent Wins Through Partner Collective (narrative) -->
+    <section class="section wins">
       <h2 class="section-title">Recent Wins Through Partner Collective</h2>
-      <p><strong>-32% run-rate:</strong> ERP + SQL to Hosted Private Cloud; burst to Azure for quarter-end. DR bundled.</p>
-      <p><strong>-48% latency:</strong> Trading analytics hybridised — on-prem GPU + S3-compatible store; cloud for global insights.</p>
-      <p><strong>Zero-downtime move:</strong> Payments core migrated with blue/green and feature flags — less risk.</p>
-      <p><strong>Talent that lands it:</strong> Cloud, data, and platform engineers placed to stabilise ops and accelerate delivery.</p>
+      <ul>
+        <li><strong>−32% run-rate:</strong> ERP + SQL to hosted private cloud; burst to Azure for quarter-end. DR bundled.</li>
+        <li><strong>−48% latency:</strong> Trading analytics hybridised — on-prem GPU + S3-compatible store; cloud for global insights.</li>
+        <li><strong>Zero-downtime move:</strong> Payments core via blue/green + feature flags reduced risk during cutover.</li>
+        <li><strong>Talent that lands it:</strong> Cloud, data, and platform engineers placed to stabilise ops and accelerate delivery.</li>
+      </ul>
     </section>
 
     <!-- Services moved to bottom -->
-    <section class="section">
+    <section class="section services-bottom">
       <h2 class="section-title">Explore Our Services</h2>
       <div class="card-grid force-4">
         <a href="consulting.html" class="card">
           <div><h3>Consulting</h3><p>From strategy to execution: GTM precision, pipeline discipline, partner motions that convert.</p></div>
           <span class="cta-btn">Learn More</span>
         </a>
-
         <a href="cloud.html" class="card">
           <div><h3>Cloud Suite</h3><p>AWS &amp; Azure architecture, landing zones, security, cost control, and modernisation.</p></div>
           <span class="cta-btn">Learn More</span>
         </a>
-
         <a href="finops.html" class="card">
           <div><h3>Hybrid FinOps &amp; Governance</h3><p>Cut run-rate and stop drift. Tags, budgets, policies, and showback across venues.</p></div>
           <span class="cta-btn">Learn More</span>
         </a>
-
         <a href="hosting-private-cloud.html" class="card">
           <div><h3>Hosting &amp; Private Cloud</h3><p>Hosted private cloud and on-prem for predictable cost, SA locality, and low latency.</p></div>
           <span class="cta-btn">Learn More</span>
         </a>
-
         <a href="application-development.html" class="card">
           <div><h3>App Development</h3><p>Cloud-native apps, portals, mobile &amp; web, and APIs — delivered with DevOps discipline.</p></div>
           <span class="cta-btn">Learn More</span>
         </a>
-
         <a href="data-ai.html" class="card">
           <div><h3>Sovereign Data &amp; AI</h3><p>Analytics and AI with SA data residency. On-prem GPU + cloud burst, governed pipelines.</p></div>
           <span class="cta-btn">Learn More</span>
         </a>
-
         <a href="talent.html" class="card">
           <div><h3>Talent Placement</h3><p>Cloud, data, and platform talent — vetted for impact, not keywords.</p></div>
           <span class="cta-btn">Learn More</span>
         </a>
-
         <a href="dynamic-imprinting.html" class="card">
           <div><h3>Dynamic Imprinting</h3><p>Leadership identity work that sticks — perform under pressure, consistently.</p></div>
           <span class="cta-btn">Learn More</span>
