@@ -24,12 +24,30 @@
   <!-- Preload banner -->
   <link rel="preload" as="image" href="assets/images/coretech-bannerimage.png" imagesizes="100vw" fetchpriority="high">
 
-  <!-- Page-scoped tiny tweak to ensure centered hero intro -->
+  <!-- Page-scoped tweaks -->
   <style>
+    /* Center the hero intro (wins over any global left-align) */
     .hosting-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center !important; }
     .hosting-page .hero-intro .hero-title,
     .hosting-page .hero-intro h1,
     .hosting-page .hero-intro p{ text-align:center !important; }
+
+    /* Bullet indent fix for all ULs inside cards on this page */
+    .hosting-page .card ul{
+      margin: .35rem 0 0 1.25rem !important;
+      padding-left: 1.05rem !important;
+      list-style-position: outside;
+    }
+    .hosting-page .card li{ margin:.35rem 0; }
+
+    /* Footer phone link in white */
+    footer .footer-right a[href^="tel:"]{
+      color:#fff !important; text-decoration:none; font-weight:500;
+    }
+    footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
+
+    /* Shortened desktop nav spacing (optional squeeze) */
+    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
   </style>
 </head>
 
@@ -44,17 +62,18 @@
         <span></span><span></span><span></span>
       </label>
 
+      <!-- Shortened labels -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="finops.html" class="nav-btn">FINOPS &amp; GOVERNANCE</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn active" aria-current="page">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
+        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="blog.html" class="nav-btn">BLOG</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
@@ -62,13 +81,14 @@
 
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
         <a href="hosting-private-cloud.html" class="active" aria-current="page">HOSTING</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="application-development.html">APP DEV</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html">BLOG</a>
         <a href="contact.html">CONTACT</a>
