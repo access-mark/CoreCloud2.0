@@ -788,3 +788,17 @@ nav.desktop-nav .nav-btn {
 .wins li {
   text-align: left !important;
 }
+/* === FINAL LOCK: center hero + section titles site-wide === */
+:root { --heading-max: 1100px; }
+
+html body :is(h1.hero-title, h2.section-title){
+  text-align: center !important;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: var(--heading-max);
+}
+
+/* Keep subheads inside panels/cards left-aligned */
+.panel :is(h3, h4),
+.card  :is(h3, h4){ text-align: left !important; }
