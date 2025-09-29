@@ -1,52 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Insights & Blog | CoreCloud — Cloud, Consulting & Talent</title>
-  <meta name="description" content="CoreCloud insights on cloud cost control, sales execution, app development, and talent in South Africa." />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="CoreCloud" />
-  <meta name="theme-color" content="#004f91" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Insights – CoreCloud</title>
+  <meta name="description" content="Practical insights on cloud, FinOps, data/AI, delivery, and leadership—written by CoreCloud."/>
+  <link rel="canonical" href="https://www.corecloudza.com/blog.html"/>
 
-  <!-- Canonical + Social -->
-  <link rel="canonical" href="https://www.corecloudza.com/blog.html" />
-  <meta property="og:title" content="CoreCloud Insights & Blog — Practical guides that drive results" />
-  <meta property="og:description" content="From strategy to revenue. Cloud, talent, and application outcomes you can measure." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.corecloudza.com/blog.html" />
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Social -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="CoreCloud | Insights"/>
+  <meta property="og:description" content="Cloud, FinOps, data/AI, delivery, and leadership—practical insights that turn plans into results."/>
+  <meta property="og:url" content="https://www.corecloudza.com/blog.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/blog-bannerimage.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
+  <!-- CSS (uses your global styles) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
 
-  <!-- Preload key images -->
-  <link rel="preload" as="image" href="assets/images/blog-bannerimage.png" imagesizes="100vw" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/images/corecloud-logo.png">
-
+  <!-- Page-scoped nips & tucks -->
   <style>
-    .blog-page .hero-intro{ text-align:center; padding:1.5rem 1rem 0 !important; margin:0 !important; }
-    .blog-filter{ display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center; margin:1rem auto 0; }
-    .blog-filter .tag{ border:1px solid #cfd9ea; padding:.4rem .7rem; border-radius:999px; font-size:.9rem; text-decoration:none; color:#0d3b66; }
-    .blog-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:1rem; padding:1rem; max-width:1200px; margin:0 auto; }
-    .post-card{ display:flex; flex-direction:column; border:1px solid #e4e8f1; border-radius:12px; padding:1rem; background:#fff; transition:transform .15s ease, box-shadow .15s ease; }
-    .post-card:hover{ transform:translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,.06); }
-    .post-meta{ font-size:.85rem; color:#666; margin:.25rem 0 .5rem; }
-    .post-title{ font-size:1.1rem; margin:.25rem 0 .5rem; color:#0d3b66; font-weight:700; }
-    .post-excerpt{ color:#444; line-height:1.6; }
-    .post-cta{ margin-top:auto; align-self:flex-start; }
-    .breadcrumbs{ max-width:1200px; margin:0 auto; padding:0 1rem; color:#5a6b85; font-size:.9rem; }
-    .breadcrumbs a{ color:inherit; text-decoration:none; }
-    .pagination{ display:flex; justify-content:center; gap:.5rem; margin:1rem auto 2rem; }
-    .pagination a{ border:1px solid #d3dbea; padding:.5rem .8rem; border-radius:8px; text-decoration:none; color:#0d3b66; }
-
-    /* Active tab highlight */
-    .blog-filter .tag[aria-selected="true"]{
-      background:#eef3fa;
-      border-color:#b9c7e1;
-      font-weight:700;
-    }
+    /* keep hero copy centered and tidy */
+    .blog-page .hero-intro{max-width:900px; margin:2rem auto 1rem; text-align:center;}
+    .blog-page .hero-intro p{color:#444;}
+    /* make sure the grid breathes on small screens */
+    .blog-page .card-grid{padding:0 1rem;}
   </style>
 </head>
 
@@ -54,24 +32,23 @@
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" />
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </label>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <nav class="desktop-nav">
+      <!-- Shortened, consistent labels -->
+      <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="finops.html" class="nav-btn">FINOPS &amp; GOVERNANCE</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
+        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="blog.html" class="nav-btn active" aria-current="page">BLOG</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
@@ -79,13 +56,15 @@
 
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
+        <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html" class="active" aria-current="page">BLOG</a>
         <a href="contact.html">CONTACT</a>
@@ -95,105 +74,57 @@
 
   <!-- Hero -->
   <div class="hero-media">
-    <img src="assets/images/blog-bannerimage.png" alt="CoreCloud — Insights" decoding="async" loading="eager" fetchpriority="high" width="1920" height="500" />
+    <img src="assets/images/blog-bannerimage.png" alt="CoreCloud — Insights" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
   <!-- Intro -->
   <section class="hero-intro">
     <h1 class="hero-title">Insights that turn plans into results</h1>
-    <p style="font-size:1.2rem; max-width:900px; margin:0 auto; color:#444;">Practical, SA-relevant guidance on cloud cost control, sales execution, talent, and modern apps. No fluff — just what works.</p>
-
-    <div class="blog-filter" role="tablist" aria-label="Categories">
-      <a href="#" class="tag" role="tab" aria-selected="true">All</a>
-      <a href="#" class="tag" role="tab">Cloud</a>
-      <a href="#" class="tag" role="tab">Consulting</a>
-      <a href="#" class="tag" role="tab">Talent</a>
-      <a href="#" class="tag" role="tab">Leadership</a>
-      <a href="#" class="tag" role="tab">Apps</a>
-    </div>
+    <p>Cloud, FinOps, data/AI, delivery, and leadership—what works in the real world, with the trade-offs explained.</p>
   </section>
 
-  <main class="content">
-    <!-- Breadcrumbs -->
-    <div class="breadcrumbs"><a href="index.html">Home</a> / Blog</div>
+  <main class="content" id="main">
+    <section class="section" aria-labelledby="latest-title">
+      <h2 id="latest-title" class="section-title">Latest articles</h2>
 
-    <!-- Blog grid -->
-    <section class="section">
-      <div class="blog-grid">
-        <!-- Daily Pulse feature -->
-        <article class="post-card">
-          <div class="post-meta">Cloud • 1 Sep 2025</div>
-          <h2 class="post-title"><a href="blog-secure-sovereign-cloud-africa.html">Building a Secure &amp; Sovereign Cloud Future for Africa</a></h2>
-          <p class="post-excerpt">Sovereignty-by-design in Africa’s cloud: POPIA, skills, and practical patterns leaders can deploy now.</p>
-          <a class="cta-btn post-cta" href="blog-secure-sovereign-cloud-africa.html">Read More</a>
-        </article>
+      <!-- Card grid -->
+      <div class="card-grid">
+        <!-- 1 -->
+        <a class="card" href="blog-secure-sovereign-cloud-africa.html">
+          <h3>Building a Secure &amp; Sovereign Cloud Future for Africa</h3>
+          <p>Practical moves to balance innovation, compliance, and locality without losing global capability.</p>
+          <p class="muted">Cloud • 25 Sep 2025</p>
+        </a>
 
-        <!-- LinkedIn #1 -->
-        <article class="post-card">
-          <div class="post-meta">Talent • 18 Sep 2025</div>
-          <h2 class="post-title"><a href="blog-south-africa-bleeding-talent.html">South Africa Is Bleeding Talent — We Can’t Stand By</a></h2>
-          <p class="post-excerpt">Why SA risks losing ICT talent — and the concrete moves leaders can make now to keep and grow it at home.</p>
-          <a class="cta-btn post-cta" href="blog-south-africa-bleeding-talent.html">Read More</a>
-        </article>
+        <!-- 2 -->
+        <a class="card" href="blog-hybrid-cloud-hard-truths.html">
+          <h3>The Hard Truth About “Hybrid Cloud”</h3>
+          <p>Hybrid works—but only with a clear split of concerns and ruthless simplification at the seams.</p>
+          <p class="muted">Strategy • 25 Sep 2025</p>
+        </a>
 
-        <!-- LinkedIn #2 -->
-        <article class="post-card">
-          <div class="post-meta">Leadership • 12 Sep 2025</div>
-          <h2 class="post-title"><a href="blog-differentiated-leadership-sa-competitive-edge.html">Differentiated Leadership: South Africa’s Real Competitive Edge</a></h2>
-          <p class="post-excerpt">We may not outspend global players, but we can out-lead them — an operating system SA teams can run now.</p>
-          <a class="cta-btn post-cta" href="blog-differentiated-leadership-sa-competitive-edge.html">Read More</a>
-        </article>
+        <!-- 3 -->
+        <a class="card" href="blog-sovereign-data-matters.html">
+          <h3>Why “Sovereign Data” Matters (and When It Doesn’t)</h3>
+          <p>Where residency really matters, where it doesn’t, and how to avoid accidental egress traps.</p>
+          <p class="muted">Data • 25 Sep 2025</p>
+        </a>
 
-        <!-- Originals with varied dates -->
-        <article class="post-card">
-          <div class="post-meta">Cloud • 25 Sep 2025</div>
-          <h2 class="post-title"><a href="blog-eliminating-cloud-waste.html">Eliminating Waste: The Fastest ROI in Cloud</a></h2>
-          <p class="post-excerpt">Where cloud spend leaks — and how SA teams plug it in 30 days without slowing delivery. A practical playbook.</p>
-          <a class="cta-btn post-cta" href="blog-eliminating-cloud-waste.html">Read More</a>
-        </article>
+        <!-- 4 -->
+        <a class="card" href="blog-rag-enterprise-value-safety-cost.html">
+          <h3>RAG in the Enterprise: Value, Safety, and Cost</h3>
+          <p>RAG done right: governance, evals, and the economics of on-prem GPU vs cloud burst.</p>
+          <p class="muted">AI • 25 Sep 2025</p>
+        </a>
 
-        <article class="post-card">
-          <div class="post-meta">Talent • 22 Sep 2025</div>
-          <h2 class="post-title"><a href="blog-ict-talent-access-not-shortage.html">South Africa Isn’t Short on Talent — It’s Short on Access</a></h2>
-          <p class="post-excerpt">Why “no talent available” is a myth. The right sourcing model unlocks an overlooked pool of elite ICT pros.</p>
-          <a class="cta-btn post-cta" href="blog-ict-talent-access-not-shortage.html">Read More</a>
-        </article>
+        <!-- 5 -->
+        <a class="card" href="blog-ict-talent-access-not-shortage.html">
+          <h3>South Africa Isn’t Short on Talent — It’s Short on Access</h3>
+          <p>How to surface A-players fast: signal-rich profiles, thin validation, and a real bench.</p>
+          <p class="muted">Talent • 25 Sep 2025</p>
+        </a>
 
-        <article class="post-card">
-          <div class="post-meta">Consulting • 20 Sep 2025</div>
-          <h2 class="post-title"><a href="blog-rewire-sales-engine-90-days.html">Rewiring a Sales Engine in 90 Days</a></h2>
-          <p class="post-excerpt">Precision pipeline, partner leverage, and execution rhythms that move revenue without hiring a small army.</p>
-          <a class="cta-btn post-cta" href="blog-rewire-sales-engine-90-days.html">Read More</a>
-        </article>
-
-        <article class="post-card">
-          <div class="post-meta">Leadership • 17 Sep 2025</div>
-          <h2 class="post-title"><a href="blog-leadership-identity-level.html">Leadership at Identity Level</a></h2>
-          <p class="post-excerpt">Training doesn’t stick under pressure. Identity-level shifts do. How executives make new instincts real.</p>
-          <a class="cta-btn post-cta" href="blog-leadership-identity-level.html">Read More</a>
-        </article>
-
-        <article class="post-card">
-          <div class="post-meta">Apps • 15 Sep 2025</div>
-          <h2 class="post-title"><a href="blog-low-code-high-impact.html">Low-Code, High Impact</a></h2>
-          <p class="post-excerpt">When to build fast with low-code vs when to go custom. A decision guide that avoids rework.</p>
-          <a class="cta-btn post-cta" href="blog-low-code-high-impact.html">Read More</a>
-        </article>
-
-        <article class="post-card">
-          <div class="post-meta">Cloud • 10 Sep 2025</div>
-          <h2 class="post-title"><a href="blog-databricks-cost-quick-wins.html">Databricks Cost: Quick Wins</a></h2>
-          <p class="post-excerpt">Right-size clusters, trim idle, and fix the three config traps that quietly burn budget.</p>
-          <a class="cta-btn post-cta" href="blog-databricks-cost-quick-wins.html">Read More</a>
-        </article>
-      </div>
-
-      <div class="pagination" aria-label="Pagination">
-        <a href="#" aria-label="Previous">«</a>
-        <a href="#" aria-current="page">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#" aria-label="Next">»</a>
+        <!-- Add more by duplicating a <a class="card">…</a> block -->
       </div>
     </section>
   </main>
@@ -236,38 +167,16 @@
     </div>
   </footer>
 
-  <!-- Category filter script -->
+  <!-- Auto-highlight current nav -->
   <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const tags  = Array.from(document.querySelectorAll('.blog-filter .tag'));
-    const cards = Array.from(document.querySelectorAll('.blog-grid .post-card'));
-
-    function applyFilter(filter) {
-      const f = (filter || 'all').toLowerCase();
-      // update tab state
-      tags.forEach(t => t.setAttribute('aria-selected',
-        String(t.textContent.trim().toLowerCase() === f)));
-      // show/hide cards based on category (text before the • in .post-meta)
-      cards.forEach(card => {
-        const meta = card.querySelector('.post-meta');
-        const cat = meta ? meta.textContent.split('•')[0].trim().toLowerCase() : '';
-        card.style.display = (f === 'all' || cat === f) ? '' : 'none';
+    (function(){
+      var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+        var href = (a.getAttribute('href') || '').toLowerCase();
+        if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
       });
-    }
-
-    // click to filter
-    tags.forEach(tag => {
-      tag.addEventListener('click', (e) => {
-        e.preventDefault();
-        const filter = tag.textContent.trim().toLowerCase();
-        history.replaceState(null, '', filter === 'all' ? 'blog.html' : `#${filter}`);
-        applyFilter(filter);
-      });
-    });
-
-    // deep-link support: #cloud, #talent, etc.
-    applyFilter(location.hash ? location.hash.slice(1) : 'all');
-  });
+    })();
   </script>
 </body>
 </html>
