@@ -19,25 +19,18 @@
   <meta name="twitter:description" content="Cloud-native apps, portals, mobile & web, and APIs—built with DevOps discipline and security by design."/>
   <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=9"/>
+  <!-- Global CSS (use same version across site) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
+
+  <!-- Preload LCP + logo -->
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Page-scoped helpers (titles centered, bullet indents, nav squeeze) -->
+  <!-- Page-scoped helpers (minimal, no conflicts) -->
   <style>
-    /* Keep hero + section titles centered no matter what */
-    .appdev-page .hero-intro,
-    .appdev-page .hero-title,
-    .appdev-page .section-title{
-      text-align:center !important;
-      display:block;
-      margin-left:auto;
-      margin-right:auto;
-    }
-    .appdev-page .hero-title{ font-size:2rem; color:var(--dark-blue); font-weight:700; margin:2.2rem auto .9rem; }
+    /* Layout rhythm */
+    .appdev-page main.content{ max-width:1200px; margin:0 auto; padding:0 1.5rem 4rem; }
     .appdev-page .section{ margin:2rem 0 !important; }
-    .appdev-page .section-title{ margin-bottom:.85rem; }
 
     /* Narrative containers + lists (off-cards) */
     .appdev-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
@@ -59,13 +52,18 @@
     /* Keep cards only in “What We Build” */
     .appdev-page .card .cta-btn{ display:flex; align-items:center; justify-content:center; width:100%; min-height:48px; font-weight:700; margin-top:auto; }
 
-    /* Desktop nav squeeze for this page */
+    /* Desktop nav squeeze (optional) */
     nav.desktop-nav{ gap:.55rem; }
     nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
 
-    /* Footer phone = white */
-    footer .footer-right a[href^="tel:"]{ color:#fff !important; text-decoration:none; font-weight:500; }
-    footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
+    /* ===== FINAL: heading alignment (page-level last word) ===== */
+    .appdev-page .hero-title,
+    .appdev-page .section-title{
+      text-align:center !important;
+      display:block !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+    }
   </style>
 
   <!-- JSON-LD -->
@@ -150,7 +148,7 @@
     <img src="assets/images/appdev-bannerimage.png" alt="CoreCloud Application Development" loading="eager" decoding="async" width="1920" height="500"/>
   </div>
 
-  <!-- Hero copy (matches page rhythm across site) -->
+  <!-- Hero copy -->
   <section class="hero-intro">
     <h1 class="hero-title">Application Development</h1>
     <p style="max-width:900px; margin:0 auto; color:#444;">
