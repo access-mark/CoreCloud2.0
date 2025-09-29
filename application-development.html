@@ -19,49 +19,40 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=9"/>
 
-  <!-- Preload critical images -->
+  <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
-  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Page-scoped CSS (safe + minimal) -->
+  <!-- Page-scoped CSS: force page titles centered; keep content left; tidy narrative lists -->
   <style>
-    /* Keep hero + section titles centered (this page only) */
-    .appdev-page .hero-intro,
-    .appdev-page .hero-title,
-    .appdev-page .section-title{
+    /* Center ONLY this page's main titles, regardless of global rules */
+    .appdev-page h1.hero-title,
+    .appdev-page h2.section-title{
       text-align: center !important;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
+      display: block !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
     }
 
-    /* Page rhythm */
-    .appdev-page .hero-title{ font-size:2rem; color:var(--dark-blue); font-weight:700; margin:2.2rem auto .9rem; }
-    .appdev-page main.content{ max-width:1200px; margin:0 auto; padding:0 1.5rem 4rem; }
-    .appdev-page .section{ margin:2rem 0 !important; }
-    .appdev-page .section-title{ margin-bottom:.85rem; }
+    /* Page rhythm + intro */
+    .appdev-page .hero-intro{ max-width:900px; margin:2rem auto 1.25rem; text-align:center; }
+    .appdev-page .hero-title{ font-size:2rem; color:var(--dark-blue); font-weight:700; margin:0 0 .75rem; }
 
-    /* Narrative (no bullets) */
+    /* Narrative (off-card) sections */
     .appdev-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .appdev-page .kv-list{ list-style:none; margin:0; padding:0; }
-    .appdev-page .kv-list li{ margin:.5rem 0; line-height:1.7; }
+    .appdev-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
+
+    /* Key-value style list (label + description) */
+    .appdev-page .kv-list{ margin:.4rem 0 0 1.6rem; padding-left:1.05rem; list-style:disc outside; }
+    .appdev-page .kv-list li{ margin:.45rem 0; }
     .appdev-page .kv{ font-weight:700; color:var(--dark-blue); }
-    .appdev-page .desc{ margin-left:.4rem; color:#444; }
+    .appdev-page .desc{ display:block; margin-left:.9rem; color:#444; }
 
-    /* Centered CTA row */
-    .appdev-page .cta-row{ display:flex; justify-content:center; margin-top:1rem; }
-    .appdev-page .cta-row .cta-btn{ min-width:240px; }
+    /* Cards only for the bottom “What We Build” grid — keep their headings left */
+    .appdev-page .card h2, .appdev-page .card h3{ text-align:left !important; }
 
-    /* Only the bottom section uses cards */
-    .appdev-page .card .cta-btn{ display:flex; align-items:center; justify-content:center; width:100%; min-height:48px; font-weight:700; margin-top:auto; }
-
-    /* Slight nav squeeze so everything fits nicely */
+    /* Desktop nav squeeze (same look you’re using elsewhere) */
     nav.desktop-nav{ gap:.55rem; }
     nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
-
-    /* Footer phone link white */
-    footer .footer-right a[href^="tel:"]{ color:#fff !important; text-decoration:none; font-weight:500; }
-    footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
   </style>
 </head>
 
@@ -74,7 +65,7 @@
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Short labels -->
+      <!-- Short labels, site-wide pattern -->
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
@@ -111,20 +102,22 @@
 
   <!-- Hero -->
   <div class="hero-media">
-    <img src="assets/images/appdev-bannerimage.png" alt="CoreCloud Application Development" loading="eager" decoding="async" width="1920" height="500"/>
+    <img src="assets/images/appdev-bannerimage.png"
+         alt="CoreCloud Application Development"
+         loading="eager" decoding="async" width="1920" height="500"/>
   </div>
 
-  <!-- Hero copy -->
+  <!-- Intro -->
   <section class="hero-intro">
     <h1 class="hero-title">Application Development</h1>
-    <p style="max-width:900px; margin:0 auto; color:#444;">
+    <p style="color:#444;">
       We design and deliver cloud-native applications, portals, and digital experiences that scale.
       Built with modern architectures, shipped with DevOps discipline, and secured by design.
     </p>
   </section>
 
   <main class="content" id="main">
-    <!-- Narrative sections (no bullet markers) -->
+    <!-- Narrative sections (no cards) -->
     <section class="section narrative" aria-labelledby="how-title">
       <h2 id="how-title" class="section-title">How We Deliver</h2>
       <ul class="kv-list">
@@ -155,8 +148,8 @@
       </ul>
     </section>
 
-    <!-- CTA -->
-    <div class="cta-row">
+    <!-- Plain centered CTA -->
+    <div class="cta-row" style="display:flex; justify-content:center; margin-top:1rem;">
       <a href="contact.html" class="cta-btn">Start a Conversation</a>
     </div>
 
@@ -164,22 +157,22 @@
     <section class="section" aria-labelledby="build-title">
       <h2 id="build-title" class="section-title">What We Build</h2>
       <div class="card-grid force-4" style="margin-top:1rem;">
-        <div class="card" style="display:flex; flex-direction:column;">
+        <div class="card">
           <h2>Cloud-Native Apps</h2>
           <p>Microservices, containers, serverless—resilient and built for change.</p>
           <a href="cloud-native-apps.html" class="cta-btn">Explore</a>
         </div>
-        <div class="card" style="display:flex; flex-direction:column;">
+        <div class="card">
           <h2>Enterprise Portals</h2>
           <p>Secure internal &amp; customer portals that streamline operations and engagement.</p>
           <a href="enterprise-portals.html" class="cta-btn">Explore</a>
         </div>
-        <div class="card" style="display:flex; flex-direction:column;">
+        <div class="card">
           <h2>Mobile &amp; Web</h2>
           <p>Fast, responsive experiences across devices with performance baked in.</p>
           <a href="mobile-web.html" class="cta-btn">Explore</a>
         </div>
-        <div class="card" style="display:flex; flex-direction:column;">
+        <div class="card">
           <h2>APIs &amp; Integration</h2>
           <p>Well-designed APIs and event streams that connect products and data.</p>
           <a href="apis-integration.html" class="cta-btn">Explore</a>
