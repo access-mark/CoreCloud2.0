@@ -14,27 +14,30 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <link rel="stylesheet" href="assets/css/styles.css?v=9"/>
+  <!-- NOTE: bump v to 10 -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
   <!-- Page-scoped layout helpers only -->
   <style>
-    .appdev-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center; }
-    .appdev-page .section{ margin:2rem 0 !important; }
-    .appdev-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .appdev-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
-    .appdev-page .kv-list{ margin:.35rem 0 0 1.25rem; padding-left:1.05rem; list-style-position:outside; line-height:1.7; }
-    .appdev-page .kv-list li{ margin:.35rem 0; }
-    .appdev-page .kv{ font-weight:700; color:var(--dark-blue); }
-    .appdev-page .desc{ display:block; margin-left:.9rem; color:#444; }
-    .appdev-page .cta-row{ display:flex; justify-content:center; margin-top:1rem; }
-    .appdev-page .cta-row .cta-btn{ min-width:240px; }
-    .appdev-page .card .cta-btn{ display:flex; align-items:center; justify-content:center; width:100%; min-height:48px; font-weight:700; margin-top:auto; }
+    .appdev-page .hero-intro{max-width:900px;margin:2rem auto 1rem;text-align:center;}
+    .appdev-page .section{margin:2rem 0!important;}
+    .appdev-page .narrative{max-width:1000px;margin:0 auto;padding:0 1rem;}
+    .appdev-page .narrative p{margin:.5rem 0;line-height:1.7;color:#444;}
+    .appdev-page .kv-list{margin:.35rem 0 0 1.25rem;padding-left:1.05rem;list-style-position:outside;line-height:1.7;}
+    .appdev-page .kv-list li{margin:.35rem 0;}
+    .appdev-page .kv{font-weight:700;color:var(--dark-blue);}
+    .appdev-page .desc{display:block;margin-left:.9rem;color:#444;}
+    .appdev-page .cta-row{display:flex;justify-content:center;margin-top:1rem;}
+    .appdev-page .cta-row .cta-btn{min-width:240px;}
+    .appdev-page .card .cta-btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:48px;font-weight:700;margin-top:auto;}
   </style>
 </head>
 
-<body class="appdev-page">
+<!-- Add center-titles helper here -->
+<body class="appdev-page center-titles">
+  <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
@@ -80,9 +83,7 @@
   </div>
 
   <section class="hero-intro">
-    <h1 class="hero-title" style="text-align:center!important;display:block!important;width:100%!important;margin:0 auto 1rem!important;">
-      Application Development
-    </h1>
+    <h1 class="hero-title">Application Development</h1>
     <p style="max-width:900px;margin:0 auto;color:#444;">
       We design and deliver cloud-native applications, portals, and digital experiences that scale.
       Built with modern architectures, shipped with DevOps discipline, and secured by design.
@@ -91,9 +92,7 @@
 
   <main class="content" id="main">
     <section class="section narrative" aria-labelledby="how-title">
-      <h2 id="how-title" class="section-title" style="text-align:center!important;display:block!important;width:100%!important;margin:0 auto .85rem!important;">
-        How We Deliver
-      </h2>
+      <h2 id="how-title" class="section-title">How We Deliver</h2>
       <ul class="kv-list">
         <li><span class="kv">Architecture First:</span><span class="desc">Domain-driven design, reference architectures, and clear non-functional requirements.</span></li>
         <li><span class="kv">DevOps &amp; CI/CD:</span><span class="desc">Automated pipelines, IaC, observability, and a release cadence you can trust.</span></li>
@@ -103,9 +102,7 @@
     </section>
 
     <section class="section narrative" aria-labelledby="engage-title">
-      <h2 id="engage-title" class="section-title" style="text-align:center!important;display:block!important;width:100%!important;margin:0 auto .85rem!important;">
-        Engagement Models
-      </h2>
+      <h2 id="engage-title" class="section-title">Engagement Models</h2>
       <ul class="kv-list">
         <li><span class="kv">Project Delivery:</span><span class="desc">Fixed-scope outcomes with clear milestones and governance.</span></li>
         <li><span class="kv">Product Squads:</span><span class="desc">Cross-functional teams (PM, UX, Eng, QA) to build and operate.</span></li>
@@ -115,9 +112,7 @@
     </section>
 
     <section class="section narrative" aria-labelledby="outcomes-title">
-      <h2 id="outcomes-title" class="section-title" style="text-align:center!important;display:block!important;width:100%!important;margin:0 auto .85rem!important;">
-        Outcomes You Can Measure
-      </h2>
+      <h2 id="outcomes-title" class="section-title">Outcomes You Can Measure</h2>
       <ul class="kv-list">
         <li><span class="kv">Faster Time-to-Value:</span><span class="desc">Ship earlier with incremental releases and platform accelerators.</span></li>
         <li><span class="kv">Reliability:</span><span class="desc">Availability targets, runbooks, and actionable telemetry from day one.</span></li>
@@ -131,26 +126,24 @@
     </div>
 
     <section class="section" aria-labelledby="build-title">
-      <h2 id="build-title" class="section-title" style="text-align:center!important;display:block!important;width:100%!important;margin:0 auto .85rem!important;">
-        What We Build
-      </h2>
+      <h2 id="build-title" class="section-title">What We Build</h2>
       <div class="card-grid force-4" style="margin-top:1rem;">
-        <div class="card" style="display:flex; flex-direction:column;">
+        <div class="card" style="display:flex;flex-direction:column;">
           <h2>Cloud-Native Apps</h2>
           <p>Microservices, containers, serverless—resilient and built for change.</p>
           <a href="cloud-native-apps.html" class="cta-btn">Explore</a>
         </div>
-        <div class="card" style="display:flex; flex-direction:column;">
+        <div class="card" style="display:flex;flex-direction:column;">
           <h2>Enterprise Portals</h2>
           <p>Secure internal &amp; customer portals that streamline operations and engagement.</p>
           <a href="enterprise-portals.html" class="cta-btn">Explore</a>
         </div>
-        <div class="card" style="display:flex; flex-direction:column;">
+        <div class="card" style="display:flex;flex-direction:column;">
           <h2>Mobile &amp; Web</h2>
           <p>Fast, responsive experiences across devices with performance baked in.</p>
           <a href="mobile-web.html" class="cta-btn">Explore</a>
         </div>
-        <div class="card" style="display:flex; flex-direction:column;">
+        <div class="card" style="display:flex;flex-direction:column;">
           <h2>APIs &amp; Integration</h2>
           <p>Well-designed APIs and event streams that connect products and data.</p>
           <a href="apis-integration.html" class="cta-btn">Explore</a>
@@ -159,33 +152,34 @@
     </section>
   </main>
 
-  <footer>…(unchanged footer content)…</footer>
+  <footer>
+    <!-- … your existing footer content … -->
+  </footer>
 
-  <!-- Final, last-in-cascade hard fix -->
-  <style id="final-center-fix">
-    .appdev-page h1.hero-title,
-    .appdev-page h2.section-title,
-    .appdev-page section > h2.section-title,
-    .appdev-page .narrative > h2.section-title,
-    .appdev-page #how-title,
-    .appdev-page #engage-title,
-    .appdev-page #outcomes-title,
-    .appdev-page #build-title {
-      text-align: center !important;
-      display: block !important;
-      width: 100% !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
+  <!-- FINAL hard-fix (executed last) -->
+  <style>
+    .center-titles h1.hero-title,
+    .center-titles h2.section-title{
+      text-align:center!important;display:block!important;width:100%!important;
+      margin-left:auto!important;margin-right:auto!important;
     }
   </style>
-
   <script>
     (function(){
-      var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
-        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
+      // JS safety net: inline styles applied last
+      document.querySelectorAll('.center-titles h1.hero-title, .center-titles h2.section-title')
+        .forEach(function(el){
+          el.style.textAlign='center';
+          el.style.display='block';
+          el.style.marginLeft='auto';
+          el.style.marginRight='auto';
+          el.style.width='100%';
+        });
+      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+      document.querySelectorAll('.desktop-nav a,.mobile-nav a').forEach(function(a){
+        var href=(a.getAttribute('href')||'').toLowerCase();
+        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
+        else{a.classList.remove('active');a.removeAttribute('aria-current');}
       });
     })();
   </script>
