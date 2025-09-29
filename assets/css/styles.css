@@ -802,3 +802,12 @@ html body :is(h1.hero-title, h2.section-title){
 /* Keep subheads inside panels/cards left-aligned */
 .panel :is(h3, h4),
 .card  :is(h3, h4){ text-align: left !important; }
+/* --- FINAL canonical title centering (scoped) --- */
+.center-titles h1.hero-title,
+.center-titles h2.section-title {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
