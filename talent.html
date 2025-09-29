@@ -3,56 +3,32 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>CoreCloud | Strategic Talent Placement – South Africa</title>
-  <meta name="description" content="Elite ICT & executive talent. Fast, precise placements across cloud, DevOps, data, security, software, platform, and leadership."/>
+  <title>Talent | CoreCloud</title>
+  <meta name="description" content="Elite ICT and executive talent with deep hybrid/cloud DNA. Fast, precise shortlists and specialised benches across cloud, data & AI, and security."/>
   <link rel="canonical" href="https://www.corecloudza.com/talent.html"/>
 
-  <!-- Open Graph -->
+  <!-- Social -->
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="CoreCloud | Strategic Talent Placement"/>
-  <meta property="og:description" content="Elite ICT & executive talent for South Africa — fast, precise, and aligned to outcomes."/>
+  <meta property="og:title" content="CoreCloud Talent"/>
+  <meta property="og:description" content="Elite ICT and executive talent with deep hybrid/cloud DNA. Fast, precise shortlists and specialised benches across cloud, data & AI, and security."/>
   <meta property="og:url" content="https://www.corecloudza.com/talent.html"/>
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/talent-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=9"/>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+
+  <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/talent-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
 
-  <!-- Page-scoped helpers (safe, minimal) -->
+  <!-- Page-scoped helpers (only formatting narrative; no global overrides) -->
   <style>
-    /* Keep titles centered on this page only */
-    .talent-page :is(h1.hero-title, h2.section-title){
-      text-align:center !important;
-      display:block !important;
-      margin-left:auto !important;
-      margin-right:auto !important;
-    }
-
-    /* Narrative containers (no cards) */
+    .talent-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center; }
     .talent-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .talent-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
-
-    /* Key-value bullet list pattern */
-    .talent-page .kv-list{ margin:.35rem 0 0 1.25rem; padding-left:1.05rem; list-style:disc; line-height:1.7; }
-    .talent-page .kv-list li{ margin:.4rem 0; }
+    .talent-page .narrative p{ margin:.55rem 0; line-height:1.7; color:#444; }
     .talent-page .kv{ font-weight:700; color:var(--dark-blue); }
-    .talent-page .desc{ display:block; margin-left:.75rem; color:#444; }
-
-    /* Two-column role list on desktop, single on mobile */
-    .talent-page .columns{ display:grid; gap:1rem; }
-    @media (min-width:900px){ .talent-page .columns{ grid-template-columns:1fr 1fr; } }
-
-    /* Center the top CTA row */
-    .talent-page .cta-row{ display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; margin:1rem 0 2rem; }
-    .talent-page .cta-row .cta-btn{ min-width:200px; }
-
-    /* Slightly tighter sections for a recruiting page */
-    .talent-page .section{ margin:2rem 0 !important; }
-
-    /* Desktop nav squeeze like other pages */
-    nav.desktop-nav{ gap:.55rem; }
-    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
+    .talent-page .desc{ display:inline; }
+    /* keep the other sections (like Focus Areas) untouched */
   </style>
 </head>
 
@@ -65,8 +41,8 @@
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Short labels (site-wide convention) -->
-      <nav class="desktop-nav" aria-label="Primary">
+      <!-- Shortened labels (consistent with the rest of the site) -->
+      <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
         <a href="cloud.html" class="nav-btn">CLOUD</a>
@@ -102,85 +78,70 @@
 
   <!-- Hero -->
   <div class="hero-media">
-    <img src="assets/images/talent-bannerimage.png"
-         alt="CoreCloud Talent — Elite ICT & Executive Talent"
-         width="1920" height="500"
-         loading="eager" decoding="async" fetchpriority="high"/>
+    <img
+      src="assets/images/talent-bannerimage.png"
+      alt="CoreCloud Talent — Elite ICT & Executive Talent"
+      decoding="async" loading="eager" fetchpriority="high"
+      width="1920" height="500"/>
   </div>
 
   <!-- Intro -->
-  <section class="hero-intro" style="max-width:900px; margin:2rem auto 1.25rem; text-align:center;">
-    <h1 class="hero-title">Strategic Talent Placement</h1>
-    <p style="margin:.5rem 0; color:#444;">
-      We don’t just fill roles — we fuel performance. Our model is fast, precise, and outcome-driven.
-      We place proven cloud, engineering, and digital talent into teams that are shipping, scaling, and transforming.
-    </p>
-    <div class="cta-row">
-      <a href="contact.html?type=hire-talent" class="cta-btn">Hire Talent</a>
-      <a href="contact.html?type=submit-cv" class="cta-btn">Submit Your CV</a>
-    </div>
+  <section class="hero-intro">
+    <h1 class="hero-title">CoreCloud Talent</h1>
+    <p>Elite ICT &amp; executive talent with deep hybrid/cloud experience. We place people who change the cost, speed, and reliability of delivery — and who elevate the teams around them.</p>
   </section>
 
-  <main class="content" id="main">
-    <!-- Why CoreCloud Talent -->
+  <main class="content">
+
+    <!-- Why CoreCloud Talent? (bullets removed → narrative) -->
     <section class="section narrative" aria-labelledby="why-title">
       <h2 id="why-title" class="section-title">Why CoreCloud Talent?</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Curated network, not crowdsourced:</span><span class="desc">Every profile is vetted for relevance and readiness.</span></li>
-        <li><span class="kv">Speed with precision:</span><span class="desc">Agile placement models tuned to your context.</span></li>
-        <li><span class="kv">Fit beyond skills:</span><span class="desc">We match capability and chemistry — culture drives performance.</span></li>
-        <li><span class="kv">Executive fluency:</span><span class="desc">We align talent to strategy, not just CVs to vacancies.</span></li>
-      </ul>
+
+      <p><span class="kv">Hard-to-find talent, curated:</span> we present only the best 5% we meet — the people who have actually shipped, operated, and improved real systems.</p>
+      <p><span class="kv">Hybrid/cloud DNA:</span> architecture, platform, SRE/DevOps, security, engineering, data &amp; AI, FinOps, and delivery leadership — we live in these domains daily.</p>
+      <p><span class="kv">Bench + network model:</span> our own bench plus partner collectives means speed without compromising on capability or cultural fit.</p>
+      <p><span class="kv">Executive search lens:</span> we assess influence, delivery history, and the culture equation — not just keyword overlap on a CV.</p>
     </section>
 
-    <!-- Focus Areas (narrative, 2 columns on desktop) -->
-    <section class="section narrative" aria-labelledby="focus-title">
+    <!-- Focus Areas (kept as-is with list if you want; change later if needed) -->
+    <section class="section" aria-labelledby="focus-title">
       <h2 id="focus-title" class="section-title">Focus Areas</h2>
-      <div class="columns">
-        <ul class="kv-list">
-          <li><span class="kv">Cloud Engineers:</span><span class="desc">AWS, Azure, hybrid, multi-cloud infrastructure.</span></li>
-          <li><span class="kv">DevOps &amp; Automation:</span><span class="desc">CI/CD, platform, IaC, reliability.</span></li>
-          <li><span class="kv">Software Developers:</span><span class="desc">Full-stack, backend, frontend across modern frameworks.</span></li>
-          <li><span class="kv">Platform Engineers:</span><span class="desc">Kubernetes, landing zones, observability at scale.</span></li>
-          <li><span class="kv">Data Specialists:</span><span class="desc">Engineering, analytics, lakehouse, ELT/dbt.</span></li>
-          <li><span class="kv">Security &amp; Compliance:</span><span class="desc">Cloud security, IAM, SOC, POPIA/ISO 27001.</span></li>
-        </ul>
-        <ul class="kv-list">
-          <li><span class="kv">Solution Architects:</span><span class="desc">Secure, scalable cloud &amp; app architectures.</span></li>
-          <li><span class="kv">Business Analysts:</span><span class="desc">Translate strategy to delivery.</span></li>
-          <li><span class="kv">Project Managers:</span><span class="desc">Agile/Scrum/hybrid leadership.</span></li>
-          <li><span class="kv">Sales – Hunters &amp; Closers:</span><span class="desc">New logos, velocity, revenue focus.</span></li>
-          <li><span class="kv">Customer Success Managers:</span><span class="desc">Retention, expansion, value realisation.</span></li>
-          <li><span class="kv">Executive – C-Suite &amp; Leadership:</span><span class="desc">Growth and transformation leaders.</span></li>
-        </ul>
+      <div class="card-grid force-4">
+        <div class="card"><h3>Architecture &amp; Platform</h3><p>Cloud/platform architects, platform engineers, SRE/DevOps.</p></div>
+        <div class="card"><h3>Engineering</h3><p>Backend, frontend, mobile, full-stack, QA/automation.</p></div>
+        <div class="card"><h3>Data &amp; AI</h3><p>Data engineers, analytics engineers, ML engineers, MLOps/RAG.</p></div>
+        <div class="card"><h3>Security &amp; Governance</h3><p>CISO office, governance/risk, FinOps &amp; cost control.</p></div>
       </div>
     </section>
 
-    <!-- How We Work -->
-    <section class="section narrative" aria-labelledby="process-title">
-      <h2 id="process-title" class="section-title">How We Work</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Briefing &amp; Fit:</span><span class="desc">Outcome-first intake; role scorecard agreed.</span></li>
-        <li><span class="kv">Shortlist in 48–72 hours:</span><span class="desc">Curated profiles with rationale, not inbox spam.</span></li>
-        <li><span class="kv">Interview &amp; Calibration:</span><span class="desc">Structured interviews; transparent feedback loop.</span></li>
-        <li><span class="kv">Offer &amp; Close:</span><span class="desc">Speed to decision; expectation alignment on both sides.</span></li>
-        <li><span class="kv">Post-Placement:</span><span class="desc">30/60/90-day check-ins for stickiness and performance.</span></li>
-      </ul>
-      <div class="cta-row">
-        <a href="contact.html?type=hire-talent" class="cta-btn">Start a Brief</a>
-        <a href="contact.html?type=submit-cv" class="cta-btn">Share Your CV</a>
+    <!-- How We Work (bullets removed → narrative steps) -->
+    <section class="section narrative" aria-labelledby="how-title">
+      <h2 id="how-title" class="section-title">How We Work</h2>
+
+      <p><span class="kv">Briefing &amp; calibration:</span> we align on outcomes, team culture, reporting lines, and deal-breakers. Clear success criteria beats vague role descriptions.</p>
+      <p><span class="kv">Market map &amp; outreach:</span> targeted research and direct outreach into the relevant benches and networks — no spray and pray.</p>
+      <p><span class="kv">Shortlist with evidence:</span> stories, systems, and referenceable outcomes — not keyword bingo. You’ll see how they think and what they shipped.</p>
+      <p><span class="kv">Decision support:</span> structured interview packs for both sides, closing support, and a pragmatic offer process.</p>
+      <p><span class="kv">90-day check-in:</span> we stay close post-placement to ensure the onboarding sticks and value lands quickly.</p>
+
+      <div class="cta-row" style="margin-top:1rem;">
+        <a href="contact.html" class="cta-btn">Brief a Role</a>
       </div>
     </section>
 
-    <!-- Extra specialties -->
-    <section class="section narrative" aria-labelledby="extras-title">
-      <h2 id="extras-title" class="section-title">Specialised Benches</h2>
-      <ul class="kv-list">
-        <li><span class="kv">FinOps &amp; Governance:</span><span class="desc">Tagging standards, showback/chargeback, guardrails.</span></li>
-        <li><span class="kv">Databricks &amp; Analytics Engineering:</span><span class="desc">Lakehouse build, orchestration, model ops.</span></li>
-        <li><span class="kv">Pre-Sales &amp; Alliances:</span><span class="desc">POCs, technical win plans, co-sell with hyperscalers and ISVs.</span></li>
-      </ul>
+    <!-- Specialised Benches (bullets removed → narrative) -->
+    <section class="section narrative" aria-labelledby="benches-title">
+      <h2 id="benches-title" class="section-title">Specialised Benches</h2>
+
+      <p><span class="kv">Cloud &amp; Platform:</span> landing zones, guardrails, K8s, networking, cost &amp; reliability — architects, platform engineers, SRE/DevOps who keep hybrid honest.</p>
+      <p><span class="kv">Data &amp; AI:</span> ingestion to lakehouse to MLOps/RAG — engineers and ML talent who build governed, performant pipelines and models.</p>
+      <p><span class="kv">Security &amp; Governance:</span> CISO office, risk, and FinOps practitioners who design preventive controls and measurable cost/compliance outcomes.</p>
+
+      <div class="cta-row" style="margin-top:1rem;">
+        <a href="contact.html" class="cta-btn">Ask About Availability</a>
+      </div>
     </section>
+
   </main>
 
   <!-- Footer -->
@@ -223,14 +184,14 @@
 
   <!-- Auto-highlight current nav -->
   <script>
-  (function(){
-    var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-    document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
-      var href = (a.getAttribute('href') || '').toLowerCase();
-      if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
-      else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
-    });
-  })();
+    (function(){
+      var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+        var href = (a.getAttribute('href') || '').toLowerCase();
+        if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
+      });
+    })();
   </script>
 </body>
 </html>
