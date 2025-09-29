@@ -695,3 +695,12 @@ nav.desktop-nav .nav-btn {
 .home-page .best-venue-section .section-title{
   margin-bottom: .6rem !important;
 }
+/* FinOps: force heading centering (safe + scoped) */
+.finops-page .hero-intro,
+.finops-page .hero-title,
+.finops-page .section-title{
+  text-align: center !important;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
