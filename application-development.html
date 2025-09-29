@@ -1,115 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Application Development – CoreCloud</title>
   <meta name="description" content="Cloud-native application development, enterprise portals, mobile & web, and API integration—delivered with DevOps, security, and performance discipline."/>
   <link rel="canonical" href="https://www.corecloudza.com/application-development.html"/>
 
-  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="Application Development – CoreCloud"/>
   <meta property="og:description" content="Cloud-native apps, portals, mobile & web, and APIs—built with DevOps discipline and security by design."/>
   <meta property="og:url" content="https://www.corecloudza.com/application-development.html"/>
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Application Development – CoreCloud"/>
-  <meta name="twitter:description" content="Cloud-native apps, portals, mobile & web, and APIs—built with DevOps discipline and security by design."/>
-  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=9"/>
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Page-scoped helpers (titles centered + bullet indents only) -->
+  <!-- Page-scoped layout helpers only -->
   <style>
     .appdev-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center; }
     .appdev-page .section{ margin:2rem 0 !important; }
-
-    /* Narrative containers + lists (off-cards) */
     .appdev-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
     .appdev-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
-    .appdev-page .kv-list{
-      margin:.35rem 0 0 1.25rem !important;
-      padding-left:1.05rem !important;
-      list-style-position:outside;
-      line-height:1.7;
-    }
+    .appdev-page .kv-list{ margin:.35rem 0 0 1.25rem; padding-left:1.05rem; list-style-position:outside; line-height:1.7; }
     .appdev-page .kv-list li{ margin:.35rem 0; }
     .appdev-page .kv{ font-weight:700; color:var(--dark-blue); }
     .appdev-page .desc{ display:block; margin-left:.9rem; color:#444; }
-
-    /* CTA row (not a card) */
     .appdev-page .cta-row{ display:flex; justify-content:center; margin-top:1rem; }
     .appdev-page .cta-row .cta-btn{ min-width:240px; }
-
-    /* Keep cards only in the “What We Build” section */
     .appdev-page .card .cta-btn{ display:flex; align-items:center; justify-content:center; width:100%; min-height:48px; font-weight:700; margin-top:auto; }
-
-    /* ——— HARD FIX: center page titles on THIS page ——— */
-    .appdev-page h1.hero-title,
-    .appdev-page h2.section-title,
-    .appdev-page section > h2.section-title,
-    .appdev-page .narrative > h2.section-title {
-      text-align: center !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      display: block !important;
-    }
-
-    /* Keep subheads inside panels/cards left-aligned (future-proof) */
-    .appdev-page .panel h3,
-    .appdev-page .panel h4,
-    .appdev-page .card  h3,
-    .appdev-page .card  h4 { text-align: left !important; }
   </style>
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"BreadcrumbList",
-        "itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
-          {"@type":"ListItem","position":2,"name":"Application Development","item":"https://www.corecloudza.com/application-development.html"}
-        ]
-      },
-      {
-        "@type":"Organization",
-        "@id":"https://www.corecloudza.com/#org",
-        "name":"CoreCloud (Pty) Ltd",
-        "url":"https://www.corecloudza.com/",
-        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
-        "sameAs":["https://www.linkedin.com/company/corecloudza"]
-      },
-      {
-        "@type":"Service",
-        "name":"Application Development",
-        "provider":{"@id":"https://www.corecloudza.com/#org"},
-        "areaServed":{"@type":"Country","name":"South Africa"},
-        "url":"https://www.corecloudza.com/application-development.html",
-        "description":"Cloud-native apps, enterprise portals, mobile & web, and API integration with DevOps, security, and performance discipline."
-      }
-    ]
-  }
-  </script>
 </head>
 
 <body class="appdev-page">
-  <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
-
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Shortened labels -->
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
@@ -131,148 +62,4 @@
         <a href="consulting.html">CONSULT</a>
         <a href="cloud.html">CLOUD</a>
         <a href="finops.html">FINOPS</a>
-        <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html" class="active" aria-current="page">APP DEVELOPMENT</a>
-        <a href="data-ai.html">DATA &amp; AI</a>
-        <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">IMPRINTING</a>
-        <a href="about.html">ABOUT</a>
-        <a href="blog.html">BLOG</a>
-        <a href="contact.html">CONTACT</a>
-      </nav>
-    </div>
-  </div>
-
-  <!-- Hero -->
-  <div class="hero-media">
-    <img src="assets/images/appdev-bannerimage.png" alt="CoreCloud Application Development" loading="eager" decoding="async" width="1920" height="500"/>
-  </div>
-
-  <!-- Hero copy -->
-  <section class="hero-intro">
-    <h1 class="hero-title">Application Development</h1>
-    <p style="max-width:900px; margin:0 auto; color:#444;">
-      We design and deliver cloud-native applications, portals, and digital experiences that scale.
-      Built with modern architectures, shipped with DevOps discipline, and secured by design.
-    </p>
-  </section>
-
-  <main class="content" id="main">
-    <!-- How -->
-    <section class="section narrative" aria-labelledby="how-title">
-      <h2 id="how-title" class="section-title">How We Deliver</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Architecture First:</span><span class="desc">Domain-driven design, reference architectures, and clear non-functional requirements.</span></li>
-        <li><span class="kv">DevOps &amp; CI/CD:</span><span class="desc">Automated pipelines, IaC, observability, and a release cadence you can trust.</span></li>
-        <li><span class="kv">Security by Design:</span><span class="desc">Threat modelling, secrets hygiene, least privilege, and continuous testing (OWASP).</span></li>
-        <li><span class="kv">Quality &amp; Performance:</span><span class="desc">Automated tests, load &amp; resilience testing, SLOs and error budgets.</span></li>
-      </ul>
-    </section>
-
-    <!-- Engagement -->
-    <section class="section narrative" aria-labelledby="engage-title">
-      <h2 id="engage-title" class="section-title">Engagement Models</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Project Delivery:</span><span class="desc">Fixed-scope outcomes with clear milestones and governance.</span></li>
-        <li><span class="kv">Product Squads:</span><span class="desc">Cross-functional teams (PM, UX, Eng, QA) to build and operate.</span></li>
-        <li><span class="kv">Augmentation:</span><span class="desc">Specialist roles to uplift your team — architects, engineers, SRE.</span></li>
-        <li><span class="kv">Advisory &amp; Review:</span><span class="desc">Architecture reviews, pipeline hardening, security &amp; cost optimisation.</span></li>
-      </ul>
-    </section>
-
-    <!-- Outcomes -->
-    <section class="section narrative" aria-labelledby="outcomes-title">
-      <h2 id="outcomes-title" class="section-title">Outcomes You Can Measure</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Faster Time-to-Value:</span><span class="desc">Ship earlier with incremental releases and platform accelerators.</span></li>
-        <li><span class="kv">Reliability:</span><span class="desc">Availability targets, runbooks, and actionable telemetry from day one.</span></li>
-        <li><span class="kv">Security:</span><span class="desc">Shift-left controls and automated checks across the SDLC.</span></li>
-        <li><span class="kv">Cost Control:</span><span class="desc">FinOps guardrails, right-sizing, and utilisation insights.</span></li>
-      </ul>
-    </section>
-
-    <!-- CTA -->
-    <div class="cta-row">
-      <a href="contact.html" class="cta-btn">Start a Conversation</a>
-    </div>
-
-    <!-- What we build (cards) -->
-    <section class="section" aria-labelledby="build-title">
-      <h2 id="build-title" class="section-title">What We Build</h2>
-      <div class="card-grid force-4" style="margin-top:1rem;">
-        <div class="card" style="display:flex; flex-direction:column;">
-          <h2>Cloud-Native Apps</h2>
-          <p>Microservices, containers, serverless—resilient and built for change.</p>
-          <a href="cloud-native-apps.html" class="cta-btn">Explore</a>
-        </div>
-        <div class="card" style="display:flex; flex-direction:column;">
-          <h2>Enterprise Portals</h2>
-          <p>Secure internal &amp; customer portals that streamline operations and engagement.</p>
-          <a href="enterprise-portals.html" class="cta-btn">Explore</a>
-        </div>
-        <div class="card" style="display:flex; flex-direction:column;">
-          <h2>Mobile &amp; Web</h2>
-          <p>Fast, responsive experiences across devices with performance baked in.</p>
-          <a href="mobile-web.html" class="cta-btn">Explore</a>
-        </div>
-        <div class="card" style="display:flex; flex-direction:column;">
-          <h2>APIs &amp; Integration</h2>
-          <p>Well-designed APIs and event streams that connect products and data.</p>
-          <a href="apis-integration.html" class="cta-btn">Explore</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-left">
-        <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton<br>Johannesburg<br>South Africa</p>
-      </div>
-
-      <div class="footer-middle">
-        <h4>Stay Informed</h4>
-        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
-          <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
-          <button type="submit" class="cta-btn">Subscribe</button>
-        </form>
-      </div>
-
-      <div class="footer-right">
-        <p><strong>Contact</strong></p>
-        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
-        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved. |
-        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-        <a href="terms.html" class="legal-link">Terms</a>
-      </p>
-    </div>
-  </footer>
-
-  <!-- Auto-highlight current nav -->
-  <script>
-  (function(){
-    var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-    document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
-      var href = (a.getAttribute('href') || '').toLowerCase();
-      if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
-      else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
-    });
-  })();
-  </script>
-</body>
-</html>
+        <a href="hosting-
