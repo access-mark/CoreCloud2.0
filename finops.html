@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CoreCloud | Hybrid FinOps & Governance – South Africa</title>
@@ -23,57 +22,43 @@
   <link rel="stylesheet" href="assets/css/styles.css?v=10" />
 
   <!-- Preload hero -->
-  <link rel="preload" as="image" href="assets/images/finops-bannerimage.png" imagesizes="100vw" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/images/finops-bannerimage.png" imagesizes="100vw" fetchpriority="high">
 
-  <!-- Page-scoped CSS (lightweight, safe) -->
+  <!-- Page-scoped, alignment-safe helpers -->
   <style>
-    /* Utility: guaranteed centered titles */
-    .center-title{
-      text-align: center !important;
-      display: block !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      width: 100% !important;
+    /* Keep hero/section titles centered; body copy left */
+    .finops-page .hero-intro,
+    .finops-page .hero-title,
+    .finops-page .section-title{
+      text-align:center !important;
+      display:block;
+      margin-left:auto; margin-right:auto;
     }
-
-    /* Narrative layout (keeps body copy left, headings we target with .center-title) */
-    .finops-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center; }
+    .finops-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; }
     .finops-page .section{ margin:2rem 0 !important; }
+    .finops-page .section-title{ margin-bottom:.9rem; }
 
+    /* Narrative lists (no cards) */
     .finops-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
     .finops-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
-    .finops-page .kv-list{ margin:.4rem 0 0 1.75rem; padding:0; line-height:1.7; }
-    .finops-page .kv-list li{ margin:.5rem 0; }
+    .finops-page .kv-list{
+      margin:.4rem 0 0 1.35rem; padding-left:1.05rem;
+      list-style-position:outside; line-height:1.75;
+    }
+    .finops-page .kv-list li{ margin:.45rem 0; }
     .finops-page .kv{ font-weight:700; color:var(--dark-blue); }
     .finops-page .desc{ display:block; margin-left:1rem; color:#444; }
-    @media (max-width:600px){ .finops-page .desc{ margin-left:.75rem; } }
 
-    /* Lighter panels (not full cards) */
-    .finops-page .grid-2, .finops-page .grid-3{ display:grid; gap:1rem; padding:0 1rem; max-width:1100px; margin:0 auto; }
-    @media (min-width:900px){
-      .finops-page .grid-2{ grid-template-columns:1fr 1fr; }
-      .finops-page .grid-3{ grid-template-columns:1fr 1fr 1fr; }
-    }
-    .finops-page .panel{
-      background:#fff; border:1px solid rgba(0,79,145,.18); border-radius:10px;
-      padding:1rem 1.1rem; box-shadow:0 2px 6px rgba(0,0,0,.04);
-    }
-    .finops-page .panel h3, .finops-page .panel h4{ margin:0 0 .4rem; color:var(--dark-blue); font-size:1.05rem; text-align:left; }
-    .finops-page .panel ul{ margin:.35rem 0 0 1.25rem; padding-left:1.05rem; list-style-position:outside; }
-    .finops-page .panel li{ margin:.3rem 0; }
+    /* Small, quiet sub-bullets under a kv item (optional) */
+    .finops-page .sub{ margin:.25rem 0 0 2rem; opacity:.95; }
+    .finops-page .sub li{ margin:.25rem 0; }
 
-    /* CTA cards (use the global .card look only here) */
-    .finops-page .cta-cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.25rem; padding:0 1rem; max-width:1100px; margin:0 auto; }
-    .finops-page .cta-cards .card{ border:2px solid var(--dark-blue); border-radius:8px; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.06); padding:1.25rem; display:flex; flex-direction:column; gap:.75rem; }
-    .finops-page .cta-cards .card h3{ margin:0 0 .35rem; color:var(--primary-blue); font-size:1.1rem; }
-    .finops-page .cta-cards .card .cta-btn{ margin-top:auto; }
+    /* CTA cards look stronger on purpose; everything else is narrative */
+    .finops-page .cta-row{ display:flex; justify-content:center; margin-top:1rem; }
+    .finops-page .cta-row .cta-btn{ min-width:240px; }
 
-    /* Recent wins list */
-    .finops-page .wins{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .finops-page .wins ul{ margin:.4rem 0 0 1.2rem; }
-    .finops-page .wins li{ margin:.35rem 0; }
-
-    /* Desktop nav squeeze (labels are short on this page) */
+    /* Desktop nav squeeze */
+    nav.desktop-nav{ gap:.55rem; }
     nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
 
     /* Footer phone link = white */
@@ -89,10 +74,12 @@
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" />
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </label>
 
       <!-- Shortened labels -->
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
         <a href="cloud.html" class="nav-btn">CLOUD</a>
@@ -138,7 +125,7 @@
 
   <!-- Intro -->
   <section class="hero-intro">
-    <h1 class="hero-title center-title">Hybrid FinOps &amp; Governance</h1>
+    <h1 class="hero-title">Hybrid FinOps &amp; Governance</h1>
     <p>
       Hybrid only works if cost, policy, and operations stay tight. We cut run-rate and stop drift across cloud, hosted, and on-prem with tagging that sticks, budgets and alerts, showback/chargeback, and policy-as-code guardrails.
     </p>
@@ -147,59 +134,160 @@
   <main class="content">
     <!-- Outcomes first -->
     <section class="section narrative" aria-labelledby="outcomes-title">
-      <h2 id="outcomes-title" class="section-title center-title">What You Get in 90 Days</h2>
+      <h2 id="outcomes-title" class="section-title">What You Get in 90 Days</h2>
       <ul class="kv-list">
-        <li><span class="kv">12–35% run-rate reduction:</span><span class="desc">quick wins on idle/over-provisioned resources, wrong tiers, and forgotten spend.</span></li>
-        <li><span class="kv">Showback you can defend:</span><span class="desc">per-workload cost lines that match how execs make decisions.</span></li>
-        <li><span class="kv">Guardrails that hold:</span><span class="desc">budgets, tags, and policies enforced in code across venues — less drift.</span></li>
-        <li><span class="kv">Visibility end-to-end:</span><span class="desc">dashboards for cloud + hosted + on-prem — one truth for finance & tech.</span></li>
+        <li><span class="kv">12–35% run-rate reduction:</span>
+          <span class="desc">Quick wins on idle/over-provisioned resources, wrong tiers, and forgotten spend.</span>
+          <ul class="sub">
+            <li>Rightsizing + schedule-off + storage tiering</li>
+            <li>Commitment coverage (RIs/SPs) matched to trend</li>
+            <li>“Turn-down” defaults for dev/test</li>
+          </ul>
+        </li>
+        <li><span class="kv">Showback you can defend:</span>
+          <span class="desc">Per-workload cost lines that match how execs make decisions.</span>
+          <ul class="sub">
+            <li>Golden tags with backfill strategy (≥90% coverage)</li>
+            <li>Shared services allocation rules (documented)</li>
+          </ul>
+        </li>
+        <li><span class="kv">Guardrails that hold:</span>
+          <span class="desc">Budgets, tags, and policies enforced in code across venues — less drift.</span>
+          <ul class="sub">
+            <li>Preventive controls for sizes/regions/storage classes</li>
+            <li>Budget alerts with variance root-cause workflow</li>
+          </ul>
+        </li>
+        <li><span class="kv">Visibility end-to-end:</span>
+          <span class="desc">Dashboards for cloud + hosted + on-prem — one truth for finance &amp; tech.</span>
+          <ul class="sub">
+            <li>Unify usage/cost data sources to a single pane</li>
+            <li>Weekly “cost &amp; SLO” operating rhythm</li>
+          </ul>
+        </li>
       </ul>
     </section>
 
     <!-- Operating loop -->
     <section class="section narrative" aria-labelledby="loop-title">
-      <h2 id="loop-title" class="section-title center-title">The FinOps Operating Loop</h2>
+      <h2 id="loop-title" class="section-title">The FinOps Operating Loop</h2>
       <ul class="kv-list">
-        <li><span class="kv">1) Baseline:</span><span class="desc">tag audit, account structure, cost sources, shared services, and noisy neighbours.</span></li>
-        <li><span class="kv">2) Optimise:</span><span class="desc">rightsizing, reservations/SPs, storage tiering, K8s/VM allocation, idle cleanup.</span></li>
-        <li><span class="kv">3) Govern:</span><span class="desc">budgets & alerts, policy-as-code, golden tags, RBAC, preventive controls.</span></li>
-        <li><span class="kv">4) Operate:</span><span class="desc">monthly reviews, anomaly watch, chargeback/showback, SLO tracking.</span></li>
+        <li><span class="kv">1) Baseline:</span>
+          <span class="desc">Tag audit, account structure, cost sources, shared services, and noisy neighbours.</span>
+          <ul class="sub">
+            <li>Map apps → projects → cost centers</li>
+            <li>Decide allocation rules for platforms/egress</li>
+          </ul>
+        </li>
+        <li><span class="kv">2) Optimise:</span>
+          <span class="desc">Rightsizing, reservations/SPs, storage tiering, K8s/VM allocation, idle cleanup.</span>
+          <ul class="sub">
+            <li>CPU/memory requests vs actual usage</li>
+            <li>Commitment re-profiling without over-commit</li>
+          </ul>
+        </li>
+        <li><span class="kv">3) Govern:</span>
+          <span class="desc">Budgets &amp; alerts, policy-as-code, golden tags, RBAC, preventive controls.</span>
+          <ul class="sub">
+            <li>Guardrails: size families, regions, backup minimums</li>
+            <li>Exceptions &amp; break-glass rules (documented)</li>
+          </ul>
+        </li>
+        <li><span class="kv">4) Operate:</span>
+          <span class="desc">Monthly reviews, anomaly watch, chargeback/showback, SLO tracking.</span>
+          <ul class="sub">
+            <li>Runbook: variance → action → owner → date</li>
+            <li>Quarterly roadmap refresh with targets</li>
+          </ul>
+        </li>
       </ul>
     </section>
 
-    <!-- Capabilities -->
-    <section class="section" aria-labelledby="cap-title">
-      <h2 id="cap-title" class="section-title center-title">Capabilities That Stick</h2>
-      <div class="grid-3">
-        <div class="panel"><h3>Tagging that survives reality</h3><p>Golden tag set, backfill strategy, and break-glass rules for shared services.</p></div>
-        <div class="panel"><h3>Budgets & anomaly detection</h3><p>Portfolio and per-workload budgets, alerts, and weekly variance reviews.</p></div>
-        <div class="panel"><h3>RI/SP & capacity planning</h3><p>Coverage targets, commitment sizing, and contract timing to avoid shelf-ware.</p></div>
-        <div class="panel"><h3>K8s & VM cost allocation</h3><p>Requests vs usage, namespace/project split, and showback that makes sense.</p></div>
-        <div class="panel"><h3>Policy-as-code guardrails</h3><p>Preventive controls for regions, sizes, storage classes, backup & DR minimums.</p></div>
-        <div class="panel"><h3>Unified dashboards</h3><p>Cloud + hosted + on-prem: one glass for finance, platform, and app owners.</p></div>
-      </div>
+    <!-- Capabilities (expanded narrative) -->
+    <section class="section narrative" aria-labelledby="cap-title">
+      <h2 id="cap-title" class="section-title">Capabilities That Stick</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Tagging that survives reality:</span>
+          <span class="desc">Golden set, backfill automation, and carve-outs for shared services.</span>
+        </li>
+        <li><span class="kv">Budgets &amp; anomaly detection:</span>
+          <span class="desc">Portfolio + workload budgets with alerts, weekly variance reviews, and playbooks.</span>
+        </li>
+        <li><span class="kv">RI/SP &amp; capacity planning:</span>
+          <span class="desc">Coverage targets by family/region; commit sizing and timing to avoid shelf-ware.</span>
+        </li>
+        <li><span class="kv">K8s &amp; VM cost allocation:</span>
+          <span class="desc">Requests vs usage, namespace/project split, and showback that makes sense.</span>
+        </li>
+        <li><span class="kv">Policy-as-code guardrails:</span>
+          <span class="desc">Preventive controls for regions, sizes, storage classes, backup &amp; DR minimums.</span>
+        </li>
+        <li><span class="kv">Unified dashboards:</span>
+          <span class="desc">Cloud + hosted + on-prem in one view for finance, platform, and app owners.</span>
+        </li>
+      </ul>
     </section>
 
-    <!-- SA context -->
-    <section class="section" aria-labelledby="sa-title">
-      <h2 id="sa-title" class="section-title center-title">Built for South Africa</h2>
-      <div class="grid-3">
-        <div class="panel"><h3>POPIA-aligned cost views</h3><p>Separate residency-sensitive workloads; minimise cross-border egress surprises.</p></div>
-        <div class="panel"><h3>Latency & locality economics</h3><p>Model cost vs jitter for on-prem/hosted placement without losing cloud services.</p></div>
-        <div class="panel"><h3>Vendor leverage</h3><p>Multi-venue posture that improves pricing power with hyperscalers and DC partners.</p></div>
-      </div>
+    <!-- Extra narrative: metrics, risks, artefacts -->
+    <section class="section narrative" aria-labelledby="metrics-title">
+      <h2 id="metrics-title" class="section-title">Metrics We Track</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Coverage:</span> <span class="desc">Tag coverage %, commitment coverage %, backup/DR coverage.</span></li>
+        <li><span class="kv">Efficiency:</span> <span class="desc">Idle %, rightsized %, storage tier mix, K8s request/utilisation ratio.</span></li>
+        <li><span class="kv">Financial:</span> <span class="desc">Run-rate, budget variance, unit cost per transaction/user/API.</span></li>
+        <li><span class="kv">Stability:</span> <span class="desc">Anomaly MTTR, change-related drift, SLO adherence.</span></li>
+      </ul>
     </section>
 
-    <!-- Engagement options -->
+    <section class="section narrative" aria-labelledby="risks-title">
+      <h2 id="risks-title" class="section-title">Risks We Reduce</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Uncontrolled spend:</span> <span class="desc">No-tag, wrong-tier, zombie resources, and egress surprises.</span></li>
+        <li><span class="kv">Operational drift:</span> <span class="desc">Non-standard regions/sizes, backup gaps, and policy violations.</span></li>
+        <li><span class="kv">Over-commit/under-commit:</span> <span class="desc">Mismatch between commitments and actual trends.</span></li>
+        <li><span class="kv">Opaque allocations:</span> <span class="desc">“Who owns this?” → clear showback and chargeback.</span></li>
+      </ul>
+    </section>
+
+    <section class="section narrative" aria-labelledby="artefacts-title">
+      <h2 id="artefacts-title" class="section-title">Artifacts You’ll Have</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Tagging standard &amp; exceptions:</span> <span class="desc">Golden tags, patterns, and break-glass rules.</span></li>
+        <li><span class="kv">Guardrail policy pack:</span> <span class="desc">Preventive controls as code with test cases.</span></li>
+        <li><span class="kv">Budget model + dashboards:</span> <span class="desc">Portfolio/workload budgets, alerts, and views.</span></li>
+        <li><span class="kv">Savings roadmap (12 months):</span> <span class="desc">Sequenced actions with owners and targets.</span></li>
+      </ul>
+    </section>
+
+    <!-- SA context (expanded narrative) -->
+    <section class="section narrative" aria-labelledby="sa-title">
+      <h2 id="sa-title" class="section-title">Built for South Africa</h2>
+      <ul class="kv-list">
+        <li><span class="kv">POPIA-aligned cost views:</span>
+          <span class="desc">Separate residency-sensitive workloads; minimise cross-border egress surprises.</span>
+        </li>
+        <li><span class="kv">Latency &amp; locality economics:</span>
+          <span class="desc">Model cost vs jitter for on-prem/hosted placement without losing cloud services.</span>
+        </li>
+        <li><span class="kv">Vendor leverage:</span>
+          <span class="desc">Multi-venue posture that improves pricing power with hyperscalers and DC partners.</span>
+        </li>
+        <li><span class="kv">Power &amp; DR reality:</span>
+          <span class="desc">Backups you can test, run-books that assume load-shedding and link failover.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Engagement options (cards kept) -->
     <section class="section" aria-labelledby="engage-title">
-      <h2 id="engage-title" class="section-title center-title">How We Engage</h2>
-      <div class="cta-cards">
+      <h2 id="engage-title" class="section-title">How We Engage</h2>
+      <div class="card-grid force-4" style="margin-top:1rem;">
         <div class="card">
           <h3>FinOps Assessment (2–3 weeks)</h3>
           <ul>
-            <li>Cost baseline & tag audit</li>
-            <li>Waste & rightsizing plan</li>
-            <li>Guardrail & budget blueprint</li>
+            <li>Cost baseline &amp; tag audit</li>
+            <li>Waste &amp; rightsizing plan</li>
+            <li>Guardrail &amp; budget blueprint</li>
             <li>12-month savings roadmap</li>
           </ul>
           <a href="contact.html" class="cta-btn">Start the Assessment</a>
@@ -209,17 +297,17 @@
           <ul>
             <li>Budgets/alerts, anomaly detection</li>
             <li>Policy-as-code guardrails</li>
-            <li>RI/SP & capacity coverage</li>
-            <li>Unified dashboards & showback</li>
+            <li>RI/SP &amp; capacity coverage</li>
+            <li>Unified dashboards &amp; showback</li>
           </ul>
           <a href="contact.html" class="cta-btn">Plan My Implement</a>
         </div>
         <div class="card">
-          <h3>Run & Optimise</h3>
+          <h3>Run &amp; Optimise</h3>
           <ul>
             <li>Monthly cost/perf reviews</li>
-            <li>Continuous rightsizing & tiering</li>
-            <li>Variance root-cause & actions</li>
+            <li>Continuous rightsizing &amp; tiering</li>
+            <li>Variance root-cause &amp; actions</li>
             <li>Quarterly roadmap refresh</li>
           </ul>
           <a href="contact.html" class="cta-btn">Operate with CoreCloud</a>
@@ -232,26 +320,42 @@
       </div>
     </section>
 
-    <!-- Recent wins -->
-    <section class="section wins" aria-labelledby="wins-title">
-      <h2 id="wins-title" class="section-title center-title">Recent Wins Through Partner Collective</h2>
-      <ul>
-        <li><strong>−28% run-rate:</strong> tag hygiene + rightsizing + storage tiering; budgets enforced in policy.</li>
-        <li><strong>90% tag coverage:</strong> golden tags + backfill automation → clean showback in 30 days.</li>
-        <li><strong>SP coverage +22 pts:</strong> commitment re-profiled; avoided over-commit while locking upside.</li>
-        <li><strong>Drift near zero:</strong> guardrails on region/size/storage stopped misconfig before it shipped.</li>
+    <!-- Recent wins (narrative) -->
+    <section class="section narrative" aria-labelledby="wins-title">
+      <h2 id="wins-title" class="section-title">Recent Wins Through Partner Collective</h2>
+      <ul class="kv-list">
+        <li><span class="kv">−28% run-rate:</span>
+          <span class="desc">Tag hygiene + rightsizing + storage tiering; budgets enforced in policy.</span>
+        </li>
+        <li><span class="kv">90% tag coverage:</span>
+          <span class="desc">Golden tags + backfill automation → clean showback in 30 days.</span>
+        </li>
+        <li><span class="kv">SP coverage +22 pts:</span>
+          <span class="desc">Commitment re-profiled; avoided over-commit while locking upside.</span>
+        </li>
+        <li><span class="kv">Drift near zero:</span>
+          <span class="desc">Guardrails on region/size/storage stopped misconfig before it shipped.</span>
+        </li>
       </ul>
     </section>
 
-    <!-- FAQ -->
-    <section class="section" id="faq" aria-labelledby="faq-title">
-      <h2 id="faq-title" class="section-title center-title">FAQ</h2>
-      <div class="grid-2">
-        <div class="panel"><h3>Do you need a specific tool?</h3><p>No. We work with your stack (native or third-party). The operating loop matters more than the logo.</p></div>
-        <div class="panel"><h3>Will this slow delivery?</h3><p>Guardrails are preventive, not bureaucratic. Teams move faster when defaults are safe and budgets are clear.</p></div>
-        <div class="panel"><h3>Can you cover hosted/on-prem?</h3><p>Yes. We normalise data from hosted and on-prem to the same dashboards and showback model.</p></div>
-        <div class="panel"><h3>What if tags are a mess?</h3><p>We start with coverage &gt;90%: golden tag set, backfill plan, and exceptions for shared services.</p></div>
-      </div>
+    <!-- FAQ (narrative Q&A) -->
+    <section class="section narrative" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title">FAQ</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Do you need a specific tool?</span>
+          <span class="desc">No. We work with your stack (native or third-party). The operating loop matters more than the logo.</span>
+        </li>
+        <li><span class="kv">Will this slow delivery?</span>
+          <span class="desc">Guardrails are preventive, not bureaucratic. Teams move faster when defaults are safe and budgets are clear.</span>
+        </li>
+        <li><span class="kv">Can you cover hosted/on-prem?</span>
+          <span class="desc">Yes. We normalise data from hosted and on-prem to the same dashboards and showback model.</span>
+        </li>
+        <li><span class="kv">What if tags are a mess?</span>
+          <span class="desc">We start with coverage &gt;90%: golden tag set, backfill plan, and exceptions for shared services.</span>
+        </li>
+      </ul>
     </section>
   </main>
 
