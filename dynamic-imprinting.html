@@ -1,168 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Dynamic Imprinting | CoreCloud Executive Transformation</title>
   <meta name="description" content="Dynamic Imprinting helps executives unlock authentic leadership identity, transforming influence and performance through a bespoke methodology." />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="CoreCloud" />
+  <meta name="theme-color" content="#004f91" />
 
+  <!-- Canonical + Social -->
+  <link rel="canonical" href="https://www.corecloudza.com/dynamic-imprinting.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Dynamic Imprinting | CoreCloud Executive Transformation" />
+  <meta property="og:description" content="An identity-focused methodology that helps executives show up as their true selves—clear, influential, and high-performing." />
+  <meta property="og:url" content="https://www.corecloudza.com/dynamic-imprinting.html" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css" />
-  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
 
+  <!-- Preload hero -->
+  <link rel="preload" as="image" href="assets/images/dynamic-imprinting-banner.png" imagesizes="100vw" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high" />
+
+  <!-- Page-scoped helpers (titles centered, narrative layout) -->
   <style>
-    .imprinting-page .hero-title{ color:#004f91; font-weight:700; font-size:2rem; margin:2.5rem auto 1rem; text-align:center; }
-    .imprinting-page .hero-subtitle{ font-size:1.2rem; color:#555; text-align:center; max-width:900px; margin:0 auto 3rem; line-height:1.6; }
-    .imprinting-page .card-grid.big{ display:grid; grid-template-columns:1fr; gap:2rem; padding:0 2rem; max-width:1100px; margin:0 auto; }
-    .imprinting-page .card h2.section-title{ margin-top:0; text-align:center; }
-    .imprinting-page .card p, .imprinting-page .card blockquote, .imprinting-page .card ul{ text-align:left; margin-left:0; margin-right:0; }
-    .imprinting-page .card ul{ list-style:disc; padding-left:1.25rem; margin:0 0 2rem 0; }
-    .imprinting-page .card ul li{ margin-bottom:.75rem; }
-    .imprinting-page blockquote{ background:#f0f7ff; border-left:5px solid #004f91; padding:1rem 1.5rem; font-style:italic; color:#003366; border-radius:4px; margin:2rem 0; max-width:800px; }
-    .imprinting-page .cta-wrap{ text-align:center; margin-top:1.5rem; }
-  </style>
-</head>
+    .imprinting-page .hero-intro{ max-width:900px; margin:2rem auto 1.25rem; text-align:center; }
+    .imprinting-page .hero-title,
+    .imprinting-page .section-title{
+      text-align:center !important;
+      display:block; margin-left:auto; margin-right:auto;
+    }
+    .imprinting-page .hero-subtitle{
+      font-size:1.1rem; color:#555; text-align:center; max-width:900px;
+      margin:0 auto 2.2rem; line-height:1.6;
+    }
 
-<body class="imprinting-page">
-  <div class="small-banner">
-    <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" decoding="async" fetchpriority="high">
-
-      <input type="checkbox" id="nav-toggle" class="nav-toggle">
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
-
-      <nav class="desktop-nav">
-        <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="finops.html" class="nav-btn">FINOPS &amp; GOVERNANCE</a>
-        <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
-        <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn active">DYNAMIC IMPRINTING</a>
-        <a href="about.html" class="nav-btn">ABOUT</a>
-        <a href="blog.html" class="nav-btn">BLOG</a>
-        <a href="contact.html" class="nav-btn">CONTACT</a>
-      </nav>
-
-      <nav class="mobile-nav" aria-label="Mobile">
-        <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html">CLOUD SUITE</a>
-        <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
-        <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="active">DYNAMIC IMPRINTING</a>
-        <a href="about.html">ABOUT</a>
-        <a href="blog.html">BLOG</a>
-        <a href="contact.html">CONTACT</a>
-      </nav>
-    </div>
-  </div>
-
-  <!-- Hero -->
-  <div class="hero-media">
-    <img src="assets/images/dynamic-imprinting-banner.png"
-         alt="Dynamic Imprinting — Executive Identity Transformation"
-         width="1920" height="400"
-         loading="eager" decoding="async" fetchpriority="high">
-  </div>
-
-  <main class="content">
-    <h1 class="hero-title">Dynamic Imprinting for Executive Transformation</h1>
-    <p class="hero-subtitle">Real leadership begins when you show up as yourself. Dynamic Imprinting helps high-performing executives step into their true leadership identity, transforming influence, clarity, and performance.</p>
-
-    <section class="section">
-      <div class="card-grid big">
-        <div class="card">
-          <h2 class="section-title">Why Dynamic Imprinting?</h2>
-          <p>You’ve built your career through results, discipline, and adaptability. You’ve earned your title, your credibility, and your seat at the table.</p>
-          <p>But even top performers sometimes wonder in quieter moments:</p>
-          <blockquote>“Is this truly who I’m meant to be as a leader?”</blockquote>
-          <p>Reaching the top often means wearing different masks, fitting into roles, and meeting expectations under pressure. Over time, the line can blur between who you are and who you’re supposed to be.</p>
-          <p><strong>Dynamic Imprinting</strong> is built to change that.</p>
-          <p>This isn’t typical coaching. It’s not therapy. It’s an identity-focused methodology for leaders who want to:</p>
-          <ul>
-            <li>Align who they are with how they lead</li>
-            <li>Show up with presence and real influence</li>
-            <li>Break old patterns and redefine leadership on their own terms</li>
-          </ul>
-          <p>Picture walking into any room — boardroom, client pitch, investor meeting — and knowing you’re not playing a part. You’re simply yourself: confident, clear, and authentic.</p>
-          <p>Picture decisions flowing from deep alignment rather than pressure to conform.</p>
-          <p>Picture being remembered not just for what you achieved but for the leader you became.</p>
-        </div>
-
-        <div class="card">
-          <h2 class="section-title">The Four Phases of Dynamic Imprinting</h2>
-          <p><strong>Identity Excavation</strong><br>We start by removing layers of titles and expectations to uncover who you really are beneath professional labels. It’s a safe, confidential exploration of values, strengths, and the identity you want to lead with.</p>
-          <p><strong>Cognitive Reprogramming</strong><br>We examine the beliefs and mental narratives that shape your leadership. Together, we rewrite scripts that no longer serve you, replacing them with thinking that fuels clarity and confidence.</p>
-          <p><strong>Behavioural Anchoring</strong><br>Insight alone changes nothing. We build new habits, rituals, and communication patterns that embed your authentic identity into daily actions so that who you want to be becomes who others experience.</p>
-          <p><strong>Resonance Reinforcement</strong><br>We ensure your transformation lasts. Through feedback and strategic reflection, we help you project your leadership identity consistently and powerfully.</p>
-        </div>
-
-        <div class="card">
-          <h2 class="section-title">Program Options</h2>
-          <p><strong>Private Executive Program (16 Weeks)</strong><br>A private, intensive journey with weekly or biweekly sessions, ongoing support, and resources tailored to your needs.</p>
-          <p><strong>Executive Intensive (3–5 Days)</strong><br>A focused sprint for immediate clarity and action, plus follow-up support.</p>
-          <p><strong>Strategic Advisory Retainer</strong><br>Ongoing partnership for leaders who want consistent guidance and reinforcement.</p>
-        </div>
-
-        <div class="card">
-          <h2 class="section-title">What Changes</h2>
-          <ul>
-            <li>Greater influence at senior levels</li>
-            <li>Sharper strategic thinking</li>
-            <li>Authentic executive presence</li>
-            <li>Sustainable high performance</li>
-            <li>A leadership brand that lasts</li>
-          </ul>
-          <p><strong>This isn’t about fixing what’s broken.</strong> It’s about stepping into the fullest version of who you are as a leader and creating the impact only you can achieve.</p>
-          <div class="cta-wrap"><a href="contact.html" class="cta-btn">Book a Confidential Consultation</a></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-<!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-left">
-      <p><strong>CoreCloud (Pty) Ltd</strong></p>
-      <p>Sandton<br>Johannesburg<br>South Africa</p>
-    </div>
-
-    <div class="footer-middle">
-      <h4>Stay Informed</h4>
-      <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-      <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-        <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
-        <label class="visually-hidden" for="newsletter_email">Email</label>
-        <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
-        <button type="submit" class="cta-btn">Subscribe</button>
-      </form>
-    </div>
-
-    <div class="footer-right">
-      <p><strong>Contact</strong></p>
-      <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-      <p>Phone: <a href="mailto:sales@corecloudza.com">{+27) 011 568 8667</a></p>
-      <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 CoreCloud. All rights reserved. |
-      <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-      <a href="terms.html" class="legal-link">Terms</a>
-    </p>
-  </div>
-</footer>
-</body>
-</html>
+    /* Narrative containers */
+    .imprinting-page .narrative{
+      max-width:1000px; margin:0 auto; padding:0 1rem;
+    }
+    .imprinting-page .narrative p{ margin:.6rem 0; line-height:1.7; color:#444; }
+    .imprinting-page .narrative ul{
+      margin:.35rem 0 0 1.25rem; padding-left:1rem; line-height:1.7;
+    }
+    .imprinting-page
