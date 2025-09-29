@@ -24,14 +24,32 @@
   <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/data-bannerimage.png" imagesizes="100vw" fetchpriority="high">
 
-  <!-- Page tweak -->
+  <!-- Page-scoped: narrative lists only -->
   <style>
     .dataai-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center; }
+    .dataai-page .section{ margin:2rem 0 !important; }
+    .dataai-page .section-title{ margin-bottom:.85rem; text-align:center; }
+
+    /* Narrative containers + key-value bullets */
+    .dataai-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .dataai-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
+    .dataai-page .kv-list{
+      margin:.35rem 0 0 1.25rem;          /* indent from left edge */
+      padding-left:1.05rem;               /* keep bullets outside the text block */
+      list-style-position:outside;
+      line-height:1.7;
+    }
+    .dataai-page .kv-list li{ margin:.35rem 0; }
+    .dataai-page .kv{ font-weight:700; color:var(--dark-blue); }
+    .dataai-page .desc{ display:block; margin-left:.9rem; color:#444; }
+    @media (max-width:600px){
+      .dataai-page .desc{ margin-left:.75rem; }
+    }
   </style>
 </head>
 
 <body class="dataai-page">
-  <!-- Header / Nav -->
+  <!-- Header / Nav (unchanged) -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" />
@@ -41,7 +59,6 @@
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Desktop nav (includes FINOPS & DATA/AI so you can test now) -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
@@ -58,7 +75,6 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile nav -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULTING</a>
@@ -95,61 +111,61 @@
   </section>
 
   <main class="content">
-    <!-- Outcomes -->
-    <section class="section">
-      <h2 class="section-title">Measurable Outcomes</h2>
-      <div class="card-grid force-4">
-        <div class="card"><h3>Faster to insight</h3><p>Weeks, not months — curated data products and self-serve access.</p></div>
-        <div class="card"><h3>30–60% lower AI TCO</h3><p>Right-sizing GPU vs cloud burst; storage tiering and cache design.</p></div>
-        <div class="card"><h3>Governed by default</h3><p>Lineage, approvals, and audit trails baked into the pipeline.</p></div>
-        <div class="card"><h3>Latency where it counts</h3><p>Place models and data near users and events; burst global when needed.</p></div>
-      </div>
+    <!-- Measurable Outcomes (narrative) -->
+    <section class="section narrative" aria-labelledby="outcomes-title">
+      <h2 id="outcomes-title" class="section-title">Measurable Outcomes</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Faster to insight</span><span class="desc">Weeks, not months — curated data products and self-serve access.</span></li>
+        <li><span class="kv">30–60% lower AI TCO</span><span class="desc">Right-sizing GPU vs cloud burst; storage tiering and cache design.</span></li>
+        <li><span class="kv">Governed by default</span><span class="desc">Lineage, approvals, and audit trails baked into the pipeline.</span></li>
+        <li><span class="kv">Latency where it counts</span><span class="desc">Place models and data near users and events; burst global when needed.</span></li>
+      </ul>
     </section>
 
-    <!-- Platform -->
-    <section class="section">
-      <h2 class="section-title">The Platform We Build</h2>
-      <div class="card-grid force-4">
-        <div class="card"><h3>Lakehouse &amp; Streaming</h3><p>Batch + real-time ingestion, quality checks, and curated layers for reuse.</p></div>
-        <div class="card"><h3>RAG &amp; MLOps</h3><p>Retrieval-augmented generation, feature stores, CI/CD for models, evaluation.</p></div>
-        <div class="card"><h3>On-Prem GPU + Cloud Burst</h3><p>Predictable steady-state on-prem; spike into cloud for training or seasonality.</p></div>
-        <div class="card"><h3>Governance</h3><p>Data contracts, catalog, lineage, role-based access, privacy and retention.</p></div>
-      </div>
+    <!-- The Platform We Build (narrative) -->
+    <section class="section narrative" aria-labelledby="platform-title">
+      <h2 id="platform-title" class="section-title">The Platform We Build</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Lakehouse &amp; Streaming</span><span class="desc">Batch + real-time ingestion, quality checks, and curated layers for reuse.</span></li>
+        <li><span class="kv">RAG &amp; MLOps</span><span class="desc">Retrieval-augmented generation, feature stores, CI/CD for models, evaluation.</span></li>
+        <li><span class="kv">On-Prem GPU + Cloud Burst</span><span class="desc">Predictable steady-state on-prem; spike into cloud for training or seasonality.</span></li>
+        <li><span class="kv">Governance</span><span class="desc">Data contracts, catalog, lineage, role-based access, privacy and retention.</span></li>
+      </ul>
     </section>
 
-    <!-- SA fit -->
-    <section class="section">
-      <h2 class="section-title">Built for South Africa</h2>
-      <div class="card-grid">
-        <div class="card"><h3>POPIA &amp; residency</h3><p>Keep sensitive data resident in SA; minimise cross-border egress.</p></div>
-        <div class="card"><h3>Cost &amp; power reality</h3><p>Design for predictable run-rate with DR you can actually test.</p></div>
-        <div class="card"><h3>Hybrid by design</h3><p>Tie into your landing zones, hosting/on-prem, and identity guardrails.</p></div>
-      </div>
+    <!-- Built for South Africa (narrative) -->
+    <section class="section narrative" aria-labelledby="sa-title">
+      <h2 id="sa-title" class="section-title">Built for South Africa</h2>
+      <ul class="kv-list">
+        <li><span class="kv">POPIA &amp; residency</span><span class="desc">Keep sensitive data resident in SA; minimise cross-border egress.</span></li>
+        <li><span class="kv">Cost &amp; power reality</span><span class="desc">Design for predictable run-rate with DR you can actually test.</span></li>
+        <li><span class="kv">Hybrid by design</span><span class="desc">Tie into your landing zones, hosting/on-prem, and identity guardrails.</span></li>
+      </ul>
     </section>
 
-    <!-- What goes where -->
-    <section class="section">
-      <h2 class="section-title">What Runs Where</h2>
-      <div class="card-grid force-4">
-        <div class="card"><h3>Cloud</h3><p>Global reach, serverless ETL, vector stores at scale, LLM services, burst training.</p></div>
-        <div class="card"><h3>Hosted (SA)</h3><p>Curated data products, BI, and steady inference with locality and predictable cost.</p></div>
-        <div class="card"><h3>On-Prem</h3><p>GPU inference for latency-critical or sensitive workloads; low-jitter pipelines.</p></div>
-        <div class="card"><h3>Hybrid</h3><p>Unified identity, guardrails, monitoring, and FinOps across the estate.</p></div>
-      </div>
+    <!-- What Runs Where (narrative) -->
+    <section class="section narrative" aria-labelledby="where-title">
+      <h2 id="where-title" class="section-title">What Runs Where</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Cloud</span><span class="desc">Global reach, serverless ETL, vector stores at scale, LLM services, burst training.</span></li>
+        <li><span class="kv">Hosted (SA)</span><span class="desc">Curated data products, BI, and steady inference with locality and predictable cost.</span></li>
+        <li><span class="kv">On-Prem</span><span class="desc">GPU inference for latency-critical or sensitive workloads; low-jitter pipelines.</span></li>
+        <li><span class="kv">Hybrid</span><span class="desc">Unified identity, guardrails, monitoring, and FinOps across the estate.</span></li>
+      </ul>
     </section>
 
-    <!-- Use cases -->
-    <section class="section">
-      <h2 class="section-title">High-Value Use Cases</h2>
-      <div class="card-grid force-4">
-        <div class="card"><h3>Customer 360</h3><p>Unify signals for cross-sell, churn, and service quality.</p></div>
-        <div class="card"><h3>Agent Assist / Knowledge</h3><p>RAG on your corpus for faster, compliant responses.</p></div>
-        <div class="card"><h3>Fraud &amp; Risk</h3><p>Real-time features and anomaly detection with lineage.</p></div>
-        <div class="card"><h3>Docs &amp; Process</h3><p>OCR + RAG for contracts, claims, onboarding, and QA.</p></div>
-      </div>
+    <!-- High-Value Use Cases (narrative) -->
+    <section class="section narrative" aria-labelledby="usecases-title">
+      <h2 id="usecases-title" class="section-title">High-Value Use Cases</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Customer 360</span><span class="desc">Unify signals for cross-sell, churn, and service quality.</span></li>
+        <li><span class="kv">Agent Assist / Knowledge</span><span class="desc">RAG on your corpus for faster, compliant responses.</span></li>
+        <li><span class="kv">Fraud &amp; Risk</span><span class="desc">Real-time features and anomaly detection with lineage.</span></li>
+        <li><span class="kv">Docs &amp; Process</span><span class="desc">OCR + RAG for contracts, claims, onboarding, and QA.</span></li>
+      </ul>
     </section>
 
-    <!-- Engagements -->
+    <!-- Keep these as-is (cards are fine here) -->
     <section class="section">
       <h2 class="section-title">How We Engage</h2>
       <div class="card-grid force-4">
@@ -163,7 +179,6 @@
           </ul>
           <a href="contact.html" class="cta-btn">Start Discovery</a>
         </div>
-
         <div class="card">
           <h3>Platform Build</h3>
           <ul>
@@ -174,7 +189,6 @@
           </ul>
           <a href="contact.html" class="cta-btn">Build My Platform</a>
         </div>
-
         <div class="card">
           <h3>Use-Case Sprints</h3>
           <ul>
@@ -185,7 +199,6 @@
           </ul>
           <a href="contact.html" class="cta-btn">Prioritise Sprints</a>
         </div>
-
         <div class="card">
           <h3>Run &amp; Improve</h3>
           <ul>
@@ -199,18 +212,16 @@
       </div>
     </section>
 
-    <!-- Recent wins -->
     <section class="section">
       <h2 class="section-title">Recent Wins Through Partner Collective</h2>
       <div class="card-grid force-4">
         <div class="card"><h3>-55% inference cost</h3><p>On-prem GPU for steady load; burst to cloud for spikes.</p></div>
         <div class="card"><h3>Weeks to value</h3><p>RAG assistant on private corpus reduced handling time by 23%.</p></div>
         <div class="card"><h3>Audit-ready lineage</h3><p>Data contracts + catalog → fewer audit findings.</p></div>
-        <div class="card"><h3>Low-latency insights</h3><p>Streaming telemetry to SA-hosted store; < 200ms dashboards.</p></div>
+        <div class="card"><h3>Low-latency insights</h3><p>Streaming telemetry to SA-hosted store; &lt; 200ms dashboards.</p></div>
       </div>
     </section>
 
-    <!-- FAQ -->
     <section class="section" id="faq">
       <h2 class="section-title">FAQ</h2>
       <div class="card-grid">
@@ -222,7 +233,7 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer (unchanged) -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
