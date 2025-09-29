@@ -19,17 +19,14 @@
   <meta name="twitter:description" content="Cloud-native apps, portals, mobile & web, and APIs—built with DevOps discipline and security by design."/>
   <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
 
-  <!-- Global CSS (use same version across site) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
-
-  <!-- Preload LCP + logo -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=9"/>
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Page-scoped helpers (minimal, no conflicts) -->
+  <!-- Page-scoped helpers (titles centered + bullet indents only) -->
   <style>
-    /* Layout rhythm */
-    .appdev-page main.content{ max-width:1200px; margin:0 auto; padding:0 1.5rem 4rem; }
+    .appdev-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center; }
     .appdev-page .section{ margin:2rem 0 !important; }
 
     /* Narrative containers + lists (off-cards) */
@@ -49,21 +46,25 @@
     .appdev-page .cta-row{ display:flex; justify-content:center; margin-top:1rem; }
     .appdev-page .cta-row .cta-btn{ min-width:240px; }
 
-    /* Keep cards only in “What We Build” */
+    /* Keep cards only in the “What We Build” section */
     .appdev-page .card .cta-btn{ display:flex; align-items:center; justify-content:center; width:100%; min-height:48px; font-weight:700; margin-top:auto; }
 
-    /* Desktop nav squeeze (optional) */
-    nav.desktop-nav{ gap:.55rem; }
-    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
-
-    /* ===== FINAL: heading alignment (page-level last word) ===== */
-    .appdev-page .hero-title,
-    .appdev-page .section-title{
-      text-align:center !important;
-      display:block !important;
-      margin-left:auto !important;
-      margin-right:auto !important;
+    /* ——— HARD FIX: center page titles on THIS page ——— */
+    .appdev-page h1.hero-title,
+    .appdev-page h2.section-title,
+    .appdev-page section > h2.section-title,
+    .appdev-page .narrative > h2.section-title {
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      display: block !important;
     }
+
+    /* Keep subheads inside panels/cards left-aligned (future-proof) */
+    .appdev-page .panel h3,
+    .appdev-page .panel h4,
+    .appdev-page .card  h3,
+    .appdev-page .card  h4 { text-align: left !important; }
   </style>
 
   <!-- JSON-LD -->
@@ -108,7 +109,7 @@
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Shortened labels for consistency -->
+      <!-- Shortened labels -->
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
@@ -158,7 +159,7 @@
   </section>
 
   <main class="content" id="main">
-    <!-- Off-cards narrative sections -->
+    <!-- How -->
     <section class="section narrative" aria-labelledby="how-title">
       <h2 id="how-title" class="section-title">How We Deliver</h2>
       <ul class="kv-list">
@@ -169,6 +170,7 @@
       </ul>
     </section>
 
+    <!-- Engagement -->
     <section class="section narrative" aria-labelledby="engage-title">
       <h2 id="engage-title" class="section-title">Engagement Models</h2>
       <ul class="kv-list">
@@ -179,6 +181,7 @@
       </ul>
     </section>
 
+    <!-- Outcomes -->
     <section class="section narrative" aria-labelledby="outcomes-title">
       <h2 id="outcomes-title" class="section-title">Outcomes You Can Measure</h2>
       <ul class="kv-list">
@@ -189,12 +192,12 @@
       </ul>
     </section>
 
-    <!-- Plain centered CTA (not a card) -->
+    <!-- CTA -->
     <div class="cta-row">
       <a href="contact.html" class="cta-btn">Start a Conversation</a>
     </div>
 
-    <!-- Cards only here -->
+    <!-- What we build (cards) -->
     <section class="section" aria-labelledby="build-title">
       <h2 id="build-title" class="section-title">What We Build</h2>
       <div class="card-grid force-4" style="margin-top:1rem;">
