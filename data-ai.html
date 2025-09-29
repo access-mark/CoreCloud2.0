@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CoreCloud | Sovereign Data & AI – South Africa</title>
@@ -19,37 +18,36 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Global CSS (unchanged) -->
+  <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=9" />
 
   <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/data-bannerimage.png" imagesizes="100vw" fetchpriority="high">
 
-  <!-- Page-scoped: narrative layout + bullet-proof centered titles -->
+  <!-- Page-scoped: narrative only (no bullets), centered titles -->
   <style>
     .dataai-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center; }
-    .dataai-page .hero-title,
-    .dataai-page .section-title{
-      text-align:center !important;
-      display:block;
-      margin-left:auto; margin-right:auto;
-    }
-    .dataai-page .section{ margin:2rem 0 !important; }
-    /* Narrative list pattern */
     .dataai-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .dataai-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
-    .dataai-page .kv-list{
-      margin:.35rem 0 0 1.25rem !important;
-      padding-left:1.05rem !important;
-      list-style-position:outside;
-      line-height:1.7;
-    }
-    .dataai-page .kv-list li{ margin:.35rem 0; }
-    .dataai-page .kv{ font-weight:700; color:var(--dark-blue); }
-    .dataai-page .desc{ display:block; margin-left:.9rem; color:#444; }
+    .dataai-page .section{ margin:2rem 0 !important; }
+    .dataai-page .section-title,
+    .dataai-page .hero-title{ text-align:center !important; margin-left:auto; margin-right:auto; display:block; }
 
-    /* Shortened nav sizing match */
-    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
+    /* Narrative key-value rows */
+    .dataai-page .pair{ margin:.55rem 0; line-height:1.7; color:#444; }
+    .dataai-page .kv{ font-weight:700; color:var(--dark-blue); }
+    .dataai-page .desc{ display:inline; margin-left:.45rem; }
+
+    /* Remove ALL bullets, even inside cards/panels (safety) */
+    .dataai-page ul, .dataai-page ol{ list-style:none !important; margin:0 !important; padding:0 !important; }
+    .dataai-page li::marker{ content:"" !important; }
+
+    /* Optional callout blocks (used in FAQ) */
+    .dataai-page .q{ font-weight:700; color:var(--dark-blue); margin-top:1rem; }
+    .dataai-page .a{ margin:.35rem 0 0; color:#444; }
+
+    /* Keep CTAs neat */
+    .dataai-page .cta-row{ display:flex; justify-content:center; margin-top:1.25rem; }
+    .dataai-page .cta-row .cta-btn{ min-width:240px; }
   </style>
 </head>
 
@@ -60,11 +58,9 @@
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" />
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </label>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Shortened labels -->
+      <!-- Shortened labels for consistency -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
@@ -81,17 +77,17 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile -->
+      <!-- Mobile nav -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULT</a>
         <a href="cloud.html">CLOUD</a>
         <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP&nbsp;DEV</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
         <a href="data-ai.html" class="active" aria-current="page">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="talent-relaunch.html">RE / LAUNCH</a>
         <a href="dynamic-imprinting.html">IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html">BLOG</a>
@@ -117,154 +113,84 @@
     </p>
   </section>
 
-  <!-- MAIN (all narrative, no cards) -->
-  <main class="content" id="main">
-    <!-- Why Hybrid -->
-    <section class="section narrative" id="why-hybrid">
-      <h2 class="section-title">Why Hybrid for Data &amp; AI (SA Reality)</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Residency + Reach:</span><span class="desc">Keep sensitive data in SA while bursting to global regions for training or scale.</span></li>
-        <li><span class="kv">Latency + Jitter:</span><span class="desc">Inference and BI close to users and events; minimise cross-border hops.</span></li>
-        <li><span class="kv">Cost Control:</span><span class="desc">Steady workloads on predictable on-prem/hosted; cloud for true variability only.</span></li>
-        <li><span class="kv">Vendor Leverage:</span><span class="desc">Multi-venue posture improves pricing power and avoids lock-in.</span></li>
-      </ul>
+  <main class="content">
+    <!-- Measurable Outcomes -->
+    <section class="section narrative" aria-labelledby="outcomes-title">
+      <h2 id="outcomes-title" class="section-title">Measurable Outcomes</h2>
+      <p class="pair"><span class="kv">Faster to insight:</span><span class="desc">weeks, not months — curated data products and self-serve access.</span></p>
+      <p class="pair"><span class="kv">30–60% lower AI TCO:</span><span class="desc">right-sizing GPU vs cloud burst; storage tiering and cache design.</span></p>
+      <p class="pair"><span class="kv">Governed by default:</span><span class="desc">lineage, approvals, and audit trails baked into the pipeline.</span></p>
+      <p class="pair"><span class="kv">Latency where it counts:</span><span class="desc">place models and data near users/events; burst global when needed.</span></p>
     </section>
 
-    <!-- Reference Architecture -->
-    <section class="section narrative" id="reference-architecture">
-      <h2 class="section-title">Reference Architecture (Thin but Complete)</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Ingest:</span><span class="desc">Batch + streaming (files, DB change capture, events, APIs). Contracts define schema, SLAs, and ownership.</span></li>
-        <li><span class="kv">Lakehouse:</span><span class="desc">Bronze (raw), Silver (validated), Gold (curated data products). ACID tables, quality checks, and governance hooks.</span></li>
-        <li><span class="kv">Processing:</span><span class="desc">ETL/ELT jobs, feature engineering, and vectorisation pipelines with lineage stamped per run.</span></li>
-        <li><span class="kv">Serving:</span><span class="desc">BI &amp; metrics, feature store, vector DB, model endpoints, and semantic layers.</span></li>
-        <li><span class="kv">MLOps / LLMOps:</span><span class="desc">Model registry, evaluation, A/B, rollout, drift watch, and rollback with audit.</span></li>
-        <li><span class="kv">Security &amp; Identity:</span><span class="desc">Single sign-on, least privilege, attribute-based access, masking, key management.</span></li>
-        <li><span class="kv">Observability:</span><span class="desc">Data quality, freshness, pipeline reliability, cost &amp; performance dashboards.</span></li>
-        <li><span class="kv">FinOps:</span><span class="desc">Budgets, alerts, showback/chargeback by product/team; GPU utilisation &amp; SP/RI coverage.</span></li>
-      </ul>
+    <!-- Platform -->
+    <section class="section narrative" aria-labelledby="platform-title">
+      <h2 id="platform-title" class="section-title">The Platform We Build</h2>
+      <p class="pair"><span class="kv">Lakehouse &amp; Streaming:</span><span class="desc">batch + real-time ingestion, quality checks, curated layers for reuse.</span></p>
+      <p class="pair"><span class="kv">RAG &amp; MLOps:</span><span class="desc">retrieval-augmented generation, feature stores, CI/CD for models, evaluation.</span></p>
+      <p class="pair"><span class="kv">On-Prem GPU + Cloud Burst:</span><span class="desc">predictable steady-state on-prem; spike into cloud for training/seasonality.</span></p>
+      <p class="pair"><span class="kv">Governance:</span><span class="desc">data contracts, catalog, lineage, role-based access, privacy and retention.</span></p>
     </section>
 
-    <!-- Operating Model -->
-    <section class="section narrative" id="operating-model">
-      <h2 class="section-title">Operating Model</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Discover:</span><span class="desc">Prioritised use-cases with ROI, data audit, residency constraints, and success metrics.</span></li>
-        <li><span class="kv">Deliver:</span><span class="desc">Thin slice first; ship data product + model + dashboard in weeks, not months.</span></li>
-        <li><span class="kv">Govern:</span><span class="desc">Contracts, lineage, approvals, and policy-as-code for privacy and retention.</span></li>
-        <li><span class="kv">Operate:</span><span class="desc">SLOs, on-call, anomaly watch, cost/perf reviews, and quarterly roadmap refresh.</span></li>
-      </ul>
+    <!-- South Africa fit -->
+    <section class="section narrative" aria-labelledby="sa-title">
+      <h2 id="sa-title" class="section-title">Built for South Africa</h2>
+      <p class="pair"><span class="kv">POPIA &amp; residency:</span><span class="desc">keep sensitive data resident in SA; minimise cross-border egress.</span></p>
+      <p class="pair"><span class="kv">Cost &amp; power reality:</span><span class="desc">design for predictable run-rate with DR you can actually test.</span></p>
+      <p class="pair"><span class="kv">Hybrid by design:</span><span class="desc">tie into your landing zones, hosting/on-prem, and identity guardrails.</span></p>
     </section>
 
-    <!-- AI Patterns -->
-    <section class="section narrative" id="ai-patterns">
-      <h2 class="section-title">AI Patterns We Ship</h2>
-      <ul class="kv-list">
-        <li><span class="kv">RAG Assistants:</span><span class="desc">Document Q&amp;A, agent assist, knowledge retrieval with source grounding and redaction.</span></li>
-        <li><span class="kv">Fine-Tuning:</span><span class="desc">Domain-specific optimisation for style, safety, or task accuracy; evaluation gates before rollout.</span></li>
-        <li><span class="kv">Batch Inference:</span><span class="desc">Periodic scoring for churn/risk/propensity with lineage and QA snapshots.</span></li>
-        <li><span class="kv">Streaming Inference:</span><span class="desc">Low-latency features and decisions (fraud, personalisation) with jitter budgets.</span></li>
-      </ul>
+    <!-- What runs where -->
+    <section class="section narrative" aria-labelledby="where-title">
+      <h2 id="where-title" class="section-title">What Runs Where</h2>
+      <p class="pair"><span class="kv">Cloud:</span><span class="desc">global reach, serverless ETL, vector stores at scale, LLM services, burst training.</span></p>
+      <p class="pair"><span class="kv">Hosted (SA):</span><span class="desc">curated data products, BI, and steady inference with locality &amp; predictable cost.</span></p>
+      <p class="pair"><span class="kv">On-Prem:</span><span class="desc">GPU inference for latency-critical or sensitive workloads; low-jitter pipelines.</span></p>
+      <p class="pair"><span class="kv">Hybrid:</span><span class="desc">unified identity, guardrails, monitoring, and FinOps across the estate.</span></p>
     </section>
 
-    <!-- Governance -->
-    <section class="section narrative" id="governance">
-      <h2 class="section-title">Governance &amp; Risk Controls</h2>
-      <ul class="kv-list">
-        <li><span class="kv">POPIA by Design:</span><span class="desc">Purpose limitation, minimisation, consent, and retention managed as code.</span></li>
-        <li><span class="kv">Access &amp; Masking:</span><span class="desc">Role/attribute-based policies, tokenisation, and dynamic masking in serving layers.</span></li>
-        <li><span class="kv">Lineage &amp; Approvals:</span><span class="desc">End-to-end lineage; gated promotion with risk checks and audit trails.</span></li>
-        <li><span class="kv">Egress Controls:</span><span class="desc">Residency guardrails; only approved cross-border routes with monitoring.</span></li>
-      </ul>
+    <!-- Use cases -->
+    <section class="section narrative" aria-labelledby="usecases-title">
+      <h2 id="usecases-title" class="section-title">High-Value Use Cases</h2>
+      <p class="pair"><span class="kv">Customer 360:</span><span class="desc">unify signals for cross-sell, churn, and service quality.</span></p>
+      <p class="pair"><span class="kv">Agent Assist / Knowledge:</span><span class="desc">RAG on your corpus for faster, compliant responses.</span></p>
+      <p class="pair"><span class="kv">Fraud &amp; Risk:</span><span class="desc">real-time features and anomaly detection with lineage.</span></p>
+      <p class="pair"><span class="kv">Docs &amp; Process:</span><span class="desc">OCR + RAG for contracts, claims, onboarding, and QA.</span></p>
     </section>
 
-    <!-- Cost & Performance -->
-    <section class="section narrative" id="cost-performance">
-      <h2 class="section-title">Performance &amp; Cost Engineering</h2>
-      <ul class="kv-list">
-        <li><span class="kv">GPU Efficiency:</span><span class="desc">Right-sizing, batching, quantisation, and utilisation targets with alerts.</span></li>
-        <li><span class="kv">Storage Strategy:</span><span class="desc">Hot/warm/cold tiering, caching, compaction, and egress-aware placement.</span></li>
-        <li><span class="kv">Autoscale &amp; SLOs:</span><span class="desc">Scale to latency/error budgets; pre-warm for peak; fallbacks defined.</span></li>
-        <li><span class="kv">FinOps Guardrails:</span><span class="desc">Budgets, anomaly detection, showback by team, and monthly variance reviews.</span></li>
-      </ul>
+    <!-- Engagements -->
+    <section class="section narrative" aria-labelledby="engage-title">
+      <h2 id="engage-title" class="section-title">How We Engage</h2>
+      <p class="pair"><span class="kv">Discovery (2–3 weeks):</span><span class="desc">current estate &amp; data audit, priority use-cases &amp; ROI, residency &amp; risk assessment, platform blueprint &amp; phases.</span></p>
+      <p class="pair"><span class="kv">Platform Build:</span><span class="desc">ingest, lakehouse, catalog; MLOps/RAG toolchain; on-prem GPU + cloud burst; governance &amp; controls.</span></p>
+      <p class="pair"><span class="kv">Use-Case Sprints:</span><span class="desc">thin-slice delivery; value tracked per sprint; model evaluation &amp; drift watch; rollout &amp; enablement.</span></p>
+      <p class="pair"><span class="kv">Run &amp; Improve:</span><span class="desc">SLOs &amp; on-call, FinOps for data/AI, quality &amp; lineage checks, quarterly roadmap refresh.</span></p>
+      <div class="cta-row"><a href="contact.html" class="cta-btn">Start Discovery</a></div>
     </section>
 
-    <!-- KPIs -->
-    <section class="section narrative" id="kpis">
-      <h2 class="section-title">KPIs We Track</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Time to First Value:</span><span class="desc">Days/weeks to first shipped use-case with measurable ROI.</span></li>
-        <li><span class="kv">Data Freshness:</span><span class="desc">% meeting SLA; late pipeline alarms with root-cause notes.</span></li>
-        <li><span class="kv">Model Quality:</span><span class="desc">Eval scores, human-in-the-loop acceptance, hallucination/guardrail metrics.</span></li>
-        <li><span class="kv">Cost per Outcome:</span><span class="desc">Cost per inference/query/dataset; GPU utilisation; SP/RI coverage.</span></li>
-      </ul>
+    <!-- Recent wins -->
+    <section class="section narrative" aria-labelledby="wins-title">
+      <h2 id="wins-title" class="section-title">Recent Wins Through Partner Collective</h2>
+      <p class="pair"><span class="kv">−55% inference cost:</span><span class="desc">on-prem GPU for steady load; burst to cloud for spikes.</span></p>
+      <p class="pair"><span class="kv">Weeks to value:</span><span class="desc">RAG assistant on private corpus reduced handling time by 23%.</span></p>
+      <p class="pair"><span class="kv">Audit-ready lineage:</span><span class="desc">data contracts + catalog → fewer audit findings.</span></p>
+      <p class="pair"><span class="kv">Low-latency insights:</span><span class="desc">streaming telemetry to SA-hosted store; &lt; 200ms dashboards.</span></p>
     </section>
 
-    <!-- 90-Day Plan -->
-    <section class="section narrative" id="plan-90">
-      <h2 class="section-title">90-Day Plan</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Weeks 1–2:</span><span class="desc">Discovery, data audit, residency map, KPI baselines, platform blueprint.</span></li>
-        <li><span class="kv">Weeks 3–4:</span><span class="desc">Thin platform slice (ingest → lakehouse → serving), identity &amp; governance hooks.</span></li>
-        <li><span class="kv">Weeks 5–8:</span><span class="desc">Use-case sprint (RAG or ML); evaluation harness; dashboards live.</span></li>
-        <li><span class="kv">Weeks 9–12:</span><span class="desc">Hardening, runbooks, SLOs, enablement, and backlog/roadmap for Q2.</span></li>
-      </ul>
-    </section>
+    <!-- FAQ -->
+    <section class="section narrative" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title">FAQ</h2>
+      <p class="q">Do we need a specific AI stack?</p>
+      <p class="a">No. We work with your choices. The operating model and controls matter most.</p>
 
-    <!-- Tooling -->
-    <section class="section narrative" id="tooling">
-      <h2 class="section-title">Tooling We Work With</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Ingest &amp; Orchestration:</span><span class="desc">Change data capture, event buses, schedulers, workflow engines.</span></li>
-        <li><span class="kv">Lakehouse &amp; Compute:</span><span class="desc">Transactional data lakes, SQL engines, notebooks, vectorisation jobs.</span></li>
-        <li><span class="kv">MLOps / LLMOps:</span><span class="desc">Model registry, evaluation suites, prompt/version management, observability.</span></li>
-        <li><span class="kv">Governance:</span><span class="desc">Catalog, lineage, policy-as-code, access brokering, privacy tooling.</span></li>
-      </ul>
-    </section>
+      <p class="q">How do you handle privacy?</p>
+      <p class="a">Data contracts, role-based access, masking, and residency controls from day one.</p>
 
-    <!-- Industry Packs -->
-    <section class="section narrative" id="industry">
-      <h2 class="section-title">Industry Packs</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Financial Services:</span><span class="desc">KYC, fraud, claims, credit risk, complaints analytics, agent assist.</span></li>
-        <li><span class="kv">Telco:</span><span class="desc">Network telemetry, churn/upsell, field ops, knowledge assistants.</span></li>
-        <li><span class="kv">Retail:</span><span class="desc">Demand/supply, attribution, recommendations, ops copilots.</span></li>
-        <li><span class="kv">Public Sector / Health:</span><span class="desc">Case routing, citizen services, document automation with strict privacy.</span></li>
-      </ul>
-    </section>
+      <p class="q">Can we start small?</p>
+      <p class="a">Yes. One use-case sprint on a thin platform slice — then scale.</p>
 
-    <!-- Recent Wins (narrative) -->
-    <section class="section narrative" id="wins">
-      <h2 class="section-title">Recent Wins Through Partner Collective</h2>
-      <ul class="kv-list">
-        <li><span class="kv">−55% inference cost:</span><span class="desc">On-prem GPU for steady load; burst to cloud for spikes.</span></li>
-        <li><span class="kv">Weeks to value:</span><span class="desc">RAG assistant on private corpus reduced handling time by 23%.</span></li>
-        <li><span class="kv">Audit-ready lineage:</span><span class="desc">Data contracts + catalog → fewer audit findings.</span></li>
-        <li><span class="kv">Low-latency insights:</span><span class="desc">Streaming telemetry to SA-hosted store; &lt; 200ms dashboards.</span></li>
-      </ul>
-    </section>
-
-    <!-- FAQ (narrative) -->
-    <section class="section narrative" id="faq">
-      <h2 class="section-title">FAQ</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Do we need a specific AI stack?</span><span class="desc">No. We adapt to your stack. The operating model and controls matter most.</span></li>
-        <li><span class="kv">How do you handle privacy?</span><span class="desc">POPIA-aligned contracts, role/attribute-based access, masking, and residency guardrails.</span></li>
-        <li><span class="kv">Can we start small?</span><span class="desc">Yes — a thin platform slice and one use-case sprint, then scale.</span></li>
-        <li><span class="kv">Who runs it?</span><span class="desc">Your team with enablement, or we run it under SLA with monthly reviews.</span></li>
-        <li><span class="kv">How do you prove value?</span><span class="desc">KPIs defined up-front; cost, quality, and time-to-value tracked in dashboards.</span></li>
-      </ul>
-    </section>
-
-    <!-- CTA -->
-    <section class="section narrative" id="cta">
-      <h2 class="section-title">Ready to Plan Your First Sprint?</h2>
-      <p style="text-align:center; max-width:900px; margin:0 auto 1rem;">
-        We’ll map residency constraints, pick a thin slice, and ship measurable value in weeks.
-      </p>
-      <p style="text-align:center;">
-        <a class="cta-btn" href="contact.html">Start Discovery</a>
-      </p>
+      <p class="q">Who runs it?</p>
+      <p class="a">Your team with our enablement, or we run it under SLA with monthly reviews.</p>
     </section>
   </main>
 
@@ -297,6 +223,7 @@
         <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
+
     <div class="footer-bottom">
       <p>&copy; 2025 CoreCloud. All rights reserved. |
         <a href="privacy.html" class="legal-link">Privacy Policy</a> |
