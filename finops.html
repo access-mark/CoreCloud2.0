@@ -19,16 +19,25 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=8" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=10" />
 
   <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/finops-bannerimage.png" imagesizes="100vw" fetchpriority="high">
 
-  <!-- Page-scoped: narrative-first, lighter UI -->
+  <!-- Page-scoped fixes & layout -->
   <style>
+    /* Center ALL primary page titles on FinOps, regardless of other rules */
+    .finops-page :is(h1.hero-title, h2.section-title){
+      text-align:center !important;
+      display:block !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+    }
+
+    /* FinOps page rhythm */
     .finops-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center; }
     .finops-page .section{ margin:2rem 0 !important; }
-    .finops-page .section-title{ margin-bottom:.8rem !important; }
+    .finops-page .section-title{ margin-bottom:.9rem !important; }
 
     /* Narrative containers + lists */
     .finops-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
@@ -39,8 +48,10 @@
     .finops-page .desc{ display:block; margin-left:1rem; color:#444; }
     @media (max-width:600px){ .finops-page .desc{ margin-left:.75rem; } }
 
-    /* Lighter panels (less blocky than full cards) */
-    .finops-page .grid-2, .finops-page .grid-3{ display:grid; gap:1rem; padding:0 1rem; max-width:1100px; margin:0 auto; }
+    /* Panels (lighter than cards) */
+    .finops-page .grid-2, .finops-page .grid-3{
+      display:grid; gap:1rem; padding:0 1rem; max-width:1100px; margin:0 auto;
+    }
     @media (min-width:900px){
       .finops-page .grid-2{ grid-template-columns:1fr 1fr; }
       .finops-page .grid-3{ grid-template-columns:1fr 1fr 1fr; }
@@ -49,44 +60,38 @@
       background:#fff; border:1px solid rgba(0,79,145,.18); border-radius:10px;
       padding:1rem 1.1rem; box-shadow:0 2px 6px rgba(0,0,0,.04);
     }
-    .finops-page .panel h3, .finops-page .panel h4{ margin:0 0 .4rem; color:var(--dark-blue); font-size:1.05rem; }
-    .finops-page .panel ul{ margin:.25rem 0 0 1.2rem; }
-    .finops-page .panel li{ margin:.3rem 0; }
+    .finops-page .panel h3, .finops-page .panel h4{
+      margin:0 0 .45rem; color:var(--dark-blue); font-size:1.05rem; text-align:left !important;
+    }
 
-    /* Keep a stronger card look only for engagement CTAs */
-    .finops-page .cta-cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.25rem; padding:0 1rem; max-width:1100px; margin:0 auto; }
-    .finops-page .cta-cards .card{ border:2px solid var(--dark-blue); border-radius:8px; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.06); padding:1.25rem; display:flex; flex-direction:column; gap:.75rem; }
-    .finops-page .cta-cards .card h3{ margin:0 0 .35rem; color:var(--primary-blue); font-size:1.1rem; }
+    /* Engagement cards keep the strong brand card look */
+    .finops-page .cta-cards{
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:1.25rem; padding:0 1rem; max-width:1100px; margin:0 auto;
+    }
+    .finops-page .cta-cards .card{
+      border:2px solid var(--dark-blue); border-radius:8px; background:#fff;
+      box-shadow:0 2px 6px rgba(0,0,0,.06); padding:1.25rem; display:flex; flex-direction:column; gap:.75rem;
+    }
+    .finops-page .cta-cards .card h3{ margin:0 0 .35rem; color:var(--primary-blue); font-size:1.1rem; text-align:left !important; }
     .finops-page .cta-cards .card .cta-btn{ margin-top:auto; }
 
-    /* Recent wins list (not cards) */
+    /* Recent wins list */
     .finops-page .wins{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .finops-page .wins ul{ margin:.4rem 0 0 1.2rem; }
-    .finops-page .wins li{ margin:.35rem 0; }
 
-    /* Shortened nav + footer phone = white */
-    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
-    footer .footer-right a[href^="tel:"]{ color:#fff !important; text-decoration:none; font-weight:500; }
-    footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
-
-    /* ---------- Bullet indent fix (panels + CTA cards) ---------- */
+    /* Bullet indent/spacing in panels & cards */
     .finops-page .panel ul,
     .finops-page .cta-cards .card ul{
-      margin: .35rem 0 0 1.25rem !important;   /* add left margin */
-      padding-left: 1.05rem !important;        /* push bullets away from border */
-      list-style-position: outside;
+      margin:.35rem 0 0 1.25rem !important;
+      padding-left:1.05rem !important;
+      list-style-position:outside;
     }
     .finops-page .panel li,
-    .finops-page .cta-cards .card li{
-      margin: .35rem 0;                        /* breathing room per item */
-    }
-    @media (max-width: 600px){
-      .finops-page .panel ul,
-      .finops-page .cta-cards .card ul{
-        margin-left: 1.1rem;
-        padding-left: 1rem;
-      }
-    }
+    .finops-page .cta-cards .card li{ margin:.35rem 0; }
+
+    /* Footer tel link consistent */
+    footer .footer-right a[href^="tel:"]{ color:#fff !important; text-decoration:none; font-weight:500; }
+    footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
   </style>
 </head>
 
@@ -101,35 +106,35 @@
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Shortened labels -->
+      <!-- Desktop nav (site-wide order) -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULT</a>
-        <a href="cloud.html" class="nav-btn">CLOUD</a>
-        <a href="finops.html" class="nav-btn active" aria-current="page">FINOPS</a>
+        <a href="consulting.html" class="nav-btn">CONSULTING</a>
+        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
+        <a href="finops.html" class="nav-btn">FINOPS &amp; GOVERNANCE</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
+        <a href="application-development.html" class="nav-btn">APP DEVELOPMENT</a>
+        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="blog.html" class="nav-btn">BLOG</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile -->
+      <!-- Mobile nav (same order) -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULT</a>
-        <a href="cloud.html">CLOUD</a>
-        <a href="finops.html" class="active" aria-current="page">FINOPS</a>
+        <a href="consulting.html">CONSULTING</a>
+        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="finops.html" aria-current="page" class="active">FINOPS &amp; GOVERNANCE</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEV</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
         <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE/LAUNCH</a>
-        <a href="dynamic-imprinting.html">IMPRINTING</a>
+        <a href="talent-relaunch.html">RE / LAUNCH</a>
+        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html">BLOG</a>
         <a href="contact.html">CONTACT</a>
@@ -150,12 +155,12 @@
   <section class="hero-intro">
     <h1 class="hero-title">Hybrid FinOps &amp; Governance</h1>
     <p>
-      Hybrid only works if cost, policy, and operations stay tight. We cut run-rate and stop drift across cloud, hosted, and on-prem with tagging that sticks, budgets and alerts, showback/chargeback, and policy-as-code guardrails.
+      Hybrid only works if cost, policy, and operations stay tight. We cut run-rate and stop drift across cloud, hosted, and on-prem with tagging that sticks, budgets & alerts, showback/chargeback, and policy-as-code guardrails.
     </p>
   </section>
 
   <main class="content">
-    <!-- Outcomes first (bullets, not cards) -->
+    <!-- Outcomes -->
     <section class="section narrative" aria-labelledby="outcomes-title">
       <h2 id="outcomes-title" class="section-title">What You Get in 90 Days</h2>
       <ul class="kv-list">
@@ -166,7 +171,7 @@
       </ul>
     </section>
 
-    <!-- Operating loop (bullets, not cards) -->
+    <!-- Operating loop -->
     <section class="section narrative" aria-labelledby="loop-title">
       <h2 id="loop-title" class="section-title">The FinOps Operating Loop</h2>
       <ul class="kv-list">
@@ -177,7 +182,7 @@
       </ul>
     </section>
 
-    <!-- Capabilities (lighter panels) -->
+    <!-- Capabilities -->
     <section class="section" aria-labelledby="cap-title">
       <h2 id="cap-title" class="section-title">Capabilities That Stick</h2>
       <div class="grid-3">
@@ -190,7 +195,7 @@
       </div>
     </section>
 
-    <!-- SA context (lighter panels) -->
+    <!-- SA context -->
     <section class="section" aria-labelledby="sa-title">
       <h2 id="sa-title" class="section-title">Built for South Africa</h2>
       <div class="grid-3">
@@ -200,7 +205,7 @@
       </div>
     </section>
 
-    <!-- Engagement options (keep strong cards + CTAs) -->
+    <!-- Engagement -->
     <section class="section" aria-labelledby="engage-title">
       <h2 id="engage-title" class="section-title">How We Engage</h2>
       <div class="cta-cards">
@@ -242,7 +247,7 @@
       </div>
     </section>
 
-    <!-- Recent wins (simple list) -->
+    <!-- Recent wins -->
     <section class="section wins" aria-labelledby="wins-title">
       <h2 id="wins-title" class="section-title">Recent Wins Through Partner Collective</h2>
       <ul>
@@ -253,7 +258,7 @@
       </ul>
     </section>
 
-    <!-- FAQ (lighter panels for scannability) -->
+    <!-- FAQ -->
     <section class="section" id="faq" aria-labelledby="faq-title">
       <h2 id="faq-title" class="section-title">FAQ</h2>
       <div class="grid-2">
