@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>CoreCloud | Hybrid FinOps & Governance – South Africa</title>
@@ -18,18 +19,27 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Global CSS (统一到 v=11) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=11" />
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=9" />
 
   <!-- Preload hero -->
-  <link rel="preload" as="image" href="assets/images/finops-bannerimage.png" imagesizes="100vw" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/finops-bannerimage.png" imagesizes="100vw" fetchpriority="high" />
 
-  <!-- Page-scoped: light layout helpers ONLY (no alignment rules here) -->
+  <!-- Page-scoped CSS (lightweight, safe) -->
   <style>
-    .finops-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; }
+    /* Utility: guaranteed centered titles */
+    .center-title{
+      text-align: center !important;
+      display: block !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      width: 100% !important;
+    }
+
+    /* Narrative layout (keeps body copy left, headings we target with .center-title) */
+    .finops-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center; }
     .finops-page .section{ margin:2rem 0 !important; }
 
-    /* Narrative containers + lists */
     .finops-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
     .finops-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
     .finops-page .kv-list{ margin:.4rem 0 0 1.75rem; padding:0; line-height:1.7; }
@@ -48,26 +58,27 @@
       background:#fff; border:1px solid rgba(0,79,145,.18); border-radius:10px;
       padding:1rem 1.1rem; box-shadow:0 2px 6px rgba(0,0,0,.04);
     }
-    .finops-page .panel h3, .finops-page .panel h4{ margin:0 0 .4rem; color:var(--dark-blue); font-size:1.05rem; }
-    .finops-page .panel ul{ margin:.25rem 0 0 1.2rem; }
+    .finops-page .panel h3, .finops-page .panel h4{ margin:0 0 .4rem; color:var(--dark-blue); font-size:1.05rem; text-align:left; }
+    .finops-page .panel ul{ margin:.35rem 0 0 1.25rem; padding-left:1.05rem; list-style-position:outside; }
     .finops-page .panel li{ margin:.3rem 0; }
 
-    /* CTA cards */
+    /* CTA cards (use the global .card look only here) */
     .finops-page .cta-cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.25rem; padding:0 1rem; max-width:1100px; margin:0 auto; }
     .finops-page .cta-cards .card{ border:2px solid var(--dark-blue); border-radius:8px; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.06); padding:1.25rem; display:flex; flex-direction:column; gap:.75rem; }
     .finops-page .cta-cards .card h3{ margin:0 0 .35rem; color:var(--primary-blue); font-size:1.1rem; }
     .finops-page .cta-cards .card .cta-btn{ margin-top:auto; }
 
-    /* Wins (simple list) */
+    /* Recent wins list */
     .finops-page .wins{ max-width:1000px; margin:0 auto; padding:0 1rem; }
     .finops-page .wins ul{ margin:.4rem 0 0 1.2rem; }
     .finops-page .wins li{ margin:.35rem 0; }
 
-    /* Bullet indent consistency */
-    .finops-page .panel ul, .finops-page .cta-cards .card ul{
-      margin:.35rem 0 0 1.25rem !important; padding-left:1.05rem !important; list-style-position:outside;
-    }
-    .finops-page .panel li, .finops-page .cta-cards .card li{ margin:.35rem 0; }
+    /* Desktop nav squeeze (labels are short on this page) */
+    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
+
+    /* Footer phone link = white */
+    footer .footer-right a[href^="tel:"]{ color:#fff !important; text-decoration:none; font-weight:500; }
+    footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
   </style>
 </head>
 
@@ -76,9 +87,11 @@
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" />
+
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
+      <!-- Shortened labels -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
@@ -95,6 +108,7 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
+      <!-- Mobile -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULT</a>
@@ -115,20 +129,25 @@
 
   <!-- Hero -->
   <div class="hero-media">
-    <img src="assets/images/finops-bannerimage.png" alt="CoreCloud — Hybrid FinOps & Governance" decoding="async" loading="eager" fetchpriority="high" width="1920" height="500" />
+    <img
+      src="assets/images/finops-bannerimage.png"
+      alt="CoreCloud — Hybrid FinOps & Governance"
+      decoding="async" loading="eager" fetchpriority="high"
+      width="1920" height="500" />
   </div>
 
   <!-- Intro -->
   <section class="hero-intro">
-    <h1 class="hero-title">Hybrid FinOps &amp; Governance</h1>
-    <p style="max-width:900px; margin:0 auto; color:#444;">
+    <h1 class="hero-title center-title">Hybrid FinOps &amp; Governance</h1>
+    <p>
       Hybrid only works if cost, policy, and operations stay tight. We cut run-rate and stop drift across cloud, hosted, and on-prem with tagging that sticks, budgets and alerts, showback/chargeback, and policy-as-code guardrails.
     </p>
   </section>
 
   <main class="content">
+    <!-- Outcomes first -->
     <section class="section narrative" aria-labelledby="outcomes-title">
-      <h2 id="outcomes-title" class="section-title">What You Get in 90 Days</h2>
+      <h2 id="outcomes-title" class="section-title center-title">What You Get in 90 Days</h2>
       <ul class="kv-list">
         <li><span class="kv">12–35% run-rate reduction:</span><span class="desc">quick wins on idle/over-provisioned resources, wrong tiers, and forgotten spend.</span></li>
         <li><span class="kv">Showback you can defend:</span><span class="desc">per-workload cost lines that match how execs make decisions.</span></li>
@@ -137,8 +156,9 @@
       </ul>
     </section>
 
+    <!-- Operating loop -->
     <section class="section narrative" aria-labelledby="loop-title">
-      <h2 id="loop-title" class="section-title">The FinOps Operating Loop</h2>
+      <h2 id="loop-title" class="section-title center-title">The FinOps Operating Loop</h2>
       <ul class="kv-list">
         <li><span class="kv">1) Baseline:</span><span class="desc">tag audit, account structure, cost sources, shared services, and noisy neighbours.</span></li>
         <li><span class="kv">2) Optimise:</span><span class="desc">rightsizing, reservations/SPs, storage tiering, K8s/VM allocation, idle cleanup.</span></li>
@@ -147,8 +167,9 @@
       </ul>
     </section>
 
+    <!-- Capabilities -->
     <section class="section" aria-labelledby="cap-title">
-      <h2 id="cap-title" class="section-title">Capabilities That Stick</h2>
+      <h2 id="cap-title" class="section-title center-title">Capabilities That Stick</h2>
       <div class="grid-3">
         <div class="panel"><h3>Tagging that survives reality</h3><p>Golden tag set, backfill strategy, and break-glass rules for shared services.</p></div>
         <div class="panel"><h3>Budgets & anomaly detection</h3><p>Portfolio and per-workload budgets, alerts, and weekly variance reviews.</p></div>
@@ -159,8 +180,9 @@
       </div>
     </section>
 
+    <!-- SA context -->
     <section class="section" aria-labelledby="sa-title">
-      <h2 id="sa-title" class="section-title">Built for South Africa</h2>
+      <h2 id="sa-title" class="section-title center-title">Built for South Africa</h2>
       <div class="grid-3">
         <div class="panel"><h3>POPIA-aligned cost views</h3><p>Separate residency-sensitive workloads; minimise cross-border egress surprises.</p></div>
         <div class="panel"><h3>Latency & locality economics</h3><p>Model cost vs jitter for on-prem/hosted placement without losing cloud services.</p></div>
@@ -168,8 +190,9 @@
       </div>
     </section>
 
+    <!-- Engagement options -->
     <section class="section" aria-labelledby="engage-title">
-      <h2 id="engage-title" class="section-title">How We Engage</h2>
+      <h2 id="engage-title" class="section-title center-title">How We Engage</h2>
       <div class="cta-cards">
         <div class="card">
           <h3>FinOps Assessment (2–3 weeks)</h3>
@@ -209,8 +232,9 @@
       </div>
     </section>
 
+    <!-- Recent wins -->
     <section class="section wins" aria-labelledby="wins-title">
-      <h2 id="wins-title" class="section-title">Recent Wins Through Partner Collective</h2>
+      <h2 id="wins-title" class="section-title center-title">Recent Wins Through Partner Collective</h2>
       <ul>
         <li><strong>−28% run-rate:</strong> tag hygiene + rightsizing + storage tiering; budgets enforced in policy.</li>
         <li><strong>90% tag coverage:</strong> golden tags + backfill automation → clean showback in 30 days.</li>
@@ -219,8 +243,9 @@
       </ul>
     </section>
 
+    <!-- FAQ -->
     <section class="section" id="faq" aria-labelledby="faq-title">
-      <h2 id="faq-title" class="section-title">FAQ</h2>
+      <h2 id="faq-title" class="section-title center-title">FAQ</h2>
       <div class="grid-2">
         <div class="panel"><h3>Do you need a specific tool?</h3><p>No. We work with your stack (native or third-party). The operating loop matters more than the logo.</p></div>
         <div class="panel"><h3>Will this slow delivery?</h3><p>Guardrails are preventive, not bureaucratic. Teams move faster when defaults are safe and budgets are clear.</p></div>
@@ -237,6 +262,7 @@
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
         <p>Sandton<br>Johannesburg<br>South Africa</p>
       </div>
+
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
@@ -250,6 +276,7 @@
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
+
       <div class="footer-right">
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
@@ -257,6 +284,7 @@
         <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
+
     <div class="footer-bottom">
       <p>&copy; 2025 CoreCloud. All rights reserved. |
         <a href="privacy.html" class="legal-link">Privacy Policy</a> |
@@ -267,14 +295,14 @@
 
   <!-- Auto-highlight current nav -->
   <script>
-    (function(){
-      var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
-        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
-      });
-    })();
+  (function(){
+    var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+      var href = (a.getAttribute('href') || '').toLowerCase();
+      if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+      else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
+    });
+  })();
   </script>
 </body>
 </html>
