@@ -25,7 +25,7 @@
   <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/finops-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
 
-  <!-- Page-scoped: center narrative sections only on this page -->
+  <!-- Page-scoped: centered narrative, NO bullets on top-level items -->
   <style>
     /* Basic page rhythm */
     .finops-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center; }
@@ -36,12 +36,12 @@
     .finops-page .kv{ font-weight:700; color:var(--dark-blue); }
     .finops-page .desc{ color:#444; }
 
-    /* === FINOPS: center titles + bullets (scoped, safe) === */
+    /* Center section titles (scoped) */
     body.finops-page :is(#outcomes-title,#loop-title,#cap-title,#metrics-title,#risks-title,#artifacts-title,#artefacts-title,#sa-title){
       text-align:center !important; display:block; margin-left:auto !important; margin-right:auto !important;
     }
 
-    /* Center the UL directly after each section title (keeps body copy left elsewhere) */
+    /* Center the UL directly after each section title */
     body.finops-page #outcomes-title + .kv-list,
     body.finops-page #loop-title + .kv-list,
     body.finops-page #cap-title + .kv-list,
@@ -50,28 +50,34 @@
     body.finops-page #artifacts-title + .kv-list,
     body.finops-page #artefacts-title + .kv-list,
     body.finops-page #sa-title + .kv-list{
-      list-style-position: inside;
       text-align: center !important;
       padding-left: 0 !important;
       margin: 0 auto !important;
       max-width: 1000px;
     }
 
-    /* Put “key” and “desc” on their own centered lines (cleaner scan) */
+    /* ===== Remove bullets on TOP-LEVEL KV items ===== */
+    body.finops-page .kv-list,
+    body.finops-page .kv-list > li{
+      list-style-type: none !important;
+    }
+
+    /* Put “key” and “desc” on their own centered lines */
     body.finops-page .kv{ display:block; }
     body.finops-page .desc{ display:block; margin:.25rem 0 0 0; }
 
-    /* Sub-bullets under any kv item */
+    /* Keep bullets on SUB-LISTS (sub-points) */
     body.finops-page .kv-list .sub{
+      list-style-type: disc !important;
       list-style-position: inside;
       text-align: center !important;
       padding-left: 0 !important;
       margin:.3rem auto 0;
       max-width: 900px;
     }
-    body.finops-page .kv-list .sub li{ margin:.25rem 0; }
+    body.finops-page .kv-list .sub > li{ margin:.25rem 0; }
 
-    /* Keep panel/card subheads left when used elsewhere on page */
+    /* Keep panel/card subheads left when used elsewhere */
     .finops-page .panel :is(h3,h4), .finops-page .card :is(h3,h4){ text-align:left !important; }
 
     /* Slightly tighter mobile spacing */
