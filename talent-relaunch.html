@@ -3,90 +3,46 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>CoreCloud | Talent Re/Launch – Returners & Career Pivot</title>
-  <meta name="description" content="Re/Launch helps experienced professionals return to tech or pivot into cloud, data, DevOps, and product roles—through a coached, employer-backed pathway."/>
+  <title>RE/LAUNCH | CoreCloud Talent Relaunch</title>
+  <meta name="description" content="Return to tech with confidence. CoreCloud’s RE/LAUNCH helps experienced professionals re-enter or pivot in ICT with job-ready assets, coaching, and market access."/>
   <link rel="canonical" href="https://www.corecloudza.com/talent-relaunch.html"/>
 
-  <!-- Open Graph / Twitter -->
+  <!-- Social -->
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="CoreCloud | Talent Re/Launch"/>
-  <meta property="og:description" content="A coached, employer-backed pathway for returners and pivoters into modern cloud, data, and engineering roles."/>
+  <meta property="og:title" content="CoreCloud RE/LAUNCH"/>
+  <meta property="og:description" content="A structured path back into high-impact ICT roles: CV & portfolio reboot, interview prep, skills refresh, and real opportunities."/>
   <meta property="og:url" content="https://www.corecloudza.com/talent-relaunch.html"/>
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/talent-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=9"/>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+
+  <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/talent-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
 
-  <!-- Page-scoped helpers (safe & minimal) -->
+  <!-- Page-scoped helpers (narrative; no global overrides) -->
   <style>
-    /* Center hero + section titles on this page only */
-    .relaunch-page :is(h1.hero-title, h2.section-title){
-      text-align:center !important;
-      display:block !important;
-      margin-left:auto !important;
-      margin-right:auto !important;
-    }
-    /* Narrative containers (no cards) */
+    .relaunch-page .hero-intro{ max-width:900px; margin:2rem auto 1.2rem; text-align:center; }
+    .relaunch-page .hero-cta{ display:flex; gap:.6rem; flex-wrap:wrap; justify-content:center; margin:.9rem auto 0; }
+    .relaunch-page .hero-cta .cta-btn{ min-width:200px; }
+
     .relaunch-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .relaunch-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
-
-    /* Key-value style list for tidy scanning */
-    .relaunch-page .kv-list{
-      margin:.35rem 0 0 1.25rem; padding-left:1.05rem; list-style:disc; line-height:1.7;
-    }
-    .relaunch-page .kv-list li{ margin:.4rem 0; }
+    .relaunch-page .narrative p{ margin:.6rem 0; line-height:1.75; color:#444; }
     .relaunch-page .kv{ font-weight:700; color:var(--dark-blue); }
-    .relaunch-page .desc{ display:block; margin-left:.75rem; color:#444; }
 
-    /* Two-column lists on desktop for compactness */
-    .relaunch-page .columns{ display:grid; gap:1rem; }
-    @media (min-width:900px){ .relaunch-page .columns{ grid-template-columns:1fr 1fr; } }
+    .relaunch-page .grid-3{ display:grid; gap:1rem; max-width:1100px; margin:0 auto; padding:0 1rem; }
+    @media (min-width:1000px){ .relaunch-page .grid-3{ grid-template-columns:repeat(3,1fr); } }
 
-    /* CTA row */
-    .relaunch-page .cta-row{ display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; margin:1rem 0 2rem; }
-    .relaunch-page .cta-row .cta-btn{ min-width:200px; }
+    .relaunch-page .grid-2{ display:grid; gap:1rem; max-width:1100px; margin:0 auto; padding:0 1rem; }
+    @media (min-width:900px){ .relaunch-page .grid-2{ grid-template-columns:1fr 1fr; } }
 
-    /* Slightly tighter sections */
-    .relaunch-page .section{ margin:2rem 0 !important; }
-
-    /* Desktop nav squeeze for consistency */
-    nav.desktop-nav{ gap:.55rem; }
-    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
+    .relaunch-page .panel{
+      background:#fff; border:1px solid rgba(0,79,145,.18); border-radius:10px;
+      padding:1rem 1.1rem; box-shadow:0 2px 6px rgba(0,0,0,.04);
+    }
+    .relaunch-page .panel h3{ margin:.1rem 0 .4rem; color:var(--dark-blue); font-size:1.05rem; }
   </style>
-
-  <!-- JSON-LD (Breadcrumb + Service) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"BreadcrumbList",
-        "itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
-          {"@type":"ListItem","position":2,"name":"Talent Re/Launch","item":"https://www.corecloudza.com/talent-relaunch.html"}
-        ]
-      },
-      {
-        "@type":"Organization",
-        "@id":"https://www.corecloudza.com/#org",
-        "name":"CoreCloud (Pty) Ltd",
-        "url":"https://www.corecloudza.com/",
-        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
-        "sameAs":["https://www.linkedin.com/company/corecloudza"]
-      },
-      {
-        "@type":"Service",
-        "name":"Talent Re/Launch",
-        "provider":{"@id":"https://www.corecloudza.com/#org"},
-        "areaServed":{"@type":"Country","name":"South Africa"},
-        "url":"https://www.corecloudza.com/talent-relaunch.html",
-        "description":"A coached, employer-backed pathway for returners and pivoters into modern cloud, data, DevOps, and product roles."
-      }
-    ]
-  }
-  </script>
 </head>
 
 <body class="relaunch-page">
@@ -98,8 +54,8 @@
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Short labels (site-wide convention) -->
-      <nav class="desktop-nav" aria-label="Primary">
+      <!-- Short labels (consistent) -->
+      <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
         <a href="cloud.html" class="nav-btn">CLOUD</a>
@@ -135,115 +91,105 @@
 
   <!-- Hero -->
   <div class="hero-media">
-    <!-- Reusing the Talent banner is safe; swap the src if you have a dedicated image -->
-    <img src="assets/images/talent-bannerimage.png"
-         alt="CoreCloud Re/Launch — Returners & Career Pivot"
-         width="1920" height="500"
-         loading="eager" decoding="async" fetchpriority="high"/>
+    <img
+      src="assets/images/talent-bannerimage.png"
+      alt="CoreCloud RE/LAUNCH — Return to Tech with Confidence"
+      decoding="async" loading="eager" fetchpriority="high"
+      width="1920" height="500"/>
   </div>
 
   <!-- Intro -->
-  <section class="hero-intro" style="max-width:900px; margin:2rem auto 1.25rem; text-align:center;">
-    <h1 class="hero-title">Talent Re/Launch</h1>
-    <p style="margin:.5rem 0; color:#444;">
-      A coached, employer-backed pathway for experienced professionals returning to tech, or pivoting into modern cloud,
-      data, DevOps, and product roles. We rebuild confidence, update skills, and place you where you can win.
-    </p>
-    <div class="cta-row">
-      <a href="contact.html?type=relaunch-candidate" class="cta-btn">Apply to Re/Launch</a>
-      <a href="contact.html?type=relaunch-employer" class="cta-btn">Hire from Re/Launch</a>
+  <section class="hero-intro">
+    <h1 class="hero-title">RE/LAUNCH — Return to Tech with Confidence</h1>
+    <p>Ready to re-enter or pivot in ICT? RE/LAUNCH is a focused program that rebuilds your positioning, story, and market assets — and gets you in front of the right opportunities faster.</p>
+    <div class="hero-cta">
+      <!-- Updated labels + destinations -->
+      <a href="launch-form.html" class="cta-btn">Launch</a>
+      <a href="relaunch-form.html" class="cta-btn">Relaunch</a>
     </div>
   </section>
 
-  <main class="content" id="main">
+  <main class="content">
+
     <!-- Who it's for -->
     <section class="section narrative" aria-labelledby="who-title">
-      <h2 id="who-title" class="section-title">Who Re/Launch Is For</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Returners:</span><span class="desc">You’ve taken time out for family, study, business, or health—and you’re ready to come back strong.</span></li>
-        <li><span class="kv">Pivoters:</span><span class="desc">You’re proven in adjacent disciplines and want to move into cloud, platform, data/AI, DevOps, or product.</span></li>
-        <li><span class="kv">Immigration &amp; relocation:</span><span class="desc">Experienced professionals new to SA who need a fast, credible entry point.</span></li>
-        <li><span class="kv">Leaders retooling:</span><span class="desc">Architects/PMs/Leads modernising their stack and operating model.</span></li>
-      </ul>
+      <h2 id="who-title" class="section-title">Who It’s For</h2>
+      <p><span class="kv">Experienced professionals returning:</span> coming back after a career break, relocation, or sabbatical — with solid delivery behind you and the appetite to lead again.</p>
+      <p><span class="kv">Pivoters with depth:</span> strong adjacent skills (platform, engineering, data, PMO, security) moving into modern cloud, SRE/DevOps, data &amp; AI, or product leadership.</p>
+      <p><span class="kv">Leaders levelling up:</span> you’re ready to own bigger outcomes — influence, teams, budgets — and want a sharper story plus targeted market access.</p>
     </section>
 
-    <!-- Tracks -->
-    <section class="section narrative" aria-labelledby="tracks-title">
-      <h2 id="tracks-title" class="section-title">Pathways &amp; Tracks</h2>
-      <div class="columns">
-        <ul class="kv-list">
-          <li><span class="kv">Cloud &amp; Platform:</span><span class="desc">AWS/Azure fundamentals, landing zones, IaC, Kubernetes, observability.</span></li>
-          <li><span class="kv">DevOps &amp; SRE:</span><span class="desc">CI/CD, pipelines, reliability, performance, cost guardrails.</span></li>
-          <li><span class="kv">Software Engineering:</span><span class="desc">Modern backend/frontend patterns, APIs, secure-by-design.</span></li>
-        </ul>
-        <ul class="kv-list">
-          <li><span class="kv">Data &amp; AI:</span><span class="desc">Lakehouse, ELT/dbt, notebooks, RAG/MLOps, evaluation &amp; drift.</span></li>
-          <li><span class="kv">Security &amp; Governance:</span><span class="desc">Identity, policy-as-code, standards, audit readiness (POPIA).</span></li>
-          <li><span class="kv">Product &amp; Delivery:</span><span class="desc">Outcome-first, thin-slice shipping, measurement, stakeholder alignment.</span></li>
-        </ul>
+    <!-- What you get -->
+    <section class="section narrative" aria-labelledby="get-title">
+      <h2 id="get-title" class="section-title">What You Get</h2>
+      <p><span class="kv">Positioning &amp; story that lands:</span> we shape your narrative around outcomes — cost, reliability, speed, risk — with evidence that survives hard questions.</p>
+      <p><span class="kv">CV, LinkedIn &amp; portfolio refresh:</span> concise, outcome-led materials with a small, sharp portfolio (architecture views, runbooks, before/after metrics, or code samples as appropriate).</p>
+      <p><span class="kv">Interview readiness:</span> mock sessions that focus on trade-offs, incident narratives, and pragmatic leadership signals. You’ll walk in calm and credible.</p>
+      <p><span class="kv">Skills refresh plan:</span> laser-focused refresh aligned to your target role (platform, SRE, data/AI, engineering, governance/FinOps) — thin slice, real value.</p>
+      <p><span class="kv">Introductions &amp; opportunities:</span> access to CoreCloud benches, partner collectives, and client needs where your profile fits.</p>
+      <div class="cta-row" style="margin-top:.6rem;">
+        <a href="relaunch-form.html" class="cta-btn">Join RE/LAUNCH</a>
       </div>
     </section>
 
-    <!-- Program structure -->
-    <section class="section narrative" aria-labelledby="structure-title">
-      <h2 id="structure-title" class="section-title">How the Program Works</h2>
-      <ul class="kv-list">
-        <li><span class="kv">6–12 weeks coached:</span><span class="desc">Blended learning + practical labs mapped to your target role.</span></li>
-        <li><span class="kv">Portfolio &amp; Projects:</span><span class="desc">Real artifacts (IaC repos, services, dashboards, runbooks) reviewed by hiring managers.</span></li>
-        <li><span class="kv">Mentors &amp; Mock Panels:</span><span class="desc">Interview calibration, whiteboard practice, scenario walkthroughs.</span></li>
-        <li><span class="kv">Placement Support:</span><span class="desc">Warm intros to employers, scorecard-based matching, offer coaching.</span></li>
-        <li><span class="kv">Post-Placement:</span><span class="desc">30/60/90 follow-ups to ensure ramp, impact, and retention.</span></li>
-      </ul>
-    </section>
-
-    <!-- Outcomes -->
-    <section class="section narrative" aria-labelledby="outcomes-title">
-      <h2 id="outcomes-title" class="section-title">Outcomes You Can Expect</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Confidence &amp; clarity:</span><span class="desc">Current skills, current language, and a crisp narrative for interviews.</span></li>
-        <li><span class="kv">Job-ready artifacts:</span><span class="desc">Code, pipelines, dashboards, and runbooks you can show and explain.</span></li>
-        <li><span class="kv">Faster placement:</span><span class="desc">Shortlist to interview in days, not months, via our employer network.</span></li>
-        <li><span class="kv">Stickiness:</span><span class="desc">First 90-day plan and regular coaching to secure early wins.</span></li>
-      </ul>
-    </section>
-
-    <!-- Employers -->
-    <section class="section narrative" aria-labelledby="employers-title">
-      <h2 id="employers-title" class="section-title">For Employers &amp; Hiring Managers</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Less risk, more signal:</span><span class="desc">Candidates show live artifacts and role-aligned mini-projects, not just CVs.</span></li>
-        <li><span class="kv">Faster ramp:</span><span class="desc">Re/Launch embeds your standards—tagging, guardrails, SLOs—before day 1.</span></li>
-        <li><span class="kv">Inclusive pipeline:</span><span class="desc">Tap returners and pivoters with proven professional maturity.</span></li>
-        <li><span class="kv">Flexible models:</span><span class="desc">Direct hire, contract-to-perm, or squad augmentation.</span></li>
-      </ul>
-      <div class="cta-row">
-        <a href="contact.html?type=relaunch-employer" class="cta-btn">Brief Us on a Role</a>
-        <a href="contact.html?type=relaunch-cohort" class="cta-btn">Register as a Partner</a>
+    <!-- How it works -->
+    <section class="section" aria-labelledby="how-title">
+      <h2 id="how-title" class="section-title">How It Works</h2>
+      <div class="grid-3">
+        <div class="panel">
+          <h3>1) Calibration</h3>
+          <p>We map where you’ve been and where you’re going. Role targets, market fit, and evidence we can stand behind.</p>
+        </div>
+        <div class="panel">
+          <h3>2) Build</h3>
+          <p>We craft your story, update assets, and prep for interviews. One thin-slice deliverable to showcase current capability.</p>
+        </div>
+        <div class="panel">
+          <h3>3) Market</h3>
+          <p>Targeted outreach and introductions. You interview with confidence; we iterate quickly on feedback.</p>
+        </div>
       </div>
     </section>
 
-    <!-- Selection -->
-    <section class="section narrative" aria-labelledby="selection-title">
-      <h2 id="selection-title" class="section-title">Selection &amp; Readiness</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Application &amp; Screening:</span><span class="desc">Experience review, intent, and target pathway fit.</span></li>
-        <li><span class="kv">Technical baseline:</span><span class="desc">Light-weight assessment to right-size the track.</span></li>
-        <li><span class="kv">Commitment to outcomes:</span><span class="desc">Time, energy, and willingness to ship real artifacts.</span></li>
-      </ul>
-      <div class="cta-row">
-        <a href="contact.html?type=relaunch-candidate" class="cta-btn">Apply Now</a>
+    <!-- Program options -->
+    <section class="section" aria-labelledby="opt-title">
+      <h2 id="opt-title" class="section-title">Program Options</h2>
+      <div class="grid-3">
+        <div class="panel">
+          <h3>Express (4 Weeks)</h3>
+          <p>Positioning tune-up, CV/LinkedIn refresh, and interview prep for near-term opportunities.</p>
+        </div>
+        <div class="panel">
+          <h3>Core (8 Weeks)</h3>
+          <p>All Express items plus portfolio piece and deeper mock cycles. Stronger market pass for senior roles.</p>
+        </div>
+        <div class="panel">
+          <h3>Executive (Custom)</h3>
+          <p>Identity, narrative, and influence work with Dynamic Imprinting + discreet market access.</p>
+        </div>
+      </div>
+      <div class="cta-row" style="margin-top:1rem;">
+        <a href="relaunch-form.html" class="cta-btn">Join RE/LAUNCH</a>
       </div>
     </section>
 
-    <!-- SA context -->
+    <!-- SA market fit -->
     <section class="section narrative" aria-labelledby="sa-title">
       <h2 id="sa-title" class="section-title">Built for South Africa</h2>
-      <ul class="kv-list">
-        <li><span class="kv">POPIA-aware:</span><span class="desc">Privacy and residency patterns are foundational in labs and artifacts.</span></li>
-        <li><span class="kv">Power &amp; connectivity realities:</span><span class="desc">Practicality over theory—offline-first habits, DR you can test.</span></li>
-        <li><span class="kv">Hybrid work:</span><span class="desc">Prepared for on-prem + hosted + cloud environments from day one.</span></li>
-      </ul>
+      <p><span class="kv">Real market realities:</span> hybrid roles, platform/SRE scarcity, data &amp; AI growth, and strong governance demand — we target where hiring is active.</p>
+      <p><span class="kv">Local compliance signals:</span> POPIA-aware delivery stories, audit-ready instincts, and outcomes that resonate with SA leadership teams.</p>
+      <p><span class="kv">Network effect:</span> our delivery benches and partner collectives open more doors without lowering the bar.</p>
     </section>
+
+    <!-- Final CTA -->
+    <section class="section" aria-labelledby="cta-title">
+      <h2 id="cta-title" class="section-title">Ready to Re-enter or Pivot?</h2>
+      <div class="cta-row" style="display:flex; gap:.7rem; flex-wrap:wrap; justify-content:center;">
+        <a href="launch-form.html" class="cta-btn">Submit CV</a>
+        <a href="relaunch-form.html" class="cta-btn">Join RE/LAUNCH</a>
+      </div>
+    </section>
+
   </main>
 
   <!-- Footer -->
@@ -286,14 +232,14 @@
 
   <!-- Auto-highlight current nav -->
   <script>
-  (function(){
-    var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-    document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
-      var href = (a.getAttribute('href') || '').toLowerCase();
-      if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
-      else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
-    });
-  })();
+    (function(){
+      var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+        var href = (a.getAttribute('href') || '').toLowerCase();
+        if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
+      });
+    })();
   </script>
 </body>
 </html>
