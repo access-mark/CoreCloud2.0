@@ -750,3 +750,41 @@ nav.desktop-nav .nav-btn {
 
 /* Hosting hero: title centered, body copy left */
 .hosting-page .hero-intro .hero-title{ text-align: center !important; }
+/* ===== Global heading alignment hard-fix (site-wide) ===== */
+:root { --heading-max: 1100px; }
+
+/* Force hero + section titles centered regardless of parent alignment */
+.hero-title,
+.section-title,
+.content h1.hero-title,
+.content h2.section-title,
+.narrative > .section-title,
+.wins > .section-title {
+  text-align: center !important;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  max-width: var(--heading-max);
+}
+
+/* Page scopes (belt-and-braces) */
+.finops-page .hero-intro,
+.finops-page .hero-title,
+.finops-page .section-title,
+.appdev-page .hero-intro,
+.appdev-page .hero-title,
+.appdev-page .section-title,
+.hosting-page .hero-intro,
+.hosting-page .hero-title,
+.hosting-page .section-title {
+  text-align: center !important;
+}
+
+/* Keep body copy/bullets left-aligned (titles above are unaffected) */
+.narrative p,
+.narrative ul,
+.narrative li,
+.wins ul,
+.wins li {
+  text-align: left !important;
+}
