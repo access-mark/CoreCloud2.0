@@ -4,13 +4,13 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Talent | CoreCloud</title>
-  <meta name="description" content="Elite ICT and executive talent with deep hybrid/cloud DNA. Fast, precise shortlists and specialised benches across cloud, data & AI, and security."/>
+  <meta name="description" content="Elite ICT and executive talent with deep hybrid/cloud DNA. Permanent, contract, and product squads — vetted for delivery, culture, and impact."/>
   <link rel="canonical" href="https://www.corecloudza.com/talent.html"/>
 
   <!-- Social -->
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="CoreCloud Talent"/>
-  <meta property="og:description" content="Elite ICT and executive talent with deep hybrid/cloud DNA. Fast, precise shortlists and specialised benches across cloud, data & AI, and security."/>
+  <meta property="og:description" content="Elite ICT and executive talent with deep hybrid/cloud DNA. Permanent, contract, and product squads — vetted for delivery, culture, and impact."/>
   <meta property="og:url" content="https://www.corecloudza.com/talent.html"/>
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/talent-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
@@ -21,14 +21,20 @@
   <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/talent-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
 
-  <!-- Page-scoped helpers (only formatting narrative; no global overrides) -->
+  <!-- Page-scoped helpers (narrative only; no global overrides) -->
   <style>
     .talent-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center; }
     .talent-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .talent-page .narrative p{ margin:.55rem 0; line-height:1.7; color:#444; }
+    .talent-page .narrative p{ margin:.6rem 0; line-height:1.75; color:#444; }
     .talent-page .kv{ font-weight:700; color:var(--dark-blue); }
-    .talent-page .desc{ display:inline; }
-    /* keep the other sections (like Focus Areas) untouched */
+    .talent-page .section-note{ font-size:.95rem; color:#556; opacity:.95; }
+    .talent-page .grid-2{ display:grid; gap:1rem; max-width:1100px; margin:0 auto; padding:0 1rem; }
+    @media (min-width:900px){ .talent-page .grid-2{ grid-template-columns:1fr 1fr; } }
+    .talent-page .panel{
+      background:#fff; border:1px solid rgba(0,79,145,.18); border-radius:10px;
+      padding:1rem 1.1rem; box-shadow:0 2px 6px rgba(0,0,0,.04);
+    }
+    .talent-page .panel h3{ margin:.1rem 0 .4rem; color:var(--dark-blue); font-size:1.05rem; }
   </style>
 </head>
 
@@ -41,7 +47,7 @@
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Shortened labels (consistent with the rest of the site) -->
+      <!-- Shortened labels (site-wide convention) -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
@@ -88,22 +94,31 @@
   <!-- Intro -->
   <section class="hero-intro">
     <h1 class="hero-title">CoreCloud Talent</h1>
-    <p>Elite ICT &amp; executive talent with deep hybrid/cloud experience. We place people who change the cost, speed, and reliability of delivery — and who elevate the teams around them.</p>
+    <p>Elite ICT &amp; executive talent with real hybrid/cloud delivery behind them. We place permanent, contract, and product squads — vetted for impact, culture, and the ability to land value fast.</p>
   </section>
 
   <main class="content">
 
-    <!-- Why CoreCloud Talent? (bullets removed → narrative) -->
+    <!-- Why CoreCloud Talent? (no bullets → narrative) -->
     <section class="section narrative" aria-labelledby="why-title">
       <h2 id="why-title" class="section-title">Why CoreCloud Talent?</h2>
 
-      <p><span class="kv">Hard-to-find talent, curated:</span> we present only the best 5% we meet — the people who have actually shipped, operated, and improved real systems.</p>
-      <p><span class="kv">Hybrid/cloud DNA:</span> architecture, platform, SRE/DevOps, security, engineering, data &amp; AI, FinOps, and delivery leadership — we live in these domains daily.</p>
-      <p><span class="kv">Bench + network model:</span> our own bench plus partner collectives means speed without compromising on capability or cultural fit.</p>
-      <p><span class="kv">Executive search lens:</span> we assess influence, delivery history, and the culture equation — not just keyword overlap on a CV.</p>
+      <p><span class="kv">Hard-to-find talent, curated:</span> we put forward the top slice of our market map — people who have shipped platforms, stabilised estates, and moved the cost/performance needle.</p>
+      <p><span class="kv">Hybrid/cloud DNA:</span> architecture, platform, SRE/DevOps, security, engineering, data &amp; AI, FinOps, and delivery leadership. We operate in these domains daily, so our screening is real.</p>
+      <p><span class="kv">Bench + network reach:</span> our own delivery benches plus partner collectives mean fast options without lowering the bar on capability or cultural fit.</p>
+      <p><span class="kv">Executive search lens:</span> we evaluate influence, outcomes, and team chemistry — not just CV keywords. You’ll see story, system, and references that matter.</p>
     </section>
 
-    <!-- Focus Areas (kept as-is with list if you want; change later if needed) -->
+    <!-- What We Place (new narrative section) -->
+    <section class="section narrative" aria-labelledby="what-title">
+      <h2 id="what-title" class="section-title">What We Place</h2>
+
+      <p><span class="kv">Permanent hires:</span> critical roles where continuity, ownership, and leadership growth matter. We support the full process from role design to close.</p>
+      <p><span class="kv">Contract &amp; interim:</span> expert capacity to land outcomes fast — stabilise platforms, accelerate delivery, or bridge key gaps with hands-on leaders.</p>
+      <p><span class="kv">Product squads:</span> cross-functional teams across discovery, UX, engineering, data, and SRE. Run as a unit, measured by business outcomes.</p>
+    </section>
+
+    <!-- Focus Areas (keep cards) -->
     <section class="section" aria-labelledby="focus-title">
       <h2 id="focus-title" class="section-title">Focus Areas</h2>
       <div class="card-grid force-4">
@@ -114,31 +129,84 @@
       </div>
     </section>
 
-    <!-- How We Work (bullets removed → narrative steps) -->
+    <!-- How We Work (no bullets → narrative steps) -->
     <section class="section narrative" aria-labelledby="how-title">
       <h2 id="how-title" class="section-title">How We Work</h2>
 
-      <p><span class="kv">Briefing &amp; calibration:</span> we align on outcomes, team culture, reporting lines, and deal-breakers. Clear success criteria beats vague role descriptions.</p>
-      <p><span class="kv">Market map &amp; outreach:</span> targeted research and direct outreach into the relevant benches and networks — no spray and pray.</p>
-      <p><span class="kv">Shortlist with evidence:</span> stories, systems, and referenceable outcomes — not keyword bingo. You’ll see how they think and what they shipped.</p>
-      <p><span class="kv">Decision support:</span> structured interview packs for both sides, closing support, and a pragmatic offer process.</p>
-      <p><span class="kv">90-day check-in:</span> we stay close post-placement to ensure the onboarding sticks and value lands quickly.</p>
+      <p><span class="kv">Briefing &amp; calibration:</span> together we set clear outcomes, reporting lines, culture markers, and deal-breakers. The brief reads like a plan, not a wish list.</p>
+      <p><span class="kv">Market map &amp; targeted outreach:</span> we go straight to the right benches and networks — direct, discreet, and evidence-led.</p>
+      <p><span class="kv">Shortlist with substance:</span> candidates arrive with delivery stories, referenceable outcomes, and notes on team fit. You’ll see how they think, not just what they list.</p>
+      <p><span class="kv">Structured decision support:</span> scorecards, interview packs, practical scenarios, and closing support make decisions quicker and fairer.</p>
+      <p class="section-note">We stay involved through offer, onboarding, and the first 90 days to make sure value lands quickly.</p>
 
       <div class="cta-row" style="margin-top:1rem;">
         <a href="contact.html" class="cta-btn">Brief a Role</a>
       </div>
     </section>
 
-    <!-- Specialised Benches (bullets removed → narrative) -->
+    <!-- Vetting & Assurance (new, richer content) -->
+    <section class="section" aria-labelledby="vet-title">
+      <h2 id="vet-title" class="section-title">Vetting &amp; Assurance</h2>
+      <div class="grid-2">
+        <div class="panel">
+          <h3>Evidence over claims</h3>
+          <p>We validate outcomes with specifics: systems touched, constraints, decisions taken, and the cost/SLO impact. References focus on influence and reliability under pressure.</p>
+        </div>
+        <div class="panel">
+          <h3>Scenario &amp; work review</h3>
+          <p>Candidates walk through architecture decisions, incident narratives, or code/CI examples where appropriate. We’re looking for clarity, trade-offs, and steady judgement.</p>
+        </div>
+        <div class="panel">
+          <h3>Culture &amp; leadership</h3>
+          <p>We screen for collaboration style, feedback posture, and bias to action. Strong talent that lifts teams, not just output.</p>
+        </div>
+        <div class="panel">
+          <h3>Checks that matter</h3>
+          <p>Right-to-work and background checks as required. POPIA-aligned handling of candidate data and client information.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Specialised Benches (no bullets → narrative) -->
     <section class="section narrative" aria-labelledby="benches-title">
       <h2 id="benches-title" class="section-title">Specialised Benches</h2>
 
-      <p><span class="kv">Cloud &amp; Platform:</span> landing zones, guardrails, K8s, networking, cost &amp; reliability — architects, platform engineers, SRE/DevOps who keep hybrid honest.</p>
-      <p><span class="kv">Data &amp; AI:</span> ingestion to lakehouse to MLOps/RAG — engineers and ML talent who build governed, performant pipelines and models.</p>
-      <p><span class="kv">Security &amp; Governance:</span> CISO office, risk, and FinOps practitioners who design preventive controls and measurable cost/compliance outcomes.</p>
+      <p><span class="kv">Cloud &amp; Platform:</span> landing zones, guardrails, Kubernetes, networking, cost &amp; reliability. Architects, platform engineers, and SRE/DevOps who keep hybrid honest.</p>
+      <p><span class="kv">Data &amp; AI:</span> ingestion to lakehouse to MLOps/RAG — engineers and ML talent who build governed, performant pipelines, evaluate models, and ship value.</p>
+      <p><span class="kv">Security &amp; Governance:</span> CISO office, risk and compliance, and FinOps practitioners who design preventive controls with measurable outcomes.</p>
 
       <div class="cta-row" style="margin-top:1rem;">
         <a href="contact.html" class="cta-btn">Ask About Availability</a>
+      </div>
+    </section>
+
+    <!-- Speed & SLAs (new) -->
+    <section class="section narrative" aria-labelledby="sla-title">
+      <h2 id="sla-title" class="section-title">Speed &amp; SLAs</h2>
+      <p><span class="kv">Shortlists fast:</span> for most roles we aim to deliver an initial calibrated shortlist within business-sensible timelines while protecting quality. Bench talent can start near-immediately.</p>
+      <p><span class="kv">Pragmatic guarantee:</span> if a placement doesn’t stick within an agreed period, we’ll re-open and prioritise the search. The details are tailored to the engagement and seniority.</p>
+    </section>
+
+    <!-- Recent Placements (new, light case snapshots) -->
+    <section class="section narrative" aria-labelledby="wins-title">
+      <h2 id="wins-title" class="section-title">Recent Placements</h2>
+      <p><span class="kv">Platform Architect, banking:</span> stabilised landing zones and guardrails; cost visibility improved and incident rate dropped within two quarters.</p>
+      <p><span class="kv">Senior SRE, telco:</span> tightened SLIs/SLOs, embedded incident review cadence, and reduced change-related drift.</p>
+      <p><span class="kv">Data Engineering Lead, retail:</span> rebuilt ingestion and quality layers; accelerated time-to-insight and enabled governed self-serve access.</p>
+    </section>
+
+    <!-- Where We Operate (new) -->
+    <section class="section narrative" aria-labelledby="where-title">
+      <h2 id="where-title" class="section-title">Where We Operate</h2>
+      <p>South Africa first, with strong presence in Johannesburg/Sandton and national coverage. Hybrid and remote models supported where they serve outcomes and culture.</p>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="section narrative" aria-labelledby="cta-title">
+      <h2 id="cta-title" class="section-title">Ready to Hire?</h2>
+      <p>Send us a brief or a problem statement. We’ll advise on role design, market reality, and the fastest route to value.</p>
+      <div class="cta-row" style="margin-top:.5rem;">
+        <a href="contact.html" class="cta-btn">Start the Brief</a>
       </div>
     </section>
 
