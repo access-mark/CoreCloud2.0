@@ -1,132 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Re / Launch Talent Hub – CoreCloud</title>
-  <meta name="description" content="CoreCloud’s Re / Launch Talent Hub helps youth and experienced professionals relaunch careers with real support and purpose-driven opportunities." />
-  <link rel="canonical" href="https://www.corecloudza.com/talent-relaunch.html" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>CoreCloud | Talent Re/Launch – Returners & Career Pivot</title>
+  <meta name="description" content="Re/Launch helps experienced professionals return to tech or pivot into cloud, data, DevOps, and product roles—through a coached, employer-backed pathway."/>
+  <link rel="canonical" href="https://www.corecloudza.com/talent-relaunch.html"/>
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="CoreCloud | Talent Re/Launch"/>
+  <meta property="og:description" content="A coached, employer-backed pathway for returners and pivoters into modern cloud, data, and engineering roles."/>
+  <meta property="og:url" content="https://www.corecloudza.com/talent-relaunch.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=9"/>
+  <link rel="preload" as="image" href="assets/images/talent-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
 
-  <!-- Preload helpful assets -->
-  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/images/talent-bannerimage.png">
-
-  <!-- Page-scoped styles (content-only) -->
+  <!-- Page-scoped helpers (safe & minimal) -->
   <style>
-    /* Focus-visible skip link (safe local fallback if not defined globally) */
-    .visually-hidden-focusable {
-      position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden;
+    /* Center hero + section titles on this page only */
+    .relaunch-page :is(h1.hero-title, h2.section-title){
+      text-align:center !important;
+      display:block !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
     }
-    .visually-hidden-focusable:focus {
-      position:static; width:auto; height:auto; padding:.5rem .75rem; background:#004f91; color:#fff;
-      border-radius:4px; z-index:10000; display:inline-block;
-    }
+    /* Narrative containers (no cards) */
+    .relaunch-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .relaunch-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
 
-    /* Page CTA base (outside-card buttons) */
-    .relaunch-page .cta-btn,
-    .relaunch-page a.cta-btn,
-    .relaunch-page button.cta-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      padding:.8rem 1.6rem;
-      border-radius:6px;
-      background:var(--primary-blue, #0066b2);
-      color:#fff !important;
-      font-weight:600;
-      text-decoration:none;
-      line-height:1;
-      border:none;
-      cursor:pointer;
-      transition:background-color .25s ease, transform .02s ease;
+    /* Key-value style list for tidy scanning */
+    .relaunch-page .kv-list{
+      margin:.35rem 0 0 1.25rem; padding-left:1.05rem; list-style:disc; line-height:1.7;
     }
-    .relaunch-page .cta-btn:hover{ background:var(--dark-blue, #004f91); }
-    .relaunch-page .cta-btn:active{ transform:translateY(1px); }
-    .relaunch-page .cta-btn:focus-visible{ outline:2px solid var(--dark-blue, #004f91); outline-offset:2px; }
+    .relaunch-page .kv-list li{ margin:.4rem 0; }
+    .relaunch-page .kv{ font-weight:700; color:var(--dark-blue); }
+    .relaunch-page .desc{ display:block; margin-left:.75rem; color:#444; }
 
-    /* 3-up card grid */
-    .card-grid.triple{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
-      gap:1.5rem;
-      padding:0 2rem;
-      margin-top:1rem;
-    }
+    /* Two-column lists on desktop for compactness */
+    .relaunch-page .columns{ display:grid; gap:1rem; }
+    @media (min-width:900px){ .relaunch-page .columns{ grid-template-columns:1fr 1fr; } }
 
-    /* Cards */
-    .relaunch-page .card{
-      border-radius:10px;
-      padding:1.5rem;
-      background:#fff;
-      box-shadow:0 2px 8px rgba(0,0,0,.04);
-    }
+    /* CTA row */
+    .relaunch-page .cta-row{ display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; margin:1rem 0 2rem; }
+    .relaunch-page .cta-row .cta-btn{ min-width:200px; }
 
-    /* Full-width CTA row inside grid */
-    .card-grid.triple .grid-cta{ grid-column:1 / -1; }
-    .card-grid.triple .grid-cta .cta-btn{
-      display:flex;
-      width:100%;
-      min-height:52px;
-      text-align:center;
-      align-items:center;
-      justify-content:center;
-    }
+    /* Slightly tighter sections */
+    .relaunch-page .section{ margin:2rem 0 !important; }
 
-    /* Subtitles */
-    .relaunch-page .subtitle{
-      text-align:center; color:#444; max-width:900px; margin:0 auto 2rem; font-size:1.1rem;
-    }
-
-    /* Unstyled links inside card grid (match body text color) */
-    .card-grid a, .card-grid a:hover, .card-grid a:visited{ text-decoration:none; color:inherit; }
+    /* Desktop nav squeeze for consistency */
+    nav.desktop-nav{ gap:.55rem; }
+    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
   </style>
+
+  <!-- JSON-LD (Breadcrumb + Service) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+          {"@type":"ListItem","position":2,"name":"Talent Re/Launch","item":"https://www.corecloudza.com/talent-relaunch.html"}
+        ]
+      },
+      {
+        "@type":"Organization",
+        "@id":"https://www.corecloudza.com/#org",
+        "name":"CoreCloud (Pty) Ltd",
+        "url":"https://www.corecloudza.com/",
+        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
+        "sameAs":["https://www.linkedin.com/company/corecloudza"]
+      },
+      {
+        "@type":"Service",
+        "name":"Talent Re/Launch",
+        "provider":{"@id":"https://www.corecloudza.com/#org"},
+        "areaServed":{"@type":"Country","name":"South Africa"},
+        "url":"https://www.corecloudza.com/talent-relaunch.html",
+        "description":"A coached, employer-backed pathway for returners and pivoters into modern cloud, data, DevOps, and product roles."
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="relaunch-page">
-  <a href="#main" class="visually-hidden-focusable">Skip to content</a>
-
   <!-- Header / Nav -->
   <div class="small-banner">
-    <div class="banner-header ai-nav">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" fetchpriority="high" />
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
 
-      <!-- CSS-only toggle -->
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </label>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
+      <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Desktop Nav -->
+      <!-- Short labels (site-wide convention) -->
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="finops.html" class="nav-btn">FINOPS &amp; GOVERNANCE</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
+        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn active" aria-current="page">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html" class="nav-btn active" aria-current="page">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="blog.html" class="nav-btn">BLOG</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile Nav -->
-      <nav class="mobile-nav" id="mobileMenu" aria-label="Mobile">
+      <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
+        <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html" class="active" aria-current="page">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html">BLOG</a>
         <a href="contact.html">CONTACT</a>
@@ -134,134 +133,167 @@
     </div>
   </div>
 
-  <!-- Banner -->
-  <div class="page-banner" style="background-image:url('assets/images/talent-bannerimage.png');"></div>
+  <!-- Hero -->
+  <div class="hero-media">
+    <!-- Reusing the Talent banner is safe; swap the src if you have a dedicated image -->
+    <img src="assets/images/talent-bannerimage.png"
+         alt="CoreCloud Re/Launch — Returners & Career Pivot"
+         width="1920" height="500"
+         loading="eager" decoding="async" fetchpriority="high"/>
+  </div>
 
-  <main id="main" class="content">
-    <!-- Intro -->
-    <section class="section intro" aria-labelledby="intro-title">
-      <h1 id="intro-title" class="hero-title">Re / Launch Talent Hub</h1>
-      <p class="subtitle">
-        Whether you’re starting out or starting over, CoreCloud is committed to helping South Africans relaunch their careers with purpose.
-        We stand behind the overlooked, the underestimated, and the experienced.
-      </p>
+  <!-- Intro -->
+  <section class="hero-intro" style="max-width:900px; margin:2rem auto 1.25rem; text-align:center;">
+    <h1 class="hero-title">Talent Re/Launch</h1>
+    <p style="margin:.5rem 0; color:#444;">
+      A coached, employer-backed pathway for experienced professionals returning to tech, or pivoting into modern cloud,
+      data, DevOps, and product roles. We rebuild confidence, update skills, and place you where you can win.
+    </p>
+    <div class="cta-row">
+      <a href="contact.html?type=relaunch-candidate" class="cta-btn">Apply to Re/Launch</a>
+      <a href="contact.html?type=relaunch-employer" class="cta-btn">Hire from Re/Launch</a>
+    </div>
+  </section>
+
+  <main class="content" id="main">
+    <!-- Who it's for -->
+    <section class="section narrative" aria-labelledby="who-title">
+      <h2 id="who-title" class="section-title">Who Re/Launch Is For</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Returners:</span><span class="desc">You’ve taken time out for family, study, business, or health—and you’re ready to come back strong.</span></li>
+        <li><span class="kv">Pivoters:</span><span class="desc">You’re proven in adjacent disciplines and want to move into cloud, platform, data/AI, DevOps, or product.</span></li>
+        <li><span class="kv">Immigration &amp; relocation:</span><span class="desc">Experienced professionals new to SA who need a fast, credible entry point.</span></li>
+        <li><span class="kv">Leaders retooling:</span><span class="desc">Architects/PMs/Leads modernising their stack and operating model.</span></li>
+      </ul>
     </section>
 
-    <!-- Why -->
-    <section class="section" aria-labelledby="why-title">
-      <h2 id="why-title" class="section-title">Why We Built This</h2>
-      <p class="subtitle">
-        South Africa’s job market leaves too many talented people behind. Young professionals get overlooked for lack of experience.
-        Skilled professionals are passed over for being “too expensive” or “overqualified.” CoreCloud is changing that.
-      </p>
-      <p class="subtitle">
-        Re / Launch is more than a support page. It’s a platform to help you reclaim your career. We don’t do pity placements.
-        We focus on purpose, partnership, and performance.
-      </p>
-    </section>
-
-    <!-- Program Tracks -->
-    <section class="section" aria-labelledby="tracks-title">
-      <h2 id="tracks-title" class="section-title">Re / Launch Program Tracks</h2>
-
-      <h3 class="section-title" style="font-size:1.5rem; margin-top:1rem;">Youth Upliftment</h3>
-      <div class="card-grid triple">
-        <div class="card">
-          <h2 style="color:#0066b2;">Micro Experience Projects</h2>
-          <p>Gain real-world CV content through guided projects with our partners. Build credibility without needing years of full-time experience.</p>
-        </div>
-        <div class="card">
-          <h2 style="color:#0066b2;">Exposure &amp; Mentorship</h2>
-          <p>We connect you to networks that matter. Get introduced to hiring partners and mentored by professionals who’ve been where you are.</p>
-        </div>
-        <div class="card">
-          <h2 style="color:#0066b2;">Career Tools &amp; Support</h2>
-          <p>We help refine your CV, improve your LinkedIn profile, and prepare you to approach the market with confidence. All free of charge.</p>
-        </div>
-
-        <!-- Full-width CTA inside the grid -->
-        <div class="grid-cta">
-          <a href="launch-form.html" class="cta-btn" aria-label="Apply to Re / Launch Youth track">Apply to Re / Launch (Youth)</a>
-        </div>
-      </div>
-
-      <h3 class="section-title" style="font-size:1.5rem; margin-top:2rem;">Relaunch for Retrenched Professionals</h3>
-      <div class="card-grid triple">
-        <div class="card">
-          <h2 style="color:#0066b2;">Executive Network Access</h2>
-          <p>We introduce your profile directly to decision-makers. No cold applications, just warm connections built on trust and track record.</p>
-        </div>
-        <div class="card">
-          <h2 style="color:#0066b2;">Flexible Work Pathways</h2>
-          <p>We support consulting, part-time, or project work so you can stay active and earning while you plan your next move.</p>
-        </div>
-        <div class="card">
-          <h2 style="color:#0066b2;">Profile Repositioning</h2>
-          <p>From CV updates to rate discussions, we help experienced professionals avoid the “overqualified” label and highlight their strategic value.</p>
-        </div>
-
-        <!-- Full-width CTA inside the grid -->
-        <div class="grid-cta">
-          <a href="relaunch-form.html" class="cta-btn" aria-label="Apply to Re / Launch Experienced track">Apply to Re / Launch (Experienced)</a>
-        </div>
-      </div>
-
-      <h3 class="section-title" style="font-size:1.5rem; margin-top:2rem;">Future: Graduate Talent Program</h3>
-      <div class="card-grid triple">
-        <div class="card">
-          <h2 style="color:#0066b2;">Launchpad for Next-Gen Talent</h2>
-          <p>We’re working on a dedicated graduate program to attract, develop, and place top talent into South Africa’s digital economy. Watch this space.</p>
-        </div>
+    <!-- Tracks -->
+    <section class="section narrative" aria-labelledby="tracks-title">
+      <h2 id="tracks-title" class="section-title">Pathways &amp; Tracks</h2>
+      <div class="columns">
+        <ul class="kv-list">
+          <li><span class="kv">Cloud &amp; Platform:</span><span class="desc">AWS/Azure fundamentals, landing zones, IaC, Kubernetes, observability.</span></li>
+          <li><span class="kv">DevOps &amp; SRE:</span><span class="desc">CI/CD, pipelines, reliability, performance, cost guardrails.</span></li>
+          <li><span class="kv">Software Engineering:</span><span class="desc">Modern backend/frontend patterns, APIs, secure-by-design.</span></li>
+        </ul>
+        <ul class="kv-list">
+          <li><span class="kv">Data &amp; AI:</span><span class="desc">Lakehouse, ELT/dbt, notebooks, RAG/MLOps, evaluation &amp; drift.</span></li>
+          <li><span class="kv">Security &amp; Governance:</span><span class="desc">Identity, policy-as-code, standards, audit readiness (POPIA).</span></li>
+          <li><span class="kv">Product &amp; Delivery:</span><span class="desc">Outcome-first, thin-slice shipping, measurement, stakeholder alignment.</span></li>
+        </ul>
       </div>
     </section>
 
-    <!-- Employers CTA -->
-    <section class="section" style="text-align:center;" aria-labelledby="employers-title">
-      <h2 id="employers-title" class="section-title">Employers: Want to Make an Impact?</h2>
-      <p class="subtitle">
-        If your business values capability over credentials and purpose over prejudice, join the Re / Launch movement.
-        Let’s connect you to skilled, driven talent ready to deliver.
-      </p>
-      <a href="employ-form.html" class="cta-btn" style="max-width:500px; width:100%;" aria-label="Partner with CoreCloud on Re / Launch">Partner with CoreCloud</a>
+    <!-- Program structure -->
+    <section class="section narrative" aria-labelledby="structure-title">
+      <h2 id="structure-title" class="section-title">How the Program Works</h2>
+      <ul class="kv-list">
+        <li><span class="kv">6–12 weeks coached:</span><span class="desc">Blended learning + practical labs mapped to your target role.</span></li>
+        <li><span class="kv">Portfolio &amp; Projects:</span><span class="desc">Real artifacts (IaC repos, services, dashboards, runbooks) reviewed by hiring managers.</span></li>
+        <li><span class="kv">Mentors &amp; Mock Panels:</span><span class="desc">Interview calibration, whiteboard practice, scenario walkthroughs.</span></li>
+        <li><span class="kv">Placement Support:</span><span class="desc">Warm intros to employers, scorecard-based matching, offer coaching.</span></li>
+        <li><span class="kv">Post-Placement:</span><span class="desc">30/60/90 follow-ups to ensure ramp, impact, and retention.</span></li>
+      </ul>
+    </section>
+
+    <!-- Outcomes -->
+    <section class="section narrative" aria-labelledby="outcomes-title">
+      <h2 id="outcomes-title" class="section-title">Outcomes You Can Expect</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Confidence &amp; clarity:</span><span class="desc">Current skills, current language, and a crisp narrative for interviews.</span></li>
+        <li><span class="kv">Job-ready artifacts:</span><span class="desc">Code, pipelines, dashboards, and runbooks you can show and explain.</span></li>
+        <li><span class="kv">Faster placement:</span><span class="desc">Shortlist to interview in days, not months, via our employer network.</span></li>
+        <li><span class="kv">Stickiness:</span><span class="desc">First 90-day plan and regular coaching to secure early wins.</span></li>
+      </ul>
+    </section>
+
+    <!-- Employers -->
+    <section class="section narrative" aria-labelledby="employers-title">
+      <h2 id="employers-title" class="section-title">For Employers &amp; Hiring Managers</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Less risk, more signal:</span><span class="desc">Candidates show live artifacts and role-aligned mini-projects, not just CVs.</span></li>
+        <li><span class="kv">Faster ramp:</span><span class="desc">Re/Launch embeds your standards—tagging, guardrails, SLOs—before day 1.</span></li>
+        <li><span class="kv">Inclusive pipeline:</span><span class="desc">Tap returners and pivoters with proven professional maturity.</span></li>
+        <li><span class="kv">Flexible models:</span><span class="desc">Direct hire, contract-to-perm, or squad augmentation.</span></li>
+      </ul>
+      <div class="cta-row">
+        <a href="contact.html?type=relaunch-employer" class="cta-btn">Brief Us on a Role</a>
+        <a href="contact.html?type=relaunch-cohort" class="cta-btn">Register as a Partner</a>
+      </div>
+    </section>
+
+    <!-- Selection -->
+    <section class="section narrative" aria-labelledby="selection-title">
+      <h2 id="selection-title" class="section-title">Selection &amp; Readiness</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Application &amp; Screening:</span><span class="desc">Experience review, intent, and target pathway fit.</span></li>
+        <li><span class="kv">Technical baseline:</span><span class="desc">Light-weight assessment to right-size the track.</span></li>
+        <li><span class="kv">Commitment to outcomes:</span><span class="desc">Time, energy, and willingness to ship real artifacts.</span></li>
+      </ul>
+      <div class="cta-row">
+        <a href="contact.html?type=relaunch-candidate" class="cta-btn">Apply Now</a>
+      </div>
+    </section>
+
+    <!-- SA context -->
+    <section class="section narrative" aria-labelledby="sa-title">
+      <h2 id="sa-title" class="section-title">Built for South Africa</h2>
+      <ul class="kv-list">
+        <li><span class="kv">POPIA-aware:</span><span class="desc">Privacy and residency patterns are foundational in labs and artifacts.</span></li>
+        <li><span class="kv">Power &amp; connectivity realities:</span><span class="desc">Practicality over theory—offline-first habits, DR you can test.</span></li>
+        <li><span class="kv">Hybrid work:</span><span class="desc">Prepared for on-prem + hosted + cloud environments from day one.</span></li>
+      </ul>
     </section>
   </main>
 
- <!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-left">
-      <p><strong>CoreCloud (Pty) Ltd</strong></p>
-      <p>Sandton<br>Johannesburg<br>South Africa</p>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton<br>Johannesburg<br>South Africa</p>
+      </div>
+
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-right">
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+      </div>
     </div>
 
-    <div class="footer-middle">
-      <h4>Stay Informed</h4>
-      <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-      <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-        <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
-        <label class="visually-hidden" for="newsletter_email">Email</label>
-        <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
-        <button type="submit" class="cta-btn">Subscribe</button>
-      </form>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
     </div>
+  </footer>
 
-    <div class="footer-right">
-      <p><strong>Contact</strong></p>
-      <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-      <p>Phone: <a href="mailto:sales@corecloudza.com">{+27) 011 568 8667</a></p>
-      <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 CoreCloud. All rights reserved. |
-      <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-      <a href="terms.html" class="legal-link">Terms</a>
-    </p>
-  </div>
-</footer>
+  <!-- Auto-highlight current nav -->
+  <script>
+  (function(){
+    var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+      var href = (a.getAttribute('href') || '').toLowerCase();
+      if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+      else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
+    });
+  })();
+  </script>
 </body>
 </html>
