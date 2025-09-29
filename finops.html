@@ -19,40 +19,18 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=13" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=9" />
 
   <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/finops-bannerimage.png" imagesizes="100vw" fetchpriority="high">
 
-  <!-- Page-scoped fixes: durable title centering, tidy panels/lists -->
+  <!-- Page-scoped styles (titles centered; bullets tidy; light panels) -->
   <style>
-    /* ----- Title Alignment Core (page-scoped) ----- */
-    .finops-page :is(h1.hero-title, h2.section-title){
-      text-align:center !important;
-      display:block !important;
-      margin-left:auto !important;
-      margin-right:auto !important;
-    }
-    /* Keep subheads and copy left */
-    .finops-page :is(.panel h3, .panel h4, .card h3, .card h4,
-                     .narrative p, .narrative li, .hero-intro p){ text-align:left !important; }
-
-    /* Narrative containers + lists */
-    .finops-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; }
+    .finops-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center; }
     .finops-page .section{ margin:2rem 0 !important; }
-    .finops-page .section-title{ margin-bottom:.8rem !important; }
-    .finops-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .finops-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
-    .finops-page .kv-list{ margin:.4rem 0 0 1.75rem; padding:0; line-height:1.7; }
-    .finops-page .kv-list li{ margin:.5rem 0; }
-    .finops-page .kv{ font-weight:700; color:var(--dark-blue); }
-    .finops-page .desc{ display:block; margin-left:1rem; color:#444; }
-    @media (max-width:600px){ .finops-page .desc{ margin-left:.75rem; } }
 
-    /* Panels (lighter than full cards) */
-    .finops-page .grid-2, .finops-page .grid-3{
-      display:grid; gap:1rem; padding:0 1rem; max-width:1100px; margin:0 auto;
-    }
+    /* Light panels + grids */
+    .finops-page .grid-2, .finops-page .grid-3{ display:grid; gap:1rem; padding:0 1rem; max-width:1100px; margin:0 auto; }
     @media (min-width:900px){
       .finops-page .grid-2{ grid-template-columns:1fr 1fr; }
       .finops-page .grid-3{ grid-template-columns:1fr 1fr 1fr; }
@@ -61,37 +39,49 @@
       background:#fff; border:1px solid rgba(0,79,145,.18); border-radius:10px;
       padding:1rem 1.1rem; box-shadow:0 2px 6px rgba(0,0,0,.04);
     }
-    .finops-page .panel h3, .finops-page .panel h4{ margin:0 0 .4rem; color:var(--dark-blue); font-size:1.05rem; }
-    .finops-page .panel ul{ margin:.35rem 0 0 1.25rem !important; padding-left:1.05rem !important; list-style-position:outside; }
-    .finops-page .panel li{ margin:.3rem 0; }
-    @media (max-width:600px){
-      .finops-page .panel ul{ margin-left:1.1rem; padding-left:1rem; }
-    }
+    .finops-page .panel h3, .finops-page .panel h4{ margin:0 0 .45rem; color:var(--dark-blue); font-size:1.05rem; }
 
-    /* Stronger cards only for engagement CTAs */
-    .finops-page .cta-cards{
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:1.25rem; padding:0 1rem; max-width:1100px; margin:0 auto;
+    /* Narrative containers + lists (off-cards) */
+    .finops-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .finops-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
+    .finops-page .kv-list{
+      margin:.4rem 0 0 1.25rem !important;
+      padding-left:1.05rem !important;
+      list-style-position:outside;
+      line-height:1.7;
     }
-    .finops-page .cta-cards .card{
-      border:2px solid var(--dark-blue); border-radius:8px; background:#fff;
-      box-shadow:0 2px 6px rgba(0,0,0,.06); padding:1.25rem; display:flex; flex-direction:column; gap:.75rem;
-    }
+    .finops-page .kv-list li{ margin:.35rem 0; }
+    .finops-page .kv{ font-weight:700; color:var(--dark-blue); }
+    .finops-page .desc{ display:block; margin-left:.9rem; color:#444; }
+
+    /* CTA cards (use strong card look) */
+    .finops-page .cta-cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.25rem; padding:0 1rem; max-width:1100px; margin:0 auto; }
+    .finops-page .cta-cards .card{ border:2px solid var(--dark-blue); border-radius:8px; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.06); padding:1.25rem; display:flex; flex-direction:column; gap:.75rem; }
     .finops-page .cta-cards .card h3{ margin:0 0 .35rem; color:var(--primary-blue); font-size:1.1rem; }
     .finops-page .cta-cards .card .cta-btn{ margin-top:auto; }
 
-    /* Wins list */
+    /* Wins section (simple list) */
     .finops-page .wins{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .finops-page .wins ul{ margin:.4rem 0 0 1.2rem; }
+    .finops-page .wins ul{ margin:.4rem 0 0 1.2rem; padding-left:1.05rem; }
     .finops-page .wins li{ margin:.35rem 0; }
 
-    /* Desktop nav squeeze to fit all items */
-    nav.desktop-nav{ gap:.55rem; }
-    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
+    /* ——— HARD FIX: center page titles on THIS page ——— */
+    .finops-page h1.hero-title,
+    .finops-page h2.section-title,
+    .finops-page section > h2.section-title,
+    .finops-page .narrative > h2.section-title,
+    #outcomes-title, #loop-title, #wins-title {
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      display: block !important;
+    }
 
-    /* Footer tel link colour */
-    footer .footer-right a[href^="tel:"]{ color:#fff !important; text-decoration:none; font-weight:500; }
-    footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
+    /* Keep subheads inside panels/cards left-aligned */
+    .finops-page .panel h3,
+    .finops-page .panel h4,
+    .finops-page .card  h3,
+    .finops-page .card  h4 { text-align: left !important; }
   </style>
 </head>
 
@@ -106,7 +96,7 @@
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Desktop nav (short labels to fit) -->
+      <!-- Shortened labels -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
@@ -123,7 +113,7 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile nav -->
+      <!-- Mobile -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULT</a>
@@ -160,7 +150,7 @@
   </section>
 
   <main class="content">
-    <!-- Outcomes -->
+    <!-- Outcomes first -->
     <section class="section narrative" aria-labelledby="outcomes-title">
       <h2 id="outcomes-title" class="section-title">What You Get in 90 Days</h2>
       <ul class="kv-list">
@@ -311,7 +301,7 @@
   <!-- Auto-highlight current nav -->
   <script>
   (function(){
-    var path = (location.pathname.split('/').pop() || 'finops.html').toLowerCase();
+    var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
     document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
       var href = (a.getAttribute('href') || '').toLowerCase();
       if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
