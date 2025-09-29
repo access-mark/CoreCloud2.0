@@ -811,3 +811,14 @@ html body :is(h1.hero-title, h2.section-title){
   margin-left: auto !important;
   margin-right: auto !important;
 }
+/* ---- Tiny, page-scoped title centering fix (safe) ---- */
+.finops-page h1.hero-title,
+.finops-page h2.section-title,
+.appdev-page h1.hero-title,
+.appdev-page h2.section-title {
+  text-align: center !important;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 100% !important;
+}
