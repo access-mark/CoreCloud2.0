@@ -1,41 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Us – CoreCloud</title>
-  <meta name="description" content="CoreCloud turns strategy into measurable results across consulting, cloud, talent, and executive transformation. Built in South Africa for impact at enterprise scale."/>
-  <meta name="robots" content="index, follow"/>
-  <meta name="author" content="CoreCloud"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>About CoreCloud</title>
+  <meta name="description" content="CoreCloud helps South African organisations deliver on cloud, data & AI, FinOps, and modern application delivery—built for SA realities and measurable outcomes."/>
+  <link rel="canonical" href="https://www.corecloudza.com/about.html"/>
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css"/>
-  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
+  <!-- Social -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="About CoreCloud"/>
+  <meta property="og:description" content="Cloud, Data & AI, FinOps, and App Dev—delivered with SA residency, governance, and cost-right design."/>
+  <meta property="og:url" content="https://www.corecloudza.com/about.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Page-scoped (content-only, no global overrides) -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=9"/>
+  <link rel="preload" as="image" href="assets/images/about-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
+
+  <!-- Page-scoped helpers (safe & minimal) -->
   <style>
-    .about-page .lead { font-size:1.15rem; line-height:1.8; max-width:1000px; margin:0 auto; }
-    .about-page .principles { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); padding:0 2rem; }
-    .about-page .principles .card { border:2px solid var(--dark-blue); }
-    .about-page .bio-card { max-width:820px; margin:0 auto; }
-    .about-page .bio-photo { width:100%; max-width:320px; border-radius:12px; margin:0 auto 1rem; display:block; }
-    .about-page .page-cta { text-align:center; margin-top:2rem; }
+    .about-page .hero-intro{ max-width:900px; margin:2rem auto 1.25rem; text-align:center; }
+    .about-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .about-page .narrative p{ margin:.55rem 0; line-height:1.75; color:#444; }
+    .about-page .kv-list{ margin:.35rem 0 0 1.25rem; padding-left:1.05rem; list-style:disc; line-height:1.7; }
+    .about-page .kv-list li{ margin:.4rem 0; }
+    .about-page .kv{ font-weight:700; color:var(--dark-blue); }
+    .about-page .desc{ display:block; margin-left:.75rem; color:#444; }
+    .about-page .columns{ display:grid; gap:1rem; }
+    @media (min-width:900px){ .about-page .columns{ grid-template-columns:1fr 1fr; } }
+    .about-page .cta-row{ display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; margin:1.25rem 0 2rem; }
+    .about-page .cta-row .cta-btn{ min-width:200px; }
+    /* desktop nav squeeze for consistency */
+    nav.desktop-nav{ gap:.55rem; }
+    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
   </style>
 
-  <!-- JSON-LD (optional but nice for SEO) -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":"AboutPage",
-    "name":"About CoreCloud",
-    "url":"https://www.corecloudza.com/about.html",
-    "about":{
-      "@type":"Organization",
-      "name":"CoreCloud (Pty) Ltd",
-      "url":"https://www.corecloudza.com/",
-      "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
-      "sameAs":["https://www.linkedin.com/company/corecloudza"]
-    }
+    "@graph":[
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+          {"@type":"ListItem","position":2,"name":"About","item":"https://www.corecloudza.com/about.html"}
+        ]
+      },
+      {
+        "@type":"Organization",
+        "@id":"https://www.corecloudza.com/#org",
+        "name":"CoreCloud (Pty) Ltd",
+        "url":"https://www.corecloudza.com/",
+        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
+        "sameAs":["https://www.linkedin.com/company/corecloudza"]
+      }
+    ]
   }
   </script>
 </head>
@@ -44,22 +67,23 @@
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" decoding="async" fetchpriority="high">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle">
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
+      <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
+      <!-- Short labels (site-wide convention) -->
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="finops.html" class="nav-btn">FINOPS &amp; GOVERNANCE</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
+        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
         <a href="about.html" class="nav-btn active" aria-current="page">ABOUT</a>
         <a href="blog.html" class="nav-btn">BLOG</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
@@ -67,13 +91,15 @@
 
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
+        <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEV</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
         <a href="about.html" class="active" aria-current="page">ABOUT</a>
         <a href="blog.html">BLOG</a>
         <a href="contact.html">CONTACT</a>
@@ -83,161 +109,167 @@
 
   <!-- Hero -->
   <div class="hero-media">
-    <img src="assets/images/about-bannerimage.png" alt="About CoreCloud — Strategy into Execution" decoding="async" loading="eager">
+    <img
+      src="assets/images/about-bannerimage.png"
+      alt="About CoreCloud"
+      width="1920" height="500"
+      loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
-  <main class="content" id="main">
+  <!-- Intro -->
+  <section class="hero-intro">
     <h1 class="hero-title">About CoreCloud</h1>
+    <p>
+      We help South African organisations modernise—cloud, data &amp; AI, FinOps, and application delivery—
+      with residency, governance, and cost-right design from day one. Our work is outcome-led, practical,
+      and grounded in the realities of SA infrastructure, compliance, and budget.
+    </p>
+  </section>
 
-    <!-- Who we are -->
-    <section class="section" aria-labelledby="who">
-      <h2 id="who" class="section-title">Who We Are</h2>
-      <p class="lead">
-        CoreCloud was built on a simple belief: <strong>strategy means nothing without execution</strong>.
-        We’re a South African partner that blends boardroom strategy, modern cloud engineering, elite ICT talent,
-        and executive transformation into one integrated offering. Our mission is clear — help enterprises move faster,
-        spend smarter, and lead with confidence in a digital-first economy.
+  <main class="content" id="main">
+    <!-- Mission -->
+    <section class="section narrative" aria-labelledby="mission-title">
+      <h2 id="mission-title" class="section-title">Our Mission</h2>
+      <p>
+        Unlock measurable value from cloud and data—faster, safer, and more predictably—while building
+        internal capability that lasts. We focus on thin-slice delivery, clear SLOs, and cost guardrails so
+        progress compounds without surprises.
       </p>
     </section>
 
-    <!-- Why we exist -->
-    <section class="section" aria-labelledby="why">
-      <h2 id="why" class="section-title">Why We Exist</h2>
-      <p class="lead">
-        South African enterprises operate under pressure: rising costs, scarce talent, complex platforms, and aggressive growth targets.
-        The result? Projects stall. Spend balloons. Momentum slips. CoreCloud exists to reverse that pattern — bringing
-        <strong>clarity, pace, and performance</strong> to environments where delivery has slowed down.
-      </p>
-    </section>
-
-    <!-- What makes us different -->
-    <section class="section" aria-labelledby="difference">
-      <h2 id="difference" class="section-title">What Makes Us Different</h2>
-      <div class="card-grid force-4" style="margin-top:1rem;">
-        <div class="card">
-          <h3>Execution Obsessed</h3>
-          <p>No slide dumps. No handovers to nowhere. We stay until value is real, measured, and running in production.</p>
-        </div>
-        <div class="card">
-          <h3>Four Integrated Pillars</h3>
-          <p><strong>Consulting</strong>, <strong>Cloud</strong>, <strong>Talent</strong>, and <strong>Dynamic Imprinting</strong> — engineered to work together.</p>
-        </div>
-        <div class="card">
-          <h3>South African Context</h3>
-          <p>We understand budgets, buying cycles, and delivery realities here. We turn constraints into an advantage.</p>
-        </div>
-        <div class="card">
-          <h3>Outcome Discipline</h3>
-          <p>Clear metrics. Clear milestones. Clear accountability. If it doesn’t create impact, it doesn’t belong.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- The pillars -->
-    <section class="section" aria-labelledby="pillars">
-      <h2 id="pillars" class="section-title">Our Four Pillars</h2>
-      <div class="card-grid force-4">
-        <a href="consulting.html" class="card">
-          <h3>Consulting</h3>
-          <p>Advisory that becomes action: GTM precision, operating models, and board-level guidance tied to measurable outcomes.</p>
-          <span class="cta-btn">Explore Consulting</span>
-        </a>
-        <a href="cloud.html" class="card">
-          <h3>Cloud Suite</h3>
-          <p>AWS, Azure, and Databricks — migration, modernisation, managed services, and cost optimisation with real FinOps discipline.</p>
-          <span class="cta-btn">Explore Cloud</span>
-        </a>
-        <a href="talent.html" class="card">
-          <h3>Talent</h3>
-          <p>Curated ICT and executive talent. Fully vetted. Precisely matched. Ready to deliver from day one.</p>
-          <span class="cta-btn">Explore Talent</span>
-        </a>
-        <a href="dynamic-imprinting.html" class="card">
-          <h3>Dynamic Imprinting</h3>
-          <p>A bespoke executive methodology that rewires identity, presence, and performance under pressure.</p>
-          <span class="cta-btn">Explore Dynamic Imprinting</span>
-        </a>
+    <!-- What we do (concise) -->
+    <section class="section narrative" aria-labelledby="what-title">
+      <h2 id="what-title" class="section-title">What We Do</h2>
+      <div class="columns">
+        <ul class="kv-list">
+          <li><span class="kv">Cloud Foundations:</span><span class="desc">Landing zones, identity, IaC, and hybrid patterns that stand up in production.</span></li>
+          <li><span class="kv">Data &amp; AI:</span><span class="desc">Lakehouse, streaming, governance, and pragmatic AI (RAG/MLOps) with SA residency.</span></li>
+          <li><span class="kv">App Delivery:</span><span class="desc">Cloud-native services, portals, mobile/web—shipped with DevOps and security by design.</span></li>
+        </ul>
+        <ul class="kv-list">
+          <li><span class="kv">FinOps &amp; Governance:</span><span class="desc">Budgets, golden tags, policy-as-code, and dashboards that finance trusts.</span></li>
+          <li><span class="kv">Hosting &amp; On-Prem:</span><span class="desc">SA-hosted workloads, on-prem GPU for steady inference, cloud for burst.</span></li>
+          <li><span class="kv">Talent &amp; Enablement:</span><span class="desc">Re/Launch pathways, embedded squads, runbooks, and skills that stick.</span></li>
+        </ul>
       </div>
     </section>
 
     <!-- Principles -->
-    <section class="section" aria-labelledby="principles">
-      <h2 id="principles" class="section-title">Principles We Live By</h2>
-      <div class="principles">
-        <div class="card"><h3>Execution First</h3><p>Ideas matter. Results matter more.</p></div>
-        <div class="card"><h3>Clarity Over Noise</h3><p>Simplify decisions. Eliminate waste. Focus on impact.</p></div>
-        <div class="card"><h3>Partnership</h3><p>We work with you, not around you. Shared ownership, shared wins.</p></div>
-        <div class="card"><h3>Integrity</h3><p>No vendor agendas. No bloat. Just what moves the needle.</p></div>
-      </div>
+    <section class="section narrative" aria-labelledby="principles-title">
+      <h2 id="principles-title" class="section-title">Principles We Work By</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Outcome first:</span><span class="desc">Define the decision, metric, and owner before we build anything.</span></li>
+        <li><span class="kv">Thin-slice delivery:</span><span class="desc">Ship value in weeks; reduce risk while building momentum.</span></li>
+        <li><span class="kv">Security &amp; cost by default:</span><span class="desc">Guardrails and budgets live in code; drift gets surfaced fast.</span></li>
+        <li><span class="kv">Operate what we build:</span><span class="desc">Runbooks, SLOs, and on-call posture from day one—no throw-overs.</span></li>
+      </ul>
     </section>
 
-    <!-- Founder / story -->
-    <section class="section" aria-labelledby="founder">
-      <h2 id="founder" class="section-title">The Founder</h2>
-      <div class="card bio-card" style="text-align:left;">
-        <img src="assets/images/mark-final.jpg" alt="Mark Louw — Founder & Growth Architect" class="bio-photo">
-        <h3>Mark Louw — Growth Architect</h3>
-        <p>
-          With 20+ years across enterprise tech, Mark has led high-performing sales and delivery teams at Dell EMC,
-          Dimension Data, and EOH. He connects commercial outcomes to cloud execution — turning strategy into revenue,
-          not technical debt.
-        </p>
-        <p>
-          CoreCloud was co-founded with <strong>Justine Louw</strong>, whose channel and distribution expertise shaped our early journey.
-          She has since moved on to new opportunities. Her contribution remains a valued part of CoreCloud’s foundation.
-        </p>
-      </div>
-    </section>
-
-    <!-- Promise + Vision -->
-    <section class="section" aria-labelledby="promise">
-      <h2 id="promise" class="section-title">Our Promise & Vision</h2>
-      <p class="lead" style="text-align:center; max-width:900px;">
-        We don’t sell hype. We deliver execution — in your cloud, in your teams, and in your leadership.
-        Our vision is to be the most trusted execution partner for enterprises across South Africa.
+    <!-- Footprint & partners -->
+    <section class="section narrative" aria-labelledby="footprint-title">
+      <h2 id="footprint-title" class="section-title">Footprint &amp; Partners</h2>
+      <p>
+        We deliver across South Africa with a partner collective for specialised needs—GPU hosting, security
+        tooling, and industry platforms—so you get the right solution without vendor lock-in. Our posture is
+        multi-venue by design to preserve your leverage.
       </p>
-      <div class="page-cta">
-        <a href="contact.html" class="cta-btn" aria-label="Start a conversation with CoreCloud">Start a Conversation</a>
+    </section>
+
+    <!-- Leadership (concise narrative placeholder) -->
+    <section class="section narrative" aria-labelledby="leadership-title">
+      <h2 id="leadership-title" class="section-title">Leadership</h2>
+      <p>
+        CoreCloud is led by practitioners who’ve built and operated platforms at scale. We value clarity,
+        bias to action, and durable standards—because enterprise change only sticks when it works in
+        production and on the balance sheet.
+      </p>
+    </section>
+
+    <!-- Careers -->
+    <section class="section narrative" aria-labelledby="careers-title">
+      <h2 id="careers-title" class="section-title">Careers at CoreCloud</h2>
+      <ul class="kv-list">
+        <li><span class="kv">Practitioner DNA:</span><span class="desc">Engineers, SREs, architects, product leads—people who ship.</span></li>
+        <li><span class="kv">Learning loop:</span><span class="desc">Labs, brown-bags, and certification support with real-world projects.</span></li>
+        <li><span class="kv">Flexible models:</span><span class="desc">Permanent, consulting, and squad augmentation pathways.</span></li>
+      </ul>
+      <div class="cta-row">
+        <a href="contact.html?type=careers" class="cta-btn">Introduce Yourself</a>
+        <a href="talent-relaunch.html" class="cta-btn">Explore Re/Launch</a>
+      </div>
+    </section>
+
+    <!-- Trust & compliance -->
+    <section class="section narrative" aria-labelledby="trust-title">
+      <h2 id="trust-title" class="section-title">Trust, Security &amp; Residency</h2>
+      <ul class="kv-list">
+        <li><span class="kv">POPIA-aware delivery:</span><span class="desc">Residency and privacy patterns built into blueprints, pipelines, and ops.</span></li>
+        <li><span class="kv">Policy-as-code:</span><span class="desc">Preventive controls for regions, sizes, storage classes, and backup minimums.</span></li>
+        <li><span class="kv">Measured operations:</span><span class="desc">SLOs, runbooks, and weekly “cost &amp; reliability” rhythm with owners.</span></li>
+      </ul>
+    </section>
+
+    <!-- CTA -->
+    <section class="section narrative" aria-labelledby="cta-title">
+      <h2 id="cta-title" class="section-title">Start the Conversation</h2>
+      <p>
+        Whether you’re planning a migration, building a data platform, or bringing costs under control, we’ll
+        help you move with speed and confidence.
+      </p>
+      <div class="cta-row">
+        <a href="contact.html" class="cta-btn">Talk to CoreCloud</a>
       </div>
     </section>
   </main>
 
- <!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-left">
-      <p><strong>CoreCloud (Pty) Ltd</strong></p>
-      <p>Sandton<br>Johannesburg<br>South Africa</p>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton<br>Johannesburg<br>South Africa</p>
+      </div>
+
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-right">
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+      </div>
     </div>
 
-    <div class="footer-middle">
-      <h4>Stay Informed</h4>
-      <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-      <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-        <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
-        <label class="visually-hidden" for="newsletter_email">Email</label>
-        <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
-        <button type="submit" class="cta-btn">Subscribe</button>
-      </form>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
     </div>
+  </footer>
 
-    <div class="footer-right">
-      <p><strong>Contact</strong></p>
-      <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-      <p>Phone: <a href="mailto:sales@corecloudza.com">{+27) 011 568 8667</a></p>
-      <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 CoreCloud. All rights reserved. |
-      <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-      <a href="terms.html" class="legal-link">Terms</a>
-    </p>
-  </div>
-</footer>
+  <!-- Auto-highlight current nav -->
+  <script>
+  (function(){
+    var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+      var href = (a.getAttribute('href') || '').toLowerCase();
+      if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+      else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
+    });
+  })();
+  </script>
 </body>
 </html>
