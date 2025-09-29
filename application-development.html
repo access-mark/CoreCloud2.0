@@ -24,37 +24,47 @@
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Page-scoped helpers (content only) -->
+  <!-- Page-scoped helpers (titles centered, bullet indents, nav squeeze) -->
   <style>
-    .appdev-page .hero-title{ font-size:2rem; color:var(--dark-blue); font-weight:700; text-align:center; margin:2.2rem auto .9rem; }
-    .appdev-page main.content{ max-width:1200px; margin:0 auto; padding:0 1.5rem 4rem; }
+    /* Keep hero + section titles centered no matter what */
+    .appdev-page .hero-intro,
+    .appdev-page .hero-title,
+    .appdev-page .section-title{
+      text-align:center !important;
+      display:block;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .appdev-page .hero-title{ font-size:2rem; color:var(--dark-blue); font-weight:700; margin:2.2rem auto .9rem; }
     .appdev-page .section{ margin:2rem 0 !important; }
     .appdev-page .section-title{ margin-bottom:.85rem; }
 
-    /* Narrative containers + lists (no cards) */
+    /* Narrative containers + lists (off-cards) */
     .appdev-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
     .appdev-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
-    .appdev-page .kv-list{ margin:.3rem 0 0 1.25rem; line-height:1.7; }
+    .appdev-page .kv-list{
+      margin:.35rem 0 0 1.25rem !important;
+      padding-left:1.05rem !important;
+      list-style-position:outside;
+      line-height:1.7;
+    }
     .appdev-page .kv-list li{ margin:.35rem 0; }
     .appdev-page .kv{ font-weight:700; color:var(--dark-blue); }
     .appdev-page .desc{ display:block; margin-left:.9rem; color:#444; }
 
-    /* Keep cards ONLY for the bottom “What We Build” section */
-    .appdev-page .card .cta-btn{ display:flex; align-items:center; justify-content:center; width:100%; min-height:48px; font-weight:700; margin-top:auto; }
-    .cta-card{ background:none !important; box-shadow:none !important; border:none !important; padding:0 !important; }
-    .cta-wide{ grid-column:1 / -1; }
-
-    /* Centered CTA (not a card) */
+    /* CTA row (not a card) */
     .appdev-page .cta-row{ display:flex; justify-content:center; margin-top:1rem; }
     .appdev-page .cta-row .cta-btn{ min-width:240px; }
 
-    /* Nav squeeze (desktop) */
+    /* Keep cards only in “What We Build” */
+    .appdev-page .card .cta-btn{ display:flex; align-items:center; justify-content:center; width:100%; min-height:48px; font-weight:700; margin-top:auto; }
+
+    /* Desktop nav squeeze for this page */
+    nav.desktop-nav{ gap:.55rem; }
     nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
 
-    /* Footer phone link = white */
-    footer .footer-right a[href^="tel:"]{
-      color:#fff !important; text-decoration:none; font-weight:500;
-    }
+    /* Footer phone = white */
+    footer .footer-right a[href^="tel:"]{ color:#fff !important; text-decoration:none; font-weight:500; }
     footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
   </style>
 
@@ -121,8 +131,10 @@
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULT</a>
         <a href="cloud.html">CLOUD</a>
+        <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
         <a href="application-development.html" class="active" aria-current="page">APP DEVELOPMENT</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html">RE / LAUNCH</a>
         <a href="dynamic-imprinting.html">IMPRINTING</a>
@@ -135,16 +147,19 @@
 
   <!-- Hero -->
   <div class="hero-media">
-    <img src="assets/images/appdev-bannerimage.png" alt="CoreCloud Application Development" loading="eager" decoding="async"/>
+    <img src="assets/images/appdev-bannerimage.png" alt="CoreCloud Application Development" loading="eager" decoding="async" width="1920" height="500"/>
   </div>
 
-  <main class="content" id="main">
+  <!-- Hero copy (matches page rhythm across site) -->
+  <section class="hero-intro">
     <h1 class="hero-title">Application Development</h1>
-    <p style="text-align:center; max-width:900px; margin:0 auto 2rem;">
+    <p style="max-width:900px; margin:0 auto; color:#444;">
       We design and deliver cloud-native applications, portals, and digital experiences that scale.
       Built with modern architectures, shipped with DevOps discipline, and secured by design.
     </p>
+  </section>
 
+  <main class="content" id="main">
     <!-- Off-cards narrative sections -->
     <section class="section narrative" aria-labelledby="how-title">
       <h2 id="how-title" class="section-title">How We Deliver</h2>
@@ -181,14 +196,30 @@
       <a href="contact.html" class="cta-btn">Start a Conversation</a>
     </div>
 
-    <!-- Moved to the bottom: still cards -->
+    <!-- Cards only here -->
     <section class="section" aria-labelledby="build-title">
       <h2 id="build-title" class="section-title">What We Build</h2>
       <div class="card-grid force-4" style="margin-top:1rem;">
-        <div class="card" style="display:flex; flex-direction:column;"><h2>Cloud-Native Apps</h2><p>Microservices, containers, serverless—resilient and built for change.</p><a href="cloud-native-apps.html" class="cta-btn">Explore</a></div>
-        <div class="card" style="display:flex; flex-direction:column;"><h2>Enterprise Portals</h2><p>Secure internal &amp; customer portals that streamline operations and engagement.</p><a href="enterprise-portals.html" class="cta-btn">Explore</a></div>
-        <div class="card" style="display:flex; flex-direction:column;"><h2>Mobile &amp; Web</h2><p>Fast, responsive experiences across devices with performance baked in.</p><a href="mobile-web.html" class="cta-btn">Explore</a></div>
-        <div class="card" style="display:flex; flex-direction:column;"><h2>APIs &amp; Integration</h2><p>Well-designed APIs and event streams that connect products and data.</p><a href="apis-integration.html" class="cta-btn">Explore</a></div>
+        <div class="card" style="display:flex; flex-direction:column;">
+          <h2>Cloud-Native Apps</h2>
+          <p>Microservices, containers, serverless—resilient and built for change.</p>
+          <a href="cloud-native-apps.html" class="cta-btn">Explore</a>
+        </div>
+        <div class="card" style="display:flex; flex-direction:column;">
+          <h2>Enterprise Portals</h2>
+          <p>Secure internal &amp; customer portals that streamline operations and engagement.</p>
+          <a href="enterprise-portals.html" class="cta-btn">Explore</a>
+        </div>
+        <div class="card" style="display:flex; flex-direction:column;">
+          <h2>Mobile &amp; Web</h2>
+          <p>Fast, responsive experiences across devices with performance baked in.</p>
+          <a href="mobile-web.html" class="cta-btn">Explore</a>
+        </div>
+        <div class="card" style="display:flex; flex-direction:column;">
+          <h2>APIs &amp; Integration</h2>
+          <p>Well-designed APIs and event streams that connect products and data.</p>
+          <a href="apis-integration.html" class="cta-btn">Explore</a>
+        </div>
       </div>
     </section>
   </main>
