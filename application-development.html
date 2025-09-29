@@ -15,91 +15,54 @@
   <meta property="og:url" content="https://www.corecloudza.com/application-development.html"/>
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Application Development – CoreCloud"/>
-  <meta name="twitter:description" content="Cloud-native apps, portals, mobile & web, and APIs—built with DevOps discipline and security by design."/>
-  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=9"/>
 
-  <!-- Preload -->
+  <!-- Preload critical images -->
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Page-scoped CSS (lightweight, safe) -->
+  <!-- Page-scoped CSS (safe + minimal) -->
   <style>
-    /* Utility: guaranteed centered titles */
-    .center-title{
+    /* Keep hero + section titles centered (this page only) */
+    .appdev-page .hero-intro,
+    .appdev-page .hero-title,
+    .appdev-page .section-title{
       text-align: center !important;
-      display: block !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
-      width: 100% !important;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    /* Page rhythm + narrative sections */
-    .appdev-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center; }
+    /* Page rhythm */
+    .appdev-page .hero-title{ font-size:2rem; color:var(--dark-blue); font-weight:700; margin:2.2rem auto .9rem; }
+    .appdev-page main.content{ max-width:1200px; margin:0 auto; padding:0 1.5rem 4rem; }
     .appdev-page .section{ margin:2rem 0 !important; }
+    .appdev-page .section-title{ margin-bottom:.85rem; }
 
+    /* Narrative (no bullets) */
     .appdev-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .appdev-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
-
-    .appdev-page .kv-list{
-      margin:.35rem 0 0 1.25rem;
-      padding-left:1.05rem;
-      list-style-position:outside;
-      line-height:1.7;
-    }
-    .appdev-page .kv-list li{ margin:.35rem 0; }
+    .appdev-page .kv-list{ list-style:none; margin:0; padding:0; }
+    .appdev-page .kv-list li{ margin:.5rem 0; line-height:1.7; }
     .appdev-page .kv{ font-weight:700; color:var(--dark-blue); }
-    .appdev-page .desc{ display:block; margin-left:.9rem; color:#444; }
+    .appdev-page .desc{ margin-left:.4rem; color:#444; }
 
-    /* CTA row (not a card) */
+    /* Centered CTA row */
     .appdev-page .cta-row{ display:flex; justify-content:center; margin-top:1rem; }
     .appdev-page .cta-row .cta-btn{ min-width:240px; }
 
-    /* Keep cards only in “What We Build” (uses global .card) */
+    /* Only the bottom section uses cards */
     .appdev-page .card .cta-btn{ display:flex; align-items:center; justify-content:center; width:100%; min-height:48px; font-weight:700; margin-top:auto; }
 
-    /* Desktop nav squeeze (labels are short on this page) */
+    /* Slight nav squeeze so everything fits nicely */
+    nav.desktop-nav{ gap:.55rem; }
     nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
 
-    /* Footer phone = white */
+    /* Footer phone link white */
     footer .footer-right a[href^="tel:"]{ color:#fff !important; text-decoration:none; font-weight:500; }
     footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
   </style>
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"BreadcrumbList",
-        "itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
-          {"@type":"ListItem","position":2,"name":"Application Development","item":"https://www.corecloudza.com/application-development.html"}
-        ]
-      },
-      {
-        "@type":"Organization",
-        "@id":"https://www.corecloudza.com/#org",
-        "name":"CoreCloud (Pty) Ltd",
-        "url":"https://www.corecloudza.com/",
-        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
-        "sameAs":["https://www.linkedin.com/company/corecloudza"]
-      },
-      {
-        "@type":"Service",
-        "name":"Application Development",
-        "provider":{"@id":"https://www.corecloudza.com/#org"},
-        "areaServed":{"@type":"Country","name":"South Africa"},
-        "url":"https://www.corecloudza.com/application-development.html",
-        "description":"Cloud-native apps, enterprise portals, mobile & web, and API integration with DevOps, security, and performance discipline."
-      }
-    ]
-  }
-  </script>
 </head>
 
 <body class="appdev-page">
@@ -111,7 +74,7 @@
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Shortened labels -->
+      <!-- Short labels -->
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
@@ -153,7 +116,7 @@
 
   <!-- Hero copy -->
   <section class="hero-intro">
-    <h1 class="hero-title center-title">Application Development</h1>
+    <h1 class="hero-title">Application Development</h1>
     <p style="max-width:900px; margin:0 auto; color:#444;">
       We design and deliver cloud-native applications, portals, and digital experiences that scale.
       Built with modern architectures, shipped with DevOps discipline, and secured by design.
@@ -161,9 +124,9 @@
   </section>
 
   <main class="content" id="main">
-    <!-- Narrative sections (off-cards) -->
+    <!-- Narrative sections (no bullet markers) -->
     <section class="section narrative" aria-labelledby="how-title">
-      <h2 id="how-title" class="section-title center-title">How We Deliver</h2>
+      <h2 id="how-title" class="section-title">How We Deliver</h2>
       <ul class="kv-list">
         <li><span class="kv">Architecture First:</span><span class="desc">Domain-driven design, reference architectures, and clear non-functional requirements.</span></li>
         <li><span class="kv">DevOps &amp; CI/CD:</span><span class="desc">Automated pipelines, IaC, observability, and a release cadence you can trust.</span></li>
@@ -173,7 +136,7 @@
     </section>
 
     <section class="section narrative" aria-labelledby="engage-title">
-      <h2 id="engage-title" class="section-title center-title">Engagement Models</h2>
+      <h2 id="engage-title" class="section-title">Engagement Models</h2>
       <ul class="kv-list">
         <li><span class="kv">Project Delivery:</span><span class="desc">Fixed-scope outcomes with clear milestones and governance.</span></li>
         <li><span class="kv">Product Squads:</span><span class="desc">Cross-functional teams (PM, UX, Eng, QA) to build and operate.</span></li>
@@ -183,7 +146,7 @@
     </section>
 
     <section class="section narrative" aria-labelledby="outcomes-title">
-      <h2 id="outcomes-title" class="section-title center-title">Outcomes You Can Measure</h2>
+      <h2 id="outcomes-title" class="section-title">Outcomes You Can Measure</h2>
       <ul class="kv-list">
         <li><span class="kv">Faster Time-to-Value:</span><span class="desc">Ship earlier with incremental releases and platform accelerators.</span></li>
         <li><span class="kv">Reliability:</span><span class="desc">Availability targets, runbooks, and actionable telemetry from day one.</span></li>
@@ -192,14 +155,14 @@
       </ul>
     </section>
 
-    <!-- Plain centered CTA -->
+    <!-- CTA -->
     <div class="cta-row">
       <a href="contact.html" class="cta-btn">Start a Conversation</a>
     </div>
 
-    <!-- Cards (use global .card style) -->
+    <!-- Cards only here -->
     <section class="section" aria-labelledby="build-title">
-      <h2 id="build-title" class="section-title center-title">What We Build</h2>
+      <h2 id="build-title" class="section-title">What We Build</h2>
       <div class="card-grid force-4" style="margin-top:1rem;">
         <div class="card" style="display:flex; flex-direction:column;">
           <h2>Cloud-Native Apps</h2>
