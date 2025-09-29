@@ -32,10 +32,8 @@
       margin-right:auto !important;
       display:block !important;
     }
-    /* Defuse any earlier left-align rule on hosting hero */
-    .hosting-page .hero-intro, .hosting-page .hero-intro *{
-      text-align:center !important;
-    }
+    /* Hero intro center */
+    .hosting-page .hero-intro, .hosting-page .hero-intro *{ text-align:center !important; }
 
     /* Narrative (no bullets) layout */
     .hosting-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
@@ -43,7 +41,7 @@
     .hosting-page .kv{ font-weight:700; color:var(--dark-blue); }
     .hosting-page .desc{ margin-left:.45rem; }
 
-    /* Safety: nuke bullets if any lists sneak in */
+    /* Kill bullets if any lists sneak in */
     .hosting-page ul, .hosting-page ol{ list-style:none !important; margin:0 !important; padding:0 !important; }
 
     /* Center CTA row */
@@ -147,7 +145,7 @@
   </section>
 
   <main class="content" id="main">
-    <!-- Hybrid value (narrative) -->
+    <!-- Hybrid value -->
     <section class="section narrative" aria-labelledby="hybrid-title">
       <h2 id="hybrid-title" class="section-title">Why Hybrid Works</h2>
       <p class="pair"><span class="kv">Cost that stays flat:</span><span class="desc">Steady workloads don’t need burst pricing. Host or on-prem for predictable monthly spend; keep cloud for what must scale.</span></p>
@@ -157,7 +155,7 @@
       <p class="pair"><span class="kv">Vendor leverage:</span><span class="desc">A multi-venue posture improves pricing power and avoids single-stack lock-in.</span></p>
     </section>
 
-    <!-- Built for SA (narrative) -->
+    <!-- Built for SA -->
     <section class="section narrative" aria-labelledby="sa-title">
       <h2 id="sa-title" class="section-title">Built for South Africa</h2>
       <p class="pair"><span class="kv">POPIA &amp; industry rules:</span><span class="desc">Keep regulated data in SA; minimise cross-border egress and audit friction.</span></p>
@@ -165,7 +163,7 @@
       <p class="pair"><span class="kv">Power &amp; resilience:</span><span class="desc">SLA-bound power redundancy and DR tested in SA data centres you can visit.</span></p>
     </section>
 
-    <!-- Guardrails / FinOps / Obs (narrative) -->
+    <!-- Guardrails / FinOps / Obs -->
     <section class="section narrative" aria-labelledby="guards-title">
       <h2 id="guards-title" class="section-title">Guardrails, FinOps &amp; Observability</h2>
       <p class="pair"><span class="kv">Unified identity:</span><span class="desc">Single sign-on and consistent roles across cloud and hosted/on-prem estates.</span></p>
@@ -174,12 +172,48 @@
       <p class="pair"><span class="kv">Real SLOs:</span><span class="desc">SLIs/SLOs tracked across venues; DR rehearsed, documented, and provable.</span></p>
     </section>
 
-    <!-- Why moving off pure hyperscale (narrative) -->
+    <!-- Why moving off pure hyperscale -->
     <section class="section narrative" aria-labelledby="why-title">
       <h2 id="why-title" class="section-title">Why Companies Are Moving Off Pure Hyperscale</h2>
       <p class="pair"><span class="kv">Predictable cost:</span><span class="desc">Steady ERP, DB, and integration workloads often run cheaper hosted or on-prem than in elastic hyperscale.</span></p>
       <p class="pair"><span class="kv">Locality &amp; compliance:</span><span class="desc">Data residency in SA simplifies POPIA and industry rules; minimise cross-region egress.</span></p>
       <p class="pair"><span class="kv">Latency &amp; reliability:</span><span class="desc">Lower jitter for trading/analytics. Clear SLAs, backup, and DR with real accountability.</span></p>
+    </section>
+
+    <!-- How we engage (ADDED) -->
+    <section class="section narrative" aria-labelledby="engage-title">
+      <h2 id="engage-title" class="section-title">How We Engage</h2>
+      <p class="pair"><span class="kv">Discovery (2–3 weeks):</span><span class="desc">Current estate, latency map, and POPIA posture; cost baseline and venue fit with a phased plan.</span></p>
+      <p class="pair"><span class="kv">Platform &amp; Guardrails:</span><span class="desc">Landing zones, identity integration, policy-as-code, and FinOps budgets with alerts and variance workflow.</span></p>
+      <p class="pair"><span class="kv">Migrate &amp; Prove:</span><span class="desc">Move steady workloads to hosted/on-prem, keep cloud for burst; rehearse DR and measure SLOs.</span></p>
+      <p class="pair"><span class="kv">Run &amp; Optimise:</span><span class="desc">Monthly reviews, rightsizing, commitment management, and continuous improvement of latency/cost/SLOs.</span></p>
+    </section>
+
+    <!-- What you’ll get (ADDED) -->
+    <section class="section narrative" aria-labelledby="artifacts-title">
+      <h2 id="artifacts-title" class="section-title">What You’ll Walk Away With</h2>
+      <p class="pair"><span class="kv">Hybrid blueprint:</span><span class="desc">Documented venue decisions, latency map, and residency plan aligned to your risk model.</span></p>
+      <p class="pair"><span class="kv">Guardrail pack:</span><span class="desc">Preventive controls in code (regions, sizes, backups) with tests and exceptions.</span></p>
+      <p class="pair"><span class="kv">Budget model &amp; dashboards:</span><span class="desc">Per-workload views for finance and tech, with alerts and weekly variance rhythm.</span></p>
+      <p class="pair"><span class="kv">Runbooks that work:</span><span class="desc">Failover, restore, and incident playbooks proven under load and power scenarios.</span></p>
+    </section>
+
+    <!-- Recent wins (ADDED) -->
+    <section class="section narrative" aria-labelledby="wins-title">
+      <h2 id="wins-title" class="section-title">Recent Wins Through Partner Collective</h2>
+      <p class="pair"><span class="kv">–28% steady-state run-rate:</span><span class="desc">Shifted fixed workloads to SA hosted + right-sized cloud burst; added commitment coverage.</span></p>
+      <p class="pair"><span class="kv">&lt; 250 ms dashboards:</span><span class="desc">Local telemetry and BI with cache design; cross-region egress reduced by 41%.</span></p>
+      <p class="pair"><span class="kv">Audit friction down:</span><span class="desc">Residency proof, lineage and role reviews lowered findings and cycle time.</span></p>
+      <p class="pair"><span class="kv">Zero-drift guardrails:</span><span class="desc">Policy-as-code stopped non-standard sizes/regions before deployment.</span></p>
+    </section>
+
+    <!-- FAQ (ADDED) -->
+    <section class="section narrative" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title">FAQ</h2>
+      <p class="pair"><span class="kv">Do we lose cloud agility?</span><span class="desc">No. Keep managed services and burst in cloud; place steady or sensitive workloads locally.</span></p>
+      <p class="pair"><span class="kv">How do you prove residency?</span><span class="desc">Data classification, residency tags, access boundaries, and logs that back it up.</span></p>
+      <p class="pair"><span class="kv">What about power risk?</span><span class="desc">SLA-bound facilities with backup; DR rehearsed under realistic failover and load-shedding scenarios.</span></p>
+      <p class="pair"><span class="kv">Can we phase it?</span><span class="desc">Yes. Start with a thin slice: one workload, guardrails, and dashboards—then scale.</span></p>
     </section>
 
     <!-- CTA -->
