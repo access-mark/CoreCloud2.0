@@ -15,45 +15,72 @@
   <meta property="og:url" content="https://www.corecloudza.com/application-development.html"/>
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Application Development – CoreCloud"/>
+  <meta name="twitter:description" content="Cloud-native apps, portals, mobile & web, and APIs—built with DevOps discipline and security by design."/>
+  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=9"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
 
-  <!-- Preload hero -->
+  <!-- Preloads -->
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Page-scoped CSS: force page titles centered; keep content left; tidy narrative lists -->
+  <!-- Page-scoped helpers: titles centered + narrative pairs (no bullets) -->
   <style>
-    /* Center ONLY this page's main titles, regardless of global rules */
-    .appdev-page h1.hero-title,
-    .appdev-page h2.section-title{
-      text-align: center !important;
-      display: block !important;
-      margin-left: auto !important;
-      margin-right: auto !important;
+    /* Lock hero + section titles to center on this page only */
+    .appdev-page :is(h1.hero-title, h2.section-title){
+      text-align:center !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+      display:block !important;
     }
 
-    /* Page rhythm + intro */
-    .appdev-page .hero-intro{ max-width:900px; margin:2rem auto 1.25rem; text-align:center; }
-    .appdev-page .hero-title{ font-size:2rem; color:var(--dark-blue); font-weight:700; margin:0 0 .75rem; }
-
-    /* Narrative (off-card) sections */
+    /* Narrative (no bullets) layout */
     .appdev-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .appdev-page .narrative p{ margin:.5rem 0; line-height:1.7; color:#444; }
-
-    /* Key-value style list (label + description) */
-    .appdev-page .kv-list{ margin:.4rem 0 0 1.6rem; padding-left:1.05rem; list-style:disc outside; }
-    .appdev-page .kv-list li{ margin:.45rem 0; }
+    .appdev-page .pair{ margin:.55rem 0; line-height:1.7; color:#444; }
     .appdev-page .kv{ font-weight:700; color:var(--dark-blue); }
-    .appdev-page .desc{ display:block; margin-left:.9rem; color:#444; }
+    .appdev-page .desc{ margin-left:.45rem; }
 
-    /* Cards only for the bottom “What We Build” grid — keep their headings left */
-    .appdev-page .card h2, .appdev-page .card h3{ text-align:left !important; }
+    /* Safety: remove any list bullets inside this page (we're using narrative) */
+    .appdev-page ul, .appdev-page ol{ list-style:none !important; margin:0 !important; padding:0 !important; }
 
-    /* Desktop nav squeeze (same look you’re using elsewhere) */
-    nav.desktop-nav{ gap:.55rem; }
-    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
+    /* Center the CTA row */
+    .appdev-page .cta-row{ display:flex; justify-content:center; margin-top:1rem; }
+    .appdev-page .cta-row .cta-btn{ min-width:240px; }
   </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+          {"@type":"ListItem","position":2,"name":"Application Development","item":"https://www.corecloudza.com/application-development.html"}
+        ]
+      },
+      {
+        "@type":"Organization",
+        "@id":"https://www.corecloudza.com/#org",
+        "name":"CoreCloud (Pty) Ltd",
+        "url":"https://www.corecloudza.com/",
+        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
+        "sameAs":["https://www.linkedin.com/company/corecloudza"]
+      },
+      {
+        "@type":"Service",
+        "name":"Application Development",
+        "provider":{"@id":"https://www.corecloudza.com/#org"},
+        "areaServed":{"@type":"Country","name":"South Africa"},
+        "url":"https://www.corecloudza.com/application-development.html",
+        "description":"Cloud-native apps, enterprise portals, mobile & web, and API integration with DevOps, security, and performance discipline."
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="appdev-page">
@@ -65,7 +92,7 @@
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Short labels, site-wide pattern -->
+      <!-- Shortened labels for consistency -->
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
@@ -88,10 +115,10 @@
         <a href="cloud.html">CLOUD</a>
         <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html" class="active" aria-current="page">APP DEVELOPMENT</a>
+        <a href="application-development.html" class="active" aria-current="page">APP DEV</a>
         <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
         <a href="dynamic-imprinting.html">IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html">BLOG</a>
@@ -102,77 +129,71 @@
 
   <!-- Hero -->
   <div class="hero-media">
-    <img src="assets/images/appdev-bannerimage.png"
-         alt="CoreCloud Application Development"
-         loading="eager" decoding="async" width="1920" height="500"/>
+    <img src="assets/images/appdev-bannerimage.png" alt="CoreCloud Application Development" loading="eager" decoding="async" width="1920" height="500"/>
   </div>
 
-  <!-- Intro -->
+  <!-- Hero copy -->
   <section class="hero-intro">
     <h1 class="hero-title">Application Development</h1>
-    <p style="color:#444;">
+    <p style="max-width:900px; margin:0 auto; color:#444;">
       We design and deliver cloud-native applications, portals, and digital experiences that scale.
       Built with modern architectures, shipped with DevOps discipline, and secured by design.
     </p>
   </section>
 
   <main class="content" id="main">
-    <!-- Narrative sections (no cards) -->
+    <!-- How We Deliver (narrative) -->
     <section class="section narrative" aria-labelledby="how-title">
       <h2 id="how-title" class="section-title">How We Deliver</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Architecture First:</span><span class="desc">Domain-driven design, reference architectures, and clear non-functional requirements.</span></li>
-        <li><span class="kv">DevOps &amp; CI/CD:</span><span class="desc">Automated pipelines, IaC, observability, and a release cadence you can trust.</span></li>
-        <li><span class="kv">Security by Design:</span><span class="desc">Threat modelling, secrets hygiene, least privilege, and continuous testing (OWASP).</span></li>
-        <li><span class="kv">Quality &amp; Performance:</span><span class="desc">Automated tests, load &amp; resilience testing, SLOs and error budgets.</span></li>
-      </ul>
+      <p class="pair"><span class="kv">Architecture First:</span><span class="desc">Domain-driven design, reference architectures, and clear non-functional requirements.</span></p>
+      <p class="pair"><span class="kv">DevOps &amp; CI/CD:</span><span class="desc">Automated pipelines, IaC, observability, and a release cadence you can trust.</span></p>
+      <p class="pair"><span class="kv">Security by Design:</span><span class="desc">Threat modelling, secrets hygiene, least privilege, and continuous testing (OWASP).</span></p>
+      <p class="pair"><span class="kv">Quality &amp; Performance:</span><span class="desc">Automated tests, load &amp; resilience testing, SLOs and error budgets.</span></p>
     </section>
 
+    <!-- Engagement Models (narrative) -->
     <section class="section narrative" aria-labelledby="engage-title">
       <h2 id="engage-title" class="section-title">Engagement Models</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Project Delivery:</span><span class="desc">Fixed-scope outcomes with clear milestones and governance.</span></li>
-        <li><span class="kv">Product Squads:</span><span class="desc">Cross-functional teams (PM, UX, Eng, QA) to build and operate.</span></li>
-        <li><span class="kv">Augmentation:</span><span class="desc">Specialist roles to uplift your team — architects, engineers, SRE.</span></li>
-        <li><span class="kv">Advisory &amp; Review:</span><span class="desc">Architecture reviews, pipeline hardening, security &amp; cost optimisation.</span></li>
-      </ul>
+      <p class="pair"><span class="kv">Project Delivery:</span><span class="desc">Fixed-scope outcomes with clear milestones and governance.</span></p>
+      <p class="pair"><span class="kv">Product Squads:</span><span class="desc">Cross-functional teams (PM, UX, Eng, QA) to build and operate.</span></p>
+      <p class="pair"><span class="kv">Augmentation:</span><span class="desc">Specialist roles to uplift your team — architects, engineers, SRE.</span></p>
+      <p class="pair"><span class="kv">Advisory &amp; Review:</span><span class="desc">Architecture reviews, pipeline hardening, security &amp; cost optimisation.</span></p>
     </section>
 
+    <!-- Outcomes You Can Measure (narrative) -->
     <section class="section narrative" aria-labelledby="outcomes-title">
       <h2 id="outcomes-title" class="section-title">Outcomes You Can Measure</h2>
-      <ul class="kv-list">
-        <li><span class="kv">Faster Time-to-Value:</span><span class="desc">Ship earlier with incremental releases and platform accelerators.</span></li>
-        <li><span class="kv">Reliability:</span><span class="desc">Availability targets, runbooks, and actionable telemetry from day one.</span></li>
-        <li><span class="kv">Security:</span><span class="desc">Shift-left controls and automated checks across the SDLC.</span></li>
-        <li><span class="kv">Cost Control:</span><span class="desc">FinOps guardrails, right-sizing, and utilisation insights.</span></li>
-      </ul>
+      <p class="pair"><span class="kv">Faster Time-to-Value:</span><span class="desc">Ship earlier with incremental releases and platform accelerators.</span></p>
+      <p class="pair"><span class="kv">Reliability:</span><span class="desc">Availability targets, runbooks, and actionable telemetry from day one.</span></p>
+      <p class="pair"><span class="kv">Security:</span><span class="desc">Shift-left controls and automated checks across the SDLC.</span></p>
+      <p class="pair"><span class="kv">Cost Control:</span><span class="desc">FinOps guardrails, right-sizing, and utilisation insights.</span></p>
     </section>
 
     <!-- Plain centered CTA -->
-    <div class="cta-row" style="display:flex; justify-content:center; margin-top:1rem;">
+    <div class="cta-row">
       <a href="contact.html" class="cta-btn">Start a Conversation</a>
     </div>
 
-    <!-- Cards only here -->
+    <!-- What We Build (cards retained) -->
     <section class="section" aria-labelledby="build-title">
       <h2 id="build-title" class="section-title">What We Build</h2>
       <div class="card-grid force-4" style="margin-top:1rem;">
-        <div class="card">
+        <div class="card" style="display:flex; flex-direction:column;">
           <h2>Cloud-Native Apps</h2>
-          <p>Microservices, containers, serverless—resilient and built for change.</p>
+          <p>Microservices, containers, serverless — resilient and built for change.</p>
           <a href="cloud-native-apps.html" class="cta-btn">Explore</a>
         </div>
-        <div class="card">
+        <div class="card" style="display:flex; flex-direction:column;">
           <h2>Enterprise Portals</h2>
           <p>Secure internal &amp; customer portals that streamline operations and engagement.</p>
           <a href="enterprise-portals.html" class="cta-btn">Explore</a>
         </div>
-        <div class="card">
+        <div class="card" style="display:flex; flex-direction:column;">
           <h2>Mobile &amp; Web</h2>
           <p>Fast, responsive experiences across devices with performance baked in.</p>
           <a href="mobile-web.html" class="cta-btn">Explore</a>
         </div>
-        <div class="card">
+        <div class="card" style="display:flex; flex-direction:column;">
           <h2>APIs &amp; Integration</h2>
           <p>Well-designed APIs and event streams that connect products and data.</p>
           <a href="apis-integration.html" class="cta-btn">Explore</a>
