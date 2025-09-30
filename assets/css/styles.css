@@ -845,3 +845,27 @@ html body :is(h1.hero-title, h2.section-title){
 .footer-right a[href^="tel"]:hover{
   text-decoration:none !important;
 }
+/* === Sitewide form control baseline (used by footer subscribe too) === */
+.form-control{
+  padding:.75rem;
+  border:1px solid #ccc;
+  border-radius:8px;
+  font:inherit;
+  width:100%;
+  background:#fff;
+}
+.form-control:focus{
+  outline:2px solid var(--primary-blue);
+  outline-offset:1px;
+}
+
+/* Footer subscribe: tidy alignment on all pages */
+footer #subscribe-form{
+  display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
+}
+footer #subscribe-form .form-control{
+  min-width:220px; flex:1;
+}
+footer #subscribe-form .cta-btn{
+  min-height:48px;
+}
