@@ -877,3 +877,17 @@ footer #subscribe-form label{
   overflow:hidden !important; clip:rect(0 0 0 0) !important;
   white-space:nowrap !important; border:0 !important;
 }
+/* Fallbacks: normalize headings even if classes missing */
+main.content > h1:first-of-type:not(.hero-title){
+  font-size:2.0rem; font-weight:700; color:var(--dark-blue);
+  text-align:center; margin:1.5rem auto 1rem; display:block;
+  max-width:var(--heading-max,1100px);
+}
+section > h2:first-child:not(.section-title){
+  font-size:2rem; font-weight:600; color:var(--dark-blue);
+  text-align:center; margin:0 0 1.5rem; display:block;
+}
+
+/* Lists & paragraphs: consistent rhythm */
+.content p{ font-size:1rem; line-height:1.7; margin:.52rem 0 1rem; }
+.content li{ margin:.35rem 0; }
