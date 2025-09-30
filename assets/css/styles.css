@@ -836,3 +836,12 @@ html body :is(h1.hero-title, h2.section-title){
 @media (min-width: 1100px){
   .appdev-page .narrative{ padding-left: 3rem; } /* bigger nudge on desktop */
 }
+/* Footer: phone link white, no underline (sitewide) */
+.footer-right a[href^="tel"]{
+  color:#fff !important;
+  text-decoration:none !important;
+  font-weight:700;
+}
+.footer-right a[href^="tel"]:hover{
+  text-decoration:none !important;
+}
