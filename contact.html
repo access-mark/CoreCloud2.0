@@ -21,12 +21,12 @@
   <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/contact-bannerimage.png" />
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=7" />
 
-  <!-- Preload hero image used below -->
+  <!-- Preload hero image -->
   <link rel="preload" as="image" href="assets/images/contact-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped styles (no banner height overrides needed now) -->
+  <!-- Page-scoped styles -->
   <style>
     /* Keep header slim & transparent */
     .contact-page .small-banner{ background:transparent!important; box-shadow:none!important; padding:0 .9rem 0!important; }
@@ -60,51 +60,52 @@
 
     /* Footer links */
     .footer-right a{ color:var(--primary-blue); text-decoration:underline; font-weight:600; }
+
+    /* Match home-page squeezed nav spacing */
+    nav.desktop-nav { gap:.55rem; }
+    nav.desktop-nav .nav-btn { font-size:.78rem; padding:.30rem .50rem; }
   </style>
 </head>
 
 <body class="contact-page">
-  <!-- Header -->
+  <!-- Header / Nav (exactly like index.html) -->
   <div class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png"
-           alt="CoreCloud Logo"
-           class="logo"
-           width="220" height="64"
-           decoding="async" />
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" />
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Desktop Nav -->
-      <nav class="desktop-nav" aria-label="Primary">
+      <!-- Shortened nav labels -->
+      <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="finops.html" class="nav-btn">FINOPS &amp; GOVERNANCE</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
+        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="blog.html" class="nav-btn">BLOG</a>
         <a href="contact.html" class="nav-btn active" aria-current="page">CONTACT</a>
       </nav>
 
-      <!-- Mobile Nav -->
-      <nav class="mobile-nav" id="mobileMenu" aria-label="Mobile">
+      <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
+        <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="application-development.html">APP DEV</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html">BLOG</a>
         <a href="contact.html" class="active" aria-current="page">CONTACT</a>
@@ -112,7 +113,7 @@
     </div>
   </div>
 
-  <!-- Hero (standardized height via global .hero-media rules) -->
+  <!-- Hero -->
   <div class="hero-media">
     <img
       src="assets/images/contact-bannerimage.png"
@@ -129,8 +130,8 @@
         <h2 id="talk-impact" style="color:#004f91;">Let’s Talk Impact</h2>
         <p>Start a conversation that moves the needle! Strategy, Talent, Cloud Transformation.</p>
         <p><strong>CoreCloud (Pty) Ltd</strong><br>Sandton,<br>Johannesburg</p>
-        <p><strong>Phone:</strong><br>(+27) 011 568 8667</p>
-        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener">@corecloudza</a></p>
+        <p><strong>Phone:</strong><br><a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener">linkedin.com/company/corecloudza</a></p>
 
         <div class="quote-box" aria-label="CoreCloud principles">
           <p style="font-style:italic;">“Execution isn’t optional. It’s the business.”</p>
@@ -171,43 +172,42 @@
     </div>
   </main>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-left">
-      <p><strong>CoreCloud (Pty) Ltd</strong></p>
-      <p>Sandton<br>Johannesburg<br>South Africa</p>
-      
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton<br>Johannesburg<br>South Africa</p>
+      </div>
+
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-right">
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener" class="linkedin-link">LinkedIn</a></p>
+      </div>
     </div>
 
-    <div class="footer-middle">
-      <h4>Stay Informed</h4>
-      <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-      <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-        <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
-        <label class="visually-hidden" for="newsletter_email">Email</label>
-        <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
-        <button type="submit" class="cta-btn">Subscribe</button>
-      </form>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
     </div>
-
-    <div class="footer-right">
-      <p><strong>Contact</strong></p>
-      <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-      <p>Phone: <a href="mailto:sales@corecloudza.com">{+27) 011 568 8667</a></p>
-      <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 CoreCloud. All rights reserved. |
-      <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-      <a href="terms.html" class="legal-link">Terms</a>
-    </p>
-  </div>
-</footer>
+  </footer>
 </body>
 </html>
