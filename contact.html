@@ -18,24 +18,6 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/styles.css" />
-
-  <!-- Minimal overrides (safe) -->
-  <style>
-    .desktop-nav .nav-btn { padding: 10px 12px; }
-    .desktop-nav details.nav-more { position: relative; display: inline-block; }
-    .desktop-nav summary { list-style: none; cursor: pointer; }
-    .desktop-nav summary::-webkit-details-marker { display: none; }
-    .desktop-nav .more-menu {
-      position: absolute; right: 0; top: calc(100% + 8px);
-      display: none; min-width: 220px; padding: 8px;
-      background: #0b1f36; border: 1px solid #123; border-radius: 8px;
-      box-shadow: 0 8px 24px rgba(0,0,0,.2); z-index: 50;
-    }
-    .desktop-nav details[open] .more-menu { display: block; }
-    .desktop-nav .more-menu a { display: block; padding: 8px 10px; text-decoration: none; }
-    .desktop-nav .more-menu a:hover { background: rgba(255,255,255,.06); }
-    .banner-hero h1 { margin-bottom: .25rem; }
-  </style>
 </head>
 <body>
 
@@ -46,47 +28,42 @@
         <img class="logo" src="assets/images/corecloud-logo.png" alt="CoreCloud" />
       </a>
 
-      <!-- Desktop nav: Ultra (short labels + More via <details>) -->
+      <!-- Desktop nav -->
       <nav class="desktop-nav" aria-label="Primary">
         <a class="nav-btn" href="index.html">Home</a>
-        <a class="nav-btn" href="cloud.html">Cloud</a>
-        <a class="nav-btn" href="application-development.html">Apps</a>
+        <a class="nav-btn" href="consulting.html">Consulting</a>
+        <a class="nav-btn" href="cloud.html">Cloud Suite</a>
+        <a class="nav-btn" href="finops.html">FinOps &amp; Governance</a>
+        <a class="nav-btn" href="hosting.html">Hosting</a>
+        <a class="nav-btn" href="application-development.html">App Dev</a>
+        <a class="nav-btn" href="data-ai.html">Data &amp; AI</a>
         <a class="nav-btn" href="talent.html">Talent</a>
-        <a class="nav-btn" href="dynamic-imprinting.html">Leaders</a>
+        <a class="nav-btn" href="talent-relaunch.html">Re / Launch</a>
+        <a class="nav-btn" href="dynamic-imprinting.html">Dynamic Imprinting</a>
         <a class="nav-btn" href="about.html">About</a>
+        <a class="nav-btn" href="blog.html">Blog</a>
         <a class="nav-btn active" href="contact.html" aria-current="page">Contact</a>
-        <details class="nav-more">
-          <summary class="nav-btn">More</summary>
-          <div class="more-menu">
-            <a href="consulting.html">Consulting</a>
-            <a href="finops.html">FinOps</a>
-            <a href="hosting.html">Hosting</a>
-            <a href="data-ai.html">Data &amp; AI</a>
-            <a href="blog.html">Blog</a>
-          </div>
-        </details>
       </nav>
 
-      <!-- Mobile trigger -->
+      <!-- Mobile nav -->
       <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <span class="bar"></span><span class="bar"></span><span class="bar"></span>
       </button>
     </div>
 
-    <!-- Mobile nav: flat list (no nested dropdowns) -->
     <nav id="mobile-menu" class="mobile-nav" aria-label="Mobile Primary" hidden>
       <a href="index.html">Home</a>
-      <a href="cloud.html">Cloud</a>
-      <a href="application-development.html">Apps</a>
+      <a href="consulting.html">Consulting</a>
+      <a href="cloud.html">Cloud Suite</a>
+      <a href="finops.html">FinOps &amp; Governance</a>
+      <a href="hosting.html">Hosting</a>
+      <a href="application-development.html">App Dev</a>
+      <a href="data-ai.html">Data &amp; AI</a>
       <a href="talent.html">Talent</a>
-      <a href="dynamic-imprinting.html">Leaders</a>
+      <a href="talent-relaunch.html">Re / Launch</a>
+      <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
       <a href="about.html">About</a>
       <a class="active" href="contact.html" aria-current="page">Contact</a>
-      <a href="consulting.html">Consulting</a>
-      <a href="finops.html">FinOps</a>
-      <a href="hosting.html">Hosting</a>
-      <a href="data-ai.html">Data &amp; AI</a>
-      <a href="blog.html">Blog</a>
     </nav>
 
     <div class="banner-hero">
@@ -95,16 +72,16 @@
     </div>
   </header>
 
-  <!-- Main -->
+  <!-- Page content -->
   <main class="container section-pad">
     <div class="grid-2">
-      <!-- Contact details -->
+      <!-- Left: details -->
       <section>
         <h2 class="mt-0">Get in Touch</h2>
         <p><strong>CoreCloud (Pty) Ltd</strong><br>Sandton, Johannesburg</p>
         <p>
-          Phone: <a href="tel:+27115688667">(+27) 011 568 8667</a><br />
-          Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a><br />
+          Phone: <a href="tel:+27115688667">(+27) 011 568 8667</a><br>
+          Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a><br>
           LinkedIn: <a href="https://www.linkedin.com/company/corecloudza/" target="_blank" rel="noopener">linkedin.com/company/corecloudza</a>
         </p>
 
@@ -116,16 +93,17 @@
         </div>
       </section>
 
-      <!-- Contact form -->
+      <!-- Right: form -->
       <section>
         <h2 class="mt-0">Send a Message</h2>
         <form action="https://formsubmit.co/mark@corecloudza.com" method="POST" class="contact-form">
+          <!-- FormSubmit config -->
           <input type="hidden" name="_subject" value="New message from CoreCloud Contact page" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=contact" />
 
-          <!-- Honeypot -->
+          <!-- Honeypot (hidden properly) -->
           <div aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">
             <label>Do not fill <input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label>
           </div>
@@ -183,18 +161,17 @@
     </div>
   </footer>
 
-  <!-- Minimal JS: hamburger toggle -->
+  <!-- Minimal JS for mobile menu -->
   <script>
-    (function () {
-      const btn = document.querySelector('.hamburger');
-      const menu = document.getElementById('mobile-menu');
-      if (!btn || !menu) return;
+    const btn = document.querySelector('.hamburger');
+    const menu = document.getElementById('mobile-menu');
+    if (btn && menu) {
       btn.addEventListener('click', () => {
         const expanded = btn.getAttribute('aria-expanded') === 'true';
         btn.setAttribute('aria-expanded', String(!expanded));
         menu.hidden = expanded;
       });
-    })();
+    }
   </script>
 </body>
 </html>
