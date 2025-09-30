@@ -21,7 +21,7 @@
   <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/contact-bannerimage.png" />
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=7" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=9" />
 
   <!-- Preload hero image -->
   <link rel="preload" as="image" href="assets/images/contact-bannerimage.png" fetchpriority="high">
@@ -58,8 +58,18 @@
       .contact-page .form-container{ padding:1.25rem!important; }
     }
 
-    /* Footer links */
+    /* Footer links default */
     .footer-right a{ color:var(--primary-blue); text-decoration:underline; font-weight:600; }
+
+    /* Phone link forced white, no underline */
+    .footer-right p a[href^="tel"]{
+      color:#fff !important;
+      text-decoration:none !important;
+      font-weight:700;
+    }
+    .footer-right p a[href^="tel"]:hover{
+      text-decoration:none !important;
+    }
 
     /* Match home-page squeezed nav spacing */
     nav.desktop-nav { gap:.55rem; }
@@ -68,7 +78,7 @@
 </head>
 
 <body class="contact-page">
-  <!-- Header / Nav (exactly like index.html) -->
+  <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" />
@@ -78,7 +88,7 @@
         <span></span><span></span><span></span>
       </label>
 
-      <!-- Shortened nav labels -->
+      <!-- Desktop nav -->
       <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
@@ -95,6 +105,7 @@
         <a href="contact.html" class="nav-btn active" aria-current="page">CONTACT</a>
       </nav>
 
+      <!-- Mobile nav -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULT</a>
@@ -147,25 +158,19 @@
 
         <!-- Contact form -->
         <form action="https://formsubmit.co/mark@corecloudza.com" method="POST" class="form-container">
-          <!-- FormSubmit config -->
           <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=contact" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_subject" value="New website enquiry — Contact page" />
           <input type="hidden" name="_autoresponse" value="Thanks for contacting CoreCloud. We’ll get back to you shortly." />
-          <!-- Honeypot -->
           <label class="visually-hidden" for="cc_hny">Do not fill</label>
           <input class="visually-hidden" type="text" id="cc_hny" name="_honey" autocomplete="off" tabindex="-1" aria-hidden="true" />
-          <!-- Fields -->
           <label class="visually-hidden" for="name">Your Name</label>
           <input class="form-control" id="name" name="name" placeholder="Your Name" required autocomplete="name" />
-
           <label class="visually-hidden" for="email">Your Email</label>
           <input class="form-control" id="email" type="email" name="email" placeholder="Your Email" required autocomplete="email" />
-
           <label class="visually-hidden" for="message">Your Message</label>
           <textarea class="form-control" id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-
           <button type="submit" class="cta-btn" style="width:100%;">Send Message</button>
         </form>
       </section>
