@@ -891,3 +891,8 @@ section > h2:first-child:not(.section-title){
 /* Lists & paragraphs: consistent rhythm */
 .content p{ font-size:1rem; line-height:1.7; margin:.52rem 0 1rem; }
 .content li{ margin:.35rem 0; }
+.cloud-page .hybrid-callout {
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+}
