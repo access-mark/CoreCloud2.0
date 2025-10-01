@@ -25,113 +25,91 @@
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped styles -->
+  <!-- Page-scoped narrative styling (lightweight) -->
   <style>
-    /* a11y */
-    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
-    .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
+    .consulting-page .section{ margin:2rem 0 !important; }
+    .consulting-page .section-title{ margin-bottom:.75rem !important; }
 
-    /* structure */
-    .consulting .section{margin:1.6rem 0;}
-    .consulting .section-title{margin:0 0 .75rem;}
-
-    /* hero */
-    .consulting .hero-media img{width:100%;height:auto;display:block;}
-    .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;text-align:center;margin:2rem auto .6rem;}
-    .consulting .intro{max-width:1000px;margin:0 auto 1.1rem;padding:0 1rem;text-align:center;color:#444;}
-
-    /* in-page nav chips (no visible scrollbar) */
-    .inpage-nav{display:flex;gap:10px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;max-width:1000px;margin:0 auto 1rem;padding:.5rem 1rem;}
-    .inpage-nav::-webkit-scrollbar{display:none;}
-    .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;}
-
-    /* narrative blocks */
-    .consulting .narrative{max-width:1000px;margin:0 auto;padding:0 1rem;}
-    .consulting .narrative h3{font-size:1.12rem;font-weight:700;color:var(--dark-blue);margin:.7rem 0 .25rem;}
-    .consulting .narrative p{margin:.45rem 0;line-height:1.7;color:#444;}
-    .consulting .narrative .lead{font-size:1.05rem;}
-    .consulting .narrative ul{margin:.3rem 0 0 1.2rem;}
-    .consulting .narrative li{margin:.32rem 0;}
-
-    /* grids + panels */
-    .grid-2,.grid-3{display:grid;gap:1rem;}
-    @media (min-width:900px){
-      .grid-2{grid-template-columns:1fr 1fr;}
-      .grid-3{grid-template-columns:1fr 1fr 1fr;}
+    .consulting-page .hero-title{
+      font-size:2rem; color:var(--dark-blue); font-weight:700;
+      text-align:center; margin:2rem auto .6rem;
     }
-    .panel{background:#fff;border:1px solid rgba(0,79,145,.18);border-radius:10px;padding:1rem 1.1rem;box-shadow:0 2px 6px rgba(0,0,0,.04);}
-    .panel h4{margin:0 0 .35rem;font-size:1.02rem;color:var(--dark-blue);}
+    .consulting-page .intro{ text-align:center; max-width:1000px; margin:0 auto 1.1rem; padding:0 1rem; color:#444; }
 
-    /* chips + lists */
-    .chips{display:flex;flex-wrap:wrap;gap:.5rem;}
-    .chip{border:1px solid rgba(0,79,145,.2);background:#fff;border-radius:999px;padding:.45rem .75rem;font-weight:700;color:#0b3d72;font-size:.92rem;}
-    .checklist{margin:.2rem 0 0 1.2rem;padding:0;}
-    .checklist li{list-style:disc;margin:.3rem 0;}
+    /* In-page chip nav (tight + wraps, no cutoff) */
+    .inpage-nav{
+      display:flex;
+      flex-wrap:wrap;           /* wrap instead of cutting off */
+      gap:8px;                  /* tighter spacing */
+      margin:0 auto .75rem;     /* compact bottom space */
+      padding:.25rem .75rem;    /* slimmer padding */
+      max-width:1000px;
+      overflow:visible;
+      justify-content:center;
+    }
+    .inpage-nav a{
+      white-space:nowrap;
+      border:1px solid #e4e8f1;
+      border-radius:999px;
+      padding:.35rem .6rem;     /* compact chips */
+      text-decoration:none;
+      color:#0d3b66;
+      font-weight:600;
+      background:#fff;
+      font-size:.95rem;
+    }
+    @media (max-width:480px){
+      .inpage-nav{ gap:6px; }
+      .inpage-nav a{ padding:.3rem .55rem; font-size:.9rem; }
+    }
 
-    /* metrics */
-    .metrics{display:grid;gap:.4rem;max-width:1000px;margin:0 auto;padding:0 1rem;}
-    .metric{display:flex;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;}
-    .metric b{color:#0b3d72;}
+    /* Narrative containers */
+    .consulting-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .consulting-page .narrative h3{ font-size:1.12rem; font-weight:700; color:var(--dark-blue); margin:.7rem 0 .25rem; }
+    .consulting-page .narrative p{ margin:.45rem 0; line-height:1.7; color:#444; }
+    .consulting-page .narrative .lead{ font-size:1.05rem; }
+    .consulting-page .narrative ul{ margin:.3rem 0 0 1.2rem; }
+    .consulting-page .narrative li{ margin:.32rem 0; }
+
+    /* Light panels (non-blocky) */
+    .consulting-page .grid-2, .consulting-page .grid-3{ display:grid; gap:1rem; }
+    @media (min-width:900px){
+      .consulting-page .grid-2{ grid-template-columns: 1fr 1fr; }
+      .consulting-page .grid-3{ grid-template-columns: 1fr 1fr 1fr; }
+    }
+    .consulting-page .panel{
+      background:#fff; border:1px solid rgba(0,79,145,.18); border-radius:10px;
+      padding:1rem 1.1rem; box-shadow:0 2px 6px rgba(0,0,0,.04);
+    }
+    .consulting-page .panel h4{ margin:0 0 .35rem; font-size:1.02rem; color:var(--dark-blue); }
+
+    /* Chips (used inside panels) */
+    .consulting-page .chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
+    .consulting-page .chip{
+      border:1px solid rgba(0,79,145,.2); background:#fff; border-radius:999px;
+      padding:.45rem .75rem; font-weight:700; color:#0b3d72; font-size:.92rem;
+    }
+
+    /* BULLET lists */
+    .consulting-page .checklist{ margin:.2rem 0 0 1.2rem; padding:0; }
+    .consulting-page .checklist li{ list-style:disc; margin:.3rem 0; padding-left:0; }
+
+    /* Metric lines */
+    .consulting-page .metrics{ display:grid; gap:.4rem; max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .consulting-page .metric{ display:flex; justify-content:space-between; gap:.75rem; border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; }
+    .consulting-page .metric b{ color:#0b3d72; }
 
     /* CTA */
-    .cta-wrap{display:flex;justify-content:center;margin:1rem 0 0;padding:0 1rem;}
-    .consulting .cta-btn{padding:.85rem 1.15rem;line-height:1.15;}
+    .consulting-page .cta-wrap{ display:flex; justify-content:center; margin-top:.85rem; padding:0 1rem; }
 
-    /* wrap safety */
-    .consulting .content, .consulting .content p, .consulting .content li, .consulting .content a{word-break:break-word;overflow-wrap:anywhere;}
-
-    /* footer phone link = white */
-    footer .footer-right a[href^="tel:"]{color:#fff !important;text-decoration:none;font-weight:500;}
-    footer .footer-right a[href^="tel:"]:hover{text-decoration:underline;}
-
-    /* mobile tweaks */
-    @media (max-width:768px){
-      .hero-title{font-size:1.8rem;line-height:1.2;}
-      .consulting .section{margin:1.25rem 0;}
+    /* Footer phone link = white (robust) */
+    footer .footer-right a[href^="tel:"]{
+      color:#fff !important; text-decoration:none; font-weight:500;
     }
+    footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
   </style>
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Service",
-    "name":"CoreCloud — Consulting",
-    "description":"Operator-led consulting that connects GTM, people, and platform for measurable outcomes.",
-    "provider":{"@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png"},
-    "areaServed":"ZA",
-    "serviceOutput":"Improved revenue operations, platform cost posture, and execution rhythm",
-    "url":"https://www.corecloudza.com/consulting.html",
-    "offers":{"@type":"Offer","availability":"https://schema.org/InStock"}
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"BreadcrumbList",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
-      {"@type":"ListItem","position":2,"name":"Consulting","item":"https://www.corecloudza.com/consulting.html"}
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Are you vendor-neutral?","acceptedAnswer":{"@type":"Answer","text":"Yes. We design for the workload and business outcome — across cloud, hosted, and on-prem — with clear trade-offs."}},
-      {"@type":"Question","name":"How quickly do we see value?","acceptedAnswer":{"@type":"Answer","text":"Within the first month we target self-funding quick wins (spend, latency, or sales hygiene) that pay for the next steps."}},
-      {"@type":"Question","name":"Can you work with our partners?","acceptedAnswer":{"@type":"Answer","text":"We prefer it. Our partner collective accelerates delivery; we’ll also integrate your preferred vendors."}},
-      {"@type":"Question","name":"Do you stay on to run it?","acceptedAnswer":{"@type":"Answer","text":"We can. Options include advisory cadence, embedded operators, and managed services through our collective."}}
-    ]
-  }
-  </script>
 </head>
-
-<body class="consulting">
-  <a class="skip-link" href="#main">Skip to main content</a>
-
+<body class="consulting-page">
   <!-- Header -->
   <div class="small-banner">
     <div class="banner-header">
@@ -141,7 +119,7 @@
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
       <!-- Shortened nav labels -->
-      <nav class="desktop-nav" aria-label="Primary">
+      <nav class="desktop-nav">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn active" aria-current="page">CONSULT</a>
         <a href="cloud.html" class="nav-btn">CLOUD</a>
@@ -176,7 +154,7 @@
   </div>
 
   <!-- Hero -->
-  <div class="hero-media" role="img" aria-label="Operator-led consulting and execution">
+  <div class="hero-media">
     <img
       src="assets/images/consulting-bannerimage.png"
       alt="CoreCloud Consulting — Operator-led execution"
@@ -184,27 +162,26 @@
       width="1920" height="400">
   </div>
 
-  <!-- Intro -->
-  <main class="content" id="main">
+  <main class="content">
     <h1 class="hero-title">Consulting That Lands Results</h1>
     <p class="intro">
       We connect <strong>GTM</strong>, <strong>people</strong>, and <strong>platform</strong> so strategy turns into revenue. Operator-led, vendor-neutral, built for the South African market.
     </p>
 
-    <!-- In-page nav -->
+    <!-- In-page chip nav -->
     <nav class="inpage-nav" aria-label="On this page">
       <a href="#signals">Signals</a>
-      <a href="#where-we-help">Where we help</a>
+      <a href="#where">Where we help</a>
       <a href="#framework">Operator framework</a>
       <a href="#uplift">90-day uplift</a>
-      <a href="#sales-consulting">Sales consulting</a>
+      <a href="#sales">Sales consulting</a>
       <a href="#artifacts">Artifacts</a>
       <a href="#results">Results</a>
       <a href="#cases">Cases</a>
       <a href="#faq">FAQ</a>
     </nav>
 
-    <!-- SIGNALS -->
+    <!-- SIGNALS — directly under intro -->
     <section class="section narrative" id="signals" aria-labelledby="signals-title">
       <h2 id="signals-title" class="section-title">Signals You Might Need Us</h2>
       <ul class="checklist">
@@ -217,7 +194,7 @@
     </section>
 
     <!-- Where we help -->
-    <section class="section narrative" id="where-we-help" aria-labelledby="where-title">
+    <section class="section narrative" id="where" aria-labelledby="where-title">
       <h2 id="where-title" class="section-title">Where We Help (Fast)</h2>
       <div class="grid-3">
         <div class="panel">
@@ -316,8 +293,8 @@
       </div>
     </section>
 
-    <!-- Sales consulting -->
-    <section class="section narrative" id="sales-consulting" aria-labelledby="sales-title">
+    <!-- Sales consulting deeper -->
+    <section class="section narrative" id="sales" aria-labelledby="sales-title">
       <h2 id="sales-title" class="section-title">Sales Consulting: People &amp; Process</h2>
       <p class="lead">Predictable revenue = clear roles, honest pipeline, enforceable process, and enablement that’s used on calls — not filed.</p>
       <div class="grid-2">
@@ -344,7 +321,7 @@
       </div>
     </section>
 
-    <!-- Artifacts -->
+    <!-- Artifacts you keep -->
     <section class="section narrative" id="artifacts" aria-labelledby="artifacts-title">
       <h2 id="artifacts-title" class="section-title">Artifacts You Keep</h2>
       <div class="grid-3">
@@ -439,7 +416,7 @@
       <div class="footer-right">
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p>Phone: <a href="tel:+27 11 568 8667">+27 11 568 8667</a></p>
         <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
@@ -455,11 +432,11 @@
   <!-- Auto-highlight current nav -->
   <script>
     (function(){
-      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+      var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
       document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
-        var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
-        else{a.classList.remove('active');a.removeAttribute('aria-current');}
+        var href = (a.getAttribute('href') || '').toLowerCase();
+        if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
       });
     })();
   </script>
