@@ -30,33 +30,27 @@
     .consulting-page .section{ margin:2rem 0 !important; }
     .consulting-page .section-title{ margin-bottom:.75rem !important; }
 
+    /* Spacing: match Home/Cloud */
+    .consulting-page .hero-media{ margin-bottom:2rem; }
     .consulting-page .hero-title{
       font-size:2rem; color:var(--dark-blue); font-weight:700;
-      text-align:center; margin:2rem auto .6rem;
+      text-align:center; margin:.2rem auto .6rem; /* aligned to Cloud */
     }
+    @media (max-width:768px){
+      .consulting-page .hero-media{ margin-bottom:1.25rem; }
+    }
+
     .consulting-page .intro{ text-align:center; max-width:1000px; margin:0 auto 1.1rem; padding:0 1rem; color:#444; }
 
     /* In-page chip nav (tight + wraps, no cutoff) */
     .inpage-nav{
-      display:flex;
-      flex-wrap:wrap;           /* wrap instead of cutting off */
-      gap:8px;                  /* tighter spacing */
-      margin:0 auto .75rem;     /* compact bottom space */
-      padding:.25rem .75rem;    /* slimmer padding */
-      max-width:1000px;
-      overflow:visible;
-      justify-content:center;
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin:0 auto .75rem; padding:.25rem .75rem; max-width:1000px;
+      overflow:visible; justify-content:center;
     }
     .inpage-nav a{
-      white-space:nowrap;
-      border:1px solid #e4e8f1;
-      border-radius:999px;
-      padding:.35rem .6rem;     /* compact chips */
-      text-decoration:none;
-      color:#0d3b66;
-      font-weight:600;
-      background:#fff;
-      font-size:.95rem;
+      white-space:nowrap; border:1px solid #e4e8f1; border-radius:999px;
+      padding:.35rem .6rem; text-decoration:none; color:#0d3b66; font-weight:600; background:#fff; font-size:.95rem;
     }
     @media (max-width:480px){
       .inpage-nav{ gap:6px; }
