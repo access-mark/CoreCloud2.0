@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=10" />
 
   <style>
     .post-wrap{ max-width:900px; margin:0 auto; padding:1rem; }
@@ -31,10 +31,33 @@
     .inline-note{ background:#f7fafc; border:1px solid #e4e8f1; border-radius:10px; padding:.8rem 1rem; margin:1rem 0; font-size:.95rem; color:#5a6b85; }
     .inline-cta{ background:#0d3b66; color:#fff; padding:1rem 1.2rem; border-radius:12px; margin:1.5rem 0; }
     .inline-cta .cta-btn{ margin-top:.8rem; }
+
+    /* Ensure CTA text stays white on the dark card */
+    .post-page .inline-cta p { color:#fff !important; }
+    .post-page .inline-cta .cta-btn { color:#fff !important; }
+
     .related{ border-top:1px solid #e4e8f1; margin-top:2rem; padding-top:1rem; }
     .next-prev{ display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
     .next-prev a{ text-decoration:none; color:#0d3b66; font-weight:700; }
     .next-prev a:hover{ text-decoration:underline; }
+
+    /* --- Mobile hardening (scoped) --- */
+    .post-page .post-wrap{ max-width:900px; margin:0 auto; padding:0 1rem; }
+    .post-page .breadcrumbs, .post-page .post-header h1, .post-page .post-meta,
+    .post-page .post-body p, .post-page .post-body li, .post-page .inline-note,
+    .post-page .next-prev a{ word-break:break-word; overflow-wrap:anywhere; }
+    @media (max-width:768px){
+      .post-page .post-hero{ height:200px; border-radius:10px; }
+      .post-page .post-header h1{ font-size:1.6rem; line-height:1.25; }
+      .post-page .post-meta{ font-size:.9rem; }
+      .post-page .post-body{ font-size:1rem; line-height:1.7; }
+      .post-page .inline-cta{ padding:.9rem 1rem; border-radius:10px; }
+      .post-page .next-prev{ gap:.75rem; flex-wrap:wrap; }
+      .post-page .next-prev a{
+        display:block; width:100%; text-align:center;
+        padding:.75rem 1rem; border:1px solid #e4e8f1; border-radius:8px; background:#fff;
+      }
+    }
   </style>
 
   <!-- JSON-LD -->
@@ -54,27 +77,25 @@
 </head>
 
 <body class="post-page">
-  <!-- Header / Nav -->
+  <!-- Header / Nav (short labels to match blog.html) -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" loading="lazy" />
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </label>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="finops.html" class="nav-btn">FINOPS &amp; GOVERNANCE</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
+        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="blog.html" class="nav-btn active" aria-current="page">BLOG</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
@@ -82,13 +103,15 @@
 
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
+        <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html" class="active" aria-current="page">BLOG</a>
         <a href="contact.html">CONTACT</a>
