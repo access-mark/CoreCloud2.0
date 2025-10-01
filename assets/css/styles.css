@@ -896,3 +896,22 @@ section > h2:first-child:not(.section-title){
   margin-left: auto;
   margin-right: auto;
 }
+:root{ --content-max: 1000px; }
+
+/* Common content containers across pages */
+.hero-intro,
+.section .section-title,
+.section > p,
+.card-grid,
+.services-grid,
+.metrics,
+.narrative{
+  max-width: var(--content-max);
+  margin-left:auto;
+  margin-right:auto;
+  padding-left:1rem;
+  padding-right:1rem;
+}
+
+/* If you prefer blog articles narrower, keep this override: */
+.post-page .post-wrap{ max-width: 900px; }
