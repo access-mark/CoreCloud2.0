@@ -3,69 +3,106 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Consulting | CoreCloud — GTM Precision, Operating Rhythm & Execution</title>
-  <meta name="description" content="Operators, not theorists. We tighten GTM and delivery rhythms, align partners, and land outcomes in 90 days — without hiring a small army."/>
+  <title>Consulting — Go-to-Market & Execution | CoreCloud</title>
+  <meta name="description" content="Operator-led consulting that connects GTM, people, and platform. Practical sales enablement, revenue operations, and venue-neutral platform strategy that land results in South Africa."/>
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
   <meta name="theme-color" content="#004f91"/>
 
   <!-- Canonical + Social -->
-  <link rel="canonical" href="https://www.corecloudza.com/consulting.html"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="CoreCloud Consulting — GTM, Rhythm, Outcomes"/>
-  <meta property="og:description" content="Tighter pipeline, partner leverage, and weekly execution rhythms that move revenue — fast."/>
-  <meta property="og:url" content="https://www.corecloudza.com/consulting.html"/>
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg"/>
-  <meta name="twitter:card" content="summary_large_image"/>
+  <link rel="canonical" href="https://www.corecloudza.com/consulting.html" />
+  <meta property="og:title" content="Consulting — Go-to-Market & Execution | CoreCloud" />
+  <meta property="og:description" content="Operator-led consulting that connects GTM, people, and platform. Practical sales enablement, revenue operations, and venue-neutral platform strategy that land results in South Africa." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.corecloudza.com/consulting.html" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/consulting-bannerimage.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
 
-  <!-- Page-scoped hardening -->
+  <!-- Preload -->
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
+
+  <!-- Page-scoped styles -->
   <style>
-    /* a11y: skip link */
+    /* a11y */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    .consult .hero-media img{width:100%;height:auto;display:block;}
-    .consult .hero-intro{max-width:900px;margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
-    .consult .hero-intro p{color:#444;}
+    /* structure */
+    .consulting .section{margin:1.6rem 0;}
+    .consulting .section-title{margin:0 0 .75rem;}
 
-    .consult .section{padding:1.5rem 0;}
-    .consult .section .section-title{margin:0 0 .75rem;}
+    /* hero */
+    .consulting .hero-media img{width:100%;height:auto;display:block;}
+    .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;text-align:center;margin:2rem auto .6rem;}
+    .consulting .intro{max-width:1000px;margin:0 auto 1.1rem;padding:0 1rem;text-align:center;color:#444;}
 
-    /* lists + layout */
-    .points{padding-left:1.25rem}
-    .points li{margin:.25rem 0}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-    .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;padding:1rem}
-    .card h3{margin:.25rem 0 .5rem}
+    /* in-page nav chips (no visible scrollbar) */
+    .inpage-nav{display:flex;gap:10px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;max-width:1000px;margin:0 auto 1rem;padding:.5rem 1rem;}
+    .inpage-nav::-webkit-scrollbar{display:none;}
+    .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;}
 
-    /* wrap long text safely */
-    .consult .content, .consult .content p, .consult .content li, .consult .content a{word-break:break-word;overflow-wrap:anywhere;}
+    /* narrative blocks */
+    .consulting .narrative{max-width:1000px;margin:0 auto;padding:0 1rem;}
+    .consulting .narrative h3{font-size:1.12rem;font-weight:700;color:var(--dark-blue);margin:.7rem 0 .25rem;}
+    .consulting .narrative p{margin:.45rem 0;line-height:1.7;color:#444;}
+    .consulting .narrative .lead{font-size:1.05rem;}
+    .consulting .narrative ul{margin:.3rem 0 0 1.2rem;}
+    .consulting .narrative li{margin:.32rem 0;}
 
-    /* inline CTA block (reuses global .cta-btn) */
-    .inline-cta{background:#0d3b66;color:#fff;padding:1rem 1.2rem;border-radius:12px;margin:1.5rem 0;}
-    .inline-cta p{margin:.5rem 0 0;color:#fff}
+    /* grids + panels */
+    .grid-2,.grid-3{display:grid;gap:1rem;}
+    @media (min-width:900px){
+      .grid-2{grid-template-columns:1fr 1fr;}
+      .grid-3{grid-template-columns:1fr 1fr 1fr;}
+    }
+    .panel{background:#fff;border:1px solid rgba(0,79,145,.18);border-radius:10px;padding:1rem 1.1rem;box-shadow:0 2px 6px rgba(0,0,0,.04);}
+    .panel h4{margin:0 0 .35rem;font-size:1.02rem;color:var(--dark-blue);}
 
-    /* mobile padding */
+    /* chips + lists */
+    .chips{display:flex;flex-wrap:wrap;gap:.5rem;}
+    .chip{border:1px solid rgba(0,79,145,.2);background:#fff;border-radius:999px;padding:.45rem .75rem;font-weight:700;color:#0b3d72;font-size:.92rem;}
+    .checklist{margin:.2rem 0 0 1.2rem;padding:0;}
+    .checklist li{list-style:disc;margin:.3rem 0;}
+
+    /* metrics */
+    .metrics{display:grid;gap:.4rem;max-width:1000px;margin:0 auto;padding:0 1rem;}
+    .metric{display:flex;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;}
+    .metric b{color:#0b3d72;}
+
+    /* CTA */
+    .cta-wrap{display:flex;justify-content:center;margin:1rem 0 0;padding:0 1rem;}
+    .consulting .cta-btn{padding:.85rem 1.15rem;line-height:1.15;}
+
+    /* wrap safety */
+    .consulting .content, .consulting .content p, .consulting .content li, .consulting .content a{word-break:break-word;overflow-wrap:anywhere;}
+
+    /* footer phone link = white */
+    footer .footer-right a[href^="tel:"]{color:#fff !important;text-decoration:none;font-weight:500;}
+    footer .footer-right a[href^="tel:"]:hover{text-decoration:underline;}
+
+    /* mobile tweaks */
     @media (max-width:768px){
-      .consult .hero-intro{padding:0 1rem}
-      .consult .section{padding:1.25rem 0}
+      .hero-title{font-size:1.8rem;line-height:1.2;}
+      .consulting .section{margin:1.25rem 0;}
     }
   </style>
 
-  <!-- JSON-LD (ProfessionalService + Breadcrumbs) -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":"ProfessionalService",
-    "name":"CoreCloud Consulting",
-    "url":"https://www.corecloudza.com/consulting.html",
-    "areaServed":"ZA",
-    "serviceType":"Go-to-market and execution consulting",
+    "@type":"Service",
+    "name":"CoreCloud — Consulting",
+    "description":"Operator-led consulting that connects GTM, people, and platform for measurable outcomes.",
     "provider":{"@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png"},
-    "contactPoint":{"@type":"ContactPoint","contactType":"sales","email":"sales@corecloudza.com","telephone":"+27 11 568 8667"}
+    "areaServed":"ZA",
+    "serviceOutput":"Improved revenue operations, platform cost posture, and execution rhythm",
+    "url":"https://www.corecloudza.com/consulting.html",
+    "offers":{"@type":"Offer","availability":"https://schema.org/InStock"}
   }
   </script>
   <script type="application/ld+json">
@@ -78,19 +115,32 @@
     ]
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Are you vendor-neutral?","acceptedAnswer":{"@type":"Answer","text":"Yes. We design for the workload and business outcome — across cloud, hosted, and on-prem — with clear trade-offs."}},
+      {"@type":"Question","name":"How quickly do we see value?","acceptedAnswer":{"@type":"Answer","text":"Within the first month we target self-funding quick wins (spend, latency, or sales hygiene) that pay for the next steps."}},
+      {"@type":"Question","name":"Can you work with our partners?","acceptedAnswer":{"@type":"Answer","text":"We prefer it. Our partner collective accelerates delivery; we’ll also integrate your preferred vendors."}},
+      {"@type":"Question","name":"Do you stay on to run it?","acceptedAnswer":{"@type":"Answer","text":"We can. Options include advisory cadence, embedded operators, and managed services through our collective."}}
+    ]
+  }
+  </script>
 </head>
 
-<body class="consult">
+<body class="consulting">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav (short labels, consistent) -->
+  <!-- Header -->
   <div class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high">
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
+      <!-- Shortened nav labels -->
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn active" aria-current="page">CONSULT</a>
@@ -126,100 +176,242 @@
   </div>
 
   <!-- Hero -->
-  <div class="hero-media" role="img" aria-label="Consulting that ships outcomes">
-    <img src="assets/images/index-bannerimage.png" alt="From strategy to outcomes — execution under pressure" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+  <div class="hero-media" role="img" aria-label="Operator-led consulting and execution">
+    <img
+      src="assets/images/consulting-bannerimage.png"
+      alt="CoreCloud Consulting — Operator-led execution"
+      decoding="async" loading="eager"
+      width="1920" height="400">
   </div>
 
   <!-- Intro -->
-  <section class="hero-intro">
-    <h1 class="hero-title">Consulting that Ships Outcomes</h1>
-    <p>We tighten GTM and execution rhythms, activate partners, and align teams to measurable outcomes — in weeks, not quarters.</p>
-  </section>
-
   <main class="content" id="main">
-    <!-- Where we help -->
-    <section class="section" aria-labelledby="where-title">
-      <h2 id="where-title" class="section-title">Where We Help</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Go-to-Market Precision</h3>
-          <ul class="points">
-            <li>ICP clarity, value narrative, and offer architecture</li>
-            <li>Sequences, routes-to-market, and enablement assets</li>
-            <li>Forecast hygiene and stage exit criteria</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Operating Rhythm</h3>
-          <ul class="points">
-            <li>Weekly pipeline reviews and decision logs</li>
-            <li>Manager 1:1s that unblock and raise the bar</li>
-            <li>Quarterly planning that actually sticks</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Partner Leverage</h3>
-          <ul class="points">
-            <li>Named partners with joint offers and shared targets</li>
-            <li>Co-sell motions and MDF plans that convert</li>
-            <li>Executive alignment and escalation paths</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Revenue Architecture</h3>
-          <ul class="points">
-            <li>Flagship + entry + retention offers</li>
-            <li>Pricing guardrails and value proof SKUs</li>
-            <li>Renewal and expansion playbooks</li>
-          </ul>
-        </div>
-      </div>
-    </section>
+    <h1 class="hero-title">Consulting That Lands Results</h1>
+    <p class="intro">
+      We connect <strong>GTM</strong>, <strong>people</strong>, and <strong>platform</strong> so strategy turns into revenue. Operator-led, vendor-neutral, built for the South African market.
+    </p>
 
-    <!-- 90-day plan -->
-    <section class="section" aria-labelledby="plan-title">
-      <h2 id="plan-title" class="section-title">A 90-Day Plan That Moves Revenue</h2>
-      <ol class="points">
-        <li><strong>Days 1–10 — Truth & Focus:</strong> pipeline reality check, ICP & problems, offer clarity.</li>
-        <li><strong>Days 11–30 — Engine Basics:</strong> partner activation, weekly pipeline cadence, tight enablement.</li>
-        <li><strong>Days 31–60 — Volume with Control:</strong> prospect blocks, sequencing, weekly retros.</li>
-        <li><strong>Days 61–90 — Scale What Works:</strong> double down on channels, value-proof SKUs, commit/best-case forecast.</li>
-      </ol>
-      <div class="inline-cta">
-        <strong>Need a jump-start?</strong>
-        <p>We’ll run the 90-day rhythm with you — pipeline triage, partner activation, and weekly execution.</p>
-        <a class="cta-btn" href="contact.html">Request a consult</a>
-      </div>
-    </section>
+    <!-- In-page nav -->
+    <nav class="inpage-nav" aria-label="On this page">
+      <a href="#signals">Signals</a>
+      <a href="#where-we-help">Where we help</a>
+      <a href="#framework">Operator framework</a>
+      <a href="#uplift">90-day uplift</a>
+      <a href="#sales-consulting">Sales consulting</a>
+      <a href="#artifacts">Artifacts</a>
+      <a href="#results">Results</a>
+      <a href="#cases">Cases</a>
+      <a href="#faq">FAQ</a>
+    </nav>
 
-    <!-- Engagement options -->
-    <section class="section" aria-labelledby="engage-title">
-      <h2 id="engage-title" class="section-title">Engagement Options</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Diagnostic (2 weeks)</h3>
-          <p>Baseline pipeline health, partner leverage, and rhythm. You get a priority plan and quick-win actions.</p>
-        </div>
-        <div class="card">
-          <h3>90-Day Execution</h3>
-          <p>We run the cadence with you: reviews, enablement, and deal strategy. Clear metrics and weekly updates.</p>
-        </div>
-        <div class="card">
-          <h3>Operator-on-Call</h3>
-          <p>Senior operator for key deals, partner escalations, and critical decisions. Flexible, on-tap support.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Proof / recent wins -->
-    <section class="section" aria-labelledby="wins-title">
-      <h2 id="wins-title" class="section-title">Recent Wins</h2>
-      <ul class="points">
-        <li>Revived stalled pipeline; win-rate +9 pts in one quarter.</li>
-        <li>Partner co-sell motion — 2 joint offers, first revenue in 6 weeks.</li>
-        <li>Forecast discipline: reduced slip, clearer commit, better exec visibility.</li>
+    <!-- SIGNALS -->
+    <section class="section narrative" id="signals" aria-labelledby="signals-title">
+      <h2 id="signals-title" class="section-title">Signals You Might Need Us</h2>
+      <ul class="checklist">
+        <li>High cloud bill, low elasticity; DR/compliance risk unclear</li>
+        <li>Forecast swings weekly; partner revenue is ad-hoc</li>
+        <li>Deals stall between stages; no common qualification</li>
+        <li>Too many vendors; no single operating rhythm</li>
+        <li>Good strategy on paper, slow value in production</li>
       </ul>
     </section>
+
+    <!-- Where we help -->
+    <section class="section narrative" id="where-we-help" aria-labelledby="where-title">
+      <h2 id="where-title" class="section-title">Where We Help (Fast)</h2>
+      <div class="grid-3">
+        <div class="panel">
+          <h4>GTM & Commercial</h4>
+          <ul class="checklist">
+            <li>ICP & value narrative that wins</li>
+            <li>Partner motions & co-sell that convert</li>
+            <li>Forecast you can run the business on</li>
+            <li>Repeatable pipeline build & governance</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Platform & Spend</h4>
+          <ul class="checklist">
+            <li>Venue decisions (Cloud / Hosted / On-Prem)</li>
+            <li>Right-sizing vendors & commitments</li>
+            <li>Guardrails: identity, tagging, budgets, SLOs</li>
+            <li>FinOps cadence across venues</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>People & Capability</h4>
+          <ul class="checklist">
+            <li>Role clarity, playbooks, scorecards</li>
+            <li>Practical enablement that sticks</li>
+            <li>Leadership rewiring (Dynamic Imprinting)</li>
+            <li>Talent Hub placements to close gaps</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Operator framework -->
+    <section class="section narrative" id="framework" aria-labelledby="framework-title">
+      <h2 id="framework-title" class="section-title">Operator Framework: Diagnose → Design → Do → Drive</h2>
+      <div class="grid-2">
+        <div class="panel">
+          <h4>Diagnose</h4>
+          <p>Use the data you already have — pipeline, win/loss, sales stages, cloud bills, SLAs, latency — to pinpoint friction and wasted spend.</p>
+          <div class="chips">
+            <span class="chip">Win/Loss</span><span class="chip">Stage-to-Stage</span><span class="chip">Run-Rate</span><span class="chip">Latency</span><span class="chip">DR Posture</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h4>Design</h4>
+          <p>Venue-neutral options with trade-offs. Sales motions aligned to ICP. Clear ownership, cadence, and dashboards.</p>
+          <div class="chips">
+            <span class="chip">Decision Log</span><span class="chip">Guardrails</span><span class="chip">Playbooks</span><span class="chip">Scorecards</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h4>Do</h4>
+          <p>Self-funding quick wins first: high cost, low elasticity workloads; highest-leverage GTM fixes; fill critical people gaps.</p>
+          <div class="chips">
+            <span class="chip">Blue/Green</span><span class="chip">Feature Flags</span><span class="chip">Rightsizing</span><span class="chip">Partner Co-Sell</span>
+          </div>
+        </div>
+        <div class="panel">
+          <h4>Drive</h4>
+          <p>Monthly reviews of run-rate, latency/SLOs, forecast hygiene, and pipeline quality. Keep hybrid fast and under control.</p>
+          <div class="chips">
+            <span class="chip">SLA/SLO</span><span class="chip">Showback</span><span class="chip">Anomaly Flags</span><span class="chip">Next Best Move</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 90-day uplift -->
+    <section class="section narrative" id="uplift" aria-labelledby="uplift-title">
+      <h2 id="uplift-title" class="section-title">90-Day Uplift Plan</h2>
+      <div class="grid-3">
+        <div class="panel">
+          <h4>Weeks 0–2: Baseline & Focus</h4>
+          <ul class="checklist">
+            <li>GTM & platform diagnostics (lightweight)</li>
+            <li>Venue candidates + GTM constraint map</li>
+            <li>Agree targets & quick-win slate</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Weeks 3–6: Execute Quick Wins</h4>
+          <ul class="checklist">
+            <li>Rightsize 3–5 workloads / commitments</li>
+            <li>ICP/messaging refresh + stage hygiene</li>
+            <li>Fill 1–2 critical roles via Talent Hub</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Weeks 7–12: Scale & Lock-In</h4>
+          <ul class="checklist">
+            <li>Guardrails live (ID, tags, budgets, SLO)</li>
+            <li>Partner motions & co-sell rhythm</li>
+            <li>Exec deck: outcomes + next 2 quarters</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sales consulting -->
+    <section class="section narrative" id="sales-consulting" aria-labelledby="sales-title">
+      <h2 id="sales-title" class="section-title">Sales Consulting: People &amp; Process</h2>
+      <p class="lead">Predictable revenue = clear roles, honest pipeline, enforceable process, and enablement that’s used on calls — not filed.</p>
+      <div class="grid-2">
+        <div class="panel">
+          <h4>People</h4>
+          <ul class="checklist">
+            <li>Coverage model, role charters, and scorecards</li>
+            <li>Enablement: discovery, positioning, objection handling</li>
+            <li>Leadership rewiring via Dynamic Imprinting</li>
+            <li>Comp & SPIFFs aligned to behaviour change</li>
+            <li>Talent Hub placements (ICs & leadership)</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Process</h4>
+          <ul class="checklist">
+            <li>Stage definitions & entry/exit criteria</li>
+            <li>Qualification (MEDDIC/MEDDPICC fit-for-purpose)</li>
+            <li>Pipeline hygiene & forecast discipline</li>
+            <li>Partner program design & co-sell plays</li>
+            <li>CRM configured for visibility & accountability</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Artifacts -->
+    <section class="section narrative" id="artifacts" aria-labelledby="artifacts-title">
+      <h2 id="artifacts-title" class="section-title">Artifacts You Keep</h2>
+      <div class="grid-3">
+        <div class="panel">
+          <h4>GTM</h4>
+          <ul class="checklist">
+            <li>ICP & value narrative</li>
+            <li>Stage map + entry/exit criteria</li>
+            <li>Partner playbook & co-sell guide</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>Platform</h4>
+          <ul class="checklist">
+            <li>Per-workload venue decision + TCO (12/36m)</li>
+            <li>Guardrails: ID, tagging, budgets, backup/DR</li>
+            <li>FinOps dashboards + anomaly rules</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h4>People</h4>
+          <ul class="checklist">
+            <li>Role charters & scorecards</li>
+            <li>Enablement kits (talk tracks, call plans)</li>
+            <li>Org roadmap + hiring plan</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results & Benchmarks -->
+    <section class="section narrative" id="results" aria-labelledby="results-title">
+      <h2 id="results-title" class="section-title">Results & Benchmarks</h2>
+      <div class="metrics">
+        <div class="metric"><span>Run-rate reduction on steady workloads</span><b>20–40%</b></div>
+        <div class="metric"><span>Latency improvement on data/analytics</span><b>25–50%</b></div>
+        <div class="metric"><span>Forecast accuracy (within ±10%)</span><b>90 days</b></div>
+        <div class="metric"><span>Pipeline hygiene (stale opps removal)</span><b>&gt;30% in 6 weeks</b></div>
+        <div class="metric"><span>Partner-sourced revenue contribution</span><b>+10–25 pts</b></div>
+      </div>
+    </section>
+
+    <!-- Case snapshots -->
+    <section class="section narrative" id="cases" aria-labelledby="cases-title">
+      <h2 id="cases-title" class="section-title">Case Snapshots</h2>
+      <p><strong>ERP Cost Reset:</strong> Re-venue placement to hosted private cloud with Azure burst for peak. <em>−32% run-rate</em>, DR bundled, zero disruption to month-end.</p>
+      <p><strong>Trading Analytics:</strong> On-prem GPU + S3-compatible store; cloud for global insights. <em>−48% latency</em>, faster model refresh.</p>
+      <p><strong>Payments Core Migration:</strong> Blue/green + feature flags. <em>Zero-downtime cutover</em>, lower incident rate post-move.</p>
+      <p><strong>Sales Reset:</strong> ICP & stage hygiene, MEDDPICC, partner co-sell. <em>Win-rate up, forecast variance down</em> in two quarters.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section narrative" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title">FAQ</h2>
+      <h3>Are you vendor-neutral?</h3>
+      <p>Yes. We design for the workload and business outcome — across cloud, hosted, and on-prem — with clear trade-offs.</p>
+      <h3>How quickly do we see value?</h3>
+      <p>Within the first month we target self-funding quick wins (spend, latency, or sales hygiene) that pay for the next steps.</p>
+      <h3>Can you work with our partners?</h3>
+      <p>We prefer it. Our partner collective accelerates delivery; we’ll also integrate your preferred vendors.</p>
+      <h3>Do you stay on to run it?</h3>
+      <p>We can. Options include advisory cadence, embedded operators, and managed services through our collective.</p>
+    </section>
+
+    <div class="cta-wrap">
+      <a href="contact.html" class="cta-btn">Book an Intro Call</a>
+    </div>
   </main>
 
   <!-- Footer -->
@@ -227,19 +419,19 @@
     <div class="footer-content">
       <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton<br/>Johannesburg<br/>South Africa</p>
+        <p>Sandton<br>Johannesburg<br>South Africa</p>
       </div>
 
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
-          <input type="hidden" name="_template" value="table"/>
-          <input type="hidden" name="_captcha" value="false"/>
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
           <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;"/>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
@@ -247,7 +439,7 @@
       <div class="footer-right">
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-        <p>Phone: <a href="tel:+27 11 568 8667">+27 11 568 8667</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
         <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
