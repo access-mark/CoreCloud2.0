@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Cloud | CoreCloud — Secure Foundations, Migration, FinOps by Design</title>
+  <meta name="description" content="Cloud that’s governed by design: landing zones, secure migration/modernisation, POPIA-aligned controls, and FinOps baked in — outcomes in weeks, not quarters."/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="CoreCloud"/>
+  <meta name="theme-color" content="#004f91"/>
+
+  <!-- Canonical + Social -->
+  <link rel="canonical" href="https://www.corecloudza.com/cloud.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="CoreCloud Cloud — Secure Foundations, Migration, FinOps"/>
+  <meta property="og:description" content="Landing zones, governance guardrails, migration/modernisation, and FinOps — executed with measurable outcomes."/>
+  <meta property="og:url" content="https://www.corecloudza.com/cloud.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
+
+  <!-- Page-scoped hardening -->
+  <style>
+    /* a11y: skip link */
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+    .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
+
+    /* layout */
+    .cloud .hero-media img{width:100%;height:auto;display:block;}
+    .cloud .hero-intro{max-width:900px;margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
+    .cloud .hero-intro p{color:#444;}
+    .cloud .section{padding:1.5rem 0;}
+    .cloud .section-title{margin:0 0 .75rem;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+    .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;padding:1rem}
+    .card h3{margin:.25rem 0 .5rem}
+    .points{padding-left:1.25rem}
+    .points li{margin:.25rem 0}
+
+    /* inline CTA (dark) */
+    .inline-cta{background:#0d3b66;color:#fff;padding:1rem 1.2rem;border-radius:12px;margin:1.5rem 0;}
+    .inline-cta p{margin:.5rem 0 0;color:#fff !important;}
+
+    /* wrap long text safely */
+    .cloud .content, .cloud .content p, .cloud .content li, .cloud .content a{word-break:break-word;overflow-wrap:anywhere;}
+
+    /* table safety if ever used */
+    .cloud table{width:100%;border-collapse:collapse;margin:1rem 0}
+    .cloud th,.cloud td{border:1px solid #e4e8f1;padding:.6rem;text-align:left}
+    .cloud thead th{background:#f7f9fc}
+    .cloud .table-wrap{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+    /* mobile */
+    @media (max-width:768px){
+      .cloud .hero-intro{padding:0 1rem}
+      .cloud .section{padding:1.25rem 0}
+      .cloud .hero-title{font-size:1.85rem;line-height:1.2}
+    }
+  </style>
+
+  <!-- JSON-LD (Service + Breadcrumbs) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"CoreCloud — Cloud Suite",
+    "description":"Landing zones, governance, migration/modernisation, security & POPIA compliance, and FinOps.",
+    "provider":{"@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png"},
+    "areaServed":"ZA",
+    "serviceOutput":"Secure cloud foundations and measurable cost/compliance posture",
+    "url":"https://www.corecloudza.com/cloud.html",
+    "offers":{"@type":"Offer","availability":"https://schema.org/InStock"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+      {"@type":"ListItem","position":2,"name":"Cloud","item":"https://www.corecloudza.com/cloud.html"}
+    ]
+  }
+  </script>
+</head>
+
+<body class="cloud">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Header / Nav -->
+  <div class="small-banner">
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
+
+      <nav class="desktop-nav" aria-label="Primary">
+        <a href="index.html" class="nav-btn">HOME</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn active" aria-current="page">CLOUD</a>
+        <a href="finops.html" class="nav-btn">FINOPS</a>
+        <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
+        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
+        <a href="talent.html" class="nav-btn">TALENT</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
+        <a href="about.html" class="nav-btn">ABOUT</a>
+        <a href="blog.html" class="nav-btn">BLOG</a>
+        <a href="contact.html" class="nav-btn">CONTACT</a>
+      </nav>
+
+      <nav class="mobile-nav" aria-label="Mobile">
+        <a href="index.html">HOME</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html" class="active" aria-current="page">CLOUD</a>
+        <a href="finops.html">FINOPS</a>
+        <a href="hosting-private-cloud.html">HOSTING</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
+        <a href="talent.html">TALENT</a>
+        <a href="talent-relaunch.html">RE / LAUNCH</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
+        <a href="about.html">ABOUT</a>
+        <a href="blog.html">BLOG</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero-media" role="img" aria-label="Cloud foundations and migration">
+    <img src="assets/images/index-bannerimage.png" alt="Cloud, governed by design — from foundations to outcomes" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+  </div>
+
+  <!-- Intro -->
+  <section class="hero-intro">
+    <h1 class="hero-title">Cloud, Governed by Design</h1>
+    <p>Secure landing zones, fast migration/modernisation, POPIA-aligned controls, and FinOps that keeps cost honest — all wired to measurable outcomes.</p>
+  </section>
+
+  <main class="content" id="main">
+    <!-- What we deliver -->
+    <section class="section" aria-labelledby="deliver-title">
+      <h2 id="deliver-title" class="section-title">What We Deliver</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Landing Zones & Guardrails</h3>
+          <ul class="points">
+            <li>Multi-account/subscription baseline, least-privilege IAM</li>
+            <li>Network segmentation, egress control, logging & SIEM feeds</li>
+            <li>Policy-as-code with drift detection</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Migration & Modernisation</h3>
+          <ul class="points">
+            <li>Discovery & wave plans, app profiling, change windows</li>
+            <li>Containerisation & managed services first</li>
+            <li>Rollback-ready go-lives</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Security & POPIA</h3>
+          <ul class="points">
+            <li>Residency patterns & key management separation</li>
+            <li>Encryption, tokenisation, and data lifecycle controls</li>
+            <li>Board-level posture reporting</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>FinOps by Design</h3>
+          <ul class="points">
+            <li>Tagging coverage, run-rate tracking, anomaly alerts</li>
+            <li>Right-sizing & scale-to-zero policies</li>
+            <li>Commitment strategy (SP/CUD/RI) with guardrails</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Sovereign Options</h3>
+          <ul class="points">
+            <li>In-country primary, cross-AZ HA, local backups</li>
+            <li>Customer-managed keys (HSM/KMS)</li>
+            <li>Vendor choice: hyperscaler + African ecosystem</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Reliability & DR</h3>
+          <ul class="points">
+            <li>SLOs, error budgets, and runbooks</li>
+            <li>Backup/restore drills and failover tests</li>
+            <li>Incident readiness & comms templates</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 30-day foundation -->
+    <section class="section" aria-labelledby="foundation-title">
+      <h2 id="foundation-title" class="section-title">30 Days to a Secure Foundation</h2>
+      <ol class="points">
+        <li><strong>Days 1–5:</strong> data map, residency & keys plan, baseline policies.</li>
+        <li><strong>Days 6–15:</strong> landing zone build, identity & network guardrails, logging.</li>
+        <li><strong>Days 16–25:</strong> FinOps setup (tags, run-rate, alerts), cost quick wins.</li>
+        <li><strong>Days 26–30:</strong> first migration wave and go-live checklist.</li>
+      </ol>
+      <div class="inline-cta">
+        <strong>Make cloud practical.</strong>
+        <p>If you’re aligning cost, compliance, and speed — we can help.</p>
+        <a class="cta-btn" href="contact.html">Start the 30-day build</a>
+      </div>
+    </section>
+
+    <!-- Scoreboard -->
+    <section class="section" aria-labelledby="score-title">
+      <h2 id="score-title" class="section-title">Scoreboard We Track</h2>
+      <ul class="points">
+        <li><strong>Run-rate (R/mo):</strong> last 4 weeks vs baseline</li>
+        <li><strong>Guardrail coverage:</strong> % controls enforced by policy</li>
+        <li><strong>Tagging coverage:</strong> % cost tagged to owner/cost centre</li>
+        <li><strong>Change success:</strong> go-live success rate & MTTR</li>
+        <li><strong>Residency posture:</strong> % regulated data in-country</li>
+      </ul>
+    </section>
+
+    <!-- Engagement options -->
+    <section class="section" aria-labelledby="engage-title">
+      <h2 id="engage-title" class="section-title">Engagement Options</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Baseline + Quick Wins (2 weeks)</h3>
+          <p>Cost, posture, and governance gaps; we land immediate savings and risk reductions.</p>
+        </div>
+        <div class="card">
+          <h3>Foundation (30 days)</h3>
+          <p>Landing zone, policies, FinOps dashboards, and first migration wave with rollback.</p>
+        </div>
+        <div class="card">
+          <h3>Migrate & Modernise</h3>
+          <p>Wave plans, containerisation, managed services adoption, and resilience patterns.</p>
+        </div>
+        <div class="card">
+          <h3>Operator-on-Call</h3>
+          <p>Senior cloud operator for incidents, design reviews, and board-level updates.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related insights -->
+    <section class="section" aria-labelledby="insights-title">
+      <h2 id="insights-title" class="section-title">Related Insights</h2>
+      <div class="grid">
+        <a class="card" href="blog-eliminating-cloud-waste.html">
+          <h3>Eliminating Waste: The Fastest ROI in Cloud</h3>
+          <p>Where spend leaks — and how SA teams plug it in 30 days.</p>
+          <p class="muted">Cloud • 25 Sep 2025</p>
+        </a>
+        <a class="card" href="blog-databricks-cost-quick-wins.html">
+          <h3>Databricks Cost: Quick Wins</h3>
+          <p>Trim DBU burn without slowing delivery.</p>
+          <p class="muted">Cloud • 10 Sep 2025</p>
+        </a>
+        <a class="card" href="blog-secure-sovereign-cloud-africa.html">
+          <h3>Secure & Sovereign Cloud for Africa</h3>
+          <p>POPIA, residency patterns, and practical guardrails.</p>
+          <p class="muted">Cloud • 1 Sep 2025</p>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton<br/>Johannesburg<br/>South Africa</p>
+      </div>
+
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;"/>
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-right">
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27 11 568 8667">+27 11 568 8667</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Auto-highlight current nav -->
+  <script>
+    (function(){
+      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+        var href=(a.getAttribute('href')||'').toLowerCase();
+        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
+        else{a.classList.remove('active');a.removeAttribute('aria-current');}
+      });
+    })();
+  </script>
+</body>
+</html>
