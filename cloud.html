@@ -20,6 +20,7 @@
 
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
   <!-- Page-scoped styles -->
   <style>
@@ -27,12 +28,17 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* layout */
+    /* hero + intro */
     .cloud .hero-media img{width:100%;height:auto;display:block;}
     .cloud .hero-intro{max-width:900px;margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
     .cloud .hero-intro p{color:#444;}
+    .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .5rem;}
+
+    /* sections */
     .cloud .section{padding:1.6rem 0;}
     .cloud .section-title{margin:0 0 .75rem;}
+
+    /* grids + cards */
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
     .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;padding:1rem;text-decoration:none;color:inherit;}
     .card h3{margin:.25rem 0 .5rem}
@@ -40,18 +46,31 @@
     .points li{margin:.25rem 0}
     .muted{color:#5a6b85;font-size:.95rem}
 
+    /* in-page nav */
+    .inpage-nav{display:flex;gap:10px;overflow:auto;padding:.5rem 1rem;margin:0 auto 1rem;max-width:1000px;}
+    .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;}
+
     /* inline CTA (dark) */
     .inline-cta{background:#0d3b66;color:#fff;padding:1rem 1.2rem;border-radius:12px;margin:1.5rem 0;}
     .inline-cta p{margin:.5rem 0 0;color:#fff !important;}
 
-    /* in-page stickyish nav */
-    .inpage-nav{display:flex;gap:10px;overflow:auto;padding:.5rem 1rem;margin:0 auto 1rem;max-width:1000px;}
-    .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;}
+    /* vendor columns */
+    .cloud-columns{display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;margin-top:.75rem;}
+    .cloud-column{flex:1;min-width:300px;}
+    .card-group{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.1rem;}
 
-    /* wrap long text safely */
+    /* vendor card branding (heading color only) */
+    .aws-card,.azure-card,.databricks-card{
+      background:#fff;border:1px solid #e4e8f1;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.04);padding:1rem;display:flex;flex-direction:column;gap:.65rem;
+    }
+    .aws-card h3{color:#ff9900;}
+    .azure-card h3{color:#007fff;}
+    .databricks-card h3{color:#ff3621;}
+
+    /* wrap safety */
     .cloud .content, .cloud .content p, .cloud .content li, .cloud .content a{word-break:break-word;overflow-wrap:anywhere;}
 
-    /* table safety if ever used */
+    /* table safety if used */
     .cloud table{width:100%;border-collapse:collapse;margin:1rem 0}
     .cloud th,.cloud td{border:1px solid #e4e8f1;padding:.6rem;text-align:left}
     .cloud thead th{background:#f7f9fc}
@@ -61,7 +80,7 @@
     @media (max-width:768px){
       .cloud .hero-intro{padding:0 1rem}
       .cloud .section{padding:1.25rem 0}
-      .cloud .hero-title{font-size:1.85rem;line-height:1.2}
+      .hero-title{font-size:1.8rem;line-height:1.2}
     }
   </style>
 
@@ -148,7 +167,7 @@
 
   <!-- Hero -->
   <div class="hero-media" role="img" aria-label="Cloud foundations and migration">
-    <img src="assets/images/index-bannerimage.png" alt="Cloud, governed by design — from foundations to outcomes" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+    <img src="assets/images/cloud-banner.png" alt="Cloud, governed by design — from foundations to outcomes" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
   <!-- Intro -->
@@ -161,9 +180,9 @@
   <nav class="inpage-nav" aria-label="On this page">
     <a href="#deliver">What we deliver</a>
     <a href="#foundation">30-day foundation</a>
-    <a href="#scoreboard">Scoreboard</a>
+    <a href="#vendors">AWS • Azure • Databricks</a>
+    <a href="#hybrid">Hybrid & Hosting</a>
     <a href="#engagement">Engagements</a>
-    <a href="#services">Related services</a>
     <a href="#insights">Insights</a>
     <a href="#faq">FAQ</a>
   </nav>
@@ -240,16 +259,100 @@
       </div>
     </section>
 
-    <!-- Scoreboard -->
-    <section class="section" id="scoreboard" aria-labelledby="score-title">
-      <h2 id="score-title" class="section-title">Scoreboard We Track</h2>
-      <ul class="points">
-        <li><strong>Run-rate (R/mo):</strong> last 4 weeks vs baseline</li>
-        <li><strong>Guardrail coverage:</strong> % controls enforced by policy</li>
-        <li><strong>Tagging coverage:</strong> % cost tagged to owner/cost centre</li>
-        <li><strong>Change success:</strong> go-live success rate & MTTR</li>
-        <li><strong>Residency posture:</strong> % regulated data in-country</li>
-      </ul>
+    <!-- Vendors: AWS / Azure / Databricks (restored deep links) -->
+    <section class="section" id="vendors" aria-labelledby="vendors-title">
+      <h2 id="vendors-title" class="section-title">AWS • Azure • Databricks</h2>
+      <div class="cloud-columns">
+        <!-- AWS -->
+        <div class="cloud-column">
+          <h3 class="section-title" style="margin-bottom:.75rem;">AWS</h3>
+          <div class="card-group">
+            <div class="card aws-card">
+              <h3>AWS Migration</h3>
+              <p>Structured landing zones and migration factories. Zero-surprise cutovers.</p>
+              <a href="aws-migration.html" class="cta-btn" aria-label="Explore AWS Migration">Explore Migration</a>
+            </div>
+            <div class="card aws-card">
+              <h3>AWS Modernise</h3>
+              <p>Containers, serverless, and managed data services to unlock agility and cost.</p>
+              <a href="aws-modernize.html" class="cta-btn" aria-label="Explore AWS Modernisation">Modernise Now</a>
+            </div>
+            <div class="card aws-card">
+              <h3>AWS Manage</h3>
+              <p>SRE-grade ops with security, observability, backup/DR, and monthly reviews.</p>
+              <a href="aws-manage.html" class="cta-btn" aria-label="View AWS Managed Services">See Managed Services</a>
+            </div>
+            <div class="card aws-card">
+              <h3>AWS Optimise</h3>
+              <p>Continuous FinOps: rightsizing, lifecycle, purchasing, and workload tuning.</p>
+              <a href="aws-optimize.html" class="cta-btn" aria-label="Start AWS Optimisation">Start Optimising</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Azure -->
+        <div class="cloud-column">
+          <h3 class="section-title" style="margin-bottom:.75rem;">Azure</h3>
+          <div class="card-group">
+            <div class="card azure-card">
+              <h3>Azure Migration</h3>
+              <p>Blueprinted migrations with identity, networking, and policy baselines.</p>
+              <a href="azure-migration.html" class="cta-btn" aria-label="Explore Azure Migration">Explore Migration</a>
+            </div>
+            <div class="card azure-card">
+              <h3>Azure Modernise</h3>
+              <p>AKS, PaaS data, serverless, and AI services wired into your delivery model.</p>
+              <a href="azure-modernize.html" class="cta-btn" aria-label="Explore Azure Modernisation">Modernise Now</a>
+            </div>
+            <div class="card azure-card">
+              <h3>Azure Manage</h3>
+              <p>Operating model with policy-as-code, backup/DR, and proactive reliability.</p>
+              <a href="azure-manage.html" class="cta-btn" aria-label="View Azure Managed Services">See Managed Services</a>
+            </div>
+            <div class="card azure-card">
+              <h3>Azure Optimise</h3>
+              <p>Spend visibility to action: budgets, alerts, rightsizing, and chargeback.</p>
+              <a href="azure-optimize.html" class="cta-btn" aria-label="Start Azure Optimisation">Start Optimising</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Databricks -->
+        <div class="cloud-column">
+          <h3 class="section-title" style="margin-bottom:.75rem;">Databricks</h3>
+          <div class="card-group">
+            <div class="card databricks-card">
+              <h3>Lakehouse Architecture</h3>
+              <p>Open, governed layers for analytics and AI. Batch + streaming + quality by design.</p>
+              <a href="databricks-lakehouse.html" class="cta-btn" aria-label="Explore Databricks Lakehouse Architecture">Explore Lakehouse</a>
+            </div>
+            <div class="card databricks-card">
+              <h3>Data Engineering</h3>
+              <p>Ingestion, ETL, data contracts, and lineage with reliable, testable pipelines.</p>
+              <a href="databricks-engineering.html" class="cta-btn" aria-label="See Databricks Data Engineering">See Engineering</a>
+            </div>
+            <div class="card databricks-card">
+              <h3>AI &amp; ML Workflows</h3>
+              <p>MLOps and RAG — evaluated, monitored, and deployed to where latency wins.</p>
+              <a href="databricks-ml.html" class="cta-btn" aria-label="Start Databricks AI and ML">Start Building AI</a>
+            </div>
+            <div class="card databricks-card">
+              <h3>Cost Optimisation</h3>
+              <p>Clusters and storage tuned for performance and spend — visible to teams.</p>
+              <a href="databricks-optimize.html" class="cta-btn" aria-label="Optimise Databricks Costs">Optimise Costs</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hybrid / Hosting -->
+    <section class="section" id="hybrid" aria-labelledby="hybrid-title" style="text-align:center;">
+      <h2 id="hybrid-title" class="section-title">Not Every Workload Belongs in Hyperscale</h2>
+      <p style="max-width:900px;margin:0 auto 1.1rem;">
+        Steady ERP, core DB, and integration systems often run cheaper and closer to users on Hosted or On-Prem — with clear SLAs and DR.
+      </p>
+      <a href="hosting-private-cloud.html" class="cta-btn" aria-label="Explore Hosting & Private Cloud">Explore Hosting &amp; Private Cloud</a>
     </section>
 
     <!-- Engagement options -->
@@ -276,37 +379,6 @@
           <p>Senior cloud operator for incidents, design reviews, and board-level updates.</p>
           <p class="muted"><a href="about.html">About our team</a></p>
         </div>
-      </div>
-    </section>
-
-    <!-- Related services (deep links to sub-pages) -->
-    <section class="section" id="services" aria-labelledby="services-title">
-      <h2 id="services-title" class="section-title">Related Services</h2>
-      <div class="grid">
-        <a class="card" href="finops.html">
-          <h3>FinOps & Governance</h3>
-          <p>Guardrails, run-rate dashboards, commitment strategy.</p>
-        </a>
-        <a class="card" href="data-ai.html">
-          <h3>Data &amp; AI</h3>
-          <p>Modern data stacks, AI safety & evaluations, RAG done right.</p>
-        </a>
-        <a class="card" href="application-development.html">
-          <h3>App Development</h3>
-          <p>Low-code where it fits, custom where it counts.</p>
-        </a>
-        <a class="card" href="hosting-private-cloud.html">
-          <h3>Hosting / Private Cloud</h3>
-          <p>Residency, interconnect, and hybrid options.</p>
-        </a>
-        <a class="card" href="consulting.html">
-          <h3>Consulting</h3>
-          <p>Focused delivery rhythms and measurable outcomes.</p>
-        </a>
-        <a class="card" href="talent.html">
-          <h3>Talent</h3>
-          <p>Access to vetted engineers that move outcomes.</p>
-        </a>
       </div>
     </section>
 
