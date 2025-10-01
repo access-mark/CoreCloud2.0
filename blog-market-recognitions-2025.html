@@ -18,7 +18,6 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=10" />
 
   <style>
@@ -32,8 +31,10 @@
     .inline-cta{ background:#0d3b66; color:#fff; padding:1rem 1.2rem; border-radius:12px; margin:1.5rem 0; }
     .inline-cta .cta-btn{ margin-top:.8rem; }
 
-    /* ensure inline-cta text renders white on the dark card */
-    .post-page .inline-cta p { color:#fff !important; }
+    /* Ensure inline-cta text white */
+    .post-page .inline-cta,
+    .post-page .inline-cta p,
+    .post-page .inline-cta a,
     .post-page .inline-cta .cta-btn { color:#fff !important; }
 
     .related{ border-top:1px solid #e4e8f1; margin-top:2rem; padding-top:1rem; }
@@ -41,7 +42,7 @@
     .next-prev a{ text-decoration:none; color:#0d3b66; font-weight:700; }
     .next-prev a:hover{ text-decoration:underline; }
 
-    /* mobile hardening */
+    /* Mobile hardening */
     .post-page .post-wrap{ max-width:900px; margin:0 auto; padding:0 1rem; }
     .post-page .breadcrumbs, .post-page .post-header h1, .post-page .post-meta,
     .post-page .post-body p, .post-page .post-body li, .post-page .inline-note,
@@ -57,7 +58,6 @@
     }
   </style>
 
-  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -65,7 +65,7 @@
     "headline":"CoreCloud Recognised in 2025 Market Reports",
     "description":"CoreCloud is recognised in two independent global market reports: Cloud Consulting Services 2025 and Medical Practice Management Software (MPMS).",
     "author":{"@type":"Person","name":"Mark Louw"},
-    "publisher":{"@type":"Organization","name":"CoreCloud","logo":{"@type":"ImageObject","url":"https://www.corecloudza.com/assets/images/corecloud-logo.png"}},
+    "publisher":{"@type":"Organization","name":"CoreCloud","logo":{"@type":"ImageObject","url":"https://www.corecloudza.com/assets/images/corecloud-logo.png"}} ,
     "datePublished":"2025-09-30",
     "image":"https://www.corecloudza.com/assets/images/social-blog.jpg",
     "mainEntityOfPage":"https://www.corecloudza.com/blog-market-recognitions-2025.html"
@@ -164,7 +164,6 @@
     </article>
   </div>
 
-  <!-- Footer (reuse global) -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
