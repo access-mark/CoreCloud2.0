@@ -16,10 +16,9 @@
   <meta property="og:type" content="article" />
   <meta property="og:url" content="https://www.corecloudza.com/blog-secure-sovereign-cloud-africa.html" />
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=10" />
 
   <style>
     .post-wrap{ max-width:900px; margin:0 auto; padding:1rem; }
@@ -39,40 +38,19 @@
     th,td{ border:1px solid #e4e8f1; padding:.6rem; text-align:left; }
     thead th{ background:#f7f9fc; }
 
-    /* --- Mobile hardening (scoped) --- */
-    .post-page .post-wrap{
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-    /* prevent horizontal overflow */
+    /* Mobile hardening (scoped) */
+    .post-page .post-wrap{ max-width: 900px; margin: 0 auto; padding: 0 1rem; }
     .post-page .breadcrumbs,
     .post-page .post-header h1,
     .post-page .post-meta,
     .post-page .post-body p,
     .post-page .post-body li,
     .post-page .inline-note,
-    .post-page .next-prev a{
-      word-break: break-word;
-      overflow-wrap: anywhere;
-    }
-    /* tables scroll inside container */
-    .post-page .post-body table{
-      width:100%;
-      display:block;
-      overflow-x:auto;
-      -webkit-overflow-scrolling:touch;
-    }
-    /* make next/prev wrap nicely */
-    .post-page .next-prev{
-      display:flex;
-      justify-content:space-between;
-      gap:1rem;
-      flex-wrap:wrap;
-    }
+    .post-page .next-prev a{ word-break: break-word; overflow-wrap: anywhere; }
+    .post-page .post-body table{ width:100%; display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .post-page .next-prev{ display:flex; justify-content:space-between; gap:1rem; flex-wrap:wrap; }
     .post-page .next-prev a{ min-width:0; }
 
-    /* mobile tweaks */
     @media (max-width: 768px){
       .post-page .post-hero{ height:200px; border-radius:10px; }
       .post-page .post-header h1{ font-size:1.6rem; line-height:1.25; }
@@ -93,9 +71,14 @@
     @media (max-width: 420px){
       .post-page .post-header h1{ font-size:1.45rem; }
     }
+
+    /* Force white CTA text on dark card */
+    .post-page .inline-cta,
+    .post-page .inline-cta p,
+    .post-page .inline-cta a,
+    .post-page .inline-cta .cta-btn { color:#fff !important; }
   </style>
 
-  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -103,7 +86,7 @@
     "headline":"Building a Secure & Sovereign Cloud Future for Africa",
     "description":"Practical lenses on Africa’s cloud adoption: sovereignty, POPIA, security skills, and the ecosystem advantages leaders can leverage now.",
     "author":{"@type":"Person","name":"Mark Louw"},
-    "publisher":{"@type":"Organization","name":"CoreCloud","logo":{"@type":"ImageObject","url":"https://www.corecloudza.com/assets/images/corecloud-logo.png"}},
+    "publisher":{"@type":"Organization","name":"CoreCloud","logo":{"@type":"ImageObject","url":"https://www.corecloudza.com/assets/images/corecloud-logo.png"}} ,
     "datePublished":"2025-09-01",
     "image":"https://www.corecloudza.com/assets/images/social-blog.jpg",
     "mainEntityOfPage":"https://www.corecloudza.com/blog-secure-sovereign-cloud-africa.html",
@@ -121,17 +104,17 @@
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="finops.html" class="nav-btn">FINOPS &amp; GOVERNANCE</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
+        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="blog.html" class="nav-btn active" aria-current="page">BLOG</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
@@ -139,13 +122,15 @@
 
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
+        <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html" class="active" aria-current="page">BLOG</a>
         <a href="contact.html">CONTACT</a>
@@ -198,7 +183,6 @@
         <li><strong>Sovereign options:</strong> patterns that preserve control for sensitive data.</li>
       </ul>
 
-      <!-- Added depth modules -->
       <h2>30-Day Sovereignty Checklist</h2>
       <ol>
         <li><strong>Data map (Days 1–3):</strong> classify data (PII, financial, regulated) and note residency constraints.</li>
@@ -245,7 +229,6 @@
     </article>
   </div>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -282,5 +265,17 @@
       </p>
     </div>
   </footer>
+
+  <!-- Auto-highlight current nav -->
+  <script>
+    (function(){
+      var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+        var href = (a.getAttribute('href') || '').toLowerCase();
+        if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
+      });
+    })();
+  </script>
 </body>
 </html>
