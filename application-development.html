@@ -59,6 +59,13 @@
     /* ensure comfy buttons regardless of global overrides */
     .appdev .cta-btn{padding:.75rem 1rem;display:inline-block;}
 
+    /* card grid for deep dives */
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
+    .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.04);padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;}
+    .card h3{margin:.25rem 0 .35rem}
+    .card p{margin:0;color:#444}
+    .card .cta-btn{margin-top:.4rem;align-self:flex-start}
+
     /* wrap/overflow safety */
     .appdev .content, .appdev .content p, .appdev .content li, .appdev .content a{word-break:break-word;overflow-wrap:anywhere;}
 
@@ -178,6 +185,7 @@
     <a href="#data-ai">Data &amp; AI</a>
     <a href="#cost">Cost &amp; governance</a>
     <a href="#results">Results</a>
+    <a href="#deep-dives">Deep dives</a>
     <a href="#faq">FAQ</a>
   </nav>
 
@@ -267,6 +275,33 @@
         <div class="metric"><span>MTTR (P1)</span><b>&lt; 60 min</b></div>
         <div class="metric"><span>Uptime SLO (app tiers)</span><b>99.9–99.99%</b></div>
         <div class="metric"><span>Cost vs baseline</span><b>−15–30% after month 1</b></div>
+      </div>
+    </section>
+
+    <!-- Deep dives (cards linking to subpages) -->
+    <section class="section" id="deep-dives" aria-labelledby="deep-title">
+      <h2 id="deep-title" class="section-title">What We Build — Deep Dives</h2>
+      <div class="card-grid" style="margin-top:.5rem;">
+        <div class="card">
+          <h3>Cloud-Native Apps</h3>
+          <p>Microservices, containers, serverless — resilient and built for change.</p>
+          <a href="cloud-native-apps.html" class="cta-btn" aria-label="Explore Cloud-Native Apps">Explore</a>
+        </div>
+        <div class="card">
+          <h3>Enterprise Portals</h3>
+          <p>Secure internal &amp; customer portals that streamline operations and engagement.</p>
+          <a href="enterprise-portals.html" class="cta-btn" aria-label="Explore Enterprise Portals">Explore</a>
+        </div>
+        <div class="card">
+          <h3>Mobile &amp; Web</h3>
+          <p>Fast, responsive experiences across devices with performance baked in.</p>
+          <a href="mobile-web.html" class="cta-btn" aria-label="Explore Mobile and Web">Explore</a>
+        </div>
+        <div class="card">
+          <h3>APIs &amp; Integration</h3>
+          <p>Well-designed APIs and event streams that connect products and data.</p>
+          <a href="apis-integration.html" class="cta-btn" aria-label="Explore APIs and Integration">Explore</a>
+        </div>
       </div>
     </section>
 
