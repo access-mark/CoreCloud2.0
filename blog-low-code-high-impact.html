@@ -18,8 +18,7 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=5" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=10" />
 
   <style>
     /* ---------- Page base ---------- */
@@ -41,15 +40,13 @@
     html, body { width:100%; }
     .post-page{ overflow-x:hidden; }
 
-    /* Header: keep one line, stop logo/nav collisions */
     .post-page .banner-header{ display:flex; align-items:center; justify-content:space-between; gap:8px; flex-wrap:nowrap; }
-    .post-page .banner-header > *{ min-width:0; }              /* allow flex shrink */
-    .post-page .hamburger{ flex-shrink:0; }                    /* don’t shrink burger */
+    .post-page .banner-header > *{ min-width:0; }
+    .post-page .hamburger{ flex-shrink:0; }
     @media (max-width:768px){
       .post-page .logo{ max-height: var(--logo-h-mobile); max-width:65vw; height:auto; width:auto; }
     }
 
-    /* Always wrap long text/links cleanly */
     .post-page .breadcrumbs,
     .post-page .post-header h1,
     .post-page .post-meta,
@@ -61,17 +58,14 @@
       overflow-wrap:anywhere;
     }
 
-    /* Media/code safety */
     .post-page img, .post-page video{ max-width:100%; height:auto; }
     .post-page pre, .post-page code{ white-space:pre-wrap; word-break:break-word; }
 
-    /* Tables never stretch the page */
     .post-page table{ width:100%; border-collapse:collapse; margin:1rem 0; }
     .post-page thead th{ background:#f7f9fc; }
     .post-page th, .post-page td{ border:1px solid #e4e8f1; padding:.6rem; text-align:left; }
     .post-page .table-wrap, .post-page .post-body table{ display:block; overflow-x:auto; -webkit-overflow-scrolling:touch; }
 
-    /* Next/Prev: stack on small screens */
     .post-page .next-prev{ flex-wrap:wrap; }
     .post-page .next-prev a{ min-width:0; }
 
@@ -92,9 +86,14 @@
     @media (max-width:420px){
       .post-page .post-header h1{ font-size:1.45rem; }
     }
+
+    /* Force white CTA text on dark card */
+    .post-page .inline-cta,
+    .post-page .inline-cta p,
+    .post-page .inline-cta a,
+    .post-page .inline-cta .cta-btn { color:#fff !important; }
   </style>
 
-  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -102,7 +101,7 @@
     "headline":"Low-Code, High Impact",
     "description":"When to build fast with low-code vs when to go custom. A decision guide that avoids rework and ships value sooner.",
     "author":{"@type":"Person","name":"Mark Louw"},
-    "publisher":{"@type":"Organization","name":"CoreCloud","logo":{"@type":"ImageObject","url":"https://www.corecloudza.com/assets/images/corecloud-logo.png"}},
+    "publisher":{"@type":"Organization","name":"CoreCloud","logo":{"@type":"ImageObject","url":"https://www.corecloudza.com/assets/images/corecloud-logo.png"}} ,
     "datePublished":"2025-09-15",
     "image":"https://www.corecloudza.com/assets/images/social-blog.jpg",
     "mainEntityOfPage":"https://www.corecloudza.com/blog-low-code-high-impact.html"
@@ -121,17 +120,17 @@
         <span></span><span></span><span></span>
       </label>
 
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="finops.html" class="nav-btn">FINOPS &amp; GOVERNANCE</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
+        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="blog.html" class="nav-btn active" aria-current="page">BLOG</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
@@ -139,13 +138,15 @@
 
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
+        <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
         <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html" class="active" aria-current="page">BLOG</a>
         <a href="contact.html">CONTACT</a>
@@ -233,7 +234,6 @@
     </article>
   </div>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -270,5 +270,17 @@
       </p>
     </div>
   </footer>
+
+  <!-- Auto-highlight current nav -->
+  <script>
+    (function(){
+      var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+        var href = (a.getAttribute('href') || '').toLowerCase();
+        if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
+      });
+    })();
+  </script>
 </body>
 </html>
