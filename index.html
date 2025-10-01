@@ -21,7 +21,7 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
 
-  <!-- Page-scoped hardening (kept light) -->
+  <!-- Page-scoped styles -->
   <style>
     /* a11y: skip link */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
@@ -42,8 +42,15 @@
     /* make long text/links wrap safely */
     .home .content, .home .content p, .home .content li, .home .content a{word-break:break-word;overflow-wrap:anywhere;}
 
-    /* service tiles behave on mobile */
-    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;padding:0 1rem;}
+    /* service tiles */
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:14px;
+      padding:0 1rem;
+      max-width:1200px;
+      margin:0 auto;
+    }
     .service-card{display:block;text-decoration:none;border:1px solid #e4e8f1;border-radius:12px;padding:1rem;background:#fff}
     .service-card h3{margin:.25rem 0 .5rem;}
     .service-card p{color:#444;margin:0}
@@ -52,31 +59,31 @@
     .wins-list{padding-left:1.25rem}
     .wins-list li{margin:.25rem 0}
 
+    /* Center the Hybrid CTA row + perfectly center the button text */
+    .home [aria-labelledby="hybrid-title"] p:last-of-type{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    }
+    .home [aria-labelledby="hybrid-title"] .cta-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      line-height:1;
+      padding:.75rem 1.15rem;
+      min-width:220px; /* keeps it visually balanced */
+    }
+
     /* mobile tweaks */
     @media (max-width:768px){
       .home .hero-intro{padding:0 1rem}
     }
 
-    /* === Force 4-up layout for "Explore Our Services" on desktop === */
+    /* Force 4-up layout for "Explore Our Services" on desktop */
     @media (min-width:1100px){
-      .home .services-grid{grid-template-columns:repeat(4,1fr)!important;}
+      .home .services-grid{grid-template-columns:repeat(4,1fr) !important;}
     }
-
-    /* --- Hybrid section: match page width + center the CTA button --- */
-    .home [aria-labelledby="hybrid-title"] p{
-      max-width:900px;          /* same text width as hero/other pages */
-      margin:0 auto;            /* center the paragraph block */
-    }
-    .home [aria-labelledby="hybrid-title"] p:last-of-type{
-      display:flex;             /* guarantees the button centers */
-      justify-content:center;
-    }
-    .home [aria-labelledby="hybrid-title"] .cta-btn{
-      display:inline-block;     /* avoid full-width stretch */
-    }
-
-    /* Small comfort bump for CTA buttons site-wide */
-    .cta-btn{ padding:.7rem 1.1rem; }
   </style>
 
   <!-- JSON-LD (WebSite + Organization) -->
@@ -106,7 +113,7 @@
 <body class="home">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav (short labels, consistent with blog pages) -->
+  <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
