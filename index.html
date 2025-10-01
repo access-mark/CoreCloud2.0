@@ -19,8 +19,7 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
-  <link rel="stylesheet" href="assets/css/responsive-hotfix.css?v=1"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
 
   <!-- Page-scoped styles -->
   <style>
@@ -73,7 +72,7 @@
       text-align:center;
       line-height:1;
       padding:.75rem 1.15rem;
-      min-width:220px;
+      min-width:220px; /* keeps it visually balanced */
     }
 
     /* mobile tweaks */
@@ -114,56 +113,47 @@
 <body class="home">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Unified Header / Nav -->
-  <header class="site-header">
-    <div class="site-header-inner">
-      <a class="logo" href="index.html" aria-label="CoreCloud">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud">
-      </a>
+  <!-- Header / Nav -->
+  <div class="small-banner">
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
 
-      <nav class="nav nav-desktop" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="consulting.html">Consulting</a>
-        <a href="cloud.html">Cloud Suite</a>
-        <a href="finops.html">FinOps</a>
-        <a href="hosting-private-cloud.html">Hosting</a>
-        <a href="application-development.html">App Development</a>
-        <a href="data-ai.html">Data &amp; AI</a>
-        <a href="talent.html">Talent</a>
-        <a href="talent-relaunch.html">Re/Launch</a>
-        <a href="dynamic-imprinting.html">Imprinting</a>
-        <a href="enterprise-portals.html">Enterprise Portals</a>
-        <a href="about.html">About</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
+
+      <nav class="desktop-nav" aria-label="Primary">
+        <a href="index.html" class="nav-btn active" aria-current="page">HOME</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn">FINOPS</a>
+        <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
+        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
+        <a href="talent.html" class="nav-btn">TALENT</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
+        <a href="about.html" class="nav-btn">ABOUT</a>
+        <a href="blog.html" class="nav-btn">BLOG</a>
+        <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <button class="nav-toggle" aria-controls="mobile-menu" aria-expanded="false">Menu</button>
+      <nav class="mobile-nav" aria-label="Mobile">
+        <a href="index.html" class="active" aria-current="page">HOME</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
+        <a href="finops.html">FINOPS</a>
+        <a href="hosting-private-cloud.html">HOSTING</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
+        <a href="talent.html">TALENT</a>
+        <a href="talent-relaunch.html">RE / LAUNCH</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
+        <a href="about.html">ABOUT</a>
+        <a href="blog.html">BLOG</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
     </div>
-
-    <nav id="mobile-menu" class="nav nav-mobile" hidden aria-label="Mobile">
-      <a href="index.html">Home</a>
-      <a href="consulting.html">Consulting</a>
-      <a href="cloud.html">Cloud Suite</a>
-      <a href="finops.html">FinOps</a>
-      <a href="hosting-private-cloud.html">Hosting</a>
-      <a href="application-development.html">App Development</a>
-      <a href="data-ai.html">Data &amp; AI</a>
-      <a href="talent.html">Talent</a>
-      <a href="talent-relaunch.html">Re/Launch</a>
-      <a href="dynamic-imprinting.html">Imprinting</a>
-      <a href="enterprise-portals.html">Enterprise Portals</a>
-      <a href="about.html">About</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-  <script>
-    (function(){
-      const btn=document.querySelector('.nav-toggle'),menu=document.querySelector('#mobile-menu');
-      if(btn&&menu){btn.addEventListener('click',()=>{const open=!menu.hasAttribute('hidden');menu.toggleAttribute('hidden');btn.setAttribute('aria-expanded',String(!open));});}
-    })();
-  </script>
+  </div>
 
   <!-- Hero -->
   <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
@@ -271,36 +261,41 @@
     </section>
   </main>
 
-  <!-- Unified Footer -->
+  <!-- Footer (reused global) -->
   <footer>
     <div class="footer-content">
-      <div>
+      <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton, Johannesburg</p>
-        <p class="footer-note">From strategy to revenue — cloud, apps, talent.</p>
+        <p>Sandton<br/>Johannesburg<br/>South Africa</p>
       </div>
 
-      <div>
+      <div class="footer-middle">
         <h4>Stay Informed</h4>
-        <p>Join our newsletter for practical cloud + leadership insights.</p>
-        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
           <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
           <input type="hidden" name="_template" value="table"/>
           <input type="hidden" name="_captcha" value="false"/>
           <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
           <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" type="email" name="email" placeholder="you@company.com" required autocomplete="email"/>
-          <input class="visually-hidden" type="text" name="bot-field" autocomplete="off">
-          <button class="btn btn-primary" type="submit">Subscribe</button>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;"/>
+          <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
 
-      <div>
+      <div class="footer-right">
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
         <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
-        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
     </div>
   </footer>
 
@@ -308,7 +303,7 @@
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-      document.querySelectorAll('.nav a').forEach(function(a){
+      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
         if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
         else{a.classList.remove('active');a.removeAttribute('aria-current');}
