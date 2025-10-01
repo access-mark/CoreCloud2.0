@@ -21,9 +21,9 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
 
-  <!-- Page-scoped hardening -->
+  <!-- Page-scoped styles -->
   <style>
-    /* a11y: skip link */
+    /* a11y */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
@@ -31,17 +31,22 @@
     .cloud .hero-media img{width:100%;height:auto;display:block;}
     .cloud .hero-intro{max-width:900px;margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
     .cloud .hero-intro p{color:#444;}
-    .cloud .section{padding:1.5rem 0;}
+    .cloud .section{padding:1.6rem 0;}
     .cloud .section-title{margin:0 0 .75rem;}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-    .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;padding:1rem}
+    .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;padding:1rem;text-decoration:none;color:inherit;}
     .card h3{margin:.25rem 0 .5rem}
     .points{padding-left:1.25rem}
     .points li{margin:.25rem 0}
+    .muted{color:#5a6b85;font-size:.95rem}
 
     /* inline CTA (dark) */
     .inline-cta{background:#0d3b66;color:#fff;padding:1rem 1.2rem;border-radius:12px;margin:1.5rem 0;}
     .inline-cta p{margin:.5rem 0 0;color:#fff !important;}
+
+    /* in-page stickyish nav */
+    .inpage-nav{display:flex;gap:10px;overflow:auto;padding:.5rem 1rem;margin:0 auto 1rem;max-width:1000px;}
+    .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;}
 
     /* wrap long text safely */
     .cloud .content, .cloud .content p, .cloud .content li, .cloud .content a{word-break:break-word;overflow-wrap:anywhere;}
@@ -60,7 +65,7 @@
     }
   </style>
 
-  <!-- JSON-LD (Service + Breadcrumbs) -->
+  <!-- JSON-LD (Service + Breadcrumbs + FAQ) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -81,6 +86,16 @@
     "itemListElement":[
       {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
       {"@type":"ListItem","position":2,"name":"Cloud","item":"https://www.corecloudza.com/cloud.html"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Can we keep regulated data in-country and still use hyperscalers?","acceptedAnswer":{"@type":"Answer","text":"Yes. We use residency patterns with in-country primary regions, customer-managed keys, and cross-AZ HA. Analytics on PII runs locally; only aggregates egress when required."}},
+      {"@type":"Question","name":"Will FinOps slow down delivery?","acceptedAnswer":{"@type":"Answer","text":"No. We set guardrails that run in the background — tagging coverage, budgets, anomaly alerts — and prioritise quick wins like right-sizing and schedule-to-zero so teams keep shipping."}}
     ]
   }
   </script>
@@ -142,23 +157,34 @@
     <p>Secure landing zones, fast migration/modernisation, POPIA-aligned controls, and FinOps that keeps cost honest — all wired to measurable outcomes.</p>
   </section>
 
+  <!-- In-page anchor nav -->
+  <nav class="inpage-nav" aria-label="On this page">
+    <a href="#deliver">What we deliver</a>
+    <a href="#foundation">30-day foundation</a>
+    <a href="#scoreboard">Scoreboard</a>
+    <a href="#engagement">Engagements</a>
+    <a href="#services">Related services</a>
+    <a href="#insights">Insights</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+
   <main class="content" id="main">
     <!-- What we deliver -->
-    <section class="section" aria-labelledby="deliver-title">
+    <section class="section" id="deliver" aria-labelledby="deliver-title">
       <h2 id="deliver-title" class="section-title">What We Deliver</h2>
       <div class="grid">
         <div class="card">
           <h3>Landing Zones & Guardrails</h3>
           <ul class="points">
-            <li>Multi-account/subscription baseline, least-privilege IAM</li>
-            <li>Network segmentation, egress control, logging & SIEM feeds</li>
+            <li>Multi-account baseline, least-privilege IAM</li>
+            <li>Network segmentation, egress control, logging</li>
             <li>Policy-as-code with drift detection</li>
           </ul>
         </div>
         <div class="card">
           <h3>Migration & Modernisation</h3>
           <ul class="points">
-            <li>Discovery & wave plans, app profiling, change windows</li>
+            <li>Discovery & wave plans, profiling, change windows</li>
             <li>Containerisation & managed services first</li>
             <li>Rollback-ready go-lives</li>
           </ul>
@@ -167,7 +193,7 @@
           <h3>Security & POPIA</h3>
           <ul class="points">
             <li>Residency patterns & key management separation</li>
-            <li>Encryption, tokenisation, and data lifecycle controls</li>
+            <li>Encryption, tokenisation, lifecycle controls</li>
             <li>Board-level posture reporting</li>
           </ul>
         </div>
@@ -176,7 +202,7 @@
           <ul class="points">
             <li>Tagging coverage, run-rate tracking, anomaly alerts</li>
             <li>Right-sizing & scale-to-zero policies</li>
-            <li>Commitment strategy (SP/CUD/RI) with guardrails</li>
+            <li>Commitment strategy (SP/CUD/RI)</li>
           </ul>
         </div>
         <div class="card">
@@ -184,14 +210,14 @@
           <ul class="points">
             <li>In-country primary, cross-AZ HA, local backups</li>
             <li>Customer-managed keys (HSM/KMS)</li>
-            <li>Vendor choice: hyperscaler + African ecosystem</li>
+            <li>Hyperscaler + African ecosystem</li>
           </ul>
         </div>
         <div class="card">
           <h3>Reliability & DR</h3>
           <ul class="points">
-            <li>SLOs, error budgets, and runbooks</li>
-            <li>Backup/restore drills and failover tests</li>
+            <li>SLOs, error budgets, runbooks</li>
+            <li>Backup/restore drills & failover tests</li>
             <li>Incident readiness & comms templates</li>
           </ul>
         </div>
@@ -199,7 +225,7 @@
     </section>
 
     <!-- 30-day foundation -->
-    <section class="section" aria-labelledby="foundation-title">
+    <section class="section" id="foundation" aria-labelledby="foundation-title">
       <h2 id="foundation-title" class="section-title">30 Days to a Secure Foundation</h2>
       <ol class="points">
         <li><strong>Days 1–5:</strong> data map, residency & keys plan, baseline policies.</li>
@@ -215,7 +241,7 @@
     </section>
 
     <!-- Scoreboard -->
-    <section class="section" aria-labelledby="score-title">
+    <section class="section" id="scoreboard" aria-labelledby="score-title">
       <h2 id="score-title" class="section-title">Scoreboard We Track</h2>
       <ul class="points">
         <li><strong>Run-rate (R/mo):</strong> last 4 weeks vs baseline</li>
@@ -227,30 +253,65 @@
     </section>
 
     <!-- Engagement options -->
-    <section class="section" aria-labelledby="engage-title">
+    <section class="section" id="engagement" aria-labelledby="engage-title">
       <h2 id="engage-title" class="section-title">Engagement Options</h2>
       <div class="grid">
         <div class="card">
           <h3>Baseline + Quick Wins (2 weeks)</h3>
           <p>Cost, posture, and governance gaps; we land immediate savings and risk reductions.</p>
+          <p class="muted"><a href="finops.html">See FinOps</a></p>
         </div>
         <div class="card">
           <h3>Foundation (30 days)</h3>
           <p>Landing zone, policies, FinOps dashboards, and first migration wave with rollback.</p>
+          <p class="muted"><a href="consulting.html">How we execute</a></p>
         </div>
         <div class="card">
           <h3>Migrate & Modernise</h3>
           <p>Wave plans, containerisation, managed services adoption, and resilience patterns.</p>
+          <p class="muted"><a href="application-development.html">App Dev approach</a></p>
         </div>
         <div class="card">
           <h3>Operator-on-Call</h3>
           <p>Senior cloud operator for incidents, design reviews, and board-level updates.</p>
+          <p class="muted"><a href="about.html">About our team</a></p>
         </div>
       </div>
     </section>
 
+    <!-- Related services (deep links to sub-pages) -->
+    <section class="section" id="services" aria-labelledby="services-title">
+      <h2 id="services-title" class="section-title">Related Services</h2>
+      <div class="grid">
+        <a class="card" href="finops.html">
+          <h3>FinOps & Governance</h3>
+          <p>Guardrails, run-rate dashboards, commitment strategy.</p>
+        </a>
+        <a class="card" href="data-ai.html">
+          <h3>Data &amp; AI</h3>
+          <p>Modern data stacks, AI safety & evaluations, RAG done right.</p>
+        </a>
+        <a class="card" href="application-development.html">
+          <h3>App Development</h3>
+          <p>Low-code where it fits, custom where it counts.</p>
+        </a>
+        <a class="card" href="hosting-private-cloud.html">
+          <h3>Hosting / Private Cloud</h3>
+          <p>Residency, interconnect, and hybrid options.</p>
+        </a>
+        <a class="card" href="consulting.html">
+          <h3>Consulting</h3>
+          <p>Focused delivery rhythms and measurable outcomes.</p>
+        </a>
+        <a class="card" href="talent.html">
+          <h3>Talent</h3>
+          <p>Access to vetted engineers that move outcomes.</p>
+        </a>
+      </div>
+    </section>
+
     <!-- Related insights -->
-    <section class="section" aria-labelledby="insights-title">
+    <section class="section" id="insights" aria-labelledby="insights-title">
       <h2 id="insights-title" class="section-title">Related Insights</h2>
       <div class="grid">
         <a class="card" href="blog-eliminating-cloud-waste.html">
@@ -268,6 +329,25 @@
           <p>POPIA, residency patterns, and practical guardrails.</p>
           <p class="muted">Cloud • 1 Sep 2025</p>
         </a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title">FAQ</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Can we keep regulated data in-country?</h3>
+          <p>Yes — we design for in-country primaries, customer-managed keys, and cross-AZ resilience with local backups.</p>
+        </div>
+        <div class="card">
+          <h3>Will FinOps slow teams down?</h3>
+          <p>No — guardrails (tags, budgets, alerts) run in the background. We prioritise quick wins that don’t block delivery.</p>
+        </div>
+        <div class="card">
+          <h3>How fast can we get to value?</h3>
+          <p>Most clients see a governed foundation in ~30 days, with the first migration wave and visible run-rate savings.</p>
+        </div>
       </div>
     </section>
   </main>
