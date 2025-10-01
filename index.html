@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CoreCloud | Cloud Consulting, AWS Services & Talent – South Africa</title>
+  <meta name="description" content="Hybrid isn’t optional — it’s the operating model. CoreCloud helps SA enterprises cut run-rate, hit latency targets, and modernise with AWS/Azure, hosted private cloud, and on-prem — delivered by operators." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="CoreCloud" />
+  <meta name="theme-color" content="#004f91" />
+
+  <!-- Canonical + Social -->
+  <link rel="canonical" href="https://www.corecloudza.com/index.html" />
+  <meta property="og:title" content="CoreCloud | Cloud Consulting, AWS Services & Talent – South Africa" />
+  <meta property="og:description" content="Hybrid as the operating model. From strategy to revenue with cloud, hosted, and on-prem — plus the talent to run it." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.corecloudza.com/index.html" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=10" />
+
+  <!-- Preload LCP images -->
+  <link rel="preload" as="image" href="assets/images/index-bannerimage.png" imagesizes="100vw" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png">
+
+  <!-- Page-only tweaks: narrative layout + tight rhythm + alignment fix -->
+  <style>
+    /* Rhythm tweaks */
+    .home-page .hero-intro{ text-align:center; padding:1.25rem 1rem 0 !important; margin:0 !important; }
+    .home-page .section{ margin:2rem 0 !important; }        /* tighter than global */
+    .home-page .section-title{ margin-bottom:.85rem !important; }
+    .home-page .about-corecloud{ margin:1.5rem auto 1.75rem !important; }
+
+    /* Nav squeeze for desktop (short labels already applied) */
+    nav.desktop-nav { gap: .55rem; }
+    nav.desktop-nav .nav-btn { font-size: .78rem; padding: .30rem .50rem; }
+
+    /* Narrative blocks: lock all to same centering/width as About */
+    .home-page .about-corecloud,
+    .home-page .best-venue-section,
+    .home-page #focus-method-section,
+    .home-page .narrative,
+    .home-page .wins{
+      max-width: 1000px !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding-left: 1rem !important;
+      padding-right: 1rem !important;
+    }
+
+    /* Hybrid callout stays centered, with modest top space */
+    .home-page .best-venue-section{ text-align:center; margin-top:3rem !important; }
+
+    /* Narrative typography */
+    .home-page .narrative h3{
+      font-size:1.12rem; font-weight:700; color:var(--dark-blue);
+      margin:.85rem 0 .35rem;
+    }
+    .home-page .narrative p{ margin:.52rem 0; line-height:1.7; color:#444; }
+    .home-page .narrative .lead{ font-size:1.05rem; }
+
+    /* Wins list – compact, readable */
+    .home-page .wins ul{ margin:.5rem 0 0 1.25rem; padding:0; }
+    .home-page .wins li{ margin:.4rem 0; }
+
+    /* Services grid at bottom; keep spacing compact and avoid over-wide padding */
+    .home-page .services-bottom .card-grid{ padding:0 1rem; }
+    .card-grid a, .card-grid a:hover, .card-grid a:visited{ text-decoration:none; color:inherit; }
+  </style>
+</head>
+
+<body class="home-page">
+  <!-- Header / Nav -->
+  <div class="small-banner">
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" />
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </label>
+
+      <!-- Shortened nav labels -->
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-btn active" aria-current="page">HOME</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn">FINOPS</a>
+        <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
+        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
+        <a href="talent.html" class="nav-btn">TALENT</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
+        <a href="about.html" class="nav-btn">ABOUT</a>
+        <a href="blog.html" class="nav-btn">BLOG</a>
+        <a href="contact.html" class="nav-btn">CONTACT</a>
+      </nav>
+
+      <nav class="mobile-nav" aria-label="Mobile">
+        <a href="index.html" class="active" aria-current="page">HOME</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
+        <a href="finops.html">FINOPS</a>
+        <a href="hosting-private-cloud.html">HOSTING</a>
+        <a href="application-development.html">APP DEV</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
+        <a href="talent.html">TALENT</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
+        <a href="about.html">ABOUT</a>
+        <a href="blog.html">BLOG</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero-media">
+    <img src="assets/images/index-bannerimage.png" alt="CoreCloud — Strategy, Cloud, Talent, Applications" decoding="async" loading="eager" fetchpriority="high" width="1920" height="500" />
+  </div>
+
+  <!-- Hero copy -->
+  <section class="hero-intro">
+    <h1 class="hero-title">From Strategy to Revenue. From Cloud to People.</h1>
+    <p style="font-size:1.1rem; max-width:900px; margin:0 auto; color:#444;">
+      Big ideas mean nothing without results. We help South African enterprises turn strategy into action and revenue — sharper sales execution, modernised cloud, elite ICT talent, and disciplined app delivery.
+    </p>
+  </section>
+
+  <!-- Hybrid stance (centered callout) -->
+  <section id="venue-decision" class="section best-venue-section">
+    <h2 class="section-title">Hybrid Isn’t Optional — It’s the Operating Model</h2>
+    <p style="font-size:1.02rem; color:#444; line-height:1.7; max-width:1000px; margin:0 auto .6rem;">
+      One venue cannot win on cost, performance, and risk at the same time. We place <strong>each workload</strong> where it wins — cloud for elasticity and services; hosted or on-prem for predictable, low-latency, compliant run.
+    </p>
+    <div class="cta-row" style="justify-content:center;">
+      <a href="hosting-private-cloud.html" class="cta-btn">Design My Hybrid</a>
+    </div>
+  </section>
+
+  <main class="content">
+    <!-- About -->
+    <section class="about-corecloud" style="text-align:center;">
+      <h2 class="section-title">About CoreCloud</h2>
+      <p style="font-size:1.02rem; color:#444; line-height:1.7; margin-bottom:0;">
+        Operators, not theorists. We’ve been under real boardroom pressure and know how to land change. Sales, cloud, talent, and applications — focused on outcomes that move the needle.
+      </p>
+    </section>
+
+    <!-- Our Focus & Method (narrative) -->
+    <section id="focus-method-section" class="section narrative">
+      <h2 class="section-title">Our Focus &amp; Method</h2>
+
+      <h3>Why</h3>
+      <p class="lead">
+        SA enterprises are paying for elasticity they don’t use, running platforms that drift from standards, and missing revenue because GTM and delivery aren’t connected. We remove that friction.
+      </p>
+
+      <h3>What</h3>
+      <p>
+        We align four engines to a single outcome. <strong>GTM execution</strong> that sharpens pipeline, partner motions, and win-rates. <strong>Platform modernisation</strong> across AWS/Azure, hosted private cloud, and on-prem so each workload runs where it wins.
+        <strong>Talent</strong> that stabilises ops and accelerates delivery. <strong>Applications</strong> delivered with discipline — secure, observable, and maintainable from day one.
+      </p>
+
+      <h3>How</h3>
+      <p>
+        We run an operator’s rhythm: <em>Diagnose → Design → Do → Drive</em>. Diagnose with data (bills, telemetry, SLAs). Design venue-neutral options with clear trade-offs. Do the highest-value moves first to self-fund the rest. Drive with governance — monthly cost/perf reviews, decision logs, and change windows that respect the business calendar.
+      </p>
+
+      <h3>Principles</h3>
+      <p>
+        <strong>Workload first.</strong> No platform bias. <strong>Guardrails over gates.</strong> Teams move fast within policy.
+        <strong>Measure everything.</strong> Revenue lift, run-rate down, latency, reliability, and dev lead-time.
+        <strong>Make value obvious.</strong> Before/after, trade-offs, and next best move — executive-ready.
+      </p>
+
+      <h3>Outcomes</h3>
+      <p>
+        Typical results: 20–40% run-rate reduction on steady workloads, double-digit latency improvements for data/analytics, faster cycle time for change, and fewer incidents because ops is designed — not inherited.
+      </p>
+    </section>
+
+    <!-- The Venue Decision Framework (narrative) -->
+    <section class="section narrative">
+      <h2 class="section-title">The Venue Decision Framework</h2>
+      <p class="lead">
+        The question isn’t “cloud or not.” It’s <em>which venue per workload</em> — public cloud for elasticity and services, hosted private cloud for predictable run, or on-prem for control and locality — and how to operate the whole estate as one platform.
+      </p>
+
+      <h3>1) Discover</h3>
+      <p>
+        Baseline cost, performance, risk, and data gravity per workload: usage patterns, seasonality, egress, storage tiers, licensing, network paths, DR posture, and POPIA zones. Map dependencies so moves don’t break upstream processes or SLAs.
+      </p>
+
+      <h3>2) Model</h3>
+      <p>
+        Compare Cloud vs Hosted vs On-Prem over 12/36 months. Include burst economics, commitments, co-lo fees, power, support, and people time. Add latency maps, DR patterns (RPO/RTO), and security controls so the cheapest option isn’t the riskiest.
+      </p>
+
+      <h3>3) Decide</h3>
+      <p>
+        Rank each workload on five axes: cost, latency, reliability/DR, compliance, change velocity. Pick self-funding quick wins first (high cost, low elasticity), sequence by dependencies, and publish a migration playbook with clear owners and dates.
+      </p>
+
+      <h3>4) Operate</h3>
+      <p>
+        Standardise landing zones across venues: identity, networking, tagging, budgets, backups, and observability.
+        Run FinOps as a cadence (showback, anomaly flags, rightsizing) and SRE practices to protect SLOs. Monthly reviews track run-rate, latency, incidents, and the next move.
+      </p>
+
+      <h3>You get</h3>
+      <p>
+        An executive deck with options and trade-offs, a per-workload venue decision with 12/36-month TCO, a phased migration plan with risk controls, and an operating model (guardrails, dashboards, review rhythm) that keeps hybrid fast and under control.
+      </p>
+    </section>
+
+    <!-- Recent Wins Through Partner Collective (narrative) -->
+    <section class="section wins">
+      <h2 class="section-title">Recent Wins Through Partner Collective</h2>
+      <ul>
+        <li><strong>−32% run-rate:</strong> ERP + SQL to hosted private cloud; burst to Azure for quarter-end. DR bundled.</li>
+        <li><strong>−48% latency:</strong> Trading analytics hybridised — on-prem GPU + S3-compatible store; cloud for global insights.</li>
+        <li><strong>Zero-downtime move:</strong> Payments core via blue/green + feature flags reduced risk during cutover.</li>
+        <li><strong>Talent that lands it:</strong> Cloud, data, and platform engineers placed to stabilise ops and accelerate delivery.</li>
+      </ul>
+    </section>
+
+    <!-- Services moved to bottom -->
+    <section class="section services-bottom">
+      <h2 class="section-title">Explore Our Services</h2>
+      <div class="card-grid force-4">
+        <a href="consulting.html" class="card">
+          <div><h3>Consulting</h3><p>From strategy to execution: GTM precision, pipeline discipline, partner motions that convert.</p></div>
+          <span class="cta-btn">Learn More</span>
+        </a>
+        <a href="cloud.html" class="card">
+          <div><h3>Cloud Suite</h3><p>AWS &amp; Azure architecture, landing zones, security, cost control, and modernisation.</p></div>
+          <span class="cta-btn">Learn More</span>
+        </a>
+        <a href="finops.html" class="card">
+          <div><h3>Hybrid FinOps &amp; Governance</h3><p>Cut run-rate and stop drift. Tags, budgets, policies, and showback across venues.</p></div>
+          <span class="cta-btn">Learn More</span>
+        </a>
+        <a href="hosting-private-cloud.html" class="card">
+          <div><h3>Hosting &amp; Private Cloud</h3><p>Hosted private cloud and on-prem for predictable cost, SA locality, and low latency.</p></div>
+          <span class="cta-btn">Learn More</span>
+        </a>
+        <a href="application-development.html" class="card">
+          <div><h3>App Development</h3><p>Cloud-native apps, portals, mobile &amp; web, and APIs — delivered with DevOps discipline.</p></div>
+          <span class="cta-btn">Learn More</span>
+        </a>
+        <a href="data-ai.html" class="card">
+          <div><h3>Sovereign Data &amp; AI</h3><p>Analytics and AI with SA data residency. On-prem GPU + cloud burst, governed pipelines.</p></div>
+          <span class="cta-btn">Learn More</span>
+        </a>
+        <a href="talent.html" class="card">
+          <div><h3>Talent Placement</h3><p>Cloud, data, and platform talent — vetted for impact, not keywords.</p></div>
+          <span class="cta-btn">Learn More</span>
+        </a>
+        <a href="dynamic-imprinting.html" class="card">
+          <div><h3>Dynamic Imprinting</h3><p>Leadership identity work that sticks — perform under pressure, consistently.</p></div>
+          <span class="cta-btn">Learn More</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+<!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton<br>Johannesburg<br>South Africa</p>
+      </div>
+
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-right">
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener" class="linkedin-link">LinkedIn</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
