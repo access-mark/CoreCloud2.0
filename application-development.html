@@ -81,6 +81,14 @@
       .appdev .section{padding:1.25rem 0}
       .hero-title{font-size:1.8rem;line-height:1.2}
     }
+    
+    /* 4-up layout for "What We Build — Deep Dives" on large screens */
+@media (min-width: 1100px){
+  .appdev #deep-dives .card-grid{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
   </style>
 
   <!-- JSON-LD: Service + Breadcrumbs + FAQ -->
