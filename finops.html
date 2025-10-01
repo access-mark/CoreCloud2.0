@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>FinOps — Cost, Governance & Velocity | CoreCloud</title>
+  <meta name="description" content="FinOps by design: visibility, quick wins, right-sizing, purchasing strategy, and operating rhythms that reduce run-rate without slowing teams."/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="CoreCloud"/>
+  <meta name="theme-color" content="#004f91"/>
+
+  <!-- Canonical + Social -->
+  <link rel="canonical" href="https://www.corecloudza.com/finops.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="CoreCloud FinOps — Cost, Governance & Velocity"/>
+  <meta property="og:description" content="Spend visibility, quick wins, right-sizing, commitments, and a monthly cadence that keeps cost honest without slowing delivery."/>
+  <meta property="og:url" content="https://www.corecloudza.com/finops.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/finops-bannerimage.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
+
+  <!-- Preload -->
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/images/finops-bannerimage.png" fetchpriority="high">
+
+  <!-- Page-scoped styles (aligned to Cloud/Consulting) -->
+  <style>
+    .finops-page .section{ margin:2rem 0; }
+    .finops-page .section-title{ margin:0 0 .75rem; }
+
+    /* Spacing match */
+    .finops-page .hero-media{ margin-bottom:2rem; }
+    .finops-page .hero-title{
+      font-size:2rem; color:var(--dark-blue); font-weight:700;
+      text-align:center; margin:.2rem auto .6rem;
+    }
+    .finops-page .hero-intro{
+      text-align:center; max-width:1000px; margin:0 auto 1.1rem; padding:0 1rem; color:#444;
+    }
+    @media (max-width:768px){
+      .finops-page .hero-media{ margin-bottom:1.25rem; }
+      .finops-page .hero-title{ font-size:1.8rem; line-height:1.2; }
+    }
+
+    /* In-page chip nav */
+    .inpage-nav{
+      display:flex; flex-wrap:wrap; gap:8px;
+      margin:0 auto .75rem; padding:.25rem .75rem; max-width:1000px;
+      justify-content:center;
+    }
+    .inpage-nav a{
+      white-space:nowrap; border:1px solid #e4e8f1; border-radius:999px;
+      padding:.35rem .6rem; text-decoration:none; color:#0d3b66; font-weight:600; background:#fff; font-size:.95rem;
+    }
+
+    /* Cards & grids */
+    .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+    .card{ border:1px solid #e4e8f1; border-radius:12px; background:#fff; padding:1rem; }
+    .card h3{ margin:.25rem 0 .5rem; }
+    .muted{ color:#5a6b85; font-size:.95rem; }
+    .points{ padding-left:1.25rem; }
+    .points li{ margin:.25rem 0; }
+
+    /* Inline CTA */
+    .inline-cta{ background:#0d3b66; color:#fff; padding:1rem 1.2rem; border-radius:12px; margin:1.25rem 0; text-align:center; }
+    .inline-cta p{ margin:.5rem 0 0; color:#fff !important; }
+    .finops-page .cta-btn{ padding:.75rem 1rem; } /* comfy touch target locally */
+
+    /* Safety */
+    .finops-page .content, .finops-page .content p, .finops-page .content li, .finops-page .content a{
+      word-break:break-word; overflow-wrap:anywhere;
+    }
+
+    /* Footer phone link white (robust) */
+    footer .footer-right a[href^="tel:"]{ color:#fff !important; text-decoration:none; font-weight:500; }
+    footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
+  </style>
+
+  <!-- JSON-LD (Service + Breadcrumbs + FAQ) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"CoreCloud — FinOps",
+    "description":"FinOps by design: spend visibility, right-sizing, commitment strategy, and monthly operating rhythms.",
+    "provider":{"@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png"},
+    "areaServed":"ZA",
+    "serviceOutput":"Reduced cloud run-rate and governance with preserved delivery velocity",
+    "url":"https://www.corecloudza.com/finops.html",
+    "offers":{"@type":"Offer","availability":"https://schema.org/InStock"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+      {"@type":"ListItem","position":2,"name":"FinOps","item":"https://www.corecloudza.com/finops.html"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Will FinOps slow down delivery?","acceptedAnswer":{"@type":"Answer","text":"No. We implement background guardrails (tagging, budgets, anomaly alerts) and prioritise right-sizing and schedule-to-zero so teams keep shipping."}},
+      {"@type":"Question","name":"Do we need a third-party cost tool first?","acceptedAnswer":{"@type":"Answer","text":"Not to start. We land quick wins with native tooling, then add specialised tools if the ROI is clear."}},
+      {"@type":"Question","name":"How do you handle multi-cloud and hybrid?","acceptedAnswer":{"@type":"Answer","text":"We normalise tags, define venue-aware unit costs, and run a single cadence that spans cloud, hosted, and on-prem."}}
+    ]
+  }
+  </script>
+</head>
+
+<body class="finops-page">
+  <!-- Header -->
+  <div class="small-banner">
+    <div class="banner-header">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
+
+      <nav class="desktop-nav" aria-label="Primary">
+        <a href="index.html" class="nav-btn">HOME</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn active" aria-current="page">FINOPS</a>
+        <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
+        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
+        <a href="talent.html" class="nav-btn">TALENT</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
+        <a href="about.html" class="nav-btn">ABOUT</a>
+        <a href="blog.html" class="nav-btn">BLOG</a>
+        <a href="contact.html" class="nav-btn">CONTACT</a>
+      </nav>
+
+      <nav class="mobile-nav" aria-label="Mobile">
+        <a href="index.html">HOME</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
+        <a href="finops.html" class="active" aria-current="page">FINOPS</a>
+        <a href="hosting-private-cloud.html">HOSTING</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
+        <a href="talent.html">TALENT</a>
+        <a href="talent-relaunch.html">RE / LAUNCH</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
+        <a href="about.html">ABOUT</a>
+        <a href="blog.html">BLOG</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero-media" role="img" aria-label="FinOps foundations and quick wins">
+    <img
+      src="assets/images/finops-bannerimage.png"
+      alt="FinOps by design — visibility to action"
+      width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
+  </div>
+
+  <!-- Intro -->
+  <section class="hero-intro">
+    <h1 class="hero-title">FinOps That Doesn’t Slow You Down</h1>
+    <p>Visibility → quick wins → operating cadence. We reduce run-rate with right-sizing, commitments, and guardrails — while teams keep shipping.</p>
+  </section>
+
+  <!-- In-page anchor nav -->
+  <nav class="inpage-nav" aria-label="On this page">
+    <a href="#deliver">What we deliver</a>
+    <a href="#plan30">30-day savings plan</a>
+    <a href="#levers">Cost levers</a>
+    <a href="#engage">Engagements</a>
+    <a href="#dash">Tools & dashboards</a>
+    <a href="#insights">Insights</a>
+    <a href="#faq">FAQ</a>
+  </nav>
+
+  <main class="content" id="main">
+    <!-- What we deliver -->
+    <section class="section" id="deliver" aria-labelledby="deliver-title">
+      <h2 id="deliver-title" class="section-title">What We Deliver</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Spend Visibility</h3>
+          <ul class="points">
+            <li>Tagging coverage & standards</li>
+            <li>Run-rate vs budget, anomaly alerts</li>
+            <li>Unit cost metrics (per env/service)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Quick Wins & Waste Elimination</h3>
+          <ul class="points">
+            <li>Rightsize hotspots, schedule-to-zero</li>
+            <li>Kill idle/orphaned storage & IPs</li>
+            <li>Storage classes & lifecycle</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Purchasing Strategy</h3>
+          <ul class="points">
+            <li>SP/RI/CUD mix with guardrails</li>
+            <li>Coverage & utilisation tracking</li>
+            <li>Contract levers & vendor align</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Architecture Tuning</h3>
+          <ul class="points">
+            <li>Data transfer & egress design</li>
+            <li>Hot/warm/cold storage tiers</li>
+            <li>Queueing/caching patterns</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Chargeback/Showback</h3>
+          <ul class="points">
+            <li>Owner accountability & budgets</li>
+            <li>Product/BU cost views</li>
+            <li>Next-best-move backlog</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Governance & Rhythm</h3>
+          <ul class="points">
+            <li>Monthly WBR for cost & posture</li>
+            <li>Exception policies & approvals</li>
+            <li>Ops runbooks & playbooks</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 30-day plan -->
+    <section class="section" id="plan30" aria-labelledby="plan30-title">
+      <h2 id="plan30-title" class="section-title">30 Days to Visible Savings</h2>
+      <ol class="points">
+        <li><strong>Days 1–5:</strong> Baseline run-rate, tag coverage, top 10 spenders; set budgets & alerts.</li>
+        <li><strong>Days 6–10:</strong> Rightsize & schedule: top 5 clusters/VMs; storage lifecycle rules; kill idle.</li>
+        <li><strong>Days 11–20:</strong> Purchasing plan: SP/RI/CUD targets, guardrails, and approvals.</li>
+        <li><strong>Days 21–30:</strong> Dashboards live; chargeback/showback and monthly cadence started.</li>
+      </ol>
+
+      <div class="inline-cta">
+        <strong>Need savings this month?</strong>
+        <p>We’ll land quick wins without breaking delivery.</p>
+        <a class="cta-btn" href="contact.html">Start the baseline & quick wins</a>
+      </div>
+    </section>
+
+    <!-- Cost levers -->
+    <section class="section" id="levers" aria-labelledby="levers-title">
+      <h2 id="levers-title" class="section-title">Cost Levers We Pull</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Compute</h3>
+          <p class="muted">Rightsizing, autoscale, spot/fleet, schedule-to-zero.</p>
+        </div>
+        <div class="card">
+          <h3>Storage</h3>
+          <p class="muted">Tiering, lifecycle, compression, orphaned volumes & snapshots.</p>
+        </div>
+        <div class="card">
+          <h3>Data Transfer</h3>
+          <p class="muted">Placement, caching, peering, CDN; avoid accidental egress.</p>
+        </div>
+        <div class="card">
+          <h3>Licensing</h3>
+          <p class="muted">BYOL, reserved licensing, consolidation & de-dup.</p>
+        </div>
+        <div class="card">
+          <h3>Databricks</h3>
+          <p class="muted">Cluster sizing/pools, job orchestration, photon, checkpointing.</p>
+        </div>
+        <div class="card">
+          <h3>Patterns</h3>
+          <p class="muted">Event-driven/serverless where it wins; caching & queues to flatten peaks.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engagements -->
+    <section class="section" id="engage" aria-labelledby="engage-title">
+      <h2 id="engage-title" class="section-title">Engagement Options</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Baseline + Quick Wins (2 weeks)</h3>
+          <p>Immediate savings + risk reduction, dashboards lit.</p>
+          <p class="muted"><a href="cloud.html">Cloud foundations</a></p>
+        </div>
+        <div class="card">
+          <h3>FinOps Foundation (30 days)</h3>
+          <p>Guardrails, budgets, purchasing plan, and operating rhythm.</p>
+          <p class="muted"><a href="consulting.html">How we execute</a></p>
+        </div>
+        <div class="card">
+          <h3>FinOps-as-a-Service</h3>
+          <p>Monthly reviews, anomaly triage, backlog burn-down, commit management.</p>
+          <p class="muted"><a href="about.html">About our team</a></p>
+        </div>
+        <div class="card">
+          <h3>Hybrid Spend Model</h3>
+          <p>Cloud + hosted/on-prem unified view; chargeback across venues.</p>
+          <p class="muted"><a href="hosting-private-cloud.html">See Hosting</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools & dashboards -->
+    <section class="section" id="dash" aria-labelledby="dash-title">
+      <h2 id="dash-title" class="section-title">Tools & Dashboards</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Tagging Coverage</h3>
+          <p class="muted">Owner, env, product — enforced in CI & IaC.</p>
+        </div>
+        <div class="card">
+          <h3>Run-Rate & Budgets</h3>
+          <p class="muted">Trend vs budget, alerts to owners, budget burn-down.</p>
+        </div>
+        <div class="card">
+          <h3>Anomaly Detection</h3>
+          <p class="muted">Daily diff, noisy-neighbor flags, RCA playbook.</p>
+        </div>
+        <div class="card">
+          <h3>Unit Cost & KPIs</h3>
+          <p class="muted">Cost per order/session/model run; cost/SLO trade-offs.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related insights -->
+    <section class="section" id="insights" aria-labelledby="insights-title">
+      <h2 id="insights-title" class="section-title">Related Insights</h2>
+      <div class="grid">
+        <a class="card" href="blog-eliminating-cloud-waste.html">
+          <h3>Eliminating Waste: The Fastest ROI in Cloud</h3>
+          <p>Where spend leaks — and how SA teams plug it in 30 days.</p>
+          <p class="muted">Cloud • 25 Sep 2025</p>
+        </a>
+        <a class="card" href="blog-databricks-cost-quick-wins.html">
+          <h3>Databricks Cost: Quick Wins</h3>
+          <p>Trim DBU burn without slowing delivery.</p>
+          <p class="muted">Cloud • 10 Sep 2025</p>
+        </a>
+        <a class="card" href="blog-secure-sovereign-cloud-africa.html">
+          <h3>Secure & Sovereign Cloud for Africa</h3>
+          <p>POPIA, residency patterns, and practical guardrails.</p>
+          <p class="muted">Cloud • 1 Sep 2025</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title">FAQ</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Will FinOps slow teams down?</h3>
+          <p>No. Guardrails run in the background; we prioritise changes that don’t block delivery.</p>
+        </div>
+        <div class="card">
+          <h3>Do we need a cost tool first?</h3>
+          <p>Not to begin. We start with native tooling and add a platform if/when ROI is clear.</p>
+        </div>
+        <div class="card">
+          <h3>How fast to savings?</h3>
+          <p>Most clients see visible run-rate reduction within the first 30 days.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton<br/>Johannesburg<br/>South Africa</p>
+      </div>
+
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;"/>
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-right">
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27 11 568 8667">+27 11 568 8667</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Auto-highlight current nav -->
+  <script>
+    (function(){
+      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+        var href=(a.getAttribute('href')||'').toLowerCase();
+        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
+        else{a.classList.remove('active');a.removeAttribute('aria-current');}
+      });
+    })();
+  </script>
+</body>
+</html>
