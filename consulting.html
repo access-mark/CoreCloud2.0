@@ -59,7 +59,7 @@
 
     /* Narrative containers */
     .consulting-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .consulting-page .narrative h3{ font-size:1.12rem; font-weight:700; color:var(--dark-blue); margin:.7rem 0 .25rem; }
+    .consulting-page .narrative h3{ font-size:1.12rem; font-weight:700; color:var(--dark-blue); margin:.7rem 0 .25rem; text-align:left; }
     .consulting-page .narrative p{ margin:.45rem 0; line-height:1.7; color:#444; }
     .consulting-page .narrative .lead{ font-size:1.05rem; }
     .consulting-page .narrative ul{ margin:.3rem 0 0 1.2rem; }
@@ -95,6 +95,13 @@
 
     /* CTA */
     .consulting-page .cta-wrap{ display:flex; justify-content:center; margin-top:.85rem; padding:0 1rem; }
+
+    /* FAQ accordions (missing before) */
+    .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12);}
+    .faq-list details:last-of-type{border-bottom:none;}
+    .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none;list-style:none;}
+    .faq-list summary::-webkit-details-marker{display:none;}
+    .faq-list p{margin:.45rem 0 0;}
   </style>
 </head>
 <body class="consulting-page">
@@ -115,7 +122,7 @@
         <a href="cloud.html" class="nav-btn">CLOUD</a>
         <a href="finops.html" class="nav-btn">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="mobile-web.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
         <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
@@ -131,7 +138,7 @@
         <a href="cloud.html">CLOUD</a>
         <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="mobile-web.html">APP DEVELOPMENT</a>
+        <a href="application-development.html">APP DEVELOPMENT</a>
         <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html">RE / LAUNCH</a>
@@ -363,28 +370,28 @@
       <p><strong>Sales Reset:</strong> ICP & stage hygiene, MEDDPICC, partner co-sell. <em>Win-rate up, forecast variance down</em> in two quarters.</p>
     </section>
 
-   <!-- FAQ -->
-<section class="section narrative" id="faq" aria-labelledby="faq-title">
-  <h2 id="faq-title" class="section-title">FAQ</h2>
-  <div class="faq-list">
-    <details>
-      <summary>Are you vendor-neutral?</summary>
-      <p>Yes. We design for the workload and business outcome — across cloud, hosted, and on-prem — with clear trade-offs.</p>
-    </details>
-    <details>
-      <summary>How quickly do we see value?</summary>
-      <p>Within the first month we target self-funding quick wins (spend, latency, or sales hygiene) that pay for the next steps.</p>
-    </details>
-    <details>
-      <summary>Can you work with our partners?</summary>
-      <p>We prefer it. Our partner collective accelerates delivery; we’ll also integrate your preferred vendors.</p>
-    </details>
-    <details>
-      <summary>Do you stay on to run it?</summary>
-      <p>We can. Options include advisory cadence, embedded operators, and managed services through our collective.</p>
-    </details>
-  </div>
-</section>
+    <!-- FAQ (collapsed accordions) -->
+    <section class="section narrative" id="faq" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title">FAQ</h2>
+      <div class="faq-list">
+        <details>
+          <summary>Are you vendor-neutral?</summary>
+          <p>Yes. We design for the workload and business outcome — across cloud, hosted, and on-prem — with clear trade-offs.</p>
+        </details>
+        <details>
+          <summary>How quickly do we see value?</summary>
+          <p>Within the first month we target self-funding quick wins (spend, latency, or sales hygiene) that pay for the next steps.</p>
+        </details>
+        <details>
+          <summary>Can you work with our partners?</summary>
+          <p>We prefer it. Our partner collective accelerates delivery; we’ll also integrate your preferred vendors.</p>
+        </details>
+        <details>
+          <summary>Do you stay on to run it?</summary>
+          <p>We can. Options include advisory cadence, embedded operators, and managed services through our collective.</p>
+        </details>
+      </div>
+    </section>
 
     <div class="cta-wrap">
       <a href="contact.html" class="cta-btn">Book an Intro Call</a>
@@ -402,13 +409,13 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST">
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
           <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
           <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" />
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
@@ -416,7 +423,7 @@
       <div class="footer-right">
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p>Phone: <a href="tel:+27 11 568 8667">+27 11 568 8667</a></p>
         <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
