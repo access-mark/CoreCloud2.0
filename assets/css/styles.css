@@ -33,6 +33,12 @@ img { max-width: 100%; height: auto; display: block; }
   /* Hero/banner heights */
   --hero-h-desktop: 500px;
   --hero-h-mobile: 220px;
+
+  /* Heading max width (single source) */
+  --heading-max: 1100px;
+
+  /* Common content max */
+  --content-max: 1000px;
 }
 
 /* Base */
@@ -50,13 +56,13 @@ h2{ font-size:1.8rem; font-weight:600; color:var(--dark-blue); margin-bottom:1re
 h3{ font-size:1.4rem; font-weight:600; color:var(--dark-blue); margin-bottom:.8rem; }
 p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
 
-/* Standard titles */
+/* Standard titles (single source for centering) */
 .hero-title{
   font-size:2rem; font-weight:700; color:var(--dark-blue);
-  text-align:center; margin:2.5rem auto 1rem;
+  text-align:center; margin:2.5rem auto 1rem; max-width:var(--heading-max);
 }
 .section-title{
-  font-size:2rem; text-align:center; color:var(--dark-blue); margin-bottom:1.5rem;
+  font-size:2rem; text-align:center; color:var(--dark-blue); margin-bottom:1.5rem; max-width:var(--heading-max); margin-left:auto; margin-right:auto;
 }
 
 /* ===== Header / Nav ===== */
@@ -119,18 +125,6 @@ nav.mobile-nav a{
 }
 nav.mobile-nav a:last-child{ border-bottom:none; }
 
-/* Open = full-screen overlay on mobile */
-#nav-toggle:checked ~ nav.mobile-nav{
-  display:flex; position:fixed; inset:0; top:0;
-  padding:5rem 1.5rem 2rem;
-  background:rgba(255,255,255,.9);
-  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
-  gap:1rem; border:0; box-shadow:none;
-}
-#nav-toggle:checked + label.hamburger span:nth-child(1){ transform:rotate(45deg) translate(5px,5px); }
-#nav-toggle:checked + label.hamburger span:nth-child(2){ opacity:0; }
-#nav-toggle:checked + label.hamburger span:nth-child(3){ transform:rotate(-45deg) translate(6px,-6px); }
-
 /* ===== Hero / Banner (standardised) ===== */
 .hero-media{
   width:100%;
@@ -166,9 +160,7 @@ main.content{
 }
 /* Tighter, consistent space between banner and hero title */
 .hero-media + .content .hero-title,
-.hero-media + section .hero-title{
-  margin-top: 1.5rem !important;
-}
+.hero-media + section .hero-title{ margin-top: 1.5rem !important; }
 .page-banner + .content .hero-title,
 .page-banner + section .hero-title{ margin-top:2.5rem !important; }
 .page-banner + section{ padding-top:0 !important; }
@@ -222,7 +214,7 @@ main.content{
   gap:1.25rem;
   height:100%;
   min-height:100%;
-  text-align:left; /* headings centered globally, content left; cards left by default */
+  text-align:left;
 }
 
 /* Card headings */
@@ -252,10 +244,8 @@ main.content{
 }
 
 /* ===== Alignment Policy: Corporate Clean ===== */
-/* Keep hero/section headings centered */
 .hero-title, .section-title{ text-align:center; }
 
-/* Default readable content to left-aligned site-wide */
 .content p,
 .content li,
 .content ul,
@@ -267,7 +257,6 @@ main.content{
 .content .card ul,
 .content .card ol { text-align:left !important; }
 
-/* Keep CTAs and single-line callouts centered where it makes sense */
 .content .cta,
 .content .cta-card,
 .content .equal-banner,
@@ -296,10 +285,7 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
 
   .hero-title{ font-size:2rem; }
 
-  /* Mobile hero/banner height */
-  .hero-media{ height: var(--hero-h-mobile); }
-  .page-banner{ height: var(--hero-h-mobile); }
-
+  /* Mobile hero/banner overlay & menu */
   .banner-header #nav-toggle:checked ~ nav.mobile-nav{
     display:flex !important; position:fixed; inset:0; top:0;
     padding:5rem 1.5rem 2rem; background:rgba(255,255,255,.9);
@@ -342,7 +328,6 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
 }
 
 /* === Linked cards & CTAs — single source of truth (no conflicts) === */
-/* When the entire card is a link: keep flex so the CTA can pin to the bottom */
 a.card,
 a.card:link,
 a.card:visited,
@@ -380,9 +365,7 @@ a.card .cta-btn {
 footer,
 footer p,
 footer h4,
-footer strong {
-  color: #fff !important;
-}
+footer strong { color: #fff !important; }
 
 /* Email links inside footer always white */
 .footer-right a[href^="mailto:"] {
@@ -390,44 +373,30 @@ footer strong {
   text-decoration: none;
   font-weight: 500;
 }
-.footer-right a[href^="mailto:"]:hover {
-  text-decoration: underline;
-}
+.footer-right a[href^="mailto:"]:hover { text-decoration: underline; }
 
 /* Legal links permanent red (use class="legal-link") */
 .footer-bottom .legal-link {
-  color: #ee1c25 !important;  /* permanent red */
+  color: #ee1c25 !important;
   text-decoration: underline;
   font-weight: 600;
 }
 
 /* LinkedIn permanent blue (use class="linkedin-link") */
 .footer-right .linkedin-link {
-  color: #0066b2 !important;  /* CoreCloud primary blue */
+  color: #0066b2 !important;
   text-decoration: underline;
   font-weight: 600;
 }
-
-/* Hover consistency */
 .footer-bottom .legal-link:hover,
-.footer-right .linkedin-link:hover {
-  opacity: 0.85;  /* subtle fade, no color shift */
-}
+.footer-right .linkedin-link:hover { opacity: 0.85; }
 
 /* ===== Blog Post Titles ===== */
-.post-title a {
-  text-decoration: none !important;
-  color: inherit !important;
-}
+.post-title a { text-decoration: none !important; color: inherit !important; }
 .post-title a:hover,
-.post-title a:focus {
-  text-decoration: underline;
-  color: var(--primary-blue);
-}
+.post-title a:focus { text-decoration: underline; color: var(--primary-blue); }
 
-/* ==== Blog page fixes (mobile & visual parity) ==== */
-
-/* Match .card style: blue border + subtle shadow */
+/* ==== Blog page (scoped) ==== */
 .blog-page .post-card{
   background:#fff;
   border:2px solid var(--dark-blue);
@@ -437,47 +406,70 @@ footer strong {
 
 /* Prevent long words/links from causing horizontal scroll */
 .blog-page .post-title,
-.blog-page .post-excerpt{
-  word-break: break-word;
-  overflow-wrap: anywhere;
-}
+.blog-page .post-excerpt{ word-break: break-word; overflow-wrap: anywhere; }
 
-/* Remove underlines on titles (keeps your clean look) */
-.blog-page .post-title a{
-  text-decoration:none;
-  color:inherit;
-}
+/* Remove underlines on titles */
+.blog-page .post-title a{ text-decoration:none; color:inherit; }
 
-/* Use auto-fit to avoid ghost columns; keep within container */
+/* Use auto-fit, keep within container */
 .blog-page .blog-grid{
   max-width: var(--container);
   margin: 0 auto;
-  padding: 0 1rem;              /* tighter edges to avoid overflow */
+  padding: 0 1rem;
+  display:grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 1rem;
 }
 
-/* Mobile: force single column, tighten spacing/padding */
-@media (max-width: 600px){
-  .blog-page .blog-grid{
-    grid-template-columns: 1fr !important;
-    padding: 0 .75rem;
-    gap: .75rem;
-  }
-  .blog-page .post-card{
-    padding: 1rem;
-  }
+/* Blog cards (SCOPED) */
+.blog-page .p-card {
+  display: flex; flex-direction: column;
+  border: 2px solid #004f91;
+  border-radius: 12px;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.blog-page .p-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.08); }
+
+/* Image handling */
+.blog-page .p-card img, .blog-page .p-card .thumb {
+  width: 100%; height: auto; display: block;
+  aspect-ratio: 16/9; object-fit: cover;
 }
 
-/* Pagination wraps on small screens (prevents horizontal scroll) */
-.blog-page .pagination{
-  flex-wrap: wrap;
-}
+/* Card body */
+.blog-page .p-card .body { padding: 14px; display: flex; flex-direction: column; gap: 8px; }
+.blog-page .p-card .kicker { font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; color: #0b3d72; opacity:.9; }
+.blog-page .p-card h3 { font-size: clamp(1rem, 2.5vw, 1.15rem); margin: 0; color: #0b3d72; line-height: 1.25; }
+.blog-page .p-card p { margin: 0; color: #333; line-height: 1.5; }
+.blog-page .p-card .meta { margin-top: auto; font-size: .85rem; color: #567; opacity:.9; }
+.blog-page .p-card a { text-decoration: none; color: inherit; }
 
-/* ---------- Blog layout fixes ---------- */
+/* Long words/links */
+.blog-page .p-card h3, .blog-page .p-card p { word-wrap: break-word; overflow-wrap: anywhere; }
+
+/* External link row wraps */
+.blog-page .p-card .ext { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+
+/* Top Story luminous border (optional) */
+.blog-page .p-card.top-story { position: relative; border-color: #0af; }
+.blog-page .p-card.top-story::before {
+  content:""; position:absolute; inset:-2px; border-radius: 14px;
+  background: radial-gradient(120% 120% at 50% -10%, rgba(0,178,255,.35), rgba(0,79,145,.15), transparent 70%);
+  z-index:0; filter: blur(4px); pointer-events:none;
+}
+.blog-page .p-card.top-story .body, .blog-page .p-card.top-story img { position: relative; z-index:1; }
+
+/* Blog pagination wraps on small screens */
+.blog-page .pagination{ flex-wrap: wrap; }
+
+/* Blog page wrap */
 .page-wrap {max-width: 1200px; margin: 0 auto; padding: 16px;}
 @media (min-width: 768px){ .page-wrap {padding: 24px;} }
 
+/* Blog tabs */
 .blog-tabs {
   display: flex; gap: 8px; border-bottom: 1px solid rgba(0,0,0,0.08);
   overflow-x: auto; white-space: nowrap; padding-bottom: 8px; margin-bottom: 16px;
@@ -490,198 +482,101 @@ footer strong {
 }
 .blog-tabs a.active { background: rgba(0,79,145,0.08); border-color: #004f91; }
 
-/* Responsive grid */
-.blog-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
-  align-items: stretch;
+/* Blog mobile tweaks */
+@media (max-width: 600px){
+  .blog-page .blog-grid{ grid-template-columns: 1fr !important; padding: 0 .75rem; gap: .75rem; }
+  .blog-page .post-card{ padding: 1rem; }
+  .blog-hero h1 { font-size: clamp(1.4rem, 3.8vw, 2.2rem); margin: 0 0 6px; }
+  .blog-hero p  { font-size: clamp(.95rem, 2.4vw, 1.05rem); margin: 0; }
 }
 
-/* Card */
-.p-card {
-  display: flex; flex-direction: column;
-  border: 2px solid #004f91; /* CoreCloud blue */
-  border-radius: 12px;
-  background: #ffffff;
-  overflow: hidden;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-.p-card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,0.08); }
-
-/* Image handling */
-.p-card img, .p-card .thumb {
-  width: 100%; height: auto; display: block;
-  aspect-ratio: 16/9; object-fit: cover;
-}
-
-/* Card body */
-.p-card .body { padding: 14px; display: flex; flex-direction: column; gap: 8px; }
-.p-card .kicker { font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; color: #0b3d72; opacity:.9; }
-.p-card h3 { font-size: clamp(1rem, 2.5vw, 1.15rem); margin: 0; color: #0b3d72; line-height: 1.25; }
-.p-card p { margin: 0; color: #333; line-height: 1.5; }
-.p-card .meta { margin-top: auto; font-size: .85rem; color: #567; opacity:.9; }
-.p-card a { text-decoration: none; color: inherit; }
-
-/* Long words/links */
-.p-card h3, .p-card p { word-wrap: break-word; overflow-wrap: anywhere; }
-
-/* Make external link row wrap nicely */
-.p-card .ext { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
-
-/* Top Story luminous border (optional) */
-.p-card.top-story { position: relative; border-color: #0af; }
-.p-card.top-story::before {
-  content:""; position:absolute; inset:-2px; border-radius: 14px;
-  background: radial-gradient(120% 120% at 50% -10%, rgba(0,178,255,.35), rgba(0,79,145,.15), transparent 70%);
-  z-index:0; filter: blur(4px); pointer-events:none;
-}
-.p-card.top-story .body, .p-card.top-story img { position: relative; z-index:1; }
-
-/* Footer CTA row alignment on mobile grids (if used inside cards) */
-.cta-row { display:flex; flex-wrap:wrap; gap:10px; }
-
-/* Utility for small muted text */
-.muted { color:#5a6b7a; opacity:.85; font-size:.9rem; }
-
-/* Ensure blog hero/banner text scales */
-.blog-hero h1 { font-size: clamp(1.4rem, 3.8vw, 2.2rem); margin: 0 0 6px; }
-.blog-hero p  { font-size: clamp(.95rem, 2.4vw, 1.05rem); margin: 0; }
-
-/* ===== HOTFIX: scope helpers so they don't break other pages ===== */
-
-/* (Removed global) .content .container { ... }  */
-/* Scope to pages only */
-.lowcode .content .container { padding: 0; }
+/* ----- Scoped lowcode / sovereign helpers (safe) ----- */
+.lowcode .content .container,
 .sovereign .content .container { padding: 0; }
 
-/* Low-Code scoped */
-.lowcode .container { max-width: var(--container); margin: 0 auto; padding: 16px; }
-@media (min-width:768px){ .lowcode .container { padding: 24px; } }
-
-.lowcode .grid-2, .lowcode .grid-3 { display:grid; gap:16px; align-items:start; }
-.lowcode .grid-2 { grid-template-columns: 1fr; }
-.lowcode .grid-3 { grid-template-columns: 1fr; }
-@media (min-width:900px){
-  .lowcode .grid-2 { grid-template-columns: 1.1fr .9fr; }
-  .lowcode .grid-3 { grid-template-columns: repeat(3,1fr); }
-}
-
-.lowcode .subnav{
-  display:flex; gap:8px; overflow-x:auto; white-space:nowrap;
-  border-bottom:1px solid rgba(0,0,0,.08); padding-bottom:8px; margin-bottom:16px;
-}
-.lowcode .subnav a{
-  flex:0 0 auto; padding:8px 12px; border-radius:999px; text-decoration:none;
-  font-weight:700; color:#0b3d72; border:1px solid rgba(11,61,114,.18);
-}
-.lowcode .subnav a.active{ background:rgba(0,79,145,.08); border-color:#004f91; }
-
-.lowcode .table-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
-.lowcode .table{ width:100%; border-collapse:collapse; font-size:.95rem; }
-.lowcode .table th, .lowcode .table td{ border:1px solid rgba(0,0,0,.1); padding:10px; text-align:left; }
-.lowcode .table th{ background:rgba(0,79,145,.06); color:#0b3d72; }
-
-.lowcode .badge-row{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
-.lowcode .badge{
-  padding:6px 10px; border:1px solid rgba(0,0,0,.12); border-radius:999px;
-  font-weight:600; color:#0b3d72; background:#f7fbff;
-}
-.lowcode .lowcode-logos{ display:flex; gap:14px; flex-wrap:wrap; align-items:center; }
-.lowcode .lowcode-logos img{ height:36px; width:auto; object-fit:contain; }
-
-.lowcode .note{
-  position:relative; border:2px solid #0af; border-radius:14px; padding:14px; background:#fff;
-}
-.lowcode .note::before{
-  content:""; position:absolute; inset:-2px; border-radius:16px;
-  background:radial-gradient(120% 120% at 50% -10%, rgba(0,178,255,.28), rgba(0,79,145,.12), transparent 70%);
-  filter:blur(4px); pointer-events:none;
-}
-.lowcode .note>*{ position:relative; z-index:1; }
-
-/* keep hero text scaling local to the page */
-.lowcode .hero h1{ font-size:clamp(1.4rem,3.8vw,2.2rem); margin:0 0 8px; color:var(--dark-blue); }
-.lowcode .hero p { font-size:clamp(.95rem,2.4vw,1.05rem); margin:0; color:#445; }
-
-/* Sovereign scoped (same patterns) */
+.lowcode .container,
 .sovereign .container { max-width: var(--container); margin: 0 auto; padding: 16px; }
-@media (min-width:768px){ .sovereign .container { padding: 24px; } }
-
-.sovereign .grid-2, .sovereign .grid-3 { display:grid; gap:16px; align-items:start; }
-.sovereign .grid-2 { grid-template-columns: 1fr; }
-.sovereign .grid-3 { grid-template-columns: 1fr; }
-@media (min-width:900px){
-  .sovereign .grid-2 { grid-template-columns: 1.1fr .9fr; }
-  .sovereign .grid-3 { grid-template-columns: repeat(3,1fr); }
+@media (min-width:768px){
+  .lowcode .container, .sovereign .container { padding: 24px; }
 }
 
-.sovereign .subnav{
+.lowcode .grid-2, .lowcode .grid-3,
+.sovereign .grid-2, .sovereign .grid-3 { display:grid; gap:16px; align-items:start; }
+.lowcode .grid-2, .sovereign .grid-2 { grid-template-columns: 1fr; }
+.lowcode .grid-3, .sovereign .grid-3 { grid-template-columns: 1fr; }
+@media (min-width:900px){
+  .lowcode .grid-2, .sovereign .grid-2 { grid-template-columns: 1.1fr .9fr; }
+  .lowcode .grid-3, .sovereign .grid-3 { grid-template-columns: repeat(3,1fr); }
+}
+
+.lowcode .subnav, .sovereign .subnav{
   display:flex; gap:8px; overflow-x:auto; white-space:nowrap;
   border-bottom:1px solid rgba(0,0,0,.08); padding-bottom:8px; margin-bottom:16px;
 }
-.sovereign .subnav a{
+.lowcode .subnav a, .sovereign .subnav a{
   flex:0 0 auto; padding:8px 12px; border-radius:999px; text-decoration:none;
   font-weight:700; color:#0b3d72; border:1px solid rgba(11,61,114,.18);
 }
-.sovereign .subnav a.active{ background:rgba(0,79,145,.08); border-color:#004f91; }
+.lowcode .subnav a.active, .sovereign .subnav a.active{ background:rgba(0,79,145,.08); border-color:#004f91; }
 
-.sovereign .table-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
-.sovereign .table{ width:100%; border-collapse:collapse; font-size:.95rem; }
+.lowcode .table-wrap, .sovereign .table-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.lowcode .table, .sovereign .table{ width:100%; border-collapse:collapse; font-size:.95rem; }
+.lowcode .table th, .lowcode .table td,
 .sovereign .table th, .sovereign .table td{ border:1px solid rgba(0,0,0,.1); padding:10px; text-align:left; }
-.sovereign .table th{ background:rgba(0,79,145,.06); color:#0b3d72; }
+.lowcode .table th, .sovereign .table th{ background:rgba(0,79,145,.06); color:#0b3d72; }
 
-.sovereign .badge-row{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
-.sovereign .badge{
+.lowcode .badge-row, .sovereign .badge-row{ display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
+.lowcode .badge, .sovereign .badge{
   padding:6px 10px; border:1px solid rgba(0,0,0,.12); border-radius:999px;
   font-weight:600; color:#0b3d72; background:#f7fbff;
 }
 
-.sovereign .note{
+.lowcode .note, .sovereign .note{
   position:relative; border:2px solid #0af; border-radius:14px; padding:14px; background:#fff;
 }
-.sovereign .note::before{
+.lowcode .note::before, .sovereign .note::before{
   content:""; position:absolute; inset:-2px; border-radius:16px;
   background:radial-gradient(120% 120% at 50% -10%, rgba(0,178,255,.28), rgba(0,79,145,.12), transparent 70%);
   filter:blur(4px); pointer-events:none;
 }
+.lowcode .note>*,
 .sovereign .note>*{ position:relative; z-index:1; }
 
-.sovereign .hero h1{ font-size:clamp(1.4rem,3.8vw,2.2rem); margin:0 0 8px; color:var(--dark-blue); }
-.sovereign .hero p { font-size:clamp(.95rem,2.4vw,1.05rem); margin:0; color:#445; }
+.lowcode .hero h1, .sovereign .hero h1{ font-size:clamp(1.4rem,3.8vw,2.2rem); margin:0 0 8px; color:var(--dark-blue); }
+.lowcode .hero p,  .sovereign .hero p { font-size:clamp(.95rem,2.4vw,1.05rem); margin:0; color:#445; }
 
-/* Extra safety for tiny screens */
 @media (max-width:600px){
   .lowcode .container, .sovereign .container { padding:14px; }
 }
+
 /* === Hosting page alignment (page-scoped) === */
 .hosting-page .hero-intro,
 .hosting-page .hero-intro h1,
-.hosting-page .hero-intro p {
-  text-align: left !important;
-}
+.hosting-page .hero-intro p { text-align: left !important; }
 
 .hosting-page .hero-intro {
   max-width: 900px;
-  margin: 2rem auto 1rem; /* keeps your standard rhythm */
+  margin: 2rem auto 1rem;
 }
+
 /* === Extra spacing above Best Venue strip === */
 .best-venue-section {
-  margin-top: 4rem !important;  /* increase top margin */
-  padding-top: 2rem;            /* add internal breathing room */
+  margin-top: 4rem !important;
+  padding-top: 2rem;
 }
-/* Nav squeeze for desktop */
+
+/* Nav squeeze for desktop (wins over earlier sizing) */
 nav.desktop-nav { gap: .55rem; }
 nav.desktop-nav .nav-btn {
   font-size: .78rem;       /* was .82rem */
   padding: .30rem .50rem;  /* was .35rem .6rem */
 }
+
 /* Home — align the Hybrid section with the main content grid */
 .home-page .best-venue-section{
   max-width: calc(var(--container) + 200px) !important;
   margin: 0 auto !important;
-  padding: 0 1.5rem 0 !important; /* same side padding as .content */
+  padding: 0 1.5rem 0 !important;
 }
 
 /* Keep the copy readable and centered */
@@ -695,157 +590,57 @@ nav.desktop-nav .nav-btn {
 .home-page .best-venue-section .section-title{
   margin-bottom: .6rem !important;
 }
-/* FinOps: force heading centering (safe + scoped) */
-.finops-page .hero-intro,
-.finops-page .hero-title,
-.finops-page .section-title{
+
+/* FinOps: headings centered (subheads remain left inside panels) */
+.finops-page .panel :is(h3, h4){ text-align: left !important; }
+
+/* Fallbacks: normalize headings even if classes missing */
+main.content > h1:first-of-type:not(.hero-title){
+  font-size:2.0rem; font-weight:700; color:var(--dark-blue);
+  text-align:center; margin:1.5rem auto 1rem; display:block;
+  max-width:var(--heading-max);
+}
+section > h2:first-child:not(.section-title){
+  font-size:2rem; font-weight:600; color:var(--dark-blue);
+  text-align:center; margin:0 0 1.5rem; display:block;
+}
+
+/* Lists & paragraphs: consistent rhythm */
+.content p{ font-size:1rem; line-height:1.7; margin:.52rem 0 1rem; }
+.content li{ margin:.35rem 0; }
+.cloud-page .hybrid-callout {
   text-align: center !important;
-  display: block;
   margin-left: auto;
   margin-right: auto;
 }
-/* ===== FinOps: bullet-proof heading centering ===== */
-.finops-page :is(h1.hero-title, h2.section-title){
-  text-align: center !important;
-  display: block !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
+
+/* Common content containers across pages */
+.hero-intro,
+.section .section-title,
+.section > p,
+.card-grid,
+.services-grid,
+.metrics,
+.narrative{
+  max-width: var(--content-max);
+  margin-left:auto;
+  margin-right:auto;
+  padding-left:1rem;
+  padding-right:1rem;
 }
 
-/* Target the three problem titles explicitly */
-.finops-page #outcomes-title,
-.finops-page #loop-title,
-.finops-page #wins-title{
-  text-align: center !important;
-  display: block !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
+/* Narrower blog articles */
+.post-page .post-wrap{ max-width: 900px; }
 
-/* Keep subheads inside panels left-aligned */
-.finops-page .panel :is(h3, h4){ text-align: left !important; }
-
-/* Ensure narrative containers don't override titles */
-.finops-page .narrative h2.section-title{ text-align: center !important; }
-/* ===== Page-scoped title centering for narrative/panel pages ===== */
-/* Center all top-level titles on these pages */
-:is(.appdev-page, .finops-page, .dataai-page, .cloud-page, .consulting-page, .hosting-page)
-  :is(h1.hero-title, h2.section-title){
-  text-align: center !important;
-  display: block !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* Keep subheads inside panels/cards left */
-:is(.appdev-page, .finops-page, .dataai-page, .cloud-page, .consulting-page, .hosting-page)
-  :is(.panel h3, .panel h4, .card h3, .card h4){
-  text-align: left !important;
-}
-
-/* If any section titles live inside a `.narrative` wrapper, still center them */
-:is(.appdev-page, .finops-page, .dataai-page) .narrative h2.section-title{
-  text-align: center !important;
-}
-
-/* Hosting hero: title centered, body copy left */
-.hosting-page .hero-intro .hero-title{ text-align: center !important; }
-/* ===== Global heading alignment hard-fix (site-wide) ===== */
-:root { --heading-max: 1100px; }
-
-/* Force hero + section titles centered regardless of parent alignment */
-.hero-title,
-.section-title,
-.content h1.hero-title,
-.content h2.section-title,
-.narrative > .section-title,
-.wins > .section-title {
-  text-align: center !important;
-  display: block !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  max-width: var(--heading-max);
-}
-
-/* Page scopes (belt-and-braces) */
-.finops-page .hero-intro,
-.finops-page .hero-title,
-.finops-page .section-title,
-.appdev-page .hero-intro,
-.appdev-page .hero-title,
-.appdev-page .section-title,
-.hosting-page .hero-intro,
-.hosting-page .hero-title,
-.hosting-page .section-title {
-  text-align: center !important;
-}
-
-/* Keep body copy/bullets left-aligned (titles above are unaffected) */
-.narrative p,
-.narrative ul,
-.narrative li,
-.wins ul,
-.wins li {
-  text-align: left !important;
-}
-/* === FINAL LOCK: center hero + section titles site-wide === */
-:root { --heading-max: 1100px; }
-
-html body :is(h1.hero-title, h2.section-title){
-  text-align: center !important;
-  display: block !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  max-width: var(--heading-max);
-}
-
-/* Keep subheads inside panels/cards left-aligned */
-.panel :is(h3, h4),
-.card  :is(h3, h4){ text-align: left !important; }
-/* --- FINAL canonical title centering (scoped) --- */
-.center-titles h1.hero-title,
-.center-titles h2.section-title {
-  text-align: center !important;
-  display: block !important;
-  width: 100% !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-/* ---- Tiny, page-scoped title centering fix (safe) ---- */
-.finops-page h1.hero-title,
-.finops-page h2.section-title,
-.appdev-page h1.hero-title,
-.appdev-page h2.section-title {
-  text-align: center !important;
-  display: block !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  width: 100% !important;
-}
-/* --- App Dev: nudge narrative sections to the right (safe + scoped) --- */
-.appdev-page .narrative{
-  padding-left: 1.25rem;          /* small nudge on mobile */
-}
-
-@media (min-width: 768px){
-  .appdev-page .narrative{ padding-left: 2rem; }
-  .appdev-page .kv-list{ margin-left: 2rem; }   /* bullets move with it */
-  .appdev-page .desc{ margin-left: 1.2rem; }
-}
-
-@media (min-width: 1100px){
-  .appdev-page .narrative{ padding-left: 3rem; } /* bigger nudge on desktop */
-}
-/* Footer: phone link white, no underline (sitewide) */
+/* Footer: phone link white, no underline */
 .footer-right a[href^="tel"]{
   color:#fff !important;
   text-decoration:none !important;
   font-weight:700;
 }
-.footer-right a[href^="tel"]:hover{
-  text-decoration:none !important;
-}
-/* === Sitewide form control baseline (used by footer subscribe too) === */
+.footer-right a[href^="tel"]:hover{ text-decoration:none !important; }
+
+/* Sitewide form control baseline (used by footer subscribe too) */
 .form-control{
   padding:.75rem;
   border:1px solid #ccc;
@@ -863,13 +658,10 @@ html body :is(h1.hero-title, h2.section-title){
 footer #subscribe-form{
   display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;
 }
-footer #subscribe-form .form-control{
-  min-width:220px; flex:1;
-}
-footer #subscribe-form .cta-btn{
-  min-height:48px;
-}
-/* Footer subscribe: hide visible label (keep it for screen readers) */
+footer #subscribe-form .form-control{ min-width:220px; flex:1; }
+footer #subscribe-form .cta-btn{ min-height:48px; }
+
+/* Footer subscribe: hide visible label (keep for screen readers) */
 footer #subscribe-form label{
   position:absolute !important;
   width:1px !important; height:1px !important;
@@ -877,41 +669,3 @@ footer #subscribe-form label{
   overflow:hidden !important; clip:rect(0 0 0 0) !important;
   white-space:nowrap !important; border:0 !important;
 }
-/* Fallbacks: normalize headings even if classes missing */
-main.content > h1:first-of-type:not(.hero-title){
-  font-size:2.0rem; font-weight:700; color:var(--dark-blue);
-  text-align:center; margin:1.5rem auto 1rem; display:block;
-  max-width:var(--heading-max,1100px);
-}
-section > h2:first-child:not(.section-title){
-  font-size:2rem; font-weight:600; color:var(--dark-blue);
-  text-align:center; margin:0 0 1.5rem; display:block;
-}
-
-/* Lists & paragraphs: consistent rhythm */
-.content p{ font-size:1rem; line-height:1.7; margin:.52rem 0 1rem; }
-.content li{ margin:.35rem 0; }
-.cloud-page .hybrid-callout {
-  text-align: center !important;
-  margin-left: auto;
-  margin-right: auto;
-}
-:root{ --content-max: 1000px; }
-
-/* Common content containers across pages */
-.hero-intro,
-.section .section-title,
-.section > p,
-.card-grid,
-.services-grid,
-.metrics,
-.narrative{
-  max-width: var(--content-max);
-  margin-left:auto;
-  margin-right:auto;
-  padding-left:1rem;
-  padding-right:1rem;
-}
-
-/* If you prefer blog articles narrower, keep this override: */
-.post-page .post-wrap{ max-width: 900px; }
