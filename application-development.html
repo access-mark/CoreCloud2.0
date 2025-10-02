@@ -23,17 +23,15 @@
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
+  <!-- Page-scoped styles -->
   <style>
-    /* ===== Global overflow guards (keep mobile fixed) ===== */
-    html, body { width:100%; max-width:100%; overflow-x:hidden; }
-    *, *::before, *::after { box-sizing:border-box; }
-    img, svg, video { max-width:100%; height:auto; display:block; }
-
-    /* ===== Page containers ===== */
-    .appdev .hero-media,
-    .appdev .inpage-nav { overflow-x:clip; }
-    .appdev main.content { width:100%; max-width:1100px; margin:0 auto; padding:0 1rem; } /* NEW: desktop width */
-    .appdev .section { overflow-x:clip; }
+    /* --- Safety + Layout guards to prevent mobile cut-off/side-scroll --- */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{max-width:100%;overflow-x:hidden}
+    img{max-width:100%;height:auto;display:block}
+    .appdev .content{overflow:visible}
+    /* prevent any child from exceeding viewport width */
+    .appdev main, .appdev .section, .appdev .card-grid, .appdev .inpage-nav{width:100%;max-width:100%}
 
     /* a11y */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
@@ -47,96 +45,101 @@
 
     /* sections */
     .appdev .section{padding:1.6rem 0;}
-    .appdev .section-title{margin:0 0 .75rem;}
-    .appdev-page :is(h1.hero-title, h2.section-title){
-      text-align:center !important; display:block !important;
-      margin-left:auto !important; margin-right:auto !important;
-      max-width:100%; padding:0 1rem;
-    }
+    .appdev .section-title{margin:0 0 .75rem;text-align:center}
 
     /* in-page nav chips */
     .inpage-nav{
-      display:flex;gap:10px;padding:.5rem 1rem;margin:0 auto 1rem;max-width:1100px;
-      justify-content:center;flex-wrap:wrap;overflow:visible;
+      display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+      padding:.5rem 1rem;margin:0 auto 1rem;max-width:1000px;overflow-x:auto;scrollbar-width:none;
     }
+    .inpage-nav::-webkit-scrollbar{display:none;}
     .inpage-nav a{
       white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;
       padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;
     }
-    @media (max-width:720px){
-      .inpage-nav{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-inline:contain;}
-      .inpage-nav::-webkit-scrollbar{display:none;}
-    }
 
-    /* ===== Bulletless lists ===== */
-    .points, .checklist, .metrics, .faq-list, .points ul, .points ol { list-style:none; padding-left:0; margin-left:0; }
-    .points li, .checklist li { margin:.3rem 0; line-height:1.7; }
-    ol.points { counter-reset:none; } /* no numbers */
+    /* narrative items — no bullets/numbers */
+    .points{list-style:none;padding-left:0;margin:.25rem 0;}
+    .points li{margin:.3rem 0;line-height:1.7;}
+    /* ordered list look without numbers (we already prefix with Week/Days in text) */
+    .points--ordered{list-style:none;padding-left:0;margin:.25rem 0;}
     .muted{color:#5a6b85;font-size:.95rem}
 
-    /* metrics rows — wrap safely on small screens, align nicely on desktop */
-    .metrics{display:grid;gap:.45rem;max-width:100%;margin:0 auto;padding:0;}
-    .metric{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:.75rem;
-      border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; flex-wrap:wrap;
-    }
-    .metric span{flex:1 1 420px; min-width:0;}
-    .metric b{flex:0 0 auto; margin-left:auto; color:#0b3d72;}
+    /* metrics rows */
+    .metrics{display:grid;gap:.45rem;max-width:1000px;margin:0 auto;padding:0 1rem;}
+    .metric{display:flex;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;}
+    .metric b{color:#0b3d72;}
 
-    /* inline CTA */
+    /* inline CTA (dark) */
     .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.6rem 0;text-align:center;}
     .inline-cta p{margin:.55rem 0 0;color:#fff !important;}
-    .appdev .cta-btn{padding:.85rem 1.05rem;display:inline-block;}
+    .appdev .cta-btn{padding:.75rem 1rem;display:inline-block;}
 
     /* cards */
-    .card-grid{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;width:100%;
-    }
-    @media (min-width:1200px){
-      .card-grid{grid-template-columns:repeat(4,1fr);} /* crisp desktop 4-up where space allows */
-    }
-    @media (max-width:380px){
-      .card-grid{grid-template-columns:1fr;}
-    }
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
     .card{
       border:1px solid #e4e8f1;border-radius:12px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.04);
-      padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;min-width:0;width:100%;
+      padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;min-width:0;
     }
     .card h3{margin:.25rem 0 .35rem}
     .card p{margin:0;color:#444}
     .card .cta-btn{margin-top:.4rem;align-self:flex-start}
 
-    /* FAQ accordions */
-    .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12);}
-    .faq-list details:last-of-type{border-bottom:none;}
-    .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none;}
-    .faq-list p{margin:.45rem 0 0;}
+    /* FAQ (no bullets) */
+    .faq h3{margin:.6rem 0 .25rem}
+    .faq p{margin:.35rem 0}
 
-    /* wrap/overflow safety */
-    .appdev .content, .appdev .content p, .appdev .content li, .appdev .content a{
-      word-break:break-word; overflow-wrap:anywhere;
-    }
-
-    /* tables (if ever used) */
-    .appdev .table-wrap{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
-    .appdev table{width:100%;border-collapse:collapse;margin:1rem 0}
-    .appdev th,.appdev td{border:1px solid #e4e8f1;padding:.6rem;text-align:left}
-    .appdev thead th{background:#f7f9fc}
-
-    /* mobile tweaks */
+    /* mobile */
     @media (max-width:768px){
       .appdev .hero-intro{padding:0 1rem}
       .appdev .section{padding:1.25rem 0}
       .hero-title{font-size:1.8rem;line-height:1.2}
     }
 
-    /* Header safety */
-    .small-banner .banner-header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
-    .desktop-nav, .mobile-nav{max-width:100%;overflow-x:auto;}
+    /* 4-up layout for “Deep Dives” on large screens */
+    @media (min-width:1100px){
+      #deep-dives .card-grid{grid-template-columns:repeat(4,1fr)}
+    }
   </style>
+
+  <!-- JSON-LD: Service + Breadcrumbs + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"CoreCloud — Application Development",
+    "description":"Product-minded engineering with security, governance, and FinOps by design. MVP to scale without rework.",
+    "provider":{"@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png"},
+    "areaServed":"ZA",
+    "serviceOutput":"Production-ready applications with measurable reliability and cost posture",
+    "url":"https://www.corecloudza.com/application-development.html",
+    "offers":{"@type":"Offer","availability":"https://schema.org/InStock"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+      {"@type":"ListItem","position":2,"name":"Application Development","item":"https://www.corecloudza.com/application-development.html"}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Low-code or custom — how do you choose?","acceptedAnswer":{"@type":"Answer","text":"We use a simple matrix across complexity, change-rate, integration depth, compliance, and scale. Often a two-tier approach wins: workflows/UI in low-code, domain services as APIs so you can swap UIs later."}},
+      {"@type":"Question","name":"How fast to a real MVP?","acceptedAnswer":{"@type":"Answer","text":"~30 days is typical for a production-quality MVP with identity, logging, error handling, and rollback — then iterate weekly without rework."}},
+      {"@type":"Question","name":"Will governance slow delivery?","acceptedAnswer":{"@type":"Answer","text":"No. Guardrails (IAM, secrets, audit, tagging) run in the background. We prioritise quick wins and keep release flow fast with fit-for-purpose checks."}}
+    ]
+  }
+  </script>
 </head>
 
-<body class="appdev appdev-page">
+<body class="appdev">
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- Header / Nav -->
@@ -234,12 +237,12 @@
     <!-- 30-day MVP -->
     <section class="section" id="mvp30" aria-labelledby="mvp-title">
       <h2 id="mvp-title" class="section-title">30-Day MVP (Production-Quality)</h2>
-      <ol class="points">
+      <ul class="points points--ordered">
         <li><strong>Week 1:</strong> journeys, golden paths, DOR/DOD, metrics of “done”.</li>
         <li><strong>Week 2:</strong> scaffolding, identity, error handling, and two end-to-end flows in sandbox.</li>
         <li><strong>Week 3:</strong> logging, audit, access control, and UAT with 10–20 users.</li>
         <li><strong>Week 4:</strong> load test hotspots, runbook/rollback, go-live.</li>
-      </ol>
+      </ul>
       <div class="inline-cta">
         <strong>Need to ship in weeks?</strong>
         <p>We’ll stand up a production-ready MVP in ~30 days — with clean exits to scale.</p>
@@ -321,23 +324,15 @@
       </div>
     </section>
 
-    <!-- FAQ (collapsed) -->
-    <section class="section" id="faq" aria-labelledby="faq-title">
+    <!-- FAQ -->
+    <section class="section faq" id="faq" aria-labelledby="faq-title">
       <h2 id="faq-title" class="section-title">FAQ</h2>
-      <div class="faq-list">
-        <details>
-          <summary>Low-code or custom — how do you choose?</summary>
-          <p>We use a simple matrix across complexity, change-rate, integration depth, compliance, and scale. Often a two-tier approach wins: workflows/UI in low-code, domain services as APIs so you can swap UIs later.</p>
-        </details>
-        <details>
-          <summary>How fast to a real MVP?</summary>
-          <p>~30 days is typical for a production-quality MVP with identity, logging, error handling, and rollback — then iterate weekly without rework.</p>
-        </details>
-        <details>
-          <summary>Will governance slow delivery?</summary>
-          <p>No. Guardrails (IAM, secrets, audit, tagging) run in the background. We prioritise quick wins and keep release flow fast with fit-for-purpose checks.</p>
-        </details>
-      </div>
+      <h3>Do you work with our stack?</h3>
+      <p>Yes. We’re comfortable with common stacks on AWS/Azure and on hosted/private cloud. We pick tools that fit your ops model and skills.</p>
+      <h3>How do you avoid lock-in?</h3>
+      <p>Keep domain logic in services, keep data portable, and treat low-code configs as code. You can swap UIs later without rewriting the core.</p>
+      <h3>Can you integrate with our partners?</h3>
+      <p>Yes — we prefer it. Our curated collective plus your existing vendors keeps delivery practical and accountable.</p>
     </section>
   </main>
 
