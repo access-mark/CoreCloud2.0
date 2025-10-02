@@ -23,7 +23,7 @@
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
-  <!-- Page-scoped styles (match Cloud/Consulting spacing) -->
+  <!-- Page-scoped styles (match Cloud/Consulting spacing + title alignment + FAQ accordions) -->
   <style>
     /* a11y */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
@@ -39,9 +39,19 @@
     .appdev .section{padding:1.6rem 0;}
     .appdev .section-title{margin:0 0 .75rem;}
 
-    /* in-page nav chips (optional scroll if overflow) */
-    .inpage-nav{display:flex;gap:10px;overflow:auto;padding:.5rem 1rem;margin:0 auto 1rem;max-width:1000px;}
-    .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;}
+    /* in-page nav chips */
+    .inpage-nav{
+      display:flex;gap:10px;padding:.5rem 1rem;margin:0 auto 1rem;max-width:1000px;
+      justify-content:center;flex-wrap:wrap;overflow:visible;
+    }
+    .inpage-nav a{
+      white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;
+      padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;
+    }
+    @media (max-width:720px){
+      .inpage-nav{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+      .inpage-nav::-webkit-scrollbar{display:none;}
+    }
 
     /* narrative lists */
     .points{padding-left:1.25rem;margin:.25rem 0;}
@@ -54,22 +64,27 @@
     .metric b{color:#0b3d72;}
 
     /* inline CTA (dark) */
-    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.6rem 0;}
+    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.6rem 0;text-align:center;}
     .inline-cta p{margin:.55rem 0 0;color:#fff !important;}
-    /* ensure comfy buttons regardless of global overrides */
-    .appdev .cta-btn{padding:.75rem 1rem;display:inline-block;}
+    .appdev .cta-btn{padding:.85rem 1.05rem;display:inline-block;}
 
-    /* card grid for deep dives */
+    /* cards */
     .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
     .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.04);padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;}
     .card h3{margin:.25rem 0 .35rem}
     .card p{margin:0;color:#444}
     .card .cta-btn{margin-top:.4rem;align-self:flex-start}
 
+    /* FAQ accordions */
+    .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12);}
+    .faq-list details:last-of-type{border-bottom:none;}
+    .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none;}
+    .faq-list p{margin:.45rem 0 0;}
+
     /* wrap/overflow safety */
     .appdev .content, .appdev .content p, .appdev .content li, .appdev .content a{word-break:break-word;overflow-wrap:anywhere;}
 
-    /* table safety (if needed) */
+    /* tables (if needed) */
     .appdev .table-wrap{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appdev table{width:100%;border-collapse:collapse;margin:1rem 0}
     .appdev th,.appdev td{border:1px solid #e4e8f1;padding:.6rem;text-align:left}
@@ -82,13 +97,20 @@
       .hero-title{font-size:1.8rem;line-height:1.2}
     }
 
-    /* 4-up layout for "What We Build — Deep Dives" on large screens */
-@media (min-width: 1100px){
-  .appdev #deep-dives .card-grid{
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
+    /* Title alignment fix (match Cloud/Consulting) */
+    .appdev-page :is(h1.hero-title, h2.section-title){
+      text-align:center !important;
+      display:block !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+      max-width:1000px;
+      padding:0 1rem;
+    }
 
+    /* 4-up layout for Deep Dives on large screens */
+    @media (min-width:1100px){
+      .appdev #deep-dives .card-grid{grid-template-columns:repeat(4,1fr);}
+    }
   </style>
 
   <!-- JSON-LD: Service + Breadcrumbs + FAQ -->
@@ -128,7 +150,7 @@
   </script>
 </head>
 
-<body class="appdev">
+<body class="appdev appdev-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- Header / Nav -->
@@ -286,7 +308,7 @@
       </div>
     </section>
 
-    <!-- Deep dives (cards linking to subpages) -->
+    <!-- Deep dives -->
     <section class="section" id="deep-dives" aria-labelledby="deep-title">
       <h2 id="deep-title" class="section-title">What We Build — Deep Dives</h2>
       <div class="card-grid" style="margin-top:.5rem;">
@@ -313,17 +335,23 @@
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ (collapsed) -->
     <section class="section" id="faq" aria-labelledby="faq-title">
       <h2 id="faq-title" class="section-title">FAQ</h2>
-      <h3>Do you work with our stack?</h3>
-      <p>Yes. We’re comfortable with common stacks on AWS/Azure and on hosted/private cloud. We pick tools that fit your ops model and skills.</p>
-
-      <h3>How do you avoid lock-in?</h3>
-      <p>Keep domain logic in services, keep data portable, and treat low-code configs as code. You can swap UIs later without rewriting the core.</p>
-
-      <h3>Can you integrate with our partners?</h3>
-      <p>Yes — we prefer it. Our curated collective plus your existing vendors keeps delivery practical and accountable.</p>
+      <div class="faq-list">
+        <details>
+          <summary>Low-code or custom — how do you choose?</summary>
+          <p>We use a simple matrix across complexity, change-rate, integration depth, compliance, and scale. Often a two-tier approach wins: workflows/UI in low-code, domain services as APIs so you can swap UIs later.</p>
+        </details>
+        <details>
+          <summary>How fast to a real MVP?</summary>
+          <p>~30 days is typical for a production-quality MVP with identity, logging, error handling, and rollback — then iterate weekly without rework.</p>
+        </details>
+        <details>
+          <summary>Will governance slow delivery?</summary>
+          <p>No. Guardrails (IAM, secrets, audit, tagging) run in the background. We prioritise quick wins and keep release flow fast with fit-for-purpose checks.</p>
+        </details>
+      </div>
     </section>
   </main>
 
