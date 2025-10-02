@@ -25,8 +25,13 @@
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/finops-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped styles (narrative, aligned to Cloud/Consulting) -->
+  <!-- Page-scoped styles -->
   <style>
+    /* a11y: skip link */
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+    .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
+
+    /* Hero + intro */
     .finops-page .hero-media{ margin-bottom:2rem; }
     .finops-page .hero-title{
       font-size:2rem; color:var(--dark-blue); font-weight:700;
@@ -36,16 +41,16 @@
       text-align:center; max-width:1000px; margin:0 auto 1.1rem; padding:0 1rem; color:#444;
     }
 
-    /* Narrative containers */
+    /* Sections / narrative */
     .section{ margin:2rem 0; }
     .section-title{ margin:0 0 .75rem; }
     .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; color:#444; line-height:1.75; }
-    .narrative h3{ font-size:1.08rem; color:var(--dark-blue); margin:.6rem 0 .25rem; }
+    .narrative h3{ font-size:1.08rem; color:var(--dark-blue); margin:.6rem 0 .25rem; text-align:left; }
     .narrative p{ margin:.4rem 0; }
     .narrative ul{ margin:.25rem 0 0 1.2rem; }
     .narrative li{ margin:.28rem 0; }
 
-    /* Chip in-page nav (simple, no cards) */
+    /* Chips */
     .inpage-nav{
       display:flex; flex-wrap:wrap; gap:8px;
       margin:0 auto .75rem; padding:.25rem .75rem; max-width:1000px; justify-content:center;
@@ -55,11 +60,11 @@
       text-decoration:none; color:#0d3b66; font-weight:600; background:#fff; white-space:nowrap; font-size:.95rem;
     }
 
-    /* Checklist bullets (disc style) */
+    /* Lists */
     .checklist{ margin:.25rem 0 0 1.2rem; padding:0; }
     .checklist li{ list-style:disc; margin:.3rem 0; }
 
-    /* Metrics (inline rows) */
+    /* Metrics */
     .metrics{ display:grid; gap:.45rem; max-width:1000px; margin:0 auto; padding:0 1rem; }
     .metric{ display:flex; justify-content:space-between; gap:.75rem; border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; }
     .metric b{ color:#0b3d72; }
@@ -67,7 +72,7 @@
     /* Inline CTA */
     .inline-cta{ background:#0d3b66; color:#fff; padding:1rem 1.2rem; border-radius:12px; margin:1.25rem 0; text-align:center; }
     .inline-cta p{ margin:.5rem 0 0; color:#fff !important; }
-    .cta-btn{ padding:.78rem 1.05rem; } /* comfy */
+    .cta-btn{ padding:.78rem 1.05rem; }
 
     /* Safety */
     .finops-page .content, .finops-page .content p, .finops-page .content li, .finops-page .content a{
@@ -80,9 +85,19 @@
       .finops-page .hero-title{ font-size:1.8rem; line-height:1.2; }
     }
 
-    /* Footer phone link white */
+    /* Footer phone link white (belt-and-braces) */
     footer .footer-right a[href^="tel:"]{ color:#fff !important; text-decoration:none; font-weight:500; }
     footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
+
+    /* --- Title alignment hardening for this page --- */
+    .finops-page :is(h1.hero-title, h2.section-title){
+      text-align:center !important;
+      display:block !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+    }
+    /* Subheads stay left */
+    .finops-page :is(.narrative h3, .panel h3, .panel h4){ text-align:left !important; }
   </style>
 
   <!-- JSON-LD (Service + Breadcrumbs + FAQ) -->
@@ -123,10 +138,14 @@
 </head>
 
 <body class="finops-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <!-- Header -->
-  <div class="small-banner">
+  <header class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+      <a href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+      </a>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
@@ -163,7 +182,7 @@
         <a href="contact.html">CONTACT</a>
       </nav>
     </div>
-  </div>
+  </header>
 
   <!-- Hero -->
   <div class="hero-media" role="img" aria-label="FinOps foundations and quick wins">
@@ -200,7 +219,7 @@
         <h2 id="signals-title" class="section-title">Signals You Might Need FinOps Help</h2>
         <ul class="checklist">
           <li>High bill, low elasticity; owners can’t explain this month’s spikes</li>
-          <li>Tagging coverage < 70%; budgets exist but no one gets alerted</li>
+          <li>Tagging coverage &lt; 70%; budgets exist but no one gets alerted</li>
           <li>Idle storage/IPs/DBs linger because “someone might use it”</li>
           <li>Commitments under-utilised; vendor options unclear</li>
           <li>No single rhythm across cloud, hosted, and on-prem spend</li>
@@ -299,7 +318,7 @@
 
     <!-- Benchmarks -->
     <section class="section" id="benchmarks" aria-labelledby="bench-title">
-      <h2 id="bench-title" class="section-title" style="text-align:center;">Results & Benchmarks</h2>
+      <h2 id="bench-title" class="section-title">Results & Benchmarks</h2>
       <div class="metrics">
         <div class="metric"><span>Run-rate reduction on steady workloads</span><b>15–35% in 30–60 days</b></div>
         <div class="metric"><span>Commitment coverage with healthy utilisation</span><b>≥ 70% coverage, ≥ 85% util</b></div>
