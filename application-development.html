@@ -23,14 +23,20 @@
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
-  <!-- Page-scoped styles (match Cloud/Consulting spacing + title alignment + FAQ accordions) -->
+  <!-- Page-scoped styles -->
   <style>
+    /* ==== MOBILE SCROLL/CUTOFF FIXES (defensive) ==== */
+    html, body { width:100%; max-width:100%; overflow-x:hidden; }
+    .appdev .hero-media,
+    .appdev .inpage-nav,
+    .appdev .content { overflow-x:clip; } /* prevents tiny overflows from creating page scroll */
+
     /* a11y */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
     /* hero + intro */
-    .appdev .hero-media img{width:100%;height:auto;display:block;}
+    .appdev .hero-media img{width:100%;height:auto;display:block;max-width:100%;}
     .appdev .hero-intro{max-width:900px;margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
     .appdev .hero-intro p{color:#444;}
     .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .5rem;}
@@ -39,7 +45,7 @@
     .appdev .section{padding:1.6rem 0;}
     .appdev .section-title{margin:0 0 .75rem;}
 
-    /* in-page nav chips */
+    /* in-page nav chips (scroll only inside the row, not whole page) */
     .inpage-nav{
       display:flex;gap:10px;padding:.5rem 1rem;margin:0 auto 1rem;max-width:1000px;
       justify-content:center;flex-wrap:wrap;overflow:visible;
@@ -49,7 +55,7 @@
       padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;
     }
     @media (max-width:720px){
-      .inpage-nav{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+      .inpage-nav{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;overscroll-behavior-inline:contain;}
       .inpage-nav::-webkit-scrollbar{display:none;}
     }
 
@@ -69,8 +75,14 @@
     .appdev .cta-btn{padding:.85rem 1.05rem;display:inline-block;}
 
     /* cards */
-    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
-    .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.04);padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;}
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;} /* was 260px; 240px avoids overflow on narrow devices */
+    @media (max-width:360px){
+      .card-grid{grid-template-columns:1fr;} /* hard single column on very small screens to prevent overflow */
+    }
+    .card{
+      border:1px solid #e4e8f1;border-radius:12px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.04);
+      padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;min-width:0;
+    }
     .card h3{margin:.25rem 0 .35rem}
     .card p{margin:0;color:#444}
     .card .cta-btn{margin-top:.4rem;align-self:flex-start}
@@ -81,8 +93,10 @@
     .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none;}
     .faq-list p{margin:.45rem 0 0;}
 
-    /* wrap/overflow safety */
-    .appdev .content, .appdev .content p, .appdev .content li, .appdev .content a{word-break:break-word;overflow-wrap:anywhere;}
+    /* wrap/overflow safety for long tokens/URLs */
+    .appdev .content, .appdev .content p, .appdev .content li, .appdev .content a{
+      word-break:break-word;overflow-wrap:anywhere;
+    }
 
     /* tables (if needed) */
     .appdev .table-wrap{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
@@ -97,7 +111,7 @@
       .hero-title{font-size:1.8rem;line-height:1.2}
     }
 
-    /* Title alignment fix (match Cloud/Consulting) */
+    /* Title alignment (match other pages) */
     .appdev-page :is(h1.hero-title, h2.section-title){
       text-align:center !important;
       display:block !important;
