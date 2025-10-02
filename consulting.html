@@ -25,7 +25,7 @@
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped narrative styling (lightweight) -->
+  <!-- Page-scoped narrative styling (lightweight, scoped) -->
   <style>
     .consulting-page .section{ margin:2rem 0 !important; }
     .consulting-page .section-title{ margin-bottom:.75rem !important; }
@@ -34,7 +34,7 @@
     .consulting-page .hero-media{ margin-bottom:2rem; }
     .consulting-page .hero-title{
       font-size:2rem; color:var(--dark-blue); font-weight:700;
-      text-align:center; margin:.2rem auto .6rem; /* aligned to Cloud */
+      text-align:center; margin:.2rem auto .6rem;
     }
     @media (max-width:768px){
       .consulting-page .hero-media{ margin-bottom:1.25rem; }
@@ -95,31 +95,27 @@
 
     /* CTA */
     .consulting-page .cta-wrap{ display:flex; justify-content:center; margin-top:.85rem; padding:0 1rem; }
-
-    /* Footer phone link = white (robust) */
-    footer .footer-right a[href^="tel:"]{
-      color:#fff !important; text-decoration:none; font-weight:500;
-    }
-    footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
   </style>
 </head>
 <body class="consulting-page">
   <!-- Header -->
-  <div class="small-banner">
+  <header class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high">
+      <a href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high">
+      </a>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Shortened nav labels -->
-      <nav class="desktop-nav">
+      <!-- Shortened nav labels (canonical targets) -->
+      <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn active" aria-current="page">CONSULT</a>
         <a href="cloud.html" class="nav-btn">CLOUD</a>
         <a href="finops.html" class="nav-btn">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="mobile-web.html" class="nav-btn">APP&nbsp;DEV</a>
         <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
@@ -135,7 +131,7 @@
         <a href="cloud.html">CLOUD</a>
         <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="mobile-web.html">APP DEVELOPMENT</a>
         <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html">RE / LAUNCH</a>
@@ -145,7 +141,7 @@
         <a href="contact.html">CONTACT</a>
       </nav>
     </div>
-  </div>
+  </header>
 
   <!-- Hero -->
   <div class="hero-media">
@@ -396,13 +392,13 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST">
           <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
           <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
           <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" />
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
@@ -410,7 +406,7 @@
       <div class="footer-right">
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-        <p>Phone: <a href="tel:+27 11 568 8667">+27 11 568 8667</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
         <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
