@@ -22,18 +22,19 @@
   <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Page-scoped styles (mobile overflow fix + aligned titles) -->
+  <!-- Page-scoped styles (overflow-safe + aligned titles) -->
   <style>
     /* a11y */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* --- MOBILE OVERFLOW GUARDRAILS --- */
-    html, body.cloud-page{overflow-x:hidden;}
-    .content{position:relative} /* contain any child transforms */
+    /* safety: images and flex children can shrink */
+    img{max-width:100%;height:auto;display:block;}
+    .banner-header, .desktop-nav, .mobile-nav{max-width:100%;}
+    .banner-header > *{min-width:0;} /* logo/nav don’t force overflow */
 
     /* hero + intro */
-    .cloud .hero-media img{width:100%;height:auto;display:block;max-width:100%;}
+    .cloud .hero-media img{width:100%;}
     .cloud .hero-intro{max-width:900px;margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
     .cloud .hero-intro p{color:#444;}
     .cloud .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .5rem;}
@@ -47,20 +48,20 @@
     .points li{margin:.25rem 0}
     .muted{color:#5a6b85;font-size:.95rem}
 
-    /* In-page chip nav (no sideways scroll) */
+    /* In-page chip nav (wraps; no sideways scroll) */
     .inpage-nav{
       display:flex;gap:10px;padding:.5rem 1rem;margin:0 auto 1rem;
-      max-width:1000px;justify-content:center;flex-wrap:wrap;overflow:visible;
+      max-width:1000px;justify-content:center;flex-wrap:wrap;
     }
     .inpage-nav a{
       white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;
       padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;
     }
 
-    /* Cards & grids — padded container to avoid edge overflow */
+    /* Cards & grids — padded containers to avoid edge overflow */
     .card-grid{
       display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:14px;max-width:1200px;margin:0 auto;padding:0 1rem;
+      gap:14px;max-width:1200px;margin:0 auto;padding:0 1rem;min-width:0;
     }
     .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;padding:1rem;text-decoration:none;color:inherit;}
     .card h3{margin:.25rem 0 .5rem}
@@ -70,21 +71,21 @@
     .inline-cta p{margin:.5rem 0 0;color:#fff !important;}
     .inline-cta .cta-btn{margin-top:.8rem;display:inline-block;}
 
-    /* Vendor columns (flex) */
+    /* Vendor columns */
     .cloud-columns{
-      display:flex;flex-wrap:wrap;gap:1.25rem; /* tighter gap on small screens */
-      justify-content:center;margin-top:.75rem;max-width:1200px;margin-left:auto;margin-right:auto;padding:0 1rem;
+      display:flex;flex-wrap:wrap;gap:1.25rem;
+      justify-content:center;margin-top:.75rem;max-width:1200px;margin-left:auto;margin-right:auto;padding:0 1rem;min-width:0;
     }
     .cloud-column{
-      flex:1 1 320px; /* shrink safely; base width 320 */
-      max-width:600px;
+      flex:1 1 300px; /* can shrink on small screens */
+      max-width:600px;min-width:0;
     }
     @media (max-width:360px){
-      .cloud-column{flex-basis:260px;} /* prevent overflow on very narrow phones */
+      .cloud-column{flex-basis:260px;}
     }
     .card-group{
       display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:14px;
+      gap:14px;min-width:0;
     }
 
     /* vendor card accent (heading color only) */
@@ -245,7 +246,7 @@
             <li>Rollback-ready go-lives</li>
           </ul>
         </div>
-        <div class="card>
+        <div class="card">
           <h3>Security & POPIA</h3>
           <ul class="points">
             <li>Residency patterns & key management separation</li>
