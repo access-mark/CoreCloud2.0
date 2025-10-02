@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Page-scoped styles -->
+  <!-- Page-scoped styles (kept minimal; no overrides of global .card/.card-grid) -->
   <style>
     /* a11y */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
@@ -32,24 +32,20 @@
     .cloud .hero-media img{width:100%;height:auto;display:block;}
     .cloud .hero-intro{max-width:900px;margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
     .cloud .hero-intro p{color:#444;}
-    .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .5rem;}
+    .cloud .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .5rem;}
 
     /* sections */
     .cloud .section{padding:1.6rem 0;}
     .cloud .section-title{margin:0 0 .75rem;}
 
-    /* grids + cards */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-    .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;padding:1rem;text-decoration:none;color:inherit;}
-    .card h3{margin:.25rem 0 .5rem}
+    /* points lists */
     .points{padding-left:1.25rem}
     .points li{margin:.25rem 0}
     .muted{color:#5a6b85;font-size:.95rem}
 
     /* in-page nav */
-    .inpage-nav{display:flex;gap:10px;padding:.5rem 1rem;margin:0 auto 1rem;max-width:1000px;overflow:visible;}
+    .inpage-nav{display:flex;gap:10px;padding:.5rem 1rem;margin:0 auto 1rem;max-width:1000px;overflow:visible;justify-content:center;flex-wrap:wrap;}
     .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;}
-    /* only scroll on small screens; hide scrollbar */
     @media (max-width: 720px){
       .inpage-nav{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
       .inpage-nav::-webkit-scrollbar{display:none;}
@@ -65,10 +61,7 @@
     .cloud-column{flex:1;min-width:300px;}
     .card-group{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.1rem;}
 
-    /* vendor card branding (heading color only) */
-    .aws-card,.azure-card,.databricks-card{
-      background:#fff;border:1px solid #e4e8f1;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.04);padding:1rem;display:flex;flex-direction:column;gap:.65rem;
-    }
+    /* vendor card accent (heading color only; uses global .card styles) */
     .aws-card h3{color:#ff9900;}
     .azure-card h3{color:#007fff;}
     .databricks-card h3{color:#ff3621;}
@@ -77,19 +70,13 @@
     .cloud .content, .cloud .content p, .cloud .content li, .cloud .content a{word-break:break-word;overflow-wrap:anywhere;}
 
     /* table safety if used */
-    .cloud table{width:100%;border-collapse:collapse;margin:1rem 0}
-    .cloud th,.cloud td{border:1px solid #e4e8f1;padding:.6rem;text-align:left}
-    .cloud thead th{background:#f7f9fc}
     .cloud .table-wrap{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
 
-    /* roomier buttons on this page */
-    .cloud .cta-btn{padding:.9rem 1.15rem;min-height:44px;line-height:1.2;border-radius:10px;}
-
-    /* mobile */
+    /* mobile tweaks */
     @media (max-width:768px){
       .cloud .hero-intro{padding:0 1rem}
       .cloud .section{padding:1.25rem 0}
-      .hero-title{font-size:1.8rem;line-height:1.2}
+      .cloud .hero-title{font-size:1.8rem;line-height:1.2}
     }
   </style>
 
@@ -129,13 +116,15 @@
   </script>
 </head>
 
-<body class="cloud">
+<body class="cloud cloud-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- Header / Nav -->
-  <div class="small-banner">
+  <header class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+      <a href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+      </a>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
@@ -146,7 +135,7 @@
         <a href="cloud.html" class="nav-btn active" aria-current="page">CLOUD</a>
         <a href="finops.html" class="nav-btn">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="mobile-web.html" class="nav-btn">APP&nbsp;DEV</a>
         <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
@@ -162,7 +151,7 @@
         <a href="cloud.html" class="active" aria-current="page">CLOUD</a>
         <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="mobile-web.html">APP DEVELOPMENT</a>
         <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html">RE / LAUNCH</a>
@@ -172,35 +161,35 @@
         <a href="contact.html">CONTACT</a>
       </nav>
     </div>
-  </div>
+  </header>
 
   <!-- Hero -->
   <div class="hero-media" role="img" aria-label="Cloud foundations and migration">
     <img src="assets/images/cloud-banner.png" alt="Cloud, governed by design — from foundations to outcomes" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
-  <!-- Intro -->
-  <section class="hero-intro">
-    <h1 class="hero-title">Cloud, Governed by Design</h1>
-    <p>Secure landing zones, fast migration/modernisation, POPIA-aligned controls, and FinOps that keeps cost honest — all wired to measurable outcomes.</p>
-  </section>
-
-  <!-- In-page anchor nav -->
-  <nav class="inpage-nav" aria-label="On this page">
-    <a href="#deliver">What we deliver</a>
-    <a href="#foundation">30-day foundation</a>
-    <a href="#vendors">AWS • Azure • Databricks</a>
-    <a href="#hybrid">Hybrid & Hosting</a>
-    <a href="#engagement">Engagements</a>
-    <a href="#insights">Insights</a>
-    <a href="#faq">FAQ</a>
-  </nav>
-
   <main class="content" id="main">
+    <!-- Intro -->
+    <section class="hero-intro">
+      <h1 class="hero-title">Cloud, Governed by Design</h1>
+      <p>Secure landing zones, fast migration/modernisation, POPIA-aligned controls, and FinOps that keeps cost honest — all wired to measurable outcomes.</p>
+    </section>
+
+    <!-- In-page anchor nav -->
+    <nav class="inpage-nav" aria-label="On this page">
+      <a href="#deliver">What we deliver</a>
+      <a href="#foundation">30-day foundation</a>
+      <a href="#vendors">AWS • Azure • Databricks</a>
+      <a href="#hybrid">Hybrid & Hosting</a>
+      <a href="#engagement">Engagements</a>
+      <a href="#insights">Insights</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
     <!-- What we deliver -->
     <section class="section" id="deliver" aria-labelledby="deliver-title">
       <h2 id="deliver-title" class="section-title">What We Deliver</h2>
-      <div class="grid">
+      <div class="card-grid">
         <div class="card">
           <h3>Landing Zones & Guardrails</h3>
           <ul class="points">
@@ -367,7 +356,7 @@
     <!-- Engagement options -->
     <section class="section" id="engagement" aria-labelledby="engage-title">
       <h2 id="engage-title" class="section-title">Engagement Options</h2>
-      <div class="grid">
+      <div class="card-grid">
         <div class="card">
           <h3>Baseline + Quick Wins (2 weeks)</h3>
           <p>Cost, posture, and governance gaps; we land immediate savings and risk reductions.</p>
@@ -381,7 +370,7 @@
         <div class="card">
           <h3>Migrate & Modernise</h3>
           <p>Wave plans, containerisation, managed services adoption, and resilience patterns.</p>
-          <p class="muted"><a href="application-development.html">App Dev approach</a></p>
+          <p class="muted"><a href="mobile-web.html">App Dev approach</a></p>
         </div>
         <div class="card">
           <h3>Operator-on-Call</h3>
@@ -394,7 +383,7 @@
     <!-- Related insights -->
     <section class="section" id="insights" aria-labelledby="insights-title">
       <h2 id="insights-title" class="section-title">Related Insights</h2>
-      <div class="grid">
+      <div class="card-grid">
         <a class="card" href="blog-eliminating-cloud-waste.html">
           <h3>Eliminating Waste: The Fastest ROI in Cloud</h3>
           <p>Where spend leaks — and how SA teams plug it in 30 days.</p>
@@ -416,7 +405,7 @@
     <!-- FAQ -->
     <section class="section" id="faq" aria-labelledby="faq-title">
       <h2 id="faq-title" class="section-title">FAQ</h2>
-      <div class="grid">
+      <div class="card-grid">
         <div class="card">
           <h3>Can we keep regulated data in-country?</h3>
           <p>Yes — we design for in-country primaries, customer-managed keys, and cross-AZ resilience with local backups.</p>
@@ -444,13 +433,13 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST">
           <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
           <input type="hidden" name="_template" value="table"/>
           <input type="hidden" name="_captcha" value="false"/>
           <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
           <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;"/>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
