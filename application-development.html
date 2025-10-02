@@ -23,130 +23,104 @@
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
-  <!-- Page-scoped styles (mobile cutoff fix, centered headings, no bullets, collapsed FAQ, hamburger/logo tweaks) -->
+  <!-- Page-scoped styles -->
   <style>
-    /* Global safety for this page */
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { max-width:100%; overflow-x:hidden; }
-    img { max-width:100%; height:auto; display:block; }
+    /* Safety */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{max-width:100%;overflow-x:hidden}
+    img{max-width:100%;height:auto;display:block}
 
-    :root{ --container: 1000px; }
+    :root{ --container:1000px; }
 
-    /* Constrain main content; prevent mobile cut-off */
-    .appdev .content{
-      max-width: var(--container);
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 1rem;
+    /* Header: keep logo size consistent and hide hamburger on desktop */
+    .banner-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 12px}
+    .logo{width:220px;height:auto}
+    .nav-toggle{display:none}
+
+    /* Hamburger (mobile only) */
+    .hamburger{display:none;cursor:pointer;padding:8px 10px;border-radius:8px}
+    .hamburger span{display:block;width:26px;height:2px;background:#0d3b66;margin:5px 0;border-radius:2px}
+
+    /* Desktop nav visible by default */
+    .desktop-nav{display:flex;gap:8px;flex-wrap:wrap}
+    .mobile-nav{display:none;flex-direction:column;padding:10px 14px;background:#fff;border-top:1px solid #e4e8f1}
+
+    /* Mobile breakpoint */
+    @media (max-width: 900px){
+      .logo{width:190px}
+      .desktop-nav{display:none}
+      .hamburger{display:block}
+      .mobile-nav{display:none}
+      .nav-toggle:checked ~ label.hamburger{outline:2px solid rgba(13,59,102,.12)}
+      .nav-toggle:checked ~ .mobile-nav{display:flex}
     }
 
-    /* a11y */
-    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
-    .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
+    /* Hero + intro */
+    .hero-media img{width:100%;height:auto;display:block}
+    .hero-intro{max-width:var(--container);margin:2rem auto 1rem;padding:0 1rem;text-align:center}
+    .hero-intro p{color:#444}
+    .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .5rem;text-align:center}
 
-    /* hero + intro */
-    .appdev .hero-media img{width:100%;height:auto;display:block;}
-    .appdev .hero-intro{max-width:var(--container);margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
-    .appdev .hero-intro p{color:#444;}
-    .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .5rem;text-align:center;}
+    /* Sections */
+    .section{padding:1.6rem 0}
+    .section-title{margin:0 0 .75rem;text-align:center}
 
-    /* sections */
-    .appdev .section{padding:1.6rem 0;}
-    .appdev .section-title{margin:0 0 .75rem;text-align:center;}
+    /* Content wrapper */
+    .content{max-width:var(--container);width:100%;margin:0 auto;padding:0 1rem}
+    .narrative{max-width:var(--container);margin:0 auto;padding:0 1rem;color:#444}
 
-    /* in-page nav chips */
-    .inpage-nav{
-      display:flex; gap:10px; padding:.5rem 1rem; margin:0 auto 1rem;
-      max-width:var(--container); justify-content:center; flex-wrap:wrap; overflow:visible;
-    }
-    .inpage-nav a{
-      white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;
-      padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;
-    }
+    /* In-page chips */
+    .inpage-nav{display:flex;gap:10px;max-width:var(--container);margin:0 auto 1rem;padding:.5rem 1rem;justify-content:center;flex-wrap:wrap}
+    .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff}
 
-    /* narrative blocks */
-    .narrative{max-width:var(--container);margin:0 auto;padding:0 1rem;color:#444;}
-
-    /* lists (bullets removed) */
-    .points{list-style:none;padding-left:0;margin:.25rem 0;}
-    .points li{margin:.35rem 0;line-height:1.7;}
+    /* Lists (no bullets) */
+    .points{list-style:none;padding-left:0;margin:.25rem 0}
+    .points li{margin:.35rem 0;line-height:1.7}
     .muted{color:#5a6b85;font-size:.95rem}
 
-    /* metrics */
-    .metrics{display:grid;gap:.45rem;max-width:var(--container);margin:0 auto;padding:0 1rem;}
-    .metric{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:.75rem;
-      border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; flex-wrap:wrap; width:100%;
-    }
-    .metric span{flex:1 1 250px; min-width:0;}
-    .metric b{flex:0 0 auto; white-space:nowrap; color:#0b3d72;}
+    /* Metrics rows */
+    .metrics{display:grid;gap:.45rem;max-width:var(--container);margin:0 auto;padding:0 1rem}
+    .metric{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;flex-wrap:wrap;width:100%}
+    .metric span{flex:1 1 250px;min-width:0}
+    .metric b{flex:0 0 auto;white-space:nowrap;color:#0b3d72}
 
-    /* inline CTA (dark) */
-    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.6rem auto;max-width:var(--container);text-align:center;}
-    .inline-cta p{margin:.55rem 0 0;color:#fff !important;}
-    .appdev .cta-btn{padding:.75rem 1rem;display:inline-block;}
+    /* Inline CTA */
+    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.6rem auto;max-width:var(--container);text-align:center}
+    .inline-cta p{margin:.55rem 0 0;color:#fff !important}
+    .cta-btn{padding:.75rem 1rem;display:inline-block}
 
-    /* cards */
-    .card-grid{
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:14px; max-width:var(--container); margin:0 auto; padding:0 1rem; width:100%;
-    }
-    .card{
-      border:1px solid #e4e8f1;border-radius:12px;background:#fff;
-      box-shadow:0 2px 6px rgba(0,0,0,.04);padding:1rem;text-decoration:none;color:inherit;
-      display:flex;flex-direction:column;gap:.5rem; min-width:0;
-    }
+    /* Cards */
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:var(--container);margin:0 auto;padding:0 1rem;width:100%}
+    .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.04);padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;min-width:0}
     .card h3{margin:.25rem 0 .35rem}
     .card p{margin:0;color:#444}
     .card .cta-btn{margin-top:.4rem;align-self:flex-start}
 
-    /* Collapsible FAQ (no cards) */
-    .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12);}
-    .faq-list details:last-of-type{border-bottom:none;}
-    .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none;}
-    .faq-list p{margin:.45rem 0 0;}
+    /* FAQ (collapsed) */
+    .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12)}
+    .faq-list details:last-of-type{border-bottom:none}
+    .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none}
+    .faq-list p{margin:.45rem 0 0}
 
-    /* large screens: 4-up for deep dives */
+    /* Large screens: 4-up deep dives */
     @media (min-width:1100px){
-      #deep-dives .card-grid{grid-template-columns:repeat(4,1fr);}
+      #deep-dives .card-grid{grid-template-columns:repeat(4,1fr)}
     }
 
-    /* mobile */
+    /* Mobile tweaks */
     @media (max-width:768px){
-      .appdev .hero-intro{padding:0 1rem}
-      .appdev .section{padding:1.25rem 0}
+      .hero-intro{padding:0 1rem}
+      .section{padding:1.25rem 0}
       .hero-title{font-size:1.8rem;line-height:1.2}
-      .metric{gap:.5rem;}
+      .metric{gap:.5rem}
     }
 
-    /* === Header tweaks: hamburger & logo consistency (page-local) === */
-    /* Desktop logo size */
-    @media (min-width:1025px){
-      .logo{
-        width:220px !important;  /* match attribute width */
-        height:auto !important;
-      }
-    }
-    /* Mobile/tablet logo size */
-    @media (max-width:1024px){
-      .logo{
-        width:200px !important;
-        height:auto !important;
-      }
-    }
-    /* Hamburger spacing (3 lines tighter, consistent) */
-    .hamburger{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:.35rem .25rem;
-    }
-    .hamburger span{
-      width:24px; height:2px; background:#0d3b66; margin:4px 0; border-radius:2px; display:block;
-    }
-    /* Ensure header alignment doesn't squash logo */
-    .banner-header{ align-items:center; gap:.75rem; }
+    /* Footer tel link readability across themes */
+    footer .footer-right a[href^="tel:"]{color:#fff !important;text-decoration:none;font-weight:500}
+    footer .footer-right a[href^="tel:"]:hover{text-decoration:underline}
   </style>
 
-  <!-- JSON-LD: Service + Breadcrumbs + FAQ -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -189,7 +163,9 @@
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+      <a href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+      </a>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
@@ -233,13 +209,13 @@
     <img src="assets/images/appdev-bannerimage.png" alt="Application Development — ship fast, stay governed" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
-  <!-- Intro (outside .content by design) -->
+  <!-- Intro -->
   <section class="hero-intro">
     <h1 class="hero-title">Application Development — Ship Fast, Stay Governed</h1>
     <p>We build with a two-tier approach: workflows/UI that move quickly, domain services that stay clean and portable. Security, reliability, and cost visibility are baked in — so speed doesn’t create rework.</p>
   </section>
 
-  <!-- In-page anchor nav (outside .content) -->
+  <!-- In-page anchor nav -->
   <nav class="inpage-nav" aria-label="On this page">
     <a href="#build">What we build</a>
     <a href="#how">How we ship</a>
@@ -383,7 +359,7 @@
     <!-- FAQ (collapsed) -->
     <section class="section" id="faq" aria-labelledby="faq-title">
       <h2 id="faq-title" class="section-title">FAQ</h2>
-      <div class="narrative">
+      <div class="content" style="padding:0;">
         <div class="faq-list">
           <details>
             <summary>Do you work with our stack?</summary>
