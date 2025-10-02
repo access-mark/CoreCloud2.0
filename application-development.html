@@ -18,109 +18,156 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (cache-busted) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
-  <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png?v=11" fetchpriority="high"/>
+  <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
-  <!-- Page-scoped styles (namespaced to .appdev-page to avoid bleed) -->
+  <!-- Page-scoped, self-contained CSS -->
   <style>
-    /* Safety */
-    .appdev-page *, .appdev-page *::before, .appdev-page *::after{ box-sizing:border-box; }
-    .appdev-page html, .appdev-page body{ max-width:100%; overflow-x:hidden; }
-    .appdev-page img{ max-width:100%; height:auto; display:block; }
+    /* ===== Global Safety (page-local) ===== */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { max-width:100%; overflow-x:hidden; }
+    img { max-width:100%; height:auto; display:block; }
+    :root { --container: 1000px; --cc-blue:#0d3b66; --cc-dark: #0b3d72; }
 
-    :root{ --container:1000px; }
+    /* ===== Shared Header (consistent across pages) ===== */
+    .small-banner { background:#fff; border-bottom:1px solid #e9edf5; }
+    .banner-header {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: .6rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .logo { width: 220px; height: auto; }
 
-    /* Header */
-    .appdev-page .banner-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 12px}
-    .appdev-page .logo{width:260px;height:auto} /* BIGGER on desktop */
-    .appdev-page .nav-toggle{display:none}
+    /* Nav core */
+    .desktop-nav, .mobile-nav { display: flex; align-items: center; }
+    .desktop-nav { gap: 10px; flex-wrap: wrap; }
+    .desktop-nav a, .mobile-nav a {
+      text-decoration: none; color: #0d3b66; font-weight: 700;
+      padding: .5rem .6rem; border-radius: 6px;
+    }
+    .desktop-nav a.active, .mobile-nav a.active { background: #eef4ff; }
+    .nav-toggle { display: none; }
 
-    /* Hamburger (mobile only) */
-    .appdev-page .hamburger{display:none;cursor:pointer;padding:8px 10px;border-radius:8px}
-    .appdev-page .hamburger span{display:block;width:26px;height:2px;background:#0d3b66;margin:5px 0;border-radius:2px}
+    /* Hamburger */
+    .hamburger { display: none; cursor: pointer; width: 32px; height: 24px; position: relative; }
+    .hamburger span {
+      position: absolute; left: 0; right: 0; height: 3px; background:#0d3b66; border-radius: 2px;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+    .hamburger span:nth-child(1) { top: 0; }
+    .hamburger span:nth-child(2) { top: 10.5px; } /* tight + consistent spacing */
+    .hamburger span:nth-child(3) { bottom: 0; }
 
-    /* Desktop nav by default */
-    .appdev-page .desktop-nav{display:flex;gap:8px;flex-wrap:wrap}
-    .appdev-page .mobile-nav{display:none;flex-direction:column;padding:10px 14px;background:#fff;border-top:1px solid #e4e8f1}
+    /* Mobile nav panel */
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 64px; /* below header */
+      left: 0; right: 0;
+      background:#fff; border-top:1px solid #e9edf5; border-bottom:1px solid #e9edf5;
+      padding: .6rem 1rem; flex-direction: column; gap: 6px;
+      z-index: 9999;
+    }
+    /* Toggle open state */
+    #nav-toggle:checked ~ .hamburger span:nth-child(1){ transform: translateY(10.5px) rotate(45deg); }
+    #nav-toggle:checked ~ .hamburger span:nth-child(2){ opacity:0; }
+    #nav-toggle:checked ~ .hamburger span:nth-child(3){ transform: translateY(-10.5px) rotate(-45deg); }
+    #nav-toggle:checked ~ .mobile-nav { display:flex; }
 
-    /* Mobile breakpoint */
-    @media (max-width: 900px){
-      .appdev-page .logo{width:200px} /* scale down on mobile */
-      .appdev-page .desktop-nav{display:none}
-      .appdev-page .hamburger{display:block}
-      .appdev-page .mobile-nav{display:none}
-      .appdev-page .nav-toggle:checked ~ label.hamburger{outline:2px solid rgba(13,59,102,.12)}
-      .appdev-page .nav-toggle:checked ~ .mobile-nav{display:flex}
+    /* Breakpoints for header */
+    @media (max-width: 980px){
+      .desktop-nav { display:none; }
+      .hamburger { display:block; }
+      .logo { width: 200px; }
+      .banner-header { position: relative; }
     }
 
-    /* Hero + intro */
-    .appdev-page .hero-media img{width:100%;height:auto;display:block}
-    .appdev-page .hero-intro{max-width:var(--container);margin:2rem auto 1rem;padding:0 1rem;text-align:center}
-    .appdev-page .hero-intro p{color:#444}
-    .appdev-page .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .5rem;text-align:center}
+    /* ===== Page: Application Development ===== */
+    body.appdev-page { color:#222; }
+    .hero-media img{ width:100%; height:auto; }
+    .hero-intro{
+      max-width: var(--container);
+      margin: 2rem auto 1rem;
+      padding: 0 1rem;
+      text-align: center;
+    }
+    .hero-title{
+      font-size: 2rem;
+      color: var(--cc-dark);
+      font-weight: 800;
+      margin: .2rem auto .6rem;
+    }
 
-    /* Sections */
-    .appdev-page .section{padding:1.6rem 0}
-    .appdev-page .section-title{margin:0 0 .75rem;text-align:center}
+    /* In-page pills */
+    .inpage-nav{
+      display:flex; gap:10px; padding:.5rem 1rem; margin:0 auto 1rem;
+      max-width: var(--container); justify-content:center; flex-wrap:wrap;
+    }
+    .inpage-nav a{
+      white-space:nowrap; border:1px solid #e4e8f1; border-radius:999px;
+      padding:.45rem .75rem; text-decoration:none; color:#0d3b66; font-weight:700; background:#fff;
+    }
 
-    /* Content wrapper */
-    .appdev-page .content{max-width:var(--container);width:100%;margin:0 auto;padding:0 1rem}
-    .appdev-page .narrative{max-width:var(--container);margin:0 auto;padding:0 1rem;color:#444}
+    /* Content container */
+    main.content{ max-width: var(--container); margin: 0 auto; padding: 0 1rem 2rem; }
+    .section{ padding: 1.6rem 0; }
+    .section-title{ text-align:center; margin:0 0 .75rem; color:var(--cc-dark); }
 
-    /* In-page chips */
-    .appdev-page .inpage-nav{display:flex;gap:10px;max-width:var(--container);margin:0 auto 1rem;padding:.5rem 1rem;justify-content:center;flex-wrap:wrap}
-    .appdev-page .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff}
-
-    /* Lists (no bullets) */
-    .appdev-page .points{list-style:none;padding-left:0;margin:.25rem 0}
-    .appdev-page .points li{margin:.35rem 0;line-height:1.7}
-    .appdev-page .muted{color:#5a6b85;font-size:.95rem}
-
-    /* Metrics rows */
-    .appdev-page .metrics{display:grid;gap:.45rem;max-width:var(--container);margin:0 auto;padding:0 1rem}
-    .appdev-page .metric{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;flex-wrap:wrap;width:100%}
-    .appdev-page .metric span{flex:1 1 250px;min-width:0}
-    .appdev-page .metric b{flex:0 0 auto;white-space:nowrap;color:#0b3d72}
+    /* Narrative lists (no bullets) */
+    .points{ list-style:none; margin:.25rem 0; padding-left:0; }
+    .points li{ margin:.35rem 0; line-height:1.7; }
+    .muted{ color:#5a6b85; font-size:.95rem; }
 
     /* Inline CTA */
-    .appdev-page .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.6rem auto;max-width:var(--container);text-align:center}
-    .appdev-page .inline-cta p{margin:.55rem 0 0;color:#fff !important}
-    .appdev-page .cta-btn{padding:.75rem 1rem;display:inline-block}
+    .inline-cta{
+      background:#0d3b66; color:#fff; padding:1.05rem 1.2rem; border-radius:12px; margin:1.2rem 0;
+      text-align:center;
+    }
+    .inline-cta p{ margin:.5rem 0 0; color:#fff !important; }
+    .cta-btn{ display:inline-block; background:#0d3b66; color:#fff; text-decoration:none; padding:.78rem 1.05rem; border-radius:10px; font-weight:700; }
+
+    /* Metrics rows (wrap-safe) */
+    .metrics{ display:grid; gap:.45rem; }
+    .metric{
+      display:flex; justify-content:space-between; gap:.75rem; border-bottom:1px dashed rgba(0,0,0,.12);
+      padding:.35rem 0; flex-wrap:wrap;
+    }
+    .metric span{ flex:1 1 260px; min-width:0; }
+    .metric b{ color:var(--cc-dark); white-space:nowrap; }
 
     /* Cards */
-    .appdev-page .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:var(--container);margin:0 auto;padding:0 1rem;width:100%}
-    .appdev-page .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.04);padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;min-width:0}
-    .appdev-page .card h3{margin:.25rem 0 .35rem}
-    .appdev-page .card p{margin:0;color:#444}
-    .appdev-page .card .cta-btn{margin-top:.4rem;align-self:flex-start}
+    .card-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:14px; }
+    .card{
+      border:1px solid #e4e8f1; border-radius:12px; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.04);
+      padding:1rem; text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:.45rem;
+    }
+    .card h3{ margin:.2rem 0 .35rem; color:var(--cc-dark); }
+    .card p{ margin:0; color:#444; }
+    .card .cta-btn{ margin-top:.35rem; align-self:flex-start; }
 
     /* FAQ (collapsed) */
-    .appdev-page .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12)}
-    .appdev-page .faq-list details:last-of-type{border-bottom:none}
-    .appdev-page .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none}
-    .appdev-page .faq-list p{margin:.45rem 0 0}
-
-    /* Large screens: 4-up deep dives */
-    @media (min-width:1100px){
-      .appdev-page #deep-dives .card-grid{grid-template-columns:repeat(4,1fr)}
-    }
+    .faq-list details{ padding:.6rem 0; border-bottom:1px dashed rgba(0,0,0,.12); }
+    .faq-list details:last-of-type{ border-bottom:none; }
+    .faq-list summary{ font-weight:800; color:var(--cc-dark); cursor:pointer; outline:none; }
+    .faq-list p{ margin:.45rem 0 0; }
 
     /* Mobile tweaks */
     @media (max-width:768px){
-      .appdev-page .hero-intro{padding:0 1rem}
-      .appdev-page .section{padding:1.25rem 0}
-      .appdev-page .hero-title{font-size:1.8rem;line-height:1.2}
-      .appdev-page .metric{gap:.5rem}
+      .hero-title{ font-size:1.8rem; line-height:1.2; }
     }
 
-    /* Footer tel readability */
-    .appdev-page footer .footer-right a[href^="tel:"]{color:#fff !important;text-decoration:none;font-weight:500}
-    .appdev-page footer .footer-right a[href^="tel:"]:hover{text-decoration:underline}
+    /* Footer phone link high-contrast */
+    footer .footer-right a[href^="tel:"]{ color:#fff !important; text-decoration:none; font-weight:600; }
+    footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
   </style>
 
-  <!-- JSON-LD -->
+  <!-- JSON-LD (Service + Breadcrumbs + FAQ) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -157,17 +204,18 @@
   </script>
 </head>
 
-<body class="appdev appdev-page">
+<body class="appdev-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav -->
+  <!-- ===== Header / Nav (single, canonical) ===== -->
   <div class="small-banner">
     <div class="banner-header">
       <a href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="260" height="64" decoding="async" fetchpriority="high"/>
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
       </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
+      <!-- Single toggle + single mobile menu -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open navigation"/>
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
       <nav class="desktop-nav" aria-label="Primary">
@@ -204,18 +252,18 @@
     </div>
   </div>
 
-  <!-- Hero -->
+  <!-- ===== Hero ===== -->
   <div class="hero-media" role="img" aria-label="Application development — product-minded engineering">
-    <img src="assets/images/appdev-bannerimage.png?v=11" alt="Application Development — ship fast, stay governed" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
+    <img src="assets/images/appdev-bannerimage.png" alt="Application Development — ship fast, stay governed" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
-  <!-- Intro -->
+  <!-- ===== Intro ===== -->
   <section class="hero-intro">
     <h1 class="hero-title">Application Development — Ship Fast, Stay Governed</h1>
     <p>We build with a two-tier approach: workflows/UI that move quickly, domain services that stay clean and portable. Security, reliability, and cost visibility are baked in — so speed doesn’t create rework.</p>
   </section>
 
-  <!-- In-page anchor nav -->
+  <!-- ===== In-page Pills ===== -->
   <nav class="inpage-nav" aria-label="On this page">
     <a href="#build">What we build</a>
     <a href="#how">How we ship</a>
@@ -228,93 +276,82 @@
     <a href="#faq">FAQ</a>
   </nav>
 
+  <!-- ===== Main ===== -->
   <main class="content" id="main">
     <!-- What we build -->
     <section class="section" id="build" aria-labelledby="build-title">
       <h2 id="build-title" class="section-title">What We Build</h2>
-      <div class="narrative">
-        <ul class="points">
-          <li><strong>Internal apps & workflows:</strong> approvals, SLAs, integrations, and auditable trails.</li>
-          <li><strong>Customer-facing products:</strong> APIs, portals, mobile/web front-ends with secure identity.</li>
-          <li><strong>Event-driven backends:</strong> queues/streams, idempotent processors, and durable outboxes.</li>
-          <li><strong>Data-aware services:</strong> contracts, lineage, and privacy patterns by data class.</li>
-          <li><strong>Hybrid patterns:</strong> hosted/private cloud primaries with burst to <a href="cloud.html">AWS/Azure</a>.</li>
-        </ul>
-        <p class="muted">When low-code fits, we use it for speed — with domain services in APIs so you can swap UIs later. See: <a href="blog-low-code-high-impact.html">Low-Code, High Impact</a>.</p>
-      </div>
+      <ul class="points">
+        <li><strong>Internal apps & workflows:</strong> approvals, SLAs, integrations, and auditable trails.</li>
+        <li><strong>Customer-facing products:</strong> APIs, portals, mobile/web front-ends with secure identity.</li>
+        <li><strong>Event-driven backends:</strong> queues/streams, idempotent processors, and durable outboxes.</li>
+        <li><strong>Data-aware services:</strong> contracts, lineage, and privacy patterns by data class.</li>
+        <li><strong>Hybrid patterns:</strong> hosted/private cloud primaries with burst to <a href="cloud.html">AWS/Azure</a>.</li>
+      </ul>
+      <p class="muted">When low-code fits, we use it for speed — with domain services in APIs so you can swap UIs later. See: <a href="blog-low-code-high-impact.html">Low-Code, High Impact</a>.</p>
     </section>
 
     <!-- How we ship -->
     <section class="section" id="how" aria-labelledby="how-title">
       <h2 id="how-title" class="section-title">How We Ship (Without Rework)</h2>
-      <div class="narrative">
-        <ul class="points">
-          <li><strong>Two-tier architecture:</strong> thin UI + stable domain services; API-first with versioning.</li>
-          <li><strong>Quality gates:</strong> automated tests, contracts, CI/CD with blue/green or feature flags.</li>
-          <li><strong>Security by default:</strong> SSO, least-privilege IAM, secrets management, audit logs.</li>
-          <li><strong>Observability:</strong> structured logs, metrics, traces, SLOs, and error budgets.</li>
-          <li><strong>Change safety:</strong> rollbacks and migrations planned before the first story starts.</li>
-        </ul>
-      </div>
+      <ul class="points">
+        <li><strong>Two-tier architecture:</strong> thin UI + stable domain services; API-first with versioning.</li>
+        <li><strong>Quality gates:</strong> automated tests, contracts, CI/CD with blue/green or feature flags.</li>
+        <li><strong>Security by default:</strong> SSO, least-privilege IAM, secrets management, audit logs.</li>
+        <li><strong>Observability:</strong> structured logs, metrics, traces, SLOs, and error budgets.</li>
+        <li><strong>Change safety:</strong> rollbacks and migrations planned before the first story starts.</li>
+      </ul>
     </section>
 
     <!-- 30-day MVP -->
     <section class="section" id="mvp30" aria-labelledby="mvp-title">
       <h2 id="mvp-title" class="section-title">30-Day MVP (Production-Quality)</h2>
-      <div class="narrative">
-        <ol class="points">
-          <li><strong>Week 1:</strong> journeys, golden paths, DOR/DOD, metrics of “done”.</li>
-          <li><strong>Week 2:</strong> scaffolding, identity, error handling, and two end-to-end flows in sandbox.</li>
-          <li><strong>Week 3:</strong> logging, audit, access control, and UAT with 10–20 users.</li>
-          <li><strong>Week 4:</strong> load test hotspots, runbook/rollback, go-live.</li>
-        </ol>
-        <div class="inline-cta">
-          <strong>Need to ship in weeks?</strong>
-          <p>We’ll stand up a production-ready MVP in ~30 days — with clean exits to scale.</p>
-          <a class="cta-btn" href="contact.html">Start the 30-day build</a>
-        </div>
+      <ol class="points">
+        <li><strong>Week 1:</strong> journeys, golden paths, DOR/DOD, metrics of “done”.</li>
+        <li><strong>Week 2:</strong> scaffolding, identity, error handling, and two end-to-end flows in sandbox.</li>
+        <li><strong>Week 3:</strong> logging, audit, access control, and UAT with 10–20 users.</li>
+        <li><strong>Week 4:</strong> load test hotspots, runbook/rollback, go-live.</li>
+      </ol>
+      <div class="inline-cta">
+        <strong>Need to ship in weeks?</strong>
+        <p>We’ll stand up a production-ready MVP in ~30 days — with clean exits to scale.</p>
+        <a class="cta-btn" href="contact.html">Start the 30-day build</a>
       </div>
     </section>
 
     <!-- Guardrails -->
     <section class="section" id="guardrails" aria-labelledby="guardrails-title">
       <h2 id="guardrails-title" class="section-title">Guardrails That Don’t Slow You Down</h2>
-      <div class="narrative">
-        <ul class="points">
-          <li><strong>Identity & access:</strong> SSO/OIDC, least-privilege roles, break-glass procedures.</li>
-          <li><strong>Secrets & keys:</strong> vault/KMS, rotation, and sealed pipelines.</li>
-          <li><strong>Compliance:</strong> POPIA data classes, residency, and revocation logs.</li>
-          <li><strong>Environments:</strong> dev/test/stage/prod with promotion controls and audit.</li>
-          <li><strong>Versioned configs:</strong> IaC and app config in git; change reviews and drift detection.</li>
-        </ul>
-      </div>
+      <ul class="points">
+        <li><strong>Identity & access:</strong> SSO/OIDC, least-privilege roles, break-glass procedures.</li>
+        <li><strong>Secrets & keys:</strong> vault/KMS, rotation, and sealed pipelines.</li>
+        <li><strong>Compliance:</strong> POPIA data classes, residency, and revocation logs.</li>
+        <li><strong>Environments:</strong> dev/test/stage/prod with promotion controls and audit.</li>
+        <li><strong>Versioned configs:</strong> IaC and app config in git; change reviews and drift detection.</li>
+      </ul>
     </section>
 
     <!-- Data & AI -->
     <section class="section" id="data-ai" aria-labelledby="data-title">
       <h2 id="data-title" class="section-title">Data &amp; AI — Built In, Not Bolted On</h2>
-      <div class="narrative">
-        <ul class="points">
-          <li><strong>Contracts & lineage:</strong> schemas, PII tagging, and reproducible pipelines.</li>
-          <li><strong>Lakehouse integration:</strong> <a href="databricks-lakehouse.html">Databricks</a> patterns for batch + streaming.</li>
-          <li><strong>RAG & ML workflows:</strong> evaluated, monitored, and deployed where latency wins.</li>
-          <li><strong>Analytics exits:</strong> operational data exported to your warehouse with privacy preserved.</li>
-        </ul>
-        <p class="muted">See also: <a href="data-ai.html">Data &amp; AI</a> for platform choices and governance.</p>
-      </div>
+      <ul class="points">
+        <li><strong>Contracts & lineage:</strong> schemas, PII tagging, and reproducible pipelines.</li>
+        <li><strong>Lakehouse integration:</strong> <a href="databricks-lakehouse.html">Databricks</a> patterns for batch + streaming.</li>
+        <li><strong>RAG & ML workflows:</strong> evaluated, monitored, and deployed where latency wins.</li>
+        <li><strong>Analytics exits:</strong> operational data exported to your warehouse with privacy preserved.</li>
+      </ul>
+      <p class="muted">See also: <a href="data-ai.html">Data &amp; AI</a> for platform choices and governance.</p>
     </section>
 
     <!-- Cost & governance -->
     <section class="section" id="cost" aria-labelledby="cost-title">
       <h2 id="cost-title" class="section-title">Cost &amp; Governance (By Design)</h2>
-      <div class="narrative">
-        <ul class="points">
-          <li><strong>Tagging & budgets:</strong> coverage targets, alerts, and dashboards.</li>
-          <li><strong>Right-sizing:</strong> lifecycle policies, scale-to-zero, and commitments where it pays.</li>
-          <li><strong>Showback:</strong> costs mapped to teams/features to drive better decisions.</li>
-        </ul>
-        <p class="muted">Deeper dive: <a href="finops.html">FinOps &amp; Governance</a>.</p>
-      </div>
+      <ul class="points">
+        <li><strong>Tagging & budgets:</strong> coverage targets, alerts, and dashboards.</li>
+        <li><strong>Right-sizing:</strong> lifecycle policies, scale-to-zero, and commitments where it pays.</li>
+        <li><strong>Showback:</strong> costs mapped to teams/features to drive better decisions.</li>
+      </ul>
+      <p class="muted">Deeper dive: <a href="finops.html">FinOps &amp; Governance</a>.</p>
     </section>
 
     <!-- Results -->
@@ -333,52 +370,56 @@
     <section class="section" id="deep-dives" aria-labelledby="deep-title">
       <h2 id="deep-title" class="section-title">What We Build — Deep Dives</h2>
       <div class="card-grid" style="margin-top:.5rem;">
-        <div class="card">
+        <a class="card" href="cloud-native-apps.html" aria-label="Explore Cloud-Native Apps">
           <h3>Cloud-Native Apps</h3>
           <p>Microservices, containers, serverless — resilient and built for change.</p>
-          <a href="cloud-native-apps.html" class="cta-btn" aria-label="Explore Cloud-Native Apps">Explore</a>
-        </div>
-        <div class="card">
+          <span class="cta-btn">Explore</span>
+        </a>
+        <a class="card" href="enterprise-portals.html" aria-label="Explore Enterprise Portals">
           <h3>Enterprise Portals</h3>
           <p>Secure internal &amp; customer portals that streamline operations and engagement.</p>
-          <a href="enterprise-portals.html" class="cta-btn" aria-label="Explore Enterprise Portals">Explore</a>
-        </div>
-        <div class="card">
+          <span class="cta-btn">Explore</span>
+        </a>
+        <a class="card" href="mobile-web.html" aria-label="Explore Mobile and Web">
           <h3>Mobile &amp; Web</h3>
           <p>Fast, responsive experiences across devices with performance baked in.</p>
-          <a href="mobile-web.html" class="cta-btn" aria-label="Explore Mobile and Web">Explore</a>
-        </div>
-        <div class="card">
+          <span class="cta-btn">Explore</span>
+        </a>
+        <a class="card" href="apis-integration.html" aria-label="Explore APIs and Integration">
           <h3>APIs &amp; Integration</h3>
           <p>Well-designed APIs and event streams that connect products and data.</p>
-          <a href="apis-integration.html" class="cta-btn" aria-label="Explore APIs and Integration">Explore</a>
-        </div>
+          <span class="cta-btn">Explore</span>
+        </a>
       </div>
     </section>
 
     <!-- FAQ (collapsed) -->
     <section class="section" id="faq" aria-labelledby="faq-title">
       <h2 id="faq-title" class="section-title">FAQ</h2>
-      <div class="content" style="padding:0;">
-        <div class="faq-list">
-          <details>
-            <summary>Do you work with our stack?</summary>
-            <p>Yes. We’re comfortable with common stacks on AWS/Azure and on hosted/private cloud. We pick tools that fit your ops model and skills.</p>
-          </details>
-          <details>
-            <summary>How do you avoid lock-in?</summary>
-            <p>Keep domain logic in services, keep data portable, and treat low-code configs as code. You can swap UIs later without rewriting the core.</p>
-          </details>
-          <details>
-            <summary>Can you integrate with our partners?</summary>
-            <p>Yes — we prefer it. Our curated collective plus your existing vendors keeps delivery practical and accountable.</p>
-          </details>
-        </div>
+      <div class="faq-list">
+        <details>
+          <summary>Do you work with our stack?</summary>
+          <p>Yes. We’re comfortable with common stacks on AWS/Azure and on hosted/private cloud. We pick tools that fit your ops model and skills.</p>
+        </details>
+        <details>
+          <summary>How do you avoid lock-in?</summary>
+          <p>Keep domain logic in services, keep data portable, and treat low-code configs as code. You can swap UIs later without rewriting the core.</p>
+        </details>
+        <details>
+          <summary>Can you integrate with our partners?</summary>
+          <p>Yes — we prefer it. Our curated collective plus your existing vendors keeps delivery practical and accountable.</p>
+        </details>
       </div>
     </section>
+
+    <div class="inline-cta" style="margin-top:.4rem;">
+      <strong>Ready to ship?</strong>
+      <p>We’ll align speed with governance — and make sure it scales.</p>
+      <a class="cta-btn" href="contact.html">Book an Intro Call</a>
+    </div>
   </main>
 
-  <!-- Footer -->
+  <!-- ===== Footer ===== -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
