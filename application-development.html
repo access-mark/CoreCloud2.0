@@ -23,65 +23,87 @@
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
-  <!-- Page-scoped styles (centered layout on desktop, overflow-safe on mobile, bullets removed) -->
+  <!-- Page-scoped styles (centered desktop, safe mobile, bullets removed) -->
   <style>
+    /* Prevent any horizontal overflow everywhere */
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { max-width:100%; overflow-x:hidden; }
+    img { max-width:100%; height:auto; display:block; }
+
     /* a11y */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* global safety to prevent side-scroll */
-    html, body {max-width:100%; overflow-x:hidden;}
-    img {max-width:100%; height:auto; display:block;}
+    /* Layout helpers: center all main blocks within a safe container */
+    :root{ --container: 1000px; }
+    .container { max-width:var(--container); margin:0 auto; padding:0 1rem; }
 
     /* hero + intro */
     .appdev .hero-media img{width:100%;height:auto;display:block;}
-    .appdev .hero-intro{max-width:1000px;margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
+    .appdev .hero-intro{max-width:var(--container);margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
     .appdev .hero-intro p{color:#444;}
     .appdev .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .5rem;text-align:center;}
 
-    /* sections + centered containers */
+    /* sections */
     .appdev .section{padding:1.6rem 0;}
     .appdev .section-title{margin:0 0 .75rem;text-align:center;}
-    .appdev .narrative,
-    .appdev .metrics,
-    .appdev .card-grid{max-width:1000px;margin:0 auto;padding:0 1rem;}
 
-    /* in-page nav chips (centered, wraps) */
+    /* in-page nav chips (center, wrap; never force side scroll) */
     .inpage-nav{
       display:flex; gap:10px; padding:.5rem 1rem; margin:0 auto 1rem;
-      max-width:1000px; justify-content:center; flex-wrap:wrap; overflow:visible;
+      max-width:var(--container); justify-content:center; flex-wrap:wrap; overflow:visible;
     }
     .inpage-nav a{
       white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;
       padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;
     }
 
-    /* list presentation (bullets removed) */
+    /* content containers */
+    .narrative{ /* plain text sections */
+      max-width:var(--container); margin:0 auto; padding:0 1rem; color:#444;
+    }
+
+    /* lists presentation (bullets removed) */
     .points{list-style:none;padding-left:0;margin:.25rem 0;}
     .points li{margin:.35rem 0;line-height:1.7;}
     .muted{color:#5a6b85;font-size:.95rem}
 
-    /* metrics rows (centered container, left text) */
-    .metrics{display:grid;gap:.45rem;}
-    .metric{display:flex;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;}
-    .metric b{color:#0b3d72;}
+    /* metrics (inline rows, wrap on small screens to avoid overflow) */
+    .metrics{display:grid;gap:.45rem;max-width:var(--container);margin:0 auto;padding:0 1rem;}
+    .metric{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:.75rem;
+      border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; flex-wrap:wrap;
+      width:100%;
+    }
+    .metric span{flex:1 1 250px; min-width:0;}
+    .metric b{flex:0 0 auto; white-space:nowrap; color:#0b3d72;}
 
     /* inline CTA (dark) */
-    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.6rem auto;max-width:1000px;}
+    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.6rem auto;max-width:var(--container);}
     .inline-cta p{margin:.55rem 0 0;color:#fff !important;}
     .appdev .cta-btn{padding:.75rem 1rem;display:inline-block;}
 
     /* cards (deep dives) */
-    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
-    .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.04);padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;}
+    .card-grid{
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:14px; max-width:var(--container); margin:0 auto; padding:0 1rem;
+      width:100%;
+    }
+    .card{
+      border:1px solid #e4e8f1;border-radius:12px;background:#fff;
+      box-shadow:0 2px 6px rgba(0,0,0,.04);padding:1rem;text-decoration:none;color:inherit;
+      display:flex;flex-direction:column;gap:.5rem; min-width:0;
+    }
     .card h3{margin:.25rem 0 .35rem}
     .card p{margin:0;color:#444}
     .card .cta-btn{margin-top:.4rem;align-self:flex-start}
 
-    /* wrap/overflow safety for text */
-    .appdev .content, .appdev .content p, .appdev .content li, .appdev .content a{word-break:break-word;overflow-wrap:anywhere;}
+    /* wrap/overflow safety for text & links */
+    .appdev .content, .appdev .content p, .appdev .content li, .appdev .content a{
+      word-break:break-word; overflow-wrap:anywhere;
+    }
 
-    /* table safety (if ever needed) */
+    /* table safety (if ever used) */
     .appdev .table-wrap{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appdev table{width:100%;border-collapse:collapse;margin:1rem 0}
     .appdev th,.appdev td{border:1px solid #e4e8f1;padding:.6rem;text-align:left}
@@ -89,14 +111,15 @@
 
     /* large screens: 4-up for deep dives */
     @media (min-width:1100px){
-      .appdev #deep-dives .card-grid{grid-template-columns:repeat(4,1fr);}
+      #deep-dives .card-grid{grid-template-columns:repeat(4,1fr);}
     }
 
-    /* mobile */
+    /* mobile tweaks */
     @media (max-width:768px){
       .appdev .hero-intro{padding:0 1rem}
       .appdev .section{padding:1.25rem 0}
       .appdev .hero-title{font-size:1.8rem;line-height:1.2}
+      .metric{gap:.5rem;}
     }
   </style>
 
