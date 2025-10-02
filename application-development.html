@@ -23,15 +23,16 @@
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
-  <!-- Page-scoped styles (mobile safe, centered desktop, working hamburger, no bullets) -->
+  <!-- Page-scoped styles (mobile cutoff fix, centered headings, no bullets, collapsed FAQ, hamburger/logo tweaks) -->
   <style>
-    /* Global safety */
+    /* Global safety for this page */
     *, *::before, *::after { box-sizing: border-box; }
     html, body { max-width:100%; overflow-x:hidden; }
     img { max-width:100%; height:auto; display:block; }
+
     :root{ --container: 1000px; }
 
-    /* Contained content wrapper */
+    /* Constrain main content; prevent mobile cut-off */
     .appdev .content{
       max-width: var(--container);
       width: 100%;
@@ -42,25 +43,6 @@
     /* a11y */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
-
-    /* Header / nav toggle */
-    .nav-toggle{ display:none; }                 /* hide checkbox */
-    .hamburger{ display:none; cursor:pointer; }  /* shown on mobile */
-    .hamburger span{ display:block; width:24px; height:2px; background:#0d3b66; margin:5px 0; border-radius:2px; }
-
-    /* mobile menu hidden by default; opens when checkbox is checked */
-    .mobile-nav{ display:none; width:100%; padding:.5rem 0; }
-    .nav-toggle:checked ~ .mobile-nav{ display:block; }
-
-    @media (max-width:1024px){
-      .desktop-nav{ display:none !important; }
-      .hamburger{ display:inline-flex !important; align-items:center; }
-      .banner-header{ display:flex; align-items:center; justify-content:space-between; gap:.75rem; flex-wrap:wrap; }
-    }
-
-    @media (max-width:480px){
-      .logo{ max-width:60vw; height:auto; }
-    }
 
     /* hero + intro */
     .appdev .hero-media img{width:100%;height:auto;display:block;}
@@ -82,7 +64,7 @@
       padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;
     }
 
-    /* narrative text blocks */
+    /* narrative blocks */
     .narrative{max-width:var(--container);margin:0 auto;padding:0 1rem;color:#444;}
 
     /* lists (bullets removed) */
@@ -90,7 +72,7 @@
     .points li{margin:.35rem 0;line-height:1.7;}
     .muted{color:#5a6b85;font-size:.95rem}
 
-    /* metrics (wrap to avoid overflow) */
+    /* metrics */
     .metrics{display:grid;gap:.45rem;max-width:var(--container);margin:0 auto;padding:0 1rem;}
     .metric{
       display:flex; align-items:flex-start; justify-content:space-between; gap:.75rem;
@@ -118,22 +100,11 @@
     .card p{margin:0;color:#444}
     .card .cta-btn{margin-top:.4rem;align-self:flex-start}
 
-    /* FAQ collapsed */
+    /* Collapsible FAQ (no cards) */
     .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12);}
     .faq-list details:last-of-type{border-bottom:none;}
     .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none;}
     .faq-list p{margin:.45rem 0 0;}
-
-    /* wrap/overflow safety */
-    .appdev .content, .appdev .content p, .appdev .content li, .appdev .content a{
-      word-break:break-word; overflow-wrap:anywhere;
-    }
-
-    /* table safety (if ever used) */
-    .appdev .table-wrap{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
-    .appdev table{width:100%;border-collapse:collapse;margin:1rem 0}
-    .appdev th,.appdev td{border:1px solid #e4e8f1;padding:.6rem;text-align:left}
-    .appdev thead th{background:#f7f9fc}
 
     /* large screens: 4-up for deep dives */
     @media (min-width:1100px){
@@ -147,6 +118,32 @@
       .hero-title{font-size:1.8rem;line-height:1.2}
       .metric{gap:.5rem;}
     }
+
+    /* === Header tweaks: hamburger & logo consistency (page-local) === */
+    /* Desktop logo size */
+    @media (min-width:1025px){
+      .logo{
+        width:220px !important;  /* match attribute width */
+        height:auto !important;
+      }
+    }
+    /* Mobile/tablet logo size */
+    @media (max-width:1024px){
+      .logo{
+        width:200px !important;
+        height:auto !important;
+      }
+    }
+    /* Hamburger spacing (3 lines tighter, consistent) */
+    .hamburger{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:.35rem .25rem;
+    }
+    .hamburger span{
+      width:24px; height:2px; background:#0d3b66; margin:4px 0; border-radius:2px; display:block;
+    }
+    /* Ensure header alignment doesn't squash logo */
+    .banner-header{ align-items:center; gap:.75rem; }
   </style>
 
   <!-- JSON-LD: Service + Breadcrumbs + FAQ -->
@@ -192,9 +189,7 @@
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
-      <a href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
-      </a>
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
@@ -388,19 +383,21 @@
     <!-- FAQ (collapsed) -->
     <section class="section" id="faq" aria-labelledby="faq-title">
       <h2 id="faq-title" class="section-title">FAQ</h2>
-      <div class="narrative faq-list">
-        <details>
-          <summary>Do you work with our stack?</summary>
-          <p>Yes. We’re comfortable with common stacks on AWS/Azure and on hosted/private cloud. We pick tools that fit your ops model and skills.</p>
-        </details>
-        <details>
-          <summary>How do you avoid lock-in?</summary>
-          <p>Keep domain logic in services, keep data portable, and treat low-code configs as code. You can swap UIs later without rewriting the core.</p>
-        </details>
-        <details>
-          <summary>Can you integrate with our partners?</summary>
-          <p>Yes — we prefer it. Our curated collective plus your existing vendors keeps delivery practical and accountable.</p>
-        </details>
+      <div class="narrative">
+        <div class="faq-list">
+          <details>
+            <summary>Do you work with our stack?</summary>
+            <p>Yes. We’re comfortable with common stacks on AWS/Azure and on hosted/private cloud. We pick tools that fit your ops model and skills.</p>
+          </details>
+          <details>
+            <summary>How do you avoid lock-in?</summary>
+            <p>Keep domain logic in services, keep data portable, and treat low-code configs as code. You can swap UIs later without rewriting the core.</p>
+          </details>
+          <details>
+            <summary>Can you integrate with our partners?</summary>
+            <p>Yes — we prefer it. Our curated collective plus your existing vendors keeps delivery practical and accountable.</p>
+          </details>
+        </div>
       </div>
     </section>
   </main>
