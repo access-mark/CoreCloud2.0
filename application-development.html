@@ -25,18 +25,20 @@
 
   <!-- Page-scoped styles -->
   <style>
-    /* ==== MOBILE SCROLL/CUTOFF FIXES (defensive) ==== */
+    /* ====== MOBILE CUT-OFF GUARDS ====== */
     html, body { width:100%; max-width:100%; overflow-x:hidden; }
-    .appdev .hero-media,
-    .appdev .inpage-nav,
-    .appdev .content { overflow-x:clip; } /* prevents tiny overflows from creating page scroll */
+    * , *::before, *::after { box-sizing:border-box; }
+    img, svg, video { max-width:100%; height:auto; display:block; }
+    .appdev, .appdev .content, .appdev .hero-media, .appdev .inpage-nav { overflow-x:clip; }
+    /* prevent grid children forcing width */
+    .appdev .card, .appdev .card-grid, .appdev .metrics, .appdev .points { min-width:0; }
 
     /* a11y */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
     /* hero + intro */
-    .appdev .hero-media img{width:100%;height:auto;display:block;max-width:100%;}
+    .appdev .hero-media img{width:100%;height:auto;display:block;}
     .appdev .hero-intro{max-width:900px;margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
     .appdev .hero-intro p{color:#444;}
     .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .5rem;}
@@ -45,7 +47,7 @@
     .appdev .section{padding:1.6rem 0;}
     .appdev .section-title{margin:0 0 .75rem;}
 
-    /* in-page nav chips (scroll only inside the row, not whole page) */
+    /* in-page nav chips (scroll inside the row only) */
     .inpage-nav{
       display:flex;gap:10px;padding:.5rem 1rem;margin:0 auto 1rem;max-width:1000px;
       justify-content:center;flex-wrap:wrap;overflow:visible;
@@ -59,9 +61,12 @@
       .inpage-nav::-webkit-scrollbar{display:none;}
     }
 
-    /* narrative lists */
-    .points{padding-left:1.25rem;margin:.25rem 0;}
-    .points li{margin:.3rem 0;line-height:1.7;}
+    /* ====== BULLETLESS LISTS ====== */
+    .points, .checklist, .metrics, .faq-list, .points ul, .points ol { list-style:none; padding-left:0; margin-left:0; }
+    .points li, .checklist li { margin:.3rem 0; line-height:1.7; }
+    /* ordered lists lose numbers as requested */
+    ol.points { counter-reset:none; }
+
     .muted{color:#5a6b85;font-size:.95rem}
 
     /* metrics rows */
@@ -75,10 +80,8 @@
     .appdev .cta-btn{padding:.85rem 1.05rem;display:inline-block;}
 
     /* cards */
-    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;} /* was 260px; 240px avoids overflow on narrow devices */
-    @media (max-width:360px){
-      .card-grid{grid-template-columns:1fr;} /* hard single column on very small screens to prevent overflow */
-    }
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+    @media (max-width:380px){ .card-grid{grid-template-columns:1fr;} }
     .card{
       border:1px solid #e4e8f1;border-radius:12px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.04);
       padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;min-width:0;
@@ -111,7 +114,7 @@
       .hero-title{font-size:1.8rem;line-height:1.2}
     }
 
-    /* Title alignment (match other pages) */
+    /* Title alignment (match others) */
     .appdev-page :is(h1.hero-title, h2.section-title){
       text-align:center !important;
       display:block !important;
@@ -120,11 +123,9 @@
       max-width:1000px;
       padding:0 1rem;
     }
-
-    /* 4-up layout for Deep Dives on large screens */
-    @media (min-width:1100px){
-      .appdev #deep-dives .card-grid{grid-template-columns:repeat(4,1fr);}
-    }
+    /* Header safety */
+    .small-banner .banner-header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+    .desktop-nav, .mobile-nav{max-width:100%;overflow-x:auto;}
   </style>
 
   <!-- JSON-LD: Service + Breadcrumbs + FAQ -->
