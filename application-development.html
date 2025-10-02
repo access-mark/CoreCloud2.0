@@ -23,15 +23,15 @@
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
-  <!-- Page-scoped styles -->
   <style>
-    /* ====== MOBILE CUT-OFF GUARDS ====== */
+    /* ===== Overflow guards (root & page) ===== */
     html, body { width:100%; max-width:100%; overflow-x:hidden; }
     * , *::before, *::after { box-sizing:border-box; }
     img, svg, video { max-width:100%; height:auto; display:block; }
-    .appdev, .appdev .content, .appdev .hero-media, .appdev .inpage-nav { overflow-x:clip; }
-    /* prevent grid children forcing width */
-    .appdev .card, .appdev .card-grid, .appdev .metrics, .appdev .points { min-width:0; }
+    .appdev, .appdev .content, .appdev .section, .appdev .hero-media, .appdev .inpage-nav { overflow-x:clip; }
+    .appdev .content, .appdev main { width:100%; max-width:100%; }
+    /* Prevent children from forcing width */
+    .appdev .card, .appdev .card-grid, .appdev .metrics, .appdev .points, .appdev .inline-cta, .appdev .faq-list { min-width:0; max-width:100%; margin-left:auto; margin-right:auto; }
 
     /* a11y */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
@@ -46,8 +46,13 @@
     /* sections */
     .appdev .section{padding:1.6rem 0;}
     .appdev .section-title{margin:0 0 .75rem;}
+    .appdev-page :is(h1.hero-title, h2.section-title){
+      text-align:center !important; display:block !important;
+      margin-left:auto !important; margin-right:auto !important;
+      max-width:1000px; padding:0 1rem;
+    }
 
-    /* in-page nav chips (scroll inside the row only) */
+    /* in-page nav chips */
     .inpage-nav{
       display:flex;gap:10px;padding:.5rem 1rem;margin:0 auto 1rem;max-width:1000px;
       justify-content:center;flex-wrap:wrap;overflow:visible;
@@ -61,30 +66,32 @@
       .inpage-nav::-webkit-scrollbar{display:none;}
     }
 
-    /* ====== BULLETLESS LISTS ====== */
+    /* ===== Bulletless lists everywhere ===== */
     .points, .checklist, .metrics, .faq-list, .points ul, .points ol { list-style:none; padding-left:0; margin-left:0; }
     .points li, .checklist li { margin:.3rem 0; line-height:1.7; }
-    /* ordered lists lose numbers as requested */
-    ol.points { counter-reset:none; }
-
+    ol.points { counter-reset:none; } /* no numbers */
     .muted{color:#5a6b85;font-size:.95rem}
 
-    /* metrics rows */
+    /* metrics rows — wrap safely on small screens */
     .metrics{display:grid;gap:.45rem;max-width:1000px;margin:0 auto;padding:0 1rem;}
-    .metric{display:flex;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;}
-    .metric b{color:#0b3d72;}
+    .metric{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:.75rem;
+      border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; flex-wrap:wrap; /* allow wrap */
+    }
+    .metric span{flex:1 1 260px; min-width:0;}
+    .metric b{flex:0 0 auto; margin-left:auto; color:#0b3d72;}
 
-    /* inline CTA (dark) */
+    /* inline CTA */
     .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.6rem 0;text-align:center;}
     .inline-cta p{margin:.55rem 0 0;color:#fff !important;}
     .appdev .cta-btn{padding:.85rem 1.05rem;display:inline-block;}
 
     /* cards */
-    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;}
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px; width:100%;}
     @media (max-width:380px){ .card-grid{grid-template-columns:1fr;} }
     .card{
       border:1px solid #e4e8f1;border-radius:12px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.04);
-      padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;min-width:0;
+      padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;min-width:0; width:100%;
     }
     .card h3{margin:.25rem 0 .35rem}
     .card p{margin:0;color:#444}
@@ -98,10 +105,10 @@
 
     /* wrap/overflow safety for long tokens/URLs */
     .appdev .content, .appdev .content p, .appdev .content li, .appdev .content a{
-      word-break:break-word;overflow-wrap:anywhere;
+      word-break:break-word; overflow-wrap:anywhere;
     }
 
-    /* tables (if needed) */
+    /* tables (if ever used) */
     .appdev .table-wrap{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appdev table{width:100%;border-collapse:collapse;margin:1rem 0}
     .appdev th,.appdev td{border:1px solid #e4e8f1;padding:.6rem;text-align:left}
@@ -114,55 +121,10 @@
       .hero-title{font-size:1.8rem;line-height:1.2}
     }
 
-    /* Title alignment (match others) */
-    .appdev-page :is(h1.hero-title, h2.section-title){
-      text-align:center !important;
-      display:block !important;
-      margin-left:auto !important;
-      margin-right:auto !important;
-      max-width:1000px;
-      padding:0 1rem;
-    }
     /* Header safety */
     .small-banner .banner-header{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
     .desktop-nav, .mobile-nav{max-width:100%;overflow-x:auto;}
   </style>
-
-  <!-- JSON-LD: Service + Breadcrumbs + FAQ -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Service",
-    "name":"CoreCloud — Application Development",
-    "description":"Product-minded engineering with security, governance, and FinOps by design. MVP to scale without rework.",
-    "provider":{"@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png"},
-    "areaServed":"ZA",
-    "serviceOutput":"Production-ready applications with measurable reliability and cost posture",
-    "url":"https://www.corecloudza.com/application-development.html",
-    "offers":{"@type":"Offer","availability":"https://schema.org/InStock"}
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"BreadcrumbList",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
-      {"@type":"ListItem","position":2,"name":"Application Development","item":"https://www.corecloudza.com/application-development.html"}
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Low-code or custom — how do you choose?","acceptedAnswer":{"@type":"Answer","text":"We use a simple matrix across complexity, change-rate, integration depth, compliance, and scale. Often a two-tier approach wins: workflows/UI in low-code, domain services as APIs so you can swap UIs later."}},
-      {"@type":"Question","name":"How fast to a real MVP?","acceptedAnswer":{"@type":"Answer","text":"~30 days is typical for a production-quality MVP with identity, logging, error handling, and rollback — then iterate weekly without rework."}},
-      {"@type":"Question","name":"Will governance slow delivery?","acceptedAnswer":{"@type":"Answer","text":"No. Guardrails (IAM, secrets, audit, tagging) run in the background. We prioritise quick wins and keep release flow fast with fit-for-purpose checks."}}
-    ]
-  }
-  </script>
 </head>
 
 <body class="appdev appdev-page">
