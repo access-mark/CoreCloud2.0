@@ -18,156 +18,75 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
+  <!-- Global CSS (keep your existing site-wide styles) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
+
+  <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
-  <!-- Page-scoped, self-contained CSS -->
+  <!-- Page-scoped styles (content only; no header/nav overrides) -->
   <style>
-    /* ===== Global Safety (page-local) ===== */
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { max-width:100%; overflow-x:hidden; }
-    img { max-width:100%; height:auto; display:block; }
-    :root { --container: 1000px; --cc-blue:#0d3b66; --cc-dark: #0b3d72; }
+    /* Safety */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{max-width:100%;overflow-x:hidden}
+    img{max-width:100%;height:auto;display:block}
 
-    /* ===== Shared Header (consistent across pages) ===== */
-    .small-banner { background:#fff; border-bottom:1px solid #e9edf5; }
-    .banner-header {
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: .6rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .logo { width: 220px; height: auto; }
+    :root{--container:1000px}
 
-    /* Nav core */
-    .desktop-nav, .mobile-nav { display: flex; align-items: center; }
-    .desktop-nav { gap: 10px; flex-wrap: wrap; }
-    .desktop-nav a, .mobile-nav a {
-      text-decoration: none; color: #0d3b66; font-weight: 700;
-      padding: .5rem .6rem; border-radius: 6px;
-    }
-    .desktop-nav a.active, .mobile-nav a.active { background: #eef4ff; }
-    .nav-toggle { display: none; }
+    /* Hero + intro */
+    .appdev .hero-media img{width:100%;height:auto;display:block}
+    .appdev .hero-intro{max-width:var(--container);margin:2rem auto 1rem;padding:0 1rem;text-align:center}
+    .appdev .hero-intro p{color:#444}
+    .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .6rem;text-align:center}
 
-    /* Hamburger */
-    .hamburger { display: none; cursor: pointer; width: 32px; height: 24px; position: relative; }
-    .hamburger span {
-      position: absolute; left: 0; right: 0; height: 3px; background:#0d3b66; border-radius: 2px;
-      transition: transform .2s ease, opacity .2s ease;
-    }
-    .hamburger span:nth-child(1) { top: 0; }
-    .hamburger span:nth-child(2) { top: 10.5px; } /* tight + consistent spacing */
-    .hamburger span:nth-child(3) { bottom: 0; }
+    /* Sections */
+    .appdev .section{padding:1.6rem 0}
+    .appdev .section-title{margin:0 0 .75rem;text-align:center;color:var(--dark-blue)}
 
-    /* Mobile nav panel */
-    .mobile-nav {
-      display: none;
-      position: absolute;
-      top: 64px; /* below header */
-      left: 0; right: 0;
-      background:#fff; border-top:1px solid #e9edf5; border-bottom:1px solid #e9edf5;
-      padding: .6rem 1rem; flex-direction: column; gap: 6px;
-      z-index: 9999;
-    }
-    /* Toggle open state */
-    #nav-toggle:checked ~ .hamburger span:nth-child(1){ transform: translateY(10.5px) rotate(45deg); }
-    #nav-toggle:checked ~ .hamburger span:nth-child(2){ opacity:0; }
-    #nav-toggle:checked ~ .hamburger span:nth-child(3){ transform: translateY(-10.5px) rotate(-45deg); }
-    #nav-toggle:checked ~ .mobile-nav { display:flex; }
-
-    /* Breakpoints for header */
-    @media (max-width: 980px){
-      .desktop-nav { display:none; }
-      .hamburger { display:block; }
-      .logo { width: 200px; }
-      .banner-header { position: relative; }
-    }
-
-    /* ===== Page: Application Development ===== */
-    body.appdev-page { color:#222; }
-    .hero-media img{ width:100%; height:auto; }
-    .hero-intro{
-      max-width: var(--container);
-      margin: 2rem auto 1rem;
-      padding: 0 1rem;
-      text-align: center;
-    }
-    .hero-title{
-      font-size: 2rem;
-      color: var(--cc-dark);
-      font-weight: 800;
-      margin: .2rem auto .6rem;
-    }
-
-    /* In-page pills */
-    .inpage-nav{
-      display:flex; gap:10px; padding:.5rem 1rem; margin:0 auto 1rem;
-      max-width: var(--container); justify-content:center; flex-wrap:wrap;
-    }
-    .inpage-nav a{
-      white-space:nowrap; border:1px solid #e4e8f1; border-radius:999px;
-      padding:.45rem .75rem; text-decoration:none; color:#0d3b66; font-weight:700; background:#fff;
-    }
+    /* In-page pills (match Cloud/FinOps look) */
+    .inpage-nav{display:flex;gap:10px;padding:.5rem 1rem;margin:0 auto 1rem;max-width:var(--container);justify-content:center;flex-wrap:wrap}
+    .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:700;background:#fff}
 
     /* Content container */
-    main.content{ max-width: var(--container); margin: 0 auto; padding: 0 1rem 2rem; }
-    .section{ padding: 1.6rem 0; }
-    .section-title{ text-align:center; margin:0 0 .75rem; color:var(--cc-dark); }
+    main.content{max-width:var(--container);margin:0 auto;padding:0 1rem 2rem}
 
-    /* Narrative lists (no bullets) */
-    .points{ list-style:none; margin:.25rem 0; padding-left:0; }
-    .points li{ margin:.35rem 0; line-height:1.7; }
-    .muted{ color:#5a6b85; font-size:.95rem; }
+    /* Lists (bullets removed) */
+    .points{list-style:none;padding-left:0;margin:.25rem 0}
+    .points li{margin:.35rem 0;line-height:1.7}
+    .muted{color:#5a6b85;font-size:.95rem}
+
+    /* Metrics */
+    .metrics{display:grid;gap:.45rem}
+    .metric{display:flex;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;flex-wrap:wrap}
+    .metric span{flex:1 1 260px;min-width:0}
+    .metric b{white-space:nowrap;color:#0b3d72}
 
     /* Inline CTA */
-    .inline-cta{
-      background:#0d3b66; color:#fff; padding:1.05rem 1.2rem; border-radius:12px; margin:1.2rem 0;
-      text-align:center;
-    }
-    .inline-cta p{ margin:.5rem 0 0; color:#fff !important; }
-    .cta-btn{ display:inline-block; background:#0d3b66; color:#fff; text-decoration:none; padding:.78rem 1.05rem; border-radius:10px; font-weight:700; }
-
-    /* Metrics rows (wrap-safe) */
-    .metrics{ display:grid; gap:.45rem; }
-    .metric{
-      display:flex; justify-content:space-between; gap:.75rem; border-bottom:1px dashed rgba(0,0,0,.12);
-      padding:.35rem 0; flex-wrap:wrap;
-    }
-    .metric span{ flex:1 1 260px; min-width:0; }
-    .metric b{ color:var(--cc-dark); white-space:nowrap; }
+    .inline-cta{background:#0d3b66;color:#fff;padding:1.05rem 1.2rem;border-radius:12px;margin:1.2rem 0;text-align:center}
+    .inline-cta p{margin:.5rem 0 0;color:#fff !important}
+    .cta-btn{display:inline-block;background:#0d3b66;color:#fff;text-decoration:none;padding:.78rem 1.05rem;border-radius:10px;font-weight:700}
 
     /* Cards */
-    .card-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:14px; }
-    .card{
-      border:1px solid #e4e8f1; border-radius:12px; background:#fff; box-shadow:0 2px 6px rgba(0,0,0,.04);
-      padding:1rem; text-decoration:none; color:inherit; display:flex; flex-direction:column; gap:.45rem;
-    }
-    .card h3{ margin:.2rem 0 .35rem; color:var(--cc-dark); }
-    .card p{ margin:0; color:#444; }
-    .card .cta-btn{ margin-top:.35rem; align-self:flex-start; }
+    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+    .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.04);padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.45rem}
+    .card h3{margin:.2rem 0 .35rem;color:#0b3d72}
+    .card p{margin:0;color:#444}
+    .card .cta-btn{margin-top:.35rem;align-self:flex-start}
 
     /* FAQ (collapsed) */
-    .faq-list details{ padding:.6rem 0; border-bottom:1px dashed rgba(0,0,0,.12); }
-    .faq-list details:last-of-type{ border-bottom:none; }
-    .faq-list summary{ font-weight:800; color:var(--cc-dark); cursor:pointer; outline:none; }
-    .faq-list p{ margin:.45rem 0 0; }
+    .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12)}
+    .faq-list details:last-of-type{border-bottom:none}
+    .faq-list summary{font-weight:800;color:#0b3d72;cursor:pointer;outline:none}
+    .faq-list p{margin:.45rem 0 0}
 
     /* Mobile tweaks */
     @media (max-width:768px){
-      .hero-title{ font-size:1.8rem; line-height:1.2; }
+      .hero-title{font-size:1.8rem;line-height:1.2}
     }
-
-    /* Footer phone link high-contrast */
-    footer .footer-right a[href^="tel:"]{ color:#fff !important; text-decoration:none; font-weight:600; }
-    footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
   </style>
 
-  <!-- JSON-LD (Service + Breadcrumbs + FAQ) -->
+  <!-- JSON-LD: Service + Breadcrumbs + FAQ -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -204,18 +123,15 @@
   </script>
 </head>
 
-<body class="appdev-page">
+<body class="appdev">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- ===== Header / Nav (single, canonical) ===== -->
+  <!-- Header / Nav (unchanged — matches your other pages) -->
   <div class="small-banner">
     <div class="banner-header">
-      <a href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
-      </a>
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
 
-      <!-- Single toggle + single mobile menu -->
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open navigation"/>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
       <nav class="desktop-nav" aria-label="Primary">
@@ -252,18 +168,18 @@
     </div>
   </div>
 
-  <!-- ===== Hero ===== -->
+  <!-- Hero -->
   <div class="hero-media" role="img" aria-label="Application development — product-minded engineering">
     <img src="assets/images/appdev-bannerimage.png" alt="Application Development — ship fast, stay governed" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
-  <!-- ===== Intro ===== -->
+  <!-- Intro -->
   <section class="hero-intro">
     <h1 class="hero-title">Application Development — Ship Fast, Stay Governed</h1>
     <p>We build with a two-tier approach: workflows/UI that move quickly, domain services that stay clean and portable. Security, reliability, and cost visibility are baked in — so speed doesn’t create rework.</p>
   </section>
 
-  <!-- ===== In-page Pills ===== -->
+  <!-- In-page pills -->
   <nav class="inpage-nav" aria-label="On this page">
     <a href="#build">What we build</a>
     <a href="#how">How we ship</a>
@@ -276,7 +192,6 @@
     <a href="#faq">FAQ</a>
   </nav>
 
-  <!-- ===== Main ===== -->
   <main class="content" id="main">
     <!-- What we build -->
     <section class="section" id="build" aria-labelledby="build-title">
@@ -419,7 +334,7 @@
     </div>
   </main>
 
-  <!-- ===== Footer ===== -->
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
