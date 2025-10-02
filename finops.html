@@ -74,6 +74,13 @@
     .inline-cta p{ margin:.5rem 0 0; color:#fff !important; }
     .cta-btn{ padding:.78rem 1.05rem; }
 
+    /* FAQ accordions */
+    .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12);}
+    .faq-list details:last-of-type{border-bottom:none;}
+    .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none;list-style:none;}
+    .faq-list summary::-webkit-details-marker{display:none;}
+    .faq-list p{margin:.45rem 0 0;}
+
     /* Safety */
     .finops-page .content, .finops-page .content p, .finops-page .content li, .finops-page .content a{
       word-break:break-word; overflow-wrap:anywhere;
@@ -101,40 +108,9 @@
   </style>
 
   <!-- JSON-LD (Service + Breadcrumbs + FAQ) -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Service",
-    "name":"CoreCloud — FinOps",
-    "description":"FinOps by design: spend visibility, right-sizing, commitment strategy, and monthly operating rhythms.",
-    "provider":{"@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png"},
-    "areaServed":"ZA",
-    "serviceOutput":"Reduced cloud run-rate and governance with preserved delivery velocity",
-    "url":"https://www.corecloudza.com/finops.html",
-    "offers":{"@type":"Offer","availability":"https://schema.org/InStock"}
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"BreadcrumbList",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
-      {"@type":"ListItem","position":2,"name":"FinOps","item":"https://www.corecloudza.com/finops.html"}
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Will FinOps slow down delivery?","acceptedAnswer":{"@type":"Answer","text":"No. We implement background guardrails (tagging, budgets, anomaly alerts) and prioritise right-sizing and schedule-to-zero so teams keep shipping."}},
-      {"@type":"Question","name":"Do we need a third-party cost tool first?","acceptedAnswer":{"@type":"Answer","text":"Not to start. We land quick wins with native tooling, then add specialised tools if the ROI is clear."}},
-      {"@type":"Question","name":"How do you handle multi-cloud and hybrid?","acceptedAnswer":{"@type":"Answer","text":"We normalise tags, define venue-aware unit costs, and run a single cadence that spans cloud, hosted, and on-prem."}}
-    ]
-  }
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"CoreCloud — FinOps","description":"FinOps by design: spend visibility, right-sizing, commitment strategy, and monthly operating rhythms.","provider":{"@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png"},"areaServed":"ZA","serviceOutput":"Reduced cloud run-rate and governance with preserved delivery velocity","url":"https://www.corecloudza.com/finops.html","offers":{"@type":"Offer","availability":"https://schema.org/InStock"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},{"@type":"ListItem","position":2,"name":"FinOps","item":"https://www.corecloudza.com/finops.html"}]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Will FinOps slow down delivery?","acceptedAnswer":{"@type":"Answer","text":"No. We implement background guardrails (tagging, budgets, anomaly alerts) and prioritise right-sizing and schedule-to-zero so teams keep shipping."}},{"@type":"Question","name":"Do we need a third-party cost tool first?","acceptedAnswer":{"@type":"Answer","text":"Not to start. We land quick wins with native tooling, then add specialised tools if the ROI is clear."}},{"@type":"Question","name":"How do you handle multi-cloud and hybrid?","acceptedAnswer":{"@type":"Answer","text":"We normalise tags, define venue-aware unit costs, and run a single cadence that spans cloud, hosted, and on-prem."}}]}</script>
 </head>
 
 <body class="finops-page">
@@ -186,10 +162,7 @@
 
   <!-- Hero -->
   <div class="hero-media" role="img" aria-label="FinOps foundations and quick wins">
-    <img
-      src="assets/images/finops-bannerimage.png"
-      alt="FinOps by design — visibility to action"
-      width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
+    <img src="assets/images/finops-bannerimage.png" alt="FinOps by design — visibility to action" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
   <!-- Intro -->
@@ -327,16 +300,22 @@
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ (collapsed) -->
     <section class="section" id="faq" aria-labelledby="faq-title">
-      <div class="narrative">
+      <div class="narrative faq-list">
         <h2 id="faq-title" class="section-title">FAQ</h2>
-        <h3>Will FinOps slow teams down?</h3>
-        <p>No — guardrails run in the background. We prioritise changes that don’t block delivery.</p>
-        <h3>Do we need a cost tool first?</h3>
-        <p>Not to begin. We start with native tooling and add a platform if/when ROI is clear.</p>
-        <h3>How fast to savings?</h3>
-        <p>Most clients see visible run-rate reduction within the first 30 days.</p>
+        <details>
+          <summary>Will FinOps slow teams down?</summary>
+          <p>No — guardrails run in the background. We prioritise changes that don’t block delivery.</p>
+        </details>
+        <details>
+          <summary>Do we need a cost tool first?</summary>
+          <p>Not to begin. We start with native tooling and add a platform if/when ROI is clear.</p>
+        </details>
+        <details>
+          <summary>How fast to savings?</summary>
+          <p>Most clients see visible run-rate reduction within the first 30 days.</p>
+        </details>
       </div>
     </section>
   </main>
