@@ -18,106 +18,106 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
+  <!-- Global CSS (cache-busted) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
-  <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
+  <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png?v=11" fetchpriority="high"/>
 
-  <!-- Page-scoped styles -->
+  <!-- Page-scoped styles (namespaced to .appdev-page to avoid bleed) -->
   <style>
     /* Safety */
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{max-width:100%;overflow-x:hidden}
-    img{max-width:100%;height:auto;display:block}
+    .appdev-page *, .appdev-page *::before, .appdev-page *::after{ box-sizing:border-box; }
+    .appdev-page html, .appdev-page body{ max-width:100%; overflow-x:hidden; }
+    .appdev-page img{ max-width:100%; height:auto; display:block; }
 
     :root{ --container:1000px; }
 
-    /* Header: keep logo size consistent and hide hamburger on desktop */
-    .banner-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 12px}
-    .logo{width:220px;height:auto}
-    .nav-toggle{display:none}
+    /* Header */
+    .appdev-page .banner-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 12px}
+    .appdev-page .logo{width:260px;height:auto} /* BIGGER on desktop */
+    .appdev-page .nav-toggle{display:none}
 
     /* Hamburger (mobile only) */
-    .hamburger{display:none;cursor:pointer;padding:8px 10px;border-radius:8px}
-    .hamburger span{display:block;width:26px;height:2px;background:#0d3b66;margin:5px 0;border-radius:2px}
+    .appdev-page .hamburger{display:none;cursor:pointer;padding:8px 10px;border-radius:8px}
+    .appdev-page .hamburger span{display:block;width:26px;height:2px;background:#0d3b66;margin:5px 0;border-radius:2px}
 
-    /* Desktop nav visible by default */
-    .desktop-nav{display:flex;gap:8px;flex-wrap:wrap}
-    .mobile-nav{display:none;flex-direction:column;padding:10px 14px;background:#fff;border-top:1px solid #e4e8f1}
+    /* Desktop nav by default */
+    .appdev-page .desktop-nav{display:flex;gap:8px;flex-wrap:wrap}
+    .appdev-page .mobile-nav{display:none;flex-direction:column;padding:10px 14px;background:#fff;border-top:1px solid #e4e8f1}
 
     /* Mobile breakpoint */
     @media (max-width: 900px){
-      .logo{width:190px}
-      .desktop-nav{display:none}
-      .hamburger{display:block}
-      .mobile-nav{display:none}
-      .nav-toggle:checked ~ label.hamburger{outline:2px solid rgba(13,59,102,.12)}
-      .nav-toggle:checked ~ .mobile-nav{display:flex}
+      .appdev-page .logo{width:200px} /* scale down on mobile */
+      .appdev-page .desktop-nav{display:none}
+      .appdev-page .hamburger{display:block}
+      .appdev-page .mobile-nav{display:none}
+      .appdev-page .nav-toggle:checked ~ label.hamburger{outline:2px solid rgba(13,59,102,.12)}
+      .appdev-page .nav-toggle:checked ~ .mobile-nav{display:flex}
     }
 
     /* Hero + intro */
-    .hero-media img{width:100%;height:auto;display:block}
-    .hero-intro{max-width:var(--container);margin:2rem auto 1rem;padding:0 1rem;text-align:center}
-    .hero-intro p{color:#444}
-    .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .5rem;text-align:center}
+    .appdev-page .hero-media img{width:100%;height:auto;display:block}
+    .appdev-page .hero-intro{max-width:var(--container);margin:2rem auto 1rem;padding:0 1rem;text-align:center}
+    .appdev-page .hero-intro p{color:#444}
+    .appdev-page .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .5rem;text-align:center}
 
     /* Sections */
-    .section{padding:1.6rem 0}
-    .section-title{margin:0 0 .75rem;text-align:center}
+    .appdev-page .section{padding:1.6rem 0}
+    .appdev-page .section-title{margin:0 0 .75rem;text-align:center}
 
     /* Content wrapper */
-    .content{max-width:var(--container);width:100%;margin:0 auto;padding:0 1rem}
-    .narrative{max-width:var(--container);margin:0 auto;padding:0 1rem;color:#444}
+    .appdev-page .content{max-width:var(--container);width:100%;margin:0 auto;padding:0 1rem}
+    .appdev-page .narrative{max-width:var(--container);margin:0 auto;padding:0 1rem;color:#444}
 
     /* In-page chips */
-    .inpage-nav{display:flex;gap:10px;max-width:var(--container);margin:0 auto 1rem;padding:.5rem 1rem;justify-content:center;flex-wrap:wrap}
-    .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff}
+    .appdev-page .inpage-nav{display:flex;gap:10px;max-width:var(--container);margin:0 auto 1rem;padding:.5rem 1rem;justify-content:center;flex-wrap:wrap}
+    .appdev-page .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff}
 
     /* Lists (no bullets) */
-    .points{list-style:none;padding-left:0;margin:.25rem 0}
-    .points li{margin:.35rem 0;line-height:1.7}
-    .muted{color:#5a6b85;font-size:.95rem}
+    .appdev-page .points{list-style:none;padding-left:0;margin:.25rem 0}
+    .appdev-page .points li{margin:.35rem 0;line-height:1.7}
+    .appdev-page .muted{color:#5a6b85;font-size:.95rem}
 
     /* Metrics rows */
-    .metrics{display:grid;gap:.45rem;max-width:var(--container);margin:0 auto;padding:0 1rem}
-    .metric{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;flex-wrap:wrap;width:100%}
-    .metric span{flex:1 1 250px;min-width:0}
-    .metric b{flex:0 0 auto;white-space:nowrap;color:#0b3d72}
+    .appdev-page .metrics{display:grid;gap:.45rem;max-width:var(--container);margin:0 auto;padding:0 1rem}
+    .appdev-page .metric{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;flex-wrap:wrap;width:100%}
+    .appdev-page .metric span{flex:1 1 250px;min-width:0}
+    .appdev-page .metric b{flex:0 0 auto;white-space:nowrap;color:#0b3d72}
 
     /* Inline CTA */
-    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.6rem auto;max-width:var(--container);text-align:center}
-    .inline-cta p{margin:.55rem 0 0;color:#fff !important}
-    .cta-btn{padding:.75rem 1rem;display:inline-block}
+    .appdev-page .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.6rem auto;max-width:var(--container);text-align:center}
+    .appdev-page .inline-cta p{margin:.55rem 0 0;color:#fff !important}
+    .appdev-page .cta-btn{padding:.75rem 1rem;display:inline-block}
 
     /* Cards */
-    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:var(--container);margin:0 auto;padding:0 1rem;width:100%}
-    .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.04);padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;min-width:0}
-    .card h3{margin:.25rem 0 .35rem}
-    .card p{margin:0;color:#444}
-    .card .cta-btn{margin-top:.4rem;align-self:flex-start}
+    .appdev-page .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:var(--container);margin:0 auto;padding:0 1rem;width:100%}
+    .appdev-page .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.04);padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;min-width:0}
+    .appdev-page .card h3{margin:.25rem 0 .35rem}
+    .appdev-page .card p{margin:0;color:#444}
+    .appdev-page .card .cta-btn{margin-top:.4rem;align-self:flex-start}
 
     /* FAQ (collapsed) */
-    .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12)}
-    .faq-list details:last-of-type{border-bottom:none}
-    .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none}
-    .faq-list p{margin:.45rem 0 0}
+    .appdev-page .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12)}
+    .appdev-page .faq-list details:last-of-type{border-bottom:none}
+    .appdev-page .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none}
+    .appdev-page .faq-list p{margin:.45rem 0 0}
 
     /* Large screens: 4-up deep dives */
     @media (min-width:1100px){
-      #deep-dives .card-grid{grid-template-columns:repeat(4,1fr)}
+      .appdev-page #deep-dives .card-grid{grid-template-columns:repeat(4,1fr)}
     }
 
     /* Mobile tweaks */
     @media (max-width:768px){
-      .hero-intro{padding:0 1rem}
-      .section{padding:1.25rem 0}
-      .hero-title{font-size:1.8rem;line-height:1.2}
-      .metric{gap:.5rem}
+      .appdev-page .hero-intro{padding:0 1rem}
+      .appdev-page .section{padding:1.25rem 0}
+      .appdev-page .hero-title{font-size:1.8rem;line-height:1.2}
+      .appdev-page .metric{gap:.5rem}
     }
 
-    /* Footer tel link readability across themes */
-    footer .footer-right a[href^="tel:"]{color:#fff !important;text-decoration:none;font-weight:500}
-    footer .footer-right a[href^="tel:"]:hover{text-decoration:underline}
+    /* Footer tel readability */
+    .appdev-page footer .footer-right a[href^="tel:"]{color:#fff !important;text-decoration:none;font-weight:500}
+    .appdev-page footer .footer-right a[href^="tel:"]:hover{text-decoration:underline}
   </style>
 
   <!-- JSON-LD -->
@@ -157,14 +157,14 @@
   </script>
 </head>
 
-<body class="appdev">
+<body class="appdev appdev-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
       <a href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="260" height="64" decoding="async" fetchpriority="high"/>
       </a>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
@@ -206,7 +206,7 @@
 
   <!-- Hero -->
   <div class="hero-media" role="img" aria-label="Application development — product-minded engineering">
-    <img src="assets/images/appdev-bannerimage.png" alt="Application Development — ship fast, stay governed" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
+    <img src="assets/images/appdev-bannerimage.png?v=11" alt="Application Development — ship fast, stay governed" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
   <!-- Intro -->
