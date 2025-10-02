@@ -24,14 +24,16 @@
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
   <style>
-    /* ===== Overflow guards (root & page) ===== */
+    /* ===== Global overflow guards (keep mobile fixed) ===== */
     html, body { width:100%; max-width:100%; overflow-x:hidden; }
-    * , *::before, *::after { box-sizing:border-box; }
+    *, *::before, *::after { box-sizing:border-box; }
     img, svg, video { max-width:100%; height:auto; display:block; }
-    .appdev, .appdev .content, .appdev .section, .appdev .hero-media, .appdev .inpage-nav { overflow-x:clip; }
-    .appdev .content, .appdev main { width:100%; max-width:100%; }
-    /* Prevent children from forcing width */
-    .appdev .card, .appdev .card-grid, .appdev .metrics, .appdev .points, .appdev .inline-cta, .appdev .faq-list { min-width:0; max-width:100%; margin-left:auto; margin-right:auto; }
+
+    /* ===== Page containers ===== */
+    .appdev .hero-media,
+    .appdev .inpage-nav { overflow-x:clip; }
+    .appdev main.content { width:100%; max-width:1100px; margin:0 auto; padding:0 1rem; } /* NEW: desktop width */
+    .appdev .section { overflow-x:clip; }
 
     /* a11y */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
@@ -49,12 +51,12 @@
     .appdev-page :is(h1.hero-title, h2.section-title){
       text-align:center !important; display:block !important;
       margin-left:auto !important; margin-right:auto !important;
-      max-width:1000px; padding:0 1rem;
+      max-width:100%; padding:0 1rem;
     }
 
     /* in-page nav chips */
     .inpage-nav{
-      display:flex;gap:10px;padding:.5rem 1rem;margin:0 auto 1rem;max-width:1000px;
+      display:flex;gap:10px;padding:.5rem 1rem;margin:0 auto 1rem;max-width:1100px;
       justify-content:center;flex-wrap:wrap;overflow:visible;
     }
     .inpage-nav a{
@@ -66,19 +68,19 @@
       .inpage-nav::-webkit-scrollbar{display:none;}
     }
 
-    /* ===== Bulletless lists everywhere ===== */
+    /* ===== Bulletless lists ===== */
     .points, .checklist, .metrics, .faq-list, .points ul, .points ol { list-style:none; padding-left:0; margin-left:0; }
     .points li, .checklist li { margin:.3rem 0; line-height:1.7; }
     ol.points { counter-reset:none; } /* no numbers */
     .muted{color:#5a6b85;font-size:.95rem}
 
-    /* metrics rows — wrap safely on small screens */
-    .metrics{display:grid;gap:.45rem;max-width:1000px;margin:0 auto;padding:0 1rem;}
+    /* metrics rows — wrap safely on small screens, align nicely on desktop */
+    .metrics{display:grid;gap:.45rem;max-width:100%;margin:0 auto;padding:0;}
     .metric{
       display:flex; align-items:flex-start; justify-content:space-between; gap:.75rem;
-      border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; flex-wrap:wrap; /* allow wrap */
+      border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; flex-wrap:wrap;
     }
-    .metric span{flex:1 1 260px; min-width:0;}
+    .metric span{flex:1 1 420px; min-width:0;}
     .metric b{flex:0 0 auto; margin-left:auto; color:#0b3d72;}
 
     /* inline CTA */
@@ -87,11 +89,18 @@
     .appdev .cta-btn{padding:.85rem 1.05rem;display:inline-block;}
 
     /* cards */
-    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px; width:100%;}
-    @media (max-width:380px){ .card-grid{grid-template-columns:1fr;} }
+    .card-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;width:100%;
+    }
+    @media (min-width:1200px){
+      .card-grid{grid-template-columns:repeat(4,1fr);} /* crisp desktop 4-up where space allows */
+    }
+    @media (max-width:380px){
+      .card-grid{grid-template-columns:1fr;}
+    }
     .card{
       border:1px solid #e4e8f1;border-radius:12px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.04);
-      padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;min-width:0; width:100%;
+      padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem;min-width:0;width:100%;
     }
     .card h3{margin:.25rem 0 .35rem}
     .card p{margin:0;color:#444}
@@ -103,7 +112,7 @@
     .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none;}
     .faq-list p{margin:.45rem 0 0;}
 
-    /* wrap/overflow safety for long tokens/URLs */
+    /* wrap/overflow safety */
     .appdev .content, .appdev .content p, .appdev .content li, .appdev .content a{
       word-break:break-word; overflow-wrap:anywhere;
     }
@@ -114,7 +123,7 @@
     .appdev th,.appdev td{border:1px solid #e4e8f1;padding:.6rem;text-align:left}
     .appdev thead th{background:#f7f9fc}
 
-    /* mobile */
+    /* mobile tweaks */
     @media (max-width:768px){
       .appdev .hero-intro{padding:0 1rem}
       .appdev .section{padding:1.25rem 0}
