@@ -26,87 +26,111 @@
   <!-- Page-scoped styles -->
   <style>
     /* Global safety */
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{max-width:100%;overflow-x:hidden}
-    img{max-width:100%;height:auto;display:block}
-    :root{--container:1000px}
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { max-width:100%; overflow-x:hidden; }
+    img { max-width:100%; height:auto; display:block; }
+    :root{ --container: 1000px; }
 
     /* Content wrapper */
-    .appdev .content{max-width:var(--container);margin:0 auto;padding:0 1rem}
+    .appdev .content{ max-width:var(--container); width:100%; margin:0 auto; padding:0 1rem; }
 
     /* a11y */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
     /* hero + intro */
-    .appdev .hero-media img{width:100%;height:auto;display:block}
-    .appdev .hero-intro{max-width:var(--container);margin:2rem auto 1rem;padding:0 1rem;text-align:center}
-    .appdev .hero-intro p{color:#444}
-    .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .5rem;text-align:center}
+    .appdev .hero-media img{width:100%;height:auto;display:block;}
+    .appdev .hero-intro{max-width:var(--container);margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
+    .appdev .hero-intro p{color:#444;}
+    .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .5rem;text-align:center;}
 
     /* sections */
-    .appdev .section{padding:1.6rem 0}
-    .appdev .section-title{margin:0 0 .75rem;text-align:center}
+    .appdev .section{padding:1.6rem 0;}
+    .appdev .section-title{margin:0 0 .75rem;text-align:center;}
 
-    /* in-page chips */
+    /* in-page nav chips */
     .inpage-nav{
-      display:flex;gap:10px;padding:.5rem 1rem;margin:0 auto 1rem;
-      max-width:var(--container);justify-content:center;flex-wrap:wrap;overflow:visible;
+      display:flex; gap:10px; padding:.5rem 1rem; margin:0 auto 1rem;
+      max-width:var(--container); justify-content:center; flex-wrap:wrap; overflow:visible;
     }
     .inpage-nav a{
       white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;
       padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;
     }
 
-    /* narrative + lists (no bullets) */
-    .narrative{max-width:var(--container);margin:0 auto;padding:0 1rem;color:#444}
-    .points{list-style:none;padding-left:0;margin:.25rem 0}
-    .points li{margin:.35rem 0;line-height:1.7}
+    /* narrative */
+    .narrative{max-width:var(--container);margin:0 auto;padding:0 1rem;color:#444;}
+
+    /* lists (bullets removed everywhere) */
+    .points{list-style:none;padding-left:0;margin:.25rem 0;}
+    .points li{margin:.35rem 0;line-height:1.7;}
     .muted{color:#5a6b85;font-size:.95rem}
 
     /* metrics */
-    .metrics{display:grid;gap:.45rem;max-width:var(--container);margin:0 auto;padding:0 1rem}
-    .metric{display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;flex-wrap:wrap}
-    .metric span{flex:1 1 250px;min-width:0}
-    .metric b{flex:0 0 auto;white-space:nowrap;color:#0b3d72}
+    .metrics{display:grid;gap:.45rem;max-width:var(--container);margin:0 auto;padding:0 1rem;}
+    .metric{
+      display:flex; align-items:flex-start; justify-content:space-between; gap:.75rem;
+      border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; flex-wrap:wrap; width:100%;
+    }
+    .metric span{flex:1 1 250px; min-width:0;}
+    .metric b{flex:0 0 auto; white-space:nowrap; color:#0b3d72;}
 
     /* inline CTA */
-    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.3rem auto;max-width:var(--container);text-align:center}
+    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.6rem auto;max-width:var(--container);text-align:center;}
     .inline-cta p{margin:.55rem 0 0;color:#fff !important;}
-    .appdev .cta-btn{padding:.75rem 1rem;display:inline-block}
+    .appdev .cta-btn{padding:.75rem 1rem;display:inline-block;}
 
     /* cards */
-    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:var(--container);margin:0 auto;padding:0 1rem}
-    .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.04);padding:1rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:.5rem}
+    .card-grid{
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:14px; max-width:var(--container); margin:0 auto; padding:0 1rem; width:100%;
+    }
+    .card{
+      border:1px solid #e4e8f1;border-radius:12px;background:#fff;
+      box-shadow:0 2px 6px rgba(0,0,0,.04);padding:1rem;text-decoration:none;color:inherit;
+      display:flex;flex-direction:column;gap:.5rem; min-width:0;
+    }
     .card h3{margin:.25rem 0 .35rem}
     .card p{margin:0;color:#444}
     .card .cta-btn{margin-top:.4rem;align-self:flex-start}
 
-    /* Collapsed FAQ */
-    .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12)}
-    .faq-list details:last-of-type{border-bottom:none}
-    .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none}
-    .faq-list p{margin:.45rem 0 0}
-    .faq-list summary::-webkit-details-marker{display:none}
+    /* FAQ (collapsed) */
+    .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12);}
+    .faq-list details:last-of-type{border-bottom:none;}
+    .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none;}
+    .faq-list p{margin:.45rem 0 0;}
 
-    /* tables (future-proof) */
+    /* table safety (if ever used) */
     .appdev .table-wrap{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
     .appdev table{width:100%;border-collapse:collapse;margin:1rem 0}
     .appdev th,.appdev td{border:1px solid #e4e8f1;padding:.6rem;text-align:left}
     .appdev thead th{background:#f7f9fc}
 
     /* large screens: 4-up deep dives */
-    @media (min-width:1100px){ #deep-dives .card-grid{grid-template-columns:repeat(4,1fr)} }
+    @media (min-width:1100px){
+      #deep-dives .card-grid{grid-template-columns:repeat(4,1fr);}
+    }
 
-    /* mobile */
+    /* MOBILE HOTFIX: contain header + nav and kill horizontal scroll */
+    @media (max-width: 1024px){
+      .desktop-nav{ display:none !important; }
+      .mobile-nav{ display:block !important; }
+      .banner-header{ display:flex; align-items:center; justify-content:space-between; gap:.75rem; flex-wrap:wrap; }
+      .hamburger{ display:block !important; }
+    }
+    @media (max-width: 480px){
+      .logo{ max-width:60vw; height:auto; }
+    }
     @media (max-width:768px){
+      .appdev .hero-intro{padding:0 1rem}
       .appdev .section{padding:1.25rem 0}
       .hero-title{font-size:1.8rem;line-height:1.2}
-      .metric{gap:.5rem}
+      .metric{gap:.5rem;}
+      .card-grid, .metrics, .narrative, .inpage-nav, .hero-intro, .content { width:100%; max-width:100vw; }
     }
   </style>
 
-  <!-- JSON-LD -->
+  <!-- JSON-LD: Service + Breadcrumbs + FAQ -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -199,7 +223,7 @@
     <p>We build with a two-tier approach: workflows/UI that move quickly, domain services that stay clean and portable. Security, reliability, and cost visibility are baked in — so speed doesn’t create rework.</p>
   </section>
 
-  <!-- Chips -->
+  <!-- In-page anchor nav -->
   <nav class="inpage-nav" aria-label="On this page">
     <a href="#build">What we build</a>
     <a href="#how">How we ship</a>
@@ -406,18 +430,6 @@
         var href=(a.getAttribute('href')||'').toLowerCase();
         if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
         else{a.classList.remove('active');a.removeAttribute('aria-current');}
-      });
-    })();
-  </script>
-
-  <!-- Optional: FAQ accordion (one open at a time) -->
-  <script>
-    (function(){
-      var items=document.querySelectorAll('#faq .faq-list details');
-      items.forEach(function(d){
-        d.addEventListener('toggle',function(){
-          if(d.open){ items.forEach(function(o){ if(o!==d) o.open=false; }); }
-        });
       });
     })();
   </script>
