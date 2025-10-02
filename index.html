@@ -21,69 +21,40 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
 
-  <!-- Page-scoped styles -->
+  <!-- Page-scoped styles (kept minimal; no new classes) -->
   <style>
-    /* a11y: skip link */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* keep hero tidy across widths */
     .home .hero-media img{width:100%;height:auto;display:block;}
     .home .hero-intro{max-width:900px;margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
     .home .hero-intro p{color:#444;}
 
-    /* section spacing harmony */
     .home .section{padding:1.5rem 0;}
     .home .section .section-title{margin:0 0 .75rem;}
 
-    /* cards grid breathing room on small screens */
     .home .card-grid{padding:0 1rem;}
 
-    /* make long text/links wrap safely */
     .home .content, .home .content p, .home .content li, .home .content a{word-break:break-word;overflow-wrap:anywhere;}
 
-    /* service tiles */
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:14px;
-      padding:0 1rem;
-      max-width:1200px;
-      margin:0 auto;
-    }
-    .service-card{display:block;text-decoration:none;border:1px solid #e4e8f1;border-radius:12px;padding:1rem;background:#fff}
-    .service-card h3{margin:.25rem 0 .5rem;}
-    .service-card p{color:#444;margin:0}
+    /* Previously local services grid replaced by global .card-grid + .card */
 
-    /* “Recent wins” list spacing */
     .wins-list{padding-left:1.25rem}
     .wins-list li{margin:.25rem 0}
 
-    /* Center the Hybrid CTA row + perfectly center the button text */
+    /* Center the Hybrid CTA row + ensure button text perfectly centered */
     .home [aria-labelledby="hybrid-title"] p:last-of-type{
-      display:flex;
-      justify-content:center;
-      align-items:center;
+      display:flex;justify-content:center;align-items:center;
     }
     .home [aria-labelledby="hybrid-title"] .cta-btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      line-height:1;
-      padding:.75rem 1.15rem;
-      min-width:220px; /* keeps it visually balanced */
+      display:inline-flex;align-items:center;justify-content:center;min-width:220px;
     }
 
-    /* mobile tweaks */
     @media (max-width:768px){
       .home .hero-intro{padding:0 1rem}
     }
 
-    /* Force 4-up layout for "Explore Our Services" on desktop */
-    @media (min-width:1100px){
-      .home .services-grid{grid-template-columns:repeat(4,1fr) !important;}
-    }
+    /* Optional: force 4-up at very wide desktop (uses global card-grid.force-4 now) */
   </style>
 
   <!-- JSON-LD (WebSite + Organization) -->
@@ -110,13 +81,15 @@
   </script>
 </head>
 
-<body class="home">
+<body class="home home-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav -->
-  <div class="small-banner">
+  <!-- Header / Nav (single, canonical) -->
+  <header class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+      <a href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+      </a>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
@@ -127,7 +100,7 @@
         <a href="cloud.html" class="nav-btn">CLOUD</a>
         <a href="finops.html" class="nav-btn">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="mobile-web.html" class="nav-btn">APP&nbsp;DEV</a>
         <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
@@ -143,7 +116,7 @@
         <a href="cloud.html">CLOUD</a>
         <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="mobile-web.html">APP DEVELOPMENT</a>
         <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html">RE / LAUNCH</a>
@@ -153,20 +126,20 @@
         <a href="contact.html">CONTACT</a>
       </nav>
     </div>
-  </div>
+  </header>
 
   <!-- Hero -->
   <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
     <img src="assets/images/index-bannerimage.png" alt="From Strategy to Revenue. From Cloud to People." width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
-  <!-- Intro -->
-  <section class="hero-intro">
-    <h1 class="hero-title">From Strategy to Revenue. From Cloud to People.</h1>
-    <p>Big ideas mean nothing without results. We help South African enterprises turn strategy into action and revenue — sharper sales execution, modernised cloud, elite ICT talent, and disciplined app delivery.</p>
-  </section>
-
   <main class="content" id="main">
+    <!-- Intro -->
+    <section class="hero-intro">
+      <h1 class="hero-title">From Strategy to Revenue. From Cloud to People.</h1>
+      <p>Big ideas mean nothing without results. We help South African enterprises turn strategy into action and revenue — sharper sales execution, modernised cloud, elite ICT talent, and disciplined app delivery.</p>
+    </section>
+
     <!-- Hybrid POV -->
     <section class="section" aria-labelledby="hybrid-title">
       <h2 id="hybrid-title" class="section-title">Hybrid Isn’t Optional — It’s the Operating Model</h2>
@@ -221,47 +194,55 @@
       </ul>
     </section>
 
-    <!-- Explore services (tiles) -->
+    <!-- Explore services (uses global card grid) -->
     <section class="section" aria-labelledby="services-title">
       <h2 id="services-title" class="section-title">Explore Our Services</h2>
-      <div class="services-grid" role="list">
-        <a class="service-card" role="listitem" href="consulting.html">
+      <div class="card-grid force-4" role="list">
+        <a class="card" role="listitem" href="consulting.html">
           <h3>Consulting</h3>
           <p>From strategy to execution: GTM precision, pipeline discipline, partner motions that convert.</p>
+          <span class="cta-btn">Explore</span>
         </a>
-        <a class="service-card" role="listitem" href="cloud.html">
+        <a class="card" role="listitem" href="cloud.html">
           <h3>Cloud Suite</h3>
           <p>AWS &amp; Azure architecture, landing zones, security, cost control, and modernisation.</p>
+          <span class="cta-btn">Explore</span>
         </a>
-        <a class="service-card" role="listitem" href="finops.html">
+        <a class="card" role="listitem" href="finops.html">
           <h3>Hybrid FinOps &amp; Governance</h3>
           <p>Cut run-rate and stop drift. Tags, budgets, policies, and showback across venues.</p>
+          <span class="cta-btn">Explore</span>
         </a>
-        <a class="service-card" role="listitem" href="hosting-private-cloud.html">
+        <a class="card" role="listitem" href="hosting-private-cloud.html">
           <h3>Hosting &amp; Private Cloud</h3>
           <p>Predictable cost, SA locality, and low latency — with burst to public cloud.</p>
+          <span class="cta-btn">Explore</span>
         </a>
-        <a class="service-card" role="listitem" href="application-development.html">
+        <a class="card" role="listitem" href="mobile-web.html">
           <h3>App Development</h3>
           <p>Cloud-native apps, portals, mobile &amp; web, and APIs — delivered with DevOps discipline.</p>
+          <span class="cta-btn">Explore</span>
         </a>
-        <a class="service-card" role="listitem" href="data-ai.html">
+        <a class="card" role="listitem" href="data-ai.html">
           <h3>Sovereign Data &amp; AI</h3>
           <p>Analytics and AI with SA residency. On-prem GPU + cloud burst, governed pipelines.</p>
+          <span class="cta-btn">Explore</span>
         </a>
-        <a class="service-card" role="listitem" href="talent.html">
+        <a class="card" role="listitem" href="talent.html">
           <h3>Talent Placement</h3>
           <p>Cloud, data, and platform talent — vetted for impact, not keywords.</p>
+          <span class="cta-btn">Explore</span>
         </a>
-        <a class="service-card" role="listitem" href="dynamic-imprinting.html">
+        <a class="card" role="listitem" href="dynamic-imprinting.html">
           <h3>Dynamic Imprinting</h3>
           <p>Leadership identity work that sticks — perform under pressure, consistently.</p>
+          <span class="cta-btn">Explore</span>
         </a>
       </div>
     </section>
   </main>
 
-  <!-- Footer (reused global) -->
+  <!-- Footer (global) -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -272,13 +253,13 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST">
           <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
           <input type="hidden" name="_template" value="table"/>
           <input type="hidden" name="_captcha" value="false"/>
           <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
           <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;"/>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
