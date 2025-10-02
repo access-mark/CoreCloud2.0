@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Page-scoped styles (kept minimal; no overrides of global .card/.card-grid) -->
+  <!-- Page-scoped styles (minimal; aligned to global system) -->
   <style>
     /* a11y */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
@@ -77,6 +77,24 @@
       .cloud .hero-intro{padding:0 1rem}
       .cloud .section{padding:1.25rem 0}
       .cloud .hero-title{font-size:1.8rem;line-height:1.2}
+    }
+
+    /* --- FIX: Title alignment (Cloud page) --- */
+    .cloud-page :is(h1.hero-title, h2.section-title){
+      text-align: center !important;
+      display: block !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+    /* Keep vendor column labels left (AWS / Azure / Databricks) */
+    .cloud-page .cloud-column > h3{
+      text-align: left !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+    /* Subheads inside cards/panels stay left */
+    .cloud-page :is(.card h3, .panel h3, .panel h4){
+      text-align: left !important;
     }
   </style>
 
