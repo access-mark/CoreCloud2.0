@@ -18,121 +18,100 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=11">
+  <!-- Global CSS (bump version to beat cache if needed) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
-  <!-- Page-scoped styles (match other pages; fix mobile, bullets off, titles centered) -->
+  <!-- Page-scoped styles (no overflow, centered content, compact hamburger, bullets removed) -->
   <style>
-    /* Global safety */
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{max-width:100%;overflow-x:hidden}
-    img{max-width:100%;height:auto;display:block}
+    /* Safety: no horizontal scroll anywhere */
+    html, body { max-width: 100%; overflow-x: hidden; }
+    *, *::before, *::after { box-sizing: border-box; }
+    img { max-width: 100%; height: auto; display: block; }
 
-    :root{--container:1000px}
+    :root { --container: 1000px; }
 
-    /* Skip link: hidden until focused */
-    .skip-link{
-      position:absolute;top:0;left:0;transform:translateY(-200%);
-      background:#0d3b66;color:#fff;padding:.5rem .75rem;border-radius:8px;z-index:1000;text-decoration:none
-    }
-    .skip-link:focus,.skip-link:focus-visible{transform:translateY(0)}
+    /* Desktop logo sizing (consistent) */
+    .banner-header .logo { width: 220px; height: auto; }
 
-    /* Keep logo + hamburger consistent with other pages */
-    .banner-header .logo{width:220px;height:auto}
-    @media (max-width:768px){
-      .banner-header .logo{width:200px}
-    }
-    .hamburger span{display:block;height:2px;background:#0d3b66;margin:5px 0;width:22px}
+    /* Compact hamburger spacing like other pages */
+    .hamburger { display:inline-flex; flex-direction:column; justify-content:center; gap:4px; }
+    .hamburger span { display:block; width:24px; height:2px; background:#0d3b66; }
 
-    /* Page */
-    body.appdev{background:#f9fbfe;color:#223}
-    .appdev .content{max-width:var(--container);width:100%;margin:0 auto;padding:0 1rem}
-
-    /* Hero */
-    .appdev .hero-media img{width:100%;height:auto;display:block}
-    .appdev .hero-intro{max-width:var(--container);margin:2rem auto 1rem;padding:0 1rem;text-align:center}
-    .appdev .hero-intro p{color:#444}
-    .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .5rem;text-align:center}
+    /* Hero + intro */
+    .appdev .hero-media img { width:100%; height:auto; display:block; }
+    .appdev .hero-intro { max-width:var(--container); margin:2rem auto 1rem; padding:0 1rem; text-align:center; }
+    .appdev .hero-intro p { color:#444; }
+    .hero-title { font-size:2rem; color:var(--dark-blue); font-weight:700; margin:.2rem auto .6rem; text-align:center; }
 
     /* Sections */
-    .appdev .section{padding:1.6rem 0}
-    .appdev .section-title{margin:0 0 .75rem;text-align:center;color:var(--dark-blue)}
+    .appdev .section { padding:1.6rem 0; }
+    .appdev .section-title { margin:0 0 .75rem; text-align:center; }
 
-    /* In-page chips */
-    .inpage-nav{
-      display:flex;gap:10px;padding:.5rem 1rem;margin:0 auto 1rem;
-      max-width:var(--container);justify-content:center;flex-wrap:wrap;overflow:visible
+    /* In-page chip nav */
+    .inpage-nav {
+      display:flex; gap:10px; padding:.5rem 1rem; margin:0 auto 1rem;
+      max-width:var(--container); justify-content:center; flex-wrap:wrap; overflow:visible;
     }
-    .inpage-nav a{
-      white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;
-      padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff
+    .inpage-nav a {
+      white-space:nowrap; border:1px solid #e4e8f1; border-radius:999px;
+      padding:.45rem .75rem; text-decoration:none; color:#0d3b66; font-weight:600; background:#fff;
     }
 
-    /* Narrative blocks */
-    .narrative{max-width:var(--container);margin:0 auto;padding:0 1rem;color:#444}
+    /* Main content wrapper */
+    .appdev .content { max-width:var(--container); width:100%; margin:0 auto; padding:0 1rem; }
 
-    /* Lists: bullets removed */
-    .points{list-style:none;margin:.25rem 0;padding-left:0}
-    .points li{margin:.35rem 0;line-height:1.7}
-    .muted{color:#5a6b85;font-size:.95rem}
+    /* Narrative + lists (bullets removed) */
+    .narrative { max-width:var(--container); margin:0 auto; padding:0 1rem; color:#444; }
+    .points { list-style:none; padding-left:0; margin:.25rem 0; }
+    .points li { margin:.35rem 0; line-height:1.7; }
+    .muted { color:#5a6b85; font-size:.95rem; }
 
-    /* Metrics rows */
-    .metrics{display:grid;gap:.45rem;max-width:var(--container);margin:0 auto;padding:0 1rem}
-    .metric{
-      display:flex;align-items:flex-start;justify-content:space-between;gap:.75rem;
-      border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;flex-wrap:wrap;width:100%
+    /* Metrics (wrap safely) */
+    .metrics { display:grid; gap:.45rem; max-width:var(--container); margin:0 auto; padding:0 1rem; }
+    .metric {
+      display:flex; align-items:flex-start; justify-content:space-between; gap:.75rem;
+      border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; flex-wrap:wrap; width:100%;
     }
-    .metric span{flex:1 1 250px;min-width:0}
-    .metric b{flex:0 0 auto;white-space:nowrap;color:#0b3d72}
-
-    /* Cards */
-    .card-grid{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:14px;max-width:var(--container);margin:0 auto;padding:0 1rem;width:100%
-    }
-    .card{
-      border:1px solid #e4e8f1;border-radius:12px;background:#fff;
-      box-shadow:0 2px 6px rgba(0,0,0,.04);padding:1rem;text-decoration:none;color:inherit;
-      display:flex;flex-direction:column;gap:.5rem;min-width:0
-    }
-    .card h3{margin:.25rem 0 .35rem}
-    .card p{margin:0;color:#444}
-    .card .cta-btn{margin-top:.4rem;align-self:flex-start}
+    .metric span { flex:1 1 250px; min-width:0; }
+    .metric b { flex:0 0 auto; white-space:nowrap; color:#0b3d72; }
 
     /* Inline CTA */
-    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.6rem auto;max-width:var(--container);text-align:center}
-    .inline-cta p{margin:.55rem 0 0;color:#fff !important}
-    .appdev .cta-btn{padding:.75rem 1rem;display:inline-block}
+    .inline-cta { background:#0d3b66; color:#fff; padding:1.1rem 1.25rem; border-radius:12px; margin:1.6rem auto; max-width:var(--container); text-align:center; }
+    .inline-cta p { margin:.55rem 0 0; color:#fff !important; }
+    .appdev .cta-btn { padding:.75rem 1rem; display:inline-block; }
 
-    /* FAQ (collapsed) */
-    .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12)}
-    .faq-list details:last-of-type{border-bottom:none}
-    .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none}
-    .faq-list p{margin:.45rem 0 0}
-
-    /* Tables (safety) */
-    .table-wrap{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
-    table{width:100%;border-collapse:collapse;margin:1rem 0}
-    th,td{border:1px solid #e4e8f1;padding:.6rem;text-align:left}
-    thead th{background:#f7f9fc}
-
-    /* Large: 4-up deep dives */
-    @media (min-width:1100px){
-      #deep-dives .card-grid{grid-template-columns:repeat(4,1fr)}
+    /* Cards */
+    .card-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:14px; max-width:var(--container); margin:0 auto; padding:0 1rem; width:100%;
     }
+    .card {
+      border:1px solid #e4e8f1; border-radius:12px; background:#fff;
+      box-shadow:0 2px 6px rgba(0,0,0,.04); padding:1rem; text-decoration:none; color:inherit;
+      display:flex; flex-direction:column; gap:.5rem; min-width:0;
+    }
+    .card h3 { margin:.25rem 0 .35rem; color:var(--dark-blue); }
+    .card p { margin:0; color:#444; }
+    .card .cta-btn { margin-top:.4rem; align-self:flex-start; }
 
-    /* Mobile tweaks */
+    /* Collapsible FAQ */
+    .faq-list details { padding:.6rem 0; border-bottom:1px dashed rgba(0,0,0,.12); }
+    .faq-list details:last-of-type { border-bottom:none; }
+    .faq-list summary { font-weight:700; color:var(--dark-blue); cursor:pointer; outline:none; }
+    .faq-list p { margin:.45rem 0 0; }
+
+    /* Mobile */
     @media (max-width:768px){
-      .appdev .hero-intro{padding:0 1rem}
-      .appdev .section{padding:1.25rem 0}
-      .hero-title{font-size:1.8rem;line-height:1.2}
-      .metric{gap:.5rem}
+      .appdev .hero-intro { padding:0 1rem; margin:1.4rem auto .9rem; }
+      .appdev .section { padding:1.25rem 0; }
+      .hero-title { font-size:1.8rem; line-height:1.2; }
+      .metric { gap:.5rem; }
     }
   </style>
 
-  <!-- JSON-LD -->
+  <!-- JSON-LD: Service + Breadcrumbs + FAQ -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -170,17 +149,17 @@
 </head>
 
 <body class="appdev">
-  <a class="skip-link" href="#main">Skip to main content</a>
-
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+      <a href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+      </a>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Short labels (match other pages) -->
+      <!-- Desktop nav (full labels like other pages) -->
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
@@ -197,7 +176,7 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile labels (full names) -->
+      <!-- Mobile nav -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULT</a>
@@ -218,7 +197,7 @@
 
   <!-- Hero -->
   <div class="hero-media" role="img" aria-label="Application development — product-minded engineering">
-    <img src="assets/images/appdev-bannerimage.png" alt="Application Development — ship fast, stay governed" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
+    <img src="assets/images/appdev-bannerimage.png?v=2" alt="Application Development — ship fast, stay governed" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
   <!-- Intro -->
@@ -429,11 +408,11 @@
   <!-- Auto-highlight current nav -->
   <script>
     (function(){
-      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+      var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
       document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
-        var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
-        else{a.classList.remove('active');a.removeAttribute('aria-current');}
+        var href = (a.getAttribute('href') || '').toLowerCase();
+        if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
       });
     })();
   </script>
