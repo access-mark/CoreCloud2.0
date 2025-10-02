@@ -66,11 +66,14 @@
     .azure-card h3{color:#007fff;}
     .databricks-card h3{color:#ff3621;}
 
+    /* FAQ (no cards) */
+    .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12);}
+    .faq-list details:last-of-type{border-bottom:none;}
+    .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none;}
+    .faq-list p{margin:.45rem 0 0;}
+
     /* wrap safety */
     .cloud .content, .cloud .content p, .cloud .content li, .cloud .content a{word-break:break-word;overflow-wrap:anywhere;}
-
-    /* table safety if used */
-    .cloud .table-wrap{display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
 
     /* mobile tweaks */
     @media (max-width:768px){
@@ -371,31 +374,31 @@
       <a href="hosting-private-cloud.html" class="cta-btn" aria-label="Explore Hosting & Private Cloud">Explore Hosting &amp; Private Cloud</a>
     </section>
 
-    <!-- Engagement options -->
+    <!-- Engagement options (NO CARDS) -->
     <section class="section" id="engagement" aria-labelledby="engage-title">
       <h2 id="engage-title" class="section-title">Engagement Options</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Baseline + Quick Wins (2 weeks)</h3>
-          <p>Cost, posture, and governance gaps; we land immediate savings and risk reductions.</p>
-          <p class="muted"><a href="finops.html">See FinOps</a></p>
-        </div>
-        <div class="card">
-          <h3>Foundation (30 days)</h3>
-          <p>Landing zone, policies, FinOps dashboards, and first migration wave with rollback.</p>
-          <p class="muted"><a href="consulting.html">How we execute</a></p>
-        </div>
-        <div class="card">
-          <h3>Migrate & Modernise</h3>
-          <p>Wave plans, containerisation, managed services adoption, and resilience patterns.</p>
-          <p class="muted"><a href="mobile-web.html">App Dev approach</a></p>
-        </div>
-        <div class="card">
-          <h3>Operator-on-Call</h3>
-          <p>Senior cloud operator for incidents, design reviews, and board-level updates.</p>
-          <p class="muted"><a href="about.html">About our team</a></p>
-        </div>
-      </div>
+      <ul class="points">
+        <li>
+          <strong>Baseline + Quick Wins (2 weeks):</strong>
+          Cost, posture, and governance gaps; we land immediate savings and risk reductions.
+          <span class="muted"> — <a href="finops.html">See FinOps</a></span>
+        </li>
+        <li>
+          <strong>Foundation (30 days):</strong>
+          Landing zone, policies, FinOps dashboards, and first migration wave with rollback.
+          <span class="muted"> — <a href="consulting.html">How we execute</a></span>
+        </li>
+        <li>
+          <strong>Migrate & Modernise:</strong>
+          Wave plans, containerisation, managed services adoption, and resilience patterns.
+          <span class="muted"> — <a href="mobile-web.html">App Dev approach</a></span>
+        </li>
+        <li>
+          <strong>Operator-on-Call:</strong>
+          Senior cloud operator for incidents, design reviews, and board-level updates.
+          <span class="muted"> — <a href="about.html">About our team</a></span>
+        </li>
+      </ul>
     </section>
 
     <!-- Related insights -->
@@ -420,22 +423,22 @@
       </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ (NO CARDS) -->
     <section class="section" id="faq" aria-labelledby="faq-title">
       <h2 id="faq-title" class="section-title">FAQ</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Can we keep regulated data in-country?</h3>
+      <div class="faq-list">
+        <details>
+          <summary>Can we keep regulated data in-country?</summary>
           <p>Yes — we design for in-country primaries, customer-managed keys, and cross-AZ resilience with local backups.</p>
-        </div>
-        <div class="card">
-          <h3>Will FinOps slow teams down?</h3>
+        </details>
+        <details>
+          <summary>Will FinOps slow teams down?</summary>
           <p>No — guardrails (tags, budgets, alerts) run in the background. We prioritise quick wins that don’t block delivery.</p>
-        </div>
-        <div class="card">
-          <h3>How fast can we get to value?</h3>
+        </details>
+        <details>
+          <summary>How fast can we get to value?</summary>
           <p>Most clients see a governed foundation in ~30 days, with the first migration wave and visible run-rate savings.</p>
-        </div>
+        </details>
       </div>
     </section>
   </main>
