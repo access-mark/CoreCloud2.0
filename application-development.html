@@ -18,159 +18,20 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (bump query to bust caches) -->
+  <!-- Global CSS (make sure this is the latest file we aligned) -->
   <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
+
+  <!-- Preloads -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
-  <!-- Page-scoped styles: header consistency + layout + no overflow -->
+  <!-- Page-scope (tiny): list bullets off + FAQ tidy -->
   <style>
-    /* Safety: prevent horizontal scroll anywhere */
-    *, *::before, *::after { box-sizing: border-box; }
-    html, body { max-width:100%; overflow-x:hidden; }
-    img { max-width:100%; height:auto; display:block; }
-
-    :root{
-      --container: 1000px;
-      --logo-max-h-desktop: 80px;  /* bigger desktop logo for consistency */
-      --logo-max-h-mobile: 56px;   /* comfortable mobile logo height */
-      --hamburger-color: #ffffff;  /* white lines on dark header */
-      --hamburger-gap: 7px;        /* spacing between the 3 lines */
-    }
-
-    /* ====== HEADER (unified) ====== */
-    .small-banner{ background:#0d3b66; color:#fff; }
-    .banner-header{
-      max-width: var(--container);
-      margin: 0 auto;
-      padding: .6rem 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    /* Logo left on all screens */
-    .banner-header .logo{
-      height:auto; width:auto; display:block; flex:0 0 auto;
-    }
-    @media (min-width:1025px){
-      .banner-header .logo{ max-height: var(--logo-max-h-desktop); }
-    }
-    @media (max-width:1024px){
-      .banner-header .logo{ max-height: var(--logo-max-h-mobile); }
-    }
-
-    /* Desktop nav visible on desktop only */
-    .desktop-nav{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
-    /* Hamburger toggle (hidden on desktop) */
-    #nav-toggle{ display:none; }
-    .hamburger{
-      display:none; width:36px; height:28px; align-items:center; justify-content:center; cursor:pointer;
-    }
-    .hamburger span{
-      display:block; width:26px; height:2px; background:var(--hamburger-color); border-radius:2px; position:relative;
-    }
-    .hamburger span::before,
-    .hamburger span::after{
-      content:""; position:absolute; left:0; right:0; height:2px; background:var(--hamburger-color); border-radius:2px;
-    }
-    .hamburger span::before{ top: calc(-1 * var(--hamburger-gap)); }
-    .hamburger span::after { top: var(--hamburger-gap); }
-
-    /* Mobile nav hidden by default; shown when toggled */
-    .mobile-nav{ display:none; flex-direction:column; gap:10px; padding:.75rem 1rem 1rem; background:#0d3b66; }
-    #nav-toggle:checked ~ .mobile-nav{ display:flex; }
-
-    /* Responsive switch */
-    @media (max-width:1024px){
-      .desktop-nav{ display:none; }
-      .hamburger{ display:flex; }
-    }
-
-    /* ====== PAGE LAYOUT ====== */
-    .appdev .content{
-      max-width: var(--container);
-      width: 100%;
-      margin: 0 auto;
-      padding: 0 1rem;
-    }
-
-    /* a11y: skip link only visible on focus */
-    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
-    .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
-
-    /* hero + intro */
-    .appdev .hero-media img{width:100%;height:auto;display:block;}
-    .appdev .hero-intro{max-width:var(--container);margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
-    .appdev .hero-intro p{color:#444;}
-    .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .5rem;text-align:center;}
-
-    /* sections */
-    .appdev .section{padding:1.6rem 0;}
-    .appdev .section-title{margin:0 0 .75rem;text-align:center;}
-
-    /* in-page nav chips */
-    .inpage-nav{
-      display:flex; gap:10px; padding:.5rem 1rem; margin:0 auto 1rem;
-      max-width:var(--container); justify-content:center; flex-wrap:wrap; overflow:visible;
-    }
-    .inpage-nav a{
-      white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;
-      padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;
-    }
-
-    /* narrative containers */
-    .narrative{max-width:var(--container);margin:0 auto;padding:0 1rem;color:#444;}
-
-    /* lists (no bullets) */
-    .points{list-style:none;padding-left:0;margin:.25rem 0;}
-    .points li{margin:.35rem 0;line-height:1.7;}
-    .muted{color:#5a6b85;font-size:.95rem}
-
-    /* metrics (wrap to avoid overflow) */
-    .metrics{display:grid;gap:.45rem;max-width:var(--container);margin:0 auto;padding:0 1rem;}
-    .metric{
-      display:flex; align-items:flex-start; justify-content:space-between; gap:.75rem;
-      border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; flex-wrap:wrap; width:100%;
-    }
-    .metric span{flex:1 1 250px; min-width:0;}
-    .metric b{flex:0 0 auto; white-space:nowrap; color:#0b3d72;}
-
-    /* inline CTA */
-    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.6rem auto;max-width:var(--container);text-align:center;}
-    .inline-cta p{margin:.55rem 0 0;color:#fff !important;}
-    .appdev .cta-btn{padding:.75rem 1rem;display:inline-block;}
-
-    /* cards */
-    .card-grid{
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:14px; max-width:var(--container); margin:0 auto; padding:0 1rem; width:100%;
-    }
-    .card{
-      border:1px solid #e4e8f1;border-radius:12px;background:#fff;
-      box-shadow:0 2px 6px rgba(0,0,0,.04);padding:1rem;text-decoration:none;color:inherit;
-      display:flex;flex-direction:column;gap:.5rem; min-width:0;
-    }
-    .card h3{margin:.25rem 0 .35rem}
-    .card p{margin:0;color:#444}
-    .card .cta-btn{margin-top:.4rem;align-self:flex-start}
-
-    /* mobile tweaks */
-    @media (max-width:768px){
-      .appdev .hero-intro{padding:0 1rem}
-      .appdev .section{padding:1.25rem 0}
-      .hero-title{font-size:1.8rem;line-height:1.2}
-      .metric{gap:.5rem;}
-    }
-
-    /* large screens: 4-up for deep dives */
-    @media (min-width:1100px){
-      #deep-dives .card-grid{grid-template-columns:repeat(4,1fr);}
-    }
-
-    /* footer phone link white (consistency) */
-    footer .footer-right a[href^="tel:"]{ color:#fff !important; text-decoration:none; font-weight:500; }
-    footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
+    .appdev-page .points{list-style:none;padding-left:0;}
+    .appdev-page .points li{margin:.35rem 0;line-height:1.7;}
+    .appdev-page .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12);}
+    .appdev-page .faq-list details:last-of-type{border-bottom:none;}
+    .appdev-page .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none;}
   </style>
 
   <!-- JSON-LD: Service + Breadcrumbs + FAQ -->
@@ -210,18 +71,19 @@
   </script>
 </head>
 
-<body class="appdev">
+<body class="appdev appdev-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav -->
-  <div class="small-banner">
+  <!-- Header / Nav (canonical, no inline styles) -->
+  <header class="small-banner">
     <div class="banner-header">
-      <!-- Logo (left on both desktop & mobile) -->
       <a href="index.html" aria-label="CoreCloud Home">
         <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
       </a>
 
-      <!-- Desktop nav -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
+
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
@@ -237,10 +99,6 @@
         <a href="blog.html" class="nav-btn">BLOG</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
-
-      <!-- Mobile toggle + mobile nav -->
-      <input type="checkbox" id="nav-toggle"/>
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
 
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
@@ -258,20 +116,20 @@
         <a href="contact.html">CONTACT</a>
       </nav>
     </div>
-  </div>
+  </header>
 
   <!-- Hero -->
   <div class="hero-media" role="img" aria-label="Application development — product-minded engineering">
-    <img src="assets/images/appdev-bannerimage.png" alt="Application Development — ship fast, stay governed" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
+    <img src="assets/images/appdev-bannerimage.png" alt="Application Development — ship fast, stay governed" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
-  <!-- Intro -->
+  <!-- Intro (centered by global CSS) -->
   <section class="hero-intro">
     <h1 class="hero-title">Application Development — Ship Fast, Stay Governed</h1>
     <p>We build with a two-tier approach: workflows/UI that move quickly, domain services that stay clean and portable. Security, reliability, and cost visibility are baked in — so speed doesn’t create rework.</p>
   </section>
 
-  <!-- In-page anchor nav -->
+  <!-- In-page anchor nav (chip row) -->
   <nav class="inpage-nav" aria-label="On this page">
     <a href="#build">What we build</a>
     <a href="#how">How we ship</a>
@@ -324,11 +182,7 @@
           <li><strong>Week 3:</strong> logging, audit, access control, and UAT with 10–20 users.</li>
           <li><strong>Week 4:</strong> load test hotspots, runbook/rollback, go-live.</li>
         </ol>
-        <div class="inline-cta">
-          <strong>Need to ship in weeks?</strong>
-          <p>We’ll stand up a production-ready MVP in ~30 days — with clean exits to scale.</p>
-          <a class="cta-btn" href="contact.html">Start the 30-day build</a>
-        </div>
+        <p class="cta"><a class="cta-btn" href="contact.html">Start the 30-day build</a></p>
       </div>
     </section>
 
@@ -388,27 +242,27 @@
     <!-- Deep dives -->
     <section class="section" id="deep-dives" aria-labelledby="deep-title">
       <h2 id="deep-title" class="section-title">What We Build — Deep Dives</h2>
-      <div class="card-grid" style="margin-top:.5rem;">
-        <div class="card">
+      <div class="card-grid">
+        <a class="card" href="cloud-native-apps.html" aria-label="Explore Cloud-Native Apps">
           <h3>Cloud-Native Apps</h3>
           <p>Microservices, containers, serverless — resilient and built for change.</p>
-          <a href="cloud-native-apps.html" class="cta-btn" aria-label="Explore Cloud-Native Apps">Explore</a>
-        </div>
-        <div class="card">
+          <span class="cta-btn">Explore</span>
+        </a>
+        <a class="card" href="enterprise-portals.html" aria-label="Explore Enterprise Portals">
           <h3>Enterprise Portals</h3>
           <p>Secure internal &amp; customer portals that streamline operations and engagement.</p>
-          <a href="enterprise-portals.html" class="cta-btn" aria-label="Explore Enterprise Portals">Explore</a>
-        </div>
-        <div class="card">
+          <span class="cta-btn">Explore</span>
+        </a>
+        <a class="card" href="mobile-web.html" aria-label="Explore Mobile and Web">
           <h3>Mobile &amp; Web</h3>
           <p>Fast, responsive experiences across devices with performance baked in.</p>
-          <a href="mobile-web.html" class="cta-btn" aria-label="Explore Mobile and Web">Explore</a>
-        </div>
-        <div class="card">
+          <span class="cta-btn">Explore</span>
+        </a>
+        <a class="card" href="apis-integration.html" aria-label="Explore APIs and Integration">
           <h3>APIs &amp; Integration</h3>
           <p>Well-designed APIs and event streams that connect products and data.</p>
-          <a href="apis-integration.html" class="cta-btn" aria-label="Explore APIs and Integration">Explore</a>
-        </div>
+          <span class="cta-btn">Explore</span>
+        </a>
       </div>
     </section>
 
@@ -432,7 +286,7 @@
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer (global; no inline styles) -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -443,13 +297,13 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST">
           <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
           <input type="hidden" name="_template" value="table"/>
           <input type="hidden" name="_captcha" value="false"/>
           <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
           <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;"/>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
