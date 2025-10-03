@@ -1,89 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Application Development | CoreCloud — Ship Fast, Stay Governed</title>
-  <meta name="description" content="Product-minded engineering that ships value fast without painting you into a corner. Two-tier architecture, quality gates, security by default, and cost visibility — from MVP to scale."/>
-  <meta name="robots" content="index, follow"/>
-  <meta name="author" content="CoreCloud"/>
-  <meta name="theme-color" content="#004f91"/>
-
-  <!-- Canonical + Social -->
+  <title>Application Development – CoreCloud</title>
+  <meta name="description" content="Cloud-native application development, enterprise portals, mobile & web, and API integration—delivered with DevOps, security, and performance discipline."/>
   <link rel="canonical" href="https://www.corecloudza.com/application-development.html"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="CoreCloud — Application Development"/>
-  <meta property="og:description" content="Ship value fast with a two-tier architecture, security by default, and cost visibility. MVP in ~30 days, ready to scale."/>
-  <meta property="og:url" content="https://www.corecloudza.com/application-development.html"/>
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg"/>
-  <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (make sure this is the latest file we aligned) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Application Development – CoreCloud"/>
+  <meta property="og:description" content="Cloud-native apps, portals, mobile & web, and APIs—built with DevOps discipline and security by design."/>
+  <meta property="og:url" content="https://www.corecloudza.com/application-development.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Application Development – CoreCloud"/>
+  <meta name="twitter:description" content="Cloud-native apps, portals, mobile & web, and APIs—built with DevOps discipline and security by design."/>
+  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
 
   <!-- Preloads -->
+  <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
-  <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
-  <!-- Page-scope (tiny): list bullets off + FAQ tidy -->
+  <!-- Page-scoped helpers: titles centered + narrative pairs (no bullets) -->
   <style>
-    .appdev-page .points{list-style:none;padding-left:0;}
-    .appdev-page .points li{margin:.35rem 0;line-height:1.7;}
-    .appdev-page .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12);}
-    .appdev-page .faq-list details:last-of-type{border-bottom:none;}
-    .appdev-page .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none;}
+    /* Lock hero + section titles to center on this page only */
+    .appdev-page :is(h1.hero-title, h2.section-title){
+      text-align:center !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+      display:block !important;
+    }
+
+    /* Narrative (no bullets) layout */
+    .appdev-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .appdev-page .pair{ margin:.55rem 0; line-height:1.7; color:#444; }
+    .appdev-page .kv{ font-weight:700; color:var(--dark-blue); }
+    .appdev-page .desc{ margin-left:.45rem; }
+
+    /* Safety: remove any list bullets inside this page (we're using narrative) */
+    .appdev-page ul, .appdev-page ol{ list-style:none !important; margin:0 !important; padding:0 !important; }
+
+    /* Center the CTA row */
+    .appdev-page .cta-row{ display:flex; justify-content:center; margin-top:1rem; }
+    .appdev-page .cta-row .cta-btn{ min-width:240px; }
   </style>
 
-  <!-- JSON-LD: Service + Breadcrumbs + FAQ -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
-    "@type":"Service",
-    "name":"CoreCloud — Application Development",
-    "description":"Product-minded engineering with security, governance, and FinOps by design. MVP to scale without rework.",
-    "provider":{"@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png"},
-    "areaServed":"ZA",
-    "serviceOutput":"Production-ready applications with measurable reliability and cost posture",
-    "url":"https://www.corecloudza.com/application-development.html",
-    "offers":{"@type":"Offer","availability":"https://schema.org/InStock"}
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"BreadcrumbList",
-    "itemListElement":[
-      {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
-      {"@type":"ListItem","position":2,"name":"Application Development","item":"https://www.corecloudza.com/application-development.html"}
-    ]
-  }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Low-code or custom — how do you choose?","acceptedAnswer":{"@type":"Answer","text":"We use a simple matrix across complexity, change-rate, integration depth, compliance, and scale. Often a two-tier approach wins: workflows/UI in low-code, domain services as APIs so you can swap UIs later."}},
-      {"@type":"Question","name":"How fast to a real MVP?","acceptedAnswer":{"@type":"Answer","text":"~30 days is typical for a production-quality MVP with identity, logging, error handling, and rollback — then iterate weekly without rework."}},
-      {"@type":"Question","name":"Will governance slow delivery?","acceptedAnswer":{"@type":"Answer","text":"No. Guardrails (IAM, secrets, audit, tagging) run in the background. We prioritise quick wins and keep release flow fast with fit-for-purpose checks."}}
+    "@graph":[
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+          {"@type":"ListItem","position":2,"name":"Application Development","item":"https://www.corecloudza.com/application-development.html"}
+        ]
+      },
+      {
+        "@type":"Organization",
+        "@id":"https://www.corecloudza.com/#org",
+        "name":"CoreCloud (Pty) Ltd",
+        "url":"https://www.corecloudza.com/",
+        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
+        "sameAs":["https://www.linkedin.com/company/corecloudza"]
+      },
+      {
+        "@type":"Service",
+        "name":"Application Development",
+        "provider":{"@id":"https://www.corecloudza.com/#org"},
+        "areaServed":{"@type":"Country","name":"South Africa"},
+        "url":"https://www.corecloudza.com/application-development.html",
+        "description":"Cloud-native apps, enterprise portals, mobile & web, and API integration with DevOps, security, and performance discipline."
+      }
     ]
   }
   </script>
 </head>
 
-<body class="appdev appdev-page">
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <!-- Header / Nav (canonical, no inline styles) -->
-  <header class="small-banner">
+<body class="appdev-page">
+  <!-- Header / Nav -->
+  <div class="small-banner">
     <div class="banner-header">
-      <a href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
-      </a>
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
+      <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
+      <!-- Shortened labels for consistency -->
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
@@ -106,204 +115,111 @@
         <a href="cloud.html">CLOUD</a>
         <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html" class="active" aria-current="page">APP DEVELOPMENT</a>
+        <a href="application-development.html" class="active" aria-current="page">APP DEV</a>
         <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
         <a href="dynamic-imprinting.html">IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html">BLOG</a>
         <a href="contact.html">CONTACT</a>
       </nav>
     </div>
-  </header>
-
-  <!-- Hero -->
-  <div class="hero-media" role="img" aria-label="Application development — product-minded engineering">
-    <img src="assets/images/appdev-bannerimage.png" alt="Application Development — ship fast, stay governed" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
-  <!-- Intro (centered by global CSS) -->
+  <!-- Hero -->
+  <div class="hero-media">
+    <img src="assets/images/appdev-bannerimage.png" alt="CoreCloud Application Development" loading="eager" decoding="async" width="1920" height="500"/>
+  </div>
+
+  <!-- Hero copy -->
   <section class="hero-intro">
-    <h1 class="hero-title">Application Development — Ship Fast, Stay Governed</h1>
-    <p>We build with a two-tier approach: workflows/UI that move quickly, domain services that stay clean and portable. Security, reliability, and cost visibility are baked in — so speed doesn’t create rework.</p>
+    <h1 class="hero-title">Application Development</h1>
+    <p style="max-width:900px; margin:0 auto; color:#444;">
+      We design and deliver cloud-native applications, portals, and digital experiences that scale.
+      Built with modern architectures, shipped with DevOps discipline, and secured by design.
+    </p>
   </section>
 
-  <!-- In-page anchor nav (chip row) -->
-  <nav class="inpage-nav" aria-label="On this page">
-    <a href="#build">What we build</a>
-    <a href="#how">How we ship</a>
-    <a href="#mvp30">30-day MVP</a>
-    <a href="#guardrails">Guardrails</a>
-    <a href="#data-ai">Data &amp; AI</a>
-    <a href="#cost">Cost &amp; governance</a>
-    <a href="#results">Results</a>
-    <a href="#deep-dives">Deep dives</a>
-    <a href="#faq">FAQ</a>
-  </nav>
-
   <main class="content" id="main">
-    <!-- What we build -->
-    <section class="section" id="build" aria-labelledby="build-title">
+    <!-- How We Deliver (narrative) -->
+    <section class="section narrative" aria-labelledby="how-title">
+      <h2 id="how-title" class="section-title">How We Deliver</h2>
+      <p class="pair"><span class="kv">Architecture First:</span><span class="desc">Domain-driven design, reference architectures, and clear non-functional requirements.</span></p>
+      <p class="pair"><span class="kv">DevOps &amp; CI/CD:</span><span class="desc">Automated pipelines, IaC, observability, and a release cadence you can trust.</span></p>
+      <p class="pair"><span class="kv">Security by Design:</span><span class="desc">Threat modelling, secrets hygiene, least privilege, and continuous testing (OWASP).</span></p>
+      <p class="pair"><span class="kv">Quality &amp; Performance:</span><span class="desc">Automated tests, load &amp; resilience testing, SLOs and error budgets.</span></p>
+    </section>
+
+    <!-- Engagement Models (narrative) -->
+    <section class="section narrative" aria-labelledby="engage-title">
+      <h2 id="engage-title" class="section-title">Engagement Models</h2>
+      <p class="pair"><span class="kv">Project Delivery:</span><span class="desc">Fixed-scope outcomes with clear milestones and governance.</span></p>
+      <p class="pair"><span class="kv">Product Squads:</span><span class="desc">Cross-functional teams (PM, UX, Eng, QA) to build and operate.</span></p>
+      <p class="pair"><span class="kv">Augmentation:</span><span class="desc">Specialist roles to uplift your team — architects, engineers, SRE.</span></p>
+      <p class="pair"><span class="kv">Advisory &amp; Review:</span><span class="desc">Architecture reviews, pipeline hardening, security &amp; cost optimisation.</span></p>
+    </section>
+
+    <!-- Outcomes You Can Measure (narrative) -->
+    <section class="section narrative" aria-labelledby="outcomes-title">
+      <h2 id="outcomes-title" class="section-title">Outcomes You Can Measure</h2>
+      <p class="pair"><span class="kv">Faster Time-to-Value:</span><span class="desc">Ship earlier with incremental releases and platform accelerators.</span></p>
+      <p class="pair"><span class="kv">Reliability:</span><span class="desc">Availability targets, runbooks, and actionable telemetry from day one.</span></p>
+      <p class="pair"><span class="kv">Security:</span><span class="desc">Shift-left controls and automated checks across the SDLC.</span></p>
+      <p class="pair"><span class="kv">Cost Control:</span><span class="desc">FinOps guardrails, right-sizing, and utilisation insights.</span></p>
+    </section>
+
+    <!-- Plain centered CTA -->
+    <div class="cta-row">
+      <a href="contact.html" class="cta-btn">Start a Conversation</a>
+    </div>
+
+    <!-- What We Build (cards retained) -->
+    <section class="section" aria-labelledby="build-title">
       <h2 id="build-title" class="section-title">What We Build</h2>
-      <div class="narrative">
-        <ul class="points">
-          <li><strong>Internal apps & workflows:</strong> approvals, SLAs, integrations, and auditable trails.</li>
-          <li><strong>Customer-facing products:</strong> APIs, portals, mobile/web front-ends with secure identity.</li>
-          <li><strong>Event-driven backends:</strong> queues/streams, idempotent processors, and durable outboxes.</li>
-          <li><strong>Data-aware services:</strong> contracts, lineage, and privacy patterns by data class.</li>
-          <li><strong>Hybrid patterns:</strong> hosted/private cloud primaries with burst to <a href="cloud.html">AWS/Azure</a>.</li>
-        </ul>
-        <p class="muted">When low-code fits, we use it for speed — with domain services in APIs so you can swap UIs later. See: <a href="blog-low-code-high-impact.html">Low-Code, High Impact</a>.</p>
-      </div>
-    </section>
-
-    <!-- How we ship -->
-    <section class="section" id="how" aria-labelledby="how-title">
-      <h2 id="how-title" class="section-title">How We Ship (Without Rework)</h2>
-      <div class="narrative">
-        <ul class="points">
-          <li><strong>Two-tier architecture:</strong> thin UI + stable domain services; API-first with versioning.</li>
-          <li><strong>Quality gates:</strong> automated tests, contracts, CI/CD with blue/green or feature flags.</li>
-          <li><strong>Security by default:</strong> SSO, least-privilege IAM, secrets management, audit logs.</li>
-          <li><strong>Observability:</strong> structured logs, metrics, traces, SLOs, and error budgets.</li>
-          <li><strong>Change safety:</strong> rollbacks and migrations planned before the first story starts.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- 30-day MVP -->
-    <section class="section" id="mvp30" aria-labelledby="mvp-title">
-      <h2 id="mvp-title" class="section-title">30-Day MVP (Production-Quality)</h2>
-      <div class="narrative">
-        <ol class="points">
-          <li><strong>Week 1:</strong> journeys, golden paths, DOR/DOD, metrics of “done”.</li>
-          <li><strong>Week 2:</strong> scaffolding, identity, error handling, and two end-to-end flows in sandbox.</li>
-          <li><strong>Week 3:</strong> logging, audit, access control, and UAT with 10–20 users.</li>
-          <li><strong>Week 4:</strong> load test hotspots, runbook/rollback, go-live.</li>
-        </ol>
-        <p class="cta"><a class="cta-btn" href="contact.html">Start the 30-day build</a></p>
-      </div>
-    </section>
-
-    <!-- Guardrails -->
-    <section class="section" id="guardrails" aria-labelledby="guardrails-title">
-      <h2 id="guardrails-title" class="section-title">Guardrails That Don’t Slow You Down</h2>
-      <div class="narrative">
-        <ul class="points">
-          <li><strong>Identity & access:</strong> SSO/OIDC, least-privilege roles, break-glass procedures.</li>
-          <li><strong>Secrets & keys:</strong> vault/KMS, rotation, and sealed pipelines.</li>
-          <li><strong>Compliance:</strong> POPIA data classes, residency, and revocation logs.</li>
-          <li><strong>Environments:</strong> dev/test/stage/prod with promotion controls and audit.</li>
-          <li><strong>Versioned configs:</strong> IaC and app config in git; change reviews and drift detection.</li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Data & AI -->
-    <section class="section" id="data-ai" aria-labelledby="data-title">
-      <h2 id="data-title" class="section-title">Data &amp; AI — Built In, Not Bolted On</h2>
-      <div class="narrative">
-        <ul class="points">
-          <li><strong>Contracts & lineage:</strong> schemas, PII tagging, and reproducible pipelines.</li>
-          <li><strong>Lakehouse integration:</strong> <a href="databricks-lakehouse.html">Databricks</a> patterns for batch + streaming.</li>
-          <li><strong>RAG & ML workflows:</strong> evaluated, monitored, and deployed where latency wins.</li>
-          <li><strong>Analytics exits:</strong> operational data exported to your warehouse with privacy preserved.</li>
-        </ul>
-        <p class="muted">See also: <a href="data-ai.html">Data &amp; AI</a> for platform choices and governance.</p>
-      </div>
-    </section>
-
-    <!-- Cost & governance -->
-    <section class="section" id="cost" aria-labelledby="cost-title">
-      <h2 id="cost-title" class="section-title">Cost &amp; Governance (By Design)</h2>
-      <div class="narrative">
-        <ul class="points">
-          <li><strong>Tagging & budgets:</strong> coverage targets, alerts, and dashboards.</li>
-          <li><strong>Right-sizing:</strong> lifecycle policies, scale-to-zero, and commitments where it pays.</li>
-          <li><strong>Showback:</strong> costs mapped to teams/features to drive better decisions.</li>
-        </ul>
-        <p class="muted">Deeper dive: <a href="finops.html">FinOps &amp; Governance</a>.</p>
-      </div>
-    </section>
-
-    <!-- Results -->
-    <section class="section" id="results" aria-labelledby="results-title">
-      <h2 id="results-title" class="section-title">Results & Benchmarks</h2>
-      <div class="metrics">
-        <div class="metric"><span>Lead time (idea → prod)</span><b>≤ 30 days MVP</b></div>
-        <div class="metric"><span>Change fail rate</span><b>&lt; 10%</b></div>
-        <div class="metric"><span>MTTR (P1)</span><b>&lt; 60 min</b></div>
-        <div class="metric"><span>Uptime SLO (app tiers)</span><b>99.9–99.99%</b></div>
-        <div class="metric"><span>Cost vs baseline</span><b>−15–30% after month 1</b></div>
-      </div>
-    </section>
-
-    <!-- Deep dives -->
-    <section class="section" id="deep-dives" aria-labelledby="deep-title">
-      <h2 id="deep-title" class="section-title">What We Build — Deep Dives</h2>
-      <div class="card-grid">
-        <a class="card" href="cloud-native-apps.html" aria-label="Explore Cloud-Native Apps">
-          <h3>Cloud-Native Apps</h3>
+      <div class="card-grid force-4" style="margin-top:1rem;">
+        <div class="card" style="display:flex; flex-direction:column;">
+          <h2>Cloud-Native Apps</h2>
           <p>Microservices, containers, serverless — resilient and built for change.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" href="enterprise-portals.html" aria-label="Explore Enterprise Portals">
-          <h3>Enterprise Portals</h3>
+          <a href="cloud-native-apps.html" class="cta-btn">Explore</a>
+        </div>
+        <div class="card" style="display:flex; flex-direction:column;">
+          <h2>Enterprise Portals</h2>
           <p>Secure internal &amp; customer portals that streamline operations and engagement.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" href="mobile-web.html" aria-label="Explore Mobile and Web">
-          <h3>Mobile &amp; Web</h3>
+          <a href="enterprise-portals.html" class="cta-btn">Explore</a>
+        </div>
+        <div class="card" style="display:flex; flex-direction:column;">
+          <h2>Mobile &amp; Web</h2>
           <p>Fast, responsive experiences across devices with performance baked in.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" href="apis-integration.html" aria-label="Explore APIs and Integration">
-          <h3>APIs &amp; Integration</h3>
+          <a href="mobile-web.html" class="cta-btn">Explore</a>
+        </div>
+        <div class="card" style="display:flex; flex-direction:column;">
+          <h2>APIs &amp; Integration</h2>
           <p>Well-designed APIs and event streams that connect products and data.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-      </div>
-    </section>
-
-    <!-- FAQ (collapsed) -->
-    <section class="section" id="faq" aria-labelledby="faq-title">
-      <h2 id="faq-title" class="section-title">FAQ</h2>
-      <div class="narrative faq-list">
-        <details>
-          <summary>Do you work with our stack?</summary>
-          <p>Yes. We’re comfortable with common stacks on AWS/Azure and on hosted/private cloud. We pick tools that fit your ops model and skills.</p>
-        </details>
-        <details>
-          <summary>How do you avoid lock-in?</summary>
-          <p>Keep domain logic in services, keep data portable, and treat low-code configs as code. You can swap UIs later without rewriting the core.</p>
-        </details>
-        <details>
-          <summary>Can you integrate with our partners?</summary>
-          <p>Yes — we prefer it. Our curated collective plus your existing vendors keeps delivery practical and accountable.</p>
-        </details>
+          <a href="apis-integration.html" class="cta-btn">Explore</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer (global; no inline styles) -->
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton<br/>Johannesburg<br/>South Africa</p>
+        <p>Sandton<br>Johannesburg<br>South Africa</p>
       </div>
 
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST">
-          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
-          <input type="hidden" name="_template" value="table"/>
-          <input type="hidden" name="_captcha" value="false"/>
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
           <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email"/>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
@@ -311,7 +227,7 @@
       <div class="footer-right">
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-        <p>Phone: <a href="tel:+27 11 568 8667">+27 11 568 8667</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
         <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
@@ -326,14 +242,14 @@
 
   <!-- Auto-highlight current nav -->
   <script>
-    (function(){
-      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
-        var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
-        else{a.classList.remove('active');a.removeAttribute('aria-current');}
-      });
-    })();
+  (function(){
+    var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+      var href = (a.getAttribute('href') || '').toLowerCase();
+      if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+      else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
+    });
+  })();
   </script>
 </body>
 </html>
