@@ -24,7 +24,7 @@ img { max-width: 100%; height: auto; display: block; }
   --gold:#d4af37;
 
   /* Header / Logo geometry (fixed = no layout shift) */
-  --logo-h-desktop: 120px;
+  --logo-h-desktop: 120px;   /* match index page visual */
   --logo-h-mobile: 80px;
 
   /* Container width */
@@ -56,15 +56,6 @@ h2{ font-size:1.8rem; font-weight:600; color:var(--dark-blue); margin-bottom:1re
 h3{ font-size:1.4rem; font-weight:600; color:var(--dark-blue); margin-bottom:.8rem; }
 p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
 
-/* Standard titles (single source for centering) */
-.hero-title{
-  font-size:2rem; font-weight:700; color:var(--dark-blue);
-  text-align:center; margin:2.5rem auto 1rem; max-width:var(--heading-max);
-}
-.section-title{
-  font-size:2rem; text-align:center; color:var(--dark-blue); margin-bottom:1.5rem; max-width:var(--heading-max); margin-left:auto; margin-right:auto;
-}
-
 /* ===== Header / Nav ===== */
 .small-banner{
   background: transparent !important;
@@ -82,7 +73,7 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
   border-bottom:0 !important; box-shadow:none !important;
 }
 
-/* Logo never stretches */
+/* Logo never stretches (match index size) */
 .logo{
   max-height: var(--logo-h-desktop);
   width: auto;
@@ -113,8 +104,21 @@ nav.desktop-nav .nav-btn.active{ color:#005fa3; }
 
 /* Mobile Nav (checkbox hack) */
 .nav-toggle{ position:absolute; left:-9999px; }
-.hamburger{ display:none; flex-direction:column; cursor:pointer; gap:5px; }
-.hamburger span{ width:25px; height:3px; background:#003366; border-radius:2px; transition:all .3s ease; }
+
+.hamburger{
+  display:none; flex-direction:column; cursor:pointer;
+  gap:6px; align-items:center; justify-content:center;
+  width:36px; height:28px;
+}
+/* CONSISTENT: dark bars (visible over light header) */
+.hamburger span{ width:26px; height:3px; background:#0b3d72; border-radius:2px; transition:all .3s ease; }
+.hamburger span::before,
+.hamburger span::after{
+  content:""; display:block; width:26px; height:3px; background:#0b3d72; border-radius:2px;
+  transform: translateY(0);
+}
+.hamburger span::before{ transform: translateY(-8px); }
+.hamburger span::after { transform: translateY(5px); }
 
 nav.mobile-nav{
   display:none; flex-direction:column; background:#fff; width:100%;
@@ -124,6 +128,17 @@ nav.mobile-nav a{
   padding:.8rem 0; color:#003366; text-decoration:none; font-weight:700; border-bottom:1px solid #ddd;
 }
 nav.mobile-nav a:last-child{ border-bottom:none; }
+
+/* Show mobile menu when toggled */
+.banner-header #nav-toggle:checked ~ nav.mobile-nav{
+  display:flex !important; position:fixed; inset:0; top:0;
+  padding:5rem 1.5rem 2rem; background:rgba(255,255,255,.94);
+  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+  flex-direction:column; gap:1rem; box-shadow:none;
+}
+.banner-header #nav-toggle:checked + .hamburger span{ background:transparent; }
+.banner-header #nav-toggle:checked + .hamburger span::before{ transform: translateY(0) rotate(45deg); }
+.banner-header #nav-toggle:checked + .hamburger span::after { transform: translateY(-3px) rotate(-45deg); }
 
 /* ===== Hero / Banner (standardised) ===== */
 .hero-media{
@@ -152,18 +167,38 @@ nav.mobile-nav a:last-child{ border-bottom:none; }
   background-color:#f4f6f8;
 }
 
+/* ===== Global hero centering (title + paragraph) ===== */
+.hero-intro{
+  max-width: var(--content-max);
+  margin: 2rem auto 1rem;
+  padding: 0 1rem;
+  text-align: center;
+}
+.hero-title{
+  font-weight: 700;
+  margin: .2rem auto .8rem;
+  color: var(--dark-blue);
+  text-align: center;
+  font-size: clamp(1.75rem, 2.2vw + 1rem, 2.25rem);
+}
+
 /* Content spacing after hero/banner */
 main.content{
   max-width: calc(var(--container) + 200px);
   margin:0 auto; padding:0 1.5rem 4rem;
   flex:1 0 auto;
 }
-/* Tighter, consistent space between banner and hero title */
 .hero-media + .content .hero-title,
 .hero-media + section .hero-title{ margin-top: 1.5rem !important; }
 .page-banner + .content .hero-title,
 .page-banner + section .hero-title{ margin-top:2.5rem !important; }
 .page-banner + section{ padding-top:0 !important; }
+
+/* Standard titles (section headings centered) */
+.section-title{
+  font-size:2rem; text-align:center; color:var(--dark-blue); margin-bottom:1.5rem;
+  max-width:var(--heading-max); margin-left:auto; margin-right:auto;
+}
 
 /* Sections */
 .section{ margin:3rem 0; }
@@ -200,7 +235,7 @@ main.content{
 @media (min-width:768px) and (max-width:1199.98px){ .card-grid.force-4{ grid-template-columns:repeat(2,1fr); } }
 @media (max-width:767.98px){ .card-grid.force-4{ grid-template-columns:1fr; } }
 
-/* Card (final, single source of truth) */
+/* Card (single source of truth) */
 .card{
   background:#fff;
   border:2px solid var(--dark-blue);
@@ -208,62 +243,29 @@ main.content{
   box-shadow:0 2px 6px rgba(0,0,0,.06);
   padding:1.5rem;
 
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-start;
-  gap:1.25rem;
-  height:100%;
-  min-height:100%;
+  display:flex; flex-direction:column; justify-content:flex-start; gap:1.25rem;
+  height:100%; min-height:100%;
   text-align:left;
 }
-
-/* Card headings */
 .card h2, .card h3{
   font-size:1.25rem; font-weight:700; color:var(--primary-blue);
   margin:0; text-align:left;
 }
-
-/* Databricks accent (page-scoped) */
 .databricks-page .card h2,
 .databricks-page .card h3{ color:#ff3621; }
-
-/* Card copy spacing uses the card gap; remove bottom margins */
 .card p, .card ul, .card ol{ margin:0; text-align:left; }
-
-/* CTA inside cards: full width, pinned to bottom */
 .card .cta-btn,
 .card a.cta-btn,
 .card button.cta-btn{
-  margin-top:auto;
-  width:100%;
-  min-height:48px;
-  align-self:stretch !important;
-  text-align:center;
-  box-sizing:border-box;
-  display:inline-block;
+  margin-top:auto; width:100%; min-height:48px; align-self:stretch !important; text-align:center; box-sizing:border-box; display:inline-block;
 }
 
 /* ===== Alignment Policy: Corporate Clean ===== */
 .hero-title, .section-title{ text-align:center; }
-
-.content p,
-.content li,
-.content ul,
-.content ol,
-.content .subtitle,
-.content .quote-box,
-.content .card p,
-.content .card li,
-.content .card ul,
-.content .card ol { text-align:left !important; }
-
-.content .cta,
-.content .cta-card,
-.content .equal-banner,
-.content .grid-cta,
-.content .cta-btn { text-align:center; }
-
-/* Tables (future-proofing) */
+.content p, .content li, .content ul, .content ol,
+.content .subtitle, .content .quote-box,
+.content .card p, .content .card li, .content .card ul, .content .card ol { text-align:left !important; }
+.content .cta, .content .cta-card, .content .equal-banner, .content .grid-cta, .content .cta-btn { text-align:center; }
 .content table { margin-left:0; margin-right:auto; }
 
 /* ===== Footer ===== */
@@ -284,18 +286,6 @@ footer{ background:#0b1e3f; color:#fff; padding:2rem 1rem 1rem; margin-top:auto;
   .logo{ max-height: var(--logo-h-mobile); }
 
   .hero-title{ font-size:2rem; }
-
-  /* Mobile hero/banner overlay & menu */
-  .banner-header #nav-toggle:checked ~ nav.mobile-nav{
-    display:flex !important; position:fixed; inset:0; top:0;
-    padding:5rem 1.5rem 2rem; background:rgba(255,255,255,.9);
-    -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
-    flex-direction:column; gap:1rem; box-shadow:none;
-  }
-  .banner-header nav.mobile-nav a{
-    padding:.9rem 1rem; border-radius:12px;
-    background:rgba(0,79,145,.06); border:1px solid rgba(0,79,145,.12); font-weight:700;
-  }
 }
 
 /* Safety: never show mobile overlay on desktop */
@@ -341,8 +331,6 @@ a.card:active {
   gap: 1.25rem;
   height: 100%;
 }
-
-/* CTA inside any card (linked or not): full width, pinned to bottom, no underline */
 .card .cta-btn,
 .card a.cta-btn,
 a.card .cta-btn {
@@ -354,12 +342,7 @@ a.card .cta-btn {
   text-decoration: none !important;
   color: #fff !important;
 }
-
-/* Inline links inside cards that are NOT CTAs keep clean look */
-.card a:not(.cta-btn) {
-  text-decoration: none !important;
-  color: inherit !important;
-}
+.card a:not(.cta-btn) { text-decoration: none !important; color: inherit !important; }
 
 /* ===== Footer (final, deduped & branded) ===== */
 footer,
@@ -381,7 +364,6 @@ footer strong { color: #fff !important; }
   text-decoration: underline;
   font-weight: 600;
 }
-
 /* LinkedIn permanent blue (use class="linkedin-link") */
 .footer-right .linkedin-link {
   color: #0066b2 !important;
@@ -403,15 +385,11 @@ footer strong { color: #fff !important; }
   border-radius:8px;
   box-shadow:0 2px 6px rgba(0,0,0,.06);
 }
-
-/* Prevent long words/links from causing horizontal scroll */
 .blog-page .post-title,
 .blog-page .post-excerpt{ word-break: break-word; overflow-wrap: anywhere; }
-
-/* Remove underlines on titles */
 .blog-page .post-title a{ text-decoration:none; color:inherit; }
 
-/* Use auto-fit, keep within container */
+/* Blog grid */
 .blog-page .blog-grid{
   max-width: var(--container);
   margin: 0 auto;
@@ -553,23 +531,16 @@ footer strong { color: #fff !important; }
 .hosting-page .hero-intro,
 .hosting-page .hero-intro h1,
 .hosting-page .hero-intro p { text-align: left !important; }
-
-.hosting-page .hero-intro {
-  max-width: 900px;
-  margin: 2rem auto 1rem;
-}
+.hosting-page .hero-intro { max-width: 900px; margin: 2rem auto 1rem; }
 
 /* === Extra spacing above Best Venue strip === */
-.best-venue-section {
-  margin-top: 4rem !important;
-  padding-top: 2rem;
-}
+.best-venue-section { margin-top: 4rem !important; padding-top: 2rem; }
 
-/* Nav squeeze for desktop (wins over earlier sizing) */
+/* Nav squeeze for desktop */
 nav.desktop-nav { gap: .55rem; }
 nav.desktop-nav .nav-btn {
-  font-size: .78rem;       /* was .82rem */
-  padding: .30rem .50rem;  /* was .35rem .6rem */
+  font-size: .78rem;       /* slightly tighter on wide screens */
+  padding: .30rem .50rem;
 }
 
 /* Home — align the Hybrid section with the main content grid */
@@ -578,18 +549,12 @@ nav.desktop-nav .nav-btn {
   margin: 0 auto !important;
   padding: 0 1.5rem 0 !important;
 }
-
-/* Keep the copy readable and centered */
 .home-page .best-venue-section p{
   max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }
-
-/* Tighten heading spacing to match your rhythm */
-.home-page .best-venue-section .section-title{
-  margin-bottom: .6rem !important;
-}
+.home-page .best-venue-section .section-title{ margin-bottom: .6rem !important; }
 
 /* FinOps: headings centered (subheads remain left inside panels) */
 .finops-page .panel :is(h3, h4){ text-align: left !important; }
