@@ -18,25 +18,28 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
+  <!-- Global CSS (bump query to bust caches) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
-  <!-- Page-scoped styles (header fixes + layout consistency) -->
+  <!-- Page-scoped styles: header consistency + layout + no overflow -->
   <style>
     /* Safety: prevent horizontal scroll anywhere */
     *, *::before, *::after { box-sizing: border-box; }
     html, body { max-width:100%; overflow-x:hidden; }
     img { max-width:100%; height:auto; display:block; }
 
-    :root{ --container: 1000px; }
-
-    /* ====== HEADER (FIXED) ====== */
-    .small-banner{
-      background:#0d3b66;
-      color:#fff;
+    :root{
+      --container: 1000px;
+      --logo-max-h-desktop: 80px;  /* bigger desktop logo for consistency */
+      --logo-max-h-mobile: 56px;   /* comfortable mobile logo height */
+      --hamburger-color: #ffffff;  /* white lines on dark header */
+      --hamburger-gap: 7px;        /* spacing between the 3 lines */
     }
+
+    /* ====== HEADER (unified) ====== */
+    .small-banner{ background:#0d3b66; color:#fff; }
     .banner-header{
       max-width: var(--container);
       margin: 0 auto;
@@ -46,58 +49,40 @@
       justify-content: space-between;
       gap: 12px;
     }
-
-    /* Logo: fixed size on desktop, no shrinking, aligned left on mobile */
+    /* Logo left on all screens */
     .banner-header .logo{
-      max-height:64px;
-      width:auto;
-      height:auto;
-      display:block;
-      flex: 0 0 auto; /* don’t shrink */
+      height:auto; width:auto; display:block; flex:0 0 auto;
+    }
+    @media (min-width:1025px){
+      .banner-header .logo{ max-height: var(--logo-max-h-desktop); }
+    }
+    @media (max-width:1024px){
+      .banner-header .logo{ max-height: var(--logo-max-h-mobile); }
     }
 
-    /* Desktop nav shows on desktop only */
-    .desktop-nav{
-      display:flex;
-      gap:10px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-
-    /* Hamburger (hidden on desktop) */
+    /* Desktop nav visible on desktop only */
+    .desktop-nav{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    /* Hamburger toggle (hidden on desktop) */
     #nav-toggle{ display:none; }
     .hamburger{
-      display:none; /* desktop: hidden */
-      width:36px; height:28px;
-      align-items:center; justify-content:center;
-      cursor:pointer;
+      display:none; width:36px; height:28px; align-items:center; justify-content:center; cursor:pointer;
     }
     .hamburger span{
-      display:block;
-      width:26px; height:2px; background:#fff; border-radius:2px;
-      position:relative;
+      display:block; width:26px; height:2px; background:var(--hamburger-color); border-radius:2px; position:relative;
     }
     .hamburger span::before,
     .hamburger span::after{
-      content:""; position:absolute; left:0; right:0;
-      height:2px; background:#fff; border-radius:2px;
+      content:""; position:absolute; left:0; right:0; height:2px; background:var(--hamburger-color); border-radius:2px;
     }
-    .hamburger span::before{ top:-8px; }
-    .hamburger span::after { top: 8px; }
+    .hamburger span::before{ top: calc(-1 * var(--hamburger-gap)); }
+    .hamburger span::after { top: var(--hamburger-gap); }
 
-    /* Mobile nav is hidden by default; opens when toggled */
-    .mobile-nav{
-      display:none;
-      flex-direction:column;
-      gap:10px;
-      padding: .75rem 1rem 1rem;
-      background:#0d3b66;
-    }
-    /* When checkbox is checked, show the mobile nav */
+    /* Mobile nav hidden by default; shown when toggled */
+    .mobile-nav{ display:none; flex-direction:column; gap:10px; padding:.75rem 1rem 1rem; background:#0d3b66; }
     #nav-toggle:checked ~ .mobile-nav{ display:flex; }
 
-    /* Responsive behavior */
-    @media (max-width: 1024px){
+    /* Responsive switch */
+    @media (max-width:1024px){
       .desktop-nav{ display:none; }
       .hamburger{ display:flex; }
     }
@@ -110,7 +95,7 @@
       padding: 0 1rem;
     }
 
-    /* a11y */
+    /* a11y: skip link only visible on focus */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
@@ -137,7 +122,7 @@
     /* narrative containers */
     .narrative{max-width:var(--container);margin:0 auto;padding:0 1rem;color:#444;}
 
-    /* lists (bullets removed) */
+    /* lists (no bullets) */
     .points{list-style:none;padding-left:0;margin:.25rem 0;}
     .points li{margin:.35rem 0;line-height:1.7;}
     .muted{color:#5a6b85;font-size:.95rem}
@@ -151,7 +136,7 @@
     .metric span{flex:1 1 250px; min-width:0;}
     .metric b{flex:0 0 auto; white-space:nowrap; color:#0b3d72;}
 
-    /* inline CTA (dark) */
+    /* inline CTA */
     .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.6rem auto;max-width:var(--container);text-align:center;}
     .inline-cta p{margin:.55rem 0 0;color:#fff !important;}
     .appdev .cta-btn{padding:.75rem 1rem;display:inline-block;}
@@ -170,17 +155,7 @@
     .card p{margin:0;color:#444}
     .card .cta-btn{margin-top:.4rem;align-self:flex-start}
 
-    /* wrap/overflow safety */
-    .appdev .content, .appdev .content p, .appdev .content li, .appdev .content a{
-      word-break:break-word; overflow-wrap:anywhere;
-    }
-
-    /* large screens: 4-up for deep dives */
-    @media (min-width:1100px){
-      #deep-dives .card-grid{grid-template-columns:repeat(4,1fr);}
-    }
-
-    /* mobile */
+    /* mobile tweaks */
     @media (max-width:768px){
       .appdev .hero-intro{padding:0 1rem}
       .appdev .section{padding:1.25rem 0}
@@ -188,7 +163,12 @@
       .metric{gap:.5rem;}
     }
 
-    /* Footer phone link white (consistency) */
+    /* large screens: 4-up for deep dives */
+    @media (min-width:1100px){
+      #deep-dives .card-grid{grid-template-columns:repeat(4,1fr);}
+    }
+
+    /* footer phone link white (consistency) */
     footer .footer-right a[href^="tel:"]{ color:#fff !important; text-decoration:none; font-weight:500; }
     footer .footer-right a[href^="tel:"]:hover{ text-decoration:underline; }
   </style>
@@ -236,7 +216,7 @@
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
-      <!-- LOGO (left on mobile and desktop) -->
+      <!-- Logo (left on both desktop & mobile) -->
       <a href="index.html" aria-label="CoreCloud Home">
         <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
       </a>
