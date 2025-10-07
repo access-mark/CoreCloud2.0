@@ -24,7 +24,7 @@
   <!-- Page-scoped helpers (narrative only; no global overrides) -->
   <style>
     .talent-page .hero-intro{ max-width:900px; margin:2rem auto 1.2rem; text-align:center; }
-    .talent-page .hero-cta{ display:flex; gap:.6rem; flex-wrap:wrap; justify-content:center; margin: .8rem auto 0; }
+    .talent-page .hero-cta{ display:flex; gap:.6rem; flex-wrap:wrap; justify-content:center; margin:.8rem auto 0; }
     .talent-page .hero-cta .cta-btn{ min-width:200px; }
     .talent-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
     .talent-page .narrative p{ margin:.6rem 0; line-height:1.75; color:#444; }
@@ -37,6 +37,45 @@
       padding:1rem 1.1rem; box-shadow:0 2px 6px rgba(0,0,0,.04);
     }
     .talent-page .panel h3{ margin:.1rem 0 .4rem; color:var(--dark-blue); font-size:1.05rem; }
+
+    /* ===== Lumo CTA & Card (scoped) ===== */
+    .talent-page .lumo-wrap{max-width:1000px;margin:18px auto 0;padding:0 16px;text-align:center;}
+    .talent-page .lumo-cta{
+      --cc-blue: var(--dark-blue,#004f91);
+      display:inline-block; padding:14px 22px; border-radius:12px; font-weight:700;
+      letter-spacing:.2px; text-decoration:none; color:#fff; background:
+      radial-gradient(120% 120% at 0% 0%, rgba(212,175,55,.35), transparent 55%),
+      linear-gradient(98deg, var(--cc-blue) 0%, #0a3a6a 60%, #072a4c 100%);
+      box-shadow: 0 10px 28px rgba(0,79,145,.35), 0 0 0 1px rgba(212,175,55,.35) inset;
+      border:1px solid rgba(212,175,55,.65);
+      position:relative; transition:transform .15s ease, box-shadow .2s ease, filter .2s ease;
+    }
+    .talent-page .lumo-cta::after{
+      content:""; position:absolute; inset:-2px; border-radius:14px;
+      background: conic-gradient(from 180deg at 50% 50%, rgba(212,175,55,.65), rgba(0,102,178,.65), rgba(212,175,55,.65));
+      filter: blur(8px); opacity:.55; z-index:-1; animation: ccGlow 4.5s linear infinite;
+    }
+    .talent-page .lumo-cta:hover{ transform:translateY(-1px); filter:saturate(1.08);
+      box-shadow: 0 14px 36px rgba(0,79,145,.45), 0 0 0 1px rgba(212,175,55,.5) inset;
+    }
+    @keyframes ccGlow{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+
+    .talent-page .lumo-card{
+      margin:14px auto 0; padding:16px 18px; border-radius:14px;
+      background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.92));
+      border:1px solid rgba(0,79,145,.18);
+      box-shadow: 0 12px 30px rgba(0,79,145,.12), 0 0 0 1px rgba(212,175,55,.35) inset;
+      backdrop-filter: blur(6px);
+      text-align:left; max-width:980px;
+    }
+    .talent-page .lumo-card h3{ margin:0 0 6px; color:var(--dark-blue); font-size:1.05rem; }
+    .talent-page .lumo-card p{ margin:0; color:#333; line-height:1.6; }
+    .talent-page .lumo-card .lumo-actions{ margin-top:10px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
+    .talent-page .btn-outline{
+      display:inline-block; padding:10px 16px; border-radius:10px; text-decoration:none;
+      border:1px solid var(--dark-blue,#004f91); color:var(--dark-blue,#004f91); background:#fff;
+    }
+    .talent-page .btn-outline:hover{ background:rgba(0,79,145,.06); }
   </style>
 </head>
 
@@ -101,6 +140,22 @@
       <a href="launch-form.html" class="cta-btn">Submit CV</a>
       <a href="employ-form.html" class="cta-btn">Hire Talent</a>
     </div>
+
+    <!-- NEW: Lumo CTA + highlight card -->
+    <div class="lumo-wrap">
+      <a class="lumo-cta" href="global-talent.html">
+        Global Talent — Hire Internationally (72-hour CV Pack)
+      </a>
+      <div class="lumo-card" role="region" aria-label="Global Talent Highlight">
+        <h3>Elite South African Engineers — For UK/EU/MEA/US Teams</h3>
+        <p>Timezone-aligned, cost-efficient, vetted by CoreCloud. Tell us your stack and start date — we’ll send 2–3 matched CVs within 48 hours and set you up for quick wins.</p>
+        <div class="lumo-actions">
+          <a class="btn-outline" href="employ-form.html?source=talent-lumo">Request CV Pack</a>
+          <a class="btn-outline" href="global-talent.html">Explore Global Talent</a>
+        </div>
+      </div>
+    </div>
+    <!-- /NEW -->
   </section>
 
   <main class="content">
