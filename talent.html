@@ -38,28 +38,54 @@
     }
     .talent-page .panel h3{ margin:.1rem 0 .4rem; color:var(--dark-blue); font-size:1.05rem; }
 
-    /* ===== Lumo CTA & Card (scoped) ===== */
+    /* ===== Full Lumo Pulsing Button (no spinner) ===== */
     .talent-page .lumo-wrap{max-width:1000px;margin:18px auto 0;padding:0 16px;text-align:center;}
     .talent-page .lumo-cta{
       --cc-blue: var(--dark-blue,#004f91);
+      --cc-gold: var(--gold,#d4af37);
       display:inline-block; padding:14px 22px; border-radius:12px; font-weight:700;
-      letter-spacing:.2px; text-decoration:none; color:#fff; background:
-      radial-gradient(120% 120% at 0% 0%, rgba(212,175,55,.35), transparent 55%),
-      linear-gradient(98deg, var(--cc-blue) 0%, #0a3a6a 60%, #072a4c 100%);
-      box-shadow: 0 10px 28px rgba(0,79,145,.35), 0 0 0 1px rgba(212,175,55,.35) inset;
+      letter-spacing:.2px; text-decoration:none; color:#fff;
+      background:
+        radial-gradient(120% 120% at 0% 0%, rgba(212,175,55,.35), transparent 55%),
+        linear-gradient(98deg, var(--cc-blue) 0%, #0a3a6a 60%, #072a4c 100%);
       border:1px solid rgba(212,175,55,.65);
-      position:relative; transition:transform .15s ease, box-shadow .2s ease, filter .2s ease;
+      box-shadow:
+        0 0 0 0 rgba(0,79,145,.40),
+        0 10px 28px rgba(0,79,145,.35),
+        0 0 0 1px rgba(212,175,55,.35) inset;
+      transform: translateZ(0);
+      transition: filter .2s ease;
+      animation: ccPulse 2.2s ease-in-out infinite;
     }
-    .talent-page .lumo-cta::after{
-      content:""; position:absolute; inset:-2px; border-radius:14px;
-      background: conic-gradient(from 180deg at 50% 50%, rgba(212,175,55,.65), rgba(0,102,178,.65), rgba(212,175,55,.65));
-      filter: blur(8px); opacity:.55; z-index:-1; animation: ccGlow 4.5s linear infinite;
+    .talent-page .lumo-cta:hover{ filter:saturate(1.08); }
+    @keyframes ccPulse{
+      0%{
+        box-shadow:
+          0 0 0 0 rgba(0,79,145,.40),
+          0 10px 28px rgba(0,79,145,.35),
+          0 0 0 1px rgba(212,175,55,.35) inset;
+        transform: scale(1);
+      }
+      50%{
+        box-shadow:
+          0 0 0 14px rgba(0,79,145,0),
+          0 16px 36px rgba(0,79,145,.45),
+          0 0 0 1px rgba(212,175,55,.5) inset;
+        transform: scale(1.015);
+      }
+      100%{
+        box-shadow:
+          0 0 0 0 rgba(0,79,145,.40),
+          0 10px 28px rgba(0,79,145,.35),
+          0 0 0 1px rgba(212,175,55,.35) inset;
+        transform: scale(1);
+      }
     }
-    .talent-page .lumo-cta:hover{ transform:translateY(-1px); filter:saturate(1.08);
-      box-shadow: 0 14px 36px rgba(0,79,145,.45), 0 0 0 1px rgba(212,175,55,.5) inset;
+    @media (prefers-reduced-motion: reduce){
+      .talent-page .lumo-cta{ animation: none; }
     }
-    @keyframes ccGlow{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
 
+    /* Lumo Card */
     .talent-page .lumo-card{
       margin:14px auto 0; padding:16px 18px; border-radius:14px;
       background: linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.92));
