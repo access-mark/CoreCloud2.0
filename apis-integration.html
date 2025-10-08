@@ -1,100 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Atlas | CoreCloud</title>
-  <meta name="description" content="Atlas: your living blueprint for delivery. Reference architectures, playbooks, and guardrails your teams actually use—kept current and tied to outcomes."/>
-  <link rel="canonical" href="https://www.corecloudza.com/atlas.html"/>
-
-  <!-- Social -->
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Atlas | CoreCloud"/>
-  <meta property="og:description" content="Reference architectures, playbooks, and guardrails that keep delivery fast, safe, and cost-right."/>
-  <meta property="og:url" content="https://www.corecloudza.com/atlas.html"/>
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg"/>
-  <meta name="twitter:card" content="summary_large_image"/>
+  <title>APIs & Integration – CoreCloud</title>
+  <meta name="description" content="Well-designed APIs and event streams that connect products and data. Secure, observable, and built for developer velocity."/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="CoreCloud"/>
 
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
+
+  <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
 
-  <!-- Page-scoped styles -->
+  <!-- Page-scoped fixes -->
   <style>
-    /* a11y: keep skip link offscreen until keyboard focus */
+    /* a11y: hide skip link until keyboard focus */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;left:16px;top:12px;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* Center hero + section titles on this page only */
-    .atlas-page :is(h1.hero-title, h2.section-title){
-      text-align:center !important;
-      display:block !important;
-      margin-left:auto !important;
-      margin-right:auto !important;
-    }
+    /* Center titles + tagline only on this page */
+    .apis-page :is(h1.hero-title, h2.section-title){text-align:center !important;display:block !important;margin-left:auto !important;margin-right:auto !important;}
+    .apis-page .hero-subtitle{max-width:900px;margin:0 auto 1.8rem !important;text-align:center !important;display:block !important;color:#444;font-size:1.08rem;line-height:1.6;}
 
-    /* Tagline hardening (beats global paragraph rules) */
-    .atlas-page .hero-subtitle{
-      max-width:900px;
-      margin:0 auto 1.8rem !important;
-      text-align:center !important;
-      display:block !important;
-      color:#444;
-      font-size:1.08rem;
-      line-height:1.6;
-    }
+    /* Content rhythm */
+    .apis-page .section{margin:2rem 0;}
+    .apis-page .card-grid.force-4{display:grid;gap:2rem;padding:0 1rem;max-width:1200px;margin:0 auto;}
+    @media (min-width:1200px){.apis-page .card-grid.force-4{grid-template-columns:repeat(4,1fr);}}
+    @media (min-width:768px) and (max-width:1199.98px){.apis-page .card-grid.force-4{grid-template-columns:repeat(2,1fr);}}
+    @media (max-width:767.98px){.apis-page .card-grid.force-4{grid-template-columns:1fr;}}
 
-    /* Narrative containers */
-    .atlas-page .narrative{max-width:1000px;margin:0 auto;padding:0 1rem;}
-    .atlas-page .narrative p{margin:.55rem 0;line-height:1.75;color:#444;}
-    .atlas-page .narrative ul{margin:.35rem 0 0 1.25rem;line-height:1.7;}
-    .atlas-page .narrative li{margin:.35rem 0;}
-    .atlas-page .kv{font-weight:700;color:var(--dark-blue);}
+    /* CTA full-width row */
+    .apis-page .span-all{grid-column:1 / -1;}
+    .apis-page .cta-btn.cta-wide{display:inline-flex;align-items:center;justify-content:center;width:100%;min-height:48px;font-weight:700;border-radius:6px;text-align:center;}
 
-    /* Metrics row style (single-line items) */
-    .metrics{display:grid;gap:.45rem;max-width:1000px;margin:0 auto;padding:0 1rem;}
-    .metric{display:flex;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;}
-    .metric b{color:#0b3d72;}
+    /* Ensure long text wraps safely */
+    .apis-page .content, .apis-page .content p, .apis-page .content li, .apis-page .content a{word-break:break-word;overflow-wrap:anywhere;}
 
-    /* CTA */
-    .atlas-page .cta-row{display:flex;justify-content:center;margin:1.25rem 0 2rem;}
-    .atlas-page .cta-row .cta-btn{min-width:220px;}
-
-    /* Keep header slim like other pages */
+    /* Keep desktop nav tight like other fixed pages */
     nav.desktop-nav{gap:.55rem;}
     nav.desktop-nav .nav-btn{font-size:.78rem;padding:.30rem .50rem;}
   </style>
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@graph":[
-      {
-        "@type":"BreadcrumbList",
-        "itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
-          {"@type":"ListItem","position":2,"name":"Atlas","item":"https://www.corecloudza.com/atlas.html"}
-        ]
-      },
-      {
-        "@type":"Service",
-        "name":"CoreCloud Atlas",
-        "description":"Reference architectures, playbooks, and guardrails kept current and tied to measurable outcomes.",
-        "provider":{"@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/"},
-        "areaServed":"ZA",
-        "url":"https://www.corecloudza.com/atlas.html"
-      }
-    ]
-  }
-  </script>
 </head>
 
-<body class="atlas-page">
+<body class="apis-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav -->
+  <!-- Header / Nav (short labels, consistent) -->
   <div class="small-banner">
     <div class="banner-header">
       <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
@@ -102,7 +55,6 @@
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Desktop nav (short labels, consistent) -->
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
@@ -119,7 +71,6 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile nav -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULT</a>
@@ -140,61 +91,69 @@
 
   <!-- Hero -->
   <div class="hero-media">
-    <img src="assets/images/appdev-bannerimage.png" alt="Atlas — Living delivery blueprint" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+    <img src="assets/images/appdev-bannerimage.png" alt="APIs & Integration – CoreCloud" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
   <!-- Intro -->
   <section class="hero-intro">
-    <h1 class="hero-title">Atlas — Your Living Delivery Blueprint</h1>
-    <p class="hero-subtitle">
-      Reference architectures, playbooks, and guardrails your teams actually use—kept current, measurable, and tied to cost, reliability, and speed.
-    </p>
+    <h1 class="hero-title">APIs &amp; Integration</h1>
+    <p class="hero-subtitle">Well-designed APIs and event streams that connect products and data. Secure, observable, and built for developer velocity.</p>
   </section>
 
   <main class="content" id="main">
-    <!-- What is Atlas -->
-    <section class="section narrative" aria-labelledby="what-title">
-      <h2 id="what-title" class="section-title">What Atlas Is</h2>
-      <p><span class="kv">Single source of truth:</span> cloud &amp; platform blueprints, data/AI runways, security guardrails, and FinOps policies in one place.</p>
-      <p><span class="kv">Living, not static:</span> versioned, reviewed monthly, and wired into CI/CD so standards show up where engineers work.</p>
-      <p><span class="kv">Outcome-led:</span> each pattern maps to an owner, metric, and review rhythm (SLO, run-rate, change lead time).</p>
+    <!-- What we deliver -->
+    <section class="section" aria-labelledby="deliver-title">
+      <h2 id="deliver-title" class="section-title">What We Deliver</h2>
+      <div class="card-grid force-4">
+        <div class="card"><h2>Product-Grade APIs</h2><p>REST, GraphQL, and gRPC with clear contracts, versioning, and SLAs. Built for scale and reuse.</p></div>
+        <div class="card"><h2>Event-Driven Integration</h2><p>Publish/subscribe, queues, and streams that decouple services and power real-time experiences.</p></div>
+        <div class="card"><h2>API Management &amp; Gateways</h2><p>Rate limiting, auth, monetisation, and developer portals via leading gateways and platforms.</p></div>
+        <div class="card"><h2>Data &amp; System Connectivity</h2><p>Modern ETL/ELT, webhooks, and iPaaS patterns to connect SaaS, legacy, and cloud platforms.</p></div>
+      </div>
     </section>
 
-    <!-- What’s inside -->
-    <section class="section narrative" aria-labelledby="inside-title">
-      <h2 id="inside-title" class="section-title">What’s Inside</h2>
-      <ul>
-        <li><span class="kv">Cloud foundations:</span> landing zones, identity, networks, backups, DR tiers.</li>
-        <li><span class="kv">App delivery:</span> golden paths for services, portals, mobile/web, APIs &amp; EDA.</li>
-        <li><span class="kv">Data &amp; AI:</span> lakehouse layers, streaming, RAG/MLOps, lineage &amp; privacy.</li>
-        <li><span class="kv">Security &amp; governance:</span> policy-as-code, secrets, access, key custody.</li>
-        <li><span class="kv">FinOps:</span> tags, budgets, anomaly alerts, commitment guardrails.</li>
-      </ul>
+    <!-- How we build -->
+    <section class="section" aria-labelledby="build-title">
+      <h2 id="build-title" class="section-title">How We Build</h2>
+      <div class="card-grid force-4">
+        <div class="card"><h2>Reference Architectures</h2><p>Opinionated templates for synchronous APIs and asynchronous EDA, aligned to your cloud of choice.</p></div>
+        <div class="card"><h2>Security by Design</h2><p>OAuth2/OIDC, mTLS, key rotation, WAF, and zero-trust patterns baked into every interface.</p></div>
+        <div class="card"><h2>Developer Experience</h2><p>Self-serve portals, SDKs, mocks, and golden paths to accelerate onboarding and reduce cycle time.</p></div>
+        <div class="card"><h2>Observability &amp; Reliability</h2><p>Tracing, metrics, structured logs, and error budgets to keep integrations healthy and predictable.</p></div>
+      </div>
     </section>
 
-    <!-- How it works -->
-    <section class="section narrative" aria-labelledby="how-title">
-      <h2 id="how-title" class="section-title">How It Works</h2>
-      <p><span class="kv">Discover &amp; calibrate:</span> assess current patterns, risk, and run-rate; pick the first golden paths.</p>
-      <p><span class="kv">Codify &amp; wire-in:</span> templates, modules, and checks land in repos, pipelines, and portals.</p>
-      <p><span class="kv">Operate &amp; review:</span> monthly WBR for cost/reliability; backlog of next best moves is closed, not studied.</p>
+    <!-- Engagement models -->
+    <section class="section" aria-labelledby="models-title">
+      <h2 id="models-title" class="section-title">Engagement Models</h2>
+      <div class="card-grid force-4">
+        <div class="card"><h2>Project Delivery</h2><p>Outcome-based API and integration workstreams with clear milestones and governance.</p></div>
+        <div class="card"><h2>Platform Build-Out</h2><p>Standing up gateways, portals, CI/CD, and observability to create an integration runway.</p></div>
+        <div class="card"><h2>Integration Factory</h2><p>Reusable patterns, accelerators, and a backlog engine to deliver new integrations at pace.</p></div>
+        <div class="card"><h2>Advisory &amp; Reviews</h2><p>API strategy, governance, security posture, cost optimisation, and architecture reviews.</p></div>
+      </div>
     </section>
 
-    <!-- Metrics -->
-    <section class="section" aria-labelledby="metrics-title">
-      <h2 id="metrics-title" class="section-title">Results You Can Expect</h2>
-      <div class="metrics">
-        <div class="metric"><span>Lead time for change</span><b>↓ 20–40%</b></div>
-        <div class="metric"><span>Run-rate on steady workloads</span><b>↓ 15–35% in 30–60 days</b></div>
-        <div class="metric"><span>SLO compliance</span><b>↑ to target with clear error budgets</b></div>
-        <div class="metric"><span>Standard adoption</span><b>&gt; 80% golden-path usage</b></div>
+    <!-- Outcomes -->
+    <section class="section" aria-labelledby="outcomes-title">
+      <h2 id="outcomes-title" class="section-title">Outcomes You Can Measure</h2>
+      <div class="card-grid force-4">
+        <div class="card"><h2>Faster Delivery</h2><p>Reduced lead time for new integrations with reusable contracts and pipelines.</p></div>
+        <div class="card"><h2>Reliability</h2><p>Clear SLAs/SLOs, back-pressure handling, and graceful degradation under load.</p></div>
+        <div class="card"><h2>Security &amp; Compliance</h2><p>Policy-driven access, auditability, and data protection aligned to your governance.</p></div>
+        <div class="card"><h2>Cost &amp; Reuse</h2><p>API reuse and platform guardrails that prevent duplicate builds and waste.</p></div>
       </div>
     </section>
 
     <!-- CTA -->
-    <div class="cta-row">
-      <a href="contact.html" class="cta-btn">See a Sample Atlas</a>
-    </div>
+    <section class="section" aria-labelledby="cta-title">
+      <h2 id="cta-title" class="visually-hidden">Contact CTA</h2>
+      <div class="card-grid force-4">
+        <div class="span-all" style="text-align:center;">
+          <a href="contact.html" class="cta-btn cta-wide">Start a Conversation</a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -202,19 +161,19 @@
     <div class="footer-content">
       <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton<br>Johannesburg<br>South Africa</p>
+        <p>Sandton<br/>Johannesburg<br/>South Africa</p>
       </div>
 
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
           <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
