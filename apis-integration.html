@@ -3,10 +3,19 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>APIs &amp; Integration – CoreCloud</title>
+  <title>APIs & Integration – CoreCloud</title>
   <meta name="description" content="Well-designed APIs and event streams that connect products and data. Secure, observable, and built for developer velocity."/>
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
+
+  <!-- Canonical + Social -->
+  <link rel="canonical" href="https://www.corecloudza.com/apis-integration.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="APIs & Integration – CoreCloud"/>
+  <meta property="og:description" content="Well-designed APIs and event streams that connect products and data. Secure, observable, and built for developer velocity."/>
+  <meta property="og:url" content="https://www.corecloudza.com/apis-integration.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
@@ -14,41 +23,75 @@
   <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
 
-  <!-- Page-scoped tweaks (content only) -->
+  <!-- Page-scoped styles -->
   <style>
-    .hero-title{ font-size:2rem; font-weight:700; color:var(--dark-blue); text-align:center; margin:2.2rem auto 1rem; }
-    .hero-subtitle{ text-align:center; color:#444; max-width:900px; margin:0 auto 2rem; font-size:1.1rem; }
+    /* Keep hero & section titles centered on this page */
+    .appdev-page :is(h1.hero-title, h2.section-title){
+      text-align:center !important;
+      display:block !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+    }
+    /* Force hero subtitle centered */
+    .appdev-page .hero-subtitle{
+      display:block !important;
+      max-width:900px;
+      margin:0 auto 2rem !important;
+      text-align:center !important;
+      color:#444;
+      font-size:1.1rem;
+      line-height:1.6;
+    }
 
-    .section{ margin:2rem 0; }
-    .section-title{ text-align:center; color:var(--dark-blue); margin:0 0 1rem; }
-
-    .card-grid.force-4{ display:grid; gap:1.25rem; max-width:1200px; margin:0 auto; padding:0 1rem; }
+    /* Grid */
+    .card-grid.force-4{ display:grid; gap:1rem; max-width:1200px; margin:0 auto; padding:0 1rem; }
     @media (min-width:1200px){ .card-grid.force-4{ grid-template-columns:repeat(4,1fr); } }
     @media (min-width:768px) and (max-width:1199.98px){ .card-grid.force-4{ grid-template-columns:repeat(2,1fr); } }
     @media (max-width:767.98px){ .card-grid.force-4{ grid-template-columns:1fr; } }
 
     .span-all{ grid-column:1 / -1; text-align:center; }
-    .cta-btn{ display:inline-block; min-height:48px; padding:.8rem 1.2rem; border-radius:6px; font-weight:700; background:var(--primary-blue); color:#fff; text-decoration:none; }
-    .cta-btn:hover{ background:var(--dark-blue); }
+    .cta-btn.cta-wide{ min-height:48px; width:100%; font-weight:700; border-radius:6px; display:inline-flex; align-items:center; justify-content:center; }
 
-    /* Compact desktop nav spacing for consistency */
-    nav.desktop-nav{ gap:.55rem; }
-    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
+    /* Spacing rhythm */
+    .section{ margin:2rem 0; }
+    .section p{ max-width:1000px; margin:.5rem auto 0; padding:0 1rem; color:#444; }
   </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+          {"@type":"ListItem","position":2,"name":"APIs & Integration","item":"https://www.corecloudza.com/apis-integration.html"}
+        ]
+      },
+      {
+        "@type":"Service",
+        "name":"APIs & Integration",
+        "provider":{"@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png"},
+        "description":"Product-grade APIs, event-driven integration, and platform build-outs with security, observability, and developer experience."
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="appdev-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
-      <a href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
-      </a>
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Desktop nav (short labels) -->
+      <!-- Desktop nav (short labels for consistency) -->
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
@@ -65,7 +108,7 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile nav (short labels) -->
+      <!-- Mobile nav -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULT</a>
@@ -85,44 +128,49 @@
   </div>
 
   <!-- Hero -->
-  <div class="hero-media">
-    <img src="assets/images/appdev-bannerimage.png" alt="APIs &amp; Integration – CoreCloud" width="1920" height="500" loading="eager" decoding="async"/>
+  <div class="hero-media" role="img" aria-label="APIs & Integration">
+    <img src="assets/images/appdev-bannerimage.png" alt="APIs & Integration – CoreCloud" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
-  <main class="content" id="main">
+  <!-- Intro -->
+  <section class="hero-intro">
     <h1 class="hero-title">APIs &amp; Integration</h1>
-    <p class="hero-subtitle">Well-designed APIs and event streams that connect products and data. Secure, observable, and built for developer velocity.</p>
+    <p class="hero-subtitle">
+      Well-designed APIs and event streams that connect products and data. Secure, observable, and built for developer velocity.
+    </p>
+  </section>
 
+  <main class="content" id="main">
     <!-- What we deliver -->
-    <section class="section" aria-labelledby="what-title">
-      <h2 id="what-title" class="section-title">What We Deliver</h2>
+    <section class="section" aria-labelledby="deliver-title">
+      <h2 id="deliver-title" class="section-title">What We Deliver</h2>
       <div class="card-grid force-4">
-        <div class="card"><h2>Product-Grade APIs</h2><p>REST, GraphQL, and gRPC endpoints with clear contracts, versioning, and SLAs. Built for scale and reuse.</p></div>
-        <div class="card"><h2>Event-Driven Integration</h2><p>Publish/subscribe, queues, and streams that decouple services and power real-time experiences.</p></div>
-        <div class="card"><h2>API Management &amp; Gateways</h2><p>Rate limiting, auth, monetisation, and developer portals via leading gateways and platforms.</p></div>
-        <div class="card"><h2>Data &amp; System Connectivity</h2><p>Modern ETL/ELT, webhooks, and iPaaS patterns to connect SaaS, legacy, and cloud platforms.</p></div>
+        <div class="card"><h2>Product-Grade APIs</h2><p>REST, GraphQL, and gRPC with clear contracts, versioning, and SLAs. Built for scale and reuse.</p></div>
+        <div class="card"><h2>Event-Driven Integration</h2><p>Publish/subscribe, queues, and streams that decouple services and enable real-time experiences.</p></div>
+        <div class="card"><h2>API Management</h2><p>Rate limiting, auth, monetisation, and developer portals via leading gateways and platforms.</p></div>
+        <div class="card"><h2>Data &amp; System Connectivity</h2><p>Modern ETL/ELT, webhooks, and iPaaS to connect SaaS, legacy, and cloud platforms.</p></div>
       </div>
     </section>
 
     <!-- How we build -->
-    <section class="section" aria-labelledby="how-title">
-      <h2 id="how-title" class="section-title">How We Build</h2>
+    <section class="section" aria-labelledby="build-title">
+      <h2 id="build-title" class="section-title">How We Build</h2>
       <div class="card-grid force-4">
-        <div class="card"><h2>Reference Architectures</h2><p>Opinionated templates for synchronous APIs and asynchronous EDA, aligned to your cloud of choice.</p></div>
+        <div class="card"><h2>Reference Architectures</h2><p>Opinionated templates for synchronous APIs and asynchronous EDA on your cloud of choice.</p></div>
         <div class="card"><h2>Security by Design</h2><p>OAuth2/OIDC, mTLS, key rotation, WAF, and zero-trust patterns baked into every interface.</p></div>
-        <div class="card"><h2>Developer Experience</h2><p>Self-serve portals, SDKs, mocks, and golden paths to accelerate onboarding and reduce cycle time.</p></div>
-        <div class="card"><h2>Observability &amp; Reliability</h2><p>Tracing, metrics, structured logs, and error budgets to keep integrations healthy and predictable.</p></div>
+        <div class="card"><h2>Developer Experience</h2><p>Self-serve portals, SDKs, mocks, and golden paths to speed onboarding and reduce cycle time.</p></div>
+        <div class="card"><h2>Observability &amp; Reliability</h2><p>Tracing, metrics, structured logs, and error budgets to keep integrations healthy.</p></div>
       </div>
     </section>
 
-    <!-- Engagement models -->
+    <!-- Engagements -->
     <section class="section" aria-labelledby="engage-title">
       <h2 id="engage-title" class="section-title">Engagement Models</h2>
       <div class="card-grid force-4">
         <div class="card"><h2>Project Delivery</h2><p>Outcome-based API and integration workstreams with clear milestones and governance.</p></div>
-        <div class="card"><h2>Platform Build-Out</h2><p>Standing up gateways, portals, CI/CD, and observability to create an integration runway.</p></div>
-        <div class="card"><h2>Integration Factory</h2><p>Reusable patterns, accelerators, and a backlog engine to deliver new integrations at pace.</p></div>
-        <div class="card"><h2>Advisory &amp; Reviews</h2><p>API strategy, governance, security posture, cost optimisation, and architecture reviews.</p></div>
+        <div class="card"><h2>Platform Build-Out</h2><p>Gateways, portals, CI/CD, and observability to create an integration runway.</p></div>
+        <div class="card"><h2>Integration Factory</h2><p>Reusable patterns and accelerators to deliver new integrations at pace.</p></div>
+        <div class="card"><h2>Advisory &amp; Reviews</h2><p>API strategy, governance, security posture, cost optimisation, and arch reviews.</p></div>
       </div>
     </section>
 
@@ -130,18 +178,19 @@
     <section class="section" aria-labelledby="outcomes-title">
       <h2 id="outcomes-title" class="section-title">Outcomes You Can Measure</h2>
       <div class="card-grid force-4">
-        <div class="card"><h2>Faster Delivery</h2><p>Reduced lead time for new integrations with reusable contracts and pipelines.</p></div>
+        <div class="card"><h2>Faster Delivery</h2><p>Reduced lead time for integrations with reusable contracts and pipelines.</p></div>
         <div class="card"><h2>Reliability</h2><p>Clear SLAs/SLOs, back-pressure handling, and graceful degradation under load.</p></div>
-        <div class="card"><h2>Security &amp; Compliance</h2><p>Policy-driven access, auditability, and data protection aligned to your governance.</p></div>
-        <div class="card"><h2>Cost &amp; Reuse</h2><p>API reuse and platform guardrails that prevent duplicate builds and waste.</p></div>
+        <div class="card"><h2>Security &amp; Compliance</h2><p>Policy-driven access, auditability, and data protection aligned to governance.</p></div>
+        <div class="card"><h2>Cost &amp; Reuse</h2><p>API reuse and platform guardrails prevent duplicate builds and waste.</p></div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="section" aria-label="contact-cta">
+    <section class="section" aria-labelledby="cta-title">
+      <h2 id="cta-title" class="section-title" style="margin-bottom:.5rem;">Ready to Connect Your Estate?</h2>
       <div class="card-grid force-4">
         <div class="span-all">
-          <a href="contact.html" class="cta-btn">Start a Conversation</a>
+          <a href="contact.html" class="cta-btn cta-wide">Start a Conversation</a>
         </div>
       </div>
     </section>
@@ -188,11 +237,11 @@
   <!-- Auto-highlight current nav -->
   <script>
     (function(){
-      var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
       document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
-        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
+        var href=(a.getAttribute('href')||'').toLowerCase();
+        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
+        else{a.classList.remove('active');a.removeAttribute('aria-current');}
       });
     })();
   </script>
