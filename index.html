@@ -21,40 +21,33 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
 
-  <!-- Page-scoped styles (kept minimal; no new classes) -->
+  <!-- Page-scoped styles (kept minimal) -->
   <style>
+    /* Accessibility */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    .home .hero-media img{width:100%;height:auto;display:block;}
-    .home .hero-intro{max-width:900px;margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
-    .home .hero-intro p{color:#444;}
+    /* Standardised hero & titles (only for this page) */
+    .hero,.banner,.small-banner{display:flex;align-items:center;justify-content:center;text-align:center;min-height:340px;padding:40px 16px;background-position:center;background-size:cover}
+    .hero .hero-body{max-width:900px;margin:0 auto}
+    .hero .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:16px}
+    @media (max-width:768px){ .hero{min-height:260px;padding:28px 14px} .hero .hero-body{max-width:680px} }
 
+    /* H1/H2 sizing for uniformity */
+    :root{ --h1-size:40px; --h2-size:28px; }
+    h1{font-size:var(--h1-size); line-height:1.2; margin:28px 0 12px 0;}
+    h2{font-size:var(--h2-size); line-height:1.25; margin:28px 0 12px 0;}
+    @media (max-width:768px){ :root{--h1-size:30px;--h2-size:24px} }
+
+    /* Keep the rest of your original home styles */
     .home .section{padding:1.5rem 0;}
     .home .section .section-title{margin:0 0 .75rem;}
-
     .home .card-grid{padding:0 1rem;}
-
     .home .content, .home .content p, .home .content li, .home .content a{word-break:break-word;overflow-wrap:anywhere;}
-
-    /* Previously local services grid replaced by global .card-grid + .card */
-
     .wins-list{padding-left:1.25rem}
     .wins-list li{margin:.25rem 0}
-
-    /* Center the Hybrid CTA row + ensure button text perfectly centered */
-    .home [aria-labelledby="hybrid-title"] p:last-of-type{
-      display:flex;justify-content:center;align-items:center;
-    }
-    .home [aria-labelledby="hybrid-title"] .cta-btn{
-      display:inline-flex;align-items:center;justify-content:center;min-width:220px;
-    }
-
-    @media (max-width:768px){
-      .home .hero-intro{padding:0 1rem}
-    }
-
-    /* Optional: force 4-up at very wide desktop (uses global card-grid.force-4 now) */
+    .home [aria-labelledby="hybrid-title"] p:last-of-type{display:flex;justify-content:center;align-items:center;}
+    .home [aria-labelledby="hybrid-title"] .cta-btn{display:inline-flex;align-items:center;justify-content:center;min-width:220px;}
   </style>
 
   <!-- JSON-LD (WebSite + Organization) -->
@@ -84,7 +77,7 @@
 <body class="home home-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav (single, canonical) -->
+  <!-- Header / Nav (unchanged) -->
   <header class="small-banner">
     <div class="banner-header">
       <a href="index.html" aria-label="CoreCloud Home">
@@ -128,25 +121,28 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
-    <img src="assets/images/index-bannerimage.png" alt="From Strategy to Revenue. From Cloud to People." width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
-  </div>
+  <!-- Centralised Hero (your exact copy) -->
+  <section class="hero" style="background-image:url('assets/images/index-bannerimage.png');">
+    <div class="hero-body">
+      <h1>From Strategy to Revenue. From Cloud to People.</h1>
+      <p>
+        Big ideas mean nothing without results. We help South African enterprises turn strategy into action and revenue —
+        sharper sales execution, modernised cloud, elite ICT talent, and disciplined app delivery.
+      </p>
+
+      <h2>Hybrid Isn’t Optional — It’s the Operating Model</h2>
+      <p>
+        One venue cannot win on cost, performance, and risk at the same time. We place each workload where it wins —
+        cloud for elasticity and services; hosted or on-prem for predictable, low-latency, compliant run.
+      </p>
+
+      <div class="cta-row">
+        <a class="cta-btn" href="cloud.html">Design My Hybrid</a>
+      </div>
+    </div>
+  </section>
 
   <main class="content" id="main">
-    <!-- Intro -->
-    <section class="hero-intro">
-      <h1 class="hero-title">From Strategy to Revenue. From Cloud to People.</h1>
-      <p>Big ideas mean nothing without results. We help South African enterprises turn strategy into action and revenue — sharper sales execution, modernised cloud, elite ICT talent, and disciplined app delivery.</p>
-    </section>
-
-    <!-- Hybrid POV -->
-    <section class="section" aria-labelledby="hybrid-title">
-      <h2 id="hybrid-title" class="section-title">Hybrid Isn’t Optional — It’s the Operating Model</h2>
-      <p>One venue cannot win on cost, performance, and risk at the same time. We place each workload where it wins — cloud for elasticity and services; hosted or on-prem for predictable, low-latency, compliant run.</p>
-      <p><a class="cta-btn" href="cloud.html">Design My Hybrid</a></p>
-    </section>
-
     <!-- About -->
     <section class="section" aria-labelledby="about-title">
       <h2 id="about-title" class="section-title">About CoreCloud</h2>
@@ -178,7 +174,7 @@
       <h3>3) Decide</h3>
       <p>Rank each workload on five axes: cost, latency, reliability/DR, compliance, change velocity. Pick self-funding quick wins first (high cost, low elasticity), sequence by dependencies, and publish a migration playbook with clear owners and dates.</p>
       <h3>4) Operate</h3>
-      <p>Standardise landing zones across venues: identity, networking, tagging, budgets, backups, and observability. Run FinOps as a cadence (showback, anomaly flags, rightsizing) and SRE practices to protect SLOs. Monthly reviews track run-rate, latency, incidents, and the next move.</p>
+      <p>Standardise landing zones across venues: identity, networking, tagging, budgets, and observability. Run FinOps as a cadence (showback, anomaly flags, rightsizing) and SRE practices to protect SLOs. Monthly reviews track run-rate, latency, incidents, and the next move.</p>
       <h3>You get</h3>
       <p>An executive deck with options and trade-offs, a per-workload venue decision with 12/36-month TCO, a phased migration plan with risk controls, and an operating model (guardrails, dashboards, review rhythm) that keeps hybrid fast and under control.</p>
     </section>
@@ -242,7 +238,7 @@
     </section>
   </main>
 
-  <!-- Footer (global) -->
+  <!-- Footer (unchanged) -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
