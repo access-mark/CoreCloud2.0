@@ -49,22 +49,21 @@
     .home .card-grid{padding:0 1rem;}
     .home .content, .home .content p, .home .content li, .home .content a{word-break:break-word;overflow-wrap:anywhere;}
 
-    /* Force-center specific H2s in case globals override elsewhere */
+    /* Force-center H2s that should be centered */
     section[aria-labelledby="about-title"] > .section-title,
     section[aria-labelledby="services-title"] > .section-title,
     section[aria-labelledby="wins-title"] > .section-title { text-align:center !important; }
 
-    /* ===== LEFT align for Why/What/How/Principles/Outcomes (H3 + paras) ===== */
+    /* LEFT align for Why/What/How/Principles/Outcomes (H3 + paras) */
     section[aria-labelledby="focus-title"] > h3,
     section[aria-labelledby="focus-title"] > h3 + p { text-align:left; margin-left:0; }
-    /* Keep the block readable with subtle indent on paragraphs only */
     section[aria-labelledby="focus-title"]{ --indent: 1.25rem; }
     section[aria-labelledby="focus-title"] > h3 + p{ margin-left: var(--indent); }
     @media (max-width:768px){
       section[aria-labelledby="focus-title"]{ --indent: .75rem; }
     }
 
-    /* ===== LEFT align for VDF H3s; remove numbering in content below ===== */
+    /* LEFT align for VDF H3s; numbering removed in content */
     section[aria-labelledby="vdf-title"] > h3{ text-align:left; margin-left:0; }
 
     /* Recent Wins — center list block with modest indent for bullets */
@@ -74,6 +73,16 @@
     section[aria-labelledby="wins-title"] .wins-list li{margin:.25rem 0}
     @media (max-width:768px){
       section[aria-labelledby="wins-title"] .wins-list{padding-left:1.25rem;}
+    }
+
+    /* ===== Trim extra whitespace above About & Focus ===== */
+    section[aria-labelledby="about-title"],
+    section[aria-labelledby="focus-title"]{
+      padding-top:.6rem;            /* tighter than default 1.5rem */
+    }
+    section[aria-labelledby="about-title"] > .section-title,
+    section[aria-labelledby="focus-title"] > .section-title{
+      margin-top:10px;              /* was 28px */
     }
   </style>
 
