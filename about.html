@@ -22,6 +22,24 @@
 
   <!-- Page-scoped helpers (safe & minimal) -->
   <style>
+    /* Accessible skip link */
+    .skip-link{
+      position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;
+    }
+    .skip-link:focus{
+      position:fixed;top:10px;left:10px;width:auto;height:auto;
+      padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;
+      outline:2px solid #fff;z-index:1000;
+    }
+
+    /* Hard-center H1 + H2 only on About page */
+    .about-page :is(h1.hero-title, h2.section-title){
+      text-align:center !important;
+      display:block !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+    }
+
     .about-page .hero-intro{ max-width:900px; margin:2rem auto 1.25rem; text-align:center; }
     .about-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
     .about-page .narrative p{ margin:.55rem 0; line-height:1.75; color:#444; }
@@ -33,6 +51,7 @@
     @media (min-width:900px){ .about-page .columns{ grid-template-columns:1fr 1fr; } }
     .about-page .cta-row{ display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; margin:1.25rem 0 2rem; }
     .about-page .cta-row .cta-btn{ min-width:200px; }
+
     /* desktop nav squeeze for consistency */
     nav.desktop-nav{ gap:.55rem; }
     nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
@@ -64,6 +83,9 @@
 </head>
 
 <body class="about-page">
+  <!-- Skip to main content -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
