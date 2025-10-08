@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Application Development – CoreCloud</title>
   <meta name="description" content="Cloud-native application development, enterprise portals, mobile & web, and API integration—delivered with DevOps, security, and performance discipline."/>
-  <meta name="robots" content="index, follow"/>
   <link rel="canonical" href="https://www.corecloudza.com/application-development.html"/>
 
   <!-- Open Graph / Twitter -->
@@ -16,16 +15,29 @@
   <meta property="og:url" content="https://www.corecloudza.com/application-development.html"/>
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Application Development – CoreCloud"/>
+  <meta name="twitter:description" content="Cloud-native apps, portals, mobile & web, and APIs—built with DevOps discipline and security by design."/>
+  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
 
   <!-- Preloads -->
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Page-scoped helpers: titles centered + narrative pairs (no bullets) -->
+  <!-- Page-scoped helpers: titles centered + narrative pairs (no bullets) + skip-link -->
   <style>
+    /* Accessible skip link: hidden until focus, then pinned top-left */
+    .skip-link{
+      position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;
+    }
+    .skip-link:focus{
+      position:fixed;top:10px;left:10px;width:auto;height:auto;
+      padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;
+      outline:2px solid #fff;z-index:1000;
+    }
+
     /* Lock hero + section titles to center on this page only */
     .appdev-page :is(h1.hero-title, h2.section-title){
       text-align:center !important;
@@ -34,31 +46,18 @@
       display:block !important;
     }
 
-    /* Section rhythm */
-    .appdev-page .section{ margin:2rem 0; }
-    .appdev-page .section-title{ margin:0 0 .8rem; }
-
     /* Narrative (no bullets) layout */
     .appdev-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
     .appdev-page .pair{ margin:.55rem 0; line-height:1.7; color:#444; }
     .appdev-page .kv{ font-weight:700; color:var(--dark-blue); }
     .appdev-page .desc{ margin-left:.45rem; }
 
-    /* Safety: remove list bullets (we're using narrative) */
+    /* Safety: remove any list bullets inside this page (we're using narrative) */
     .appdev-page ul, .appdev-page ol{ list-style:none !important; margin:0 !important; padding:0 !important; }
 
     /* Center the CTA row */
     .appdev-page .cta-row{ display:flex; justify-content:center; margin-top:1rem; }
     .appdev-page .cta-row .cta-btn{ min-width:240px; }
-
-    /* Hero spacing match */
-    .appdev-page .hero-media{ margin-bottom:2rem; }
-    @media (max-width:768px){
-      .appdev-page .hero-media{ margin-bottom:1.25rem; }
-    }
-
-    /* Card grid roles */
-    .appdev-page .card-grid [role="listitem"] h3{ margin-top:.1rem; }
   </style>
 
   <!-- JSON-LD -->
@@ -95,14 +94,13 @@
 </head>
 
 <body class="appdev-page">
+  <!-- Skip to main -->
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
-      <a href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
-      </a>
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
 
       <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
@@ -143,7 +141,7 @@
   </div>
 
   <!-- Hero -->
-  <div class="hero-media" role="img" aria-label="CoreCloud Application Development">
+  <div class="hero-media">
     <img src="assets/images/appdev-bannerimage.png" alt="CoreCloud Application Development" loading="eager" decoding="async" width="1920" height="500"/>
   </div>
 
@@ -189,30 +187,30 @@
       <a href="contact.html" class="cta-btn">Start a Conversation</a>
     </div>
 
-    <!-- What We Build (cards) -->
+    <!-- What We Build (cards retained) -->
     <section class="section" aria-labelledby="build-title">
       <h2 id="build-title" class="section-title">What We Build</h2>
-      <div class="card-grid force-4" role="list" aria-label="What we build">
-        <a class="card" role="listitem" href="cloud-native-apps.html">
-          <h3>Cloud-Native Apps</h3>
+      <div class="card-grid force-4" style="margin-top:1rem;">
+        <div class="card" style="display:flex; flex-direction:column;">
+          <h2>Cloud-Native Apps</h2>
           <p>Microservices, containers, serverless — resilient and built for change.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" role="listitem" href="enterprise-portals.html">
-          <h3>Enterprise Portals</h3>
+          <a href="cloud-native-apps.html" class="cta-btn">Explore</a>
+        </div>
+        <div class="card" style="display:flex; flex-direction:column;">
+          <h2>Enterprise Portals</h2>
           <p>Secure internal &amp; customer portals that streamline operations and engagement.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" role="listitem" href="mobile-web.html">
-          <h3>Mobile &amp; Web</h3>
+          <a href="enterprise-portals.html" class="cta-btn">Explore</a>
+        </div>
+        <div class="card" style="display:flex; flex-direction:column;">
+          <h2>Mobile &amp; Web</h2>
           <p>Fast, responsive experiences across devices with performance baked in.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" role="listitem" href="apis-integration.html">
-          <h3>APIs &amp; Integration</h3>
+          <a href="mobile-web.html" class="cta-btn">Explore</a>
+        </div>
+        <div class="card" style="display:flex; flex-direction:column;">
+          <h2>APIs &amp; Integration</h2>
           <p>Well-designed APIs and event streams that connect products and data.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
+          <a href="apis-integration.html" class="cta-btn">Explore</a>
+        </div>
       </div>
     </section>
   </main>
