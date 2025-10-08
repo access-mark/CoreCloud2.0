@@ -1,35 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>APIs &amp; Integration – CoreCloud</title>
-  <meta name="description" content="Well-designed APIs and event streams that connect products and data. Secure, observable, and built for developer velocity." />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="CoreCloud" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=apis-int-1" />
+  <meta name="description" content="Well-designed APIs and event streams that connect products and data. Secure, observable, and built for developer velocity."/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="CoreCloud"/>
 
-  <!-- Preload hero for faster LCP -->
-  <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high" />
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
+
+  <!-- Preload hero -->
+  <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
 
   <!-- Page-scoped tweaks (content only) -->
   <style>
-    .hero-title{ font-size:2rem; font-weight:700; color:var(--dark-blue); text-align:center; margin:2.5rem auto 1rem; }
+    .hero-title{ font-size:2rem; font-weight:700; color:var(--dark-blue); text-align:center; margin:2.2rem auto 1rem; }
     .hero-subtitle{ text-align:center; color:#444; max-width:900px; margin:0 auto 2rem; font-size:1.1rem; }
 
-    .card-grid.force-4{ display:grid; gap:2rem; padding:0 2rem; }
+    .section{ margin:2rem 0; }
+    .section-title{ text-align:center; color:var(--dark-blue); margin:0 0 1rem; }
+
+    .card-grid.force-4{ display:grid; gap:1.25rem; max-width:1200px; margin:0 auto; padding:0 1rem; }
     @media (min-width:1200px){ .card-grid.force-4{ grid-template-columns:repeat(4,1fr); } }
     @media (min-width:768px) and (max-width:1199.98px){ .card-grid.force-4{ grid-template-columns:repeat(2,1fr); } }
     @media (max-width:767.98px){ .card-grid.force-4{ grid-template-columns:1fr; } }
 
-    .span-all{ grid-column:1 / -1; }
-    .span-all .cta-btn.cta-wide{
-      display:inline-flex; align-items:center; justify-content:center; width:100%;
-      min-height:48px; font-weight:700; border-radius:6px; text-align:center;
-    }
+    .span-all{ grid-column:1 / -1; text-align:center; }
+    .cta-btn{ display:inline-block; min-height:48px; padding:.8rem 1.2rem; border-radius:6px; font-weight:700; background:var(--primary-blue); color:#fff; text-decoration:none; }
+    .cta-btn:hover{ background:var(--dark-blue); }
 
-    .cta-btn{ display:inline-block; background-color:var(--primary-blue); color:#fff; padding:.75rem 1rem; border-radius:6px; font-weight:700; text-decoration:none; transition:background-color .3s ease; }
-    .cta-btn:hover{ background-color:var(--dark-blue); }
+    /* Compact desktop nav spacing for consistency */
+    nav.desktop-nav{ gap:.55rem; }
+    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
   </style>
 </head>
 
@@ -37,41 +41,42 @@
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" />
+      <a href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+      </a>
 
-      <!-- CSS-only hamburger toggle -->
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </label>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Desktop Nav -->
+      <!-- Desktop nav (short labels) -->
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="finops.html" class="nav-btn">FINOPS &amp; GOVERNANCE</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
+        <a href="application-development.html" class="nav-btn active" aria-current="page">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="blog.html" class="nav-btn">BLOG</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile Nav -->
+      <!-- Mobile nav (short labels) -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
+        <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="application-development.html" class="active" aria-current="page">APP DEV</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html">BLOG</a>
         <a href="contact.html">CONTACT</a>
@@ -79,21 +84,18 @@
     </div>
   </div>
 
-  <!-- Standard image hero (visible & cropped consistently) -->
+  <!-- Hero -->
   <div class="hero-media">
-    <img src="assets/images/appdev-bannerimage.png" alt="APIs & Integration – CoreCloud" loading="eager" decoding="async" />
+    <img src="assets/images/appdev-bannerimage.png" alt="APIs &amp; Integration – CoreCloud" width="1920" height="500" loading="eager" decoding="async"/>
   </div>
 
-  <main class="content">
-    <!-- Hero -->
+  <main class="content" id="main">
     <h1 class="hero-title">APIs &amp; Integration</h1>
-    <p class="hero-subtitle">
-      Well-designed APIs and event streams that connect products and data. Secure, observable, and built for developer velocity.
-    </p>
+    <p class="hero-subtitle">Well-designed APIs and event streams that connect products and data. Secure, observable, and built for developer velocity.</p>
 
     <!-- What we deliver -->
-    <section class="section">
-      <h2 class="section-title">What We Deliver</h2>
+    <section class="section" aria-labelledby="what-title">
+      <h2 id="what-title" class="section-title">What We Deliver</h2>
       <div class="card-grid force-4">
         <div class="card"><h2>Product-Grade APIs</h2><p>REST, GraphQL, and gRPC endpoints with clear contracts, versioning, and SLAs. Built for scale and reuse.</p></div>
         <div class="card"><h2>Event-Driven Integration</h2><p>Publish/subscribe, queues, and streams that decouple services and power real-time experiences.</p></div>
@@ -103,8 +105,8 @@
     </section>
 
     <!-- How we build -->
-    <section class="section">
-      <h2 class="section-title">How We Build</h2>
+    <section class="section" aria-labelledby="how-title">
+      <h2 id="how-title" class="section-title">How We Build</h2>
       <div class="card-grid force-4">
         <div class="card"><h2>Reference Architectures</h2><p>Opinionated templates for synchronous APIs and asynchronous EDA, aligned to your cloud of choice.</p></div>
         <div class="card"><h2>Security by Design</h2><p>OAuth2/OIDC, mTLS, key rotation, WAF, and zero-trust patterns baked into every interface.</p></div>
@@ -114,8 +116,8 @@
     </section>
 
     <!-- Engagement models -->
-    <section class="section">
-      <h2 class="section-title">Engagement Models</h2>
+    <section class="section" aria-labelledby="engage-title">
+      <h2 id="engage-title" class="section-title">Engagement Models</h2>
       <div class="card-grid force-4">
         <div class="card"><h2>Project Delivery</h2><p>Outcome-based API and integration workstreams with clear milestones and governance.</p></div>
         <div class="card"><h2>Platform Build-Out</h2><p>Standing up gateways, portals, CI/CD, and observability to create an integration runway.</p></div>
@@ -125,8 +127,8 @@
     </section>
 
     <!-- Outcomes -->
-    <section class="section">
-      <h2 class="section-title">Outcomes You Can Measure</h2>
+    <section class="section" aria-labelledby="outcomes-title">
+      <h2 id="outcomes-title" class="section-title">Outcomes You Can Measure</h2>
       <div class="card-grid force-4">
         <div class="card"><h2>Faster Delivery</h2><p>Reduced lead time for new integrations with reusable contracts and pipelines.</p></div>
         <div class="card"><h2>Reliability</h2><p>Clear SLAs/SLOs, back-pressure handling, and graceful degradation under load.</p></div>
@@ -135,52 +137,64 @@
       </div>
     </section>
 
-    <!-- CTA spanning the grid -->
-    <section class="section">
+    <!-- CTA -->
+    <section class="section" aria-label="contact-cta">
       <div class="card-grid force-4">
-        <div class="span-all" style="text-align:center;">
-          <a href="contact.html" class="cta-btn cta-wide">Start a Conversation</a>
+        <div class="span-all">
+          <a href="contact.html" class="cta-btn">Start a Conversation</a>
         </div>
       </div>
     </section>
   </main>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-left">
-      <p><strong>CoreCloud (Pty) Ltd</strong></p>
-      <p>Sandton<br>Johannesburg<br>South Africa</p>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton<br/>Johannesburg<br/>South Africa</p>
+      </div>
+
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;"/>
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-right">
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+      </div>
     </div>
 
-    <div class="footer-middle">
-      <h4>Stay Informed</h4>
-      <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-      <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-        <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
-        <label class="visually-hidden" for="newsletter_email">Email</label>
-        <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
-        <button type="submit" class="cta-btn">Subscribe</button>
-      </form>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
     </div>
+  </footer>
 
-    <div class="footer-right">
-      <p><strong>Contact</strong></p>
-      <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-      <p>Phone: <a href="mailto:sales@corecloudza.com">{+27) 011 568 8667</a></p>
-      <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 CoreCloud. All rights reserved. |
-      <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-      <a href="terms.html" class="legal-link">Terms</a>
-    </p>
-  </div>
-</footer>
+  <!-- Auto-highlight current nav -->
+  <script>
+    (function(){
+      var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+        var href = (a.getAttribute('href') || '').toLowerCase();
+        if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
+      });
+    })();
+  </script>
 </body>
 </html>
