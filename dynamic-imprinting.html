@@ -26,33 +26,42 @@
   <link rel="preload" as="image" href="assets/images/dynamic-imprinting-banner.png" imagesizes="100vw" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high" />
 
-  <!-- Page-scoped helpers (titles centered, narrative layout) -->
+  <!-- Page-scoped helpers (titles centered, narrative layout, a11y skip link) -->
   <style>
-    .imprinting-page .hero-intro{ max-width:900px; margin:2rem auto 1.25rem; text-align:center; }
-    .imprinting-page .hero-title,
-    .imprinting-page .section-title{
-      text-align:center !important;
-      display:block; margin-left:auto; margin-right:auto;
+    /* Accessible skip link */
+    .skip-link{
+      position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;
     }
+    .skip-link:focus{
+      position:fixed;top:10px;left:10px;width:auto;height:auto;
+      padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;
+      outline:2px solid #fff;z-index:1000;
+    }
+
+    /* Hard-center page titles on this page only */
+    .imprinting-page :is(h1.hero-title, h2.section-title){
+      text-align:center !important;
+      display:block !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+    }
+
+    .imprinting-page .hero-intro{ max-width:900px; margin:2rem auto 1.25rem; text-align:center; }
     .imprinting-page .hero-subtitle{
       font-size:1.1rem; color:#555; text-align:center; max-width:900px;
       margin:0 auto 2.2rem; line-height:1.6;
     }
 
     /* Narrative containers */
-    .imprinting-page .narrative{
-      max-width:1000px; margin:0 auto; padding:0 1rem;
-    }
+    .imprinting-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
     .imprinting-page .narrative p{ margin:.6rem 0; line-height:1.7; color:#444; }
-    .imprinting-page .narrative ul{
-      margin:.35rem 0 0 1.25rem; padding-left:1rem; line-height:1.7;
-    }
+    .imprinting-page .narrative ul{ margin:.35rem 0 0 1.25rem; padding-left:1rem; line-height:1.7; }
     .imprinting-page .narrative li{ margin:.35rem 0; }
 
     /* Quote */
     .imprinting-page blockquote{
       background:#f0f7ff; border-left:5px solid #004f91; padding:1rem 1.25rem;
-      font-style:italic; color:#003366; border-radius:4px; margin:1.5rem 0; max-width:800px;
+      font-style:italic; color:#003366; border-radius:4px; margin:1.5rem auto; max-width:800px;
     }
 
     /* CTA */
@@ -60,10 +69,19 @@
 
     /* Shortened nav sizing */
     nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
+
+    /* Mobile spacing tweaks */
+    @media (max-width:768px){
+      .imprinting-page .hero-intro{ margin:1.25rem auto 1rem; }
+      .imprinting-page .hero-subtitle{ margin-bottom:1.6rem; }
+    }
   </style>
 </head>
 
 <body class="imprinting-page">
+  <!-- Skip to main -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
@@ -124,7 +142,7 @@
     </p>
   </section>
 
-  <main class="content">
+  <main class="content" id="main">
     <!-- Why -->
     <section class="section narrative" aria-labelledby="why-title">
       <h2 id="why-title" class="section-title">Why Dynamic Imprinting?</h2>
