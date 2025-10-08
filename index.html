@@ -21,7 +21,7 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
 
-  <!-- Page-scoped styles (hero + titles only) -->
+  <!-- Page-scoped styles (hero, titles, indent only) -->
   <style>
     /* Accessibility */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
@@ -42,7 +42,7 @@
     h2{font-size:var(--h2-size); line-height:1.25; margin:28px 0 12px 0;}
     @media (max-width:768px){ :root{--h1-size:30px;--h2-size:24px} }
 
-    /* Keep your existing home styles */
+    /* Home section defaults */
     .home .section{padding:1.5rem 0;}
     .home .section .section-title{margin:0 0 .75rem;}
     .home .card-grid{padding:0 1rem;}
@@ -51,6 +51,14 @@
     .wins-list li{margin:.25rem 0}
     .home [aria-labelledby="hybrid-title"] p:last-of-type{display:flex;justify-content:center;align-items:center;}
     .home [aria-labelledby="hybrid-title"] .cta-btn{display:inline-flex;align-items:center;justify-content:center;min-width:220px;}
+
+    /* Indent "Why / What / How / Principles / Outcomes" block */
+    section[aria-labelledby="focus-title"]{ --indent: 2.75rem; }
+    section[aria-labelledby="focus-title"] > h3{ margin-left: var(--indent); }
+    section[aria-labelledby="focus-title"] > h3 + p{ margin-left: calc(var(--indent) + .5rem); }
+    @media (max-width:768px){
+      section[aria-labelledby="focus-title"]{ --indent: 1.5rem; }
+    }
   </style>
 
   <!-- JSON-LD (WebSite + Organization) -->
@@ -200,7 +208,42 @@
   </main>
 
   <!-- Footer (unchanged) -->
-  <footer>…</footer>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton<br/>Johannesburg<br/>South Africa</p>
+      </div>
+
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email"/>
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-right">
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
+    </div>
+  </footer>
 
   <!-- Auto-highlight current nav (unchanged) -->
   <script>
