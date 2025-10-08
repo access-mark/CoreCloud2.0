@@ -28,6 +28,24 @@
 
   <!-- Page-scoped styles -->
   <style>
+    /* Accessible skip link (visible on keyboard focus) */
+    .skip-link{
+      position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;
+    }
+    .skip-link:focus{
+      position:fixed;top:10px;left:10px;width:auto;height:auto;
+      padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;
+      outline:2px solid #fff;z-index:1000;
+    }
+
+    /* Force title centering on this page only */
+    .contact-page :is(h1.hero-title, h2.section-title){
+      text-align:center !important;
+      display:block !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+    }
+
     /* Keep header slim & transparent */
     .contact-page .small-banner{ background:transparent!important; box-shadow:none!important; padding:0 .9rem 0!important; }
 
@@ -78,6 +96,9 @@
 </head>
 
 <body class="contact-page">
+  <!-- Skip to main content for keyboard users -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
@@ -89,7 +110,7 @@
       </label>
 
       <!-- Desktop nav -->
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
         <a href="cloud.html" class="nav-btn">CLOUD</a>
@@ -125,7 +146,7 @@
   </div>
 
   <!-- Hero -->
-  <div class="hero-media">
+  <div class="hero-media" role="img" aria-label="Contact CoreCloud – Sandton, Johannesburg">
     <img
       src="assets/images/contact-bannerimage.png"
       alt="Contact CoreCloud – Sandton, Johannesburg"
@@ -138,7 +159,7 @@
     <h1 class="hero-title">Contact CoreCloud</h1>
     <div class="contact-wrap">
       <section class="contact-col" aria-labelledby="talk-impact">
-        <h2 id="talk-impact" style="color:#004f91;">Let’s Talk Impact</h2>
+        <h2 id="talk-impact" class="section-title" style="color:#004f91;">Let’s Talk Impact</h2>
         <p>Start a conversation that moves the needle! Strategy, Talent, Cloud Transformation.</p>
         <p><strong>CoreCloud (Pty) Ltd</strong><br>Sandton,<br>Johannesburg</p>
         <p><strong>Phone:</strong><br><a href="tel:+27115688667">+27 11 568 8667</a></p>
@@ -154,7 +175,7 @@
       </section>
 
       <section class="contact-col" aria-labelledby="send-message">
-        <h2 id="send-message" style="color:#004f91;">Send a Message</h2>
+        <h2 id="send-message" class="section-title" style="color:#004f91;">Send a Message</h2>
 
         <!-- Contact form -->
         <form action="https://formsubmit.co/mark@corecloudza.com" method="POST" class="form-container">
