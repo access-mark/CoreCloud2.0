@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
@@ -32,10 +32,10 @@
     *,*::before,*::after{box-sizing:border-box}
     img{max-width:100%;height:auto;display:block}
 
-    /* Title sizing + centered (match index) */
+    /* Title sizing baseline (final centering enforced at end) */
     :root{ --h1-size:40px; --h2-size:28px; }
-    h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;text-align:center;}
-    .section .section-title{font-size:var(--h2-size);line-height:1.25;margin:22px 0 12px;text-align:center;}
+    h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;}
+    .section .section-title{font-size:var(--h2-size);line-height:1.25;margin:22px 0 12px;}
     @media (max-width:768px){ :root{--h1-size:30px;--h2-size:24px} }
 
     /* a11y */
@@ -51,7 +51,7 @@
 
     /* Sections */
     .cloud .section{padding:1.6rem 0;}
-    /* Trim just a touch off the first section after hero */
+    /* Trim first section top a touch */
     #deliver.section{padding-top:1.2rem;}
 
     /* Points lists */
@@ -87,7 +87,7 @@
     .cloud-column{flex:1 1 300px;max-width:600px;min-width:0;}
     .card-group{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;min-width:0;}
 
-    /* Vendor accents + subhead */
+    /* Vendor accents + subhead (stay left) */
     .subhead{font-size:1.15rem;line-height:1.3;margin:0 0 .75rem;color:var(--dark-blue);text-align:left;}
     .aws-card h3{color:#ff9900;}
     .azure-card h3{color:#007fff;}
@@ -113,6 +113,23 @@
       .cloud-columns{flex-direction:column;gap:1rem;}
       .cloud-column{flex:1 1 auto;width:100%;}
       .cloud .section{padding:1.25rem 0;}
+    }
+
+    /* ===== FINAL OVERRIDES: force-center page titles on Cloud ===== */
+    .cloud-page h1,
+    .cloud-page h1.hero-title,
+    .cloud-page h2.section-title{
+      text-align:center !important;
+      display:block;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    /* Keep vendor subheads and card headings left */
+    .cloud-page .subhead,
+    .cloud-page .card h3,
+    .cloud-page .panel h3,
+    .cloud-page .panel h4{
+      text-align:left !important;
     }
   </style>
 
