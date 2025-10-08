@@ -1,67 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>CoreCloud | Sovereign Data & AI – South Africa</title>
-  <meta name="description" content="Data & AI with SA residency. Lakehouse, streaming, RAG/MLOps, and on-prem GPU + cloud burst — governed, cost-right, and fast." />
-  <meta name="robots" content="index, follow" />
-  <meta name="author" content="CoreCloud" />
-  <meta name="theme-color" content="#004f91" />
+  <meta name="description" content="Data & AI with SA residency. Lakehouse, streaming, RAG/MLOps, and on-prem GPU + cloud burst — governed, cost-right, and fast."/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="CoreCloud"/>
+  <meta name="theme-color" content="#004f91"/>
 
   <!-- Canonical + Social -->
-  <link rel="canonical" href="https://www.corecloudza.com/data-ai.html" />
-  <meta property="og:title" content="CoreCloud | Sovereign Data & AI" />
-  <meta property="og:description" content="Analytics and AI with SA data residency. On-prem GPU + cloud burst, governed pipelines, measurable outcomes." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.corecloudza.com/data-ai.html" />
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://www.corecloudza.com/data-ai.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="CoreCloud | Sovereign Data & AI"/>
+  <meta property="og:description" content="Analytics and AI with SA data residency. On-prem GPU + cloud burst, governed pipelines, measurable outcomes."/>
+  <meta property="og:url" content="https://www.corecloudza.com/data-ai.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=9" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
 
-  <!-- Preload hero -->
-  <link rel="preload" as="image" href="assets/images/data-bannerimage.png" imagesizes="100vw" fetchpriority="high">
+  <!-- Preload hero/logo -->
+  <link rel="preload" as="image" href="assets/images/data-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Page-scoped: narrative only (no bullets), centered titles -->
+  <!-- Page-scoped helpers -->
   <style>
-    .dataai-page .hero-intro{ max-width:900px; margin:2rem auto 1rem; text-align:center; }
+    /* Center hero + section titles only on this page */
+    .dataai-page :is(h1.hero-title, h2.section-title){
+      text-align:center !important;
+      display:block !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+    }
+
+    /* Rhythm + narrative */
+    .dataai-page .hero-media{ margin-bottom:2rem; }
+    .dataai-page .hero-intro{ max-width:900px; margin:0 auto 1rem; text-align:center; padding:0 1rem; }
     .dataai-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
     .dataai-page .section{ margin:2rem 0 !important; }
-    .dataai-page .section-title,
-    .dataai-page .hero-title{ text-align:center !important; margin-left:auto; margin-right:auto; display:block; }
-
-    /* Narrative key-value rows */
     .dataai-page .pair{ margin:.55rem 0; line-height:1.7; color:#444; }
     .dataai-page .kv{ font-weight:700; color:var(--dark-blue); }
     .dataai-page .desc{ display:inline; margin-left:.45rem; }
 
-    /* Remove ALL bullets, even inside cards/panels (safety) */
+    /* Remove bullets everywhere on this page (we use narrative rows) */
     .dataai-page ul, .dataai-page ol{ list-style:none !important; margin:0 !important; padding:0 !important; }
     .dataai-page li::marker{ content:"" !important; }
 
-    /* Optional callout blocks (used in FAQ) */
+    /* Optional Q/A styling */
     .dataai-page .q{ font-weight:700; color:var(--dark-blue); margin-top:1rem; }
     .dataai-page .a{ margin:.35rem 0 0; color:#444; }
 
-    /* Keep CTAs neat */
+    /* CTA row */
     .dataai-page .cta-row{ display:flex; justify-content:center; margin-top:1.25rem; }
     .dataai-page .cta-row .cta-btn{ min-width:240px; }
+
+    /* Mobile spacing */
+    @media (max-width:768px){
+      .dataai-page .hero-media{ margin-bottom:1.25rem; }
+    }
   </style>
 </head>
 
 <body class="dataai-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <!-- Header / Nav -->
   <div class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" />
+      <a href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+      </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <!-- Shortened labels for consistency -->
-      <nav class="desktop-nav">
+      <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
         <a href="cloud.html" class="nav-btn">CLOUD</a>
@@ -77,7 +92,6 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile nav -->
       <nav class="mobile-nav" aria-label="Mobile">
         <a href="index.html">HOME</a>
         <a href="consulting.html">CONSULT</a>
@@ -97,20 +111,18 @@
   </div>
 
   <!-- Hero -->
-  <div class="hero-media">
+  <div class="hero-media" role="img" aria-label="CoreCloud — Sovereign Data & AI">
     <img
       src="assets/images/data-bannerimage.png"
-      alt="CoreCloud — Sovereign Data & AI"
+      alt="Sovereign Data & AI — SA residency with on-prem GPU and cloud burst"
       decoding="async" loading="eager" fetchpriority="high"
-      width="1920" height="500" />
+      width="1920" height="500"/>
   </div>
 
   <!-- Intro -->
-  <section class="hero-intro">
+  <section class="hero-intro" id="main">
     <h1 class="hero-title">Sovereign Data &amp; AI</h1>
-    <p>
-      AI that respects SA residency and cost reality. We build governed data platforms and AI that run where they should — on-prem GPU for steady load, cloud for burst — with lineage, controls, and speed.
-    </p>
+    <p>AI that respects SA residency and cost reality. We build governed data platforms and AI that run where they should — on-prem GPU for steady load, cloud for burst — with lineage, controls, and speed.</p>
   </section>
 
   <main class="content">
@@ -206,12 +218,12 @@
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
           <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
@@ -238,8 +250,8 @@
       var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
       document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
         var href = (a.getAttribute('href') || '').toLowerCase();
-        if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
-        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
+        if (href === path){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        else{ a.classList.remove('active'); a.removeAttribute('aria-current'); }
       });
     })();
   </script>
