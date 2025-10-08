@@ -1,72 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Enterprise Portals | CoreCloud</title>
-  <meta name="description" content="CoreCloud designs and delivers secure, scalable enterprise portals for employees, customers, and partners—built to spec and aligned to your cloud strategy." />
-  <meta name="author" content="CoreCloud" />
+  <meta name="description" content="CoreCloud designs and delivers secure, scalable enterprise portals for employees, customers, and partners—built to spec and aligned to your cloud strategy."/>
+  <meta name="author" content="CoreCloud"/>
 
-  <!-- Site-wide CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=4" />
-  <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high" />
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=4"/>
+  <!-- Preload hero -->
+  <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
 
-  <!-- Page-scoped tweaks: a11y + centered titles + content layout -->
+  <!-- Page-scoped (content only) -->
   <style>
-    /* Accessible skip link (appears top-left on focus) */
-    .skip-link{
-      position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;
-    }
-    .skip-link:focus{
-      position:fixed;top:10px;left:10px;width:auto;height:auto;
-      padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;
-      outline:2px solid #fff;z-index:1000;
-    }
-
-    /* Force title centering for this page only */
-    .enterprise-portals-page :is(h1.hero-title, h2.section-title, .hero h1){
-      text-align:center !important;
-      display:block !important;
-      margin-left:auto !important;
-      margin-right:auto !important;
-    }
-
-    /* Page-scoped content only */
     main { max-width:1200px; margin:0 auto; padding:0 1.5rem 4rem; }
     .hero { text-align:center; margin-top:2rem; }
     .hero h1 { font-size:2.2rem; color:var(--dark-blue); font-weight:700; margin-bottom:.8rem; }
     .hero p { font-size:1.1rem; color:#444; max-width:900px; margin:0 auto; line-height:1.6; }
     .section { margin-top:3rem; }
-    .section h2 { color:var(--dark-blue); font-size:2rem; margin-bottom:1rem; font-weight:700; }
+    .section h2 { text-align:center; color:var(--dark-blue); font-size:2rem; margin-bottom:1rem; font-weight:700; }
     .section p, .section ul { max-width:900px; margin:0 auto 1.5rem; color:#333; line-height:1.6; font-size:1rem; }
     .section ul { list-style:disc; padding-left:2rem; }
-    .cta { text-align:center; padding:2rem 0 3rem; }
+
+    /* Optional compact desktop nav spacing (matches other pages) */
+    nav.desktop-nav{ gap:.55rem; }
+    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
   </style>
 </head>
 
 <body class="enterprise-portals-page">
-  <!-- Skip to main content -->
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <!-- Header / Nav (global, CSS-only) -->
+  <!-- Header / Nav (short labels, consistent site-wide) -->
   <div class="small-banner">
     <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" />
+      <a href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+      </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn">CLOUD SUITE</a>
-        <a href="finops.html" class="nav-btn">FINOPS &amp; GOVERNANCE</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn active" aria-current="page">APP DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
+        <a href="application-development.html" class="nav-btn active" aria-current="page">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="blog.html" class="nav-btn">BLOG</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
@@ -74,13 +58,15 @@
 
       <nav class="mobile-nav" id="mobileMenu" aria-label="Mobile">
         <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html">CLOUD SUITE</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
+        <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
         <a href="application-development.html" class="active" aria-current="page">APP DEVELOPMENT</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
         <a href="about.html">ABOUT</a>
         <a href="blog.html">BLOG</a>
         <a href="contact.html">CONTACT</a>
@@ -88,19 +74,20 @@
     </div>
   </div>
 
-  <!-- Standard image hero -->
+  <!-- Hero -->
   <div class="hero-media">
-    <img src="assets/images/appdev-bannerimage.png" alt="Enterprise Portals – CoreCloud" loading="eager" decoding="async" width="1920" height="500" />
+    <img src="assets/images/appdev-bannerimage.png" alt="Enterprise Portals – CoreCloud" loading="eager" decoding="async"/>
   </div>
 
+  <!-- Hero copy -->
   <header class="hero">
-    <h1 class="hero-title">Enterprise Portals</h1>
+    <h1>Enterprise Portals</h1>
     <p>Customer. Employee. Partner. Whatever the use case, CoreCloud builds modern portals that enable self-service, secure access, and real productivity at scale.</p>
   </header>
 
-  <main id="main">
+  <main>
     <section class="section">
-      <h2 class="section-title">Tailored to Fit</h2>
+      <h2>Tailored to Fit</h2>
       <p>We don’t push templates. Every portal is purpose-built based on your structure, integrations, and user roles. Whether internal or external, these platforms are designed to simplify complexity and drive results.</p>
       <ul>
         <li>Secure user access and role-based controls</li>
@@ -111,12 +98,12 @@
     </section>
 
     <section class="section">
-      <h2 class="section-title">Built Right</h2>
+      <h2>Built Right</h2>
       <p>Fast, secure, maintainable. Our teams apply cloud-native principles and clean architecture to ensure your portal stays future-proof and frictionless—no matter how your business grows.</p>
     </section>
 
     <section class="section">
-      <h2 class="section-title">Use Cases</h2>
+      <h2>Use Cases</h2>
       <p>Some of the portal types we’ve delivered include:</p>
       <ul>
         <li>Customer self-service portals</li>
@@ -126,7 +113,7 @@
       </ul>
     </section>
 
-    <section class="cta">
+    <section class="cta" style="text-align:center; padding:2rem 0 3rem;">
       <a href="contact.html" class="cta-btn">Discuss Your Portal</a>
     </section>
   </main>
@@ -143,12 +130,12 @@
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
           <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
@@ -168,5 +155,17 @@
       </p>
     </div>
   </footer>
+
+  <!-- Auto-highlight current nav -->
+  <script>
+  (function(){
+    var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+    document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+      var href=(a.getAttribute('href')||'').toLowerCase();
+      if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
+      else{a.classList.remove('active');a.removeAttribute('aria-current');}
+    });
+  })();
+  </script>
 </body>
 </html>
