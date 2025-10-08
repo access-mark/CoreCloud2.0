@@ -21,13 +21,13 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
 
-  <!-- Page-scoped styles (hero, titles, indent only) -->
+  <!-- Page-scoped styles -->
   <style>
     /* Accessibility */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* Banner image stays on top */
+    /* Banner image */
     .hero-media img{width:100%;height:auto;display:block;}
 
     /* Centralised hero UNDER the banner image */
@@ -36,32 +36,39 @@
     .hero .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:16px;}
     @media (max-width:768px){ .hero{padding:28px 14px} .hero .hero-body{max-width:680px} }
 
-    /* Uniform title sizing/placement */
+    /* Uniform title sizing + centered alignment */
     :root{ --h1-size:40px; --h2-size:28px; }
     h1{font-size:var(--h1-size); line-height:1.2; margin:28px 0 12px 0; text-align:center;}
-    h2{font-size:var(--h2-size); line-height:1.25; margin:28px 0 12px 0;}
+    h2, .section .section-title, h2.section-title, section .section-title{
+      font-size:var(--h2-size); line-height:1.25; margin:28px 0 12px 0; text-align:center;
+    }
+    /* Center H3s for consistency */
+    section[aria-labelledby] h3{ text-align:center; }
+
     @media (max-width:768px){ :root{--h1-size:30px;--h2-size:24px} }
 
     /* Home section defaults */
     .home .section{padding:1.5rem 0;}
-    .home .section .section-title{margin:0 0 .75rem;}
     .home .card-grid{padding:0 1rem;}
     .home .content, .home .content p, .home .content li, .home .content a{word-break:break-word;overflow-wrap:anywhere;}
-    .wins-list{padding-left:1.25rem}
     .wins-list li{margin:.25rem 0}
-    .home [aria-labelledby="hybrid-title"] p:last-of-type{display:flex;justify-content:center;align-items:center;}
-    .home [aria-labelledby="hybrid-title"] .cta-btn{display:inline-flex;align-items:center;justify-content:center;min-width:220px;}
 
     /* Indent "Why / What / How / Principles / Outcomes" block */
     section[aria-labelledby="focus-title"]{ --indent: 2.75rem; }
     section[aria-labelledby="focus-title"] > h3{ margin-left: var(--indent); }
     section[aria-labelledby="focus-title"] > h3 + p{ margin-left: calc(var(--indent) + .5rem); }
+    @media (max-width:768px){ section[aria-labelledby="focus-title"]{ --indent: 1.5rem; } }
+
+    /* Recent Wins — center container + ~two-tab indent */
+    section[aria-labelledby="wins-title"] .wins-list{
+      max-width:900px; margin:0 auto; padding-left:3rem;
+    }
     @media (max-width:768px){
-      section[aria-labelledby="focus-title"]{ --indent: 1.5rem; }
+      section[aria-labelledby="wins-title"] .wins-list{ padding-left:1.75rem; }
     }
   </style>
 
-  <!-- JSON-LD (WebSite + Organization) -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebSite","name":"CoreCloud","url":"https://www.corecloudza.com/","publisher":{"@type":"Organization","name":"CoreCloud"}}
   </script>
@@ -73,7 +80,7 @@
 <body class="home home-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav (unchanged) -->
+  <!-- Header / Nav -->
   <header class="small-banner">
     <div class="banner-header">
       <a href="index.html" aria-label="CoreCloud Home">
@@ -117,25 +124,21 @@
     </div>
   </header>
 
-  <!-- Banner image (stays first) -->
+  <!-- Banner image -->
   <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
     <img src="assets/images/index-bannerimage.png" alt="From Strategy to Revenue. From Cloud to People." width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
-  <!-- HERO TEXT now sits UNDER the image -->
+  <!-- Hero text under the image -->
   <section class="hero">
     <div class="hero-body">
       <h1>From Strategy to Revenue. From Cloud to People.</h1>
-      <p>
-        Big ideas mean nothing without results. We help South African enterprises turn strategy into action and revenue —
-        sharper sales execution, modernised cloud, elite ICT talent, and disciplined app delivery.
-      </p>
+      <p>Big ideas mean nothing without results. We help South African enterprises turn strategy into action and revenue —
+        sharper sales execution, modernised cloud, elite ICT talent, and disciplined app delivery.</p>
 
       <h2>Hybrid Isn’t Optional — It’s the Operating Model</h2>
-      <p>
-        One venue cannot win on cost, performance, and risk at the same time. We place each workload where it wins —
-        cloud for elasticity and services; hosted or on-prem for predictable, low-latency, compliant run.
-      </p>
+      <p>One venue cannot win on cost, performance, and risk at the same time. We place each workload where it wins —
+        cloud for elasticity and services; hosted or on-prem for predictable, low-latency, compliant run.</p>
 
       <div class="cta-row">
         <a class="cta-btn" href="cloud.html">Design My Hybrid</a>
@@ -207,7 +210,7 @@
     </section>
   </main>
 
-  <!-- Footer (unchanged) -->
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -245,7 +248,7 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current nav (unchanged) -->
+  <!-- Auto-highlight current nav -->
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
