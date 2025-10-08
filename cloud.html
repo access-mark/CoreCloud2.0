@@ -15,40 +15,51 @@
   <meta property="og:title" content="CoreCloud Cloud — Secure Foundations, Migration, FinOps"/>
   <meta property="og:description" content="Landing zones, governance guardrails, migration/modernisation, and FinOps — executed with measurable outcomes."/>
   <meta property="og:url" content="https://www.corecloudza.com/cloud.html"/>
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
+
+  <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
+  <link rel="preload" as="image" href="assets/images/cloud-banner.png" fetchpriority="high"/>
 
   <!-- Page-scoped styles -->
   <style>
-    /* Global safety so nothing can exceed the viewport */
-    html, body { width:100%; max-width:100%; }
-    *, *::before, *::after { box-sizing:border-box; }
-    img { max-width:100%; height:auto; display:block; }
+    /* Safety + defaults */
+    html,body{width:100%;max-width:100%}
+    *,*::before,*::after{box-sizing:border-box}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Title sizing + centered (match index) */
+    :root{ --h1-size:40px; --h2-size:28px; }
+    h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;text-align:center;}
+    .section .section-title{font-size:var(--h2-size);line-height:1.25;margin:22px 0 12px;text-align:center;}
+    @media (max-width:768px){ :root{--h1-size:30px;--h2-size:24px} }
 
     /* a11y */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* hero + intro */
-    .cloud .hero-media img{width:100%;}
-    .cloud .hero-intro{max-width:900px;margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
-    .cloud .hero-intro p{color:#444;}
-    .cloud .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .5rem;}
+    /* Hero image + hero text block (under banner) */
+    .hero-media img{width:100%;}
+    .hero{display:flex;justify-content:center;text-align:center;padding:40px 16px;}
+    .hero .hero-body{max-width:900px;margin:0 auto;}
+    .hero .hero-body p{color:#444;}
+    @media (max-width:768px){ .hero{padding:28px 14px} .hero .hero-body{max-width:680px} }
 
-    /* sections */
+    /* Sections */
     .cloud .section{padding:1.6rem 0;}
-    .cloud .section-title{margin:0 0 .75rem;}
+    /* Trim just a touch off the first section after hero */
+    #deliver.section{padding-top:1.2rem;}
 
-    /* points lists */
+    /* Points lists */
     .points{padding-left:1.25rem;margin:.25rem 0;}
     .points li{margin:.25rem 0}
     .muted{color:#5a6b85;font-size:.95rem}
 
-    /* in-page chip nav */
+    /* In-page chip nav */
     .inpage-nav{
       display:flex;gap:10px;padding:.5rem 1rem;margin:0 auto 1rem;
       max-width:1000px;justify-content:center;flex-wrap:wrap;
@@ -58,7 +69,7 @@
       padding:.45rem .75rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;
     }
 
-    /* card grid */
+    /* Card grid */
     .card-grid{
       display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
       gap:14px;max-width:1200px;margin:0 auto;padding:0 1rem;min-width:0;
@@ -66,25 +77,18 @@
     .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;padding:1rem;text-decoration:none;color:inherit;}
     .card h3{margin:.25rem 0 .5rem}
 
-    /* inline CTA (dark) */
-    .inline-cta{background:#0d3b66;color:#fff;padding:1rem 1.2rem;border-radius:12px;margin:1.5rem 0;}
+    /* Inline CTA (dark) */
+    .inline-cta{background:#0d3b66;color:#fff;padding:1rem 1.2rem;border-radius:12px;margin:1.5rem 0;text-align:left;}
     .inline-cta p{margin:.5rem 0 0;color:#fff !important;}
     .inline-cta .cta-btn{margin-top:.8rem;display:inline-block;}
 
     /* Vendor columns */
-    .cloud-columns{
-      display:flex;flex-wrap:wrap;gap:1.25rem;
-      justify-content:center;margin-top:.75rem;max-width:1200px;margin-left:auto;margin-right:auto;padding:0 1rem;min-width:0;
-    }
-    .cloud-column{
-      flex:1 1 300px; max-width:600px; min-width:0;
-    }
-    .card-group{
-      display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-      gap:14px;min-width:0;
-    }
+    .cloud-columns{display:flex;flex-wrap:wrap;gap:1.25rem;justify-content:center;margin-top:.75rem;max-width:1200px;margin-left:auto;margin-right:auto;padding:0 1rem;min-width:0;}
+    .cloud-column{flex:1 1 300px;max-width:600px;min-width:0;}
+    .card-group{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;min-width:0;}
 
-    /* vendor card accents */
+    /* Vendor accents + subhead */
+    .subhead{font-size:1.15rem;line-height:1.3;margin:0 0 .75rem;color:var(--dark-blue);text-align:left;}
     .aws-card h3{color:#ff9900;}
     .azure-card h3{color:#007fff;}
     .databricks-card h3{color:#ff3621;}
@@ -93,36 +97,23 @@
     .faq-list{max-width:1000px;margin:0 auto;padding:0 1rem;}
     .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12);}
     .faq-list details:last-of-type{border-bottom:none;}
-    .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none;}
+    .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none;list-style:none;}
+    .faq-list summary::-webkit-details-marker{display:none;}
     .faq-list p{margin:.45rem 0 0;}
 
     /* Wrap safety for long content */
-    .cloud .content, .cloud .content p, .cloud .content li, .cloud .content a{
-      word-break:break-word; overflow-wrap:anywhere;
-    }
+    .cloud .content, .cloud .content p, .cloud .content li, .cloud .content a{word-break:break-word;overflow-wrap:anywhere;}
 
-    /* --- MOBILE STACKING & NO SIDEWAYS SCROLL --- */
-    @media (max-width: 900px){
-      /* make sure desktop nav can’t force width */
+    /* Mobile */
+    @media (max-width:900px){
       .desktop-nav{display:none;}
       .mobile-nav{display:flex;}
-      /* stack all grids/columns to one column */
       .card-grid{grid-template-columns:1fr;}
       .card-group{grid-template-columns:1fr;}
       .cloud-columns{flex-direction:column;gap:1rem;}
-      .cloud-column{flex:1 1 auto; width:100%;}
-      /* soften paddings so nothing touches edges */
-      .hero-media img{width:100%;height:auto;}
+      .cloud-column{flex:1 1 auto;width:100%;}
       .cloud .section{padding:1.25rem 0;}
-      .cloud .hero-title{font-size:1.8rem;line-height:1.2}
     }
-
-    /* Title alignment */
-    .cloud-page :is(h1.hero-title, h2.section-title){
-      text-align:center;display:block;margin-left:auto;margin-right:auto;
-    }
-    .cloud-page .cloud-column > h3{ text-align:left;margin-left:0;margin-right:0; }
-    .cloud-page :is(.card h3, .panel h3, .panel h4){ text-align:left; }
   </style>
 
   <!-- JSON-LD (Service + Breadcrumbs + FAQ) -->
@@ -180,7 +171,7 @@
         <a href="cloud.html" class="nav-btn active" aria-current="page">CLOUD</a>
         <a href="finops.html" class="nav-btn">FINOPS</a>
         <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="mobile-web.html" class="nav-btn">APP&nbsp;DEV</a>
         <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
         <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
@@ -196,7 +187,7 @@
         <a href="cloud.html" class="active" aria-current="page">CLOUD</a>
         <a href="finops.html">FINOPS</a>
         <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
+        <a href="mobile-web.html">APP DEVELOPMENT</a>
         <a href="data-ai.html">DATA &amp; AI</a>
         <a href="talent.html">TALENT</a>
         <a href="talent-relaunch.html">RE / LAUNCH</a>
@@ -208,18 +199,20 @@
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero image -->
   <div class="hero-media" role="img" aria-label="Cloud foundations and migration">
     <img src="assets/images/cloud-banner.png" alt="Cloud, governed by design — from foundations to outcomes" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
-  <main class="content" id="main">
-    <!-- Intro -->
-    <section class="hero-intro">
+  <!-- Hero text under banner -->
+  <section class="hero">
+    <div class="hero-body">
       <h1 class="hero-title">Cloud, Governed by Design</h1>
       <p>Secure landing zones, fast migration/modernisation, POPIA-aligned controls, and FinOps that keeps cost honest — all wired to measurable outcomes.</p>
-    </section>
+    </div>
+  </section>
 
+  <main class="content" id="main">
     <!-- In-page anchor nav -->
     <nav class="inpage-nav" aria-label="On this page">
       <a href="#deliver">What we deliver</a>
@@ -308,7 +301,7 @@
       <div class="cloud-columns">
         <!-- AWS -->
         <div class="cloud-column">
-          <h3 class="section-title" style="margin-bottom:.75rem;">AWS</h3>
+          <h3 class="subhead">AWS</h3>
           <div class="card-group">
             <div class="card aws-card">
               <h3>AWS Migration</h3>
@@ -318,7 +311,7 @@
             <div class="card aws-card">
               <h3>AWS Modernise</h3>
               <p>Containers, serverless, and managed data services to unlock agility and cost.</p>
-              <a href="aws-modernize.html" class="cta-btn" aria-label="Explore AWS Modernisation">Modernise Now</a>
+              <a href="aws-modernise.html" class="cta-btn" aria-label="Explore AWS Modernisation">Modernise Now</a>
             </div>
             <div class="card aws-card">
               <h3>AWS Manage</h3>
@@ -328,14 +321,14 @@
             <div class="card aws-card">
               <h3>AWS Optimise</h3>
               <p>Continuous FinOps: rightsizing, lifecycle, purchasing, and workload tuning.</p>
-              <a href="aws-optimize.html" class="cta-btn" aria-label="Start AWS Optimisation">Start Optimising</a>
+              <a href="aws-optimise.html" class="cta-btn" aria-label="Start AWS Optimisation">Start Optimising</a>
             </div>
           </div>
         </div>
 
         <!-- Azure -->
         <div class="cloud-column">
-          <h3 class="section-title" style="margin-bottom:.75rem;">Azure</h3>
+          <h3 class="subhead">Azure</h3>
           <div class="card-group">
             <div class="card azure-card">
               <h3>Azure Migration</h3>
@@ -345,7 +338,7 @@
             <div class="card azure-card">
               <h3>Azure Modernise</h3>
               <p>AKS, PaaS data, serverless, and AI services wired into your delivery model.</p>
-              <a href="azure-modernize.html" class="cta-btn" aria-label="Explore Azure Modernisation">Modernise Now</a>
+              <a href="azure-modernise.html" class="cta-btn" aria-label="Explore Azure Modernisation">Modernise Now</a>
             </div>
             <div class="card azure-card">
               <h3>Azure Manage</h3>
@@ -355,14 +348,14 @@
             <div class="card azure-card">
               <h3>Azure Optimise</h3>
               <p>Spend visibility to action: budgets, alerts, rightsizing, and chargeback.</p>
-              <a href="azure-optimize.html" class="cta-btn" aria-label="Start Azure Optimisation">Start Optimising</a>
+              <a href="azure-optimise.html" class="cta-btn" aria-label="Start Azure Optimisation">Start Optimising</a>
             </div>
           </div>
         </div>
 
         <!-- Databricks -->
         <div class="cloud-column">
-          <h3 class="section-title" style="margin-bottom:.75rem;">Databricks</h3>
+          <h3 class="subhead">Databricks</h3>
           <div class="card-group">
             <div class="card databricks-card">
               <h3>Lakehouse Architecture</h3>
@@ -382,7 +375,7 @@
             <div class="card databricks-card">
               <h3>Cost Optimisation</h3>
               <p>Clusters and storage tuned for performance and spend — visible to teams.</p>
-              <a href="databricks-optimize.html" class="cta-btn" aria-label="Optimise Databricks Costs">Optimise Costs</a>
+              <a href="databricks-optimise.html" class="cta-btn" aria-label="Optimise Databricks Costs">Optimise Costs</a>
             </div>
           </div>
         </div>
@@ -398,7 +391,7 @@
       <a href="hosting-private-cloud.html" class="cta-btn" aria-label="Explore Hosting & Private Cloud">Explore Hosting &amp; Private Cloud</a>
     </section>
 
-    <!-- Engagement options (list) -->
+    <!-- Engagement options -->
     <section class="section" id="engagement" aria-labelledby="engage-title">
       <h2 id="engage-title" class="section-title">Engagement Options</h2>
       <ul class="points" style="max-width:1000px;margin:0 auto;padding:0 1rem;">
@@ -415,7 +408,7 @@
         <li>
           <strong>Migrate & Modernise:</strong>
           Wave plans, containerisation, managed services adoption, and resilience patterns.
-          <span class="muted"> — <a href="application-development.html">App Dev approach</a></span>
+          <span class="muted"> — <a href="mobile-web.html">App Dev approach</a></span>
         </li>
         <li>
           <strong>Operator-on-Call:</strong>
@@ -508,7 +501,7 @@
   <!-- Auto-highlight current nav -->
   <script>
     (function(){
-      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+      var path=(location.pathname.split('/').pop()||'cloud.html').toLowerCase();
       document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
         if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
