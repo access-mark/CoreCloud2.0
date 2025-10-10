@@ -1,42 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Dynamic Imprinting | CoreCloud Executive Transformation</title>
-  <meta name="description" content="Dynamic Imprinting helps executives unlock authentic leadership identity, transforming influence and performance through a bespoke methodology."/>
-  <link rel="canonical" href="https://www.corecloudza.com/dynamic-imprinting.html"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Dynamic Imprinting | CoreCloud Executive Transformation"/>
-  <meta property="og:description" content="An identity-focused methodology that helps executives show up as their true selves—clear, influential, and high-performing."/>
-  <meta property="og:url" content="https://www.corecloudza.com/dynamic-imprinting.html"/>
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg"/>
-  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="description" content="Dynamic Imprinting helps executives unlock authentic leadership identity, transforming influence and performance through a bespoke methodology." />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="CoreCloud" />
+  <meta name="theme-color" content="#004f91" />
 
-  <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
+  <!-- Canonical + Social -->
+  <link rel="canonical" href="https://www.corecloudza.com/dynamic-imprinting.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Dynamic Imprinting | CoreCloud Executive Transformation" />
+  <meta property="og:description" content="An identity-focused methodology that helps executives show up as their true selves—clear, influential, and high-performing." />
+  <meta property="og:url" content="https://www.corecloudza.com/dynamic-imprinting.html" />
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="preload" as="image" href="assets/images/dynamic-imprinting-banner.png" fetchpriority="high"/>
-  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=11" />
 
+  <!-- Preload hero -->
+  <link rel="preload" as="image" href="assets/images/dynamic-imprinting-banner.png" imagesizes="100vw" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high" />
+
+  <!-- Page-scoped helpers (titles centered, gold frame, a11y skip link) -->
   <style>
-    :root{--gold:#d4af37;--royal:#004f91;--royal-2:#0b3d72;--h1-size:40px;--h2-size:28px;}
-    @media(max-width:768px){:root{--h1-size:30px;--h2-size:24px;}}
+    :root{ --gold:#d4af37; --royal:#004f91; --royal-2:#0b3d72; --h1-size:40px; --h2-size:28px; }
+    @media (max-width:768px){ :root{ --h1-size:30px; --h2-size:24px; } }
 
-    /* Header (matches unified nav) */
+    /* Accessible skip link */
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+    .skip-link:focus{position:fixed;top:10px;left:10px;width:auto;height:auto;padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;outline:2px solid #fff;z-index:1000;}
+
+    /* Use same header/nav system as unified pages */
     .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
     .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
-    .brand .logo{height:110px;width:auto;}@media(max-width:768px){.brand .logo{height:84px;}}
+    .brand{display:inline-flex;align-items:center;text-decoration:none}
+    .brand .logo{height:110px;width:auto;} @media (max-width:768px){ .brand .logo{height:84px;} }
     .main-nav{display:flex;align-items:center;gap:18px;}
-    .main-nav>a,.main-nav>.nav-group>button{font-size:.98rem;font-weight:500;letter-spacing:.1px;color:var(--royal-2);text-decoration:none;padding:14px 10px;border:none;background:transparent;cursor:pointer;}
-    .main-nav>a:hover,.main-nav>.nav-group>button:hover{color:var(--royal);}
-    .main-nav>a.active{color:var(--royal);border-bottom:2px solid var(--royal);}
-    .nav-group{position:relative;}
-    .submenu{position:absolute;left:0;top:100%;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:260px;padding:8px;display:none;}
-    .nav-group:hover .submenu,.nav-group:focus-within .submenu{display:block;}
-    .submenu a{display:block;padding:10px 12px;border-radius:8px;color:var(--royal-2);text-decoration:none;font-weight:500;font-size:.95rem;}
-    .submenu a:hover{background:#f2f7ff;color:var(--royal);}
+    .main-nav > a,
+    .main-nav > .nav-group > button{
+      font-size:.98rem;font-weight:500;letter-spacing:.1px;color:var(--royal-2);
+      text-decoration:none;padding:14px 10px;line-height:1;border:none;background:transparent;cursor:pointer;
+    }
+    .main-nav > a:hover, .main-nav > .nav-group > button:hover{ color:var(--royal); }
+    .main-nav > a.active{ color:var(--royal); border-bottom:2px solid var(--royal); }
 
-    /* Mobile */
+    /* Dropdowns */
+    .nav-group{position:relative;}
+    .nav-group .submenu{
+      position:absolute;left:0;top:100%;background:#fff;border:1px solid rgba(0,0,0,.08);
+      border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:260px;padding:8px;display:none;
+    }
+    .nav-group:hover .submenu, .nav-group:focus-within .submenu{display:block;}
+    .submenu a{display:block;padding:10px 12px;border-radius:8px;color:var(--royal-2);text-decoration:none;font-weight:500;font-size:.95rem;}
+    .submenu a:hover{ background:#f2f7ff; color:var(--royal); }
+
+    /* Mobile nav */
     .nav-toggle{display:none}
     .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center}
     .hamburger span{display:block;width:20px;height:2px;background:var(--royal-2);position:relative}
@@ -47,61 +70,82 @@
     .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
     .mobile-drawer details[open] summary{background:#f7fbff}
     .mobile-drawer a:hover{background:#f2f7ff}
-    #nav-toggle:checked~nav.mobile-drawer{display:block}
-    @media(max-width:1024px){.main-nav{display:none}.hamburger{display:inline-flex}}
+    /* IMPORTANT: checkbox must be a sibling of the drawer for the ~ selector */
+    #nav-toggle:checked ~ nav.mobile-drawer{display:block}
+    @media (max-width:1024px){ .main-nav{display:none} .hamburger{display:inline-flex} }
 
-    /* Gold frame */
+    /* Gold hero frame for dark banner */
     .hero-frame{border-top:4px solid var(--gold);border-bottom:4px solid var(--gold);}
     .hero-media img{width:100%;height:auto;display:block;}
 
-    /* Page */
+    /* Page typography */
     h1,h2{color:var(--royal-2);text-align:center}
     h1{font-size:var(--h1-size);margin:32px 0 12px;}
     h2{font-size:var(--h2-size);margin:28px 0 12px;}
+
     .hero-intro{max-width:900px;margin:2rem auto 1.25rem;text-align:center;}
-    .hero-subtitle{font-size:1.1rem;color:#555;text-align:center;max-width:900px;margin:0 auto 2rem;line-height:1.6;}
+    .hero-subtitle{font-size:1.1rem;color:#555;text-align:center;max-width:900px;margin:0 auto 2.2rem;line-height:1.6;}
+
+    /* Narrative containers */
     .narrative{max-width:1000px;margin:0 auto;padding:0 1rem;}
     .narrative p{margin:.6rem 0;line-height:1.7;color:#444;}
     .narrative ul{margin:.35rem 0 0 1.25rem;padding-left:1rem;line-height:1.7;}
     .narrative li{margin:.35rem 0;}
-    blockquote{background:#f0f7ff;border-left:5px solid var(--royal);padding:1rem 1.25rem;font-style:italic;color:#003366;border-radius:4px;margin:1.5rem auto;max-width:800px;}
-    .cta-wrap{text-align:center;margin-top:1.5rem;}
+
+    /* Quote */
+    blockquote{
+      background:#f0f7ff;border-left:5px solid #004f91;padding:1rem 1.25rem;
+      font-style:italic;color:#003366;border-radius:4px;margin:1.5rem auto;max-width:800px;
+    }
+
+    /* CTA */
+    .cta-wrap{ text-align:center; margin-top:1.25rem; }
   </style>
 </head>
 
 <body class="imprinting-page">
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html"><img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90"/></a>
+  <!-- Skip to main -->
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-      <nav class="main-nav">
+  <!-- Header / Nav (unified) -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 
+        <!-- Consulting + Dynamic Imprinting -->
         <div class="nav-group">
-          <button>Consulting</button>
-          <div class="submenu">
-            <a href="consulting.html">Overview</a>
-            <a href="dynamic-imprinting.html" class="active" aria-current="page">Dynamic Imprinting</a>
+          <button aria-haspopup="true" aria-expanded="false">Consulting</button>
+          <div class="submenu" role="menu" aria-label="Consulting">
+            <a role="menuitem" href="consulting.html">Overview</a>
+            <a role="menuitem" href="dynamic-imprinting.html" class="active" aria-current="page">Dynamic Imprinting</a>
           </div>
         </div>
 
+        <!-- Cloud Suite -->
         <div class="nav-group">
-          <button>Cloud Suite</button>
-          <div class="submenu">
-            <a href="cloud.html">Overview</a>
-            <a href="finops.html">FinOps</a>
-            <a href="hosting-private-cloud.html">Hosting / Infrastructure</a>
-            <a href="application-development.html">Application Development</a>
-            <a href="data-ai.html">Data &amp; AI</a>
+          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <div class="submenu" role="menu" aria-label="Cloud Suite">
+            <a role="menuitem" href="cloud.html">Overview</a>
+            <a role="menuitem" href="finops.html">FinOps</a>
+            <a role="menuitem" href="hosting-private-cloud.html">Hosting / Infrastructure</a>
+            <a role="menuitem" href="application-development.html">Application Development</a>
+            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
           </div>
         </div>
 
+        <!-- Curated Talent -->
         <div class="nav-group">
-          <button>Curated Talent</button>
-          <div class="submenu">
-            <a href="talent.html">Overview</a>
-            <a href="talent-relaunch.html">RE/LAUNCH</a>
-            <a href="global-talent.html">Global Talent</a>
+          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <div class="submenu" role="menu" aria-label="Curated Talent">
+            <a role="menuitem" href="talent.html">Overview</a>
+            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="global-talent.html">Global Talent</a>
           </div>
         </div>
 
@@ -110,17 +154,23 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <label for="nav-toggle" class="hamburger"><span></span></label>
+      <!-- Mobile toggle control (label must target the checkbox below) -->
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
-    <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
-    <nav class="mobile-drawer">
+    <!-- The checkbox must be a sibling of the mobile drawer for the CSS selector to work -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+
+    <!-- Mobile drawer -->
+    <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html">Home</a>
+
       <details open>
         <summary>Consulting</summary>
         <a href="consulting.html">Overview</a>
         <a href="dynamic-imprinting.html" aria-current="page">Dynamic Imprinting</a>
       </details>
+
       <details>
         <summary>Cloud Suite</summary>
         <a href="cloud.html">Overview</a>
@@ -129,61 +179,77 @@
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
       </details>
+
       <details>
         <summary>Curated Talent</summary>
         <a href="talent.html">Overview</a>
         <a href="talent-relaunch.html">RE/LAUNCH</a>
         <a href="global-talent.html">Global Talent</a>
       </details>
+
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
+  <!-- Hero with gold frame -->
   <div class="hero-frame">
-    <div class="hero-media">
-      <img src="assets/images/dynamic-imprinting-banner.png" alt="Dynamic Imprinting — Executive Identity Transformation" width="1920" height="500" loading="eager" decoding="async"/>
+    <div class="hero-media" role="img" aria-label="Dynamic Imprinting — Executive Identity Transformation">
+      <img
+        src="assets/images/dynamic-imprinting-banner.png"
+        alt="Dynamic Imprinting — Executive Identity Transformation"
+        decoding="async" loading="eager" fetchpriority="high"
+        width="1920" height="500" />
     </div>
   </div>
 
+  <!-- Intro -->
   <section class="hero-intro">
-    <h1>Dynamic Imprinting for Executive Transformation</h1>
-    <p class="hero-subtitle">Real leadership begins when you show up as yourself. Dynamic Imprinting helps high-performing executives step into their true leadership identity, transforming influence, clarity, and performance.</p>
+    <h1 class="hero-title">Dynamic Imprinting for Executive Transformation</h1>
+    <p class="hero-subtitle">
+      Real leadership begins when you show up as yourself. Dynamic Imprinting helps high-performing executives step into their true leadership identity, transforming influence, clarity, and performance.
+    </p>
   </section>
 
-  <main id="main">
-    <section class="narrative">
-      <h2>Why Dynamic Imprinting?</h2>
-      <p>You’ve built your career through results, discipline, and adaptability... </p>
+  <main class="content" id="main">
+    <!-- Why -->
+    <section class="section narrative" aria-labelledby="why-title">
+      <h2 id="why-title" class="section-title">Why Dynamic Imprinting?</h2>
+      <p>You’ve built your career through results, discipline, and adaptability. You’ve earned your title, your credibility, and your seat at the table. But even top performers sometimes wonder in quieter moments:</p>
       <blockquote>“Is this truly who I’m meant to be as a leader?”</blockquote>
-      <p>Reaching the top often means wearing different masks...</p>
+      <p>Reaching the top often means wearing different masks, fitting into roles, and meeting expectations under pressure. Over time, the line can blur between who you are and who you’re supposed to be.</p>
+      <p><strong>Dynamic Imprinting</strong> is built to change that. This isn’t typical coaching; it’s not therapy. It’s an identity-focused methodology for leaders who want to:</p>
       <ul>
         <li>Align who they are with how they lead</li>
         <li>Show up with presence and real influence</li>
         <li>Break old patterns and redefine leadership on their own terms</li>
       </ul>
+      <p>Picture walking into any room — boardroom, client pitch, investor meeting — and knowing you’re not playing a part. You’re simply yourself: confident, clear, and authentic.</p>
     </section>
 
-    <section class="narrative">
-      <h2>The Four Phases of Dynamic Imprinting</h2>
-      <p><strong>Identity Excavation –</strong> uncover authentic values and strengths.</p>
-      <p><strong>Cognitive Reprogramming –</strong> rewrite narratives that limit clarity and confidence.</p>
-      <p><strong>Behavioural Anchoring –</strong> build new habits and communication patterns.</p>
-      <p><strong>Resonance Reinforcement –</strong> reinforce authentic leadership through reflection and feedback.</p>
+    <!-- Phases -->
+    <section class="section narrative" aria-labelledby="phases-title">
+      <h2 id="phases-title" class="section-title">The Four Phases of Dynamic Imprinting</h2>
+      <p><strong>Identity Excavation.</strong> We remove layers of titles and expectations to uncover who you really are beneath professional labels — values, strengths, and the identity you want to lead with.</p>
+      <p><strong>Cognitive Reprogramming.</strong> We examine the beliefs and narratives that shape your leadership and rewrite those that no longer serve you, replacing them with thinking that fuels clarity and confidence.</p>
+      <p><strong>Behavioural Anchoring.</strong> Insight alone changes nothing. We build new habits, rituals, and communication patterns so your authentic identity is consistently experienced by others.</p>
+      <p><strong>Resonance Reinforcement.</strong> We make it stick through feedback loops and strategic reflection, projecting your leadership identity clearly and powerfully.</p>
     </section>
 
-    <section class="narrative">
-      <h2>Program Options</h2>
+    <!-- Options -->
+    <section class="section narrative" aria-labelledby="programs-title">
+      <h2 id="programs-title" class="section-title">Program Options</h2>
       <ul>
-        <li><strong>Private Executive Program (16 Weeks)</strong> — Weekly or biweekly tailored sessions.</li>
-        <li><strong>Executive Intensive (3–5 Days)</strong> — Sprint for clarity and action with follow-up support.</li>
-        <li><strong>Strategic Advisory Retainer</strong> — Continuous guidance for senior leaders.</li>
+        <li><strong>Private Executive Program (16 Weeks)</strong> — Weekly or biweekly sessions with tailored resources and ongoing support.</li>
+        <li><strong>Executive Intensive (3–5 Days)</strong> — A focused sprint for immediate clarity and action, plus follow-up support.</li>
+        <li><strong>Strategic Advisory Retainer</strong> — Ongoing partnership for leaders who want consistent guidance and reinforcement.</li>
       </ul>
     </section>
 
-    <section class="narrative">
-      <h2>What Changes</h2>
+    <!-- Outcomes -->
+    <section class="section narrative" aria-labelledby="changes-title">
+      <h2 id="changes-title" class="section-title">What Changes</h2>
       <ul>
         <li>Greater influence at senior levels</li>
         <li>Sharper strategic thinking</li>
@@ -198,39 +264,52 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
-      <div class="footer-left"><p><strong>CoreCloud (Pty) Ltd</strong></p><p>Sandton<br>Johannesburg<br>South Africa</p></div>
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton<br/>Johannesburg<br/>South Africa</p>
+      </div>
+
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
-          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
-          <input type="hidden" name="_captcha" value="false"/>
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
-          <input type="email" name="email" placeholder="Enter your email" required style="min-width:220px;flex:1;"/>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
+
       <div class="footer-right">
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
         <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
-        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
+
     <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms</a></p>
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
     </div>
   </footer>
 
+  <!-- Auto-highlight current nav -->
   <script>
     (function(){
-      var path=(location.pathname.split('/').pop()||'dynamic-imprinting.html').toLowerCase();
-      document.querySelectorAll('.main-nav a,.mobile-drawer a,.submenu a').forEach(function(a){
-        var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
-        else{a.classList.remove('active');a.removeAttribute('aria-current');}
+      var path = (location.pathname.split('/').pop() || 'dynamic-imprinting.html').toLowerCase();
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
+        var href = (a.getAttribute('href') || '').toLowerCase();
+        if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
       });
     })();
   </script>
