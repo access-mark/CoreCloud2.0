@@ -19,127 +19,107 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
 
-  <!-- Page-scoped styles (kept minimal and self-contained) -->
+  <!-- Page-scoped styles -->
   <style>
-    :root{
-      --royal:#004f91;
-      --ink:#0b3058;
-      --text:#333;
-      --muted:#5c6b7a;
-      --container:1200px;
-    }
-
-    /* Accessibility */
+    /* ===== Accessibility ===== */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
-    .skip-link:focus{position:fixed;left:16px;top:12px;width:auto;height:auto;padding:.5rem .75rem;background:var(--royal);color:#fff;border-radius:8px;z-index:1000;}
+    .skip-link:focus{position:fixed;left:12px;top:12px;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* Header */
-    .site-header{position:sticky;top:0;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);z-index:100;}
-    .nav-wrap{max-width:var(--container);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;gap:16px;}
+    /* ===== Header / Nav (clean, no glass, no icons) ===== */
+    .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
+    .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:8px 16px;} /* tighter padding */
+    .brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
+    .brand .logo{height:84px;width:auto;} /* larger logo, not stretched */
+    @media (max-width:768px){ .brand .logo{height:70px;} }
 
-    /* Logo — larger, no stretch */
-    .brand{display:flex;align-items:center;text-decoration:none;}
-    .brand-logo{
-      display:block;height:auto;width:auto; /* keep intrinsic aspect */
-      max-height:88px;                      /* larger than before */
+    /* desktop nav */
+    .main-nav{display:flex;align-items:center;gap:18px;}
+    .main-nav > a,
+    .main-nav > .nav-group > button{
+      font-weight:500; /* not bold */
+      color:#0b3d72; /* brand/dark blue */
+      text-decoration:none;
+      padding:10px 8px;
+      border:none;background:transparent;cursor:pointer;
     }
-    @media (max-width:960px){
-      .brand-logo{ max-height:72px; }       /* sensible on mobile */
-    }
+    .main-nav > a:hover,
+    .main-nav > .nav-group > button:hover{ color:#004f91; }
 
-    /* Desktop nav */
-    .desktop-nav{display:flex;align-items:center;gap:20px;}
-    .desktop-nav a,
-    .desktop-nav .nav-label{
-      font-weight:800;text-transform:uppercase;font-size:.86rem;letter-spacing:.02em;
-      color:var(--ink);text-decoration:none;white-space:nowrap;line-height:1;
-      padding:8px 0;
-    }
-    .desktop-nav a:hover{color:var(--royal);}
-
-    /* Dropdowns */
+    /* dropdowns */
     .nav-group{position:relative;}
-    .nav-label{cursor:default;}
-    .submenu{
-      position:absolute;left:0;top:calc(100% + 8px);
-      display:none;min-width:260px;background:#fff;border:1px solid rgba(0,0,0,.08);
-      border-radius:10px;box-shadow:0 14px 28px rgba(0,0,0,.12);padding:8px;z-index:200;
+    .nav-group .submenu{
+      position:absolute;left:0;top:100%;
+      background:#fff;border:1px solid rgba(0,0,0,.08);
+      border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);
+      min-width:240px;padding:8px;display:none;
     }
     .nav-group:hover .submenu{display:block;}
     .submenu a{
-      display:block;padding:.6rem .75rem;border-radius:6px;
-      color:var(--royal);font-weight:700;text-decoration:none;text-transform:none;
+      display:block;padding:10px 12px;border-radius:8px;color:#0b3d72;text-decoration:none;font-weight:500;
     }
-    .submenu a:hover{background:rgba(0,0,0,.05);}
+    .submenu a:hover{ background:#f2f7ff; color:#004f91; }
 
-    /* Mobile */
-    .hamburger{display:none;cursor:pointer;padding:6px;}
-    .hamburger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;border-radius:1px;}
-    .nav-toggle{display:none;}
-    .mobile-nav{display:none;flex-direction:column;padding:10px 16px;border-top:1px solid rgba(0,0,0,.06);}
-    .mobile-nav a{color:var(--royal);font-weight:800;text-transform:uppercase;text-decoration:none;padding:.6rem 0;}
-    .mobile-nav details{border-top:1px solid rgba(0,0,0,.06);padding:.35rem 0;margin:.2rem 0;}
-    .mobile-nav summary{cursor:pointer;padding:.6rem 0;color:var(--ink);font-weight:900;text-transform:uppercase;list-style:none;}
-    .mobile-nav summary::-webkit-details-marker{display:none;}
+    /* mobile toggle */
+    .nav-toggle{display:none}
+    .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center}
+    .hamburger span{display:block;width:20px;height:2px;background:#0b3d72;position:relative}
+    .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:#0b3d72}
+    .hamburger span::before{top:-6px}.hamburger span::after{top:6px}
 
-    @media(max-width:960px){
-      .desktop-nav{display:none;}
-      .hamburger{display:block;}
-      .nav-toggle:checked ~ .mobile-nav{display:flex;}
+    /* mobile drawer */
+    .mobile-drawer{display:none;border-top:1px solid rgba(0,0,0,.06);background:#fff}
+    .mobile-drawer a,
+    .mobile-drawer summary{
+      display:block;padding:12px 16px;color:#0b3d72;text-decoration:none;font-weight:500;cursor:pointer;
+    }
+    .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
+    .mobile-drawer details[open] summary{background:#f7fbff}
+    .mobile-drawer a:hover{background:#f2f7ff}
+    .nav-toggle:checked ~ .mobile-drawer{display:block}
+
+    @media (max-width:1024px){
+      .main-nav{display:none}
+      .hamburger{display:inline-flex}
     }
 
-    /* Hero frame + banner */
-    .hero-frame{border-top:4px solid var(--royal);border-bottom:4px solid var(--royal);}
+    /* ===== Banner with royal-blue framing lines ===== */
+    .hero-frame{border-top:4px solid #004f91;border-bottom:4px solid #004f91;}
     .hero-media img{width:100%;height:auto;display:block;}
 
-    /* Headings + hero copy */
-    h1,h2{color:var(--royal);text-align:center;}
-    h1{font-size:40px;line-height:1.2;margin:24px 0 12px;}
-    h2{font-size:28px;line-height:1.25;margin:26px 0 12px;}
-    @media(max-width:768px){h1{font-size:30px;}h2{font-size:24px;}}
-    p{color:var(--text);}
-
-    .hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:28px 16px;}
+    /* ===== Hero copy (royal/dark blue) ===== */
+    .hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:36px 16px;}
     .hero .hero-body{max-width:900px;margin:0 auto;}
-    .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:16px;}
-
-    /* Sections */
-    .content{max-width:var(--container);margin:0 auto;padding:0 16px;}
-    section{padding:1.5rem 0;}
-    section p{max-width:900px;margin:0 auto 1rem;line-height:1.6;}
-    .section-title{color:var(--royal);}
-
-    /* Left-aligned subheads & paragraphs for method sections */
-    section[aria-labelledby="focus-title"] h3,
-    section[aria-labelledby="focus-title"] h3 + p,
-    section[aria-labelledby="vdf-title"] h3,
-    section[aria-labelledby="vdf-title"] h3 + p{
-      text-align:left;color:#0b3d72;max-width:900px;margin:0 auto .6rem;
+    :root{ --h1-size:40px; --h2-size:28px; }
+    h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;text-align:center;color:#004f91;}  /* royal blue */
+    h2,.section .section-title,h2.section-title,section .section-title{
+      font-size:var(--h2-size);line-height:1.25;margin:28px 0 12px;text-align:center;color:#0b3d72; /* dark blue */
     }
+    .hero p{color:#0b3d72;} /* dark blue body under hero */
+    @media (max-width:768px){ :root{--h1-size:30px;--h2-size:24px} .hero{padding:26px 14px} }
 
-    /* Wins list */
-    .wins-list{max-width:900px;margin:0 auto;padding-left:1.5rem;}
-    .wins-list li{margin:.35rem 0;color:var(--text);}
-
-    /* Card grid for Explore list (reuse your existing classes where possible) */
-    .card-grid{display:grid;gap:16px;}
-    @media(min-width:720px){ .card-grid{grid-template-columns:repeat(2,1fr);} }
-    @media(min-width:1060px){ .card-grid{grid-template-columns:repeat(4,1fr);} }
-    .card{display:flex;flex-direction:column;gap:.4rem;padding:14px;border:1px solid rgba(0,0,0,.08);border-radius:10px;background:#fff;transition:box-shadow .2s ease, transform .02s ease;}
-    .card h3{margin:.2rem 0;color:var(--royal);}
-    .card p{color:var(--muted);margin:0 0 .4rem;}
-    .card:hover{box-shadow:0 10px 24px rgba(0,0,0,.1);transform:translateY(-1px);}
-    .card .cta-btn{align-self:flex-start;margin-top:auto;}
-
-    /* Buttons */
-    .cta-btn{
-      display:inline-block;min-height:44px;padding:.8rem 1.1rem;border:0;border-radius:8px;
-      font-weight:800;text-transform:uppercase;letter-spacing:.02em;
-      background:var(--royal);color:#fff;text-decoration:none;
+    /* ===== Content rhythm ===== */
+    .home .section{padding:1.5rem 0;}
+    .home .card-grid{padding:0 1rem;}
+    .home .content, .home .content p, .home .content li, .home .content a{word-break:break-word;overflow-wrap:anywhere;}
+    /* Centered H2s */
+    section[aria-labelledby="about-title"] > .section-title,
+    section[aria-labelledby="services-title"] > .section-title,
+    section[aria-labelledby="wins-title"] > .section-title { text-align:center !important; }
+    /* Left-align for Focus H3 + paras */
+    section[aria-labelledby="focus-title"] > h3,
+    section[aria-labelledby="focus-title"] > h3 + p { text-align:left; margin-left:0; color:#333; }
+    section[aria-labelledby="focus-title"]{ --indent: 1.25rem; }
+    section[aria-labelledby="focus-title"] > h3 + p{ margin-left: var(--indent); }
+    section[aria-labelledby="vdf-title"] > h3{ text-align:left; margin-left:0; color:#333; }
+    /* Wins bullets */
+    section[aria-labelledby="wins-title"] .wins-list{max-width:900px;margin:0 auto;padding-left:2rem;}
+    section[aria-labelledby="wins-title"] .wins-list li{margin:.25rem 0}
+    @media (max-width:768px){
+      section[aria-labelledby="focus-title"]{ --indent: .75rem; }
+      section[aria-labelledby="wins-title"] .wins-list{padding-left:1.25rem;}
     }
-    .cta-btn:hover{background:#003f75;}
   </style>
 
   <!-- JSON-LD -->
@@ -154,23 +134,20 @@
 <body class="home home-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header -->
+  <!-- ===== Header / Nav ===== -->
   <header class="site-header" role="banner">
-    <div class="nav-wrap">
+    <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="brand-logo" width="220" height="64" decoding="async"/>
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async"/>
       </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Open menu">
-      <label for="nav-toggle" class="hamburger" aria-hidden="true"><span></span><span></span><span></span></label>
-
       <!-- Desktop nav -->
-      <nav class="desktop-nav" aria-label="Primary">
+      <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="consulting.html">Consulting</a>
 
-        <div class="nav-group" aria-haspopup="true">
-          <span class="nav-label">Cloud Suite</span>
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
             <a role="menuitem" href="cloud.html">Overview</a>
             <a role="menuitem" href="finops.html">FinOps</a>
@@ -180,8 +157,8 @@
           </div>
         </div>
 
-        <div class="nav-group" aria-haspopup="true">
-          <span class="nav-label">Curated Talent</span>
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
             <a role="menuitem" href="talent.html">Overview</a>
             <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
@@ -193,45 +170,54 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <!-- Mobile nav -->
-      <nav class="mobile-nav" aria-label="Mobile">
-        <a href="index.html">Home</a>
-        <a href="consulting.html">Consulting</a>
-        <details>
-          <summary>Cloud Suite</summary>
-          <a href="cloud.html">Overview</a>
-          <a href="finops.html">FinOps</a>
-          <a href="hosting-private-cloud.html">Hosting / Infrastructure</a>
-          <a href="application-development.html">Application Development</a>
-          <a href="data-ai.html">Data &amp; AI</a>
-        </details>
-        <details>
-          <summary>Curated Talent</summary>
-          <a href="talent.html">Overview</a>
-          <a href="talent-relaunch.html">RE/LAUNCH</a>
-        </details>
-        <a href="about.html">About</a>
-        <a href="blog.html">Insights</a>
-        <a href="contact.html" class="mobile-cta">Contact</a>
-      </nav>
+      <!-- Mobile toggle -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
+
+    <!-- Mobile drawer -->
+    <nav class="mobile-drawer" aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="consulting.html">Consulting</a>
+
+      <details>
+        <summary>Cloud Suite</summary>
+        <a href="cloud.html">Overview</a>
+        <a href="finops.html">FinOps</a>
+        <a href="hosting-private-cloud.html">Hosting / Infrastructure</a>
+        <a href="application-development.html">Application Development</a>
+        <a href="data-ai.html">Data &amp; AI</a>
+      </details>
+
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+      </details>
+
+      <a href="about.html">About</a>
+      <a href="blog.html">Insights</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <!-- Framed banner -->
+  <!-- ===== Banner with royal-blue frame lines ===== -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
       <img src="assets/images/index-bannerimage.png" alt="From Strategy to Revenue. From Cloud to People." width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
-  <!-- Hero text under banner -->
+  <!-- ===== Hero text under banner ===== -->
   <section class="hero">
     <div class="hero-body">
       <h1>From Strategy to Revenue. From Cloud to People.</h1>
-      <p>Big ideas mean nothing without results. We help South African enterprises turn strategy into action and revenue — sharper sales execution, modernised cloud, elite ICT talent, and disciplined app delivery.</p>
+      <p>Big ideas mean nothing without results. We help South African enterprises turn strategy into action and revenue —
+        sharper sales execution, modernised cloud, elite ICT talent, and disciplined app delivery.</p>
 
       <h2>Hybrid Isn’t Optional — It’s the Operating Model</h2>
-      <p>One venue cannot win on cost, performance, and risk at the same time. We place each workload where it wins — cloud for elasticity and services; hosted or on-prem for predictable, low-latency, compliant run.</p>
+      <p>One venue cannot win on cost, performance, and risk at the same time. We place each workload where it wins —
+        cloud for elasticity and services; hosted or on-prem for predictable, low-latency, compliant run.</p>
 
       <div class="cta-row">
         <a class="cta-btn" href="cloud.html">Design My Hybrid</a>
@@ -300,7 +286,7 @@
     <!-- Explore services -->
     <section class="section" aria-labelledby="services-title">
       <h2 id="services-title" class="section-title">Explore Our Services</h2>
-      <div class="card-grid" role="list">
+      <div class="card-grid force-4" role="list">
         <a class="card" role="listitem" href="consulting.html">
           <h3>Consulting</h3>
           <p>From strategy to execution: GTM precision, pipeline discipline, partner motions that convert.</p>
@@ -345,7 +331,7 @@
     </section>
   </main>
 
-  <!-- Footer (unchanged — keep your existing component if you prefer) -->
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -383,11 +369,11 @@
     </div>
   </footer>
 
-  <!-- (Optional) Auto-highlight current nav if your CSS relies on 'active' class -->
+  <!-- Auto-highlight current nav (kept for non-dropdown links) -->
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+      document.querySelectorAll('.main-nav > a, .mobile-drawer > a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
         if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
         else{a.classList.remove('active');a.removeAttribute('aria-current');}
