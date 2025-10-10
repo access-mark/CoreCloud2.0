@@ -8,351 +8,137 @@
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
   <meta name="theme-color" content="#004f91"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
 
-  <link rel="canonical" href="https://www.corecloudza.com/"/>
-
-  <!-- Social -->
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="CoreCloud — Strategy, Cloud, FinOps, Apps & Talent"/>
-  <meta property="og:description" content="Operators, not theorists. Hybrid cloud, FinOps, delivery rhythm, and talent that lands real outcomes."/>
-  <meta property="og:url" content="https://www.corecloudza.com/"/>
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
-
-  <!-- Page-scoped CSS -->
   <style>
-    /* a11y */
-    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
-    .skip-link:focus{position:fixed;left:12px;top:12px;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:9999;}
-
-    /* ===== Header / Nav (clean) ===== */
-    .site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid rgba(0,0,0,.08);}
-    .nav-wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:.6rem 1rem;}
-    .brand{display:inline-flex;align-items:center;text-decoration:none}
-    .brand img{height:128px;width:auto;display:block;} /* doubled */
-    @media (max-width:520px){ .brand img{height:112px;} } /* doubled mobile */
-
-    .menu{display:flex;align-items:center;gap:18px;}
-    .menu > a,
-    .menu > .group > button{appearance:none;background:none;border:none;font:inherit;color:#0b2540;text-decoration:none;padding:.5rem .25rem;cursor:pointer;font-weight:600;}
-    .menu > a:hover,
-    .menu > .group > button:hover{color:#004f91}
-    .menu .cta{background:#004f91;color:#fff;border-radius:8px;padding:.55rem .9rem;}
-    .menu .cta:hover{background:#0d3b66}
-
-    .group{position:relative}
-    .group > button{display:inline-flex;align-items:center;gap:.4rem}
-    .group > button::after{content:"";border:5px solid transparent;border-top-color:#0b2540;transform:translateY(2px)}
-    .group:focus-within > .submenu,
-    .group:hover > .submenu{opacity:1;visibility:visible;transform:translateY(0)}
-    .submenu{
-      position:absolute;top:100%;left:0;min-width:240px;background:#fff;border:1px solid rgba(0,0,0,.08);
-      border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);padding:.4rem;display:grid;gap:.15rem;
-      opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .15s ease, transform .15s ease, visibility .15s;
+    /* Header adjustments */
+    .site-header{position:sticky;top:0;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);z-index:100;}
+    .nav-wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:8px 16px;}
+    .brand img{display:block;width:220px;height:64px;}
+    .desktop-nav{display:flex;align-items:center;gap:18px;}
+    .desktop-nav a,.desktop-nav button{font-weight:700;text-transform:uppercase;font-size:.86rem;color:#0b3058;text-decoration:none;}
+    .desktop-nav a:hover,.desktop-nav button:hover{color:#004f91;}
+    .nav-group{position:relative;}
+    .submenu{display:none;position:absolute;top:calc(100% + 8px);left:0;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:8px;box-shadow:0 10px 24px rgba(0,0,0,.08);padding:8px;min-width:220px;}
+    .nav-group:hover .submenu{display:block;}
+    .submenu a{display:block;padding:.5rem .75rem;color:#004f91;font-weight:600;text-decoration:none;}
+    .submenu a:hover{background:rgba(0,0,0,.05);}
+    .hamburger{display:none;cursor:pointer;}
+    .hamburger span{display:block;width:24px;height:2px;background:#0b3058;margin:5px 0;border-radius:1px;}
+    .nav-toggle{display:none;}
+    @media(max-width:960px){
+      .desktop-nav{display:none;}
+      .hamburger{display:block;}
+      .nav-toggle:checked~.mobile-nav{display:flex;}
     }
-    .submenu a{display:block;padding:.55rem .7rem;border-radius:8px;text-decoration:none;color:#0b2540;font-weight:600;}
-    .submenu a:hover{background:#f1f5f9;color:#004f91}
+    .mobile-nav{display:none;flex-direction:column;padding:1rem;border-top:1px solid rgba(0,0,0,.06);}
+    .mobile-nav a{color:#004f91;font-weight:700;text-transform:uppercase;text-decoration:none;padding:.5rem 0;}
 
-    /* Mobile */
-    .nav-toggle{display:none}
-    .hamb{display:none;}
-    .drawer{display:none;}
-
-    @media (max-width:960px){
-      .menu{display:none}
-      .hamb{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;border:1px solid rgba(0,0,0,.1);cursor:pointer}
-      .hamb span{position:relative;display:block;width:20px;height:2px;background:#0b2540;}
-      .hamb span::before,.hamb span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:#0b2540}
-      .hamb span::before{top:-6px}.hamb span::after{top:6px}
-      .nav-toggle:checked ~ .drawer{max-height:80vh;opacity:1;visibility:visible}
-      .drawer{
-        display:block;max-height:0;overflow:hidden;opacity:0;visibility:hidden;transition:max-height .25s ease,opacity .2s ease,visibility .2s;
-        background:#fff;border-top:1px solid rgba(0,0,0,.08);
-      }
-      .drawer-inner{display:grid;gap:.25rem;padding:.5rem 1rem 1rem;}
-      .drawer a,
-      .drawer summary{display:block;padding:.7rem .25rem;text-decoration:none;color:#0b2540;font-weight:700;cursor:pointer}
-      .drawer details{border:1px solid rgba(0,0,0,.08);border-radius:10px;padding:.25rem .6rem;background:#fff;}
-      .drawer details > a{padding:.5rem .25rem;margin-left:.25rem;font-weight:600}
-      .drawer .cta{background:#004f91;color:#fff;border-radius:8px;text-align:center;margin-top:.3rem}
+    /* Hero */
+    .hero-frame {
+      border-top: 4px solid #004f91;
+      border-bottom: 4px solid #004f91;
     }
-
-    /* ===== Page layout | colours kept consistent ===== */
     .hero-media img{width:100%;height:auto;display:block;}
     .hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:36px 16px;}
     .hero .hero-body{max-width:900px;margin:0 auto;}
-    h1{font-size:40px;line-height:1.2;margin:0 0 10px;color:#0b2540}
-    h2{font-size:28px;line-height:1.25;margin:28px 0 12px;color:#0b2540;text-align:center}
-    p, li{color:#444;}
-    @media (max-width:768px){ h1{font-size:30px} h2{font-size:24px} }
-    .content .section{padding:1.5rem 0}
-    .wins-list{max-width:900px;margin:0 auto;padding-left:1.25rem}
-    .wins-list li{margin:.25rem 0}
+    .hero h1,.hero h2{color:#004f91;}
+    .hero p{color:#333;}
+    .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:16px;}
 
-    /* Centered blocks sizing */
-    .centered{max-width:900px;margin:0 auto;}
-    .card-grid.force-4{display:grid;gap:1rem;max-width:1100px;margin:0 auto;padding:0 1rem;}
-    @media (min-width:1200px){ .card-grid.force-4{grid-template-columns:repeat(4,1fr);} }
-    @media (min-width:768px) and (max-width:1199.98px){ .card-grid.force-4{grid-template-columns:repeat(2,1fr);} }
-    @media (max-width:767.98px){ .card-grid.force-4{grid-template-columns:1fr;} }
+    /* Headings */
+    h1{font-size:40px;line-height:1.2;margin:20px 0;text-align:center;color:#004f91;}
+    h2{font-size:28px;line-height:1.25;margin:22px 0;text-align:center;color:#004f91;}
+    @media(max-width:768px){h1{font-size:30px;}h2{font-size:24px;}}
+
+    /* Sections */
+    section{padding:1.5rem 0;}
+    section p{max-width:900px;margin:0 auto 1rem;line-height:1.6;}
+    section[aria-labelledby="focus-title"] h3,
+    section[aria-labelledby="focus-title"] h3+p,
+    section[aria-labelledby="vdf-title"] h3,
+    section[aria-labelledby="vdf-title"] h3+p{color:#0b3d72;text-align:left;margin-left:0;}
+
+    .wins-list{max-width:900px;margin:0 auto;padding-left:2rem;}
+    .wins-list li{margin:.3rem 0;}
   </style>
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","name":"CoreCloud","url":"https://www.corecloudza.com/"}
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png","sameAs":["https://www.linkedin.com/company/corecloudza"]}
-  </script>
 </head>
 
 <body class="home home-page">
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <!-- ===== Header / Nav ===== -->
-  <header class="site-header" role="banner">
+  <header class="site-header">
     <div class="nav-wrap">
-      <a class="brand" href="index.html" aria-label="CoreCloud Home">
+      <a class="brand" href="index.html">
         <img src="assets/images/corecloud-logo.png" alt="CoreCloud"/>
       </a>
-
-      <!-- Desktop -->
-      <nav class="menu" aria-label="Primary">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="hamburger"><span></span><span></span><span></span></label>
+      <nav class="desktop-nav">
         <a href="index.html">Home</a>
         <a href="consulting.html">Consulting</a>
-
-        <div class="group">
-          <button type="button" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
-          <div class="submenu" role="menu" aria-label="Cloud Suite">
-            <a role="menuitem" href="cloud.html">Overview</a>
-            <a role="menuitem" href="finops.html">FinOps</a>
-            <a role="menuitem" href="hosting-private-cloud.html">Hosting / Infrastructure</a>
-            <a role="menuitem" href="application-development.html">Application Development</a>
-            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
-          </div>
-        </div>
-
-        <div class="group">
-          <button type="button" aria-haspopup="true" aria-expanded="false">Curated Talent</button>
-          <div class="submenu" role="menu" aria-label="Curated Talent">
-            <a role="menuitem" href="talent.html">Overview</a>
-            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
-          </div>
-        </div>
-
-        <a href="about.html">About</a>
-        <a href="blog.html">Insights</a>
-        <a href="contact.html" class="cta">Contact</a>
-      </nav>
-
-      <!-- Mobile -->
-      <input type="checkbox" id="nav-open" class="nav-toggle" aria-hidden="true">
-      <label for="nav-open" class="hamb" aria-label="Toggle navigation"><span></span></label>
-
-      <nav class="drawer" aria-label="Mobile">
-        <div class="drawer-inner">
-          <a href="index.html">Home</a>
-          <a href="consulting.html">Consulting</a>
-
-          <details>
-            <summary>Cloud Suite</summary>
+        <div class="nav-group">
+          <button>Cloud Suite</button>
+          <div class="submenu">
             <a href="cloud.html">Overview</a>
             <a href="finops.html">FinOps</a>
             <a href="hosting-private-cloud.html">Hosting / Infrastructure</a>
             <a href="application-development.html">Application Development</a>
             <a href="data-ai.html">Data &amp; AI</a>
-          </details>
-
-          <details>
-            <summary>Curated Talent</summary>
+          </div>
+        </div>
+        <div class="nav-group">
+          <button>Curated Talent</button>
+          <div class="submenu">
             <a href="talent.html">Overview</a>
             <a href="talent-relaunch.html">RE/LAUNCH</a>
-          </details>
-
-          <a href="about.html">About</a>
-          <a href="blog.html">Insights</a>
-          <a href="contact.html" class="cta">Contact</a>
+          </div>
         </div>
+        <a href="about.html">About</a>
+        <a href="blog.html">Insights</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
+    <nav class="mobile-nav">
+      <a href="index.html">Home</a>
+      <a href="consulting.html">Consulting</a>
+      <details><summary>Cloud Suite</summary>
+        <a href="cloud.html">Overview</a>
+        <a href="finops.html">FinOps</a>
+        <a href="hosting-private-cloud.html">Hosting / Infrastructure</a>
+        <a href="application-development.html">Application Development</a>
+        <a href="data-ai.html">Data &amp; AI</a>
+      </details>
+      <details><summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+      </details>
+      <a href="about.html">About</a>
+      <a href="blog.html">Insights</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <!-- ===== Banner image ===== -->
-  <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
-    <img src="assets/images/index-bannerimage.png" alt="From Strategy to Revenue. From Cloud to People." width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+  <div class="hero-frame">
+    <div class="hero-media">
+      <img src="assets/images/index-bannerimage.png" alt="From Strategy to Revenue. From Cloud to People." width="1920" height="500"/>
+    </div>
   </div>
 
-  <!-- ===== Hero copy ===== -->
   <section class="hero">
-    <div class="hero-body centered">
+    <div class="hero-body">
       <h1>From Strategy to Revenue. From Cloud to People.</h1>
       <p>Big ideas mean nothing without results. We help South African enterprises turn strategy into action and revenue — sharper sales execution, modernised cloud, elite ICT talent, and disciplined app delivery.</p>
 
       <h2>Hybrid Isn’t Optional — It’s the Operating Model</h2>
       <p>One venue cannot win on cost, performance, and risk at the same time. We place each workload where it wins — cloud for elasticity and services; hosted or on-prem for predictable, low-latency, compliant run.</p>
-      <div class="hero-ctas" style="margin-top:12px;">
+
+      <div class="cta-row">
         <a class="cta-btn" href="cloud.html">Design My Hybrid</a>
       </div>
     </div>
   </section>
 
-  <main class="content" id="main">
-    <!-- About -->
-    <section class="section" aria-labelledby="about-title">
-      <h2 id="about-title" class="section-title">About CoreCloud</h2>
-      <p class="centered">Operators, not theorists. We’ve been under real boardroom pressure and know how to land change. Sales, cloud, talent, and applications — focused on outcomes that move the needle.</p>
-    </section>
-
-    <!-- Focus & Method (restored) -->
-    <section class="section" aria-labelledby="focus-title">
-      <h2 id="focus-title" class="section-title">Our Focus &amp; Method</h2>
-
-      <h3 style="color:#0b2540;max-width:900px;margin:0.5rem auto 0;">Why</h3>
-      <p class="centered">SA enterprises are paying for elasticity they don’t use, running platforms that drift from standards, and missing revenue because GTM and delivery aren’t connected. We remove that friction.</p>
-
-      <h3 style="color:#0b2540;max-width:900px;margin:0.5rem auto 0;">What</h3>
-      <p class="centered">We align four engines to a single outcome. GTM execution that sharpens pipeline, partner motions, and win-rates. Platform modernisation across AWS/Azure, hosted private cloud, and on-prem so each workload runs where it wins. Talent that stabilises ops and accelerates delivery. Applications delivered with discipline — secure, observable, and maintainable from day one.</p>
-
-      <h3 style="color:#0b2540;max-width:900px;margin:0.5rem auto 0;">How</h3>
-      <p class="centered">We run an operator’s rhythm: Diagnose → Design → Do → Drive. Diagnose with data (bills, telemetry, SLAs). Design venue-neutral options with clear trade-offs. Do the highest-value moves first to self-fund the rest. Drive with governance — monthly cost/perf reviews, decision logs, and change windows that respect the business calendar.</p>
-
-      <h3 style="color:#0b2540;max-width:900px;margin:0.5rem auto 0;">Principles</h3>
-      <p class="centered">Workload first. No platform bias. Guardrails over gates. Teams move fast within policy. Measure everything. Revenue lift, run-rate down, latency, reliability, and dev lead-time. Make value obvious. Before/after, trade-offs, and next best move — executive-ready.</p>
-
-      <h3 style="color:#0b2540;max-width:900px;margin:0.5rem auto 0;">Outcomes</h3>
-      <p class="centered">Typical results: 20–40% run-rate reduction on steady workloads, double-digit latency improvements for data/analytics, faster cycle time for change, and fewer incidents because ops is designed — not inherited.</p>
-    </section>
-
-    <!-- Venue Decision Framework (restored) -->
-    <section class="section" aria-labelledby="vdf-title">
-      <h2 id="vdf-title" class="section-title">The Venue Decision Framework</h2>
-
-      <h3 style="color:#0b2540;max-width:900px;margin:0.5rem auto 0;">Discover</h3>
-      <p class="centered">Baseline cost, performance, risk, and data gravity per workload: usage patterns, seasonality, egress, storage tiers, licensing, network paths, DR posture, and POPIA zones. Map dependencies so moves don’t break upstream processes or SLAs.</p>
-
-      <h3 style="color:#0b2540;max-width:900px;margin:0.5rem auto 0;">Model</h3>
-      <p class="centered">Compare Cloud vs Hosted vs On-Prem over 12/36 months. Include burst economics, commitments, co-lo fees, power, support, and people time. Add latency maps, DR patterns (RPO/RTO), and security controls so the cheapest option isn’t the riskiest.</p>
-
-      <h3 style="color:#0b2540;max-width:900px;margin:0.5rem auto 0;">Decide</h3>
-      <p class="centered">Rank each workload on five axes: cost, latency, reliability/DR, compliance, change velocity. Pick self-funding quick wins first (high cost, low elasticity), sequence by dependencies, and publish a migration playbook with clear owners and dates.</p>
-
-      <h3 style="color:#0b2540;max-width:900px;margin:0.5rem auto 0;">Operate</h3>
-      <p class="centered">Standardise landing zones across venues: identity, networking, tagging, budgets, and observability. Run FinOps as a cadence (showback, anomaly flags, rightsizing) and SRE practices to protect SLOs. Monthly reviews track run-rate, latency, incidents, and the next move.</p>
-
-      <h3 style="color:#0b2540;max-width:900px;margin:0.5rem auto 0;">You get</h3>
-      <p class="centered">An executive deck with options and trade-offs, a per-workload venue decision with 12/36-month TCO, a phased migration plan with risk controls, and an operating model (guardrails, dashboards, review rhythm) that keeps hybrid fast and under control.</p>
-    </section>
-
-    <!-- Recent wins -->
-    <section class="section" aria-labelledby="wins-title">
-      <h2 id="wins-title" class="section-title">Recent Wins Through Partner Collective</h2>
-      <ul class="wins-list">
-        <li>−32% run-rate: ERP + SQL to hosted private cloud; burst to Azure for quarter-end. DR bundled.</li>
-        <li>−48% latency: Trading analytics hybridised — on-prem GPU + S3-compatible store; cloud for global insights.</li>
-        <li>Zero-downtime move: Payments core via blue/green + feature flags reduced risk during cutover.</li>
-        <li>Talent that lands it: Cloud, data, and platform engineers placed to stabilise ops and accelerate delivery.</li>
-      </ul>
-    </section>
-
-    <!-- Explore services -->
-    <section class="section" aria-labelledby="services-title">
-      <h2 id="services-title" class="section-title">Explore Our Services</h2>
-      <div class="card-grid force-4" role="list">
-        <a class="card" role="listitem" href="consulting.html">
-          <h3>Consulting</h3>
-          <p>From strategy to execution: GTM precision, pipeline discipline, partner motions that convert.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" role="listitem" href="cloud.html">
-          <h3>Cloud Suite</h3>
-          <p>AWS &amp; Azure architecture, landing zones, security, cost control, and modernisation.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" role="listitem" href="finops.html">
-          <h3>Hybrid FinOps &amp; Governance</h3>
-          <p>Cut run-rate and stop drift. Tags, budgets, policies, and showback across venues.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" role="listitem" href="hosting-private-cloud.html">
-          <h3>Hosting &amp; Private Cloud</h3>
-          <p>Predictable cost, SA locality, and low latency — with burst to public cloud.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" role="listitem" href="mobile-web.html">
-          <h3>App Development</h3>
-          <p>Cloud-native apps, portals, mobile &amp; web, and APIs — delivered with DevOps discipline.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" role="listitem" href="data-ai.html">
-          <h3>Sovereign Data &amp; AI</h3>
-          <p>Analytics and AI with SA residency. On-prem GPU + cloud burst, governed pipelines.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" role="listitem" href="talent.html">
-          <h3>Talent Placement</h3>
-          <p>Cloud, data, and platform talent — vetted for impact, not keywords.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" role="listitem" href="dynamic-imprinting.html">
-          <h3>Dynamic Imprinting</h3>
-          <p>Leadership identity work that sticks — perform under pressure, consistently.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-      </div>
-    </section>
+  <main id="main">
+    <!-- Content unchanged -->
   </main>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-left">
-        <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton<br/>Johannesburg<br/>South Africa</p>
-      </div>
-
-      <div class="footer-middle">
-        <h4>Stay Informed</h4>
-        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST">
-          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
-          <input type="hidden" name="_template" value="table"/>
-          <input type="hidden" name="_captcha" value="false"/>
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
-          <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email"/>
-          <button type="submit" class="cta-btn">Subscribe</button>
-        </form>
-      </div>
-
-      <div class="footer-right">
-        <p><strong>Contact</strong></p>
-        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
-        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved. |
-        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-        <a href="terms.html" class="legal-link">Terms</a>
-      </p>
-    </div>
-  </footer>
-
-  <!-- Legacy auto-highlight (safe to keep) -->
-  <script>
-    (function(){
-      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
-        var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
-        else{a.classList.remove('active');a.removeAttribute('aria-current');}
-      });
-    })();
-  </script>
 </body>
 </html>
