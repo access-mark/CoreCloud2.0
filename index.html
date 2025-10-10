@@ -21,33 +21,41 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
 
-  <!-- Page-scoped styles -->
+  <!-- Page-scoped styles (keep self-contained) -->
   <style>
     :root{
       --royal:#004f91;        /* royal blue */
       --royal-2:#0b3d72;      /* deep brand blue */
+      --gold:#b98a1a;
     }
 
     /* Accessibility */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;left:12px;top:12px;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
+    /* Prevent horizontal scroll on mobile */
+    html, body { overflow-x:hidden; }
+
+    /* Scroll lock when drawer is open */
+    .no-scroll { overflow:hidden; height:100vh; }
+
     /* Header / Nav */
     .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
     .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
     .brand{display:inline-flex;align-items:center;text-decoration:none}
-    .brand .logo{height:110px;width:auto;}            /* big logo */
+    .brand .logo{height:110px;width:auto;object-fit:contain;}
     @media (max-width:768px){ .brand .logo{height:84px;} }
 
+    /* Desktop nav */
     .main-nav{display:flex;align-items:center;gap:18px;}
     .main-nav > a,
     .main-nav > .nav-group > button{
-      font-size:.98rem;       /* uniform */
-      font-weight:500;        /* medium (not bold) */
+      font-size:.98rem;
+      font-weight:500;
       letter-spacing:.1px;
       color:var(--royal-2);
       text-decoration:none;
-      padding:14px 10px;      /* consistent hit area */
+      padding:14px 10px;
       line-height:1;
       border:none;background:transparent;cursor:pointer;
     }
@@ -71,35 +79,67 @@
     }
     .submenu a:hover{ background:#f2f7ff; color:var(--royal); }
 
-    /* Mobile nav */
-    .nav-toggle{display:none}
-    .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center}
-    .hamburger span{display:block;width:20px;height:2px;background:var(--royal-2);position:relative}
-    .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--royal-2)}
-    .hamburger span::before{top:-6px}.hamburger span::after{top:6px}
-    .mobile-drawer{display:none;border-top:1px solid rgba(0,0,0,.06);background:#fff}
-    .mobile-drawer a,.mobile-drawer summary{display:block;padding:12px 16px;color:var(--royal-2);text-decoration:none;font-weight:500;cursor:pointer;}
-    .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
-    .mobile-drawer details[open] summary{background:#f7fbff}
-    .mobile-drawer a:hover{background:#f2f7ff}
-    .nav-toggle:checked ~ .mobile-drawer{display:block}
-    @media (max-width:1024px){ .main-nav{display:none} .hamburger{display:inline-flex} }
+    /* Hamburger */
+    .nav-toggle{display:none;}
+    .hamburger{
+      display:none;width:48px;height:48px;border-radius:10px;
+      border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center;
+      cursor:pointer;background:#fff;
+    }
+    .hamburger span{display:block;width:22px;height:2px;background:var(--royal-2);position:relative;border-radius:1px;}
+    .hamburger span::before,.hamburger span::after{
+      content:"";position:absolute;left:0;width:22px;height:2px;background:var(--royal-2);border-radius:1px;
+    }
+    .hamburger span::before{top:-7px}.hamburger span::after{top:7px}
+    @media (max-width:1024px){ .main-nav{display:none;} .hamburger{display:inline-flex;} }
+
+    /* Mobile drawer */
+    .mobile-drawer{
+      display:none;background:#fff;border-top:1px solid rgba(0,0,0,.06);
+      padding:max(env(safe-area-inset-top),8px) 0 8px 0;
+    }
+    .nav-toggle:checked ~ .mobile-drawer{display:block;}
+    .nav-toggle:checked ~ .mobile-drawer{position:relative;z-index:998;}
+    .nav-toggle:checked ~ .mobile-drawer::after{
+      content:"";position:fixed;inset:0;background:rgba(0,0,0,.15);z-index:-1;
+    }
+
+    /* Drawer links */
+    .mobile-drawer a,
+    .mobile-drawer summary{
+      display:block;padding:14px 16px;color:var(--royal-2);
+      text-decoration:none;font-weight:600;cursor:pointer;
+    }
+    .mobile-drawer a:hover{background:#f2f7ff;color:var(--royal);}
+    .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0;}
+    .mobile-drawer details[open] summary{background:#f7fbff;}
+    .mobile-drawer summary::-webkit-details-marker{display:none;}
+    .mobile-drawer summary::after{
+      content:"▾";float:right;transform:translateY(2px);
+      color:var(--royal-2);font-size:.9rem;
+    }
+    .mobile-drawer details[open] summary::after{content:"▴";}
+
+    /* Focus */
+    a:focus-visible, button:focus-visible, summary:focus-visible, label.hamburger:focus-visible{
+      outline:2px solid var(--royal);outline-offset:2px;border-radius:6px;
+    }
 
     /* Banner frame lines */
     .hero-frame{border-top:4px solid var(--royal);border-bottom:4px solid var(--royal);}
     .hero-media img{width:100%;height:auto;display:block;}
 
-    /* Hero + headings */
+    /* Headings + text */
     .hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:32px 16px;}
     .hero .hero-body{max-width:900px;margin:0 auto;}
-    :root{ --h1-size:40px; --h2-size:28px; }
+    :root{--h1-size:40px;--h2-size:28px;}
     h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;text-align:center;color:var(--royal);}
     h2,.section .section-title,h2.section-title,section .section-title{
       font-size:var(--h2-size);line-height:1.25;margin:28px 0 12px;text-align:center;color:var(--royal);
     }
-    @media (max-width:768px){ :root{--h1-size:30px;--h2-size:24px} .hero{padding:24px 14px} }
+    @media (max-width:768px){:root{--h1-size:30px;--h2-size:24px}.hero{padding:24px 14px}}
 
-    /* Make **all body copy royal blue** for your consistency request */
+    /* Make all body copy royal blue for consistency */
     body, p, li, a, .content, .content p, .content li { color:var(--royal); }
 
     /* Sections rhythm */
@@ -107,12 +147,12 @@
     .home .card-grid{padding:0 1rem;}
     .home .content, .home .content p, .home .content li, .home .content a{word-break:break-word;overflow-wrap:anywhere;}
     section[aria-labelledby="wins-title"] .wins-list{max-width:900px;margin:0 auto;padding-left:2rem;}
-    section[aria-labelledby="wins-title"] .wins-list li{margin:.25rem 0}
-    @media (max-width:768px){ section[aria-labelledby="wins-title"] .wins-list{padding-left:1.25rem;} }
+    section[aria-labelledby="wins-title"] .wins-list li{margin:.25rem 0;}
+    @media (max-width:768px){section[aria-labelledby="wins-title"] .wins-list{padding-left:1.25rem;}}
 
     /* CTA buttons */
-    .cta-btn{display:inline-block;background:var(--royal);color:#fff;text-decoration:none;padding:.7rem 1rem;border-radius:8px;font-weight:700}
-    .cta-btn:hover{background:#0066b2}
+    .cta-btn{display:inline-block;background:var(--royal);color:#fff;text-decoration:none;padding:.7rem 1rem;border-radius:8px;font-weight:700;}
+    .cta-btn:hover{background:#0066b2;}
   </style>
 
   <!-- JSON-LD -->
@@ -180,7 +220,7 @@
     </div>
 
     <!-- Mobile drawer -->
-    <nav class="mobile-drawer" aria-label="Mobile">
+    <nav class="mobile-drawer" id="mobile-drawer" aria-label="Mobile">
       <a href="index.html">Home</a>
 
       <details>
@@ -390,15 +430,31 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current top-level links -->
+  <!-- JS: active state + accessible mobile toggle + body scroll lock -->
   <script>
     (function(){
+      // Active link (top-level + mobile)
       var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
       document.querySelectorAll('.main-nav > a, .mobile-drawer > a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
         if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
         else{a.classList.remove('active');a.removeAttribute('aria-current');}
       });
+
+      // Mobile drawer a11y + scroll lock
+      const toggle=document.getElementById('nav-toggle');
+      const label=document.querySelector('label.hamburger');
+      const drawer=document.getElementById('mobile-drawer');
+      if(toggle&&label&&drawer){
+        const set=()=>label.setAttribute('aria-expanded',toggle.checked?'true':'false');
+        label.setAttribute('role','button');
+        label.setAttribute('aria-controls','mobile-drawer');
+        set();
+        toggle.addEventListener('change', function(){
+          set();
+          document.body.classList.toggle('no-scroll', toggle.checked);
+        });
+      }
     })();
   </script>
 </body>
