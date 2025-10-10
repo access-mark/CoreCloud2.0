@@ -16,45 +16,90 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=9"/>
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
+  <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/about-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
 
-  <!-- Page-scoped helpers (safe & minimal) -->
+  <!-- Page-scoped helpers -->
   <style>
+    :root{
+      --royal:#004f91;
+      --royal-2:#0b3d72;
+    }
     /* Accessible skip link */
-    .skip-link{
-      position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;
-    }
-    .skip-link:focus{
-      position:fixed;top:10px;left:10px;width:auto;height:auto;
-      padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;
-      outline:2px solid #fff;z-index:1000;
-    }
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+    .skip-link:focus{position:fixed;top:10px;left:10px;padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;outline:2px solid #fff;z-index:1000;}
 
-    /* Hard-center H1 + H2 only on About page */
-    .about-page :is(h1.hero-title, h2.section-title){
-      text-align:center !important;
-      display:block !important;
-      margin-left:auto !important;
-      margin-right:auto !important;
-    }
+    /* Use same header/nav system as index */
+    .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
+    .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
+    .brand{display:inline-flex;align-items:center;text-decoration:none}
+    .brand .logo{height:110px;width:auto;}
+    @media (max-width:768px){ .brand .logo{height:84px;} }
 
+    .main-nav{display:flex;align-items:center;gap:18px;}
+    .main-nav > a,
+    .main-nav > .nav-group > button{
+      font-size:.98rem;font-weight:500;letter-spacing:.1px;
+      color:var(--royal-2);text-decoration:none;padding:14px 10px;line-height:1;border:none;background:transparent;cursor:pointer;
+    }
+    .main-nav > a:hover,
+    .main-nav > .nav-group > button:hover{ color:var(--royal); }
+    .main-nav > a.active{ color:var(--royal); border-bottom:2px solid var(--royal); }
+
+    .nav-group{position:relative;}
+    .nav-group .submenu{
+      position:absolute;left:0;top:100%;
+      background:#fff;border:1px solid rgba(0,0,0,.08);
+      border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);
+      min-width:260px;padding:8px;display:none;
+    }
+    .nav-group:hover .submenu,
+    .nav-group:focus-within .submenu{display:block;}
+    .submenu a{
+      display:block;padding:10px 12px;border-radius:8px;color:var(--royal-2);text-decoration:none;font-weight:500;font-size:.95rem;
+    }
+    .submenu a:hover{ background:#f2f7ff; color:var(--royal); }
+
+    /* Mobile toggle */
+    .nav-toggle{display:none}
+    .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center}
+    .hamburger span{display:block;width:20px;height:2px;background:var(--royal-2);position:relative}
+    .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--royal-2)}
+    .hamburger span::before{top:-6px}.hamburger span::after{top:6px}
+    .mobile-drawer{display:none;border-top:1px solid rgba(0,0,0,.06);background:#fff}
+    .mobile-drawer a,.mobile-drawer summary{display:block;padding:12px 16px;color:var(--royal-2);text-decoration:none;font-weight:500;cursor:pointer;}
+    .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
+    .mobile-drawer details[open] summary{background:#f7fbff}
+    .mobile-drawer a:hover{background:#f2f7ff}
+    .nav-toggle:checked ~ .mobile-drawer{display:block}
+    @media (max-width:1024px){ .main-nav{display:none} .hamburger{display:inline-flex} }
+
+    /* Royal-blue frame lines around banner */
+    .hero-frame{border-top:4px solid var(--royal);border-bottom:4px solid var(--royal);}
+    .hero-media img{width:100%;height:auto;display:block;}
+
+    /* Royal-blue typography (as per your consistency request) */
+    body, p, li, a, .content, .content p, .content li { color:var(--royal); }
+
+    /* About page layout helpers */
     .about-page .hero-intro{ max-width:900px; margin:2rem auto 1.25rem; text-align:center; }
     .about-page .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .about-page .narrative p{ margin:.55rem 0; line-height:1.75; color:#444; }
     .about-page .kv-list{ margin:.35rem 0 0 1.25rem; padding-left:1.05rem; list-style:disc; line-height:1.7; }
     .about-page .kv-list li{ margin:.4rem 0; }
-    .about-page .kv{ font-weight:700; color:var(--dark-blue); }
-    .about-page .desc{ display:block; margin-left:.75rem; color:#444; }
+    .about-page .kv{ font-weight:700; color:var(--royal); }
+    .about-page .desc{ display:block; margin-left:.75rem; }
     .about-page .columns{ display:grid; gap:1rem; }
     @media (min-width:900px){ .about-page .columns{ grid-template-columns:1fr 1fr; } }
-    .about-page .cta-row{ display:flex; gap:.75rem; justify-content:center; flex-wrap:wrap; margin:1.25rem 0 2rem; }
-    .about-page .cta-row .cta-btn{ min-width:200px; }
 
-    /* desktop nav squeeze for consistency */
-    nav.desktop-nav{ gap:.55rem; }
-    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
+    /* Headings match index style */
+    :root{ --h1-size:40px; --h2-size:28px; }
+    h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;text-align:center;color:var(--royal);}
+    h2,.section .section-title,h2.section-title,section .section-title{
+      font-size:var(--h2-size);line-height:1.25;margin:28px 0 12px;text-align:center;color:var(--royal);
+    }
+    @media (max-width:768px){ :root{--h1-size:30px;--h2-size:24px} }
   </style>
 
   <!-- JSON-LD -->
@@ -83,59 +128,101 @@
 </head>
 
 <body class="about-page">
-  <!-- Skip to main content -->
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav -->
-  <div class="small-banner">
-    <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+  <!-- Header / Nav (matches Index) -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
+      </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
-      <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
+      <!-- Desktop nav -->
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
 
-      <!-- Short labels (site-wide convention) -->
-      <nav class="desktop-nav" aria-label="Primary">
-        <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULT</a>
-        <a href="cloud.html" class="nav-btn">CLOUD</a>
-        <a href="finops.html" class="nav-btn">FINOPS</a>
-        <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
-        <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
-        <a href="about.html" class="nav-btn active" aria-current="page">ABOUT</a>
-        <a href="blog.html" class="nav-btn">BLOG</a>
-        <a href="contact.html" class="nav-btn">CONTACT</a>
+        <!-- Consulting + Dynamic Imprinting -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Consulting</button>
+          <div class="submenu" role="menu" aria-label="Consulting">
+            <a role="menuitem" href="consulting.html">Overview</a>
+            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
+          </div>
+        </div>
+
+        <!-- Cloud Suite -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <div class="submenu" role="menu" aria-label="Cloud Suite">
+            <a role="menuitem" href="cloud.html">Overview</a>
+            <a role="menuitem" href="finops.html">FinOps</a>
+            <a role="menuitem" href="hosting-private-cloud.html">Hosting / Infrastructure</a>
+            <a role="menuitem" href="application-development.html">Application Development</a>
+            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
+          </div>
+        </div>
+
+        <!-- Curated Talent -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <div class="submenu" role="menu" aria-label="Curated Talent">
+            <a role="menuitem" href="talent.html">Overview</a>
+            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="global-talent.html">Global Talent</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="active" aria-current="page">About</a>
+        <a href="blog.html">Insights</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
-      <nav class="mobile-nav" aria-label="Mobile">
-        <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULT</a>
-        <a href="cloud.html">CLOUD</a>
-        <a href="finops.html">FINOPS</a>
-        <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
-        <a href="data-ai.html">DATA &amp; AI</a>
-        <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">IMPRINTING</a>
-        <a href="about.html" class="active" aria-current="page">ABOUT</a>
-        <a href="blog.html">BLOG</a>
-        <a href="contact.html">CONTACT</a>
-      </nav>
+      <!-- Mobile toggle -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
-  </div>
 
-  <!-- Hero -->
-  <div class="hero-media">
-    <img
-      src="assets/images/about-bannerimage.png"
-      alt="About CoreCloud"
-      width="1920" height="500"
-      loading="eager" decoding="async" fetchpriority="high"/>
+    <!-- Mobile drawer -->
+    <nav class="mobile-drawer" aria-label="Mobile">
+      <a href="index.html">Home</a>
+
+      <details>
+        <summary>Consulting</summary>
+        <a href="consulting.html">Overview</a>
+        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+      </details>
+
+      <details>
+        <summary>Cloud Suite</summary>
+        <a href="cloud.html">Overview</a>
+        <a href="finops.html">FinOps</a>
+        <a href="hosting-private-cloud.html">Hosting / Infrastructure</a>
+        <a href="application-development.html">Application Development</a>
+        <a href="data-ai.html">Data &amp; AI</a>
+      </details>
+
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="global-talent.html">Global Talent</a>
+      </details>
+
+      <a href="about.html" aria-current="page">About</a>
+      <a href="blog.html">Insights</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Banner with royal-blue frame -->
+  <div class="hero-frame">
+    <div class="hero-media" role="img" aria-label="About CoreCloud">
+      <img
+        src="assets/images/about-bannerimage.png"
+        alt="About CoreCloud"
+        width="1920" height="500"
+        loading="eager" decoding="async" fetchpriority="high"/>
+    </div>
   </div>
 
   <!-- Intro -->
@@ -159,7 +246,7 @@
       </p>
     </section>
 
-    <!-- What we do (concise) -->
+    <!-- What we do -->
     <section class="section narrative" aria-labelledby="what-title">
       <h2 id="what-title" class="section-title">What We Do</h2>
       <div class="columns">
@@ -197,7 +284,7 @@
       </p>
     </section>
 
-    <!-- Leadership (concise narrative placeholder) -->
+    <!-- Leadership -->
     <section class="section narrative" aria-labelledby="leadership-title">
       <h2 id="leadership-title" class="section-title">Leadership</h2>
       <p>
@@ -215,7 +302,7 @@
         <li><span class="kv">Learning loop:</span><span class="desc">Labs, brown-bags, and certification support with real-world projects.</span></li>
         <li><span class="kv">Flexible models:</span><span class="desc">Permanent, consulting, and squad augmentation pathways.</span></li>
       </ul>
-      <div class="cta-row">
+      <div class="cta-row" style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin:1.25rem 0 2rem;">
         <a href="contact.html?type=careers" class="cta-btn">Introduce Yourself</a>
         <a href="talent-relaunch.html" class="cta-btn">Explore Re/Launch</a>
       </div>
@@ -238,7 +325,7 @@
         Whether you’re planning a migration, building a data platform, or bringing costs under control, we’ll
         help you move with speed and confidence.
       </p>
-      <div class="cta-row">
+      <div class="cta-row" style="text-align:center;">
         <a href="contact.html" class="cta-btn">Talk to CoreCloud</a>
       </div>
     </section>
@@ -282,16 +369,16 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current nav -->
+  <!-- Auto-highlight current top-level links -->
   <script>
-  (function(){
-    var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-    document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
-      var href = (a.getAttribute('href') || '').toLowerCase();
-      if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
-      else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
-    });
-  })();
+    (function(){
+      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+      document.querySelectorAll('.main-nav > a, .mobile-drawer > a').forEach(function(a){
+        var href=(a.getAttribute('href')||'').toLowerCase();
+        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
+        else{a.classList.remove('active');a.removeAttribute('aria-current');}
+      });
+    })();
   </script>
 </body>
 </html>
