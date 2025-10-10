@@ -15,17 +15,18 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/blog-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (v=11 to include mobile drawer + header fixes) -->
+  <!-- Global CSS (ensure v=11 so mobile drawer rules exist) -->
   <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
 
-  <!-- Page-scoped tweaks (kept minimal to avoid conflicts) -->
+  <!-- Page-scoped fixes -->
   <style>
     :root{ --royal:#004f91; --royal-2:#0b3d72; }
+
     /* Accessible skip link */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;top:10px;left:10px;padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;outline:2px solid #fff;z-index:1000;}
 
-    /* Header/Nav (same system as index/about) */
+    /* ===== Header / Nav (same system as index) ===== */
     .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
     .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
     .brand{display:inline-flex;align-items:center;text-decoration:none}
@@ -42,6 +43,7 @@
     .main-nav > .nav-group > button:hover{ color:var(--royal); }
     .main-nav > a.active{ color:var(--royal); border-bottom:2px solid var(--royal); }
 
+    /* Dropdowns */
     .nav-group{position:relative;}
     .nav-group .submenu{
       position:absolute;left:0;top:100%;
@@ -67,33 +69,41 @@
     .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
     .mobile-drawer details[open] summary{background:#f7fbff}
     .mobile-drawer a:hover{background:#f2f7ff}
-    .nav-toggle:checked ~ .mobile-drawer{display:block}
+    /* IMPORTANT: input and drawer are siblings (works now) */
+    #nav-toggle:checked ~ nav.mobile-drawer{display:block}
+
     @media (max-width:1024px){ .main-nav{display:none} .hamburger{display:inline-flex} }
 
-    /* Royal-blue frame lines for the banner */
+    /* ===== Banner frame ===== */
     .hero-frame{border-top:4px solid var(--royal);border-bottom:4px solid var(--royal);}
     .hero-media img{width:100%;height:auto;display:block;}
 
-    /* Royal-blue body copy across the page */
+    /* ===== Typography colours ===== */
     body, p, li, a, .content, .content p, .content li { color:var(--royal); }
+    .muted{ color:#5a6b85; font-weight:500; }
 
-    /* Keep hero copy centered */
-    .blog-page .hero-intro{max-width:900px;margin:2rem auto 1rem;text-align:center;}
-    .blog-page .card-grid{padding:0 1rem;}
-    .blog-page .card h3{ text-align:left; margin-top:.25rem; }
+    /* ===== Headings ===== */
     :root{ --h1-size:40px; --h2-size:28px; }
     h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;text-align:center;color:var(--royal);}
     h2,.section .section-title,h2.section-title,section .section-title{
       font-size:var(--h2-size);line-height:1.25;margin:28px 0 12px;text-align:center;color:var(--royal);
     }
     @media (max-width:768px){ :root{--h1-size:30px;--h2-size:24px} }
+
+    /* ===== Cards grid: mobile solid ===== */
+    .card-grid{padding:0 1rem;}
+    .card{border-color:var(--royal);}
+    @media (max-width:600px){
+      .card-grid{ grid-template-columns: 1fr !important; gap:14px; padding:0 12px; }
+      .card{ padding:14px; }
+    }
   </style>
 </head>
 
 <body class="blog-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav (dropdowns + mobile drawer) -->
+  <!-- ===== Header / Nav ===== -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -140,10 +150,12 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <!-- Mobile toggle -->
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+      <!-- The label can be anywhere; it toggles the input by id -->
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
+
+    <!-- IMPORTANT: checkbox must be a sibling of the drawer -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
 
     <!-- Mobile drawer -->
     <nav class="mobile-drawer" aria-label="Mobile">
@@ -177,7 +189,7 @@
     </nav>
   </header>
 
-  <!-- Banner with royal-blue frame lines -->
+  <!-- ===== Banner with royal-blue frame ===== -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud — Insights">
       <img src="assets/images/blog-bannerimage.png" alt="CoreCloud — Insights" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
@@ -196,70 +208,60 @@
 
       <!-- Card grid -->
       <div class="card-grid">
-        <!-- 2025-09-30 -->
         <a class="card" href="blog-market-recognitions-2025.html">
           <h3>CoreCloud Recognised in 2025 Market Reports</h3>
           <p>Listed among key players in Cloud Consulting 2025 and the MPMS healthcare market.</p>
           <p class="muted">News • 30 Sep 2025</p>
         </a>
 
-        <!-- 2025-09-25 -->
         <a class="card" href="blog-eliminating-cloud-waste.html">
           <h3>Eliminating Waste: The Fastest ROI in Cloud</h3>
           <p>Where cloud spend leaks—and how SA teams plug it in 30 days without slowing delivery.</p>
           <p class="muted">Cloud • 25 Sep 2025</p>
         </a>
 
-        <!-- 2025-09-25 -->
         <a class="card" href="blog-ict-talent-access-not-shortage.html">
           <h3>South Africa Isn’t Short on Talent — It’s Short on Access</h3>
           <p>Why it’s access, not shortage—and a sourcing model to unlock A-players fast.</p>
           <p class="muted">Talent • 25 Sep 2025</p>
         </a>
 
-        <!-- 2025-09-25 -->
         <a class="card" href="blog-rewire-sales-engine-90-days.html">
           <h3>Rewiring a Sales Engine in 90 Days</h3>
           <p>A 90-day rhythm: pipeline triage, partner activation, weekly execution that moves revenue.</p>
           <p class="muted">Consulting • 25 Sep 2025</p>
         </a>
 
-        <!-- 2025-09-18 -->
         <a class="card" href="blog-south-africa-bleeding-talent.html">
           <h3>South Africa Is Bleeding Talent — We Can’t Stand By</h3>
           <p>Specific moves to keep, grow, and unlock ICT talent at home.</p>
           <p class="muted">Talent • 18 Sep 2025</p>
         </a>
 
-        <!-- 2025-09-17 -->
         <a class="card" href="blog-leadership-identity-level.html">
           <h3>Leadership at Identity Level</h3>
           <p>A 12-week operating system to make new leadership instincts stick under pressure.</p>
           <p class="muted">Leadership • 17 Sep 2025</p>
         </a>
 
-        <!-- 2025-09-15 -->
         <a class="card" href="blog-low-code-high-impact.html">
           <h3>Low-Code, High Impact</h3>
           <p>When low-code wins vs when to go custom—without rework.</p>
           <p class="muted">Apps • 15 Sep 2025</p>
         </a>
 
-        <!-- 2025-09-12 -->
         <a class="card" href="blog-differentiated-leadership-sa-competitive-edge.html">
           <h3>Differentiated Leadership: SA’s Real Competitive Edge</h3>
           <p>We may not outspend, but we can out-lead — a practical leadership OS for SA teams.</p>
           <p class="muted">Leadership • 12 Sep 2025</p>
         </a>
 
-        <!-- 2025-09-10 -->
         <a class="card" href="blog-databricks-cost-quick-wins.html">
           <h3>Databricks Cost: Quick Wins</h3>
           <p>Right-size clusters, trim idle, and stop the config traps that quietly burn DBUs.</p>
           <p class="muted">Cloud • 10 Sep 2025</p>
         </a>
 
-        <!-- 2025-09-01 -->
         <a class="card" href="blog-secure-sovereign-cloud-africa.html">
           <h3>Building a Secure &amp; Sovereign Cloud Future for Africa</h3>
           <p>Sovereignty-by-design, POPIA, skills, and ecosystem moves for leaders.</p>
@@ -280,7 +282,7 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+      <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
           <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
