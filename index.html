@@ -19,41 +19,41 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
 
   <!-- Page-scoped styles -->
   <style>
     :root{
-      --royal-blue:#004f91;
-      --royal-blue-2:#0b3d72; /* dark companion */
+      --royal:#004f91;        /* royal blue */
+      --royal-2:#0b3d72;      /* deep brand blue */
     }
 
-    /* ===== Accessibility ===== */
+    /* Accessibility */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
-    .skip-link:focus{position:fixed;left:12px;top:12px;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
+    .skip-link:focus{position:fixed;left:12px;top:12px;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* ===== Header / Nav (hover dropdowns, uniform sizing) ===== */
+    /* Header / Nav */
     .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
     .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
     .brand{display:inline-flex;align-items:center;text-decoration:none}
-    .brand .logo{height:110px;width:auto;} /* larger logo as requested */
+    .brand .logo{height:110px;width:auto;}            /* big logo */
     @media (max-width:768px){ .brand .logo{height:84px;} }
 
     .main-nav{display:flex;align-items:center;gap:18px;}
     .main-nav > a,
     .main-nav > .nav-group > button{
-      font-size:.98rem;
-      font-weight:500;             /* not bold */
+      font-size:.98rem;       /* uniform */
+      font-weight:500;        /* medium (not bold) */
       letter-spacing:.1px;
-      color:var(--royal-blue-2);
+      color:var(--royal-2);
       text-decoration:none;
-      padding:14px 10px;
+      padding:14px 10px;      /* consistent hit area */
       line-height:1;
       border:none;background:transparent;cursor:pointer;
     }
     .main-nav > a:hover,
-    .main-nav > .nav-group > button:hover{ color:var(--royal-blue); }
-    .main-nav > a.active{ color:var(--royal-blue); border-bottom:2px solid var(--royal-blue); }
+    .main-nav > .nav-group > button:hover{ color:var(--royal); }
+    .main-nav > a.active{ color:var(--royal); border-bottom:2px solid var(--royal); }
 
     /* Dropdowns */
     .nav-group{position:relative;}
@@ -66,78 +66,53 @@
     .nav-group:hover .submenu,
     .nav-group:focus-within .submenu{display:block;}
     .submenu a{
-      display:block;padding:10px 12px;border-radius:8px;color:var(--royal-blue-2);text-decoration:none;font-weight:500;font-size:.95rem;
+      display:block;padding:10px 12px;border-radius:8px;
+      color:var(--royal-2);text-decoration:none;font-weight:500;font-size:.95rem;
     }
-    .submenu a:hover{ background:#f2f7ff; color:var(--royal-blue); }
+    .submenu a:hover{ background:#f2f7ff; color:var(--royal); }
 
-    /* Mobile toggle */
+    /* Mobile nav */
     .nav-toggle{display:none}
     .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center}
-    .hamburger span{display:block;width:20px;height:2px;background:var(--royal-blue-2);position:relative}
-    .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--royal-blue-2)}
+    .hamburger span{display:block;width:20px;height:2px;background:var(--royal-2);position:relative}
+    .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--royal-2)}
     .hamburger span::before{top:-6px}.hamburger span::after{top:6px}
     .mobile-drawer{display:none;border-top:1px solid rgba(0,0,0,.06);background:#fff}
-    .mobile-drawer a,
-    .mobile-drawer summary{display:block;padding:12px 16px;color:var(--royal-blue-2);text-decoration:none;font-weight:500;cursor:pointer;}
+    .mobile-drawer a,.mobile-drawer summary{display:block;padding:12px 16px;color:var(--royal-2);text-decoration:none;font-weight:500;cursor:pointer;}
     .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
     .mobile-drawer details[open] summary{background:#f7fbff}
     .mobile-drawer a:hover{background:#f2f7ff}
     .nav-toggle:checked ~ .mobile-drawer{display:block}
     @media (max-width:1024px){ .main-nav{display:none} .hamburger{display:inline-flex} }
 
-    /* ===== Banner with royal-blue framing lines ===== */
-    .hero-frame{border-top:4px solid var(--royal-blue);border-bottom:4px solid var(--royal-blue);}
+    /* Banner frame lines */
+    .hero-frame{border-top:4px solid var(--royal);border-bottom:4px solid var(--royal);}
     .hero-media img{width:100%;height:auto;display:block;}
 
-    /* ===== Hero copy ===== */
+    /* Hero + headings */
     .hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:32px 16px;}
     .hero .hero-body{max-width:900px;margin:0 auto;}
     :root{ --h1-size:40px; --h2-size:28px; }
-    h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;text-align:center;color:var(--royal-blue);}
+    h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;text-align:center;color:var(--royal);}
     h2,.section .section-title,h2.section-title,section .section-title{
-      font-size:var(--h2-size);line-height:1.25;margin:28px 0 12px;text-align:center;color:var(--royal-blue-2);
+      font-size:var(--h2-size);line-height:1.25;margin:28px 0 12px;text-align:center;color:var(--royal);
     }
-    .hero p{color:var(--royal-blue-2);}
     @media (max-width:768px){ :root{--h1-size:30px;--h2-size:24px} .hero{padding:24px 14px} }
 
-    /* ===== Unified Royal Blue Typography in MAIN only ===== */
-    body.home-page main,
-    body.home-page main p,
-    body.home-page main li,
-    body.home-page main h1,
-    body.home-page main h2,
-    body.home-page main h3,
-    body.home-page main h4,
-    body.home-page main h5,
-    body.home-page main h6,
-    body.home-page main a{
-      color:var(--royal-blue) !important;
-    }
-    body.home-page main a{text-decoration:underline;}
-    body.home-page main a:hover{color:#0066b2 !important;}
+    /* Make **all body copy royal blue** for your consistency request */
+    body, p, li, a, .content, .content p, .content li { color:var(--royal); }
 
-    /* Keep CTA buttons readable */
-    .cta-btn{ color:#fff !important; background:var(--royal-blue); }
-    .cta-btn:hover{ background:#0066b2; }
-
-    /* ===== Content rhythm ===== */
+    /* Sections rhythm */
     .home .section{padding:1.5rem 0;}
     .home .card-grid{padding:0 1rem;}
     .home .content, .home .content p, .home .content li, .home .content a{word-break:break-word;overflow-wrap:anywhere;}
-
-    /* Left align sub-sections without changing color now (color unified above) */
-    section[aria-labelledby="focus-title"] > h3,
-    section[aria-labelledby="focus-title"] > h3 + p{ text-align:left; margin-left:0; }
-    section[aria-labelledby="focus-title"]{ --indent: 1.25rem; }
-    section[aria-labelledby="focus-title"] > h3 + p{ margin-left: var(--indent); }
-    section[aria-labelledby="vdf-title"] > h3{ text-align:left; margin-left:0; }
-
     section[aria-labelledby="wins-title"] .wins-list{max-width:900px;margin:0 auto;padding-left:2rem;}
     section[aria-labelledby="wins-title"] .wins-list li{margin:.25rem 0}
-    @media (max-width:768px){
-      section[aria-labelledby="focus-title"]{ --indent: .75rem; }
-      section[aria-labelledby="wins-title"] .wins-list{padding-left:1.25rem;}
-    }
+    @media (max-width:768px){ section[aria-labelledby="wins-title"] .wins-list{padding-left:1.25rem;} }
+
+    /* CTA buttons */
+    .cta-btn{display:inline-block;background:var(--royal);color:#fff;text-decoration:none;padding:.7rem 1rem;border-radius:8px;font-weight:700}
+    .cta-btn:hover{background:#0066b2}
   </style>
 
   <!-- JSON-LD -->
@@ -152,18 +127,27 @@
 <body class="home home-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- ===== Header / Nav ===== -->
+  <!-- Header / Nav -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async"/>
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
       <!-- Desktop nav -->
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html" class="active">Home</a>
-        <a href="consulting.html">Consulting</a>
 
+        <!-- Consulting with Dynamic Imprinting -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Consulting</button>
+          <div class="submenu" role="menu" aria-label="Consulting">
+            <a role="menuitem" href="consulting.html">Overview</a>
+            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
+          </div>
+        </div>
+
+        <!-- Cloud Suite -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
@@ -175,6 +159,7 @@
           </div>
         </div>
 
+        <!-- Talent -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
@@ -197,7 +182,12 @@
     <!-- Mobile drawer -->
     <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html">Home</a>
-      <a href="consulting.html">Consulting</a>
+
+      <details>
+        <summary>Consulting</summary>
+        <a href="consulting.html">Overview</a>
+        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+      </details>
 
       <details>
         <summary>Cloud Suite</summary>
@@ -221,14 +211,14 @@
     </nav>
   </header>
 
-  <!-- ===== Banner with royal-blue frame lines ===== -->
+  <!-- Banner framed in royal blue -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
       <img src="assets/images/index-bannerimage.png" alt="From Strategy to Revenue. From Cloud to People." width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
-  <!-- ===== Hero text under banner ===== -->
+  <!-- Hero text -->
   <section class="hero">
     <div class="hero-body">
       <h1>From Strategy to Revenue. From Cloud to People.</h1>
@@ -252,7 +242,7 @@
       <p>Operators, not theorists. We’ve been under real boardroom pressure and know how to land change. Sales, cloud, talent, and applications — focused on outcomes that move the needle.</p>
     </section>
 
-    <!-- Why / What / How / Principles / Outcomes -->
+    <!-- Focus & Method -->
     <section class="section" aria-labelledby="focus-title">
       <h2 id="focus-title" class="section-title">Our Focus &amp; Method</h2>
 
@@ -260,36 +250,47 @@
       <p>SA enterprises are paying for elasticity they don’t use, running platforms that drift from standards, and missing revenue because GTM and delivery aren’t connected. We remove that friction.</p>
 
       <h3>What</h3>
-      <p>We align four engines to a single outcome. GTM execution that sharpens pipeline, partner motions, and win-rates. Platform modernisation across AWS/Azure, hosted private cloud, and on-prem so each workload runs where it wins. Talent that stabilises ops and accelerates delivery. Applications delivered with discipline — secure, observable, and maintainable from day one.</p>
+      <p>We align four engines to a single outcome. GTM execution that sharpens pipeline, partner motions, and win-rates.
+         Platform modernisation across AWS/Azure, hosted private cloud, and on-prem so each workload runs where it wins.
+         Talent that stabilises ops and accelerates delivery. Applications delivered with discipline — secure, observable, and maintainable from day one.</p>
 
       <h3>How</h3>
-      <p>We run an operator’s rhythm: Diagnose → Design → Do → Drive. Diagnose with data (bills, telemetry, SLAs). Design venue-neutral options with clear trade-offs. Do the highest-value moves first to self-fund the rest. Drive with governance — monthly cost/perf reviews, decision logs, and change windows that respect the business calendar.</p>
+      <p>We run an operator’s rhythm: Diagnose → Design → Do → Drive. Diagnose with data (bills, telemetry, SLAs).
+         Design venue-neutral options with clear trade-offs. Do the highest-value moves first to self-fund the rest.
+         Drive with governance — monthly cost/perf reviews, decision logs, and change windows that respect the business calendar.</p>
 
       <h3>Principles</h3>
-      <p>Workload first. No platform bias. Guardrails over gates. Teams move fast within policy. Measure everything. Revenue lift, run-rate down, latency, reliability, and dev lead-time. Make value obvious. Before/after, trade-offs, and next best move — executive-ready.</p>
+      <p>Workload first. No platform bias. Guardrails over gates. Teams move fast within policy. Measure everything.
+         Revenue lift, run-rate down, latency, reliability, and dev lead-time. Make value obvious. Before/after, trade-offs, and next best move — executive-ready.</p>
 
       <h3>Outcomes</h3>
-      <p>Typical results: 20–40% run-rate reduction on steady workloads, double-digit latency improvements for data/analytics, faster cycle time for change, and fewer incidents because ops is designed — not inherited.</p>
+      <p>Typical results: 20–40% run-rate reduction on steady workloads, double-digit latency improvements for data/analytics,
+         faster cycle time for change, and fewer incidents because ops is designed — not inherited.</p>
     </section>
 
-    <!-- The Venue Decision Framework -->
+    <!-- Venue Decision Framework -->
     <section class="section" aria-labelledby="vdf-title">
       <h2 id="vdf-title" class="section-title">The Venue Decision Framework</h2>
 
       <h3>Discover</h3>
-      <p>Baseline cost, performance, risk, and data gravity per workload: usage patterns, seasonality, egress, storage tiers, licensing, network paths, DR posture, and POPIA zones. Map dependencies so moves don’t break upstream processes or SLAs.</p>
+      <p>Baseline cost, performance, risk, and data gravity per workload: usage patterns, seasonality, egress, storage tiers,
+         licensing, network paths, DR posture, and POPIA zones. Map dependencies so moves don’t break upstream processes or SLAs.</p>
 
       <h3>Model</h3>
-      <p>Compare Cloud vs Hosted vs On-Prem over 12/36 months. Include burst economics, commitments, co-lo fees, power, support, and people time. Add latency maps, DR patterns (RPO/RTO), and security controls so the cheapest option isn’t the riskiest.</p>
+      <p>Compare Cloud vs Hosted vs On-Prem over 12/36 months. Include burst economics, commitments, co-lo fees, power, support, and people time.
+         Add latency maps, DR patterns (RPO/RTO), and security controls so the cheapest option isn’t the riskiest.</p>
 
       <h3>Decide</h3>
-      <p>Rank each workload on five axes: cost, latency, reliability/DR, compliance, change velocity. Pick self-funding quick wins first (high cost, low elasticity), sequence by dependencies, and publish a migration playbook with clear owners and dates.</p>
+      <p>Rank each workload on five axes: cost, latency, reliability/DR, compliance, change velocity. Pick self-funding quick wins first (high cost, low elasticity),
+         sequence by dependencies, and publish a migration playbook with clear owners and dates.</p>
 
       <h3>Operate</h3>
-      <p>Standardise landing zones across venues: identity, networking, tagging, budgets, and observability. Run FinOps as a cadence (showback, anomaly flags, rightsizing) and SRE practices to protect SLOs. Monthly reviews track run-rate, latency, incidents, and the next move.</p>
+      <p>Standardise landing zones across venues: identity, networking, tagging, budgets, and observability. Run FinOps as a cadence (showback, anomaly flags, rightsizing)
+         and SRE practices to protect SLOs. Monthly reviews track run-rate, latency, incidents, and the next move.</p>
 
       <h3>You get</h3>
-      <p>An executive deck with options and trade-offs, a per-workload venue decision with 12/36-month TCO, a phased migration plan with risk controls, and an operating model (guardrails, dashboards, review rhythm) that keeps hybrid fast and under control.</p>
+      <p>An executive deck with options and trade-offs, a per-workload venue decision with 12/36-month TCO, a phased migration plan with risk controls,
+         and an operating model (guardrails, dashboards, review rhythm) that keeps hybrid fast and under control.</p>
     </section>
 
     <!-- Recent wins -->
