@@ -9,8 +9,9 @@
   <meta name="author" content="CoreCloud"/>
   <meta name="theme-color" content="#004f91"/>
 
-  <!-- Canonical + Social -->
   <link rel="canonical" href="https://www.corecloudza.com/"/>
+
+  <!-- Social -->
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="CoreCloud — Strategy, Cloud, FinOps, Apps & Talent"/>
   <meta property="og:description" content="Operators, not theorists. Hybrid cloud, FinOps, delivery rhythm, and talent that lands real outcomes."/>
@@ -21,93 +22,102 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
 
-  <!-- Page-scoped styles (clean, professional, no icons/glass) -->
+  <!-- Page-scoped CSS (header + tidy layout only) -->
   <style>
-    /* a11y skip */
+    /* a11y */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
-    .skip-link:focus{position:fixed;left:16px;top:12px;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
+    .skip-link:focus{position:fixed;left:12px;top:12px;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:9999;}
 
-    /* ======= HEADER / NAV ======= */
-    header.site-header{position:sticky;top:0;z-index:800;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
-    .nav-wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:20px;padding:10px 16px;}
-    .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#0b3d72;}
+    /* ===== Header / Nav (clean, no glass) ===== */
+    .site-header{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid rgba(0,0,0,.08);}
+    .nav-wrap{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:.6rem 1rem;}
+    .brand{display:inline-flex;align-items:center;gap:.75rem;text-decoration:none}
     .brand img{height:64px;width:auto;display:block;} /* match other pages */
-    .brand span{font-weight:800;letter-spacing:.2px}
+    @media (max-width:520px){ .brand img{height:56px;} }
 
     /* desktop menu */
-    .menu{margin-left:auto;display:flex;align-items:center;gap:14px;}
-    .menu a,.menu button{appearance:none;background:none;border:0;font:inherit;color:#0e2a47;text-decoration:none;padding:10px 8px;border-radius:8px;cursor:pointer;line-height:1;}
-    .menu a:hover,.menu button:hover,.menu a:focus-visible,.menu button:focus-visible{background:#f3f6fb;outline:none;}
-    .menu .cta{background:#0d3b66;color:#fff;padding:10px 14px;}
-    .menu .cta:hover,.menu .cta:focus-visible{background:#0b3252;color:#fff;}
+    .menu{display:flex;align-items:center;gap:18px;}
+    .menu > a,
+    .menu > .group > button{appearance:none;background:none;border:none;font:inherit;color:#0b2540;text-decoration:none;padding:.5rem .25rem;cursor:pointer;font-weight:600;}
+    .menu > a:hover,
+    .menu > .group > button:hover{color:#004f91}
+    .menu .cta{background:#004f91;color:#fff;border-radius:8px;padding:.55rem .9rem;}
+    .menu .cta:hover{background:#0d3b66}
 
-    /* dropdowns on desktop */
-    .group{position:relative;}
+    /* dropdowns */
+    .group{position:relative}
+    .group > button{display:inline-flex;align-items:center;gap:.4rem}
+    .group > button::after{content:"";border:5px solid transparent;border-top-color:#0b2540;transform:translateY(2px)}
+    .group:focus-within > .submenu,
+    .group:hover > .submenu{opacity:1;visibility:visible;transform:translateY(0)}
     .submenu{
-      position:absolute;top:100%;left:0;min-width:260px;background:#fff;border:1px solid rgba(0,0,0,.08);
-      box-shadow:0 6px 24px rgba(0,0,0,.08);border-radius:12px;padding:8px;display:none;
+      position:absolute;top:100%;left:0;min-width:240px;background:#fff;border:1px solid rgba(0,0,0,.08);
+      border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);padding:.4rem;display:grid;gap:.15rem;
+      opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .15s ease, transform .15s ease, visibility .15s;
     }
-    .submenu a{display:block;padding:10px;border-radius:8px;color:#0e2a47;}
-    .submenu a:hover,.submenu a:focus-visible{background:#f3f6fb;}
-    .group:focus-within .submenu,.group:hover .submenu{display:block;}
+    .submenu a{display:block;padding:.55rem .7rem;border-radius:8px;text-decoration:none;color:#0b2540;font-weight:600;}
+    .submenu a:hover{background:#f1f5f9;color:#004f91}
 
-    /* mobile drawer */
-    .nav-toggle{display:none;}
-    .hamb{display:none;margin-left:auto;width:44px;height:44px;border:1px solid rgba(0,0,0,.12);border-radius:8px;align-items:center;justify-content:center;cursor:pointer;}
-    .hamb span{display:block;width:22px;height:2px;background:#0e2a47;position:relative;}
-    .hamb span::before,.hamb span::after{content:"";position:absolute;left:0;width:22px;height:2px;background:#0e2a47;}
-    .hamb span::before{top:-7px;} .hamb span::after{top:7px;}
+    /* mobile */
+    .nav-toggle{display:none}
+    .hamb{display:none;}
+    .drawer{display:none;}
 
-    .drawer{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
-    .drawer-inner{max-width:1200px;margin:0 auto;padding:8px 16px 16px;display:grid;gap:8px;}
-    .drawer a,.drawer summary{display:block;padding:10px;border-radius:8px;color:#0e2a47;text-decoration:none;list-style:none;cursor:pointer;}
-    .drawer a:hover,.drawer summary:hover{background:#f3f6fb;}
-    .drawer details{border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:6px;}
-    .drawer summary::-webkit-details-marker{display:none;}
-    .drawer .cta{background:#0d3b66;color:#fff;text-align:center;}
-
-    @media (max-width:980px){
-      .menu{display:none;}
-      .hamb{display:flex;}
-      .nav-toggle:checked ~ .drawer{display:block;}
+    @media (max-width:960px){
+      .menu{display:none}
+      .hamb{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;border:1px solid rgba(0,0,0,.1);cursor:pointer}
+      .hamb span{position:relative;display:block;width:20px;height:2px;background:#0b2540;}
+      .hamb span::before,.hamb span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:#0b2540}
+      .hamb span::before{top:-6px}.hamb span::after{top:6px}
+      .nav-toggle:checked ~ .drawer{max-height:80vh;opacity:1;visibility:visible}
+      .drawer{
+        display:block;max-height:0;overflow:hidden;opacity:0;visibility:hidden;transition:max-height .25s ease,opacity .2s ease,visibility .2s;
+        background:#fff;border-top:1px solid rgba(0,0,0,.08);
+      }
+      .drawer-inner{display:grid;gap:.25rem;padding:.5rem 1rem 1rem;}
+      .drawer a,
+      .drawer summary{display:block;padding:.7rem .25rem;text-decoration:none;color:#0b2540;font-weight:700;cursor:pointer}
+      .drawer details{border:1px solid rgba(0,0,0,.08);border-radius:10px;padding:.25rem .6rem;background:#fff;}
+      .drawer details > a{padding:.5rem .25rem;margin-left:.25rem;font-weight:600}
+      .drawer .cta{background:#004f91;color:#fff;border-radius:8px;text-align:center;margin-top:.3rem}
     }
 
-    /* ======= HERO ======= */
+    /* ===== Page layout niceties ===== */
     .hero-media img{width:100%;height:auto;display:block;}
-    .hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 16px;}
+    .hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:36px 16px;}
     .hero .hero-body{max-width:900px;margin:0 auto;}
-    .hero .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:16px;}
-
-    :root{--h1-size:40px;--h2-size:28px}
-    h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;text-align:center;color:#0b3d72;}
-    h2{font-size:var(--h2-size);line-height:1.25;margin:28px 0 12px;text-align:center;color:#0b3d72;}
-    @media (max-width:768px){ :root{--h1-size:30px;--h2-size:24px} }
-
-    /* content blocks */
-    .home .section{padding:1.5rem 0;}
-    .wins-list{max-width:900px;margin:0 auto;padding-left:2rem;}
+    h1{font-size:40px;line-height:1.2;margin:0 0 10px;color:#0b2540}
+    h2{font-size:28px;line-height:1.25;margin:28px 0 12px;color:#0b2540;text-align:center}
+    @media (max-width:768px){ h1{font-size:30px} h2{font-size:24px} }
+    .content .section{padding:1.5rem 0}
+    .wins-list{max-width:900px;margin:0 auto;padding-left:1.25rem}
     .wins-list li{margin:.25rem 0}
-    @media (max-width:768px){ .wins-list{padding-left:1.25rem;} }
   </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"CoreCloud","url":"https://www.corecloudza.com/"}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png","sameAs":["https://www.linkedin.com/company/corecloudza"]}
+  </script>
 </head>
 
 <body class="home home-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- ======= HEADER / NAV ======= -->
+  <!-- ===== Header / Nav ===== -->
   <header class="site-header" role="banner">
     <div class="nav-wrap">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
         <img src="assets/images/corecloud-logo.png" alt="CoreCloud"/>
-        <span>CoreCloud</span>
       </a>
 
-      <!-- Desktop menu -->
+      <!-- Desktop -->
       <nav class="menu" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="consulting.html">Consulting</a>
 
-        <!-- Cloud Suite dropdown -->
         <div class="group">
           <button type="button" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
@@ -119,10 +129,6 @@
           </div>
         </div>
 
-        <!-- Separate top-level Infrastructure link -->
-        <a href="hosting-private-cloud.html">Infrastructure</a>
-
-        <!-- Curated Talent dropdown -->
         <div class="group">
           <button type="button" aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
@@ -136,11 +142,10 @@
         <a href="contact.html" class="cta">Contact</a>
       </nav>
 
-      <!-- Mobile toggle -->
+      <!-- Mobile -->
       <input type="checkbox" id="nav-open" class="nav-toggle" aria-hidden="true">
       <label for="nav-open" class="hamb" aria-label="Toggle navigation"><span></span></label>
 
-      <!-- Mobile drawer -->
       <nav class="drawer" aria-label="Mobile">
         <div class="drawer-inner">
           <a href="index.html">Home</a>
@@ -154,8 +159,6 @@
             <a href="application-development.html">Application Development</a>
             <a href="data-ai.html">Data &amp; AI</a>
           </details>
-
-          <a href="hosting-private-cloud.html">Infrastructure</a>
 
           <details>
             <summary>Curated Talent</summary>
@@ -171,34 +174,45 @@
     </div>
   </header>
 
-  <!-- ======= HERO IMAGE ======= -->
+  <!-- ===== Banner image ===== -->
   <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
     <img src="assets/images/index-bannerimage.png" alt="From Strategy to Revenue. From Cloud to People." width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
-  <!-- ======= HERO TEXT ======= -->
+  <!-- ===== Hero copy ===== -->
   <section class="hero">
     <div class="hero-body">
       <h1>From Strategy to Revenue. From Cloud to People.</h1>
-      <p>Big ideas mean nothing without results. We help South African enterprises turn strategy into action and revenue —
-        sharper sales execution, modernised cloud, elite ICT talent, and disciplined app delivery.</p>
+      <p>Big ideas mean nothing without results. We help South African enterprises turn strategy into action and revenue — sharper sales execution, modernised cloud, elite ICT talent, and disciplined app delivery.</p>
 
       <h2>Hybrid Isn’t Optional — It’s the Operating Model</h2>
-      <p>One venue cannot win on cost, performance, and risk at the same time. We place each workload where it wins —
-        cloud for elasticity and services; hosted or on-prem for predictable, low-latency, compliant run.</p>
-
-      <div class="cta-row">
+      <p>One venue cannot win on cost, performance, and risk at the same time. We place each workload where it wins — cloud for elasticity and services; hosted or on-prem for predictable, low-latency, compliant run.</p>
+      <div class="hero-ctas" style="margin-top:12px;">
         <a class="cta-btn" href="cloud.html">Design My Hybrid</a>
       </div>
     </div>
   </section>
 
-  <!-- ======= MAIN ======= -->
   <main class="content" id="main">
-    <!-- Keep your existing sections/content here (unchanged) -->
+    <!-- About -->
+    <section class="section" aria-labelledby="about-title">
+      <h2 id="about-title" class="section-title">About CoreCloud</h2>
+      <p style="max-width:900px;margin:0 auto;color:#444;">Operators, not theorists. We’ve been under real boardroom pressure and know how to land change. Sales, cloud, talent, and applications — focused on outcomes that move the needle.</p>
+    </section>
+
+    <!-- Recent wins -->
+    <section class="section" aria-labelledby="wins-title">
+      <h2 id="wins-title" class="section-title">Recent Wins Through Partner Collective</h2>
+      <ul class="wins-list">
+        <li>−32% run-rate: ERP + SQL to hosted private cloud; burst to Azure for quarter-end. DR bundled.</li>
+        <li>−48% latency: Trading analytics hybridised — on-prem GPU + S3-compatible store; cloud for global insights.</li>
+        <li>Zero-downtime move: Payments core via blue/green + feature flags reduced risk during cutover.</li>
+        <li>Talent that lands it: Cloud, data, and platform engineers placed to stabilise ops and accelerate delivery.</li>
+      </ul>
+    </section>
   </main>
 
-  <!-- ======= FOOTER ======= -->
+  <!-- ===== Footer (unchanged) ===== -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -235,5 +249,17 @@
       </p>
     </div>
   </footer>
+
+  <!-- Optional: auto-highlight current page in legacy navs -->
+  <script>
+    (function(){
+      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+        var href=(a.getAttribute('href')||'').toLowerCase();
+        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
+        else{a.classList.remove('active');a.removeAttribute('aria-current');}
+      });
+    })();
+  </script>
 </body>
 </html>
