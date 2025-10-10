@@ -21,142 +21,97 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
 
-  <!-- Page-scoped styles -->
+  <!-- Page-scoped styles (clean, no glass, larger logo) -->
   <style>
-    /* Accessibility */
+    /* a11y: keep skip link hidden until focus */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* ===== Clean Executive Nav (no emojis / no glass) ===== */
-    :root{
-      --nav-bg:#ffffff;
-      --nav-ink:#0e2240;         /* deep ink */
-      --nav-accent:#004f91;      /* CoreCloud blue */
-      --nav-border:#e6edf5;      /* subtle divider */
-      --nav-hover:#f5f8fc;       /* light hover */
-    }
-    .nav-wrap{
-      position:sticky; top:0; z-index:9999; background:var(--nav-bg);
-      border-bottom:1px solid var(--nav-border);
-    }
-    .nav-inner{
-      max-width:1200px; margin:0 auto; padding:10px 14px;
-      display:flex; align-items:center; gap:16px;
-    }
-    .nav-brand img{height:44px; width:auto; display:block;}
-    .nav-menu{margin-left:auto; display:flex; align-items:center; gap:4px;}
-    .nav-link{
-      display:inline-flex; align-items:center;
-      padding:.55rem .75rem; border-radius:10px;
-      font-weight:700; font-size:.95rem; color:var(--nav-ink); text-decoration:none;
-    }
-    .nav-link:hover{ background:var(--nav-hover); }
-    .nav-link.is-active{ background:#eaf2fb; color:var(--nav-accent); }
+    /* ---- Header / Nav (minimal, no icons, no glass) ---- */
+    .nav{position:sticky;top:0;z-index:800;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
+    .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 16px;}
+    .nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;}
+    .nav-brand img{height:64px;width:auto;display:block;}  /* MATCH site-wide logo height */
+    .brand-text{font-weight:800;letter-spacing:.2px;color:#0b3d72;font-size:1.05rem;display:none;}
+    @media (min-width:900px){ .brand-text{display:inline;} }
 
-    .nav-group{ position:relative; }
-    .nav-button{
-      border:0; background:transparent; cursor:pointer;
-      padding:.55rem .75rem; border-radius:10px; font-weight:700; font-size:.95rem; color:var(--nav-ink);
+    /* Primary menu */
+    .menu{margin-left:auto;display:flex;align-items:center;gap:14px;}
+    .menu a,
+    .menu button{appearance:none;background:none;border:0;font:inherit;color:#0e2a47;text-decoration:none;padding:10px 8px;border-radius:8px;cursor:pointer;line-height:1;}
+    .menu a:hover, .menu button:hover, .menu a:focus-visible, .menu button:focus-visible{
+      background:#f3f6fb;outline:none;
     }
-    .nav-button:hover{ background:var(--nav-hover); }
-    .nav-button::after{
-      content:""; display:inline-block; margin-left:8px; width:6px; height:6px;
-      border-bottom:2px solid var(--nav-ink); border-right:2px solid var(--nav-ink);
-      transform:rotate(45deg); opacity:.7;
+    .menu .cta{background:#0d3b66;color:#fff;padding:10px 14px;}
+    .menu .cta:hover, .menu .cta:focus-visible{background:#0b3252;color:#fff;}
+
+    /* Dropdown groups (hover/focus on desktop, click via details on mobile) */
+    .group{position:relative;}
+    .submenu{
+      position:absolute;top:100%;left:0;min-width:260px;background:#fff;border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 6px 24px rgba(0,0,0,.08);border-radius:12px;padding:8px;display:none;
     }
-    .nav-submenu{
-      position:absolute; left:0; top:calc(100% + 10px); display:none; min-width:260px;
-      background:#fff; border:1px solid var(--nav-border); border-radius:12px; padding:.4rem;
-      box-shadow:0 12px 30px rgba(0,0,0,.08);
-    }
-    .nav-submenu a{
-      display:block; padding:.55rem .65rem; border-radius:8px;
-      color:var(--nav-ink); text-decoration:none; font-weight:600;
-    }
-    .nav-submenu a:hover{ background:var(--nav-hover); }
-    @media (min-width:981px){
-      .nav-group:hover .nav-submenu,
-      .nav-group:focus-within .nav-submenu{ display:block; }
+    .group:focus-within .submenu, .group:hover .submenu{display:block;}
+    .submenu a{display:block;padding:10px 10px;border-radius:8px;color:#0e2a47;}
+    .submenu a:hover, .submenu a:focus-visible{background:#f3f6fb;}
+
+    /* Mobile: checkbox drawer */
+    .nav-toggle{display:none;}
+    .hamb{display:none;cursor:pointer;margin-left:auto;width:42px;height:42px;border-radius:8px;align-items:center;justify-content:center;border:1px solid rgba(0,0,0,.1);}
+    .hamb span{display:block;width:22px;height:2px;background:#0e2a47;position:relative;}
+    .hamb span::before,.hamb span::after{content:"";position:absolute;left:0;width:22px;height:2px;background:#0e2a47;}
+    .hamb span::before{top:-7px;} .hamb span::after{top:7px;}
+
+    @media (max-width:960px){
+      .menu{display:none;}
+      .hamb{display:flex;}
+      .drawer{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
+      .nav-toggle:checked ~ .drawer{display:block;}
+      .drawer-inner{max-width:1200px;margin:0 auto;padding:8px 16px 16px;display:grid;gap:8px;}
+      .drawer a, .drawer summary{display:block;padding:10px;border-radius:8px;color:#0e2a47;text-decoration:none;list-style:none;cursor:pointer;}
+      .drawer details{border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:6px;}
+      .drawer summary::-webkit-details-marker{display:none;}
+      .drawer .submenu-col a{padding:10px;border-radius:8px;}
+      .drawer a:hover, .drawer summary:hover{background:#f3f6fb;}
+      .menu .cta{display:none;}
+      .drawer .cta{background:#0d3b66;color:#fff;text-align:center;}
     }
 
-    /* Mobile */
-    .nav-toggle{ display:none; }
-    .hamburger{
-      margin-left:auto; display:none; flex-direction:column; gap:5px; cursor:pointer; padding:.4rem .2rem;
-    }
-    .hamburger span{ width:24px; height:2px; background:var(--nav-ink); display:block; border-radius:2px; }
-
-    .nav-mobile{ display:none; flex-direction:column; gap:.25rem; width:100%; padding:8px 0; }
-    .nav-mobile a, .nav-mobile summary{
-      display:block; padding:.7rem .75rem; border-radius:10px; font-weight:700;
-      color:var(--nav-ink); text-decoration:none;
-    }
-    .nav-mobile a:hover{ background:var(--nav-hover); }
-    .nav-mobile details{ border-top:1px solid var(--nav-border); padding-top:.35rem; }
-    .nav-mobile details:first-of-type{ border-top:none; padding-top:0; }
-    .nav-mobile details > a{ padding-left:1rem; }
-    .mobile-cta{
-      background:var(--nav-accent); color:#fff; text-align:center; border-radius:10px;
-    }
-    @media (max-width:980px){
-      .hamburger{ display:flex; }
-      .nav-menu{ display:none; }
-      .nav-toggle:checked ~ .nav-mobile{ display:flex; }
-    }
-
-    /* Banner image */
+    /* ---- Hero image + text ---- */
     .hero-media img{width:100%;height:auto;display:block;}
-
-    /* Centralised hero UNDER the banner image */
     .hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 16px;}
     .hero .hero-body{max-width:900px;margin:0 auto;}
     .hero .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:16px;}
     @media (max-width:768px){ .hero{padding:28px 14px} .hero .hero-body{max-width:680px} }
 
-    /* Title sizing + centered by default */
     :root{ --h1-size:40px; --h2-size:28px; }
-    h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;text-align:center;}
+    h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;text-align:center;color:#0b3d72;}
     h2,.section .section-title,h2.section-title,section .section-title{
-      font-size:var(--h2-size);line-height:1.25;margin:28px 0 12px;text-align:center;
+      font-size:var(--h2-size);line-height:1.25;margin:28px 0 12px;text-align:center;color:#0b3d72;
     }
     @media (max-width:768px){ :root{--h1-size:30px;--h2-size:24px} }
 
-    /* Home defaults */
+    /* Home content */
     .home .section{padding:1.5rem 0;}
     .home .card-grid{padding:0 1rem;}
     .home .content, .home .content p, .home .content li, .home .content a{word-break:break-word;overflow-wrap:anywhere;}
+    .wins-list{max-width:900px;margin:0 auto;padding-left:2rem;}
+    .wins-list li{margin:.25rem 0}
+    @media (max-width:768px){ .wins-list{padding-left:1.25rem;} }
 
-    /* Force-center section titles */
-    section[aria-labelledby="about-title"] > .section-title,
-    section[aria-labelledby="services-title"] > .section-title,
-    section[aria-labelledby="wins-title"] > .section-title { text-align:center !important; }
-
-    /* LEFT align for Why/What/How/Principles/Outcomes (H3 + paras) */
-    section[aria-labelledby="focus-title"] > h3,
-    section[aria-labelledby="focus-title"] > h3 + p { text-align:left; margin-left:0; }
-    section[aria-labelledby="focus-title"]{ --indent: 1.25rem; }
-    section[aria-labelledby="focus-title"] > h3 + p{ margin-left: var(--indent); }
-    @media (max-width:768px){
-      section[aria-labelledby="focus-title"]{ --indent: .75rem; }
-    }
-
-    section[aria-labelledby="vdf-title"] > h3{ text-align:left; margin-left:0; }
-    section[aria-labelledby="wins-title"] .wins-list{ max-width:900px;margin:0 auto;padding-left:2rem; }
-    section[aria-labelledby="wins-title"] .wins-list li{margin:.25rem 0}
-    @media (max-width:768px){ section[aria-labelledby="wins-title"] .wins-list{padding-left:1.25rem;} }
-
-    /* Trim whitespace above About & Focus */
-    section[aria-labelledby="about-title"], section[aria-labelledby="focus-title"]{ padding-top:.6rem; }
+    /* Trim extra whitespace above About & Focus */
+    section[aria-labelledby="about-title"],
+    section[aria-labelledby="focus-title"]{ padding-top:.6rem; }
     section[aria-labelledby="about-title"] > .section-title,
     section[aria-labelledby="focus-title"] > .section-title{ margin-top:10px; }
   </style>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"WebSite","name":"CoreCloud","url":"https://www.corecloudza.com/","publisher":{"@type":"Organization","name":"CoreCloud"}}
+  {"@context":"https://schema.org","@type":"WebSite","name":"CoreCloud","url":"https://www.corecloudza.com/","publisher":{"@type":"Organization","name":"CoreCloud"}}
   </script>
   <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png","sameAs":["https://www.linkedin.com/company/corecloudza"],"contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"sales@corecloudza.com","telephone":"+27 11 568 8667","areaServed":"ZA"}],"address":{"@type":"PostalAddress","addressLocality":"Johannesburg","addressRegion":"Gauteng","addressCountry":"ZA"}}
+  {"@context":"https://schema.org","@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png","sameAs":["https://www.linkedin.com/company/corecloudza"],"contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"sales@corecloudza.com","telephone":"+27 11 568 8667","areaServed":"ZA"}],"address":{"@type":"PostalAddress","addressLocality":"Johannesburg","addressRegion":"Gauteng","addressCountry":"ZA"}}
   </script>
 </head>
 
@@ -164,25 +119,21 @@
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- Header / Nav -->
-  <div class="nav-wrap">
+  <header class="nav" role="banner">
     <div class="nav-inner">
       <a class="nav-brand" href="index.html" aria-label="CoreCloud Home">
         <img src="assets/images/corecloud-logo.png" alt="CoreCloud"/>
+        <span class="brand-text">CoreCloud</span>
       </a>
 
-      <!-- Mobile toggle (CSS-only) -->
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
+      <!-- Desktop menu -->
+      <nav class="menu" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="consulting.html">Consulting</a>
 
-      <!-- Desktop nav -->
-      <nav class="nav-menu" aria-label="Primary">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="consulting.html" class="nav-link">Consulting</a>
-
-        <!-- Cloud Suite -->
-        <div class="nav-group">
-          <button class="nav-button" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
-          <div class="nav-submenu" role="menu" aria-label="Cloud Suite">
+        <div class="group">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <div class="submenu" role="menu" aria-label="Cloud Suite">
             <a role="menuitem" href="cloud.html">Overview</a>
             <a role="menuitem" href="finops.html">FinOps</a>
             <a role="menuitem" href="hosting-private-cloud.html">Hosting / Infrastructure</a>
@@ -191,46 +142,55 @@
           </div>
         </div>
 
-        <!-- Curated Talent -->
-        <div class="nav-group">
-          <button class="nav-button" aria-haspopup="true" aria-expanded="false">Curated Talent</button>
-          <div class="nav-submenu" role="menu" aria-label="Curated Talent">
+        <div class="group">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <div class="submenu" role="menu" aria-label="Curated Talent">
             <a role="menuitem" href="talent.html">Overview</a>
             <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
           </div>
         </div>
 
-        <a href="about.html" class="nav-link">About</a>
-        <a href="blog.html" class="nav-link">Insights</a>
-        <a href="contact.html" class="nav-link" style="background:var(--nav-accent);color:#fff;">Contact</a>
-      </nav>
-
-      <!-- Mobile drawer -->
-      <nav class="nav-mobile" aria-label="Mobile">
-        <a href="index.html">Home</a>
-        <a href="consulting.html">Consulting</a>
-
-        <details>
-          <summary>Cloud Suite</summary>
-          <a href="cloud.html">Overview</a>
-          <a href="finops.html">FinOps</a>
-          <a href="hosting-private-cloud.html">Hosting / Infrastructure</a>
-          <a href="application-development.html">Application Development</a>
-          <a href="data-ai.html">Data &amp; AI</a>
-        </details>
-
-        <details>
-          <summary>Curated Talent</summary>
-          <a href="talent.html">Overview</a>
-          <a href="talent-relaunch.html">RE/LAUNCH</a>
-        </details>
-
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
-        <a href="contact.html" class="mobile-cta">Contact</a>
+        <a href="contact.html" class="cta">Contact</a>
+      </nav>
+
+      <!-- Mobile toggle -->
+      <input type="checkbox" id="nav-open" class="nav-toggle" aria-hidden="true">
+      <label for="nav-open" class="hamb" aria-label="Toggle navigation"><span></span></label>
+
+      <!-- Mobile drawer -->
+      <nav class="drawer" aria-label="Mobile">
+        <div class="drawer-inner">
+          <a href="index.html">Home</a>
+          <a href="consulting.html">Consulting</a>
+
+          <details>
+            <summary>Cloud Suite</summary>
+            <div class="submenu-col">
+              <a href="cloud.html">Overview</a>
+              <a href="finops.html">FinOps</a>
+              <a href="hosting-private-cloud.html">Hosting / Infrastructure</a>
+              <a href="application-development.html">Application Development</a>
+              <a href="data-ai.html">Data &amp; AI</a>
+            </div>
+          </details>
+
+          <details>
+            <summary>Curated Talent</summary>
+            <div class="submenu-col">
+              <a href="talent.html">Overview</a>
+              <a href="talent-relaunch.html">RE/LAUNCH</a>
+            </div>
+          </details>
+
+          <a href="about.html">About</a>
+          <a href="blog.html">Insights</a>
+          <a href="contact.html" class="cta">Contact</a>
+        </div>
       </nav>
     </div>
-  </div>
+  </header>
 
   <!-- Banner image -->
   <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
@@ -258,7 +218,7 @@
     <!-- About -->
     <section class="section" aria-labelledby="about-title">
       <h2 id="about-title" class="section-title">About CoreCloud</h2>
-      <p>Operators, not theorists. We’ve been under real boardroom pressure and know how to land change. Sales, cloud, talent, and applications — focused on outcomes that move the needle.</p>
+      <p style="max-width:900px;margin:0 auto;color:#444;">Operators, not theorists. We’ve been under real boardroom pressure and know how to land change. Sales, cloud, talent, and applications — focused on outcomes that move the needle.</p>
     </section>
 
     <!-- Why / What / How / Principles / Outcomes -->
@@ -281,7 +241,7 @@
       <p>Typical results: 20–40% run-rate reduction on steady workloads, double-digit latency improvements for data/analytics, faster cycle time for change, and fewer incidents because ops is designed — not inherited.</p>
     </section>
 
-    <!-- Venue Decision Framework -->
+    <!-- The Venue Decision Framework -->
     <section class="section" aria-labelledby="vdf-title">
       <h2 id="vdf-title" class="section-title">The Venue Decision Framework</h2>
 
@@ -398,18 +358,15 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter -->
+  <!-- (Optional) Auto-highlight current in legacy navs; safe to keep -->
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-      function mark(selector){
-        document.querySelectorAll(selector).forEach(function(a){
-          var href=(a.getAttribute('href')||'').toLowerCase();
-          if(href===path){ a.classList.add('is-active'); a.setAttribute('aria-current','page'); }
-        });
-      }
-      mark('.nav-menu a');
-      mark('.nav-mobile a');
+      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+        var href=(a.getAttribute('href')||'').toLowerCase();
+        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
+        else{a.classList.remove('active');a.removeAttribute('aria-current');}
+      });
     })();
   </script>
 </body>
