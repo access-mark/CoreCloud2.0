@@ -23,32 +23,37 @@
 
   <!-- Page-scoped styles -->
   <style>
+    :root{
+      --royal-blue:#004f91;
+      --royal-blue-2:#0b3d72; /* dark companion */
+    }
+
     /* ===== Accessibility ===== */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;left:12px;top:12px;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* ===== Header / Nav (clean, hover dropdowns, uniform sizing) ===== */
+    /* ===== Header / Nav (hover dropdowns, uniform sizing) ===== */
     .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
-    .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;} /* tighter vertical padding */
+    .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
     .brand{display:inline-flex;align-items:center;text-decoration:none}
-    .brand .logo{height:110px;width:auto;} /* larger logo */
+    .brand .logo{height:110px;width:auto;} /* larger logo as requested */
     @media (max-width:768px){ .brand .logo{height:84px;} }
 
     .main-nav{display:flex;align-items:center;gap:18px;}
     .main-nav > a,
     .main-nav > .nav-group > button{
-      font-size:.98rem;            /* uniform size */
-      font-weight:500;             /* medium (not bold) */
+      font-size:.98rem;
+      font-weight:500;             /* not bold */
       letter-spacing:.1px;
-      color:#0b3d72;               /* dark brand blue */
+      color:var(--royal-blue-2);
       text-decoration:none;
-      padding:14px 10px;           /* uniform hit area */
+      padding:14px 10px;
       line-height:1;
       border:none;background:transparent;cursor:pointer;
     }
     .main-nav > a:hover,
-    .main-nav > .nav-group > button:hover{ color:#004f91; }
-    .main-nav > a.active{ color:#004f91; border-bottom:2px solid #004f91; }
+    .main-nav > .nav-group > button:hover{ color:var(--royal-blue); }
+    .main-nav > a.active{ color:var(--royal-blue); border-bottom:2px solid var(--royal-blue); }
 
     /* Dropdowns */
     .nav-group{position:relative;}
@@ -58,67 +63,75 @@
       border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);
       min-width:260px;padding:8px;display:none;
     }
-    /* Show on hover and keyboard focus */
     .nav-group:hover .submenu,
     .nav-group:focus-within .submenu{display:block;}
-
     .submenu a{
-      display:block;padding:10px 12px;border-radius:8px;color:#0b3d72;text-decoration:none;font-weight:500;font-size:.95rem;
+      display:block;padding:10px 12px;border-radius:8px;color:var(--royal-blue-2);text-decoration:none;font-weight:500;font-size:.95rem;
     }
-    .submenu a:hover{ background:#f2f7ff; color:#004f91; }
+    .submenu a:hover{ background:#f2f7ff; color:var(--royal-blue); }
 
     /* Mobile toggle */
     .nav-toggle{display:none}
     .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center}
-    .hamburger span{display:block;width:20px;height:2px;background:#0b3d72;position:relative}
-    .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:#0b3d72}
+    .hamburger span{display:block;width:20px;height:2px;background:var(--royal-blue-2);position:relative}
+    .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--royal-blue-2)}
     .hamburger span::before{top:-6px}.hamburger span::after{top:6px}
-
     .mobile-drawer{display:none;border-top:1px solid rgba(0,0,0,.06);background:#fff}
     .mobile-drawer a,
-    .mobile-drawer summary{
-      display:block;padding:12px 16px;color:#0b3d72;text-decoration:none;font-weight:500;cursor:pointer;
-    }
+    .mobile-drawer summary{display:block;padding:12px 16px;color:var(--royal-blue-2);text-decoration:none;font-weight:500;cursor:pointer;}
     .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
     .mobile-drawer details[open] summary{background:#f7fbff}
     .mobile-drawer a:hover{background:#f2f7ff}
     .nav-toggle:checked ~ .mobile-drawer{display:block}
-
-    @media (max-width:1024px){
-      .main-nav{display:none}
-      .hamburger{display:inline-flex}
-    }
+    @media (max-width:1024px){ .main-nav{display:none} .hamburger{display:inline-flex} }
 
     /* ===== Banner with royal-blue framing lines ===== */
-    .hero-frame{border-top:4px solid #004f91;border-bottom:4px solid #004f91;}
+    .hero-frame{border-top:4px solid var(--royal-blue);border-bottom:4px solid var(--royal-blue);}
     .hero-media img{width:100%;height:auto;display:block;}
 
-    /* ===== Hero copy (royal/dark blue) ===== */
+    /* ===== Hero copy ===== */
     .hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:32px 16px;}
     .hero .hero-body{max-width:900px;margin:0 auto;}
     :root{ --h1-size:40px; --h2-size:28px; }
-    h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;text-align:center;color:#004f91;}  /* royal blue */
+    h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;text-align:center;color:var(--royal-blue);}
     h2,.section .section-title,h2.section-title,section .section-title{
-      font-size:var(--h2-size);line-height:1.25;margin:28px 0 12px;text-align:center;color:#0b3d72; /* dark blue */
+      font-size:var(--h2-size);line-height:1.25;margin:28px 0 12px;text-align:center;color:var(--royal-blue-2);
     }
-    .hero p{color:#0b3d72;}
+    .hero p{color:var(--royal-blue-2);}
     @media (max-width:768px){ :root{--h1-size:30px;--h2-size:24px} .hero{padding:24px 14px} }
+
+    /* ===== Unified Royal Blue Typography in MAIN only ===== */
+    body.home-page main,
+    body.home-page main p,
+    body.home-page main li,
+    body.home-page main h1,
+    body.home-page main h2,
+    body.home-page main h3,
+    body.home-page main h4,
+    body.home-page main h5,
+    body.home-page main h6,
+    body.home-page main a{
+      color:var(--royal-blue) !important;
+    }
+    body.home-page main a{text-decoration:underline;}
+    body.home-page main a:hover{color:#0066b2 !important;}
+
+    /* Keep CTA buttons readable */
+    .cta-btn{ color:#fff !important; background:var(--royal-blue); }
+    .cta-btn:hover{ background:#0066b2; }
 
     /* ===== Content rhythm ===== */
     .home .section{padding:1.5rem 0;}
     .home .card-grid{padding:0 1rem;}
     .home .content, .home .content p, .home .content li, .home .content a{word-break:break-word;overflow-wrap:anywhere;}
-    /* Centered H2s */
-    section[aria-labelledby="about-title"] > .section-title,
-    section[aria-labelledby="services-title"] > .section-title,
-    section[aria-labelledby="wins-title"] > .section-title { text-align:center !important; }
-    /* Left-align for Focus H3 + paras */
+
+    /* Left align sub-sections without changing color now (color unified above) */
     section[aria-labelledby="focus-title"] > h3,
-    section[aria-labelledby="focus-title"] > h3 + p { text-align:left; margin-left:0; color:#333; }
+    section[aria-labelledby="focus-title"] > h3 + p{ text-align:left; margin-left:0; }
     section[aria-labelledby="focus-title"]{ --indent: 1.25rem; }
     section[aria-labelledby="focus-title"] > h3 + p{ margin-left: var(--indent); }
-    section[aria-labelledby="vdf-title"] > h3{ text-align:left; margin-left:0; color:#333; }
-    /* Wins bullets */
+    section[aria-labelledby="vdf-title"] > h3{ text-align:left; margin-left:0; }
+
     section[aria-labelledby="wins-title"] .wins-list{max-width:900px;margin:0 auto;padding-left:2rem;}
     section[aria-labelledby="wins-title"] .wins-list li{margin:.25rem 0}
     @media (max-width:768px){
@@ -167,6 +180,7 @@
           <div class="submenu" role="menu" aria-label="Curated Talent">
             <a role="menuitem" href="talent.html">Overview</a>
             <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="global-talent.html">Global Talent</a>
           </div>
         </div>
 
@@ -198,6 +212,7 @@
         <summary>Curated Talent</summary>
         <a href="talent.html">Overview</a>
         <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="global-talent.html">Global Talent</a>
       </details>
 
       <a href="about.html">About</a>
