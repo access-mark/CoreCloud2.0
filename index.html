@@ -27,48 +27,53 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;left:12px;top:12px;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* ===== Header / Nav (clean, no glass, no icons) ===== */
+    /* ===== Header / Nav (clean, hover dropdowns, uniform sizing) ===== */
     .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
-    .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:8px 16px;} /* tighter padding */
-    .brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none}
-    .brand .logo{height:84px;width:auto;} /* larger logo, not stretched */
-    @media (max-width:768px){ .brand .logo{height:70px;} }
+    .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;} /* tighter vertical padding */
+    .brand{display:inline-flex;align-items:center;text-decoration:none}
+    .brand .logo{height:110px;width:auto;} /* larger logo */
+    @media (max-width:768px){ .brand .logo{height:84px;} }
 
-    /* desktop nav */
     .main-nav{display:flex;align-items:center;gap:18px;}
     .main-nav > a,
     .main-nav > .nav-group > button{
-      font-weight:500; /* not bold */
-      color:#0b3d72; /* brand/dark blue */
+      font-size:.98rem;            /* uniform size */
+      font-weight:500;             /* medium (not bold) */
+      letter-spacing:.1px;
+      color:#0b3d72;               /* dark brand blue */
       text-decoration:none;
-      padding:10px 8px;
+      padding:14px 10px;           /* uniform hit area */
+      line-height:1;
       border:none;background:transparent;cursor:pointer;
     }
     .main-nav > a:hover,
     .main-nav > .nav-group > button:hover{ color:#004f91; }
+    .main-nav > a.active{ color:#004f91; border-bottom:2px solid #004f91; }
 
-    /* dropdowns */
+    /* Dropdowns */
     .nav-group{position:relative;}
     .nav-group .submenu{
       position:absolute;left:0;top:100%;
       background:#fff;border:1px solid rgba(0,0,0,.08);
       border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);
-      min-width:240px;padding:8px;display:none;
+      min-width:260px;padding:8px;display:none;
     }
-    .nav-group:hover .submenu{display:block;}
+    /* Show on hover and keyboard focus */
+    .nav-group:hover .submenu,
+    .nav-group:focus-within .submenu{display:block;}
+
     .submenu a{
-      display:block;padding:10px 12px;border-radius:8px;color:#0b3d72;text-decoration:none;font-weight:500;
+      display:block;padding:10px 12px;border-radius:8px;color:#0b3d72;text-decoration:none;font-weight:500;font-size:.95rem;
     }
     .submenu a:hover{ background:#f2f7ff; color:#004f91; }
 
-    /* mobile toggle */
+    /* Mobile toggle */
     .nav-toggle{display:none}
     .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center}
     .hamburger span{display:block;width:20px;height:2px;background:#0b3d72;position:relative}
     .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:#0b3d72}
     .hamburger span::before{top:-6px}.hamburger span::after{top:6px}
 
-    /* mobile drawer */
     .mobile-drawer{display:none;border-top:1px solid rgba(0,0,0,.06);background:#fff}
     .mobile-drawer a,
     .mobile-drawer summary{
@@ -89,15 +94,15 @@
     .hero-media img{width:100%;height:auto;display:block;}
 
     /* ===== Hero copy (royal/dark blue) ===== */
-    .hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:36px 16px;}
+    .hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:32px 16px;}
     .hero .hero-body{max-width:900px;margin:0 auto;}
     :root{ --h1-size:40px; --h2-size:28px; }
     h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;text-align:center;color:#004f91;}  /* royal blue */
     h2,.section .section-title,h2.section-title,section .section-title{
       font-size:var(--h2-size);line-height:1.25;margin:28px 0 12px;text-align:center;color:#0b3d72; /* dark blue */
     }
-    .hero p{color:#0b3d72;} /* dark blue body under hero */
-    @media (max-width:768px){ :root{--h1-size:30px;--h2-size:24px} .hero{padding:26px 14px} }
+    .hero p{color:#0b3d72;}
+    @media (max-width:768px){ :root{--h1-size:30px;--h2-size:24px} .hero{padding:24px 14px} }
 
     /* ===== Content rhythm ===== */
     .home .section{padding:1.5rem 0;}
@@ -143,7 +148,7 @@
 
       <!-- Desktop nav -->
       <nav class="main-nav" aria-label="Primary">
-        <a href="index.html">Home</a>
+        <a href="index.html" class="active">Home</a>
         <a href="consulting.html">Consulting</a>
 
         <div class="nav-group">
@@ -369,7 +374,7 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current nav (kept for non-dropdown links) -->
+  <!-- Auto-highlight current top-level links -->
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
