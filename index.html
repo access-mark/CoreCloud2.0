@@ -98,49 +98,75 @@
 <body class="home home-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav -->
-  <header class="small-banner">
-    <div class="banner-header">
-      <a href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
-      </a>
+ <!-- Header / Nav: AI Glass -->
+<div class="ai-nav">
+  <div class="ai-nav-inner">
+    <a class="brand" href="index.html" aria-label="CoreCloud Home">
+      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" width="164" height="48" decoding="async" />
+    </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
+    <!-- Mobile toggle (CSS-only) -->
+    <input type="checkbox" id="ai-nav-toggle" class="ai-nav-toggle" aria-hidden="true">
+    <label for="ai-nav-toggle" class="ai-hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-      <nav class="desktop-nav" aria-label="Primary">
-        <a href="index.html" class="nav-btn active" aria-current="page">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULT</a>
-        <a href="cloud.html" class="nav-btn">CLOUD</a>
-        <a href="finops.html" class="nav-btn">FINOPS</a>
-        <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="mobile-web.html" class="nav-btn">APP&nbsp;DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
-        <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
-        <a href="about.html" class="nav-btn">ABOUT</a>
-        <a href="blog.html" class="nav-btn">BLOG</a>
-        <a href="contact.html" class="nav-btn">CONTACT</a>
-      </nav>
+    <!-- Desktop nav -->
+    <nav class="ai-menu" aria-label="Primary">
+      <a href="index.html" class="ai-link">Home</a>
+      <a href="consulting.html" class="ai-link">Consulting</a>
 
-      <nav class="mobile-nav" aria-label="Mobile">
-        <a href="index.html" class="active" aria-current="page">HOME</a>
-        <a href="consulting.html">CONSULT</a>
-        <a href="cloud.html">CLOUD</a>
-        <a href="finops.html">FINOPS</a>
-        <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="mobile-web.html">APP DEVELOPMENT</a>
-        <a href="data-ai.html">DATA &amp; AI</a>
-        <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">IMPRINTING</a>
-        <a href="about.html">ABOUT</a>
-        <a href="blog.html">BLOG</a>
-        <a href="contact.html">CONTACT</a>
-      </nav>
-    </div>
-  </header>
+      <!-- Cloud Suite -->
+      <div class="ai-group">
+        <button class="ai-link has-caret" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+        <div class="ai-submenu" role="menu" aria-label="Cloud Suite">
+          <a role="menuitem" href="cloud.html"><span class="ai-ico">🌐</span> Overview</a>
+          <a role="menuitem" href="finops.html"><span class="ai-ico">📊</span> FinOps</a>
+          <a role="menuitem" href="hosting-private-cloud.html"><span class="ai-ico">🛡️</span> Hosting / Infrastructure</a>
+          <a role="menuitem" href="application-development.html"><span class="ai-ico">⚙️</span> Application Development</a>
+          <a role="menuitem" href="data-ai.html"><span class="ai-ico">🧠</span> Data &amp; AI</a>
+        </div>
+      </div>
+
+      <!-- Curated Talent -->
+      <div class="ai-group">
+        <button class="ai-link has-caret" aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+        <div class="ai-submenu" role="menu" aria-label="Curated Talent">
+          <a role="menuitem" href="talent.html"><span class="ai-ico">👥</span> Overview</a>
+          <a role="menuitem" href="talent-relaunch.html"><span class="ai-ico">🚀</span> RE/LAUNCH</a>
+        </div>
+      </div>
+
+      <a href="about.html" class="ai-link">About</a>
+      <a href="blog.html" class="ai-link">Insights</a>
+      <a href="contact.html" class="ai-link ai-cta">Contact</a>
+    </nav>
+
+    <!-- Mobile drawer (same links) -->
+    <nav class="ai-mobile" aria-label="Mobile">
+      <a href="index.html">Home</a>
+      <a href="consulting.html">Consulting</a>
+
+      <details>
+        <summary>Cloud Suite</summary>
+        <a href="cloud.html">Overview</a>
+        <a href="finops.html">FinOps</a>
+        <a href="hosting-private-cloud.html">Hosting / Infrastructure</a>
+        <a href="application-development.html">Application Development</a>
+        <a href="data-ai.html">Data &amp; AI</a>
+      </details>
+
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+      </details>
+
+      <a href="about.html">About</a>
+      <a href="blog.html">Insights</a>
+      <a href="contact.html" class="mobile-cta">Contact</a>
+    </nav>
+  </div>
+</div>
+
 
   <!-- Banner image -->
   <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
