@@ -22,11 +22,11 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
 
-  <!-- Page-scoped nav (IDENTICAL to About) + royal frame + small utilities -->
+  <!-- Page-scoped: About-style nav + royal frame + mobile fix -->
   <style>
     :root{ --royal:#004f91; --royal-2:#0b3d72; }
 
-    /* ===== Header + nav (same as About) ===== */
+    /* ===== Header + nav (IDENTICAL pattern to About) ===== */
     .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
     .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
     .brand .logo{height:110px;width:auto;}
@@ -65,13 +65,25 @@
     #nav-toggle:checked ~ nav.mobile-drawer{display:block}
     @media(max-width:1024px){.main-nav{display:none}.hamburger{display:inline-flex}}
 
-    /* ===== Royal-blue frame ===== */
+    /* ===== Royal-blue frame around banner ===== */
     .hero-frame{border-top:4px solid var(--royal);border-bottom:4px solid var(--royal);}
     .hero-media img{width:100%;height:auto;display:block;}
 
-    /* Utilities */
+    /* ===== Utilities ===== */
     .centered{max-width:1000px;margin:0 auto;text-align:center;padding:0 1rem;}
     .narrative h3,.narrative p{ text-align:left !important; }
+
+    /* ===== Mobile-only fix for page cut-off (no desktop impact) ===== */
+    @media (max-width:1024px){
+      html, body{
+        height:auto !important;    /* allow page to expand beyond viewport */
+        min-height:100% !important;
+        overflow-y:auto !important;/* make sure we can scroll */
+      }
+      /* Slightly tighter mobile spacing for grids/hero copy */
+      .card-grid{ padding:0 1rem; gap:1rem; }
+      .hero-intro{ padding:0 .75rem; }
+    }
   </style>
 
   <!-- JSON-LD -->
@@ -84,7 +96,7 @@
 </head>
 
 <body class="home-page">
-  <!-- ===== Header (About clone) ===== -->
+  <!-- ===== Header (About-style) ===== -->
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
