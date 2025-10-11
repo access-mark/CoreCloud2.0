@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>CoreCloud | Cloud Consulting, AWS/Azure, Hybrid FinOps & Talent – South Africa</title>
   <meta name="description" content="From strategy to revenue. CoreCloud helps South African enterprises align GTM, cloud, FinOps, apps, and talent — practical execution that reduces run-rate, improves latency, and ships value."/>
   <meta name="robots" content="index, follow"/>
-  <meta name="author" content="CoreCloud"/>
   <meta name="theme-color" content="#004f91"/>
 
   <!-- Canonical + Social -->
@@ -19,20 +19,19 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
 
-  <!-- Page-scoped fixes & theme -->
+  <!-- Page-scoped fixes/theme (matches About’s nav pattern) -->
   <style>
-    :root{ --royal:#004f91; --royal-2:#0b3d72; }
+    :root{ --royal:#004f91; --royal-2:#0b3d72; --h1-size:40px; --h2-size:28px; }
 
     /* Accessibility */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;left:12px;top:12px;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:2002;}
 
-    /* Header / Nav */
-    .site-header{position:sticky;top:0;z-index:2000;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
+    /* Header + nav (identical structure/behavior to About) */
+    .site-header{position:sticky;top:0;z-index:1999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
     .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
-    .brand{display:inline-flex;align-items:center;text-decoration:none}
     .brand .logo{height:110px;width:auto;display:block;object-fit:contain}
     @media (max-width:768px){ .brand .logo{height:84px;} }
 
@@ -40,84 +39,59 @@
     .main-nav > a,
     .main-nav > .nav-group > button{
       font-size:.98rem;font-weight:500;letter-spacing:.1px;
-      color:var(--royal-2);text-decoration:none;padding:14px 10px;line-height:1;
-      border:none;background:transparent;cursor:pointer;
+      color:var(--royal-2);text-decoration:none;padding:14px 10px;line-height:1;border:none;background:transparent;cursor:pointer;
     }
     .main-nav > a:hover,
-    .main-nav > .nav-group > button:hover{ color:var(--royal); }
-    .main-nav > a.active{ color:var(--royal); border-bottom:2px solid var(--royal); }
+    .main-nav > .nav-group > button:hover{color:var(--royal);}
+    .main-nav > a.active{color:var(--royal);border-bottom:2px solid var(--royal);}
 
-    /* Desktop dropdowns on hover/focus */
+    /* Desktop dropdowns */
     .nav-group{position:relative;}
     .nav-group .submenu{
       position:absolute;left:0;top:100%;background:#fff;border:1px solid rgba(0,0,0,.08);
       border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:260px;padding:8px;display:none;
     }
-    .nav-group:hover .submenu,
-    .nav-group:focus-within .submenu{display:block;}
+    .nav-group:hover .submenu, .nav-group:focus-within .submenu{display:block;}
     .submenu a{
       display:block;padding:10px 12px;border-radius:8px;color:var(--royal-2);text-decoration:none;font-weight:500;font-size:.95rem;
     }
-    .submenu a:hover{ background:#f2f7ff; color:var(--royal); }
+    .submenu a:hover{background:#f2f7ff;color:var(--royal);}
 
-    /* Hamburger + mobile drawer (structure-safe overrides) */
-    .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center;z-index:2003;}
+    /* Mobile drawer (same pattern as About reference) */
+    .nav-toggle{display:none}
+    .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center}
     .hamburger span{display:block;width:20px;height:2px;background:var(--royal-2);position:relative}
     .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--royal-2)}
     .hamburger span::before{top:-6px}.hamburger span::after{top:6px}
-    .nav-toggle{position:absolute;left:-9999px}
-
-    .mobile-drawer{
-      display:none;border-top:1px solid rgba(0,0,0,.06);background:#fff;
-    }
-    .mobile-drawer a,.mobile-drawer summary{
-      display:block;padding:12px 16px;color:var(--royal-2);text-decoration:none;font-weight:500;cursor:pointer;
-    }
+    .mobile-drawer{display:none;border-top:1px solid rgba(0,0,0,.06);background:#fff}
+    .mobile-drawer a,.mobile-drawer summary{display:block;padding:12px 16px;color:var(--royal-2);text-decoration:none;font-weight:500;cursor:pointer;}
     .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
     .mobile-drawer details[open] summary{background:#f7fbff}
     .mobile-drawer a:hover{background:#f2f7ff}
 
-    /* ✅ Key fix: general-sibling selector from the checkbox to the drawer (same parent = <header>) */
-    header.site-header > #nav-toggle:checked ~ nav.mobile-drawer{
-      display:block; position:fixed; inset:0; top:0; padding:5rem 1.25rem 2rem;
-      background:rgba(255,255,255,.96); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
-      overflow:auto; z-index:2001;
-    }
-    #nav-toggle:checked + label.hamburger span{ background:transparent; }
-    #nav-toggle:checked + label.hamburger span::before{ top:0; transform: rotate(45deg); }
-    #nav-toggle:checked + label.hamburger span::after { top:0; transform: rotate(-45deg); }
-
+    /* Checkbox sibling rule (same parent header) */
+    #nav-toggle:checked ~ nav.mobile-drawer{display:block}
     @media (max-width:1024px){ .main-nav{display:none} .hamburger{display:inline-flex} }
-    @media (min-width:1025px){ .mobile-drawer{display:none !important;} }
 
-    /* Banner framed in royal blue */
+    /* Hero framed in royal blue */
     .hero-frame{border-top:4px solid var(--royal);border-bottom:4px solid var(--royal);}
     .hero-media img{width:100%;height:auto;display:block;}
 
     /* Headings + hero */
     .hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:32px 16px;}
     .hero .hero-body{max-width:900px;margin:0 auto;}
-    :root{ --h1-size:40px; --h2-size:28px; }
     h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;text-align:center;color:var(--royal);}
-    h2,.section .section-title,h2.section-title,section .section-title{
-      font-size:var(--h2-size);line-height:1.25;margin:28px 0 12px;text-align:center;color:var(--royal);
-    }
+    h2,.section .section-title{font-size:var(--h2-size);line-height:1.25;margin:28px 0 12px;text-align:center;color:var(--royal);}
     @media (max-width:768px){ :root{--h1-size:30px;--h2-size:24px} .hero{padding:24px 14px} }
 
-    /* All body copy royal blue for consistency */
+    /* All body copy royal blue */
     body, p, li, a, .content, .content p, .content li { color:var(--royal); }
 
-    /* Sections rhythm */
+    /* Sections + grids */
     .home .section{padding:1.5rem 0;}
-    .home .card-grid{padding:0 1rem;}
-    .home .content, .home .content p, .home .content li, .home .content a{word-break:break-word;overflow-wrap:anywhere;}
-
-    /* Wins bullets */
-    section[aria-labelledby="wins-title"] .wins-list{max-width:900px;margin:0 auto;padding-left:2rem;}
-    section[aria-labelledby="wins-title"] .wins-list li{margin:.25rem 0}
-    @media (max-width:768px){ section[aria-labelledby="wins-title"] .wins-list{padding-left:1.25rem;} }
-
-    /* CTA buttons */
+    .home .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:1200px;margin:0 auto;padding:0 1rem;}
+    .home .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;padding:1rem;text-decoration:none;color:inherit;}
+    .home .card h3{margin:.25rem 0 .5rem;text-align:left;}
     .cta-btn{display:inline-block;background:var(--royal);color:#fff;text-decoration:none;padding:.7rem 1rem;border-radius:8px;font-weight:700}
     .cta-btn:hover{background:#0066b2}
   </style>
@@ -134,7 +108,7 @@
 <body class="home home-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- ===== Header / Nav ===== -->
+  <!-- ===== Header / Nav (About reference pattern) ===== -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -143,9 +117,9 @@
 
       <!-- Desktop nav -->
       <nav class="main-nav" aria-label="Primary">
-        <a href="index.html" class="active">Home</a>
+        <a href="index.html" class="active" aria-current="page">Home</a>
 
-        <!-- Consulting with Dynamic Imprinting -->
+        <!-- Consulting -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
@@ -154,13 +128,12 @@
           </div>
         </div>
 
-        <!-- Cloud Suite -->
+        <!-- Cloud Suite (NO Infrastructure inside) -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
             <a role="menuitem" href="cloud.html">Overview</a>
             <a role="menuitem" href="finops.html">FinOps</a>
-            <a role="menuitem" href="hosting-private-cloud.html">Hosting / Infrastructure</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
           </div>
@@ -176,21 +149,24 @@
           </div>
         </div>
 
+        <!-- Standalone Infrastructure -->
+        <a href="hosting-private-cloud.html">Infrastructure</a>
+
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
       </nav>
 
-      <!-- Mobile toggle button (label targets the checkbox below) -->
+      <!-- Mobile toggle (label for checkbox) -->
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
-    <!-- Mobile toggle (checkbox) MUST be a sibling of the mobile drawer -->
+    <!-- Mobile toggle (checkbox) MUST be a sibling of the drawer -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
 
-    <!-- Mobile drawer (same links) -->
+    <!-- Mobile drawer -->
     <nav class="mobile-drawer" aria-label="Mobile">
-      <a href="index.html">Home</a>
+      <a href="index.html" aria-current="page">Home</a>
 
       <details>
         <summary>Consulting</summary>
@@ -202,7 +178,6 @@
         <summary>Cloud Suite</summary>
         <a href="cloud.html">Overview</a>
         <a href="finops.html">FinOps</a>
-        <a href="hosting-private-cloud.html">Hosting / Infrastructure</a>
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
       </details>
@@ -213,6 +188,9 @@
         <a href="talent-relaunch.html">RE/LAUNCH</a>
         <a href="global-talent.html">Global Talent</a>
       </details>
+
+      <!-- Standalone Infrastructure -->
+      <a href="hosting-private-cloud.html">Infrastructure</a>
 
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
@@ -305,7 +283,7 @@
     <!-- Recent wins -->
     <section class="section" aria-labelledby="wins-title">
       <h2 id="wins-title" class="section-title">Recent Wins Through Partner Collective</h2>
-      <ul class="wins-list">
+      <ul style="max-width:900px;margin:0 auto;padding-left:1.5rem;">
         <li>−32% run-rate: ERP + SQL to hosted private cloud; burst to Azure for quarter-end. DR bundled.</li>
         <li>−48% latency: Trading analytics hybridised — on-prem GPU + S3-compatible store; cloud for global insights.</li>
         <li>Zero-downtime move: Payments core via blue/green + feature flags reduced risk during cutover.</li>
@@ -316,7 +294,7 @@
     <!-- Explore services -->
     <section class="section" aria-labelledby="services-title">
       <h2 id="services-title" class="section-title">Explore Our Services</h2>
-      <div class="card-grid force-4" role="list">
+      <div class="card-grid" role="list">
         <a class="card" role="listitem" href="consulting.html">
           <h3>Consulting</h3>
           <p>From strategy to execution: GTM precision, pipeline discipline, partner motions that convert.</p>
@@ -333,11 +311,11 @@
           <span class="cta-btn">Explore</span>
         </a>
         <a class="card" role="listitem" href="hosting-private-cloud.html">
-          <h3>Hosting &amp; Private Cloud</h3>
+          <h3>Infrastructure</h3>
           <p>Predictable cost, SA locality, and low latency — with burst to public cloud.</p>
           <span class="cta-btn">Explore</span>
         </a>
-        <a class="card" role="listitem" href="mobile-web.html">
+        <a class="card" role="listitem" href="application-development.html">
           <h3>App Development</h3>
           <p>Cloud-native apps, portals, mobile &amp; web, and APIs — delivered with DevOps discipline.</p>
           <span class="cta-btn">Explore</span>
@@ -399,14 +377,14 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current top-level links (desktop + mobile) -->
+  <!-- Auto-highlight current (desktop + mobile top-level only) -->
   <script>
     (function(){
-      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+      var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
       document.querySelectorAll('.main-nav > a, .mobile-drawer > a').forEach(function(a){
-        var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
-        else{a.classList.remove('active');a.removeAttribute('aria-current');}
+        var href = (a.getAttribute('href') || '').toLowerCase();
+        if(href === path){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        else{ a.classList.remove('active'); a.removeAttribute('aria-current'); }
       });
     })();
   </script>
