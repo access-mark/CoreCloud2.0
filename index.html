@@ -26,7 +26,7 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;left:12px;top:12px;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:2002;}
 
-    /* Header (matches your About/Insights pattern) */
+    /* Header (About ref) */
     .site-header{position:sticky;top:0;z-index:2000;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
     .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
     .brand .logo{height:110px;width:auto;display:block;object-fit:contain}
@@ -82,17 +82,17 @@
     .hero-frame{border-top:4px solid var(--royal);border-bottom:4px solid var(--royal);}
     .hero-media img{width:100%;height:auto;display:block;}
 
-    /* Typography + centering fix */
+    /* Typography — force center for page titles */
     body, p, li, a, .content, .content p, .content li { color:var(--royal); }
-    h1{font-size:var(--h1);line-height:1.2;margin:28px 0 12px;text-align:center;color:var(--royal);}
-    h2, .section .section-title{font-size:var(--h2);line-height:1.25;margin:28px 0 12px;text-align:center;color:var(--royal);}
+    h1{font-size:var(--h1);line-height:1.2;margin:28px 0 12px;color:var(--royal);text-align:center !important;display:block !important;margin-left:auto !important;margin-right:auto !important;}
+    h2, .section .section-title{font-size:var(--h2);line-height:1.25;margin:28px 0 12px;color:var(--royal);text-align:center !important;display:block !important;margin-left:auto !important;margin-right:auto !important;}
 
     /* Hero text block */
     .hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:32px 16px;}
     .hero .hero-body{max-width:900px;margin:0 auto;}
     @media (max-width:768px){ .hero{padding:24px 14px} }
 
-    /* Sections */
+    /* Sections + cards */
     .home .section{padding:1.5rem 0;}
     .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:1200px;margin:0 auto;padding:0 1rem;}
     .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;padding:1rem;text-decoration:none;color:inherit;}
@@ -104,7 +104,7 @@
     .wins-list li{margin:.25rem 0}
     @media (max-width:768px){ .wins-list{padding-left:1.25rem;} }
 
-    /* Ensure left alignment for subheads within cards/columns only */
+    /* Left-align subheads inside cards/panels only */
     .subhead, .card h3, .panel h3, .panel h4 { text-align:left !important; }
   </style>
 </head>
@@ -209,7 +209,7 @@
     </div>
   </div>
 
-  <!-- Hero text -->
+  <!-- ===== Hero text ===== -->
   <section class="hero">
     <div class="hero-body">
       <h1>From Strategy to Revenue. From Cloud to People.</h1>
@@ -271,7 +271,7 @@
         </a>
         <a class="card" role="listitem" href="https://github.com/access-mark/CoreCloud2.0/blob/main/infrastructure.html" target="_blank" rel="noopener noreferrer">
           <h3>Infrastructure</h3>
-          <p>Private/hybrid options for predictable, sovereign, low-latency run.</p>
+          <p>Private/hybrid options for predictable, sovereign, low-latency run.</</p>
           <span class="cta-btn">Open</span>
         </a>
       </div>
