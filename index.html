@@ -1,44 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>CoreCloud | Cloud Consulting, Hybrid FinOps, Apps & Talent — South Africa</title>
-  <meta name="description" content="Operators, not theorists. CoreCloud helps South African enterprises align GTM, cloud, FinOps, apps, and talent — practical execution with measurable outcomes."/>
-  <link rel="canonical" href="https://www.corecloudza.com/"/>
+  <title>Infrastructure — Private or Hybrid | CoreCloud — Predictable, Sovereign, Low-Latency Run</title>
+  <meta name="description" content="When steady, regulated, or latency-critical workloads need predictability: managed private cloud, colo, and sovereign patterns with DR, POPIA alignment, and FinOps by design."/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="CoreCloud"/>
+  <meta name="theme-color" content="#004f91"/>
 
-  <!-- Social -->
+  <!-- Canonical + Social -->
+  <link rel="canonical" href="https://www.corecloudza.com/infrastructure.html"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="CoreCloud — Strategy, Cloud, FinOps, Apps & Talent"/>
-  <meta property="og:description" content="Hybrid cloud, FinOps, delivery rhythm, and talent — outcome-led, South Africa first."/>
-  <meta property="og:url" content="https://www.corecloudza.com/"/>
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg"/>
+  <meta property="og:title" content="Infrastructure — Private or Hybrid | CoreCloud"/>
+  <meta property="og:description" content="Managed private cloud and colo with POPIA-aligned controls, DR, and FinOps — when not every workload belongs in hyperscale."/>
+  <meta property="og:url" content="https://www.corecloudza.com/infrastructure.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/hosting-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
 
-  <style>
-    :root{ --royal:#004f91; --royal-2:#0b3d72; --h1:40px; --h2:28px; }
-    @media (max-width:768px){ :root{ --h1:30px; --h2:24px; } }
+  <!-- Preload -->
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
+  <link rel="preload" as="image" href="assets/images/hosting-bannerimage.png" fetchpriority="high"/>
 
-    /* Accessibility */
+  <!-- Page-scoped styles -->
+  <style>
+    :root{
+      --royal:#004f91;
+      --royal-2:#0b3d72;
+      --gold:#d4af37;
+      --h1-size:40px; --h2-size:28px;
+    }
+
+    /* a11y */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;left:12px;top:12px;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:2002;}
 
-    /* Header (About ref) */
+    /* ===== Header / Nav (unified; mobile drawer uses sibling checkbox) ===== */
     .site-header{position:sticky;top:0;z-index:2000;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
     .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
+    .brand{display:inline-flex;align-items:center;text-decoration:none}
     .brand .logo{height:110px;width:auto;display:block;object-fit:contain}
     @media (max-width:768px){ .brand .logo{height:84px;} }
 
     .main-nav{display:flex;align-items:center;gap:18px;}
     .main-nav > a,
     .main-nav > .nav-group > button{
-      font-size:.98rem;font-weight:500;letter-spacing:.1px;color:var(--royal-2);
-      text-decoration:none;padding:14px 10px;line-height:1;border:none;background:transparent;cursor:pointer;
+      font-size:.98rem;font-weight:500;letter-spacing:.1px;
+      color:var(--royal-2);text-decoration:none;padding:14px 10px;line-height:1;
+      border:none;background:transparent;cursor:pointer;
     }
-    .main-nav > a:hover, .main-nav > .nav-group > button:hover{ color:var(--royal); }
+    .main-nav > a:hover,
+    .main-nav > .nav-group > button:hover{ color:var(--royal); }
     .main-nav > a.active{ color:var(--royal); border-bottom:2px solid var(--royal); }
 
     .nav-group{position:relative;}
@@ -53,9 +69,8 @@
     }
     .submenu a:hover{background:#f2f7ff;color:var(--royal);}
 
-    /* Mobile drawer (About ref) */
-    .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);
-      align-items:center;justify-content:center;z-index:2003;}
+    /* Mobile drawer */
+    .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center;z-index:2003;}
     .hamburger span{display:block;width:20px;height:2px;background:var(--royal-2);position:relative}
     .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--royal-2)}
     .hamburger span::before{top:-6px}.hamburger span::after{top:6px}
@@ -67,9 +82,11 @@
     .mobile-drawer details[open] summary{background:#f7fbff}
     .mobile-drawer a:hover{background:#f2f7ff}
 
+    /* Checkbox -> drawer (MUST be siblings under header.site-header) */
     header.site-header > #nav-toggle:checked ~ nav.mobile-drawer{
       display:block; position:fixed; inset:0; top:0; padding:5rem 1.25rem 2rem;
-      background:rgba(255,255,255,.96); backdrop-filter:blur(10px); overflow:auto; z-index:2001;
+      background:rgba(255,255,255,.96); backdrop-filter:blur(10px);
+      overflow:auto; z-index:2001;
     }
     #nav-toggle:checked + label.hamburger span{ background:transparent; }
     #nav-toggle:checked + label.hamburger span::before{ top:0; transform: rotate(45deg); }
@@ -78,39 +95,62 @@
     @media (max-width:1024px){ .main-nav{display:none} .hamburger{display:inline-flex} }
     @media (min-width:1025px){ .mobile-drawer{display:none !important;} }
 
-    /* Hero (royal frame) */
-    .hero-frame{border-top:4px solid var(--royal);border-bottom:4px solid var(--royal);}
+    /* ===== Hero (gold frame) ===== */
+    .hero-frame{border-top:4px solid var(--gold);border-bottom:4px solid var(--gold);}
     .hero-media img{width:100%;height:auto;display:block;}
 
-    /* Typography — force center for page titles & strengthen body */
-    body, .content, .content p, .content li, .content a { color:var(--royal); }
-    p, li { font-weight:500; } /* make body copy feel less light */
-    h1{font-size:var(--h1);line-height:1.2;margin:28px 0 12px;color:var(--royal);text-align:center !important;display:block !important;margin-left:auto !important;margin-right:auto !important;}
-    h2, .section .section-title{font-size:var(--h2);line-height:1.25;margin:28px 0 12px;color:var(--royal);text-align:center !important;display:block !important;margin-left:auto !important;margin-right:auto !important;}
+    /* Headings & hero text (centered) */
+    h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;text-align:center !important;color:var(--royal);}
+    h2,.section .section-title{font-size:var(--h2-size);line-height:1.25;margin:28px 0 12px;text-align:center !important;color:var(--royal);}
+    @media (max-width:768px){ :root{--h1-size:30px;--h2-size:24px} }
 
-    /* Hero text block */
-    .hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:32px 16px;}
+    .hero{display:flex;justify-content:center;text-align:center;padding:32px 16px;}
     .hero .hero-body{max-width:900px;margin:0 auto;}
-    @media (max-width:768px){ .hero{padding:24px 14px} }
 
-    /* Sections + cards */
-    .home .section{padding:1.5rem 0;}
-    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;max-width:1200px;margin:0 auto;padding:0 1rem;}
-    .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;padding:1rem;text-decoration:none;color:inherit;}
-    .card h3{margin:.25rem 0 .5rem; text-align:left;}
+    /* ✅ Force ALL body copy (including hero) to blue */
+    body, p, li, a, .content, .content p, .content li, .hero, .hero * { color: var(--royal) !important; }
+
+    /* Sections & lists */
+    .hosting .section{padding:1.6rem 0;}
+    .points{padding-left:1.25rem;margin:.25rem 0;}
+    .points li{margin:.3rem 0;line-height:1.7;}
+    .muted{color:#5a6b85;font-size:.95rem}
+
+    /* Metrics */
+    .metrics{display:grid;gap:.45rem;max-width:1000px;margin:0 auto;padding:0 1rem;}
+    .metric{display:flex;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;}
+    .metric b{color:var(--royal-2);}
+
+    /* Inline CTA (leave text white deliberately) */
+    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.3rem auto;text-align:center;max-width:1000px;}
+    .inline-cta p{margin:.55rem 0 0;color:#fff !important;}
     .cta-btn{display:inline-block;background:var(--royal);color:#fff;text-decoration:none;padding:.7rem 1rem;border-radius:8px;font-weight:700}
     .cta-btn:hover{background:#0066b2}
 
-    .wins-list{max-width:900px;margin:0 auto;padding-left:2rem;}
-    .wins-list li{margin:.25rem 0}
-    @media (max-width:768px){ .wins-list{padding-left:1.25rem;} }
-
-    /* Left-align subheads inside cards/panels */
-    .subhead, .card h3, .panel h3, .panel h4 { text-align:left !important; }
+    /* Safe wrapping */
+    .hosting .content, .hosting .content p, .hosting .content li, .hosting .content a{word-break:break-word;overflow-wrap:anywhere;}
   </style>
+
+  <!-- JSON-LD (Service + Breadcrumbs + FAQ) -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Service","name":"CoreCloud — Infrastructure (Private & Hybrid)","description":"Managed private cloud and colocation for predictable, sovereign, low-latency workloads with DR and POPIA alignment.","provider":{"@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png"},"areaServed":"ZA","serviceOutput":"Predictable run with measured resilience, security, and cost posture","url":"https://www.corecloudza.com/infrastructure.html","offers":{"@type":"Offer","availability":"https://schema.org/InStock"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+    {"@type":"ListItem","position":2,"name":"Infrastructure","item":"https://www.corecloudza.com/infrastructure.html"}
+  ]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"When does hosted/private cloud beat hyperscale?","acceptedAnswer":{"@type":"Answer","text":"For steady or predictable workloads, strict data residency, low-latency proximity, legacy licensing, and where egress patterns or dedicated capacity economics win."}},
+    {"@type":"Question","name":"Can we burst to AWS/Azure when needed?","acceptedAnswer":{"@type":"Answer","text":"Yes. We design hybrid patterns with private cloud primary and cloud burst for peak or DR, with guardrails for routing, identity, and data movement."}},
+    {"@type":"Question","name":"Is POPIA alignment covered?","acceptedAnswer":{"@type":"Answer","text":"Yes. We map data classes, enforce residency, and implement customer-managed keys, logging, and revocation processes with board-level posture reporting."}}
+  ]}
+  </script>
 </head>
 
-<body class="home">
+<body class="hosting">
   <a class="skip-link" href="#main">Skip to main content</a>
 
   <!-- ===== Header / Nav ===== -->
@@ -122,9 +162,9 @@
 
       <!-- Desktop nav -->
       <nav class="main-nav" aria-label="Primary">
-        <a href="index.html" class="active" aria-current="page">Home</a>
+        <a href="index.html">Home</a>
 
-        <!-- Consulting -->
+        <!-- Consulting + Dynamic Imprinting -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
@@ -133,7 +173,7 @@
           </div>
         </div>
 
-        <!-- Cloud Suite -->
+        <!-- Cloud Suite (no Infrastructure inside) -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
@@ -154,24 +194,24 @@
           </div>
         </div>
 
-        <!-- Standalone Infrastructure (absolute URL as requested) -->
-        <a href="https://www.corecloudza.com/infrastructure.html">Infrastructure</a>
+        <!-- Standalone Infrastructure (ABSOLUTE URL as requested) -->
+        <a href="https://www.corecloudza.com/infrastructure.html" class="active" aria-current="page">Infrastructure</a>
 
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
       </nav>
 
-      <!-- Mobile toggle -->
+      <!-- Mobile toggle button -->
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
-    <!-- Mobile toggle (checkbox) -->
+    <!-- Mobile toggle (checkbox) MUST be a direct child of header -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
 
     <!-- Mobile drawer -->
     <nav class="mobile-drawer" aria-label="Mobile">
-      <a href="index.html" aria-current="page">Home</a>
+      <a href="index.html">Home</a>
 
       <details>
         <summary>Consulting</summary>
@@ -194,8 +234,8 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
-      <!-- Infrastructure (absolute URL) -->
-      <a href="https://www.corecloudza.com/infrastructure.html">Infrastructure</a>
+      <!-- Standalone Infrastructure (ABSOLUTE URL on mobile too) -->
+      <a href="https://www.corecloudza.com/infrastructure.html" aria-current="page">Infrastructure</a>
 
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
@@ -203,90 +243,121 @@
     </nav>
   </header>
 
-  <!-- ===== Hero (framed) ===== -->
+  <!-- ===== Hero (gold frame) ===== -->
   <div class="hero-frame">
-    <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
-      <img src="assets/images/index-bannerimage.png" alt="From Strategy to Revenue. From Cloud to People." width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+    <div class="hero-media" role="img" aria-label="Private cloud and colocation">
+      <img src="assets/images/hosting-bannerimage.png" alt="Hosting &amp; Private Cloud — predictable, sovereign, low-latency run" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
-  <!-- ===== Hero text ===== -->
-  <section class="hero">
+  <!-- Intro -->
+  <section class="hero" id="main">
     <div class="hero-body">
-      <h1>From Strategy to Revenue. From Cloud to People.</h1>
-      <p>We help South African enterprises turn strategy into action — sharper sales execution, modernised cloud, disciplined FinOps, elite ICT talent, and maintainable apps.</p>
-
-      <h2>Hybrid Isn’t Optional — It’s the Operating Model</h2>
-      <p>One venue can’t win on cost, performance, and risk at once. We place each workload where it wins — cloud for elasticity/services; hosted or on-prem for predictable, low-latency, compliant run.</p>
-      <div class="cta-row" style="margin-top:.5rem;">
-        <a class="cta-btn" href="cloud.html">Design My Hybrid</a>
-      </div>
+      <h1>Infrastructure — Private or Hybrid Cloud</h1>
+      <p><strong>On-Premise, Co-Locate, HyperScale or Hybrid</strong> — not every workload belongs in a hyperscale platform.</p>
+      <p>With our local and international experience, we guide and supply solutions to run stable, regulated, latency-critical systems on the most cost-effective platform — managed private cloud (on-premise), co-located, and/or hyperscale (hybrid).</p>
+      <p>When cloud is right, we use it. When predictability wins, we host.</p>
+      <p><strong>Data Governance &amp; Protection</strong> — POPIA-aware delivery and industry alignment baked into blueprints, operations, and reporting.</p>
     </div>
   </section>
 
-  <main class="content" id="main">
-    <!-- About -->
-    <section class="section" aria-labelledby="about-title">
-      <h2 id="about-title" class="section-title">About CoreCloud</h2>
-      <p style="max-width:900px;margin:0 auto;">Operators, not theorists. We’ve been under real boardroom pressure and know how to land change. Sales, cloud, talent, and applications — focused on outcomes that move the needle.</p>
+  <main class="content">
+    <!-- Right Design, Right Location -->
+    <section class="section" aria-labelledby="when-title">
+      <h2 id="when-title" class="section-title">Right Design, Right Location</h2>
+      <ul class="points">
+        <li><strong>Stable, business-critical workloads:</strong> ERP, databases, integration hubs with predictable outcomes.</li>
+        <li><strong>Residency &amp; sovereignty:</strong> your data in the right data centre and country — compliant with regulations.</li>
+        <li><strong>Low-latency proximity:</strong> keep compute close to users, branches, or plants.</li>
+        <li><strong>Economics:</strong> avoid ingress/egress traps, legacy licensing shocks, and over-provisioned capacity.</li>
+        <li><strong>Operational certainty:</strong> clear SLAs, tested DR, reliability patterns that hold under pressure.</li>
+      </ul>
     </section>
 
-    <!-- Explore services -->
-    <section class="section" aria-labelledby="services-title">
-      <h2 id="services-title" class="section-title">Explore Our Services</h2>
-      <div class="card-grid" role="list">
-        <a class="card" role="listitem" href="consulting.html">
-          <h3>Consulting</h3>
-          <p>GTM precision, pipeline discipline, partner motions that convert.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" role="listitem" href="cloud.html">
-          <h3>Cloud Suite</h3>
-          <p>Landing zones, security, cost control, and modernisation on AWS/Azure.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" role="listitem" href="finops.html">
-          <h3>Hybrid FinOps &amp; Governance</h3>
-          <p>Cut run-rate and stop drift. Tags, budgets, policies, and showback.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" role="listitem" href="application-development.html">
-          <h3>Application Development</h3>
-          <p>Cloud-native apps, portals, mobile &amp; web — shipped with DevOps discipline.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" role="listitem" href="data-ai.html">
-          <h3>Sovereign Data &amp; AI</h3>
-          <p>Analytics and AI with SA residency. Governed pipelines, measured ops.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" role="listitem" href="talent.html">
-          <h3>Curated Talent</h3>
-          <p>Cloud, data, and platform talent — vetted for impact, not keywords.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" role="listitem" href="dynamic-imprinting.html">
-          <h3>Dynamic Imprinting</h3>
-          <p>Leadership identity work that sticks — perform under pressure.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
-        <a class="card" role="listitem" href="https://www.corecloudza.com/infrastructure.html">
-          <h3>Infrastructure</h3>
-          <p>Private/hybrid options for predictable, sovereign, low-latency run.</p>
-          <span class="cta-btn">Open</span>
-        </a>
+    <!-- What Can We Run -->
+    <section class="section" aria-labelledby="what-title">
+      <h2 id="what-title" class="section-title">What Can We Run</h2>
+      <ul class="points">
+        <li>Single-tenant private cloud (VMs/containers) with dedicated network segments.</li>
+        <li>Core databases (PostgreSQL, SQL Server, Oracle*) with backup/restore drills and <em>prove-you-can-recover</em> logs.</li>
+        <li>ERP and line-of-business apps with integration brokers and secure partner connectivity.</li>
+        <li>Edge and branch workloads with centralised observability and config drift detection.</li>
+        <li>VDI and specialised workloads with GPU options where needed.</li>
+      </ul>
+      <p class="muted">*We optimise licensing footprints and placement — venue-neutral recommendations with 12/36-month TCO.</p>
+    </section>
+
+    <!-- Architecture & Controls -->
+    <section class="section" aria-labelledby="arch-title">
+      <h2 id="arch-title" class="section-title">Architecture &amp; Controls</h2>
+      <ul class="points">
+        <li><strong>Platform:</strong> Servers, networking, and storage from leading vendors.</li>
+        <li><strong>Networks:</strong> segmented VLANs/VNETs, egress control, private interconnects, and WAF/CDN for public edges.</li>
+        <li><strong>Identity &amp; access:</strong> SSO, least-privilege roles, break-glass, and auditable revocation.</li>
+        <li><strong>Data protection:</strong> 3-2-1 backups, cyber-resilient storage, and DPA-aligned DR with routine testing.</li>
+        <li><strong>Observability:</strong> AI Ops, NOC/SOC with logs, metrics, traces — governed by SLOs and error budgets.</li>
+        <li><strong>Hybrid platforms:</strong> burst to <a href="cloud.html">AWS/Azure</a> for peak or analytics — with showback.</li>
+      </ul>
+    </section>
+
+    <!-- Service Levels -->
+    <section class="section" aria-labelledby="slas-title">
+      <h2 id="slas-title" class="section-title">The Right Service Levels</h2>
+      <div class="metrics">
+        <div class="metric"><span>Availability (core app tiers)</span><b>99.9–99.99% options</b></div>
+        <div class="metric"><span>RPO / RTO (tiered by workload)</span><b>RPO ≤ 15m / RTO ≤ 60m*</b></div>
+        <div class="metric"><span>Backup verification</span><b>Daily jobs + monthly test restores</b></div>
+        <div class="metric"><span>DR &amp; Cyber run-book drills</span><b>Quarterly failover tests</b></div>
+        <div class="metric"><span>Security posture</span><b>Monthly board-level report</b></div>
+      </div>
+      <p class="muted" style="max-width:1000px;margin:.5rem auto 0;padding:0 1rem;">*Stricter targets available where architecture supports it (synchronous replication, multi-AZ/DC design).</p>
+    </section>
+
+    <!-- 30-Day Move-In -->
+    <section class="section" aria-labelledby="movein-title">
+      <h2 id="movein-title" class="section-title">30-Day Move-In Plan</h2>
+      <ol class="points">
+        <li><strong>Days 1–5:</strong> discovery & sizing, data map (PII/regulated), residency & keys plan.</li>
+        <li><strong>Days 6–12:</strong> network & identity setup, baseline security controls, monitoring hooks.</li>
+        <li><strong>Days 13–22:</strong> build environments, migrate first workloads with rollback; backup regime live.</li>
+        <li><strong>Days 23–30:</strong> DR drill, performance tune, run-book sign-off, and hand-over with dashboards.</li>
+      </ol>
+      <div class="inline-cta">
+        <strong>Make it predictable.</strong>
+        <p>If you need sovereignty, low-latency, and predictable TCO/ROI — we can help.</p>
+        <a class="cta-btn" href="contact.html">Request a Hosting Assessment</a>
       </div>
     </section>
 
-    <!-- Recent wins -->
-    <section class="section" aria-labelledby="wins-title">
-      <h2 id="wins-title" class="section-title">Recent Wins Through Partner Collective</h2>
-      <ul class="wins-list">
-        <li>−32% run-rate: ERP + SQL to hosted private cloud; Azure burst at quarter-end. DR bundled.</li>
-        <li>−48% latency: Trading analytics hybridised — on-prem GPU + S3-compatible store; cloud for global insights.</li>
-        <li>Zero-downtime move: Payments core via blue/green + feature flags; lower incident rate post-cutover.</li>
-        <li>Talent that lands it: Cloud, data, and platform engineers placed to stabilise ops and accelerate delivery.</li>
+    <!-- Cost & Governance -->
+    <section class="section" aria-labelledby="cost-title">
+      <h2 id="cost-title" class="section-title">Cost &amp; Governance</h2>
+      <ul class="points">
+        <li><strong>Transparent pricing:</strong> compute, storage, backup, and network line items — no surprises.</li>
+        <li><strong>Showback/chargeback:</strong> tags and meters mapped to apps/teams for accountability.</li>
+        <li><strong>Right-sizing cadence:</strong> monthly reviews, lifecycle policies, and commitment strategy.</li>
+        <li><strong>Compliance evidence:</strong> POPIA control coverage, key custody, and access revocation logs.</li>
       </ul>
+      <p class="muted">See also: <a href="finops.html">FinOps &amp; Governance</a> for cross-venue cost discipline.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" aria-labelledby="faq-title">
+      <h2 id="faq-title" class="section-title">FAQ</h2>
+      <div class="faq-list">
+        <details>
+          <summary>Can we keep data in-country and still use hyperscalers?</summary>
+          <p>Yes. Private cloud can be primary with analytics or burst capacity in AWS/Azure. We design data-class rules so sensitive data stays local while aggregates can move.</p>
+        </details>
+        <details>
+          <summary>Do you supply hardware or use our DC?</summary>
+          <p>Both are possible. We can provide managed private cloud or operate in your chosen DC/colo with the same guardrails and SLOs.</p>
+        </details>
+        <details>
+          <summary>What if we need to move later?</summary>
+          <p>We favour open standards, portable data formats, and documented runbooks so moves between venues remain practical.</p>
+        </details>
+      </div>
     </section>
   </main>
 
@@ -301,13 +372,13 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST">
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
           <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
           <input type="hidden" name="_template" value="table"/>
           <input type="hidden" name="_captcha" value="false"/>
           <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
           <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email"/>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
@@ -328,27 +399,20 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current (treat same-domain absolute links as internal) -->
+  <!-- Auto-highlight current links -->
   <script>
     (function(){
-      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-
-      document.querySelectorAll('.main-nav > a, .mobile-drawer > a').forEach(function(a){
-        var hrefRaw=a.getAttribute('href')||'';
-        var hrefLower=hrefRaw.toLowerCase();
-        var ref=hrefLower;
-
-        // If absolute URL and it's same domain, use its pathname's last segment; if external other domain, ignore.
-        if(/^https?:\/\//.test(hrefLower)){
-          try{
-            var u=new URL(hrefLower);
-            if(!u.hostname.includes('corecloudza.com')) return; // external, skip
-            ref=(u.pathname.split('/').pop()||'').toLowerCase();
-          }catch(e){ return; }
+      var path=(location.pathname.split('/').pop()||'infrastructure.html').toLowerCase();
+      document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
+        var href=(a.getAttribute('href')||'').toLowerCase();
+        // Mark as active if relative OR absolute URL matches this page
+        if (href===path || href.endsWith('/infrastructure.html')) {
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+        } else {
+          a.classList.remove('active');
+          a.removeAttribute('aria-current');
         }
-
-        if(ref===path){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
-        else{ a.classList.remove('active'); a.removeAttribute('aria-current'); }
       });
     })();
   </script>
