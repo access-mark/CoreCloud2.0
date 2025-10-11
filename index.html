@@ -22,11 +22,11 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
 
-  <!-- Page-scoped additions (About-style nav + royal frame) -->
+  <!-- Page-scoped additions (About-style nav + royal frame + mobile-only improvements) -->
   <style>
     :root{ --royal:#004f91; --royal-2:#0b3d72; }
 
-    /* ===== Header + Nav (IDENTICAL pattern to About) ===== */
+    /* ===== Header + Nav (About pattern) ===== */
     .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
     .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
     .brand .logo{height:110px;width:auto;}
@@ -56,13 +56,15 @@
     .hamburger span{display:block;width:20px;height:2px;background:var(--royal-2);position:relative}
     .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--royal-2)}
     .hamburger span::before{top:-6px}.hamburger span::after{top:6px}
+
     .mobile-drawer{display:none;border-top:1px solid rgba(0,0,0,.06);background:#fff}
     .mobile-drawer a,.mobile-drawer summary{display:block;padding:12px 16px;color:var(--royal-2);text-decoration:none;font-weight:500;cursor:pointer;}
     .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
     .mobile-drawer details[open] summary{background:#f7fbff}
     .mobile-drawer a:hover{background:#f2f7ff}
+
     #nav-toggle:checked ~ nav.mobile-drawer{display:block}
-    @media(max-width:1024px){.main-nav{display:none}.hamburger{display:inline-flex}}
+    @media(max-width:1024px){.main-nav{display:none}.hamburger{display:inline-flex; z-index:1001;}}
 
     /* ===== Royal-blue frame above/below banner ===== */
     .hero-frame{border-top:4px solid var(--royal);border-bottom:4px solid var(--royal);}
@@ -71,8 +73,33 @@
     /* ===== Targeted centering utility ===== */
     .centered{max-width:1000px;margin:0 auto;text-align:center;padding:0 1rem;}
 
-    /* Ensure narrative body remains LEFT */
+    /* Narrative left */
     .narrative h3,.narrative p{ text-align:left !important; }
+
+    /* ======== MOBILE-ONLY ENHANCEMENTS (desktop unaffected) ======== */
+    @media (max-width:1024px){
+      /* Full-screen drawer with blur + bigger targets */
+      nav.mobile-drawer{
+        position:fixed; inset:0; top:0;
+        display:none; /* default hidden; shown by checkbox rule above */
+        padding:5rem 1.25rem 2rem;
+        background:rgba(255,255,255,.96);
+        -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
+        overflow:auto; z-index:1000;
+      }
+      .mobile-drawer a, .mobile-drawer summary{
+        padding:14px 4px; font-size:1.05rem; line-height:1.4;
+      }
+      .mobile-drawer details{ margin-top:6px; }
+      .mobile-drawer details > summary{ font-weight:700; }
+
+      /* Prevent body scroll when open (with .nav-open on <body>) */
+      body.nav-open{ height:100vh; overflow:hidden; }
+
+      /* Tighter content paddings */
+      .hero-intro{ padding:0 .75rem; }
+      .card-grid{ padding:0 1rem; gap:1rem; }
+    }
   </style>
 
   <!-- JSON-LD -->
@@ -110,7 +137,7 @@
             <a role="menuitem" href="finops.html">FinOps</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
-            <a role="menuitem" href="hosting-private-cloud.html">Hosting (Private Cloud)</a> <!-- updated -->
+            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
           </div>
         </div>
 
@@ -150,7 +177,7 @@
         <a href="finops.html">FinOps</a>
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
-        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a> <!-- updated -->
+        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
       </details>
 
       <!-- Standalone top-level Infrastructure -->
@@ -179,7 +206,7 @@
   </section>
 
   <main class="content" id="main">
-    <!-- Hybrid (centered title + centered paragraph) -->
+    <!-- Hybrid -->
     <section class="section" aria-labelledby="hybrid-title">
       <h2 id="hybrid-title" class="section-title">Hybrid Isn’t Optional — It’s the Operating Model</h2>
       <p class="centered">
@@ -188,7 +215,7 @@
       </p>
     </section>
 
-    <!-- About (centered title + centered paragraph) -->
+    <!-- About -->
     <section class="section" aria-labelledby="about-title">
       <h2 id="about-title" class="section-title">About CoreCloud</h2>
       <p class="centered">
@@ -197,7 +224,7 @@
       </p>
     </section>
 
-    <!-- Focus & Method (title centered; body LEFT) -->
+    <!-- Focus & Method -->
     <section class="section" aria-labelledby="focus-title">
       <h2 id="focus-title" class="section-title">Our Focus &amp; Method</h2>
       <div class="narrative">
@@ -225,7 +252,7 @@
       </div>
     </section>
 
-    <!-- Explore services (includes Hosting + Infrastructure cards) -->
+    <!-- Explore services -->
     <section class="section" aria-labelledby="services-title">
       <h2 id="services-title" class="section-title">Explore Our Services</h2>
       <div class="card-grid" role="list">
@@ -249,7 +276,7 @@
           <p>Predictable cost, SA residency, and low latency — private or hybrid with burst to public cloud.</p>
           <span class="cta-btn">Explore</span>
         </a>
-        <a class="card" role="listitem" href="hosting-private-cloud.html">
+        <a class="card" role="listitem" href="hosted-private-cloud.html">
           <h3>Hosting (Private Cloud)</h3>
           <p>SA-hosted, compliant, low-latency run. Hybrid-by-design with burst to AWS/Azure when it wins.</p>
           <span class="cta-btn">Explore</span>
@@ -316,7 +343,7 @@
     </div>
   </footer>
 
-  <!-- Active link highlighter (desktop + mobile + submenu) -->
+  <!-- Active link highlighter + mobile scroll lock -->
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
@@ -325,6 +352,14 @@
         if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
         else{a.classList.remove('active');a.removeAttribute('aria-current');}
       });
+
+      // Lock body scroll when mobile drawer is open
+      var cb=document.getElementById('nav-toggle');
+      if(cb){
+        cb.addEventListener('change', function(){
+          document.body.classList.toggle('nav-open', cb.checked);
+        });
+      }
     })();
   </script>
 </body>
