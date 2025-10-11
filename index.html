@@ -82,8 +82,9 @@
     .hero-frame{border-top:4px solid var(--royal);border-bottom:4px solid var(--royal);}
     .hero-media img{width:100%;height:auto;display:block;}
 
-    /* Typography — force center for page titles */
-    body, p, li, a, .content, .content p, .content li { color:var(--royal); }
+    /* Typography — force center for page titles & strengthen body */
+    body, .content, .content p, .content li, .content a { color:var(--royal); }
+    p, li { font-weight:500; } /* make body copy feel less light */
     h1{font-size:var(--h1);line-height:1.2;margin:28px 0 12px;color:var(--royal);text-align:center !important;display:block !important;margin-left:auto !important;margin-right:auto !important;}
     h2, .section .section-title{font-size:var(--h2);line-height:1.25;margin:28px 0 12px;color:var(--royal);text-align:center !important;display:block !important;margin-left:auto !important;margin-right:auto !important;}
 
@@ -104,7 +105,7 @@
     .wins-list li{margin:.25rem 0}
     @media (max-width:768px){ .wins-list{padding-left:1.25rem;} }
 
-    /* Left-align subheads inside cards/panels only */
+    /* Left-align subheads inside cards/panels */
     .subhead, .card h3, .panel h3, .panel h4 { text-align:left !important; }
   </style>
 </head>
@@ -153,8 +154,8 @@
           </div>
         </div>
 
-        <!-- Standalone Infrastructure (external GitHub link) -->
-        <a href="https://github.com/access-mark/CoreCloud2.0/blob/main/infrastructure.html" target="_blank" rel="noopener noreferrer">Infrastructure</a>
+        <!-- Standalone Infrastructure (absolute URL as requested) -->
+        <a href="https://www.corecloudza.com/infrastructure.html">Infrastructure</a>
 
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
@@ -193,8 +194,8 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
-      <!-- Infrastructure external -->
-      <a href="https://github.com/access-mark/CoreCloud2.0/blob/main/infrastructure.html" target="_blank" rel="noopener noreferrer">Infrastructure</a>
+      <!-- Infrastructure (absolute URL) -->
+      <a href="https://www.corecloudza.com/infrastructure.html">Infrastructure</a>
 
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
@@ -269,9 +270,9 @@
           <p>Leadership identity work that sticks — perform under pressure.</p>
           <span class="cta-btn">Explore</span>
         </a>
-        <a class="card" role="listitem" href="https://github.com/access-mark/CoreCloud2.0/blob/main/infrastructure.html" target="_blank" rel="noopener noreferrer">
+        <a class="card" role="listitem" href="https://www.corecloudza.com/infrastructure.html">
           <h3>Infrastructure</h3>
-          <p>Private/hybrid options for predictable, sovereign, low-latency run.</</p>
+          <p>Private/hybrid options for predictable, sovereign, low-latency run.</p>
           <span class="cta-btn">Open</span>
         </a>
       </div>
@@ -327,15 +328,27 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current (skip external links) -->
+  <!-- Auto-highlight current (treat same-domain absolute links as internal) -->
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+
       document.querySelectorAll('.main-nav > a, .mobile-drawer > a').forEach(function(a){
-        var href=(a.getAttribute('href')||'').toLowerCase();
-        if(/^https?:\/\//.test(href)) return; // ignore external links
-        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
-        else{a.classList.remove('active');a.removeAttribute('aria-current');}
+        var hrefRaw=a.getAttribute('href')||'';
+        var hrefLower=hrefRaw.toLowerCase();
+        var ref=hrefLower;
+
+        // If absolute URL and it's same domain, use its pathname's last segment; if external other domain, ignore.
+        if(/^https?:\/\//.test(hrefLower)){
+          try{
+            var u=new URL(hrefLower);
+            if(!u.hostname.includes('corecloudza.com')) return; // external, skip
+            ref=(u.pathname.split('/').pop()||'').toLowerCase();
+          }catch(e){ return; }
+        }
+
+        if(ref===path){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        else{ a.classList.remove('active'); a.removeAttribute('aria-current'); }
       });
     })();
   </script>
