@@ -146,7 +146,7 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
     {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
-    {"@type":"ListItem","position":2,"name":"Hosting & Private Cloud","item":"https://www.corecloudza.com/hosting-private-cloud.html"}
+    {"@type":"ListItem","position":2,"name":"Infrastructure","item":"https://www.corecloudza.com/hosting-private-cloud.html"}
   ]}
   </script>
   <script type="application/ld+json">
@@ -161,7 +161,7 @@
 <body class="hosting">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- ===== Header / Nav (unified) ===== -->
+  <!-- ===== Header / Nav (Infrastructure standalone) ===== -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -181,27 +181,19 @@
           </div>
         </div>
 
-        <!-- Cloud Suite -->
+        <!-- Cloud Suite (without Infrastructure inside) -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
             <a role="menuitem" href="cloud.html">Overview</a>
             <a role="menuitem" href="finops.html">FinOps</a>
-            <a role="menuitem" href="hosting-private-cloud.html" class="active" aria-current="page">Hosting / Infrastructure</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
           </div>
         </div>
 
-        <!-- Curated Talent -->
-        <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
-          <div class="submenu" role="menu" aria-label="Curated Talent">
-            <a role="menuitem" href="talent.html">Overview</a>
-            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
-            <a role="menuitem" href="global-talent.html">Global Talent</a>
-          </div>
-        </div>
+        <!-- NEW top-level Infrastructure -->
+        <a href="hosting-private-cloud.html" class="active" aria-current="page">Infrastructure</a>
 
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
@@ -225,21 +217,16 @@
         <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
       </details>
 
-      <details open>
+      <details>
         <summary>Cloud Suite</summary>
         <a href="cloud.html">Overview</a>
         <a href="finops.html">FinOps</a>
-        <a href="hosting-private-cloud.html" aria-current="page">Hosting / Infrastructure</a>
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
       </details>
 
-      <details>
-        <summary>Curated Talent</summary>
-        <a href="talent.html">Overview</a>
-        <a href="talent-relaunch.html">RE/LAUNCH</a>
-        <a href="global-talent.html">Global Talent</a>
-      </details>
+      <!-- NEW standalone -->
+      <a href="hosting-private-cloud.html" aria-current="page">Infrastructure</a>
 
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
@@ -266,7 +253,7 @@
   </section>
 
   <main class="content">
-    <!-- When & why -->
+    <!-- Right Design, Right Location -->
     <section class="section" aria-labelledby="when-title">
       <h2 id="when-title" class="section-title">Right Design, Right Location</h2>
       <ul class="points">
@@ -278,7 +265,7 @@
       </ul>
     </section>
 
-    <!-- What we run -->
+    <!-- What Can We Run -->
     <section class="section" aria-labelledby="what-title">
       <h2 id="what-title" class="section-title">What Can We Run</h2>
       <ul class="points">
@@ -291,7 +278,7 @@
       <p class="muted">*We optimise licensing footprints and placement — venue-neutral recommendations with 12/36-month TCO.</p>
     </section>
 
-    <!-- Architecture & controls -->
+    <!-- Architecture & Controls -->
     <section class="section" aria-labelledby="arch-title">
       <h2 id="arch-title" class="section-title">Architecture &amp; Controls</h2>
       <ul class="points">
@@ -304,7 +291,7 @@
       </ul>
     </section>
 
-    <!-- Service levels -->
+    <!-- Service Levels -->
     <section class="section" aria-labelledby="slas-title">
       <h2 id="slas-title" class="section-title">The Right Service Levels</h2>
       <div class="metrics">
@@ -317,7 +304,7 @@
       <p class="muted" style="max-width:1000px;margin:.5rem auto 0;padding:0 1rem;">*Stricter targets available where architecture supports it (synchronous replication, multi-AZ/DC design).</p>
     </section>
 
-    <!-- 30-day move-in -->
+    <!-- 30-Day Move-In -->
     <section class="section" aria-labelledby="movein-title">
       <h2 id="movein-title" class="section-title">30-Day Move-In Plan</h2>
       <ol class="points">
@@ -333,7 +320,7 @@
       </div>
     </section>
 
-    <!-- Cost & governance -->
+    <!-- Cost & Governance -->
     <section class="section" aria-labelledby="cost-title">
       <h2 id="cost-title" class="section-title">Cost &amp; Governance</h2>
       <ul class="points">
