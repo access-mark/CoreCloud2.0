@@ -108,7 +108,7 @@
     .hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:32px 16px;}
     .hero .hero-body{max-width:900px;margin:0 auto;}
 
-    /* ✅ Force ALL body copy (incl. hero) to blue */
+    /* ✅ All body copy blue (incl. hero) */
     body, p, li, a, .content, .content p, .content li, .hero, .hero * { color: var(--royal) !important; }
 
     /* Sections rhythm */
@@ -126,8 +126,8 @@
     .cta-btn{display:inline-block;background:var(--royal);color:#fff;text-decoration:none;padding:.7rem 1rem;border-radius:8px;font-weight:700}
     .cta-btn:hover{background:#0066b2}
 
-    /* === Left-aligned Focus section === */
-    .section-left .section-title{ text-align:left !important; }
+    /* === Focus section: centered title, left-aligned content === */
+    .section-left .section-title{ text-align:center !important; }
     .section-left .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
     .section-left .narrative h3,
     .section-left .narrative p{ text-align:left !important; margin-left:0; margin-right:0; }
@@ -246,23 +246,32 @@
     <div class="hero-body">
       <h1>From Strategy to Revenue. From Cloud to People.</h1>
       <p>We help South African enterprises turn strategy into action — sharper sales execution, modernised cloud & hybrid infrastructure, elite ICT talent, and disciplined app delivery.</p>
-
-      <!-- Removed the 'Hybrid Isn’t Optional...' heading & paragraph per your instruction -->
-
       <div class="cta-row" style="margin-top:.5rem;">
         <a class="cta-btn" href="cloud.html">Design My Hybrid</a>
       </div>
     </div>
   </section>
 
+  <!-- ✅ Hybrid section under hero (centered) -->
+  <section class="section" aria-labelledby="hybrid-title">
+    <h2 id="hybrid-title" class="section-title">Hybrid Isn’t Optional — It’s the Operating Model</h2>
+    <p style="max-width:900px;margin:0 auto;text-align:center;">
+      One venue cannot win on cost, performance, and risk at the same time. We place each workload where it wins:
+      cloud for elasticity &amp; services; hosted/on-prem for predictable, low-latency, compliant run.
+    </p>
+  </section>
+
   <main class="content" id="main">
     <!-- About -->
     <section class="section" aria-labelledby="about-title">
       <h2 id="about-title" class="section-title">About CoreCloud</h2>
-      <p style="max-width:900px;margin:0 auto;">Operators, not theorists. We’ve been under real boardroom pressure and know how to land change. Sales, cloud, hybrid infrastructure, and applications — focused on outcomes that move the needle.</p>
+      <p style="max-width:900px;margin:0 auto;text-align:center;">
+        Operators, not theorists. We’ve been under real boardroom pressure and know how to land change.
+        Sales, cloud, hybrid infrastructure, and applications — focused on outcomes that move the needle.
+      </p>
     </section>
 
-    <!-- Focus & Method (LEFT-ALIGNED) -->
+    <!-- Focus & Method (Centered title, left content) -->
     <section class="section section-left" aria-labelledby="focus-title">
       <h2 id="focus-title" class="section-title">Our Focus &amp; Method</h2>
       <div class="narrative">
