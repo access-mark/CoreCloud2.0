@@ -125,6 +125,12 @@
 
     .cta-btn{display:inline-block;background:var(--royal);color:#fff;text-decoration:none;padding:.7rem 1rem;border-radius:8px;font-weight:700}
     .cta-btn:hover{background:#0066b2}
+
+    /* === Left-aligned Focus section === */
+    .section-left .section-title{ text-align:left !important; }
+    .section-left .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .section-left .narrative h3,
+    .section-left .narrative p{ text-align:left !important; margin-left:0; margin-right:0; }
   </style>
 
   <!-- JSON-LD -->
@@ -180,7 +186,7 @@
           </div>
         </div>
 
-        <!-- Standalone Infrastructure (ABSOLUTE URL as requested) -->
+        <!-- Standalone Infrastructure -->
         <a href="https://www.corecloudza.com/infrastructure.html">Infrastructure</a>
 
         <a href="about.html">About</a>
@@ -220,7 +226,6 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
-      <!-- Standalone Infrastructure (ABSOLUTE URL on mobile too) -->
       <a href="https://www.corecloudza.com/infrastructure.html">Infrastructure</a>
 
       <a href="about.html">About</a>
@@ -242,8 +247,7 @@
       <h1>From Strategy to Revenue. From Cloud to People.</h1>
       <p>We help South African enterprises turn strategy into action — sharper sales execution, modernised cloud & hybrid infrastructure, elite ICT talent, and disciplined app delivery.</p>
 
-      <h2>Hybrid Isn’t Optional — It’s the Operating Model</h2>
-      <p>One venue cannot win on cost, performance, and risk at the same time. We place each workload where it wins: cloud for elasticity & services; hosted/on-prem for predictable, low-latency, compliant run.</p>
+      <!-- Removed the 'Hybrid Isn’t Optional...' heading & paragraph per your instruction -->
 
       <div class="cta-row" style="margin-top:.5rem;">
         <a class="cta-btn" href="cloud.html">Design My Hybrid</a>
@@ -258,18 +262,19 @@
       <p style="max-width:900px;margin:0 auto;">Operators, not theorists. We’ve been under real boardroom pressure and know how to land change. Sales, cloud, hybrid infrastructure, and applications — focused on outcomes that move the needle.</p>
     </section>
 
-    <!-- Focus & Method -->
-    <section class="section" aria-labelledby="focus-title">
+    <!-- Focus & Method (LEFT-ALIGNED) -->
+    <section class="section section-left" aria-labelledby="focus-title">
       <h2 id="focus-title" class="section-title">Our Focus &amp; Method</h2>
+      <div class="narrative">
+        <h3>Why</h3>
+        <p>SA enterprises are paying for elasticity they don’t use, running platforms that drift from standards, and missing revenue because GTM and delivery aren’t connected. We remove that friction.</p>
 
-      <h3 style="text-align:center;">Why</h3>
-      <p style="max-width:900px;margin:0 auto;">SA enterprises are paying for elasticity they don’t use, running platforms that drift from standards, and missing revenue because GTM and delivery aren’t connected. We remove that friction.</p>
+        <h3>What</h3>
+        <p>We align four engines to a single outcome. GTM execution that sharpens pipeline, partner motions, and win-rates. Platform modernisation across AWS/Azure, hosted private cloud, and on-prem so each workload runs where it wins. Talent that stabilises ops and accelerates delivery. Applications delivered with discipline — secure, observable, and maintainable from day one.</p>
 
-      <h3 style="text-align:center;">What</h3>
-      <p style="max-width:1000px;margin:0 auto;">We align four engines to a single outcome. GTM execution that sharpens pipeline, partner motions, and win-rates. Platform modernisation across AWS/Azure, hosted private cloud, and on-prem so each workload runs where it wins. Talent that stabilises ops and accelerates delivery. Applications delivered with discipline — secure, observable, and maintainable from day one.</p>
-
-      <h3 style="text-align:center;">How</h3>
-      <p style="max-width:1000px;margin:0 auto;">We run an operator’s rhythm: Diagnose → Design → Do → Drive. Diagnose with data (bills, telemetry, SLAs). Design venue-neutral options with clear trade-offs. Do the highest-value moves first to self-fund the rest. Drive with governance — monthly cost/perf reviews, decision logs, and change windows that respect the business calendar.</p>
+        <h3>How</h3>
+        <p>We run an operator’s rhythm: Diagnose → Design → Do → Drive. Diagnose with data (bills, telemetry, SLAs). Design venue-neutral options with clear trade-offs. Do the highest-value moves first to self-fund the rest. Drive with governance — monthly cost/perf reviews, decision logs, and change windows that respect the business calendar.</p>
+      </div>
     </section>
 
     <!-- Recent wins -->
