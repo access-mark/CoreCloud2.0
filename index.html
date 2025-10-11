@@ -22,11 +22,11 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
 
-  <!-- Page-scoped additions (About-style nav + royal frame + mobile-only improvements) -->
+  <!-- Page-scoped nav (IDENTICAL to About) + royal frame + small utilities -->
   <style>
     :root{ --royal:#004f91; --royal-2:#0b3d72; }
 
-    /* ===== Header + Nav (About pattern) ===== */
+    /* ===== Header + nav (same as About) ===== */
     .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
     .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
     .brand .logo{height:110px;width:auto;}
@@ -62,44 +62,16 @@
     .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
     .mobile-drawer details[open] summary{background:#f7fbff}
     .mobile-drawer a:hover{background:#f2f7ff}
-
     #nav-toggle:checked ~ nav.mobile-drawer{display:block}
-    @media(max-width:1024px){.main-nav{display:none}.hamburger{display:inline-flex; z-index:1001;}}
+    @media(max-width:1024px){.main-nav{display:none}.hamburger{display:inline-flex}}
 
-    /* ===== Royal-blue frame above/below banner ===== */
+    /* ===== Royal-blue frame ===== */
     .hero-frame{border-top:4px solid var(--royal);border-bottom:4px solid var(--royal);}
     .hero-media img{width:100%;height:auto;display:block;}
 
-    /* ===== Targeted centering utility ===== */
+    /* Utilities */
     .centered{max-width:1000px;margin:0 auto;text-align:center;padding:0 1rem;}
-
-    /* Narrative left */
     .narrative h3,.narrative p{ text-align:left !important; }
-
-    /* ======== MOBILE-ONLY ENHANCEMENTS (desktop unaffected) ======== */
-    @media (max-width:1024px){
-      /* Full-screen drawer with blur + bigger targets */
-      nav.mobile-drawer{
-        position:fixed; inset:0; top:0;
-        display:none; /* default hidden; shown by checkbox rule above */
-        padding:5rem 1.25rem 2rem;
-        background:rgba(255,255,255,.96);
-        -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px);
-        overflow:auto; z-index:1000;
-      }
-      .mobile-drawer a, .mobile-drawer summary{
-        padding:14px 4px; font-size:1.05rem; line-height:1.4;
-      }
-      .mobile-drawer details{ margin-top:6px; }
-      .mobile-drawer details > summary{ font-weight:700; }
-
-      /* Prevent body scroll when open (with .nav-open on <body>) */
-      body.nav-open{ height:100vh; overflow:hidden; }
-
-      /* Tighter content paddings */
-      .hero-intro{ padding:0 .75rem; }
-      .card-grid{ padding:0 1rem; gap:1rem; }
-    }
   </style>
 
   <!-- JSON-LD -->
@@ -112,7 +84,7 @@
 </head>
 
 <body class="home-page">
-  <!-- ===== Header ===== -->
+  <!-- ===== Header (About clone) ===== -->
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -343,7 +315,7 @@
     </div>
   </footer>
 
-  <!-- Active link highlighter + mobile scroll lock -->
+  <!-- Active link highlighter (desktop + mobile + submenu) -->
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
@@ -352,14 +324,6 @@
         if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
         else{a.classList.remove('active');a.removeAttribute('aria-current');}
       });
-
-      // Lock body scroll when mobile drawer is open
-      var cb=document.getElementById('nav-toggle');
-      if(cb){
-        cb.addEventListener('change', function(){
-          document.body.classList.toggle('nav-open', cb.checked);
-        });
-      }
     })();
   </script>
 </body>
