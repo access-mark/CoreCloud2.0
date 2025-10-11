@@ -109,7 +109,7 @@
     .hero .hero-body{max-width:900px;margin:0 auto;}
 
     /* ✅ All body copy blue (incl. hero) */
-    body, p, li, a, .content, .content p, .content li, .hero, .hero * { color: var(--royal) !important; }
+    body, p, li, a, .content, .content p, .content li, .content a, .hero, .hero * { color: var(--royal) !important; }
 
     /* Sections rhythm */
     .home .section{padding:1.5rem 0;}
@@ -122,15 +122,19 @@
     }
     .card{border:1px solid #e4e8f1;border-radius:12px;background:#fff;padding:1rem;text-decoration:none;color:inherit;}
     .card h3{margin:.25rem 0 .5rem}
-
     .cta-btn{display:inline-block;background:var(--royal);color:#fff;text-decoration:none;padding:.7rem 1rem;border-radius:8px;font-weight:700}
     .cta-btn:hover{background:#0066b2}
 
-    /* === Focus section: centered title, left-aligned content === */
-    .section-left .section-title{ text-align:center !important; }
-    .section-left .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    /* === Centering utilities (requested sections) === */
+    .section-title { text-align:center !important; }
+    .centered { max-width:900px; margin:0 auto; text-align:center !important; }
+    .centered-list { max-width:900px; margin:0 auto; text-align:center; list-style-position:inside; padding-left:0; }
+    .centered-list li { display:list-item; margin:0 0 6px; }
+
+    /* Focus & Method: keep headings/body readable while centered */
+    .section-left .narrative { max-width:900px; margin:0 auto; padding:0 1rem; text-align:center !important; }
     .section-left .narrative h3,
-    .section-left .narrative p{ text-align:left !important; margin-left:0; margin-right:0; }
+    .section-left .narrative p { text-align:inherit !important; margin-left:0; margin-right:0; }
   </style>
 
   <!-- JSON-LD -->
@@ -252,29 +256,29 @@
     </div>
   </section>
 
-  <!-- ✅ Hybrid section under hero (centered) -->
+  <!-- ✅ Hybrid section (centered) -->
   <section class="section" aria-labelledby="hybrid-title">
     <h2 id="hybrid-title" class="section-title">Hybrid Isn’t Optional — It’s the Operating Model</h2>
-    <p style="max-width:900px;margin:0 auto;text-align:center;">
+    <p class="centered">
       One venue cannot win on cost, performance, and risk at the same time. We place each workload where it wins:
       cloud for elasticity &amp; services; hosted/on-prem for predictable, low-latency, compliant run.
     </p>
   </section>
 
   <main class="content" id="main">
-    <!-- About -->
+    <!-- About (centered) -->
     <section class="section" aria-labelledby="about-title">
       <h2 id="about-title" class="section-title">About CoreCloud</h2>
-      <p style="max-width:900px;margin:0 auto;text-align:center;">
+      <p class="centered">
         Operators, not theorists. We’ve been under real boardroom pressure and know how to land change.
         Sales, cloud, hybrid infrastructure, and applications — focused on outcomes that move the needle.
       </p>
     </section>
 
-    <!-- Focus & Method (Centered title, left content) -->
+    <!-- Our Focus & Method (title centered + body centered as requested) -->
     <section class="section section-left" aria-labelledby="focus-title">
       <h2 id="focus-title" class="section-title">Our Focus &amp; Method</h2>
-      <div class="narrative">
+      <div class="narrative centered">
         <h3>Why</h3>
         <p>SA enterprises are paying for elasticity they don’t use, running platforms that drift from standards, and missing revenue because GTM and delivery aren’t connected. We remove that friction.</p>
 
@@ -286,10 +290,10 @@
       </div>
     </section>
 
-    <!-- Recent wins -->
+    <!-- Recent wins (title centered + list area centered) -->
     <section class="section" aria-labelledby="wins-title">
       <h2 id="wins-title" class="section-title">Recent Wins Through Partner Collective</h2>
-      <ul style="max-width:900px;margin:0 auto;padding-left:1.25rem;">
+      <ul class="centered-list">
         <li>−32% run-rate: ERP + SQL to hosted private cloud; burst to Azure for quarter-end. DR bundled.</li>
         <li>−48% latency: Trading analytics hybridised — on-prem GPU + S3-compatible store; cloud for global insights.</li>
         <li>Zero-downtime move: Payments core via blue/green + feature flags reduced risk during cutover.</li>
@@ -297,7 +301,7 @@
       </ul>
     </section>
 
-    <!-- Explore services -->
+    <!-- Explore services (title already centered) -->
     <section class="section" aria-labelledby="services-title">
       <h2 id="services-title" class="section-title">Explore Our Services</h2>
       <div class="card-grid" role="list">
