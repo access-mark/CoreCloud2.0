@@ -26,12 +26,12 @@
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/hosting-bannerimage.png" fetchpriority="high"/>
 
-  <!-- Page-scoped styles (fit to current system) -->
+  <!-- Page-scoped styles -->
   <style>
     :root{
       --royal:#004f91;
       --royal-2:#0b3d72;
-      --gold:#d4af37; /* hero frame */
+      --gold:#d4af37;
       --h1-size:40px; --h2-size:28px;
     }
 
@@ -105,10 +105,9 @@
 
     .hero{display:flex;justify-content:center;text-align:center;padding:32px 16px;}
     .hero .hero-body{max-width:900px;margin:0 auto;}
-    .hero .hero-body p{color:#444;}
 
-    /* Body color alignment */
-    body, p, li, a, .content, .content p, .content li { color:var(--royal); }
+    /* ✅ Force all body copy to blue */
+    body, .content, .content p, .content li, .content a, p, li, a { color:var(--royal); }
 
     /* Sections & lists */
     .hosting .section{padding:1.6rem 0;}
@@ -121,7 +120,7 @@
     .metric{display:flex;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;}
     .metric b{color:var(--royal-2);}
 
-    /* Inline CTA */
+    /* Inline CTA (keep text white — not “body copy”) */
     .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.3rem auto;text-align:center;max-width:1000px;}
     .inline-cta p{margin:.55rem 0 0;color:#fff !important;}
     .cta-btn{display:inline-block;background:var(--royal);color:#fff;text-decoration:none;padding:.7rem 1rem;border-radius:8px;font-weight:700}
@@ -161,7 +160,7 @@
 <body class="hosting">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- ===== Header / Nav (Infrastructure standalone) ===== -->
+  <!-- ===== Header / Nav ===== -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -181,7 +180,7 @@
           </div>
         </div>
 
-        <!-- Cloud Suite (without Infrastructure inside) -->
+        <!-- Cloud Suite (no Infrastructure inside) -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
@@ -192,7 +191,17 @@
           </div>
         </div>
 
-        <!-- NEW top-level Infrastructure -->
+        <!-- ✅ Curated Talent (RESTORED) -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <div class="submenu" role="menu" aria-label="Curated Talent">
+            <a role="menuitem" href="talent.html">Overview</a>
+            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="global-talent.html">Global Talent</a>
+          </div>
+        </div>
+
+        <!-- Standalone Infrastructure -->
         <a href="hosting-private-cloud.html" class="active" aria-current="page">Infrastructure</a>
 
         <a href="about.html">About</a>
@@ -225,7 +234,14 @@
         <a href="data-ai.html">Data &amp; AI</a>
       </details>
 
-      <!-- NEW standalone -->
+      <!-- ✅ Curated Talent (RESTORED on mobile) -->
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="global-talent.html">Global Talent</a>
+      </details>
+
       <a href="hosting-private-cloud.html" aria-current="page">Infrastructure</a>
 
       <a href="about.html">About</a>
