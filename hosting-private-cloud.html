@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/hosting-bannerimage.png" fetchpriority="high"/>
 
@@ -29,25 +29,35 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* hero + intro */
-    .hosting-page .hero-media img{width:100%;height:auto;display:block;}
-    .hosting-page .hero-media{margin-bottom:2rem;}
-    .hosting-page .hero-intro{max-width:900px;margin:0 auto 1rem;padding:0 1rem;text-align:center !important;}
-    .hosting-page .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .6rem;}
-    .hosting-page .hero-intro p{color:#444;text-align:center !important;margin-left:auto !important;margin-right:auto !important;max-width:900px;}
+    /* Ensure active nav shows underline on small-banner pattern */
+    .desktop-nav .nav-btn.active,
+    .desktop-nav .nav-btn[aria-current="page"]{
+      color:var(--dark-blue);
+      border-bottom:2px solid var(--dark-blue);
+    }
+
+    /* Hero + intro (titles centered, spacing aligned with global rhythm) */
+    .hosting-page .hero-intro{
+      max-width:900px;margin:0 auto 1.25rem;padding:0 1rem;text-align:center !important;
+    }
+    .hosting-page .hero-title{
+      font-size:2rem;color:var(--dark-blue);font-weight:700;
+      margin:2.5rem auto 2rem; /* extra breathing room */
+    }
+    .hosting-page .hero-intro p{
+      color:#444;text-align:center !important;margin-left:auto !important;margin-right:auto !important;max-width:900px;
+    }
     @media (max-width:768px){
-      .hosting-page .hero-media{margin-bottom:1.25rem;}
-      .hosting-page .hero-title{font-size:1.8rem;line-height:1.2;}
+      .hosting-page .hero-title{font-size:1.85rem;line-height:1.2;margin:2rem auto 1.5rem;}
     }
 
-    /* sections */
-    .hosting-page .section{padding:1.6rem 0;}
-    .hosting-page .section-title{margin:0 0 .75rem;}
-
-    /* Title alignment hardening (page-wide) */
-    .hosting-page :is(h1.hero-title,h2.section-title){
+    /* Section spacing & title centering hardening (do not fight global) */
+    .hosting-page .section{padding:1.6rem 0; margin:3rem 0;}
+    .hosting-page .section-title{
       text-align:center !important;display:block !important;margin-left:auto !important;margin-right:auto !important;
+      margin-top:3.5rem !important; margin-bottom:2rem !important; /* consistent rhythm */
     }
+
     /* keep subheads & list content left */
     .hosting-page :is(.panel h3,.panel h4){text-align:left !important;}
 
@@ -63,8 +73,8 @@
 
     /* inline CTA */
     .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.3rem 0;text-align:center;}
-    .inline-cta p{margin:.55rem 0 0;color:#fff !important;}
-    .hosting-page .cta-btn{padding:.85rem 1.1rem;min-height:44px;}
+    .inline-cta p{margin:.65rem 0 0;color:#fff !important;} /* extra air above button text */
+    .hosting-page .cta-btn{padding:.9rem 1.15rem;min-height:46px;}
 
     /* FAQ accordions */
     .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12);}
@@ -143,14 +153,16 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <div class="hero-media" role="img" aria-label="Private cloud and colocation">
-    <img src="assets/images/hosting-bannerimage.png" alt="Hosting & Private Cloud — predictable, sovereign, low-latency run" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
+  <!-- GOLD-lined hero (uses global .hero-frame for top/bottom stripe) -->
+  <div class="hero-frame">
+    <div class="hero-media" role="img" aria-label="Private cloud and colocation">
+      <img src="assets/images/hosting-bannerimage.png" alt="Hosting & Private Cloud — predictable, sovereign, low-latency run" loading="eager" decoding="async" fetchpriority="high" width="1920" height="500"/>
+    </div>
   </div>
 
   <!-- Intro -->
   <section class="hero-intro" id="main">
-    <h1 class="hero-title">Hosting & Private Cloud — Predictable, Close, Compliant</h1>
+    <h1 class="hero-title">Hosting &amp; Private Cloud — Predictable, Close, Compliant</h1>
     <p>Not every workload belongs in hyperscale. We run steady, regulated, and latency-critical systems on managed private cloud and colocation — with DR, POPIA alignment, and <a href="finops.html">FinOps</a> built in. When cloud is right, we use it. When predictability wins, we host.</p>
   </section>
 
@@ -182,12 +194,12 @@
 
     <!-- Architecture & controls -->
     <section class="section" aria-labelledby="arch-title">
-      <h2 id="arch-title" class="section-title">Architecture & Controls</h2>
+      <h2 id="arch-title" class="section-title">Architecture &amp; Controls</h2>
       <ul class="points">
         <li><strong>Network:</strong> segmented VLANs/VNETs, egress control, private interconnects, and WAF/CDN for public edges.</li>
-        <li><strong>Identity & access:</strong> SSO, least-privilege roles, break-glass, and auditable revocation.</li>
+        <li><strong>Identity &amp; access:</strong> SSO, least-privilege roles, break-glass, and auditable revocation.</li>
         <li><strong>Data protection:</strong> encryption at rest/in transit, key custody options (HSM/KMS), retention by class.</li>
-        <li><strong>Backups & DR:</strong> local + offsite copies, immutable snapshots, quarterly restore and failover tests.</li>
+        <li><strong>Backups &amp; DR:</strong> local + offsite copies, immutable snapshots, quarterly restore and failover tests.</li>
         <li><strong>Observability:</strong> logs, metrics, traces with SLOs and error budgets — not just “up/down”.</li>
         <li><strong>Hybrid patterns:</strong> burst to <a href="cloud.html">AWS/Azure</a> for peak or analytics; controlled data flows with showback.</li>
       </ul>
@@ -210,8 +222,8 @@
     <section class="section" aria-labelledby="movein-title">
       <h2 id="movein-title" class="section-title">30-Day Move-In Plan</h2>
       <ol class="points">
-        <li><strong>Days 1–5:</strong> discovery & sizing, data map (PII/regulated), residency & keys plan.</li>
-        <li><strong>Days 6–12:</strong> network & identity setup, baseline security controls, monitoring hooks.</li>
+        <li><strong>Days 1–5:</strong> discovery &amp; sizing, data map (PII/regulated), residency &amp; keys plan.</li>
+        <li><strong>Days 6–12:</strong> network &amp; identity setup, baseline security controls, monitoring hooks.</li>
         <li><strong>Days 13–22:</strong> build environments, migrate first workloads with rollback plans, backup regime live.</li>
         <li><strong>Days 23–30:</strong> DR drill, performance tune, runbook sign-off, and hand-over with dashboards.</li>
       </ol>
@@ -224,7 +236,7 @@
 
     <!-- Cost & governance -->
     <section class="section" aria-labelledby="cost-title">
-      <h2 id="cost-title" class="section-title">Cost & Governance</h2>
+      <h2 id="cost-title" class="section-title">Cost &amp; Governance</h2>
       <ul class="points">
         <li><strong>Transparent pricing:</strong> compute, storage, backup, and network line items — no surprises.</li>
         <li><strong>Showback/chargeback:</strong> tags and meters mapped to apps/teams for accountability.</li>
