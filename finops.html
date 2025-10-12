@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=21"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=18"/>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
@@ -31,76 +31,74 @@
 
     /* a11y: skip link */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
-    .skip-link:focus{position:fixed;top:10px;left:10px;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
+    .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* --- HERO LINES (robust override) --- */
-    .finops-page .hero-frame{ position:relative; }
-    /* Force thin gold stripes on top and bottom, above the image */
-    .finops-page .hero-frame::before,
-    .finops-page .hero-frame::after{
-      content:"";
-      position:absolute; left:0; right:0;
-      height:4px !important;
-      background: var(--gold) !important;
-      z-index:2; pointer-events:none;
-    }
-    .finops-page .hero-frame::before{ top:0; }
-    .finops-page .hero-frame::after { bottom:0; }
-    /* Ensure media sits under lines and can’t overlap them */
-    .finops-page .hero-media{ position:relative; z-index:0; }
-    .finops-page .hero-media img{ width:100%; height:auto; display:block; }
+    /* Hero frame: thin gold line above/below (match other pages) */
+    .hero-frame{border-top:4px solid var(--gold);border-bottom:4px solid var(--gold);}
+    .hero-media img{width:100%;height:auto;display:block;}
 
-    /* Title alignment */
-    .finops-page :is(h1.hero-title,h2.section-title){
-      text-align:center !important; display:block !important; margin-left:auto !important; margin-right:auto !important;
-    }
-    .finops-page .hero-intro{max-width:1000px;margin:0 auto 1.1rem;padding:0 1rem;text-align:center;}
-    .finops-page .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .6rem;}
-    @media (max-width:768px){ .finops-page .hero-title{font-size:1.85rem;line-height:1.25;} }
+    /* Intro spacing + title (nudge title a bit lower) */
+    .finops-page .hero-intro{max-width:1000px;margin:1.25rem auto 1.1rem;padding:0 1rem;text-align:center;}
+    .finops-page .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.6rem auto .6rem;}
+    @media (max-width:768px){ .finops-page .hero-title{font-size:1.85rem;line-height:1.2;} }
 
     /* Sections / narrative */
     .section{padding:1.6rem 0;}
-    #signals.section{padding-top:1.2rem;}
     .section-title{margin:0 0 .75rem;}
     .narrative{max-width:1000px;margin:0 auto;padding:0 1rem;color:#444;line-height:1.75;}
-    .narrative h3{font-size:1.08rem;color:var(--dark-blue);margin:.6rem 0 .25rem;text-align:left;}
     .narrative p{margin:.4rem 0;}
     .narrative ul{margin:.25rem 0 0 1.2rem;}
     .narrative li{margin:.28rem 0;}
+
+    /* >>> Typography match for "Why / What / How" subheads from Home <<< */
+    /* Home uses strong, left-aligned h3 around ~1.4rem / 600 weight. */
+    .wwh-head{
+      font-size:1.4rem !important;
+      font-weight:600 !important;
+      line-height:1.4;
+      color:var(--dark-blue) !important;
+      margin:.6rem 0 .25rem !important;
+      text-align:left !important;
+    }
 
     /* Chips */
     .inpage-nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 auto .75rem;padding:.25rem .75rem;max-width:1000px;justify-content:center;}
     .inpage-nav a{border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;white-space:nowrap;font-size:.95rem;}
 
-    /* Lists / metrics */
+    /* Lists */
     .checklist{margin:.25rem 0 0 1.2rem;padding:0;}
     .checklist li{list-style:disc;margin:.3rem 0;}
+
+    /* Metrics */
     .metrics{display:grid;gap:.45rem;max-width:1000px;margin:0 auto;padding:0 1rem;}
     .metric{display:flex;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;}
     .metric b{color:#0b3d72;}
 
     /* Inline CTA */
-    .inline-cta{background:#0d3b66;color:#fff;padding:1rem 1.2rem;border-radius:12px;margin:1.25rem 0;text-align:center;}
+    .inline-cta{background:#0d3b66;color:#fff;padding:1rem 1.2rem;border-radius:12px;margin:1.25rem auto;text-align:center;max-width:680px;}
     .inline-cta p{margin:.5rem 0 0;color:#fff !important;}
     .cta-btn{padding:.78rem 1.05rem;}
 
-    /* FAQ */
+    /* FAQ accordions */
     .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12);}
     .faq-list details:last-of-type{border-bottom:none;}
     .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none;list-style:none;}
     .faq-list summary::-webkit-details-marker{display:none;}
     .faq-list p{margin:.45rem 0 0;}
 
-    /* Underline the parent "Cloud Suite" button when a child (FinOps) is active or the group is open/hovered */
-    .main-nav .nav-group > button.active,
-    .main-nav .nav-group:hover > button,
-    .main-nav .nav-group:focus-within > button{
-      color: var(--dark-blue);
-      border-bottom:2px solid var(--dark-blue);
+    /* Title alignment hardening (page-wide) */
+    .finops-page :is(h1.hero-title,h2.section-title){
+      text-align:center !important;display:block !important;margin-left:auto !important;margin-right:auto !important;
     }
+    /* Keep subheads left-aligned elsewhere */
+    .finops-page :is(.panel h3,.panel h4){text-align:left !important;}
+
+    /* Footer phone link belt-and-braces */
+    footer .footer-right a[href^="tel:"]{color:#fff !important;text-decoration:none;font-weight:500;}
+    footer .footer-right a[href^="tel:"]:hover{text-decoration:underline;}
   </style>
 
-  <!-- JSON-LD (Service + Breadcrumbs + FAQ) -->
+  <!-- JSON-LD -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"CoreCloud — FinOps","description":"FinOps by design: spend visibility, right-sizing, commitment strategy, and monthly operating rhythms.","provider":{"@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png"},"areaServed":"ZA","serviceOutput":"Reduced cloud run-rate and governance with preserved delivery velocity","url":"https://www.corecloudza.com/finops.html","offers":{"@type":"Offer","availability":"https://schema.org/InStock"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},{"@type":"ListItem","position":2,"name":"FinOps","item":"https://www.corecloudza.com/finops.html"}]}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Will FinOps slow down delivery?","acceptedAnswer":{"@type":"Answer","text":"No. We implement background guardrails (tagging, budgets, anomaly alerts) and prioritise right-sizing and schedule-to-zero so teams keep shipping."}},{"@type":"Question","name":"Do we need a third-party cost tool first?","acceptedAnswer":{"@type":"Answer","text":"Not to start. We land quick wins with native tooling, then add specialised tools if the ROI is clear."}},{"@type":"Question","name":"How do you handle multi-cloud and hybrid?","acceptedAnswer":{"@type":"Answer","text":"We normalise tags, define venue-aware unit costs, and run a single cadence that spans cloud, hosted, and on-prem."}}]}</script>
@@ -109,89 +107,51 @@
 <body class="finops-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Unified Header -->
-  <header class="site-header" role="banner">
-    <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
+  <!-- Header (small banner variant) -->
+  <header class="small-banner">
+    <div class="banner-header">
+      <a href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
       </a>
 
-      <nav class="main-nav" aria-label="Primary">
-        <a href="index.html">Home</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
 
-        <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Consulting</button>
-          <div class="submenu" role="menu" aria-label="Consulting">
-            <a role="menuitem" href="consulting.html">Overview</a>
-            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
-          </div>
-        </div>
-
-        <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
-          <div class="submenu" role="menu" aria-label="Cloud Suite">
-            <a role="menuitem" href="cloud.html">Overview</a>
-            <a role="menuitem" href="finops.html" class="active" aria-current="page">FinOps</a>
-            <a role="menuitem" href="application-development.html">Application Development</a>
-            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
-            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
-          </div>
-        </div>
-
-        <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
-          <div class="submenu" role="menu" aria-label="Curated Talent">
-            <a role="menuitem" href="talent.html">Overview</a>
-            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
-            <a role="menuitem" href="global-talent.html">Global Talent</a>
-          </div>
-        </div>
-
-        <a href="infrastructure.html">Infrastructure</a>
-        <a href="about.html">About</a>
-        <a href="blog.html">Insights</a>
-        <a href="contact.html">Contact</a>
+      <nav class="desktop-nav" aria-label="Primary">
+        <a href="index.html" class="nav-btn">HOME</a>
+        <a href="consulting.html" class="nav-btn">CONSULT</a>
+        <a href="cloud.html" class="nav-btn">CLOUD</a>
+        <a href="finops.html" class="nav-btn active" aria-current="page">FINOPS</a>
+        <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
+        <a href="mobile-web.html" class="nav-btn">APP&nbsp;DEV</a>
+        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
+        <a href="talent.html" class="nav-btn">TALENT</a>
+        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
+        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
+        <a href="about.html" class="nav-btn">ABOUT</a>
+        <a href="blog.html" class="nav-btn">BLOG</a>
+        <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <!-- Mobile toggle -->
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
+      <nav class="mobile-nav" aria-label="Mobile">
+        <a href="index.html">HOME</a>
+        <a href="consulting.html">CONSULT</a>
+        <a href="cloud.html">CLOUD</a>
+        <a href="finops.html" class="active" aria-current="page">FINOPS</a>
+        <a href="hosting-private-cloud.html">HOSTING</a>
+        <a href="mobile-web.html">APP DEVELOPMENT</a>
+        <a href="data-ai.html">DATA &amp; AI</a>
+        <a href="talent.html">TALENT</a>
+        <a href="talent-relaunch.html">RE / LAUNCH</a>
+        <a href="dynamic-imprinting.html">IMPRINTING</a>
+        <a href="about.html">ABOUT</a>
+        <a href="blog.html">BLOG</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
     </div>
-
-    <!-- Mobile drawer -->
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
-    <nav class="mobile-drawer" aria-label="Mobile">
-      <a href="index.html">Home</a>
-
-      <details>
-        <summary>Consulting</summary>
-        <a href="consulting.html">Overview</a>
-        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
-      </details>
-
-      <details open>
-        <summary>Cloud Suite</summary>
-        <a href="cloud.html">Overview</a>
-        <a href="finops.html" aria-current="page">FinOps</a>
-        <a href="application-development.html">Application Development</a>
-        <a href="data-ai.html">Data &amp; AI</a>
-        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
-      </details>
-
-      <details>
-        <summary>Curated Talent</summary>
-        <a href="talent.html">Overview</a>
-        <a href="talent-relaunch.html">RE/LAUNCH</a>
-        <a href="global-talent.html">Global Talent</a>
-      </details>
-
-      <a href="infrastructure.html">Infrastructure</a>
-      <a href="about.html">About</a>
-      <a href="blog.html">Insights</a>
-      <a href="contact.html">Contact</a>
-    </nav>
   </header>
 
-  <!-- HERO with enforced gold lines -->
+  <!-- Hero with thin gold lines -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="FinOps foundations and quick wins">
       <img src="assets/images/finops-bannerimage.png" alt="FinOps by design — visibility to action" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
@@ -233,17 +193,17 @@
       </div>
     </section>
 
-    <!-- What we do -->
+    <!-- What we do (subheads now using home "Why/What/How" typography) -->
     <section class="section" id="what" aria-labelledby="what-title">
       <div class="narrative">
         <h2 id="what-title" class="section-title">What We Do (Plain Terms)</h2>
-        <h3>1) Make spend visible</h3>
+        <h3 class="wwh-head">1) Make spend visible</h3>
         <p>Clean tags, owners, budgets, anomaly alerts. Unit costs by product/env so teams see the slope and act.</p>
-        <h3>2) Land quick wins</h3>
+        <h3 class="wwh-head">2) Land quick wins</h3>
         <p>Rightsize hotspots, schedule-to-zero, kill idle/orphaned resources, set storage lifecycle. Savings in days, not quarters.</p>
-        <h3>3) Put guardrails in the background</h3>
+        <h3 class="wwh-head">3) Put guardrails in the background</h3>
         <p>Policies that enforce themselves — tagging in CI/IaC, budget alerts to owners, exception approvals, showback.</p>
-        <h3>4) Tune architecture & commitments</h3>
+        <h3 class="wwh-head">4) Tune architecture & commitments</h3>
         <p>Fix costly patterns (egress, chatty services). Buy commitments where utilisation is predictable — with guardrails.</p>
       </div>
     </section>
@@ -261,7 +221,7 @@
         <div class="inline-cta">
           <strong>Need savings this month?</strong>
           <p>We’ll land quick wins without breaking delivery.</p>
-          <a class="cta-btn" href="contact.html">Start the baseline &amp; quick wins</a>
+          <a class="cta-btn" href="contact.html">Start the baseline & quick wins</a>
         </div>
       </div>
     </section>
@@ -297,7 +257,7 @@
           <li><strong>Data transfer:</strong> placement, caching, peering, CDN; avoid accidental egress</li>
           <li><strong>Patterns:</strong> queues/caches to flatten peaks; serverless where it wins</li>
         </ul>
-        <p>See <a href="cloud.html">Cloud foundations</a> and <a href="hosted-private-cloud.html">Hosting</a> for venue decisions when hyperscale isn’t the best fit.</p>
+        <p>See <a href="cloud.html">Cloud foundations</a> and <a href="hosting-private-cloud.html">Hosting</a> for venue decisions when hyperscale isn’t the best fit.</p>
       </div>
     </section>
 
@@ -391,22 +351,14 @@
     </div>
   </footer>
 
-  <!-- Active link + underline parent "Cloud Suite" -->
+  <!-- Auto-highlight current nav -->
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'finops.html').toLowerCase();
-
-      // mark exact link active
-      document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
+      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){
-          a.classList.add('active'); a.setAttribute('aria-current','page');
-          var group=a.closest('.nav-group');
-          if(group){
-            var btn=group.querySelector('button');
-            if(btn) btn.classList.add('active');
-          }
-        }
+        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
+        else{a.classList.remove('active');a.removeAttribute('aria-current');}
       });
     })();
   </script>
