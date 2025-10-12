@@ -25,11 +25,11 @@
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped, minimal -->
+  <!-- Page-scoped (minimal) -->
   <style>
-    :root{ --royal:#004f91; --royal-2:#0b3d72; --gold:#d4af37; }
+    :root{ --royal:#004f91; --royal-2:#0b3d72; --gold:#d4af37; --dark-blue:#004f91; }
 
-    /* === Banner lines: EXACTLY like index (blue–gold–blue, gold = 2x) === */
+    /* === Banner lines: blue–gold–blue (gold = 2x) === */
     .consulting-page .hero-frame{ position:relative; }
     .consulting-page .hero-frame::before,
     .consulting-page .hero-frame::after{
@@ -44,26 +44,29 @@
     .consulting-page .hero-frame::before{ top:0; }
     .consulting-page .hero-frame::after { bottom:0; }
 
-    /* Center section titles reliably */
+    /* Titles centered (guards against stray overrides) */
     .consulting-page .section .section-title{
       text-align:center !important;
       margin-left:auto !important;
       margin-right:auto !important;
     }
 
-    /* Sub-headers (panels) consistent royal blue */
-    .consulting-page .panel h4{
-      color: var(--royal) !important;
-      font-weight:700;
-      margin:0 0 .35rem;
-      text-align:left;
+    /* 🔒 GLOBAL CONSISTENCY SUBTITLES (match index Why/What/How)
+       👉 Copy this block into assets/css/styles.css to lock sitewide */
+    .panel h4{
+      font-size: 1.4rem !important;
+      font-weight: 600 !important;
+      line-height: 1.4;
+      color: var(--dark-blue) !important;
+      margin: 0 0 .5rem;
+      text-align: left;
     }
 
-    /* Anchor jumps clear the sticky header */
+    /* Anchor jump offset for sticky header */
     .consulting-page section[id]{ scroll-margin-top:132px; }
     @media (max-width:768px){ .consulting-page section[id]{ scroll-margin-top:96px; } }
 
-    /* Pills (chip nav) — centered, wrap nicely */
+    /* Pill links (centered) */
     .inpage-nav{
       display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
       gap:8px; margin:0 auto 1rem; padding:.35rem 1rem; max-width:1000px;
@@ -79,7 +82,7 @@
       .inpage-nav a{ padding:.35rem .6rem; font-size:.9rem; }
     }
 
-    /* Underline top-level "Consulting" when this page is active */
+    /* Underline top-level "Consulting" when active */
     .main-nav .nav-group > button.active{
       color: var(--royal);
       border-bottom:2px solid var(--royal);
