@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=20"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=21"/>
 
   <!-- Preload hero + logo -->
   <link rel="preload" as="image" href="assets/images/data-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
@@ -34,27 +34,35 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;top:10px;left:10px;width:auto;height:auto;padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;outline:2px solid #fff;z-index:1000;}
 
-    /* Hero thin gold lines (same thickness site-wide) */
-    .hero-frame{position:relative;}
-    .hero-frame::before,
-    .hero-frame::after{
-      content:"";position:absolute;left:0;right:0;height:3px;background:var(--gold);z-index:2;pointer-events:none;
+    /* HERO — lock thin gold lines precisely on the image edges */
+    .dataai-page .hero-wrap{margin:0;line-height:0;}
+    .dataai-page .hero-frame{
+      position:relative;
+      margin:0;
+      line-height:0; /* removes stray gaps */
+      box-shadow:
+        inset 0 3px 0 var(--gold),
+        inset 0 -3px 0 var(--gold); /* thin gold lines, exact position */
     }
-    .hero-frame::before{top:0;}
-    .hero-frame::after{bottom:0;}
-    .hero-media img{width:100%;height:auto;display:block;}
+    .dataai-page .hero-media{line-height:0;}
+    .dataai-page .hero-media img{
+      display:block;width:100%;height:auto;vertical-align:middle;
+    }
 
-    /* Page layout */
+    /* Center all page titles HARD (overrides any external CSS) */
+    .dataai-page :is(h1.hero-title, h2.section-title){
+      text-align:center !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+      display:block !important;
+    }
+
+    /* Layout */
     .dataai-page .hero-intro{max-width:900px;margin:2rem auto 1rem;text-align:center;}
     .dataai-page .narrative{max-width:1000px;margin:0 auto;padding:0 1rem;}
     .dataai-page .section{margin:2rem 0 !important;}
 
-    /* Center page titles */
-    .dataai-page :is(h1.hero-title, h2.section-title){
-      text-align:center !important;margin-left:auto;margin-right:auto;display:block;
-    }
-
-    /* Narrative rows (no bullets) */
+    /* Narrative pairs (no bullets) */
     .dataai-page .pair{margin:.55rem 0;line-height:1.7;color:#444;}
     .dataai-page .kv{font-weight:700;color:var(--dark-blue);}
     .dataai-page .desc{display:inline;margin-left:.45rem;}
@@ -168,14 +176,16 @@
     </nav>
   </header>
 
-  <!-- Hero with thin gold lines -->
-  <div class="hero-frame">
-    <div class="hero-media" role="img" aria-label="CoreCloud — Sovereign Data & AI">
-      <img
-        src="assets/images/data-bannerimage.png"
-        alt="CoreCloud — Sovereign Data & AI"
-        decoding="async" loading="eager" fetchpriority="high"
-        width="1920" height="500"/>
+  <!-- HERO with precise thin lines -->
+  <div class="hero-wrap">
+    <div class="hero-frame">
+      <div class="hero-media" role="img" aria-label="CoreCloud — Sovereign Data & AI">
+        <img
+          src="assets/images/data-bannerimage.png"
+          alt="CoreCloud — Sovereign Data & AI"
+          decoding="async" loading="eager" fetchpriority="high"
+          width="1920" height="500"/>
+      </div>
     </div>
   </div>
 
@@ -303,7 +313,6 @@
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'data-ai.html').toLowerCase();
-
       document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
         if(href===path){
@@ -317,10 +326,10 @@
             if(btn){ btn.classList.add('active'); }
 
             // Mobile: mark the matching summary as active
-            var blocks = document.querySelectorAll('.mobile-drawer details');
-            blocks.forEach(function(d){
-              var match = Array.from(d.querySelectorAll('a')).some(function(link){ return (link.getAttribute('href')||'').toLowerCase()===path; });
-              if(match){
+            document.querySelectorAll('.mobile-drawer details').forEach(function(d){
+              var isMatch = Array.from(d.querySelectorAll('a'))
+                .some(function(link){ return (link.getAttribute('href')||'').toLowerCase()===path; });
+              if(isMatch){
                 var summary = d.querySelector('summary');
                 if(summary){ summary.classList.add('active'); }
               }
