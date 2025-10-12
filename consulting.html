@@ -18,15 +18,39 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/consulting-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (template v14 with single gold banner line) -->
+  <!-- Global CSS (template v14) -->
   <link rel="stylesheet" href="assets/css/styles.css?v=14"/>
 
   <!-- Preload key images -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped styles (content only; no banner/nav overrides) -->
+  <!-- Page-scoped styles: triple-line banner frame; content-only tweaks -->
   <style>
+    /* Triple line frame (blue/gold/blue); gold = 2x each blue line */
+    .hero-frame{
+      position: relative;
+      border: 0 !important; /* override global single-line frame on this page */
+    }
+    .hero-frame::before,
+    .hero-frame::after{
+      content:"";
+      position:absolute; left:0; right:0;
+      height:8px; /* 2px blue + 4px gold + 2px blue */
+      background:
+        linear-gradient(
+          to bottom,
+          var(--dark-blue) 0 2px,
+          var(--gold)      2px 6px,
+          var(--dark-blue) 6px 8px
+        );
+      pointer-events:none;
+      z-index: 2;
+    }
+    .hero-frame::before{ top:0; }
+    .hero-frame::after{ bottom:0; }
+
+    /* Content rhythms */
     .consulting-page .section{ margin:2rem 0; }
     .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
     .narrative h3{ font-size:1.12rem; font-weight:700; color:#004f91; margin:.7rem 0 .25rem; text-align:left; }
@@ -61,7 +85,7 @@
 </head>
 
 <body class="consulting-page">
-  <!-- Header (About-style) -->
+  <!-- Header (About-style; Infrastructure standalone; Hosting under Cloud) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -128,7 +152,7 @@
     </nav>
   </header>
 
-  <!-- Banner with single gold frame (handled in global CSS v14) -->
+  <!-- Banner with triple-line frame -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud Consulting — Operator-led execution">
       <img src="assets/images/consulting-bannerimage.png" alt="CoreCloud Consulting — Operator-led execution" decoding="async" loading="eager" width="1920" height="500">
