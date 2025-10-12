@@ -18,17 +18,49 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/consulting-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (template v13) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
+  <!-- Global CSS (template v14 with single gold banner line) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=14"/>
 
   <!-- Preload key images -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
+
+  <!-- Page-scoped styles (content only; no banner/nav overrides) -->
+  <style>
+    .consulting-page .section{ margin:2rem 0; }
+    .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .narrative h3{ font-size:1.12rem; font-weight:700; color:#004f91; margin:.7rem 0 .25rem; text-align:left; }
+    .narrative p{ margin:.45rem 0; line-height:1.7; color:#444; }
+    .narrative .lead{ font-size:1.05rem; }
+    .narrative ul{ margin:.3rem 0 0 1.2rem; }
+    .narrative li{ margin:.32rem 0; }
+    .checklist li{ list-style:disc; }
+
+    .grid-2,.grid-3{ display:grid; gap:1rem; }
+    @media (min-width:900px){ .grid-2{ grid-template-columns:1fr 1fr; } .grid-3{ grid-template-columns:1fr 1fr 1fr; } }
+
+    .panel{ background:#fff; border:1px solid rgba(0,79,145,.18); border-radius:10px; padding:1rem 1.1rem; box-shadow:0 2px 6px rgba(0,0,0,.04); }
+    .panel h4{ margin:0 0 .35rem; font-size:1.02rem; color:#004f91; }
+
+    .chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
+    .chip{ border:1px solid rgba(0,79,145,.2); background:#fff; border-radius:999px; padding:.45rem .75rem; font-weight:700; color:#0b3d72; font-size:.92rem; }
+
+    .metrics{ display:grid; gap:.4rem; max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .metric{ display:flex; justify-content:space-between; gap:.75rem; border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; }
+    .metric b{ color:#0b3d72; }
+
+    .faq-list details{ padding:.6rem 0; border-bottom:1px dashed rgba(0,0,0,.12); }
+    .faq-list details:last-of-type{ border-bottom:none; }
+    .faq-list summary{ font-weight:700; color:#004f91; cursor:pointer; list-style:none; }
+    .faq-list summary::-webkit-details-marker{ display:none; }
+
+    /* Chip-style in-page nav */
+    .inpage-nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 auto .9rem;padding:.25rem .75rem;max-width:1000px;justify-content:center;}
+    .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;text-decoration:none;color:#0b3d72;font-weight:700;background:#fff;}
+  </style>
 </head>
 
 <body class="consulting-page">
-  <a class="skip-link" href="#main">Skip to main content</a>
-
   <!-- Header (About-style) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
@@ -96,7 +128,7 @@
     </nav>
   </header>
 
-  <!-- Banner with triple line frame (from global CSS) -->
+  <!-- Banner with single gold frame (handled in global CSS v14) -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud Consulting — Operator-led execution">
       <img src="assets/images/consulting-bannerimage.png" alt="CoreCloud Consulting — Operator-led execution" decoding="async" loading="eager" width="1920" height="500">
@@ -111,16 +143,16 @@
 
   <main class="content" id="main">
     <!-- In-page chip nav -->
-    <nav class="inpage-nav" aria-label="On this page" style="display:flex;flex-wrap:wrap;gap:8px;margin:0 auto .9rem;padding:.25rem .75rem;max-width:1000px;justify-content:center;">
-      <a href="#signals" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">Signals</a>
-      <a href="#where" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">Where we help</a>
-      <a href="#framework" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">Operator framework</a>
-      <a href="#uplift" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">90-day uplift</a>
-      <a href="#sales" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">Sales consulting</a>
-      <a href="#artifacts" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">Artifacts</a>
-      <a href="#results" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">Results</a>
-      <a href="#cases" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">Cases</a>
-      <a href="#faq" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">FAQ</a>
+    <nav class="inpage-nav" aria-label="On this page">
+      <a href="#signals">Signals</a>
+      <a href="#where">Where we help</a>
+      <a href="#framework">Operator framework</a>
+      <a href="#uplift">90-day uplift</a>
+      <a href="#sales">Sales consulting</a>
+      <a href="#artifacts">Artifacts</a>
+      <a href="#results">Results</a>
+      <a href="#cases">Cases</a>
+      <a href="#faq">FAQ</a>
     </nav>
 
     <!-- SIGNALS -->
