@@ -12,37 +12,44 @@
 
   <!-- Canonical + Social -->
   <link rel="canonical" href="https://www.corecloudza.com/data-ai.html"/>
+  <meta property="og:type" content="website"/>
   <meta property="og:title" content="CoreCloud | Sovereign Data & AI"/>
   <meta property="og:description" content="Analytics and AI with SA data residency. On-prem GPU + cloud burst, governed pipelines, measurable outcomes."/>
-  <meta property="og:type" content="website"/>
   <meta property="og:url" content="https://www.corecloudza.com/data-ai.html"/>
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=20"/>
 
-  <!-- Preload hero -->
+  <!-- Preload hero + logo -->
   <link rel="preload" as="image" href="assets/images/data-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
   <!-- Page-scoped helpers -->
   <style>
-    /* Accessible skip link: hidden until focus, then pinned top-left */
-    .skip-link{
-      position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;
+    :root{ --gold:#d4af37; --dark-blue:#004f91; }
+
+    /* Accessible skip link */
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
+    .skip-link:focus{position:fixed;top:10px;left:10px;width:auto;height:auto;padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;outline:2px solid #fff;z-index:1000;}
+
+    /* Hero thin gold lines (same thickness site-wide) */
+    .hero-frame{position:relative;}
+    .hero-frame::before,
+    .hero-frame::after{
+      content:"";position:absolute;left:0;right:0;height:3px;background:var(--gold);z-index:2;pointer-events:none;
     }
-    .skip-link:focus{
-      position:fixed;top:10px;left:10px;width:auto;height:auto;
-      padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;
-      outline:2px solid #fff;z-index:1000;
-    }
+    .hero-frame::before{top:0;}
+    .hero-frame::after{bottom:0;}
+    .hero-media img{width:100%;height:auto;display:block;}
 
     /* Page layout */
     .dataai-page .hero-intro{max-width:900px;margin:2rem auto 1rem;text-align:center;}
     .dataai-page .narrative{max-width:1000px;margin:0 auto;padding:0 1rem;}
     .dataai-page .section{margin:2rem 0 !important;}
 
-    /* Center all page titles */
+    /* Center page titles */
     .dataai-page :is(h1.hero-title, h2.section-title){
       text-align:center !important;margin-left:auto;margin-right:auto;display:block;
     }
@@ -52,75 +59,124 @@
     .dataai-page .kv{font-weight:700;color:var(--dark-blue);}
     .dataai-page .desc{display:inline;margin-left:.45rem;}
 
-    /* Kill bullets everywhere on this page */
+    /* Kill bullets on this page */
     .dataai-page ul, .dataai-page ol{list-style:none !important;margin:0 !important;padding:0 !important;}
     .dataai-page li::marker{content:"" !important;}
-
-    /* FAQ labels */
-    .dataai-page .q{font-weight:700;color:var(--dark-blue);margin-top:1rem;}
-    .dataai-page .a{margin:.35rem 0 0;color:#444;}
 
     /* CTA row */
     .dataai-page .cta-row{display:flex;justify-content:center;margin-top:1.25rem;}
     .dataai-page .cta-row .cta-btn{min-width:240px;}
+
+    /* Underline parent "Cloud Suite" when a child is active (desktop) */
+    .main-nav .nav-group > button.active{
+      color: var(--dark-blue);
+      border-bottom: 2px solid var(--dark-blue);
+    }
+    /* Mobile cue for the active summary */
+    .mobile-drawer details > summary.active{
+      color: var(--dark-blue);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
   </style>
 </head>
 
 <body class="dataai-page">
-  <!-- Skip to main (hidden until keyboard focus) -->
+  <!-- Skip to main -->
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav -->
-  <div class="small-banner">
-    <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async"/>
+  <!-- Header / Nav (unified) -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
+      </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
+      <!-- Desktop nav -->
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
 
-      <!-- Shortened labels for consistency -->
-      <nav class="desktop-nav">
-        <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULT</a>
-        <a href="cloud.html" class="nav-btn">CLOUD</a>
-        <a href="finops.html" class="nav-btn">FINOPS</a>
-        <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
-        <a href="data-ai.html" class="nav-btn active" aria-current="page">DATA&nbsp;&amp;&nbsp;AI</a>
-        <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
-        <a href="about.html" class="nav-btn">ABOUT</a>
-        <a href="blog.html" class="nav-btn">BLOG</a>
-        <a href="contact.html" class="nav-btn">CONTACT</a>
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Consulting</button>
+          <div class="submenu" role="menu" aria-label="Consulting">
+            <a role="menuitem" href="consulting.html">Overview</a>
+            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <div class="submenu" role="menu" aria-label="Cloud Suite">
+            <a role="menuitem" href="cloud.html">Overview</a>
+            <a role="menuitem" href="finops.html">FinOps</a>
+            <a role="menuitem" href="application-development.html">Application Development</a>
+            <a role="menuitem" href="data-ai.html" class="active" aria-current="page">Data &amp; AI</a>
+            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <div class="submenu" role="menu" aria-label="Curated Talent">
+            <a role="menuitem" href="talent.html">Overview</a>
+            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="global-talent.html">Global Talent</a>
+          </div>
+        </div>
+
+        <a href="infrastructure.html">Infrastructure</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Insights</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
-      <!-- Mobile nav -->
-      <nav class="mobile-nav" aria-label="Mobile">
-        <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULT</a>
-        <a href="cloud.html">CLOUD</a>
-        <a href="finops.html">FINOPS</a>
-        <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
-        <a href="data-ai.html" class="active" aria-current="page">DATA &amp; AI</a>
-        <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">IMPRINTING</a>
-        <a href="about.html">ABOUT</a>
-        <a href="blog.html">BLOG</a>
-        <a href="contact.html">CONTACT</a>
-      </nav>
+      <!-- Mobile toggle -->
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
-  </div>
 
-  <!-- Hero -->
-  <div class="hero-media">
-    <img
-      src="assets/images/data-bannerimage.png"
-      alt="CoreCloud — Sovereign Data & AI"
-      decoding="async" loading="eager" fetchpriority="high"
-      width="1920" height="500"/>
+    <!-- Mobile drawer -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <nav class="mobile-drawer" aria-label="Mobile">
+      <a href="index.html">Home</a>
+
+      <details>
+        <summary>Consulting</summary>
+        <a href="consulting.html">Overview</a>
+        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+      </details>
+
+      <details open>
+        <summary>Cloud Suite</summary>
+        <a href="cloud.html">Overview</a>
+        <a href="finops.html">FinOps</a>
+        <a href="application-development.html">Application Development</a>
+        <a href="data-ai.html" aria-current="page">Data &amp; AI</a>
+        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+      </details>
+
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="global-talent.html">Global Talent</a>
+      </details>
+
+      <a href="infrastructure.html">Infrastructure</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Insights</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero with thin gold lines -->
+  <div class="hero-frame">
+    <div class="hero-media" role="img" aria-label="CoreCloud — Sovereign Data & AI">
+      <img
+        src="assets/images/data-bannerimage.png"
+        alt="CoreCloud — Sovereign Data & AI"
+        decoding="async" loading="eager" fetchpriority="high"
+        width="1920" height="500"/>
+    </div>
   </div>
 
   <!-- Intro -->
@@ -198,17 +254,10 @@
     <!-- FAQ -->
     <section class="section narrative" id="faq" aria-labelledby="faq-title">
       <h2 id="faq-title" class="section-title">FAQ</h2>
-      <p class="q">Do we need a specific AI stack?</p>
-      <p class="a">No. We work with your choices. The operating model and controls matter most.</p>
-
-      <p class="q">How do you handle privacy?</p>
-      <p class="a">Data contracts, role-based access, masking, and residency controls from day one.</p>
-
-      <p class="q">Can we start small?</p>
-      <p class="a">Yes. One use-case sprint on a thin platform slice — then scale.</p>
-
-      <p class="q">Who runs it?</p>
-      <p class="a">Your team with our enablement, or we run it under SLA with monthly reviews.</p>
+      <p class="pair"><span class="kv">Do we need a specific AI stack?</span><span class="desc">No. We work with your choices. The operating model and controls matter most.</span></p>
+      <p class="pair"><span class="kv">How do you handle privacy?</span><span class="desc">Data contracts, role-based access, masking, and residency controls from day one.</span></p>
+      <p class="pair"><span class="kv">Can we start small?</span><span class="desc">Yes. One use-case sprint on a thin platform slice — then scale.</span></p>
+      <p class="pair"><span class="kv">Who runs it?</span><span class="desc">Your team with our enablement, or we run it under SLA with monthly reviews.</span></p>
     </section>
   </main>
 
@@ -250,14 +299,37 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current nav -->
+  <!-- Active link + underline parent "Cloud Suite" -->
   <script>
     (function(){
-      var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
-        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
+      var path=(location.pathname.split('/').pop()||'data-ai.html').toLowerCase();
+
+      document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
+        var href=(a.getAttribute('href')||'').toLowerCase();
+        if(href===path){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+
+          // Underline the parent button in desktop nav
+          var group=a.closest('.nav-group');
+          if(group){
+            var btn=group.querySelector('button');
+            if(btn){ btn.classList.add('active'); }
+
+            // Mobile: mark the matching summary as active
+            var blocks = document.querySelectorAll('.mobile-drawer details');
+            blocks.forEach(function(d){
+              var match = Array.from(d.querySelectorAll('a')).some(function(link){ return (link.getAttribute('href')||'').toLowerCase()===path; });
+              if(match){
+                var summary = d.querySelector('summary');
+                if(summary){ summary.classList.add('active'); }
+              }
+            });
+          }
+        }else{
+          a.classList.remove('active');
+          a.removeAttribute('aria-current');
+        }
       });
     })();
   </script>
