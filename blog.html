@@ -22,11 +22,11 @@
   <link rel="preload" as="image" href="assets/images/blog-bannerimage.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Critical CSS: header, banner line, grid/cards -->
+  <!-- Critical CSS (header, banner, grid/cards) -->
   <style>
     :root{--royal:#004f91;--royal-2:#0b3d72}
 
-    /* Header (kept minimal; matches site) */
+    /* Header */
     .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06)}
     .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px}
     .logo{height:110px;width:auto}
@@ -47,7 +47,7 @@
     .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
     #nav-toggle:checked ~ nav.mobile-drawer{display:block}
 
-    /* Banner with single thin BLUE line above and below */
+    /* Banner (single thin BLUE line, top & bottom) */
     .hero-frame{position:relative}
     .hero-frame::before,.hero-frame::after{content:"";position:absolute;left:0;right:0;height:4px;background:#004f91;pointer-events:none;z-index:1}
     .hero-frame::before{top:0}.hero-frame::after{bottom:0}
@@ -55,11 +55,11 @@
     @media(max-width:768px){.hero-media{height:220px}}
     .hero-media img{width:100%;height:100%;object-fit:cover;display:block}
 
-    /* Page intro */
+    /* Intro */
     .hero-intro{max-width:1000px;margin:2rem auto 1rem;padding:0 1rem;text-align:center}
     .hero-title{font-weight:700;color:#004f91;font-size:clamp(1.75rem,2.2vw+1rem,2.25rem);margin:.2rem auto .8rem}
 
-    /* Grid + cards */
+    /* Cards grid */
     .section{margin:3rem 0}
     .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;max-width:1000px;margin:0 auto;padding:0 1rem}
     .p-card{display:flex;flex-direction:column;border:2px solid #004f91;border-radius:12px;background:#fff;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.06);transition:transform .18s ease,box-shadow .18s ease}
@@ -158,7 +158,7 @@
     </nav>
   </header>
 
-  <!-- Banner (single thin BLUE line) -->
+  <!-- Banner -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud Insights">
       <img
@@ -179,11 +179,12 @@
     <section class="section">
       <div class="blog-grid">
 
+        <!-- Each image tries: .webp → .jpg → .png → fallback -->
         <!-- 1 -->
         <article class="p-card">
-          <img src="assets/images/blog/thumb-1.jpg"
-               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
-               alt="Databricks cost quick wins">
+          <img class="post-thumb" alt="Databricks cost quick wins"
+               src="assets/images/blog/thumb-1.webp"
+               data-variants="assets/images/blog/thumb-1.webp,assets/images/blog/thumb-1.jpg,assets/images/blog/thumb-1.png,assets/images/blog/thumb-fallback.jpg">
           <div class="body">
             <span class="kicker">FinOps</span>
             <h3 class="post-title"><a href="blog-databricks-cost-quick-wins.html">Databricks Cost: Quick Wins Without Slowing Teams</a></h3>
@@ -194,9 +195,9 @@
 
         <!-- 2 -->
         <article class="p-card">
-          <img src="assets/images/blog/thumb-2.jpg"
-               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
-               alt="Differentiated leadership in South Africa">
+          <img class="post-thumb" alt="Differentiated leadership in South Africa"
+               src="assets/images/blog/thumb-2.webp"
+               data-variants="assets/images/blog/thumb-2.webp,assets/images/blog/thumb-2.jpg,assets/images/blog/thumb-2.png,assets/images/blog/thumb-fallback.jpg">
           <div class="body">
             <span class="kicker">Leadership</span>
             <h3 class="post-title"><a href="blog-differentiated-leadership-sa-competitive-edge.html">Differentiated Leadership: South Africa’s Competitive Edge</a></h3>
@@ -207,9 +208,9 @@
 
         <!-- 3 -->
         <article class="p-card">
-          <img src="assets/images/blog/thumb-3.jpg"
-               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
-               alt="ICT talent access">
+          <img class="post-thumb" alt="ICT talent access"
+               src="assets/images/blog/thumb-3.webp"
+               data-variants="assets/images/blog/thumb-3.webp,assets/images/blog/thumb-3.jpg,assets/images/blog/thumb-3.png,assets/images/blog/thumb-fallback.jpg">
           <div class="body">
             <span class="kicker">Talent</span>
             <h3 class="post-title"><a href="blog-ict-talent-access-not-shortage.html">ICT Talent: Access, Not Shortage</a></h3>
@@ -220,9 +221,9 @@
 
         <!-- 4 -->
         <article class="p-card">
-          <img src="assets/images/blog/thumb-4.jpg"
-               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
-               alt="Leadership identity level">
+          <img class="post-thumb" alt="Leadership identity level"
+               src="assets/images/blog/thumb-4.webp"
+               data-variants="assets/images/blog/thumb-4.webp,assets/images/blog/thumb-4.jpg,assets/images/blog/thumb-4.png,assets/images/blog/thumb-fallback.jpg">
           <div class="body">
             <span class="kicker">Leadership</span>
             <h3 class="post-title"><a href="blog-leadership-identity-level.html">Leadership Identity: The Level You Play At</a></h3>
@@ -233,9 +234,9 @@
 
         <!-- 5 -->
         <article class="p-card">
-          <img src="assets/images/blog/thumb-5.jpg"
-               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
-               alt="Low-code high impact">
+          <img class="post-thumb" alt="Low-code high impact"
+               src="assets/images/blog/thumb-5.webp"
+               data-variants="assets/images/blog/thumb-5.webp,assets/images/blog/thumb-5.jpg,assets/images/blog/thumb-5.png,assets/images/blog/thumb-fallback.jpg">
           <div class="body">
             <span class="kicker">Apps</span>
             <h3 class="post-title"><a href="blog-low-code-high-impact.html">Low-Code, High Impact: Shipping Value Without Chaos</a></h3>
@@ -246,9 +247,9 @@
 
         <!-- 6 -->
         <article class="p-card">
-          <img src="assets/images/blog/thumb-6.jpg"
-               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
-               alt="Market recognitions 2025">
+          <img class="post-thumb" alt="Market recognitions 2025"
+               src="assets/images/blog/thumb-6.webp"
+               data-variants="assets/images/blog/thumb-6.webp,assets/images/blog/thumb-6.jpg,assets/images/blog/thumb-6.png,assets/images/blog/thumb-fallback.jpg">
           <div class="body">
             <span class="kicker">Company</span>
             <h3 class="post-title"><a href="blog-market-recognitions-2025.html">Market Recognitions 2025</a></h3>
@@ -259,9 +260,9 @@
 
         <!-- 7 -->
         <article class="p-card">
-          <img src="assets/images/blog/thumb-7.jpg"
-               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
-               alt="Rewire the sales engine in 90 days">
+          <img class="post-thumb" alt="Rewire the sales engine in 90 days"
+               src="assets/images/blog/thumb-7.webp"
+               data-variants="assets/images/blog/thumb-7.webp,assets/images/blog/thumb-7.jpg,assets/images/blog/thumb-7.png,assets/images/blog/thumb-fallback.jpg">
           <div class="body">
             <span class="kicker">GTM</span>
             <h3 class="post-title"><a href="blog-rewire-sales-engine-90-days.html">Rewire the Sales Engine in 90 Days</a></h3>
@@ -272,9 +273,9 @@
 
         <!-- 8 -->
         <article class="p-card">
-          <img src="assets/images/blog/thumb-8.jpg"
-               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
-               alt="Secure & sovereign cloud in Africa">
+          <img class="post-thumb" alt="Secure & sovereign cloud in Africa"
+               src="assets/images/blog/thumb-8.webp"
+               data-variants="assets/images/blog/thumb-8.webp,assets/images/blog/thumb-8.jpg,assets/images/blog/thumb-8.png,assets/images/blog/thumb-fallback.jpg">
           <div class="body">
             <span class="kicker">Sovereign Cloud</span>
             <h3 class="post-title"><a href="blog-secure-sovereign-cloud-africa.html">Secure &amp; Sovereign Cloud in Africa</a></h3>
@@ -285,9 +286,9 @@
 
         <!-- 9 -->
         <article class="p-card">
-          <img src="assets/images/blog/thumb-9.jpg"
-               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
-               alt="South Africa is bleeding talent">
+          <img class="post-thumb" alt="South Africa is bleeding talent"
+               src="assets/images/blog/thumb-9.webp"
+               data-variants="assets/images/blog/thumb-9.webp,assets/images/blog/thumb-9.jpg,assets/images/blog/thumb-9.png,assets/images/blog/thumb-fallback.jpg">
           <div class="body">
             <span class="kicker">Talent</span>
             <h3 class="post-title"><a href="blog-south-africa-bleeding-talent.html">South Africa Is Bleeding Talent. Here’s How to Compete.</a></h3>
@@ -327,14 +328,30 @@
     </div>
   </footer>
 
-  <!-- Active link highlighter -->
+  <!-- Active link + smart image fallback -->
   <script>
     (function(){
+      // Active nav
       var path=(location.pathname.split('/').pop()||'blog.html').toLowerCase();
       document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
         if(href===path||href==='blog.html'){a.classList.add('active');a.setAttribute('aria-current','page');}
         else{a.classList.remove('active');a.removeAttribute('aria-current');}
+      });
+
+      // Image fallback: try WEBP -> JPG -> PNG -> fallback
+      document.querySelectorAll('img.post-thumb').forEach(function(img){
+        var variants = (img.dataset.variants || '').split(',').map(function(s){return s.trim();}).filter(Boolean);
+        var i = 0;
+        function tryNext(){
+          if(i < variants.length){
+            img.src = variants[i++];
+          } else {
+            img.onerror = null;
+          }
+        }
+        img.addEventListener('error', tryNext, { once:false });
+        // If the first src fails, error event will trigger and cycle.
       });
     })();
   </script>
