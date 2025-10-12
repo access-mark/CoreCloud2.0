@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Insights — CoreCloud</title>
-  <meta name="description" content="Operator-led insights on hybrid infrastructure, FinOps, app delivery, and talent."/>
+  <meta name="description" content="Operator-led insights on hybrid infrastructure, FinOps, app delivery, leadership, and talent."/>
   <link rel="canonical" href="https://www.corecloudza.com/blog.html"/>
 
   <!-- Social -->
@@ -18,30 +18,36 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=17"/>
 
-  <!-- Preload -->
+  <!-- Preload hero + logo -->
   <link rel="preload" as="image" href="assets/images/blog-bannerimage.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Critical CSS (banner + cards + basic header) -->
+  <!-- Critical CSS: header, banner line, grid/cards -->
   <style>
     :root{--royal:#004f91;--royal-2:#0b3d72}
+
+    /* Header (kept minimal; matches site) */
     .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06)}
     .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px}
     .logo{height:110px;width:auto}
     @media(max-width:768px){.logo{height:84px}}
     .main-nav{display:flex;align-items:center;gap:18px}
     .main-nav>a,.main-nav>.nav-group>button{font-size:.98rem;font-weight:500;color:var(--royal-2);text-decoration:none;padding:14px 10px;border:none;background:transparent;line-height:1;cursor:pointer}
+    .main-nav>a:hover,.main-nav>.nav-group>button:hover{color:var(--royal)}
     .main-nav>a.active{color:var(--royal);border-bottom:2px solid var(--royal)}
     .nav-group{position:relative}
     .nav-group .submenu{position:absolute;left:0;top:100%;display:none;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:260px;padding:8px}
     .nav-group:hover .submenu{display:block}
     .submenu a{display:block;padding:10px 12px;border-radius:8px;color:var(--royal-2);text-decoration:none;font-weight:500;font-size:.95rem}
-    .nav-toggle{display:none}.hamburger{display:none}
+    .nav-toggle{display:none}
+    .hamburger{display:none}
     @media(max-width:1024px){.main-nav{display:none}.hamburger{display:inline-flex;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center}}
     .mobile-drawer{display:none;border-top:1px solid rgba(0,0,0,.06);background:#fff}
+    .mobile-drawer a,.mobile-drawer summary{display:block;padding:12px 16px;color:var(--royal-2);text-decoration:none;font-weight:500;cursor:pointer}
+    .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
     #nav-toggle:checked ~ nav.mobile-drawer{display:block}
 
-    /* Banner: single thin BLUE line top & bottom */
+    /* Banner with single thin BLUE line above and below */
     .hero-frame{position:relative}
     .hero-frame::before,.hero-frame::after{content:"";position:absolute;left:0;right:0;height:4px;background:#004f91;pointer-events:none;z-index:1}
     .hero-frame::before{top:0}.hero-frame::after{bottom:0}
@@ -49,11 +55,11 @@
     @media(max-width:768px){.hero-media{height:220px}}
     .hero-media img{width:100%;height:100%;object-fit:cover;display:block}
 
-    /* Intro */
+    /* Page intro */
     .hero-intro{max-width:1000px;margin:2rem auto 1rem;padding:0 1rem;text-align:center}
     .hero-title{font-weight:700;color:#004f91;font-size:clamp(1.75rem,2.2vw+1rem,2.25rem);margin:.2rem auto .8rem}
 
-    /* Cards */
+    /* Grid + cards */
     .section{margin:3rem 0}
     .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;max-width:1000px;margin:0 auto;padding:0 1rem}
     .p-card{display:flex;flex-direction:column;border:2px solid #004f91;border-radius:12px;background:#fff;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.06);transition:transform .18s ease,box-shadow .18s ease}
@@ -152,7 +158,7 @@
     </nav>
   </header>
 
-  <!-- Banner -->
+  <!-- Banner (single thin BLUE line) -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud Insights">
       <img
@@ -166,102 +172,130 @@
   <!-- Intro -->
   <section class="hero-intro blog-hero">
     <h1 class="hero-title">Insights</h1>
-    <p>Operator-led notes on hybrid infrastructure, FinOps, app delivery, and talent.</p>
+    <p>Operator-led notes on hybrid infrastructure, FinOps, app delivery, leadership, and talent.</p>
   </section>
 
   <main class="content">
     <section class="section">
       <div class="blog-grid">
+
         <!-- 1 -->
         <article class="p-card">
-          <img src="assets/images/blog/thumb-1.jpg" alt="Run-rate reduction" onerror="this.style.display='none'">
+          <img src="assets/images/blog/thumb-1.jpg"
+               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
+               alt="Databricks cost quick wins">
           <div class="body">
             <span class="kicker">FinOps</span>
-            <h3 class="post-title"><a href="post-1.html">Cutting Run-Rate Without Slowing Delivery</a></h3>
-            <p class="post-excerpt">Rightsizing, commitments, and guardrails that finance trusts.</p>
-            <div class="meta">5 min read</div>
-          </div>
-        </article>
-        <!-- 2 -->
-        <article class="p-card">
-          <img src="assets/images/blog/thumb-2.jpg" alt="Hybrid placement" onerror="this.style.display='none'">
-          <div class="body">
-            <span class="kicker">Hybrid</span>
-            <h3 class="post-title"><a href="post-2.html">Where Each Workload Wins</a></h3>
-            <p class="post-excerpt">Cloud, hosted private, and on-prem — venue-neutral decisions.</p>
+            <h3 class="post-title"><a href="blog-databricks-cost-quick-wins.html">Databricks Cost: Quick Wins Without Slowing Teams</a></h3>
+            <p class="post-excerpt">Practical levers—clusters, autoscaling, storage tiers—to reduce spend without hurting delivery.</p>
             <div class="meta">6 min read</div>
           </div>
         </article>
-        <!-- 3 -->
+
+        <!-- 2 -->
         <article class="p-card">
-          <img src="assets/images/blog/thumb-3.jpg" alt="App delivery" onerror="this.style.display='none'">
+          <img src="assets/images/blog/thumb-2.jpg"
+               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
+               alt="Differentiated leadership in South Africa">
           <div class="body">
-            <span class="kicker">App Delivery</span>
-            <h3 class="post-title"><a href="post-3.html">Shipping with Discipline</a></h3>
-            <p class="post-excerpt">Secure, observable, and maintainable from day one.</p>
-            <div class="meta">7 min read</div>
+            <span class="kicker">Leadership</span>
+            <h3 class="post-title"><a href="blog-differentiated-leadership-sa-competitive-edge.html">Differentiated Leadership: South Africa’s Competitive Edge</a></h3>
+            <p class="post-excerpt">Why authentic leadership becomes a structural advantage in SA’s ICT market.</p>
+            <div class="meta">5 min read</div>
           </div>
         </article>
+
+        <!-- 3 -->
+        <article class="p-card">
+          <img src="assets/images/blog/thumb-3.jpg"
+               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
+               alt="ICT talent access">
+          <div class="body">
+            <span class="kicker">Talent</span>
+            <h3 class="post-title"><a href="blog-ict-talent-access-not-shortage.html">ICT Talent: Access, Not Shortage</a></h3>
+            <p class="post-excerpt">Scorecards, trials, and partner networks that land the right skills fast.</p>
+            <div class="meta">5 min read</div>
+          </div>
+        </article>
+
         <!-- 4 -->
         <article class="p-card">
-          <img src="assets/images/blog/thumb-4.jpg" alt="Partner co-sell" onerror="this.style.display='none'">
+          <img src="assets/images/blog/thumb-4.jpg"
+               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
+               alt="Leadership identity level">
           <div class="body">
-            <span class="kicker">GTM</span>
-            <h3 class="post-title"><a href="post-4.html">Partner Motions that Actually Convert</a></h3>
-            <p class="post-excerpt">From MDF to measurable pipeline contribution.</p>
+            <span class="kicker">Leadership</span>
+            <h3 class="post-title"><a href="blog-leadership-identity-level.html">Leadership Identity: The Level You Play At</a></h3>
+            <p class="post-excerpt">Identity drives performance—show up as the leader only you can be.</p>
+            <div class="meta">6 min read</div>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="p-card">
+          <img src="assets/images/blog/thumb-5.jpg"
+               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
+               alt="Low-code high impact">
+          <div class="body">
+            <span class="kicker">Apps</span>
+            <h3 class="post-title"><a href="blog-low-code-high-impact.html">Low-Code, High Impact: Shipping Value Without Chaos</a></h3>
+            <p class="post-excerpt">Guardrails and governance so the business ships fast without tomorrow’s debt.</p>
+            <div class="meta">6 min read</div>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="p-card">
+          <img src="assets/images/blog/thumb-6.jpg"
+               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
+               alt="Market recognitions 2025">
+          <div class="body">
+            <span class="kicker">Company</span>
+            <h3 class="post-title"><a href="blog-market-recognitions-2025.html">Market Recognitions 2025</a></h3>
+            <p class="post-excerpt">Momentum highlights from partners and clients across the collective.</p>
             <div class="meta">4 min read</div>
           </div>
         </article>
-        <!-- 5 -->
-        <article class="p-card">
-          <img src="assets/images/blog/thumb-5.jpg" alt="Latency wins" onerror="this.style.display='none'">
-          <div class="body">
-            <span class="kicker">Platform</span>
-            <h3 class="post-title"><a href="post-5.html">Latency: Where to Spend vs Save</a></h3>
-            <p class="post-excerpt">Chasing ms the business can feel (and fund).</p>
-            <div class="meta">6 min read</div>
-          </div>
-        </article>
-        <!-- 6 -->
-        <article class="p-card">
-          <img src="assets/images/blog/thumb-6.jpg" alt="Governance" onerror="this.style.display='none'">
-          <div class="body">
-            <span class="kicker">Governance</span>
-            <h3 class="post-title"><a href="post-6.html">Guardrails that Prevent Drift</a></h3>
-            <p class="post-excerpt">Identity, tags, budgets, and SLOs that stick.</p>
-            <div class="meta">5 min read</div>
-          </div>
-        </article>
+
         <!-- 7 -->
         <article class="p-card">
-          <img src="assets/images/blog/thumb-7.jpg" alt="Talent placement" onerror="this.style.display='none'">
+          <img src="assets/images/blog/thumb-7.jpg"
+               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
+               alt="Rewire the sales engine in 90 days">
           <div class="body">
-            <span class="kicker">Talent</span>
-            <h3 class="post-title"><a href="post-7.html">Hiring for Impact, Not Keywords</a></h3>
-            <p class="post-excerpt">Scorecards and trials that de-risk the hire.</p>
-            <div class="meta">5 min read</div>
+            <span class="kicker">GTM</span>
+            <h3 class="post-title"><a href="blog-rewire-sales-engine-90-days.html">Rewire the Sales Engine in 90 Days</a></h3>
+            <p class="post-excerpt">Role clarity, stage hygiene, and partner motions that move the forecast into reality.</p>
+            <div class="meta">7 min read</div>
           </div>
         </article>
+
         <!-- 8 -->
         <article class="p-card">
-          <img src="assets/images/blog/thumb-8.jpg" alt="DR & compliance" onerror="this.style.display='none'">
+          <img src="assets/images/blog/thumb-8.jpg"
+               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
+               alt="Secure & sovereign cloud in Africa">
           <div class="body">
-            <span class="kicker">Resilience</span>
-            <h3 class="post-title"><a href="post-8.html">DR that Finance and Risk Both Like</a></h3>
-            <p class="post-excerpt">Tiered RTO/RPO and venue-aware design.</p>
+            <span class="kicker">Sovereign Cloud</span>
+            <h3 class="post-title"><a href="blog-secure-sovereign-cloud-africa.html">Secure &amp; Sovereign Cloud in Africa</a></h3>
+            <p class="post-excerpt">Designing for residency, latency, and resilience—venue choices that win.</p>
             <div class="meta">6 min read</div>
           </div>
         </article>
+
         <!-- 9 -->
         <article class="p-card">
-          <img src="assets/images/blog/thumb-9.jpg" alt="Forecast accuracy" onerror="this.style.display='none'">
+          <img src="assets/images/blog/thumb-9.jpg"
+               onerror="this.src='assets/images/blog/thumb-fallback.jpg';this.onerror=null;"
+               alt="South Africa is bleeding talent">
           <div class="body">
-            <span class="kicker">Sales Ops</span>
-            <h3 class="post-title"><a href="post-9.html">Forecast You Can Run the Business On</a></h3>
-            <p class="post-excerpt">Stage hygiene and MEDDIC applied properly.</p>
-            <div class="meta">8 min read</div>
+            <span class="kicker">Talent</span>
+            <h3 class="post-title"><a href="blog-south-africa-bleeding-talent.html">South Africa Is Bleeding Talent. Here’s How to Compete.</a></h3>
+            <p class="post-excerpt">Keep A-players with autonomy, outcome scorecards, and learning velocity.</p>
+            <div class="meta">6 min read</div>
           </div>
         </article>
+
       </div>
     </section>
   </main>
@@ -293,13 +327,13 @@
     </div>
   </footer>
 
-  <!-- Active link -->
+  <!-- Active link highlighter -->
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'blog.html').toLowerCase();
       document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
+        if(href===path||href==='blog.html'){a.classList.add('active');a.setAttribute('aria-current','page');}
         else{a.classList.remove('active');a.removeAttribute('aria-current');}
       });
     })();
