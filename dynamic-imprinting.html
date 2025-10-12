@@ -19,79 +19,25 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Global CSS (use latest) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=14" />
+  <!-- Global CSS (single-line frame enabled sitewide) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=17" />
 
-  <!-- Preload hero -->
+  <!-- Preload hero + logo -->
   <link rel="preload" as="image" href="assets/images/dynamic-imprinting-banner.png" imagesizes="100vw" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high" />
 
-  <!-- Page-scoped helpers (header, triple frame, type) -->
+  <!-- Page-scoped (minimal; no banner styling here) -->
   <style>
-    :root{ --gold:#d4af37; --royal:#004f91; --royal-2:#0b3d72; --h1-size:40px; --h2-size:28px; }
-    @media (max-width:768px){ :root{ --h1-size:30px; --h2-size:24px; } }
+    /* Force gold line for this page via global variable */
+    .imprinting-page { --frame-color: var(--gold); }
 
-    /* Accessible skip link (hidden unless focused) */
+    /* Accessible skip link */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;top:10px;left:10px;width:auto;height:auto;padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;outline:2px solid #fff;z-index:1000;}
 
-    /* Header / Nav — About-style (kept minimal here for parity) */
-    .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
-    .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
-    .brand{display:inline-flex;align-items:center;text-decoration:none}
-    .brand .logo{height:110px;width:auto;}
-    @media (max-width:768px){ .brand .logo{height:84px;} }
-
-    .main-nav{display:flex;align-items:center;gap:18px;}
-    .main-nav > a,
-    .main-nav > .nav-group > button{
-      font-size:.98rem;font-weight:500;letter-spacing:.1px;color:var(--royal-2);
-      text-decoration:none;padding:14px 10px;line-height:1;border:none;background:transparent;cursor:pointer;
-    }
-    .main-nav > a:hover, .main-nav > .nav-group > button:hover{ color:var(--royal); }
-    .main-nav > a.active{ color:var(--royal); border-bottom:2px solid var(--royal); }
-
-    .nav-group{position:relative;}
-    .nav-group .submenu{
-      position:absolute;left:0;top:100%;background:#fff;border:1px solid rgba(0,0,0,.08);
-      border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:260px;padding:8px;display:none;
-    }
-    .nav-group:hover .submenu, .nav-group:focus-within .submenu{display:block;}
-    .submenu a{display:block;padding:10px 12px;border-radius:8px;color:var(--royal-2);text-decoration:none;font-weight:500;font-size:.95rem;}
-    .submenu a:hover{ background:#f2f7ff; color:var(--royal); }
-
-    /* Mobile nav */
-    .nav-toggle{display:none}
-    .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center}
-    .hamburger span{display:block;width:20px;height:2px;background:var(--royal-2);position:relative}
-    .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--royal-2)}
-    .hamburger span::before{top:-6px}.hamburger span::after{top:6px}
-    .mobile-drawer{display:none;border-top:1px solid rgba(0,0,0,.06);background:#fff}
-    .mobile-drawer a,.mobile-drawer summary{display:block;padding:12px 16px;color:var(--royal-2);text-decoration:none;font-weight:500;cursor:pointer;}
-    .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
-    .mobile-drawer details[open] summary{background:#f7fbff}
-    .mobile-drawer a:hover{background:#f2f7ff}
-    #nav-toggle:checked ~ nav.mobile-drawer{display:block}
-    @media (max-width:1024px){ .main-nav{display:none} .hamburger{display:inline-flex} }
-
-    /* Triple banner frame (blue/gold/blue), same as index */
-    .hero-frame{position:relative;}
-    .hero-frame::before,
-    .hero-frame::after{
-      content:"";position:absolute;left:0;right:0;height:8px;z-index:2;pointer-events:none;
-      background:
-        linear-gradient(
-          to bottom,
-          var(--royal) 0 2px,
-          var(--gold)  2px 6px,
-          var(--royal) 6px 8px
-        );
-    }
-    .hero-frame::before{top:0;}
-    .hero-frame::after{bottom:0;}
-    .hero-media img{width:100%;height:auto;display:block;}
-
-    /* Page typography */
+    /* Keep headings tidy */
+    :root{ --royal-2:#0b3d72; --h1-size:40px; --h2-size:28px; }
+    @media (max-width:768px){ :root{ --h1-size:30px; --h2-size:24px; } }
     h1,h2{color:var(--royal-2);text-align:center}
     h1{font-size:var(--h1-size);margin:32px 0 12px;}
     h2{font-size:var(--h2-size);margin:28px 0 12px;}
@@ -99,19 +45,21 @@
     .hero-intro{max-width:900px;margin:2rem auto 1.25rem;text-align:center;}
     .hero-subtitle{font-size:1.1rem;color:#555;text-align:center;max-width:900px;margin:0 auto 2.2rem;line-height:1.6;}
 
-    /* Narrative containers */
     .narrative{max-width:1000px;margin:0 auto;padding:0 1rem;}
     .narrative p{margin:.6rem 0;line-height:1.7;color:#444;}
     .narrative ul{margin:.35rem 0 0 1.25rem;padding-left:1rem;line-height:1.7;}
     .narrative li{margin:.35rem 0;}
 
-    /* Quote */
     blockquote{
       background:#f0f7ff;border-left:5px solid #004f91;padding:1rem 1.25rem;
       font-style:italic;color:#003366;border-radius:4px;margin:1.5rem auto;max-width:800px;
     }
-
     .cta-wrap{ text-align:center; margin-top:1.25rem; }
+
+    /* Underline parent “Consulting” when child active */
+    .main-nav .nav-group > button.active{
+      color:#004f91;border-bottom:2px solid #004f91;
+    }
   </style>
 </head>
 
@@ -119,18 +67,16 @@
   <!-- Skip to main -->
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav -->
+  <!-- Header / Nav (uses global header styles) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
         <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
-      <!-- Desktop nav -->
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 
-        <!-- Consulting -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
@@ -139,7 +85,6 @@
           </div>
         </div>
 
-        <!-- Cloud Suite -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
@@ -151,7 +96,6 @@
           </div>
         </div>
 
-        <!-- Curated Talent -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
@@ -161,19 +105,15 @@
           </div>
         </div>
 
-        <!-- Standalone Infrastructure -->
         <a href="infrastructure.html">Infrastructure</a>
-
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
       </nav>
 
-      <!-- Mobile toggle control -->
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
-    <!-- Mobile checkbox + drawer -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html">Home</a>
@@ -207,7 +147,7 @@
     </nav>
   </header>
 
-  <!-- Hero with triple frame -->
+  <!-- Hero (single thin gold line via global .hero-frame and --frame-color) -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="Dynamic Imprinting — Executive Identity Transformation">
       <img
@@ -316,14 +256,22 @@
     </div>
   </footer>
 
-  <!-- Active link highlighter -->
+  <!-- Active link + parent underline -->
   <script>
     (function(){
       var path = (location.pathname.split('/').pop() || 'dynamic-imprinting.html').toLowerCase();
+
+      // mark exact link active and underline parent button
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
         var href = (a.getAttribute('href') || '').toLowerCase();
-        if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
-        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
+        if (href === path) {
+          a.classList.add('active'); a.setAttribute('aria-current','page');
+          var group = a.closest('.nav-group');
+          if (group) {
+            var btn = group.querySelector('button');
+            if (btn) btn.classList.add('active');
+          }
+        }
       });
     })();
   </script>
