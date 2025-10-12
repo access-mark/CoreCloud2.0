@@ -18,122 +18,27 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/consulting-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (use the latest with mobile nav fixes) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
+  <!-- Global CSS (template v13) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
 
   <!-- Preload key images -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
-
-  <!-- Page-scoped styles (minimal) -->
-  <style>
-    :root{ --gold:#d4af37; --royal:#004f91; --royal-2:#0b3d72; --h1-size:40px; --h2-size:28px; }
-    @media (max-width:768px){ :root{ --h1-size:30px; --h2-size:24px; } }
-
-    /* Header / Nav (matches index/about/insights structure) */
-    .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
-    .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
-    .brand{display:inline-flex;align-items:center;text-decoration:none}
-    .brand .logo{height:110px;width:auto;}
-    @media (max-width:768px){ .brand .logo{height:84px;} }
-
-    .main-nav{display:flex;align-items:center;gap:18px;}
-    .main-nav > a,
-    .main-nav > .nav-group > button{
-      font-size:.98rem;font-weight:500;letter-spacing:.1px;
-      color:var(--royal-2);text-decoration:none;padding:14px 10px;line-height:1;border:none;background:transparent;cursor:pointer;
-    }
-    .main-nav > a:hover,
-    .main-nav > .nav-group > button:hover{ color:var(--royal); }
-    .main-nav > a.active{ color:var(--royal); border-bottom:2px solid var(--royal); }
-
-    /* Dropdowns */
-    .nav-group{position:relative;}
-    .nav-group .submenu{
-      position:absolute;left:0;top:100%;background:#fff;border:1px solid rgba(0,0,0,.08);
-      border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:260px;padding:8px;display:none;
-    }
-    .nav-group:hover .submenu,
-    .nav-group:focus-within .submenu{display:block;}
-    .submenu a{
-      display:block;padding:10px 12px;border-radius:8px;color:var(--royal-2);text-decoration:none;font-weight:500;font-size:.95rem;
-    }
-    .submenu a:hover{ background:#f2f7ff; color:var(--royal); }
-
-    /* Mobile toggle + drawer (checkbox and drawer OUTSIDE .header-inner) */
-    .nav-toggle{display:none}
-    .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center}
-    .hamburger span{display:block;width:20px;height:2px;background:var(--royal-2);position:relative}
-    .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--royal-2)}
-    .hamburger span::before{top:-6px}.hamburger span::after{top:6px}
-    .mobile-drawer{display:none;border-top:1px solid rgba(0,0,0,.06);background:#fff}
-    .mobile-drawer a,.mobile-drawer summary{display:block;padding:12px 16px;color:var(--royal-2);text-decoration:none;font-weight:500;cursor:pointer;}
-    .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
-    .mobile-drawer details[open] summary{background:#f7fbff}
-    .mobile-drawer a:hover{background:#f2f7ff}
-    #nav-toggle:checked ~ nav.mobile-drawer{display:block}
-    @media (max-width:1024px){ .main-nav{display:none} .hamburger{display:inline-flex} }
-
-    /* Gold frame lines for dark banner */
-    .hero-frame{border-top:4px solid var(--gold);border-bottom:4px solid var(--gold);}
-    .hero-media img{width:100%;height:auto;display:block;}
-
-    /* Titles + hero spacing */
-    h1{ font-size:var(--h1-size); line-height:1.2; margin:28px 0 12px; text-align:center; color:#0b3d72; }
-    .section .section-title{ font-size:var(--h2-size); line-height:1.25; margin:22px 0 12px; text-align:center; color:#0b3d72; }
-    .hero{ display:flex; justify-content:center; text-align:center; padding:40px 16px; }
-    .hero .hero-body{ max-width:900px; margin:0 auto; }
-    .hero .intro{ color:#444; margin:.2rem auto .9rem; padding:0 1rem; }
-    @media (max-width:768px){ .hero{ padding:28px 14px; } .hero .hero-body{ max-width:680px; } }
-
-    /* Content rhythms from your draft */
-    .consulting-page .section{ margin:2rem 0; }
-    .consulting-page .section-title{ margin-bottom:.75rem; }
-    .inpage-nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 auto .9rem;padding:.25rem .75rem;max-width:1000px;justify-content:center;}
-    .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;font-size:.95rem;}
-    @media (max-width:480px){ .inpage-nav{ gap:6px; } .inpage-nav a{ padding:.3rem .55rem; font-size:.9rem; } }
-
-    .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .narrative h3{ font-size:1.12rem; font-weight:700; color:#004f91; margin:.7rem 0 .25rem; text-align:left; }
-    .narrative p{ margin:.45rem 0; line-height:1.7; color:#444; }
-    .narrative .lead{ font-size:1.05rem; }
-    .narrative ul{ margin:.3rem 0 0 1.2rem; }
-    .narrative li{ margin:.32rem 0; }
-    .checklist li{ list-style:disc; }
-
-    .grid-2,.grid-3{ display:grid; gap:1rem; }
-    @media (min-width:900px){ .grid-2{ grid-template-columns:1fr 1fr; } .grid-3{ grid-template-columns:1fr 1fr 1fr; } }
-    .panel{ background:#fff; border:1px solid rgba(0,79,145,.18); border-radius:10px; padding:1rem 1.1rem; box-shadow:0 2px 6px rgba(0,0,0,.04); }
-    .panel h4{ margin:0 0 .35rem; font-size:1.02rem; color:#004f91; }
-
-    .chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
-    .chip{ border:1px solid rgba(0,79,145,.2); background:#fff; border-radius:999px; padding:.45rem .75rem; font-weight:700; color:#0b3d72; font-size:.92rem; }
-
-    .metrics{ display:grid; gap:.4rem; max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .metric{ display:flex; justify-content:space-between; gap:.75rem; border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; }
-    .metric b{ color:#0b3d72; }
-
-    .faq-list details{ padding:.6rem 0; border-bottom:1px dashed rgba(0,0,0,.12); }
-    .faq-list details:last-of-type{ border-bottom:none; }
-    .faq-list summary{ font-weight:700; color:#004f91; cursor:pointer; list-style:none; }
-    .faq-list summary::-webkit-details-marker{ display:none; }
-    #signals.section{ margin-top:1.2rem; }
-  </style>
 </head>
 
 <body class="consulting-page">
-  <!-- Header (new structure) -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Header (About-style) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
         <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
-      <!-- Desktop nav -->
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 
-        <!-- Consulting -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
@@ -142,34 +47,24 @@
           </div>
         </div>
 
-        <!-- Cloud Suite -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
             <a role="menuitem" href="cloud.html">Overview</a>
             <a role="menuitem" href="finops.html">FinOps</a>
-            <a role="menuitem" href="hosting-private-cloud.html">Hosting / Infrastructure</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
+            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
           </div>
         </div>
 
-        <!-- Curated Talent -->
-        <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
-          <div class="submenu" role="menu" aria-label="Curated Talent">
-            <a role="menuitem" href="talent.html">Overview</a>
-            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
-            <a role="menuitem" href="global-talent.html">Global Talent</a>
-          </div>
-        </div>
+        <a href="infrastructure.html">Infrastructure</a>
 
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
       </nav>
 
-      <!-- Hamburger label -->
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
@@ -188,17 +83,12 @@
         <summary>Cloud Suite</summary>
         <a href="cloud.html">Overview</a>
         <a href="finops.html">FinOps</a>
-        <a href="hosting-private-cloud.html">Hosting / Infrastructure</a>
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
+        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
       </details>
 
-      <details>
-        <summary>Curated Talent</summary>
-        <a href="talent.html">Overview</a>
-        <a href="talent-relaunch.html">RE/LAUNCH</a>
-        <a href="global-talent.html">Global Talent</a>
-      </details>
+      <a href="infrastructure.html">Infrastructure</a>
 
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
@@ -206,33 +96,31 @@
     </nav>
   </header>
 
-  <!-- Banner with GOLD frame lines -->
+  <!-- Banner with triple line frame (from global CSS) -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud Consulting — Operator-led execution">
       <img src="assets/images/consulting-bannerimage.png" alt="CoreCloud Consulting — Operator-led execution" decoding="async" loading="eager" width="1920" height="500">
     </div>
   </div>
 
-  <!-- Hero text -->
-  <section class="hero">
-    <div class="hero-body">
-      <h1>Consulting That Lands Results</h1>
-      <p class="intro">We connect <strong>GTM</strong>, <strong>people</strong>, and <strong>platform</strong> so strategy turns into revenue. Operator-led, vendor-neutral, built for the South African market.</p>
-    </div>
+  <!-- Hero intro -->
+  <section class="hero-intro">
+    <h1 class="hero-title">Consulting That Lands Results</h1>
+    <p>We connect <strong>GTM</strong>, <strong>people</strong>, and <strong>platform</strong> so strategy turns into revenue. Operator-led, vendor-neutral, built for the South African market.</p>
   </section>
 
-  <main class="content">
+  <main class="content" id="main">
     <!-- In-page chip nav -->
-    <nav class="inpage-nav" aria-label="On this page">
-      <a href="#signals">Signals</a>
-      <a href="#where">Where we help</a>
-      <a href="#framework">Operator framework</a>
-      <a href="#uplift">90-day uplift</a>
-      <a href="#sales">Sales consulting</a>
-      <a href="#artifacts">Artifacts</a>
-      <a href="#results">Results</a>
-      <a href="#cases">Cases</a>
-      <a href="#faq">FAQ</a>
+    <nav class="inpage-nav" aria-label="On this page" style="display:flex;flex-wrap:wrap;gap:8px;margin:0 auto .9rem;padding:.25rem .75rem;max-width:1000px;justify-content:center;">
+      <a href="#signals" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">Signals</a>
+      <a href="#where" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">Where we help</a>
+      <a href="#framework" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">Operator framework</a>
+      <a href="#uplift" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">90-day uplift</a>
+      <a href="#sales" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">Sales consulting</a>
+      <a href="#artifacts" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">Artifacts</a>
+      <a href="#results" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">Results</a>
+      <a href="#cases" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">Cases</a>
+      <a href="#faq" class="chip" style="text-decoration:none;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;color:#0b3d72;font-weight:700;">FAQ</a>
     </nav>
 
     <!-- SIGNALS -->
@@ -493,11 +381,11 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current nav -->
+  <!-- Active link highlighter -->
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'consulting.html').toLowerCase();
-      document.querySelectorAll('.main-nav > a, .mobile-drawer a, .submenu a').forEach(function(a){
+      document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
         if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
         else{a.classList.remove('active');a.removeAttribute('aria-current');}
