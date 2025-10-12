@@ -18,14 +18,13 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=17"/>
 
-  <!-- Preload hero + logo -->
+  <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/blog-bannerimage.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Critical, minimal CSS (ensures banner + cards render even if cache is weird) -->
+  <!-- Critical CSS (banner + cards + basic header) -->
   <style>
     :root{--royal:#004f91;--royal-2:#0b3d72}
-    /* Header */
     .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06)}
     .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px}
     .logo{height:110px;width:auto}
@@ -153,10 +152,9 @@
     </nav>
   </header>
 
-  <!-- Banner (single thin BLUE line) -->
+  <!-- Banner -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud Insights">
-      <!-- IMPORTANT: use a real image file, not .html -->
       <img
         src="assets/images/blog-bannerimage.png"
         onerror="this.src='assets/images/insights-bannerimage.png';this.onerror=null;"
@@ -174,7 +172,7 @@
   <main class="content">
     <section class="section">
       <div class="blog-grid">
-        <!-- Example cards (replace with your CMS loop / real posts) -->
+        <!-- 1 -->
         <article class="p-card">
           <img src="assets/images/blog/thumb-1.jpg" alt="Run-rate reduction" onerror="this.style.display='none'">
           <div class="body">
@@ -184,7 +182,7 @@
             <div class="meta">5 min read</div>
           </div>
         </article>
-
+        <!-- 2 -->
         <article class="p-card">
           <img src="assets/images/blog/thumb-2.jpg" alt="Hybrid placement" onerror="this.style.display='none'">
           <div class="body">
@@ -194,7 +192,7 @@
             <div class="meta">6 min read</div>
           </div>
         </article>
-
+        <!-- 3 -->
         <article class="p-card">
           <img src="assets/images/blog/thumb-3.jpg" alt="App delivery" onerror="this.style.display='none'">
           <div class="body">
@@ -202,6 +200,66 @@
             <h3 class="post-title"><a href="post-3.html">Shipping with Discipline</a></h3>
             <p class="post-excerpt">Secure, observable, and maintainable from day one.</p>
             <div class="meta">7 min read</div>
+          </div>
+        </article>
+        <!-- 4 -->
+        <article class="p-card">
+          <img src="assets/images/blog/thumb-4.jpg" alt="Partner co-sell" onerror="this.style.display='none'">
+          <div class="body">
+            <span class="kicker">GTM</span>
+            <h3 class="post-title"><a href="post-4.html">Partner Motions that Actually Convert</a></h3>
+            <p class="post-excerpt">From MDF to measurable pipeline contribution.</p>
+            <div class="meta">4 min read</div>
+          </div>
+        </article>
+        <!-- 5 -->
+        <article class="p-card">
+          <img src="assets/images/blog/thumb-5.jpg" alt="Latency wins" onerror="this.style.display='none'">
+          <div class="body">
+            <span class="kicker">Platform</span>
+            <h3 class="post-title"><a href="post-5.html">Latency: Where to Spend vs Save</a></h3>
+            <p class="post-excerpt">Chasing ms the business can feel (and fund).</p>
+            <div class="meta">6 min read</div>
+          </div>
+        </article>
+        <!-- 6 -->
+        <article class="p-card">
+          <img src="assets/images/blog/thumb-6.jpg" alt="Governance" onerror="this.style.display='none'">
+          <div class="body">
+            <span class="kicker">Governance</span>
+            <h3 class="post-title"><a href="post-6.html">Guardrails that Prevent Drift</a></h3>
+            <p class="post-excerpt">Identity, tags, budgets, and SLOs that stick.</p>
+            <div class="meta">5 min read</div>
+          </div>
+        </article>
+        <!-- 7 -->
+        <article class="p-card">
+          <img src="assets/images/blog/thumb-7.jpg" alt="Talent placement" onerror="this.style.display='none'">
+          <div class="body">
+            <span class="kicker">Talent</span>
+            <h3 class="post-title"><a href="post-7.html">Hiring for Impact, Not Keywords</a></h3>
+            <p class="post-excerpt">Scorecards and trials that de-risk the hire.</p>
+            <div class="meta">5 min read</div>
+          </div>
+        </article>
+        <!-- 8 -->
+        <article class="p-card">
+          <img src="assets/images/blog/thumb-8.jpg" alt="DR & compliance" onerror="this.style.display='none'">
+          <div class="body">
+            <span class="kicker">Resilience</span>
+            <h3 class="post-title"><a href="post-8.html">DR that Finance and Risk Both Like</a></h3>
+            <p class="post-excerpt">Tiered RTO/RPO and venue-aware design.</p>
+            <div class="meta">6 min read</div>
+          </div>
+        </article>
+        <!-- 9 -->
+        <article class="p-card">
+          <img src="assets/images/blog/thumb-9.jpg" alt="Forecast accuracy" onerror="this.style.display='none'">
+          <div class="body">
+            <span class="kicker">Sales Ops</span>
+            <h3 class="post-title"><a href="post-9.html">Forecast You Can Run the Business On</a></h3>
+            <p class="post-excerpt">Stage hygiene and MEDDIC applied properly.</p>
+            <div class="meta">8 min read</div>
           </div>
         </article>
       </div>
@@ -235,7 +293,7 @@
     </div>
   </footer>
 
-  <!-- Highlight active link -->
+  <!-- Active link -->
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'blog.html').toLowerCase();
