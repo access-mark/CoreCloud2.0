@@ -18,14 +18,14 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/consulting-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (your cleaned template) -->
+  <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=16"/>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped, minimal + surgical -->
+  <!-- Page-scoped, minimal -->
   <style>
     :root{ --royal:#004f91; --royal-2:#0b3d72; --gold:#d4af37; }
 
@@ -43,13 +43,26 @@
     .consulting-page .hero-frame::before{ top:0; transform:translateY(-100%); }
     .consulting-page .hero-frame::after { bottom:0; transform:translateY(100%); }
 
-    /* Ensure section titles center regardless of other rules */
+    /* Center section titles reliably */
     .consulting-page .section .section-title{
-      text-align:center !important; margin-left:auto !important; margin-right:auto !important;
+      text-align:center !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
     }
 
-    /* Keep panels tidy */
-    .consulting-page .panel h4{ text-align:left; }
+    /* Sub-headers (panels) consistent royal blue */
+    .consulting-page .panel h4{
+      color: var(--royal) !important;
+      font-weight: 700;
+      margin: 0 0 .35rem;
+      text-align: left;
+    }
+
+    /* Fix anchor jumps under sticky header (desktop & mobile) */
+    .consulting-page section[id]{ scroll-margin-top: 132px; }
+    @media (max-width: 768px){
+      .consulting-page section[id]{ scroll-margin-top: 96px; }
+    }
 
     /* Underline the top-level "Consulting" button when this page is active */
     .main-nav .nav-group > button.active{
@@ -430,6 +443,8 @@
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'consulting.html').toLowerCase();
+
+      // mark exact link active
       document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
         if(href===path){
@@ -441,6 +456,17 @@
           }
         }
       });
+
+      // optional: highlight the chip matching current hash
+      function markChip(){
+        var hash = location.hash.replace('#','');
+        document.querySelectorAll('.inpage-nav a').forEach(function(link){
+          if(link.getAttribute('href').replace('#','')===hash){ link.classList.add('active'); }
+          else{ link.classList.remove('active'); }
+        });
+      }
+      window.addEventListener('hashchange', markChip);
+      markChip();
     })();
   </script>
 </body>
