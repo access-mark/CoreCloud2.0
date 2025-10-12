@@ -20,84 +20,7 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
-
-  <!-- Page-scoped: About-style nav + royal frame + MOBILE CUT-OFF FIX -->
-  <style>
-    :root{ --royal:#004f91; --royal-2:#0b3d72; }
-
-    /* ===== Header + nav (IDENTICAL pattern to About) ===== */
-    .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
-    .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
-    .brand .logo{height:110px;width:auto;}
-    @media(max-width:768px){.brand .logo{height:84px;}}
-
-    .main-nav{display:flex;align-items:center;gap:18px;}
-    .main-nav > a,
-    .main-nav > .nav-group > button{
-      font-size:.98rem;font-weight:500;letter-spacing:.1px;
-      color:var(--royal-2);text-decoration:none;padding:14px 10px;line-height:1;border:none;background:transparent;cursor:pointer;
-    }
-    .main-nav > a:hover,
-    .main-nav > .nav-group > button:hover{color:var(--royal);}
-    .main-nav > a.active{color:var(--royal);border-bottom:2px solid var(--royal);}
-
-    .nav-group{position:relative;}
-    .nav-group .submenu{
-      position:absolute;left:0;top:100%;background:#fff;border:1px solid rgba(0,0,0,.08);
-      border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:260px;padding:8px;display:none;
-    }
-    .nav-group:hover .submenu,.nav-group:focus-within .submenu{display:block;}
-    .submenu a{display:block;padding:10px 12px;border-radius:8px;color:var(--royal-2);text-decoration:none;font-weight:500;font-size:.95rem;}
-    .submenu a:hover{background:#f2f7ff;color:var(--royal);}
-
-    .nav-toggle{display:none}
-    .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center}
-    .hamburger span{display:block;width:20px;height:2px;background:var(--royal-2);position:relative}
-    .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--royal-2)}
-    .hamburger span::before{top:-6px}.hamburger span::after{top:6px}
-
-    .mobile-drawer{display:none;border-top:1px solid rgba(0,0,0,.06);background:#fff}
-    .mobile-drawer a,.mobile-drawer summary{display:block;padding:12px 16px;color:var(--royal-2);text-decoration:none;font-weight:500;cursor:pointer;}
-    .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
-    .mobile-drawer details[open] summary{background:#f7fbff}
-    .mobile-drawer a:hover{background:#f2f7ff}
-    #nav-toggle:checked ~ nav.mobile-drawer{display:block}
-    @media(max-width:1024px){.main-nav{display:none}.hamburger{display:inline-flex}}
-
-    /* ===== Royal-blue frame around banner ===== */
-    .hero-frame{border-top:4px solid var(--royal);border-bottom:4px solid var(--royal);}
-    .hero-media img{width:100%;height:auto;display:block;}
-
-    /* ===== Utilities ===== */
-    .centered{max-width:1000px;margin:0 auto;text-align:center;padding:0 1rem;}
-    .narrative h3,.narrative p{ text-align:left !important; }
-
-    /* ===== MOBILE CUT-OFF FIX (no desktop impact) ===== */
-    @media (max-width:1024px){
-      html, body{
-        height:auto !important;     /* override global height:100% */
-        min-height:0 !important;
-        overflow-y:auto !important; /* allow full scroll */
-      }
-      /* Neutralize flex layout on mobile to avoid viewport bugs */
-      body{ display:block !important; }
-      main.content{ display:block !important; }
-      /* Slightly tighter mobile spacing */
-      .card-grid{ padding:0 1rem; gap:1rem; }
-      .hero-intro{ padding:0 .75rem; }
-    }
-    /* iOS Safari safeguard */
-    @supports (-webkit-touch-callout: none) {
-      @media (max-width:1024px){
-        html, body{
-          height:auto !important;
-          min-height:0 !important;
-          overflow-y:auto !important;
-        }
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
@@ -109,11 +32,13 @@
 </head>
 
 <body class="home-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <!-- ===== Header (About-style) ===== -->
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo"/>
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
       <nav class="main-nav" aria-label="Primary">
@@ -177,7 +102,6 @@
         <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
       </details>
 
-      <!-- Standalone top-level Infrastructure -->
       <a href="infrastructure.html">Infrastructure</a>
 
       <a href="about.html">About</a>
@@ -186,7 +110,7 @@
     </nav>
   </header>
 
-  <!-- ===== Banner with royal frame ===== -->
+  <!-- ===== Banner with triple line frame ===== -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
       <img src="assets/images/index-bannerimage.png" alt="From Strategy to Revenue. From Cloud to People." width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
@@ -221,7 +145,7 @@
       </p>
     </section>
 
-    <!-- Focus & Method -->
+    <!-- Focus & Method (title centered, body left) -->
     <section class="section" aria-labelledby="focus-title">
       <h2 id="focus-title" class="section-title">Our Focus &amp; Method</h2>
       <div class="narrative">
@@ -340,7 +264,7 @@
     </div>
   </footer>
 
-  <!-- Active link highlighter (desktop + mobile + submenu) -->
+  <!-- Active link highlighter -->
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
