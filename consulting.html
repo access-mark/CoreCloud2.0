@@ -18,71 +18,59 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/consulting-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (keep your latest version) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=14"/>
+  <!-- Global CSS (keep latest) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=15"/>
 
-  <!-- Preload key images -->
+  <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped fixes (tiny and surgical) -->
+  <!-- Page-scoped, minimal fixes ONLY -->
   <style>
     :root{ --gold:#d4af37; }
 
-    /* --- Banner lines: single gold line (override global triple-line pseudo elements) --- */
+    /* (a) Banner lines: force SINGLE gold line, kill any pseudo elements from global */
     .consulting-page .hero-frame{
-      border-top:4px solid var(--gold);
-      border-bottom:4px solid(var(--gold));
+      border-top:4px solid var(--gold) !important;
+      border-bottom:4px solid var(--gold) !important;
       position:relative;
     }
     .consulting-page .hero-frame::before,
     .consulting-page .hero-frame::after{
-      content:none !important;
-      display:none !important;
+      content: none !important;
+      display: none !important;
     }
+    .consulting-page .hero-media{ border:0 !important; }
 
-    /* --- Title alignment: center every H2 on this page, keep body copy left --- */
-    .consulting-page section h2,
-    .consulting-page h2.section-title{
+    /* (b) Title alignment: center every H2 inside main; keep subheads (h4) left */
+    .consulting-page main.content h2{
       text-align:center !important;
       margin-left:auto !important;
       margin-right:auto !important;
-      display:block;
       max-width:var(--heading-max);
+      display:block;
     }
+    .consulting-page .panel h4{ text-align:left !important; }
 
-    /* Light rhythm only (no layout change) */
+    /* Light rhythm (unchanged layout) */
     .consulting-page .section{ margin:2rem 0; }
     .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .narrative h3{ font-size:1.12rem; font-weight:700; color:#004f91; margin:.7rem 0 .25rem; text-align:left; }
-    .narrative p{ margin:.45rem 0; line-height:1.7; color:#444; }
-    .narrative .lead{ font-size:1.05rem; }
-    .narrative ul{ margin:.3rem 0 0 1.2rem; }
-    .narrative li{ margin:.32rem 0; }
+    .narrative p{ margin:.45rem 0; line-height:1.7; }
     .checklist li{ list-style:disc; }
-
     .grid-2,.grid-3{ display:grid; gap:1rem; }
     @media (min-width:900px){ .grid-2{ grid-template-columns:1fr 1fr; } .grid-3{ grid-template-columns:1fr 1fr 1fr; } }
     .panel{ background:#fff; border:1px solid rgba(0,79,145,.18); border-radius:10px; padding:1rem 1.1rem; box-shadow:0 2px 6px rgba(0,0,0,.04); }
-    .panel h4{ margin:0 0 .35rem; font-size:1.02rem; color:#004f91; }
     .chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
     .chip{ border:1px solid rgba(0,79,145,.2); background:#fff; border-radius:999px; padding:.45rem .75rem; font-weight:700; color:#0b3d72; font-size:.92rem; }
-    .metrics{ display:grid; gap:.4rem; max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .metric{ display:flex; justify-content:space-between; gap:.75rem; border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; }
-    .metric b{ color:#0b3d72; }
 
-    .faq-list details{ padding:.6rem 0; border-bottom:1px dashed rgba(0,0,0,.12); }
-    .faq-list details:last-of-type{ border-bottom:none; }
-    .faq-list summary{ font-weight:700; color:#004f91; cursor:pointer; list-style:none; }
-    .faq-list summary::-webkit-details-marker{ display:none; }
-
+    /* Keep chip nav tidy */
     .inpage-nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 auto .9rem;padding:.25rem .75rem;max-width:1000px;justify-content:center;}
     .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;text-decoration:none;color:#0b3d72;font-weight:700;background:#fff;}
   </style>
 </head>
 
 <body class="consulting-page">
-  <!-- Header (About-style; Infrastructure standalone; Hosting inside Cloud; Curated Talent present) -->
+  <!-- Header (About-style, with Infrastructure standalone, Hosting under Cloud, Curated Talent present) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -165,7 +153,7 @@
     </nav>
   </header>
 
-  <!-- Banner with single gold line -->
+  <!-- Banner (now single gold line only) -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud Consulting — Operator-led execution">
       <img src="assets/images/consulting-bannerimage.png" alt="CoreCloud Consulting — Operator-led execution" decoding="async" loading="eager" width="1920" height="500">
