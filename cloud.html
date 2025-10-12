@@ -50,6 +50,13 @@
     .points li{margin:.25rem 0}
     .muted{color:#5a6b85;font-size:.95rem}
 
+    /* ✅ Center the 30-day list block (readable left text) */
+    #foundation .points{
+      max-width:780px;
+      margin:0 auto;
+      padding-left:1.25rem;
+    }
+
     /* Smaller inline CTA card */
     .inline-cta.card{
       max-width:520px;
@@ -77,21 +84,6 @@
     /* Tighter card padding inside vendor stacks for density */
     .vendor-col .card{ padding:1.1rem; }
 
-    /* Underline active nav (desktop + mobile) */
-    .desktop-nav .nav-btn{
-      position:relative; padding:10px 8px 12px; text-decoration:none;
-    }
-    .desktop-nav .nav-btn.active,
-    .desktop-nav .nav-btn[aria-current="page"]{
-      color:var(--dark-blue);
-      border-bottom:2px solid var(--dark-blue);
-    }
-    .mobile-nav a.active,
-    .mobile-nav a[aria-current="page"]{
-      color:var(--dark-blue);
-      text-decoration:underline;
-    }
-
     /* Subhead utility */
     .subhead{font-size:1.15rem;line-height:1.3;margin:0 0 .6rem;color:var(--dark-blue);}
   </style>
@@ -100,87 +92,88 @@
 <body class="cloud-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
+  <!-- Header / Nav (global structure) -->
   <header class="site-header" role="banner">
-  <div class="header-inner">
-    <a class="brand" href="index.html" aria-label="CoreCloud Home">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
-    </a>
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
+      </a>
 
-    <!-- Desktop nav -->
-    <nav class="main-nav" aria-label="Primary">
+      <!-- Desktop nav -->
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Consulting</button>
+          <div class="submenu" role="menu" aria-label="Consulting">
+            <a role="menuitem" href="consulting.html">Overview</a>
+            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <div class="submenu" role="menu" aria-label="Cloud Suite">
+            <a role="menuitem" href="cloud.html" class="active" aria-current="page">Overview</a>
+            <a role="menuitem" href="finops.html">FinOps</a>
+            <a role="menuitem" href="application-development.html">Application Development</a>
+            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
+            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <div class="submenu" role="menu" aria-label="Curated Talent">
+            <a role="menuitem" href="talent.html">Overview</a>
+            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="global-talent.html">Global Talent</a>
+          </div>
+        </div>
+
+        <a href="infrastructure.html">Infrastructure</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Insights</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <!-- Mobile toggle -->
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
+    </div>
+
+    <!-- Mobile drawer -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html">Home</a>
 
-      <div class="nav-group">
-        <button aria-haspopup="true" aria-expanded="false">Consulting</button>
-        <div class="submenu" role="menu" aria-label="Consulting">
-          <a role="menuitem" href="consulting.html">Overview</a>
-          <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
-        </div>
-      </div>
+      <details>
+        <summary>Consulting</summary>
+        <a href="consulting.html">Overview</a>
+        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+      </details>
 
-      <div class="nav-group">
-        <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
-        <div class="submenu" role="menu" aria-label="Cloud Suite">
-          <a role="menuitem" href="cloud.html" class="active" aria-current="page">Overview</a>
-          <a role="menuitem" href="finops.html">FinOps</a>
-          <a role="menuitem" href="application-development.html">Application Development</a>
-          <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
-          <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
-        </div>
-      </div>
+      <details open>
+        <summary>Cloud Suite</summary>
+        <a href="cloud.html" aria-current="page">Overview</a>
+        <a href="finops.html">FinOps</a>
+        <a href="application-development.html">Application Development</a>
+        <a href="data-ai.html">Data &amp; AI</a>
+        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+      </details>
 
-      <div class="nav-group">
-        <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
-        <div class="submenu" role="menu" aria-label="Curated Talent">
-          <a role="menuitem" href="talent.html">Overview</a>
-          <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
-          <a role="menuitem" href="global-talent.html">Global Talent</a>
-        </div>
-      </div>
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="global-talent.html">Global Talent</a>
+      </details>
 
       <a href="infrastructure.html">Infrastructure</a>
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
     </nav>
-
-    <!-- Mobile toggle -->
-    <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
-  </div>
-
-  <!-- Mobile drawer -->
-  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
-  <nav class="mobile-drawer" aria-label="Mobile">
-    <a href="index.html">Home</a>
-
-    <details>
-      <summary>Consulting</summary>
-      <a href="consulting.html">Overview</a>
-      <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
-    </details>
-
-    <details open>
-      <summary>Cloud Suite</summary>
-      <a href="cloud.html" aria-current="page">Overview</a>
-      <a href="finops.html">FinOps</a>
-      <a href="application-development.html">Application Development</a>
-      <a href="data-ai.html">Data &amp; AI</a>
-      <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
-    </details>
-
-    <details>
-      <summary>Curated Talent</summary>
-      <a href="talent.html">Overview</a>
-      <a href="talent-relaunch.html">RE/LAUNCH</a>
-      <a href="global-talent.html">Global Talent</a>
-    </details>
-
-    <a href="infrastructure.html">Infrastructure</a>
-    <a href="about.html">About</a>
-    <a href="blog.html">Insights</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
+  </header>
 
   <!-- GOLD-framed hero -->
   <div class="hero-frame">
@@ -267,8 +260,8 @@
     <section class="section" id="foundation" aria-labelledby="foundation-title">
       <h2 id="foundation-title" class="section-title">30 Days to a Secure Foundation</h2>
       <ol class="points">
-        <li><strong>Days 1–5:</strong> data map, residency & keys plan, baseline policies.</li>
-        <li><strong>Days 6–15:</strong> landing zone build, identity & network guardrails, logging.</li>
+        <li><strong>Days 1–5:</strong> data map, residency &amp; keys plan, baseline policies.</li>
+        <li><strong>Days 6–15:</strong> landing zone build, identity &amp; network guardrails, logging.</li>
         <li><strong>Days 16–25:</strong> FinOps setup (tags, run-rate, alerts), cost quick wins.</li>
         <li><strong>Days 26–30:</strong> first migration wave and go-live checklist.</li>
       </ol>
@@ -459,14 +452,21 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current nav -->
+  <!-- Active link highlighter (matches main-nav/mobile-drawer structure) -->
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'cloud.html').toLowerCase();
-      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+      document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
-        else{a.classList.remove('active');a.removeAttribute('aria-current');}
+        if(href===path){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+          var group=a.closest('.nav-group');
+          if(group){
+            var btn=group.querySelector('button');
+            if(btn) btn.classList.add('active');
+          }
+        }
       });
     })();
   </script>
