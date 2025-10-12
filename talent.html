@@ -79,12 +79,7 @@
     .btn-outline{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;border:1px solid var(--dark-blue,#004f91);color:var(--dark-blue,#004f91);background:#fff;}
     .btn-outline:hover{background:rgba(0,79,145,.06);}
 
-    /* Section spacing tweaks to match index tightness */
-    section[aria-labelledby="why-title"],
-    section[aria-labelledby="what-title"],
-    section[aria-labelledby="how-title"]{margin-top:.25rem;}
-
-    /* --- Active underline for current page (desktop + mobile) --- */
+    /* Active underline (desktop + mobile) */
     .desktop-nav .nav-btn.active,
     .desktop-nav .nav-btn[aria-current="page"]{
       color: var(--dark-blue);
@@ -309,16 +304,27 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current nav (handles old/new hosting paths) -->
+  <!-- Auto-highlight current nav (normalizes both href and current path) -->
   <script>
     (function(){
-      var page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-      // Map legacy path to new
-      if (page === 'hosting-private-cloud.html') page = 'hosted-private-cloud.html';
+      function normalize(p){
+        if(!p) return 'index.html';
+        p = p.toLowerCase();
+        // strip query/hash
+        p = p.split('#')[0].split('?')[0];
+        // folder default → index
+        if(p === '' || p === '/') p = 'index.html';
+        // aliases (legacy → current)
+        if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
+        if(p === 'mobile-web.html') p = 'application-development.html';
+        return p;
+      }
+
+      var current = normalize(location.pathname.split('/').pop());
 
       document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        if (href === page){
+        var href = normalize(a.getAttribute('href') || '');
+        if(href === current){
           a.classList.add('active');
           a.setAttribute('aria-current','page');
         }else{
