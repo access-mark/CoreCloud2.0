@@ -16,27 +16,15 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
 
   <!-- Preload hero for LCP -->
   <link rel="preload" as="image" href="assets/images/talent-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
-  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Page-scoped styles (kept tight; matches index conventions) -->
+  <!-- Page-scoped styles -->
   <style>
-    /* Hero frame: single gold line top/bottom, same thickness as other pages */
-    .hero-frame{position:relative;}
-    .hero-frame::before,
-    .hero-frame::after{
-      content:""; position:absolute; left:0; right:0; height:var(--frame-thin); background:var(--gold); z-index:1; pointer-events:none;
-    }
-    .hero-frame::before{ top:0; }
-    .hero-frame::after{ bottom:0; }
-
     /* Hero image */
-    .hero-media{ min-height:var(--hero-h-desktop); background:#f4f6f8; overflow:hidden; }
-    .hero-media img{ width:100%; height:100%; display:block; object-fit:cover; object-position:center; }
-    @media (max-width:768px){ .hero-media{ min-height:var(--hero-h-mobile); } }
+    .hero-media img{width:100%;height:auto;display:block;}
 
     /* Centered hero text under banner */
     .hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 16px;}
@@ -45,10 +33,10 @@
     .hero .hero-cta .cta-btn{min-width:200px;}
     @media (max-width:768px){ .hero{padding:28px 14px} .hero .hero-body{max-width:680px} }
 
-    /* Titles aligned like index (center, added spacing) */
+    /* Titles aligned like index */
     :root{ --h1-size:40px; --h2-size:28px; }
-    h1.hero-title{font-size:var(--h1-size); line-height:1.2; margin:32px 0 14px; text-align:center;}
-    h2.section-title{font-size:var(--h2-size); line-height:1.25; margin:26px 0 14px; text-align:center;}
+    h1{font-size:var(--h1-size); line-height:1.2; margin:28px 0 12px; text-align:center;}
+    h2.section-title{font-size:var(--h2-size); line-height:1.25; margin:22px 0 12px; text-align:center;}
     @media (max-width:768px){ :root{--h1-size:30px; --h2-size:24px} }
 
     /* Narrative blocks */
@@ -74,7 +62,7 @@
       animation:ccPulse 2.2s ease-in-out infinite;
     }
     .lumo-cta:hover{filter:saturate(1.08);}
-    @keyframes ccPulse{ 0%{transform:scale(1);} 50%{transform:scale(1.015);} 100%{transform:scale(1);} }
+    @keyframes ccPulse{0%{transform:scale(1);}50%{transform:scale(1.015);}100%{transform:scale(1);}}
     @media (prefers-reduced-motion:reduce){ .lumo-cta{animation:none;} }
 
     .lumo-card{
@@ -96,11 +84,18 @@
     section[aria-labelledby="what-title"],
     section[aria-labelledby="how-title"]{margin-top:.25rem;}
 
-    /* Underline for active nav (desktop + mobile) */
+    /* --- Active underline for current page (desktop + mobile) --- */
     .desktop-nav .nav-btn.active,
-    .desktop-nav .nav-btn[aria-current="page"]{ color:var(--dark-blue); border-bottom:2px solid var(--dark-blue); }
+    .desktop-nav .nav-btn[aria-current="page"]{
+      color: var(--dark-blue);
+      border-bottom: 2px solid var(--dark-blue);
+    }
     .mobile-nav a.active,
-    .mobile-nav a[aria-current="page"]{ text-decoration:underline; text-underline-offset:6px; text-decoration-thickness:2px; }
+    .mobile-nav a[aria-current="page"]{
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      text-decoration-thickness: 2px;
+    }
   </style>
 
   <!-- JSON-LD -->
@@ -154,11 +149,9 @@
     </div>
   </header>
 
-  <!-- Hero with gold lines (consistent thickness) -->
-  <div class="hero-frame">
-    <div class="hero-media">
-      <img src="assets/images/talent-bannerimage.png" alt="CoreCloud Talent — Elite ICT & Executive Talent" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
-    </div>
+  <!-- Hero image -->
+  <div class="hero-media">
+    <img src="assets/images/talent-bannerimage.png" alt="CoreCloud Talent — Elite ICT & Executive Talent" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
   </div>
 
   <!-- Hero text -->
@@ -316,14 +309,22 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current nav -->
+  <!-- Auto-highlight current nav (handles old/new hosting paths) -->
   <script>
     (function(){
-      var path=(location.pathname.split('/').pop()||'talent.html').toLowerCase();
+      var page = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+      // Map legacy path to new
+      if (page === 'hosting-private-cloud.html') page = 'hosted-private-cloud.html';
+
       document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
-        var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
-        else{ a.classList.remove('active'); a.removeAttribute('aria-current'); }
+        var href = (a.getAttribute('href') || '').toLowerCase();
+        if (href === page){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+        }else{
+          a.classList.remove('active');
+          a.removeAttribute('aria-current');
+        }
       });
     })();
   </script>
