@@ -2,7 +2,7 @@
    CoreCloud — assets/css/styles.css
    Single source of truth
    - About-style header/nav (desktop + mobile drawer)
-   - Triple banner lines (blue / gold / blue; gold = 2x blue)
+   - Single banner line (blue on Home/About/Insights; gold elsewhere)
    - Consistent typography, grids, CTAs, footer
    - Mobile cut-off fix (no desktop change)
    =========================== */
@@ -38,11 +38,16 @@ img { max-width: 100%; height: auto; display: block; }
   --heading-max: 1100px;
   --content-max: 1000px;
 
-  /* Banner frame (triple stripe) */
-  --frame-thin: 4px;                               /* blue thickness */
-  --frame-gold: calc(var(--frame-thin) * 2);       /* gold = 2x blue */
-  --frame-total: calc(var(--frame-thin)*2 + var(--frame-gold));
+  /* Banner frame (single stripe) */
+  --frame-thin: 4px;
+  /* Default frame color = gold (most pages) */
+  --frame-color: var(--gold);
 }
+
+/* Override frame color to BLUE where required */
+.home-page { --frame-color: var(--dark-blue); }     /* Home */
+.about-page { --frame-color: var(--dark-blue); }    /* About */
+.blog-page  { --frame-color: var(--dark-blue); }    /* Insights / Blog list & posts */
 
 /* Base */
 body{
@@ -111,21 +116,15 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
 /* =========================
    Banner / Hero
    ========================= */
-/* Triple-line frame: blue / gold / blue (gold = 2x blue) */
+/* Single-line frame (uses --frame-color set per page class) */
 .hero-frame{ position:relative; }
 .hero-frame::before,
 .hero-frame::after{
   content:"";
   position:absolute; left:0; right:0;
-  height:var(--frame-total);
+  height:var(--frame-thin);
+  background: var(--frame-color);
   pointer-events:none; z-index:1;
-  background:
-    linear-gradient(
-      to bottom,
-      var(--dark-blue) 0 var(--frame-thin),
-      var(--gold) var(--frame-thin) calc(var(--frame-thin) + var(--frame-gold)),
-      var(--dark-blue) calc(var(--frame-thin) + var(--frame-gold)) var(--frame-total)
-    );
 }
 .hero-frame::before{ top:0; }
 .hero-frame::after { bottom:0; }
