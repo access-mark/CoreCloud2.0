@@ -26,30 +26,69 @@
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/index-bannerimage.png" fetchpriority="high"/>
 
-  <!-- Page-scoped: triple line (blue/gold/blue) above & below banner -->
+  <!-- Page-scoped: header (About-style) + triple frame lines -->
   <style>
-    .hero-frame{ position: relative; }
+    :root{ --royal:#004f91; --royal-2:#0b3d72; --gold:#d4af37; }
+
+    /* About-style header/nav to ensure consistency on index */
+    .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
+    .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
+    .brand .logo{height:110px;width:auto;}
+    @media(max-width:768px){.brand .logo{height:84px;}}
+
+    .main-nav{display:flex;align-items:center;gap:18px;}
+    .main-nav > a,
+    .main-nav > .nav-group > button{
+      font-size:.98rem;font-weight:500;letter-spacing:.1px;
+      color:var(--royal-2);text-decoration:none;padding:14px 10px;line-height:1;border:none;background:transparent;cursor:pointer;
+    }
+    .main-nav > a:hover,
+    .main-nav > .nav-group > button:hover{color:var(--royal);}
+    .main-nav > a.active{color:var(--royal);border-bottom:2px solid var(--royal);}
+
+    .nav-group{position:relative;}
+    .nav-group .submenu{
+      position:absolute;left:0;top:100%;background:#fff;border:1px solid rgba(0,0,0,.08);
+      border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:260px;padding:8px;display:none;
+    }
+    .nav-group:hover .submenu,.nav-group:focus-within .submenu{display:block;}
+    .submenu a{display:block;padding:10px 12px;border-radius:8px;color:var(--royal-2);text-decoration:none;font-weight:500;font-size:.95rem;}
+    .submenu a:hover{background:#f2f7ff;color:var(--royal);}
+
+    .nav-toggle{display:none}
+    .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center}
+    .hamburger span{display:block;width:20px;height:2px;background:var(--royal-2);position:relative}
+    .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--royal-2)}
+    .hamburger span::before{top:-6px}.hamburger span::after{top:6px}
+    .mobile-drawer{display:none;border-top:1px solid rgba(0,0,0,.06);background:#fff}
+    .mobile-drawer a,.mobile-drawer summary{display:block;padding:12px 16px;color:var(--royal-2);text-decoration:none;font-weight:500;cursor:pointer;}
+    .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
+    .mobile-drawer details[open] summary{background:#f7fbff}
+    .mobile-drawer a:hover{background:#f2f7ff}
+    #nav-toggle:checked ~ nav.mobile-drawer{display:block}
+    @media(max-width:1024px){.main-nav{display:none}.hamburger{display:inline-flex}}
+
+    /* Triple frame (blue/gold/blue) exactly like Consulting */
+    .hero-frame{position:relative;}
     .hero-frame::before,.hero-frame::after{
-      content:""; position:absolute; left:0; right:0; height:8px;
+      content:"";position:absolute;left:0;right:0;height:8px;z-index:2;pointer-events:none;
       background:
         linear-gradient(
           to bottom,
-          var(--dark-blue) 0 2px,
-          var(--gold)      2px 6px,
-          var(--dark-blue) 6px 8px
+          var(--royal) 0 2px,
+          var(--gold)  2px 6px,
+          var(--royal) 6px 8px
         );
-      pointer-events:none; z-index:2;
     }
-    .hero-frame::before{ top:0; }
-    .hero-frame::after{ bottom:0; }
+    .hero-frame::before{top:0;}
+    .hero-frame::after{bottom:0;}
 
+    /* Home-specific small helpers */
     .home-page .hero-intro{ max-width: var(--content-max); margin: 2rem auto 1rem; padding: 0 1rem; text-align:center; }
     .home-page .hero-intro p{ margin:.2rem auto .85rem; }
-
     .section-left .section-title{ text-align:center !important; }
     .section-left .narrative{ max-width: var(--content-max); margin:0 auto; padding:0 1rem; }
     .section-left .narrative h3,.section-left .narrative p{ text-align:left !important; margin-left:0; margin-right:0; }
-
     .home-services .card-grid{ max-width: var(--content-max); margin-left:auto; margin-right:auto; }
   </style>
 
@@ -63,14 +102,13 @@
 </head>
 
 <body class="home-page">
-  <!-- ===== Header / Nav (About-style; Infrastructure standalone; Hosting under Cloud; Curated Talent added) ===== -->
+  <!-- Header / Nav (About-style; Infrastructure standalone; Hosting under Cloud; Curated Talent present) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
         <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
-      <!-- Desktop nav -->
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html" class="active" aria-current="page">Home</a>
 
@@ -93,7 +131,6 @@
           </div>
         </div>
 
-        <!-- Curated Talent -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
@@ -110,11 +147,10 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <!-- Mobile hamburger -->
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
-    <!-- Mobile toggle + drawer (About-style) -->
+    <!-- Mobile drawer (About-style) -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html" aria-current="page">Home</a>
@@ -149,7 +185,7 @@
     </nav>
   </header>
 
-  <!-- ===== Banner with triple-line frame (blue/gold/blue) ===== -->
+  <!-- Banner with triple-line frame -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
       <img src="assets/images/index-bannerimage.png" alt="From Strategy to Revenue. From Cloud to People." width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
@@ -165,7 +201,7 @@
     </div>
   </section>
 
-  <!-- Hybrid section (centered) -->
+  <!-- Hybrid (centered) -->
   <section class="section best-venue-section" aria-labelledby="hybrid-title">
     <h2 id="hybrid-title" class="section-title">Hybrid Isn’t Optional — It’s the Operating Model</h2>
     <p style="text-align:center;">
@@ -184,7 +220,7 @@
       </p>
     </section>
 
-    <!-- Focus & Method (left aligned content with centered title) -->
+    <!-- Focus & Method (left content, centered title) -->
     <section class="section section-left" aria-labelledby="focus-title">
       <h2 id="focus-title" class="section-title">Our Focus &amp; Method</h2>
       <div class="narrative">
@@ -219,49 +255,41 @@
           <p>From strategy to execution: GTM precision, pipeline discipline, partner motions that convert.</p>
           <span class="cta-btn">Explore</span>
         </a>
-
         <a class="card" role="listitem" href="cloud.html">
           <h3>Cloud Suite</h3>
           <p>AWS &amp; Azure architecture, landing zones, security, cost control, and modernisation.</p>
           <span class="cta-btn">Explore</span>
         </a>
-
         <a class="card" role="listitem" href="finops.html">
           <h3>Hybrid FinOps &amp; Governance</h3>
           <p>Cut run-rate and stop drift. Tags, budgets, policies, and showback across venues.</p>
           <span class="cta-btn">Explore</span>
         </a>
-
         <a class="card" role="listitem" href="infrastructure.html">
           <h3>Infrastructure</h3>
           <p>Predictable cost, SA residency, and low latency — private or hybrid with burst to public cloud.</p>
           <span class="cta-btn">Explore</span>
         </a>
-
         <a class="card" role="listitem" href="application-development.html">
           <h3>App Development</h3>
           <p>Cloud-native apps, portals, mobile &amp; web, and APIs — delivered with DevOps discipline.</p>
           <span class="cta-btn">Explore</span>
         </a>
-
         <a class="card" role="listitem" href="data-ai.html">
           <h3>Sovereign Data &amp; AI</h3>
           <p>Analytics and AI with SA residency. On-prem GPU + cloud burst, governed pipelines.</p>
           <span class="cta-btn">Explore</span>
         </a>
-
         <a class="card" role="listitem" href="talent.html">
           <h3>Talent Placement</h3>
           <p>Cloud, data, and platform talent — vetted for impact, not keywords.</p>
           <span class="cta-btn">Explore</span>
         </a>
-
         <a class="card" role="listitem" href="hosted-private-cloud.html">
           <h3>Hosting (Private Cloud)</h3>
           <p>SA-hosted workloads with predictable cost and performance. Burst to public cloud when it wins.</p>
           <span class="cta-btn">Explore</span>
         </a>
-
         <a class="card" role="listitem" href="dynamic-imprinting.html">
           <h3>Dynamic Imprinting</h3>
           <p>Leadership identity work that sticks — perform under pressure, consistently.</p>
