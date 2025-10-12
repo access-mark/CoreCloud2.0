@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=21"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=22"/>
 
   <!-- Preload hero + logo -->
   <link rel="preload" as="image" href="assets/images/data-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
@@ -30,27 +30,26 @@
   <style>
     :root{ --gold:#d4af37; --dark-blue:#004f91; }
 
-    /* Accessible skip link */
+    /* a11y: skip link */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;top:10px;left:10px;width:auto;height:auto;padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;outline:2px solid #fff;z-index:1000;}
 
-    /* HERO — lock thin gold lines precisely on the image edges */
+    /* HERO — thin gold lines exactly on edges */
     .dataai-page .hero-wrap{margin:0;line-height:0;}
     .dataai-page .hero-frame{
-      position:relative;
-      margin:0;
-      line-height:0; /* removes stray gaps */
-      box-shadow:
-        inset 0 3px 0 var(--gold),
-        inset 0 -3px 0 var(--gold); /* thin gold lines, exact position */
+      position:relative;margin:0;line-height:0;
+      box-shadow: inset 0 3px 0 var(--gold), inset 0 -3px 0 var(--gold);
     }
-    .dataai-page .hero-media{line-height:0;}
-    .dataai-page .hero-media img{
-      display:block;width:100%;height:auto;vertical-align:middle;
-    }
+    .dataai-page .hero-media img{display:block;width:100%;height:auto;vertical-align:middle;}
 
-    /* Center all page titles HARD (overrides any external CSS) */
-    .dataai-page :is(h1.hero-title, h2.section-title){
+    /* 🔒 FORCE ALL TITLES CENTERED ON THIS PAGE */
+    /* Covers: raw h1/h2, .hero-title, .section-title, and h2 inside narrative/cards */
+    .dataai-page h1,
+    .dataai-page h2,
+    .dataai-page .hero-title,
+    .dataai-page .section-title,
+    .dataai-page .narrative > h2,
+    .dataai-page .section > h2{
       text-align:center !important;
       margin-left:auto !important;
       margin-right:auto !important;
@@ -75,17 +74,9 @@
     .dataai-page .cta-row{display:flex;justify-content:center;margin-top:1.25rem;}
     .dataai-page .cta-row .cta-btn{min-width:240px;}
 
-    /* Underline parent "Cloud Suite" when a child is active (desktop) */
-    .main-nav .nav-group > button.active{
-      color: var(--dark-blue);
-      border-bottom: 2px solid var(--dark-blue);
-    }
-    /* Mobile cue for the active summary */
-    .mobile-drawer details > summary.active{
-      color: var(--dark-blue);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
+    /* Underline parent "Cloud Suite" when child active (desktop + mobile) */
+    .main-nav .nav-group > button.active{color:var(--dark-blue);border-bottom:2px solid var(--dark-blue);}
+    .mobile-drawer details > summary.active{color:var(--dark-blue);text-decoration:underline;text-underline-offset:3px;}
   </style>
 </head>
 
@@ -93,14 +84,13 @@
   <!-- Skip to main -->
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav (unified) -->
+  <!-- Header / Nav -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
         <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
-      <!-- Desktop nav -->
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 
@@ -176,15 +166,11 @@
     </nav>
   </header>
 
-  <!-- HERO with precise thin lines -->
+  <!-- HERO -->
   <div class="hero-wrap">
     <div class="hero-frame">
       <div class="hero-media" role="img" aria-label="CoreCloud — Sovereign Data & AI">
-        <img
-          src="assets/images/data-bannerimage.png"
-          alt="CoreCloud — Sovereign Data & AI"
-          decoding="async" loading="eager" fetchpriority="high"
-          width="1920" height="500"/>
+        <img src="assets/images/data-bannerimage.png" alt="CoreCloud — Sovereign Data & AI" decoding="async" loading="eager" fetchpriority="high" width="1920" height="500"/>
       </div>
     </div>
   </div>
@@ -316,28 +302,20 @@
       document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
         if(href===path){
-          a.classList.add('active');
-          a.setAttribute('aria-current','page');
-
-          // Underline the parent button in desktop nav
+          a.classList.add('active'); a.setAttribute('aria-current','page');
           var group=a.closest('.nav-group');
           if(group){
             var btn=group.querySelector('button');
             if(btn){ btn.classList.add('active'); }
-
-            // Mobile: mark the matching summary as active
             document.querySelectorAll('.mobile-drawer details').forEach(function(d){
-              var isMatch = Array.from(d.querySelectorAll('a'))
-                .some(function(link){ return (link.getAttribute('href')||'').toLowerCase()===path; });
-              if(isMatch){
-                var summary = d.querySelector('summary');
-                if(summary){ summary.classList.add('active'); }
-              }
+              var isMatch = Array.from(d.querySelectorAll('a')).some(function(link){
+                return (link.getAttribute('href')||'').toLowerCase()===path;
+              });
+              if(isMatch){ var s=d.querySelector('summary'); if(s){ s.classList.add('active'); } }
             });
           }
         }else{
-          a.classList.remove('active');
-          a.removeAttribute('aria-current');
+          a.classList.remove('active'); a.removeAttribute('aria-current');
         }
       });
     })();
