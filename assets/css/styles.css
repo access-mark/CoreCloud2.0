@@ -47,7 +47,8 @@ img { max-width: 100%; height: auto; display: block; }
 /* Override frame color to BLUE where required */
 .home-page { --frame-color: var(--dark-blue); }     /* Home */
 .about-page { --frame-color: var(--dark-blue); }    /* About */
-.blog-page  { --frame-color: var(--dark-blue); }    /* Insights / Blog list & posts */
+.blog-page  { --frame-color: var(--dark-blue); }    /* Insights list */
+.post-page  { --frame-color: var(--dark-blue); }    /* Individual post pages (if used) */
 
 /* Base */
 body{
