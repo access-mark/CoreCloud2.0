@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/hosting-bannerimage.png" fetchpriority="high"/>
 
@@ -29,40 +29,36 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* HERO */
+    /* HERO (gold single-line frame using global tokens) */
     .hero-frame{position:relative;}
     .hero-frame::before,
     .hero-frame::after{
-      content:"";position:absolute;left:0;right:0;height:4px;background:#d4af37;z-index:1;pointer-events:none;
+      content:"";position:absolute;left:0;right:0;height:var(--frame-thin);background:var(--gold);z-index:1;pointer-events:none;
     }
     .hero-frame::before{top:0;}
     .hero-frame::after{bottom:0;}
-    .hosting-page .hero-media{min-height:500px;overflow:hidden;background:#f4f6f8;}
+    .hosting-page .hero-media{min-height:var(--hero-h-desktop);overflow:hidden;background:#f4f6f8;}
     .hosting-page .hero-media img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;}
+    @media (max-width:768px){
+      .hosting-page .hero-media{min-height:var(--hero-h-mobile);}
+    }
 
-    /* Center hero title + paragraph hard */
-    .hosting-page .hero-intro{max-width:900px;margin:1.6rem auto 1rem;padding:0 1rem;text-align:center !important;}
+    /* Center hero title + paragraph (hardening) */
+    .hosting-page .hero-intro{max-width:900px;margin:1.8rem auto 1.2rem;padding:0 1rem;text-align:center !important;}
     .hosting-page .hero-intro h1,
     .hosting-page .hero-intro p{
-      text-align:center !important;
-      margin-left:auto !important;
-      margin-right:auto !important;
+      text-align:center !important;margin-left:auto !important;margin-right:auto !important;
     }
 
-    /* Sections */
-    .hosting-page .section{padding:1.8rem 0;}
+    /* Sections + titles (more padding between) */
+    .hosting-page .section{padding:2rem 0;}
     .hosting-page .section-title{
-      text-align:center !important;
-      margin:0 auto 1.2rem !important;
-      display:block;
-      max-width:1000px;
+      text-align:center !important;display:block !important;margin:0 auto 1.75rem !important;max-width:1000px;
     }
 
-    /* Center the bullet blocks on the page, keep text left inside */
+    /* Center the bullet blocks on the page; keep text left inside */
     .hosting-page ul.points,
-    .hosting-page ol.points{
-      max-width:900px;margin:0 auto;padding-left:1.25rem;text-align:left;
-    }
+    .hosting-page ol.points{max-width:900px;margin:0 auto;padding-left:1.25rem;text-align:left;}
     .points li{margin:.3rem 0;line-height:1.7;}
     .muted{color:#5a6b85;font-size:.95rem}
 
@@ -71,10 +67,10 @@
     .metric{display:flex;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;}
     .metric b{color:#0b3d72;}
 
-    /* Inline CTA centered + extra spacing */
-    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.8rem auto;text-align:center;max-width:900px;}
-    .inline-cta p{margin:.55rem 0 0;color:#fff !important;}
-    .inline-cta .cta-btn{display:inline-block;margin:24px auto 0;min-width:260px;}
+    /* Inline CTA centered + extra spacing; center button + extra space above it */
+    .inline-cta{background:#0d3b66;color:#fff;padding:1.2rem 1.3rem;border-radius:12px;margin:2rem auto;text-align:center;max-width:900px;}
+    .inline-cta p{margin:.6rem 0 0;color:#fff !important;}
+    .inline-cta .cta-btn{display:inline-block;margin:28px auto 0;min-width:260px;}
 
     /* FAQ */
     .faq-list{max-width:900px;margin:0 auto;padding:0 1rem;}
@@ -84,13 +80,15 @@
     .faq-list summary::-webkit-details-marker{display:none;}
     .faq-list p{margin:.45rem 0 0;}
 
-    /* Active nav underline (desktop + mobile) */
+    /* Active nav underline (desktop + parent button + mobile) */
     .main-nav > a.active,
     .main-nav > a[aria-current="page"]{
+      color:var(--dark-blue);
       border-bottom:2px solid var(--dark-blue);
-      text-decoration:underline;
-      text-underline-offset:8px;
-      text-decoration-thickness:2px;
+    }
+    .main-nav > .nav-group > button.active{
+      color:var(--dark-blue);
+      border-bottom:2px solid var(--dark-blue);
     }
     .mobile-drawer a.active,
     .mobile-drawer a[aria-current="page"]{
@@ -104,7 +102,7 @@
 <body class="hosting-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav -->
+  <!-- Header / Nav (About-style, global) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -196,7 +194,7 @@
 
   <!-- Intro -->
   <section class="hero-intro" id="main">
-    <h1 class="hero-title">Hosting &amp; Private Cloud — Predictable, Close, Compliant</h1>
+    <h1 class="hero-title">Hosted &amp; Private Cloud — Predictable, Close, Compliant</h1>
     <p>Not every workload belongs in hyperscale. We run steady, regulated, and latency-critical systems on managed private cloud and colocation — with DR, POPIA alignment, and <a href="finops.html">FinOps</a> built in. When cloud is right, we use it. When predictability wins, we host.</p>
   </section>
 
@@ -338,23 +336,18 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current nav (handles /hosted-private-cloud.html and /hosted-private-cloud/) -->
+  <!-- Auto-highlight current nav + mark parent button active -->
   <script>
     (function(){
-      var raw = location.pathname.toLowerCase();
-      var file = raw.endsWith('/') ? raw.slice(0,-1) : raw;
-      file = file.split('/').pop() || 'hosted-private-cloud.html';
-      if(file === 'hosted-private-cloud'){ file = 'hosted-private-cloud.html'; }
-
+      var path=(location.pathname.split('/').pop()||'hosted-private-cloud.html').toLowerCase();
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        var hrefFile = href.replace(/\/+$/,'').split('/').pop();
-        if(hrefFile === file){
+        var href=(a.getAttribute('href')||'').toLowerCase();
+        if(href===path){
           a.classList.add('active');
           a.setAttribute('aria-current','page');
-          var group = a.closest('.nav-group');
+          var group=a.closest('.nav-group');
           if(group){
-            var btn = group.querySelector('button');
+            var btn=group.querySelector('button');
             if(btn){ btn.classList.add('active'); }
           }
         }else{
