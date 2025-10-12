@@ -29,49 +29,54 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* hero + intro */
+    /* HERO */
+    .hero-frame{position:relative;}
+    .hero-frame::before,
+    .hero-frame::after{
+      content:"";position:absolute;left:0;right:0;height:4px;background:#d4af37;z-index:1;pointer-events:none;
+    }
+    .hero-frame::before{top:0;}
+    .hero-frame::after{bottom:0;}
+    .hosting-page .hero-media{min-height:500px;overflow:hidden;background:#f4f6f8;}
     .hosting-page .hero-media img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;}
-    .hosting-page .hero-intro{max-width:900px;margin:0 auto 1rem;padding:0 1rem;text-align:center !important;}
-    .hosting-page .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .6rem;}
-    .hosting-page .hero-intro p{color:#444;text-align:center !important;margin-left:auto !important;margin-right:auto !important;max-width:900px;}
-    @media (max-width:768px){
-      .hosting-page .hero-title{font-size:1.8rem;line-height:1.2;}
+
+    /* Center hero title + paragraph hard */
+    .hosting-page .hero-intro{max-width:900px;margin:1.6rem auto 1rem;padding:0 1rem;text-align:center !important;}
+    .hosting-page .hero-intro h1,
+    .hosting-page .hero-intro p{
+      text-align:center !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
     }
 
-    /* sections */
+    /* Sections */
     .hosting-page .section{padding:1.8rem 0;}
-    .hosting-page .section-title{margin:0 0 1rem;}
-
-    /* Title alignment hardening (page-wide) */
-    .hosting-page :is(h1.hero-title,h2.section-title){
-      text-align:center !important;display:block !important;margin-left:auto !important;margin-right:auto !important;
+    .hosting-page .section-title{
+      text-align:center !important;
+      margin:0 auto 1.2rem !important;
+      display:block;
+      max-width:1000px;
     }
-    /* keep subheads & list content left */
-    .hosting-page :is(.panel h3,.panel h4){text-align:left !important;}
 
     /* Center the bullet blocks on the page, keep text left inside */
-    .hosting-page ul.points{max-width:900px;margin:0 auto;padding-left:1.25rem;text-align:left;}
-    .hosting-page ol.points{max-width:900px;margin:0 auto;padding-left:1.25rem;text-align:left;}
-
-    /* narrative lists */
+    .hosting-page ul.points,
+    .hosting-page ol.points{
+      max-width:900px;margin:0 auto;padding-left:1.25rem;text-align:left;
+    }
     .points li{margin:.3rem 0;line-height:1.7;}
     .muted{color:#5a6b85;font-size:.95rem}
 
-    /* metrics */
+    /* Metrics */
     .metrics{display:grid;gap:.45rem;max-width:1000px;margin:0 auto;padding:0 1rem;}
     .metric{display:flex;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;}
     .metric b{color:#0b3d72;}
 
-    /* Inline CTA + centered button with extra spacing above */
-    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.6rem auto;text-align:center;max-width:900px;}
+    /* Inline CTA centered + extra spacing */
+    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.8rem auto;text-align:center;max-width:900px;}
     .inline-cta p{margin:.55rem 0 0;color:#fff !important;}
-    .hosting-page .inline-cta .cta-btn{
-      display:inline-block;
-      margin:24px auto 0;   /* ⬆ extra space above the button */
-      min-width:260px;
-    }
+    .inline-cta .cta-btn{display:inline-block;margin:24px auto 0;min-width:260px;}
 
-    /* FAQ accordions */
+    /* FAQ */
     .faq-list{max-width:900px;margin:0 auto;padding:0 1rem;}
     .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12);}
     .faq-list details:last-of-type{border-bottom:none;}
@@ -79,27 +84,21 @@
     .faq-list summary::-webkit-details-marker{display:none;}
     .faq-list p{margin:.45rem 0 0;}
 
-    /* wrap safety */
-    .hosting-page .content, .hosting-page .content p, .hosting-page .content li, .hosting-page .content a{word-break:break-word;overflow-wrap:anywhere;}
+    /* Active nav underline (desktop + mobile) */
+    .main-nav > a.active,
+    .main-nav > a[aria-current="page"]{
+      border-bottom:2px solid var(--dark-blue);
+      text-decoration:underline;
+      text-underline-offset:8px;
+      text-decoration-thickness:2px;
+    }
+    .mobile-drawer a.active,
+    .mobile-drawer a[aria-current="page"]{
+      text-decoration:underline;
+      text-underline-offset:6px;
+      text-decoration-thickness:2px;
+    }
   </style>
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Service","name":"CoreCloud — Hosting & Private Cloud","description":"Managed private cloud and colocation for predictable, sovereign, low-latency workloads with DR and POPIA alignment.","provider":{"@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png"},"areaServed":"ZA","serviceOutput":"Predictable run with measured resilience, security, and cost posture","url":"https://www.corecloudza.com/hosting-private-cloud.html","offers":{"@type":"Offer","availability":"https://schema.org/InStock"}}
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
-    {"@type":"ListItem","position":2,"name":"Hosting & Private Cloud","item":"https://www.corecloudza.com/hosting-private-cloud.html"}
-  ]}
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"When does hosted/private cloud beat hyperscale?","acceptedAnswer":{"@type":"Answer","text":"For steady or predictable workloads, strict data residency, low-latency proximity, legacy licensing, and where egress patterns or dedicated capacity economics win."}},
-    {"@type":"Question","name":"Can we burst to AWS/Azure when needed?","acceptedAnswer":{"@type":"Answer","text":"Yes. We design hybrid patterns with private cloud primary and cloud burst for peak or DR, with guardrails for routing, identity, and data movement."}},
-    {"@type":"Question","name":"Is POPIA alignment covered?","acceptedAnswer":{"@type":"Answer","text":"Yes. We map data classes, enforce residency, and implement customer-managed keys, logging, and revocation processes with board-level posture reporting."}}
-  ]}
-  </script>
 </head>
 
 <body class="hosting-page">
@@ -171,7 +170,7 @@
         <a href="finops.html">FinOps</a>
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
-        <a href="hosting-private-cloud.html" aria-current="page">Hosting (Private Cloud)</a>
+        <a href="hosted-private-cloud.html" aria-current="page">Hosting (Private Cloud)</a>
       </details>
 
       <details>
@@ -188,7 +187,7 @@
     </nav>
   </header>
 
-  <!-- Hero with gold frame lines (consistent with site) -->
+  <!-- Hero with gold frame -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="Private cloud and colocation">
       <img src="assets/images/hosting-bannerimage.png" alt="Hosting & Private Cloud — predictable, sovereign, low-latency run" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
@@ -343,14 +342,20 @@
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'hosting-private-cloud.html').toLowerCase();
-      document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
         if(href===path){
-          a.classList.add('active'); a.setAttribute('aria-current','page');
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+          // If it's inside a dropdown, also mark the parent button as active
           var group=a.closest('.nav-group');
-          if(group){ var btn=group.querySelector('button'); if(btn) btn.classList.add('active'); }
+          if(group){
+            var btn=group.querySelector('button');
+            if(btn){ btn.classList.add('active'); }
+          }
         }else{
-          a.classList.remove('active'); a.removeAttribute('aria-current');
+          a.classList.remove('active');
+          a.removeAttribute('aria-current');
         }
       });
     })();
