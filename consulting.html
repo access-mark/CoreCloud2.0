@@ -29,19 +29,20 @@
   <style>
     :root{ --royal:#004f91; --royal-2:#0b3d72; --gold:#d4af37; }
 
-    /* Match INDEX banner frame: blue–gold–blue (gold = 2x blue) */
+    /* === Banner lines: EXACTLY like index (blue–gold–blue, gold = 2x) === */
     .consulting-page .hero-frame{ position:relative; }
     .consulting-page .hero-frame::before,
     .consulting-page .hero-frame::after{
-      content:""; position:absolute; left:0; width:100%; height:12px; z-index:1;
-      background: linear-gradient(to bottom,
-                  var(--royal) 0 3px,
-                  var(--gold) 3px 9px,
-                  var(--royal) 9px 12px);
+      content:""; position:absolute; left:0; width:100%; height:12px; z-index:2;
+      background:
+        linear-gradient(to bottom,
+          var(--royal) 0 3px,
+          var(--gold) 3px 9px,
+          var(--royal) 9px 12px);
       pointer-events:none;
     }
-    .consulting-page .hero-frame::before{ top:0; transform:translateY(-100%); }
-    .consulting-page .hero-frame::after { bottom:0; transform:translateY(100%); }
+    .consulting-page .hero-frame::before{ top:0; }
+    .consulting-page .hero-frame::after { bottom:0; }
 
     /* Center section titles reliably */
     .consulting-page .section .section-title{
@@ -53,21 +54,35 @@
     /* Sub-headers (panels) consistent royal blue */
     .consulting-page .panel h4{
       color: var(--royal) !important;
-      font-weight: 700;
-      margin: 0 0 .35rem;
-      text-align: left;
+      font-weight:700;
+      margin:0 0 .35rem;
+      text-align:left;
     }
 
-    /* Fix anchor jumps under sticky header (desktop & mobile) */
-    .consulting-page section[id]{ scroll-margin-top: 132px; }
-    @media (max-width: 768px){
-      .consulting-page section[id]{ scroll-margin-top: 96px; }
+    /* Anchor jumps clear the sticky header */
+    .consulting-page section[id]{ scroll-margin-top:132px; }
+    @media (max-width:768px){ .consulting-page section[id]{ scroll-margin-top:96px; } }
+
+    /* Pills (chip nav) — centered, wrap nicely */
+    .inpage-nav{
+      display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
+      gap:8px; margin:0 auto 1rem; padding:.35rem 1rem; max-width:1000px;
+    }
+    .inpage-nav a{
+      display:inline-block; white-space:nowrap;
+      border:1px solid #e4e8f1; background:#fff; color:#0d3b66; text-decoration:none;
+      border-radius:999px; padding:.42rem .7rem; font-weight:700; font-size:.95rem;
+    }
+    .inpage-nav a.active{ border-color: var(--royal); color: var(--royal); }
+    @media (max-width:480px){
+      .inpage-nav{ gap:6px; padding:.3rem .75rem; }
+      .inpage-nav a{ padding:.35rem .6rem; font-size:.9rem; }
     }
 
-    /* Underline the top-level "Consulting" button when this page is active */
+    /* Underline top-level "Consulting" when this page is active */
     .main-nav .nav-group > button.active{
       color: var(--royal);
-      border-bottom: 2px solid var(--royal);
+      border-bottom:2px solid var(--royal);
     }
   </style>
 </head>
@@ -168,7 +183,7 @@
   </section>
 
   <main class="content" id="main">
-    <!-- Chips -->
+    <!-- Pills -->
     <nav class="inpage-nav" aria-label="On this page">
       <a href="#signals">Signals</a>
       <a href="#where">Where we help</a>
@@ -449,17 +464,17 @@
         var href=(a.getAttribute('href')||'').toLowerCase();
         if(href===path){
           a.classList.add('active'); a.setAttribute('aria-current','page');
-          var group = a.closest('.nav-group');
+          var group=a.closest('.nav-group');
           if(group){
-            var btn = group.querySelector('button');
+            var btn=group.querySelector('button');
             if(btn) btn.classList.add('active');
           }
         }
       });
 
-      // optional: highlight the chip matching current hash
+      // chip highlight on hash
       function markChip(){
-        var hash = location.hash.replace('#','');
+        var hash=location.hash.replace('#','');
         document.querySelectorAll('.inpage-nav a').forEach(function(link){
           if(link.getAttribute('href').replace('#','')===hash){ link.classList.add('active'); }
           else{ link.classList.remove('active'); }
