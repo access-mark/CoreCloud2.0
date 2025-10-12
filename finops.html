@@ -18,22 +18,20 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/finops-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (same site-wide file) -->
+  <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=18"/>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/finops-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped tweaks only -->
+  <!-- Page-scoped tweaks -->
   <style>
-    /* Make sure FinOps uses the same hero geometry & thin gold lines as other pages */
+    /* Use shared hero heights; thin gold lines come from global .hero-frame */
     .finops-page .hero-media{ height: var(--hero-h-desktop); }
-    @media (max-width:768px){
-      .finops-page .hero-media{ height: var(--hero-h-mobile); }
-    }
+    @media (max-width:768px){ .finops-page .hero-media{ height: var(--hero-h-mobile); } }
 
-    /* Title spacing: sit comfortably below the banner like other pages */
+    /* Title spacing consistent with other pages */
     .finops-page .hero-intro{ max-width:1000px; margin:2rem auto 1.1rem; padding:0 1rem; text-align:center; }
     .finops-page .hero-title{ font-size:2rem; font-weight:700; color:var(--dark-blue); margin:.2rem auto .6rem; }
     @media (max-width:768px){ .finops-page .hero-title{ font-size:1.85rem; } }
@@ -42,14 +40,14 @@
     .inpage-nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 auto .9rem;padding:.25rem .75rem;max-width:1000px;justify-content:center;}
     .inpage-nav a{border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;white-space:nowrap;font-size:.95rem;}
 
-    /* Narrative blocks */
+    /* Narrative */
     .section{ padding:1.6rem 0; }
     .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; color:#444; line-height:1.75; }
     .narrative p{ margin:.4rem 0; }
     .narrative ul{ margin:.25rem 0 0 1.2rem; }
     .narrative li{ margin:.28rem 0; }
 
-    /* Match Home “Why/What/How” subhead styling (font only, not copy) */
+    /* Match Home “Why/What/How” font treatment */
     .wwh-head{
       font-size:1.4rem !important;
       font-weight:600 !important;
@@ -66,14 +64,26 @@
     .metric{display:flex;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;}
     .metric b{color:#0b3d72;}
 
-    /* Inline CTA card — more space above the button */
+    /* Inline CTA card — extra space above button */
     .inline-cta{background:#0d3b66;color:#fff;padding:1rem 1.2rem;border-radius:12px;margin:1.25rem auto;text-align:center;max-width:680px;}
     .inline-cta p{margin:.5rem 0 0;color:#fff !important;}
-    .inline-cta .cta-btn{ display:inline-block; margin-top:1rem; } /* ⬅ extra vertical space above button */
+    .inline-cta .cta-btn{ display:inline-block; margin-top:1rem; }
 
-    /* Center all page-level section titles like other pages */
+    /* Center all page-level section titles */
     .finops-page :is(h1.hero-title,h2.section-title){
       text-align:center !important; display:block !important; margin-left:auto !important; margin-right:auto !important;
+    }
+
+    /* ✅ Underline the ACTIVE parent button in the desktop nav */
+    .main-nav .nav-group > button.active{
+      color: var(--dark-blue);
+      border-bottom: 2px solid var(--dark-blue);
+    }
+    /* ✅ Mobile: give the active section summary a visual cue */
+    .mobile-drawer details > summary.active{
+      color: var(--dark-blue);
+      text-decoration: underline;
+      text-underline-offset: 3px;
     }
   </style>
 </head>
@@ -161,7 +171,7 @@
     </nav>
   </header>
 
-  <!-- Hero (uses global .hero-frame thin gold lines + shared heights) -->
+  <!-- Hero (thin gold lines from global .hero-frame) -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="FinOps foundations and quick wins">
       <img src="assets/images/finops-bannerimage.png" alt="FinOps by design — visibility to action" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
@@ -203,7 +213,7 @@
       </div>
     </section>
 
-    <!-- What we do (subheads styled like Home’s Why/What/How) -->
+    <!-- What we do -->
     <section class="section" id="what" aria-labelledby="what-title">
       <div class="narrative">
         <h2 id="what-title" class="section-title">What We Do (Plain Terms)</h2>
@@ -371,10 +381,19 @@
         if(href===path){
           a.classList.add('active');
           a.setAttribute('aria-current','page');
+
+          // Underline the parent button in desktop nav
           var group=a.closest('.nav-group');
           if(group){
             var btn=group.querySelector('button');
             if(btn){ btn.classList.add('active'); }
+
+            // Also style the matching mobile summary
+            var details = document.querySelector('.mobile-drawer details:nth-of-type(2)'); // "Cloud Suite" block
+            if(details){
+              var summary = details.querySelector('summary');
+              if(summary){ summary.classList.add('active'); }
+            }
           }
         }else{
           a.classList.remove('active');
