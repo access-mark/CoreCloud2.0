@@ -19,8 +19,49 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
+  <!-- Global CSS (template v14) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=14"/>
+
+  <!-- Preload -->
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
+  <link rel="preload" as="image" href="assets/images/index-bannerimage.png" fetchpriority="high"/>
+
+  <!-- Page-scoped: triple line (blue/gold/blue) above & below banner -->
+  <style>
+    .hero-frame{
+      position: relative;
+    }
+    .hero-frame::before,
+    .hero-frame::after{
+      content:"";
+      position:absolute; left:0; right:0;
+      height:8px;               /* total: 2px blue + 4px gold + 2px blue */
+      background:
+        linear-gradient(
+          to bottom,
+          var(--dark-blue) 0 2px,
+          var(--gold)      2px 6px,
+          var(--dark-blue) 6px 8px
+        );
+      pointer-events:none;
+      z-index: 2;
+    }
+    .hero-frame::before{ top:0; }
+    .hero-frame::after{ bottom:0; }
+
+    /* Home-centric tweaks (no desktop layout changes elsewhere) */
+    .home-page .hero-intro{ max-width: var(--content-max); margin: 2rem auto 1rem; padding: 0 1rem; text-align:center; }
+    .home-page .hero-intro p{ margin:.2rem auto .85rem; }
+
+    /* Section titles centered already via global .section-title */
+    .section-left .section-title{ text-align:center !important; }
+    .section-left .narrative{ max-width: var(--content-max); margin:0 auto; padding:0 1rem; }
+    .section-left .narrative h3,
+    .section-left .narrative p{ text-align:left !important; margin-left:0; margin-right:0; }
+
+    /* Service cards spacing */
+    .home-services .card-grid{ max-width: var(--content-max); margin-left:auto; margin-right:auto; }
+  </style>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
@@ -32,15 +73,14 @@
 </head>
 
 <body class="home-page">
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <!-- ===== Header (About-style) ===== -->
-  <header class="site-header">
+  <!-- ===== Header / Nav (About-style; Infrastructure standalone; Hosting under Cloud) ===== -->
+  <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
         <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
+      <!-- Desktop nav -->
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html" class="active" aria-current="page">Home</a>
 
@@ -63,16 +103,6 @@
           </div>
         </div>
 
-        <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
-          <div class="submenu" role="menu" aria-label="Curated Talent">
-            <a role="menuitem" href="talent.html">Overview</a>
-            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
-            <a role="menuitem" href="global-talent.html">Global Talent</a>
-          </div>
-        </div>
-
-        <!-- Standalone top-level Infrastructure -->
         <a href="infrastructure.html">Infrastructure</a>
 
         <a href="about.html">About</a>
@@ -80,9 +110,11 @@
         <a href="contact.html">Contact</a>
       </nav>
 
+      <!-- Mobile hamburger -->
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
+    <!-- Mobile toggle + drawer (About-style) -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html" aria-current="page">Home</a>
@@ -110,7 +142,7 @@
     </nav>
   </header>
 
-  <!-- ===== Banner with triple line frame ===== -->
+  <!-- ===== Banner with triple-line frame (blue/gold/blue) ===== -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
       <img src="assets/images/index-bannerimage.png" alt="From Strategy to Revenue. From Cloud to People." width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
@@ -120,33 +152,33 @@
   <!-- Hero intro -->
   <section class="hero-intro">
     <h1 class="hero-title">From Strategy to Revenue. From Cloud to People.</h1>
-    <p class="centered">We help South African enterprises turn strategy into action — sharper sales execution, modernised cloud &amp; hybrid infrastructure, elite ICT talent, and disciplined app delivery.</p>
-    <div class="centered" style="margin-top:.5rem;">
+    <p>We help South African enterprises turn strategy into action — sharper sales execution, modernised cloud &amp; hybrid infrastructure, elite ICT talent, and disciplined app delivery.</p>
+    <div class="cta-row" style="margin-top:.5rem;">
       <a class="cta-btn" href="cloud.html">Design My Hybrid</a>
     </div>
   </section>
 
-  <main class="content" id="main">
-    <!-- Hybrid -->
-    <section class="section" aria-labelledby="hybrid-title">
-      <h2 id="hybrid-title" class="section-title">Hybrid Isn’t Optional — It’s the Operating Model</h2>
-      <p class="centered">
-        One venue cannot win on cost, performance, and risk at the same time. We place each workload where it wins:
-        cloud for elasticity &amp; services; hosted/on-prem for predictable, low-latency, compliant run.
-      </p>
-    </section>
+  <!-- Hybrid section (centered) -->
+  <section class="section best-venue-section" aria-labelledby="hybrid-title">
+    <h2 id="hybrid-title" class="section-title">Hybrid Isn’t Optional — It’s the Operating Model</h2>
+    <p style="text-align:center;">
+      One venue cannot win on cost, performance, and risk at the same time. We place each workload where it wins:
+      cloud for elasticity &amp; services; hosted/on-prem for predictable, low-latency, compliant run.
+    </p>
+  </section>
 
-    <!-- About -->
+  <main class="content" id="main">
+    <!-- About (centered) -->
     <section class="section" aria-labelledby="about-title">
       <h2 id="about-title" class="section-title">About CoreCloud</h2>
-      <p class="centered">
+      <p style="max-width:900px;margin:0 auto;text-align:center;">
         Operators, not theorists. We’ve been under real boardroom pressure and know how to land change.
         Sales, cloud, hybrid infrastructure, and applications — focused on outcomes that move the needle.
       </p>
     </section>
 
-    <!-- Focus & Method (title centered, body left) -->
-    <section class="section" aria-labelledby="focus-title">
+    <!-- Focus & Method (left aligned content with centered title) -->
+    <section class="section section-left" aria-labelledby="focus-title">
       <h2 id="focus-title" class="section-title">Our Focus &amp; Method</h2>
       <div class="narrative">
         <h3>Why</h3>
@@ -160,21 +192,19 @@
       </div>
     </section>
 
-    <!-- Recent wins -->
+    <!-- Recent wins (centered) -->
     <section class="section" aria-labelledby="wins-title">
       <h2 id="wins-title" class="section-title">Recent Wins Through Partner Collective</h2>
-      <div class="centered" style="text-align:left;">
-        <ul style="padding-left:1.25rem; margin:0;">
-          <li>−32% run-rate: ERP + SQL to hosted private cloud; burst to Azure for quarter-end. DR bundled.</li>
-          <li>−48% latency: Trading analytics hybridised — on-prem GPU + S3-compatible store; cloud for global insights.</li>
-          <li>Zero-downtime move: Payments core via blue/green + feature flags reduced risk during cutover.</li>
-          <li>Talent that lands it: Cloud, data, and platform engineers placed to stabilise ops and accelerate delivery.</li>
-        </ul>
-      </div>
+      <ul style="max-width:900px;margin:0 auto;padding-left:1.25rem;">
+        <li>−32% run-rate: ERP + SQL to hosted private cloud; burst to Azure for quarter-end. DR bundled.</li>
+        <li>−48% latency: Trading analytics hybridised — on-prem GPU + S3-compatible store; cloud for global insights.</li>
+        <li>Zero-downtime move: Payments core via blue/green + feature flags reduced risk during cutover.</li>
+        <li>Talent that lands it: Cloud, data, and platform engineers placed to stabilise ops and accelerate delivery.</li>
+      </ul>
     </section>
 
     <!-- Explore services -->
-    <section class="section" aria-labelledby="services-title">
+    <section class="section home-services" aria-labelledby="services-title">
       <h2 id="services-title" class="section-title">Explore Our Services</h2>
       <div class="card-grid" role="list">
         <a class="card" role="listitem" href="consulting.html">
@@ -182,41 +212,49 @@
           <p>From strategy to execution: GTM precision, pipeline discipline, partner motions that convert.</p>
           <span class="cta-btn">Explore</span>
         </a>
+
         <a class="card" role="listitem" href="cloud.html">
           <h3>Cloud Suite</h3>
           <p>AWS &amp; Azure architecture, landing zones, security, cost control, and modernisation.</p>
           <span class="cta-btn">Explore</span>
         </a>
+
         <a class="card" role="listitem" href="finops.html">
           <h3>Hybrid FinOps &amp; Governance</h3>
           <p>Cut run-rate and stop drift. Tags, budgets, policies, and showback across venues.</p>
           <span class="cta-btn">Explore</span>
         </a>
+
         <a class="card" role="listitem" href="infrastructure.html">
           <h3>Infrastructure</h3>
           <p>Predictable cost, SA residency, and low latency — private or hybrid with burst to public cloud.</p>
           <span class="cta-btn">Explore</span>
         </a>
-        <a class="card" role="listitem" href="hosted-private-cloud.html">
-          <h3>Hosting (Private Cloud)</h3>
-          <p>SA-hosted, compliant, low-latency run. Hybrid-by-design with burst to AWS/Azure when it wins.</p>
-          <span class="cta-btn">Explore</span>
-        </a>
+
         <a class="card" role="listitem" href="application-development.html">
           <h3>App Development</h3>
           <p>Cloud-native apps, portals, mobile &amp; web, and APIs — delivered with DevOps discipline.</p>
           <span class="cta-btn">Explore</span>
         </a>
+
         <a class="card" role="listitem" href="data-ai.html">
           <h3>Sovereign Data &amp; AI</h3>
           <p>Analytics and AI with SA residency. On-prem GPU + cloud burst, governed pipelines.</p>
           <span class="cta-btn">Explore</span>
         </a>
+
         <a class="card" role="listitem" href="talent.html">
           <h3>Talent Placement</h3>
           <p>Cloud, data, and platform talent — vetted for impact, not keywords.</p>
           <span class="cta-btn">Explore</span>
         </a>
+
+        <a class="card" role="listitem" href="hosted-private-cloud.html">
+          <h3>Hosting (Private Cloud)</h3>
+          <p>SA-hosted workloads with predictable cost and performance. Burst to public cloud when it wins.</p>
+          <span class="cta-btn">Explore</span>
+        </a>
+
         <a class="card" role="listitem" href="dynamic-imprinting.html">
           <h3>Dynamic Imprinting</h3>
           <p>Leadership identity work that sticks — perform under pressure, consistently.</p>
@@ -243,7 +281,7 @@
           <input type="hidden" name="_captcha" value="false"/>
           <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
           <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;"/>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
