@@ -22,7 +22,7 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
 
-  <!-- Page-scoped: About-style nav + royal frame + mobile fix -->
+  <!-- Page-scoped: About-style nav + royal frame + MOBILE CUT-OFF FIX -->
   <style>
     :root{ --royal:#004f91; --royal-2:#0b3d72; }
 
@@ -73,16 +73,29 @@
     .centered{max-width:1000px;margin:0 auto;text-align:center;padding:0 1rem;}
     .narrative h3,.narrative p{ text-align:left !important; }
 
-    /* ===== Mobile-only fix for page cut-off (no desktop impact) ===== */
+    /* ===== MOBILE CUT-OFF FIX (no desktop impact) ===== */
     @media (max-width:1024px){
       html, body{
-        height:auto !important;    /* allow page to expand beyond viewport */
-        min-height:100% !important;
-        overflow-y:auto !important;/* make sure we can scroll */
+        height:auto !important;     /* override global height:100% */
+        min-height:0 !important;
+        overflow-y:auto !important; /* allow full scroll */
       }
-      /* Slightly tighter mobile spacing for grids/hero copy */
+      /* Neutralize flex layout on mobile to avoid viewport bugs */
+      body{ display:block !important; }
+      main.content{ display:block !important; }
+      /* Slightly tighter mobile spacing */
       .card-grid{ padding:0 1rem; gap:1rem; }
       .hero-intro{ padding:0 .75rem; }
+    }
+    /* iOS Safari safeguard */
+    @supports (-webkit-touch-callout: none) {
+      @media (max-width:1024px){
+        html, body{
+          height:auto !important;
+          min-height:0 !important;
+          overflow-y:auto !important;
+        }
+      }
     }
   </style>
 
