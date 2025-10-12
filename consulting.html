@@ -18,42 +18,28 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/consulting-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=16"/>
+  <!-- Global CSS (must be v17+ for single-line frame system) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=17"/>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped (minimal) -->
+  <!-- Page-scoped (lightweight): force BLUE banner line + minor helpers -->
   <style>
-    :root{ --royal:#004f91; --royal-2:#0b3d72; --gold:#d4af37; --dark-blue:#004f91; }
+    /* Use the global single-line frame, but set the color to BLUE for this page */
+    .consulting-page{ --frame-color: var(--dark-blue); }
 
-    /* === Banner lines: blue–gold–blue (gold = 2x) === */
-    .consulting-page .hero-frame{ position:relative; }
-    .consulting-page .hero-frame::before,
-    .consulting-page .hero-frame::after{
-      content:""; position:absolute; left:0; width:100%; height:12px; z-index:2;
-      background:
-        linear-gradient(to bottom,
-          var(--royal) 0 3px,
-          var(--gold) 3px 9px,
-          var(--royal) 9px 12px);
-      pointer-events:none;
-    }
-    .consulting-page .hero-frame::before{ top:0; }
-    .consulting-page .hero-frame::after { bottom:0; }
-
-    /* Titles centered (guards against stray overrides) */
+    /* Keep section titles centered (guard against local overrides) */
     .consulting-page .section .section-title{
       text-align:center !important;
       margin-left:auto !important;
       margin-right:auto !important;
+      max-width: var(--heading-max);
     }
 
-    /* 🔒 GLOBAL CONSISTENCY SUBTITLES (match index Why/What/How)
-       👉 Copy this block into assets/css/styles.css to lock sitewide */
-    .panel h4{
+    /* Subtitles inside panels — match index Why/What/How look */
+    .consulting-page .panel h4{
       font-size: 1.4rem !important;
       font-weight: 600 !important;
       line-height: 1.4;
@@ -62,30 +48,30 @@
       text-align: left;
     }
 
-    /* Anchor jump offset for sticky header */
-    .consulting-page section[id]{ scroll-margin-top:132px; }
-    @media (max-width:768px){ .consulting-page section[id]{ scroll-margin-top:96px; } }
-
-    /* Pill links (centered) */
-    .inpage-nav{
+    /* Pill chips centered */
+    .consulting-page .inpage-nav{
       display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
       gap:8px; margin:0 auto 1rem; padding:.35rem 1rem; max-width:1000px;
     }
-    .inpage-nav a{
+    .consulting-page .inpage-nav a{
       display:inline-block; white-space:nowrap;
       border:1px solid #e4e8f1; background:#fff; color:#0d3b66; text-decoration:none;
       border-radius:999px; padding:.42rem .7rem; font-weight:700; font-size:.95rem;
     }
-    .inpage-nav a.active{ border-color: var(--royal); color: var(--royal); }
+    .consulting-page .inpage-nav a.active{ border-color: var(--dark-blue); color: var(--dark-blue); }
     @media (max-width:480px){
-      .inpage-nav{ gap:6px; padding:.3rem .75rem; }
-      .inpage-nav a{ padding:.35rem .6rem; font-size:.9rem; }
+      .consulting-page .inpage-nav{ gap:6px; padding:.3rem .75rem; }
+      .consulting-page .inpage-nav a{ padding:.35rem .6rem; font-size:.9rem; }
     }
 
-    /* Underline top-level "Consulting" when active */
+    /* Sticky header anchor offset for in-page links */
+    .consulting-page section[id]{ scroll-margin-top:132px; }
+    @media (max-width:768px){ .consulting-page section[id]{ scroll-margin-top:96px; } }
+
+    /* Underline top-level "Consulting" when a child is active */
     .main-nav .nav-group > button.active{
-      color: var(--royal);
-      border-bottom:2px solid var(--royal);
+      color: var(--dark-blue);
+      border-bottom:2px solid var(--dark-blue);
     }
   </style>
 </head>
@@ -172,7 +158,7 @@
     </nav>
   </header>
 
-  <!-- Banner -->
+  <!-- Banner (uses global single-line frame; now BLUE via --frame-color override) -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud Consulting — Operator-led execution">
       <img src="assets/images/consulting-bannerimage.png" alt="CoreCloud Consulting — Operator-led execution" decoding="async" loading="eager" width="1920" height="500">
