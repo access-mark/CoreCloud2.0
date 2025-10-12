@@ -19,78 +19,12 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (template v14) -->
+  <!-- Global CSS (template v14 with single-line banner system) -->
   <link rel="stylesheet" href="assets/css/styles.css?v=14"/>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/index-bannerimage.png" fetchpriority="high"/>
-
-  <!-- Page-scoped: header (About-style) + triple frame lines -->
-  <style>
-    :root{ --royal:#004f91; --royal-2:#0b3d72; --gold:#d4af37; }
-
-    /* About-style header/nav to ensure consistency on index */
-    .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
-    .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
-    .brand .logo{height:110px;width:auto;}
-    @media(max-width:768px){.brand .logo{height:84px;}}
-
-    .main-nav{display:flex;align-items:center;gap:18px;}
-    .main-nav > a,
-    .main-nav > .nav-group > button{
-      font-size:.98rem;font-weight:500;letter-spacing:.1px;
-      color:var(--royal-2);text-decoration:none;padding:14px 10px;line-height:1;border:none;background:transparent;cursor:pointer;
-    }
-    .main-nav > a:hover,
-    .main-nav > .nav-group > button:hover{color:var(--royal);}
-    .main-nav > a.active{color:var(--royal);border-bottom:2px solid var(--royal);}
-
-    .nav-group{position:relative;}
-    .nav-group .submenu{
-      position:absolute;left:0;top:100%;background:#fff;border:1px solid rgba(0,0,0,.08);
-      border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:260px;padding:8px;display:none;
-    }
-    .nav-group:hover .submenu,.nav-group:focus-within .submenu{display:block;}
-    .submenu a{display:block;padding:10px 12px;border-radius:8px;color:var(--royal-2);text-decoration:none;font-weight:500;font-size:.95rem;}
-    .submenu a:hover{background:#f2f7ff;color:var(--royal);}
-
-    .nav-toggle{display:none}
-    .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center}
-    .hamburger span{display:block;width:20px;height:2px;background:var(--royal-2);position:relative}
-    .hamburger span::before,.hamburger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:var(--royal-2)}
-    .hamburger span::before{top:-6px}.hamburger span::after{top:6px}
-    .mobile-drawer{display:none;border-top:1px solid rgba(0,0,0,.06);background:#fff}
-    .mobile-drawer a,.mobile-drawer summary{display:block;padding:12px 16px;color:var(--royal-2);text-decoration:none;font-weight:500;cursor:pointer;}
-    .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
-    .mobile-drawer details[open] summary{background:#f7fbff}
-    .mobile-drawer a:hover{background:#f2f7ff}
-    #nav-toggle:checked ~ nav.mobile-drawer{display:block}
-    @media(max-width:1024px){.main-nav{display:none}.hamburger{display:inline-flex}}
-
-    /* Triple frame (blue/gold/blue) exactly like Consulting */
-    .hero-frame{position:relative;}
-    .hero-frame::before,.hero-frame::after{
-      content:"";position:absolute;left:0;right:0;height:8px;z-index:2;pointer-events:none;
-      background:
-        linear-gradient(
-          to bottom,
-          var(--royal) 0 2px,
-          var(--gold)  2px 6px,
-          var(--royal) 6px 8px
-        );
-    }
-    .hero-frame::before{top:0;}
-    .hero-frame::after{bottom:0;}
-
-    /* Home-specific small helpers */
-    .home-page .hero-intro{ max-width: var(--content-max); margin: 2rem auto 1rem; padding: 0 1rem; text-align:center; }
-    .home-page .hero-intro p{ margin:.2rem auto .85rem; }
-    .section-left .section-title{ text-align:center !important; }
-    .section-left .narrative{ max-width: var(--content-max); margin:0 auto; padding:0 1rem; }
-    .section-left .narrative h3,.section-left .narrative p{ text-align:left !important; margin-left:0; margin-right:0; }
-    .home-services .card-grid{ max-width: var(--content-max); margin-left:auto; margin-right:auto; }
-  </style>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
@@ -185,7 +119,7 @@
     </nav>
   </header>
 
-  <!-- Banner with triple-line frame -->
+  <!-- Banner (single blue line via global CSS because of .home-page) -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
       <img src="assets/images/index-bannerimage.png" alt="From Strategy to Revenue. From Cloud to People." width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
@@ -220,8 +154,8 @@
       </p>
     </section>
 
-    <!-- Focus & Method (left content, centered title) -->
-    <section class="section section-left" aria-labelledby="focus-title">
+    <!-- Focus & Method -->
+    <section class="section" aria-labelledby="focus-title">
       <h2 id="focus-title" class="section-title">Our Focus &amp; Method</h2>
       <div class="narrative">
         <h3>Why</h3>
@@ -235,7 +169,7 @@
       </div>
     </section>
 
-    <!-- Recent wins (centered) -->
+    <!-- Recent wins -->
     <section class="section" aria-labelledby="wins-title">
       <h2 id="wins-title" class="section-title">Recent Wins Through Partner Collective</h2>
       <ul style="max-width:900px;margin:0 auto;padding-left:1.25rem;">
