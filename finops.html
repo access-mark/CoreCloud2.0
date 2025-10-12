@@ -18,7 +18,7 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/finops-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (same file used site-wide) -->
+  <!-- Global CSS (same site-wide file) -->
   <link rel="stylesheet" href="assets/css/styles.css?v=18"/>
 
   <!-- Preload -->
@@ -27,39 +27,29 @@
 
   <!-- Page-scoped tweaks only -->
   <style>
-    :root{
-      /* use the same thickness variable pattern used elsewhere */
-      --frame-thin: 4px;
+    /* Make sure FinOps uses the same hero geometry & thin gold lines as other pages */
+    .finops-page .hero-media{ height: var(--hero-h-desktop); }
+    @media (max-width:768px){
+      .finops-page .hero-media{ height: var(--hero-h-mobile); }
     }
 
-    /* Gold single-line frame using the SAME pseudo-element method as other pages */
-    .hero-frame{ position:relative; }
-    .hero-frame::before,
-    .hero-frame::after{
-      content:"";
-      position:absolute; left:0; right:0;
-      height:var(--frame-thin);
-      background: var(--gold);
-      pointer-events:none; z-index:2;
-    }
-    .hero-frame::before{ top:0; }
-    .hero-frame::after { bottom:0; }
+    /* Title spacing: sit comfortably below the banner like other pages */
+    .finops-page .hero-intro{ max-width:1000px; margin:2rem auto 1.1rem; padding:0 1rem; text-align:center; }
+    .finops-page .hero-title{ font-size:2rem; font-weight:700; color:var(--dark-blue); margin:.2rem auto .6rem; }
+    @media (max-width:768px){ .finops-page .hero-title{ font-size:1.85rem; } }
 
-    .hero-media img{ width:100%; height:auto; display:block; }
+    /* In-page chips */
+    .inpage-nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 auto .9rem;padding:.25rem .75rem;max-width:1000px;justify-content:center;}
+    .inpage-nav a{border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;white-space:nowrap;font-size:.95rem;}
 
-    /* Title spacing (lower it a touch) */
-    .finops-page .hero-intro{ max-width:1000px; margin:1.25rem auto 1.1rem; padding:0 1rem; text-align:center; }
-    .finops-page .hero-title{ font-size:2rem; color:var(--dark-blue); font-weight:700; margin:.6rem auto .6rem; }
-    @media (max-width:768px){ .finops-page .hero-title{ font-size:1.85rem; line-height:1.2; } }
-
-    /* Section containers */
+    /* Narrative blocks */
     .section{ padding:1.6rem 0; }
     .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; color:#444; line-height:1.75; }
     .narrative p{ margin:.4rem 0; }
     .narrative ul{ margin:.25rem 0 0 1.2rem; }
     .narrative li{ margin:.28rem 0; }
 
-    /* Match Home “Why/What/How” typography for subheads (style only) */
+    /* Match Home “Why/What/How” subhead styling (font only, not copy) */
     .wwh-head{
       font-size:1.4rem !important;
       font-weight:600 !important;
@@ -69,10 +59,6 @@
       text-align:left !important;
     }
 
-    /* Chips */
-    .inpage-nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 auto .75rem;padding:.25rem .75rem;max-width:1000px;justify-content:center;}
-    .inpage-nav a{border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;white-space:nowrap;font-size:.95rem;}
-
     /* Lists / metrics */
     .checklist{margin:.25rem 0 0 1.2rem;padding:0;}
     .checklist li{list-style:disc;margin:.3rem 0;}
@@ -80,23 +66,20 @@
     .metric{display:flex;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;}
     .metric b{color:#0b3d72;}
 
-    /* Inline CTA */
+    /* Inline CTA card — more space above the button */
     .inline-cta{background:#0d3b66;color:#fff;padding:1rem 1.2rem;border-radius:12px;margin:1.25rem auto;text-align:center;max-width:680px;}
     .inline-cta p{margin:.5rem 0 0;color:#fff !important;}
-    .cta-btn{padding:.78rem 1.05rem;}
+    .inline-cta .cta-btn{ display:inline-block; margin-top:1rem; } /* ⬅ extra vertical space above button */
 
-    /* Ensure headings centered like other pages */
+    /* Center all page-level section titles like other pages */
     .finops-page :is(h1.hero-title,h2.section-title){
-      text-align:center !important;display:block !important;margin-left:auto !important;margin-right:auto !important;
+      text-align:center !important; display:block !important; margin-left:auto !important; margin-right:auto !important;
     }
   </style>
-
-  <!-- JSON-LD (unchanged) -->
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","name":"CoreCloud — FinOps","description":"FinOps by design: spend visibility, right-sizing, commitment strategy, and monthly operating rhythms.","provider":{"@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png"},"areaServed":"ZA","serviceOutput":"Reduced cloud run-rate and governance with preserved delivery velocity","url":"https://www.corecloudza.com/finops.html","offers":{"@type":"Offer","availability":"https://schema.org/InStock"}}</script>
 </head>
 
 <body class="finops-page">
-  <!-- Header: unified site header (so nav behaves like other pages) -->
+  <!-- Header (unified) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -178,10 +161,10 @@
     </nav>
   </header>
 
-  <!-- Hero with thin gold lines (same thickness site-wide) -->
+  <!-- Hero (uses global .hero-frame thin gold lines + shared heights) -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="FinOps foundations and quick wins">
-      <img src="assets/images/finops-bannerimage.png" alt="FinOps by design — visibility to action" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
+      <img src="assets/images/finops-bannerimage.png" alt="FinOps by design — visibility to action" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
@@ -248,7 +231,7 @@
         <div class="inline-cta">
           <strong>Need savings this month?</strong>
           <p>We’ll land quick wins without breaking delivery.</p>
-          <a class="cta-btn" href="contact.html">Start the baseline & quick wins</a>
+          <a class="cta-btn" href="contact.html">Start the baseline &amp; quick wins</a>
         </div>
       </div>
     </section>
@@ -340,7 +323,7 @@
     </section>
   </main>
 
-  <!-- Footer (unchanged) -->
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -383,7 +366,6 @@
     (function(){
       var path=(location.pathname.split('/').pop()||'finops.html').toLowerCase();
 
-      // mark exact link active
       document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
         if(href===path){
