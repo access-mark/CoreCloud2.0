@@ -27,23 +27,21 @@
 
   <!-- Page-scoped styles (kept lean) -->
   <style>
-    /* Banner frame: blue / gold / blue */
-    .hero-frame{position:relative;border:0 !important;}
-    .hero-frame::before,.hero-frame::after{
-      content:"";position:absolute;left:0;right:0;height:8px;
-      background:linear-gradient(to bottom,
-        var(--dark-blue) 0 2px,
-        var(--gold)      2px 6px,
-        var(--dark-blue) 6px 8px);
-      pointer-events:none;z-index:2;
+    :root{ --gold:#d4af37; }
+
+    /* Consulting banner: single gold line top & bottom */
+    .hero-frame{border-top:4px solid var(--gold);border-bottom:4px solid var(--gold);}
+
+    /* ✅ Title alignment fix: keep all section headings centered on this page */
+    .consulting-page h2.section-title{
+      text-align:center !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+      display:block;
+      max-width:var(--heading-max);
     }
-    .hero-frame::before{top:0;}
-    .hero-frame::after{bottom:0;}
 
-    /* Minimal fix: keep section titles centered (Signals onward) */
-    .consulting-page h2.section-title{ text-align:center !important; margin-left:auto; margin-right:auto; }
-
-    /* Light content rhythms */
+    /* Light page rhythms only (no layout changes) */
     .consulting-page .section{ margin:2rem 0; }
     .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
     .narrative h3{ font-size:1.12rem; font-weight:700; color:#004f91; margin:.7rem 0 .25rem; text-align:left; }
@@ -52,32 +50,26 @@
     .narrative ul{ margin:.3rem 0 0 1.2rem; }
     .narrative li{ margin:.32rem 0; }
     .checklist li{ list-style:disc; }
-
     .grid-2,.grid-3{ display:grid; gap:1rem; }
     @media (min-width:900px){ .grid-2{ grid-template-columns:1fr 1fr; } .grid-3{ grid-template-columns:1fr 1fr 1fr; } }
-
     .panel{ background:#fff; border:1px solid rgba(0,79,145,.18); border-radius:10px; padding:1rem 1.1rem; box-shadow:0 2px 6px rgba(0,0,0,.04); }
     .panel h4{ margin:0 0 .35rem; font-size:1.02rem; color:#004f91; }
-
     .chips{ display:flex; flex-wrap:wrap; gap:.5rem; }
     .chip{ border:1px solid rgba(0,79,145,.2); background:#fff; border-radius:999px; padding:.45rem .75rem; font-weight:700; color:#0b3d72; font-size:.92rem; }
-
     .metrics{ display:grid; gap:.4rem; max-width:1000px; margin:0 auto; padding:0 1rem; }
     .metric{ display:flex; justify-content:space-between; gap:.75rem; border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; }
     .metric b{ color:#0b3d72; }
-
     .faq-list details{ padding:.6rem 0; border-bottom:1px dashed rgba(0,0,0,.12); }
     .faq-list details:last-of-type{ border-bottom:none; }
     .faq-list summary{ font-weight:700; color:#004f91; cursor:pointer; list-style:none; }
     .faq-list summary::-webkit-details-marker{ display:none; }
-
     .inpage-nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 auto .9rem;padding:.25rem .75rem;max-width:1000px;justify-content:center;}
     .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;text-decoration:none;color:#0b3d72;font-weight:700;background:#fff;}
   </style>
 </head>
 
 <body class="consulting-page">
-  <!-- Header (About-style; Infrastructure standalone; Hosting under Cloud; Curated Talent present) -->
+  <!-- Header (About-style; Infrastructure standalone; Hosting inside Cloud; Curated Talent present) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -106,7 +98,6 @@
           </div>
         </div>
 
-        <!-- Curated Talent -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
@@ -161,7 +152,7 @@
     </nav>
   </header>
 
-  <!-- Banner with triple-line frame -->
+  <!-- Banner with single gold line top & bottom -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud Consulting — Operator-led execution">
       <img src="assets/images/consulting-bannerimage.png" alt="CoreCloud Consulting — Operator-led execution" decoding="async" loading="eager" width="1920" height="500">
