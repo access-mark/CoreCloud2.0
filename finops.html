@@ -19,28 +19,41 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=11"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=20"/>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/finops-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped styles -->
+  <!-- Page-scoped styles (safe, minimal) -->
   <style>
+    :root{ --gold:#d4af37; --dark-blue:#004f91; }
+
     /* a11y: skip link */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
-    .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
+    .skip-link:focus{position:fixed;top:10px;left:10px;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* Hero + intro */
+    /* ---- HERO FRAME: match site thickness (4px) ---- */
+    .finops-page .hero-frame::before,
+    .finops-page .hero-frame::after{ content:none !important; } /* neutralize any global pseudo-lines */
+    .finops-page .hero-frame{
+      border-top:4px solid var(--gold) !important;
+      border-bottom:4px solid var(--gold) !important;
+    }
     .finops-page .hero-media img{width:100%;height:auto;display:block;}
     .finops-page .hero-media{margin-bottom:2rem;}
+    @media (max-width:768px){ .finops-page .hero-media{margin-bottom:1.25rem;} }
+
+    /* Title alignment hardening */
+    .finops-page :is(h1.hero-title,h2.section-title){
+      text-align:center !important;display:block !important;margin-left:auto !important;margin-right:auto !important;
+    }
     .finops-page .hero-intro{max-width:1000px;margin:0 auto 1.1rem;padding:0 1rem;text-align:center;}
     .finops-page .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .6rem;}
-    @media (max-width:768px){ .finops-page .hero-media{margin-bottom:1.25rem;} .finops-page .hero-title{font-size:1.8rem;line-height:1.2;} }
+    @media (max-width:768px){ .finops-page .hero-title{font-size:1.85rem;line-height:1.25;} }
 
     /* Sections / narrative */
     .section{padding:1.6rem 0;}
-    /* tighten first content block a touch */
     #signals.section{padding-top:1.2rem;}
     .section-title{margin:0 0 .75rem;}
     .narrative{max-width:1000px;margin:0 auto;padding:0 1rem;color:#444;line-height:1.75;}
@@ -77,16 +90,13 @@
     /* Safety */
     .finops-page .content, .finops-page .content p, .finops-page .content li, .finops-page .content a{word-break:break-word;overflow-wrap:anywhere;}
 
-    /* Footer phone link belt-and-braces */
-    footer .footer-right a[href^="tel:"]{color:#fff !important;text-decoration:none;font-weight:500;}
-    footer .footer-right a[href^="tel:"]:hover{text-decoration:underline;}
-
-    /* Title alignment hardening (page-wide) */
-    .finops-page :is(h1.hero-title,h2.section-title){
-      text-align:center !important;display:block !important;margin-left:auto !important;margin-right:auto !important;
+    /* Underline the parent "Cloud Suite" button when a child (FinOps) is active or menu is open */
+    .main-nav .nav-group > button.active,
+    .main-nav .nav-group:hover > button,
+    .main-nav .nav-group:focus-within > button{
+      color: var(--dark-blue);
+      border-bottom:2px solid var(--dark-blue);
     }
-    /* Subheads stay left */
-    .finops-page :is(.narrative h3,.panel h3,.panel h4){text-align:left !important;}
   </style>
 
   <!-- JSON-LD (Service + Breadcrumbs + FAQ) -->
@@ -98,53 +108,93 @@
 <body class="finops-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header -->
-  <header class="small-banner">
-    <div class="banner-header">
-      <a href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+  <!-- Unified Header (matches other updated pages) -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
 
-      <nav class="desktop-nav" aria-label="Primary">
-        <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULT</a>
-        <a href="cloud.html" class="nav-btn">CLOUD</a>
-        <a href="finops.html" class="nav-btn active" aria-current="page">FINOPS</a>
-        <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="mobile-web.html" class="nav-btn">APP&nbsp;DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
-        <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
-        <a href="about.html" class="nav-btn">ABOUT</a>
-        <a href="blog.html" class="nav-btn">BLOG</a>
-        <a href="contact.html" class="nav-btn">CONTACT</a>
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Consulting</button>
+          <div class="submenu" role="menu" aria-label="Consulting">
+            <a role="menuitem" href="consulting.html">Overview</a>
+            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <div class="submenu" role="menu" aria-label="Cloud Suite">
+            <a role="menuitem" href="cloud.html">Overview</a>
+            <a role="menuitem" href="finops.html" class="active" aria-current="page">FinOps</a>
+            <a role="menuitem" href="application-development.html">Application Development</a>
+            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
+            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <div class="submenu" role="menu" aria-label="Curated Talent">
+            <a role="menuitem" href="talent.html">Overview</a>
+            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="global-talent.html">Global Talent</a>
+          </div>
+        </div>
+
+        <a href="infrastructure.html">Infrastructure</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Insights</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
-      <nav class="mobile-nav" aria-label="Mobile">
-        <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULT</a>
-        <a href="cloud.html">CLOUD</a>
-        <a href="finops.html" class="active" aria-current="page">FINOPS</a>
-        <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="mobile-web.html">APP DEVELOPMENT</a>
-        <a href="data-ai.html">DATA &amp; AI</a>
-        <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">IMPRINTING</a>
-        <a href="about.html">ABOUT</a>
-        <a href="blog.html">BLOG</a>
-        <a href="contact.html">CONTACT</a>
-      </nav>
+      <!-- Mobile toggle -->
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
+
+    <!-- Mobile drawer -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <nav class="mobile-drawer" aria-label="Mobile">
+      <a href="index.html">Home</a>
+
+      <details>
+        <summary>Consulting</summary>
+        <a href="consulting.html">Overview</a>
+        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+      </details>
+
+      <details open>
+        <summary>Cloud Suite</summary>
+        <a href="cloud.html">Overview</a>
+        <a href="finops.html" aria-current="page">FinOps</a>
+        <a href="application-development.html">Application Development</a>
+        <a href="data-ai.html">Data &amp; AI</a>
+        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+      </details>
+
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="global-talent.html">Global Talent</a>
+      </details>
+
+      <a href="infrastructure.html">Infrastructure</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Insights</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <!-- Hero -->
-  <div class="hero-media" role="img" aria-label="FinOps foundations and quick wins">
-    <img src="assets/images/finops-bannerimage.png" alt="FinOps by design — visibility to action" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
+  <!-- HERO with gold lines -->
+  <div class="hero-frame">
+    <div class="hero-media" role="img" aria-label="FinOps foundations and quick wins">
+      <img src="assets/images/finops-bannerimage.png" alt="FinOps by design — visibility to action" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
+    </div>
   </div>
 
   <!-- Intro -->
@@ -210,7 +260,7 @@
         <div class="inline-cta">
           <strong>Need savings this month?</strong>
           <p>We’ll land quick wins without breaking delivery.</p>
-          <a class="cta-btn" href="contact.html">Start the baseline & quick wins</a>
+          <a class="cta-btn" href="contact.html">Start the baseline &amp; quick wins</a>
         </div>
       </div>
     </section>
@@ -246,7 +296,7 @@
           <li><strong>Data transfer:</strong> placement, caching, peering, CDN; avoid accidental egress</li>
           <li><strong>Patterns:</strong> queues/caches to flatten peaks; serverless where it wins</li>
         </ul>
-        <p>See <a href="cloud.html">Cloud foundations</a> and <a href="hosting-private-cloud.html">Hosting</a> for venue decisions when hyperscale isn’t the best fit.</p>
+        <p>See <a href="cloud.html">Cloud foundations</a> and <a href="hosted-private-cloud.html">Hosting</a> for venue decisions when hyperscale isn’t the best fit.</p>
       </div>
     </section>
 
@@ -340,14 +390,23 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current nav -->
+  <!-- Active link + underline parent "Cloud Suite" -->
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'finops.html').toLowerCase();
-      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+
+      // mark exact link active
+      document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
-        else{a.classList.remove('active');a.removeAttribute('aria-current');}
+        if(href===path){
+          a.classList.add('active'); a.setAttribute('aria-current','page');
+          // underline parent "Cloud Suite" if a child is active
+          var group=a.closest('.nav-group');
+          if(group){
+            var btn=group.querySelector('button');
+            if(btn) btn.classList.add('active');
+          }
+        }
       });
     })();
   </script>
