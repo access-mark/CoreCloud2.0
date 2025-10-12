@@ -18,35 +18,44 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/consulting-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=15"/>
+  <!-- Global CSS (your cleaned template) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=16"/>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped minimal fixes -->
+  <!-- Page-scoped, minimal + surgical -->
   <style>
-    :root{ --gold:#d4af37; }
+    :root{ --royal:#004f91; --royal-2:#0b3d72; --gold:#d4af37; }
 
-    /* Keep banner as a single gold line (no triples) */
-    .consulting-page .hero-frame{
-      border-top:4px solid var(--gold) !important;
-      border-bottom:4px solid var(--gold) !important;
-      position:relative;
-    }
+    /* Match INDEX banner frame: blue–gold–blue (gold = 2x blue) */
+    .consulting-page .hero-frame{ position:relative; }
     .consulting-page .hero-frame::before,
-    .consulting-page .hero-frame::after{ content:none !important; display:none !important; }
+    .consulting-page .hero-frame::after{
+      content:""; position:absolute; left:0; width:100%; height:12px; z-index:1;
+      background: linear-gradient(to bottom,
+                  var(--royal) 0 3px,
+                  var(--gold) 3px 9px,
+                  var(--royal) 9px 12px);
+      pointer-events:none;
+    }
+    .consulting-page .hero-frame::before{ top:0; transform:translateY(-100%); }
+    .consulting-page .hero-frame::after { bottom:0; transform:translateY(100%); }
 
-    /* Light structure only (no bulk) */
-    .consulting-page .section{ margin:2rem 0; }
-    .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .grid-2,.grid-3{ display:grid; gap:1rem; }
-    @media (min-width:900px){ .grid-2{ grid-template-columns:1fr 1fr; } .grid-3{ grid-template-columns:1fr 1fr 1fr; } }
-    .panel{ background:#fff; border:1px solid rgba(0,79,145,.18); border-radius:10px; padding:1rem 1.1rem; box-shadow:0 2px 6px rgba(0,0,0,.04); }
-    .panel h4{ text-align:left; }
-    .inpage-nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 auto .9rem;padding:.25rem .75rem;max-width:1000px;justify-content:center;}
-    .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;text-decoration:none;color:#0b3d72;font-weight:700;background:#fff;}
+    /* Ensure section titles center regardless of other rules */
+    .consulting-page .section .section-title{
+      text-align:center !important; margin-left:auto !important; margin-right:auto !important;
+    }
+
+    /* Keep panels tidy */
+    .consulting-page .panel h4{ text-align:left; }
+
+    /* Underline the top-level "Consulting" button when this page is active */
+    .main-nav .nav-group > button.active{
+      color: var(--royal);
+      border-bottom: 2px solid var(--royal);
+    }
   </style>
 </head>
 
@@ -90,7 +99,6 @@
         </div>
 
         <a href="infrastructure.html">Infrastructure</a>
-
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
@@ -99,12 +107,12 @@
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
-    <!-- Mobile toggle + drawer -->
+    <!-- Mobile -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html">Home</a>
 
-      <details>
+      <details open>
         <summary>Consulting</summary>
         <a href="consulting.html" aria-current="page">Overview</a>
         <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
@@ -127,7 +135,6 @@
       </details>
 
       <a href="infrastructure.html">Infrastructure</a>
-
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
@@ -148,7 +155,7 @@
   </section>
 
   <main class="content" id="main">
-    <!-- In-page chip nav -->
+    <!-- Chips -->
     <nav class="inpage-nav" aria-label="On this page">
       <a href="#signals">Signals</a>
       <a href="#where">Where we help</a>
@@ -163,7 +170,7 @@
 
     <!-- SIGNALS -->
     <section class="section narrative" id="signals" aria-labelledby="signals-title">
-      <h2 id="signals-title" class="section-title" style="text-align:center;margin-left:auto;margin-right:auto;">Signals You Might Need Us</h2>
+      <h2 id="signals-title" class="section-title">Signals You Might Need Us</h2>
       <ul class="checklist">
         <li>High cloud bill, low elasticity; DR/compliance risk unclear</li>
         <li>Forecast swings weekly; partner revenue is ad-hoc</li>
@@ -175,7 +182,7 @@
 
     <!-- Where we help -->
     <section class="section narrative" id="where" aria-labelledby="where-title">
-      <h2 id="where-title" class="section-title" style="text-align:center;margin-left:auto;margin-right:auto;">Where We Help (Fast)</h2>
+      <h2 id="where-title" class="section-title">Where We Help (Fast)</h2>
       <div class="grid-3">
         <div class="panel">
           <h4>GTM & Commercial</h4>
@@ -209,7 +216,7 @@
 
     <!-- Operator framework -->
     <section class="section narrative" id="framework" aria-labelledby="framework-title">
-      <h2 id="framework-title" class="section-title" style="text-align:center;margin-left:auto;margin-right:auto;">Operator Framework: Diagnose → Design → Do → Drive</h2>
+      <h2 id="framework-title" class="section-title">Operator Framework: Diagnose → Design → Do → Drive</h2>
       <div class="grid-2">
         <div class="panel">
           <h4>Diagnose</h4>
@@ -244,7 +251,7 @@
 
     <!-- 90-day uplift -->
     <section class="section narrative" id="uplift" aria-labelledby="uplift-title">
-      <h2 id="uplift-title" class="section-title" style="text-align:center;margin-left:auto;margin-right:auto;">90-Day Uplift Plan</h2>
+      <h2 id="uplift-title" class="section-title">90-Day Uplift Plan</h2>
       <div class="grid-3">
         <div class="panel">
           <h4>Weeks 0–2: Baseline & Focus</h4>
@@ -275,7 +282,7 @@
 
     <!-- Sales consulting -->
     <section class="section narrative" id="sales" aria-labelledby="sales-title">
-      <h2 id="sales-title" class="section-title" style="text-align:center;margin-left:auto;margin-right:auto;">Sales Consulting: People &amp; Process</h2>
+      <h2 id="sales-title" class="section-title">Sales Consulting: People &amp; Process</h2>
       <p class="lead">Predictable revenue = clear roles, honest pipeline, enforceable process, and enablement that’s used on calls — not filed.</p>
       <div class="grid-2">
         <div class="panel">
@@ -301,9 +308,9 @@
       </div>
     </section>
 
-    <!-- Artifacts you keep -->
+    <!-- Artifacts -->
     <section class="section narrative" id="artifacts" aria-labelledby="artifacts-title">
-      <h2 id="artifacts-title" class="section-title" style="text-align:center;margin-left:auto;margin-right:auto;">Artifacts You Keep</h2>
+      <h2 id="artifacts-title" class="section-title">Artifacts You Keep</h2>
       <div class="grid-3">
         <div class="panel">
           <h4>GTM</h4>
@@ -332,9 +339,9 @@
       </div>
     </section>
 
-    <!-- Results & Benchmarks -->
+    <!-- Results -->
     <section class="section narrative" id="results" aria-labelledby="results-title">
-      <h2 id="results-title" class="section-title" style="text-align:center;margin-left:auto;margin-right:auto;">Results &amp; Benchmarks</h2>
+      <h2 id="results-title" class="section-title">Results &amp; Benchmarks</h2>
       <div class="metrics">
         <div class="metric"><span>Run-rate reduction on steady workloads</span><b>20–40%</b></div>
         <div class="metric"><span>Latency improvement on data/analytics</span><b>25–50%</b></div>
@@ -344,9 +351,9 @@
       </div>
     </section>
 
-    <!-- Case snapshots -->
+    <!-- Cases -->
     <section class="section narrative" id="cases" aria-labelledby="cases-title">
-      <h2 id="cases-title" class="section-title" style="text-align:center;margin-left:auto;margin-right:auto;">Case Snapshots</h2>
+      <h2 id="cases-title" class="section-title">Case Snapshots</h2>
       <p><strong>ERP Cost Reset:</strong> Re-venue placement to hosted private cloud with Azure burst for peak. <em>−32% run-rate</em>, DR bundled, zero disruption to month-end.</p>
       <p><strong>Trading Analytics:</strong> On-prem GPU + S3-compatible store; cloud for global insights. <em>−48% latency</em>, faster model refresh.</p>
       <p><strong>Payments Core Migration:</strong> Blue/green + feature flags. <em>Zero-downtime cutover</em>, lower incident rate post-move.</p>
@@ -355,7 +362,7 @@
 
     <!-- FAQ -->
     <section class="section narrative" id="faq" aria-labelledby="faq-title">
-      <h2 id="faq-title" class="section-title" style="text-align:center;margin-left:auto;margin-right:auto;">FAQ</h2>
+      <h2 id="faq-title" class="section-title">FAQ</h2>
       <div class="faq-list">
         <details>
           <summary>Are you vendor-neutral?</summary>
@@ -419,14 +426,20 @@
     </div>
   </footer>
 
-  <!-- Active link highlighter -->
+  <!-- Active link + underline parent "Consulting" -->
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'consulting.html').toLowerCase();
       document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
-        else{a.classList.remove('active');a.removeAttribute('aria-current');}
+        if(href===path){
+          a.classList.add('active'); a.setAttribute('aria-current','page');
+          var group = a.closest('.nav-group');
+          if(group){
+            var btn = group.querySelector('button');
+            if(btn) btn.classList.add('active');
+          }
+        }
       });
     })();
   </script>
