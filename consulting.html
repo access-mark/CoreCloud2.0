@@ -30,7 +30,7 @@
     /* Triple line frame (blue/gold/blue); gold = 2x each blue line */
     .hero-frame{
       position: relative;
-      border: 0 !important; /* override global single-line frame on this page */
+      border: 0 !important; /* override any global single-line */
     }
     .hero-frame::before,
     .hero-frame::after{
@@ -85,7 +85,7 @@
 </head>
 
 <body class="consulting-page">
-  <!-- Header (About-style; Infrastructure standalone; Hosting under Cloud) -->
+  <!-- Header (About-style; Infrastructure standalone; Hosting under Cloud; Curated Talent present) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -111,6 +111,16 @@
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
             <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+          </div>
+        </div>
+
+        <!-- Curated Talent -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <div class="submenu" role="menu" aria-label="Curated Talent">
+            <a role="menuitem" href="talent.html">Overview</a>
+            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="global-talent.html">Global Talent</a>
           </div>
         </div>
 
@@ -142,6 +152,13 @@
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
         <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+      </details>
+
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="global-talent.html">Global Talent</a>
       </details>
 
       <a href="infrastructure.html">Infrastructure</a>
