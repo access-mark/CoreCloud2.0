@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=18"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=19"/>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
@@ -33,16 +33,16 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;top:10px;left:10px;width:auto;height:auto;padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;outline:2px solid #fff;z-index:1000;}
 
-    /* ---- HERO FRAME: thin gold lines; neutralize any global pseudo lines ---- */
+    /* ---- HERO FRAME: match site thickness (4px) ---- */
     .cloud-page .hero-frame::before,
-    .cloud-page .hero-frame::after{ content:none !important; }
+    .cloud-page .hero-frame::after{ content:none !important; } /* neutralize any global pseudo-lines */
     .cloud-page .hero-frame{
-      border-top:2px solid var(--gold) !important;
-      border-bottom:2px solid var(--gold) !important;
+      border-top:4px solid var(--gold) !important;
+      border-bottom:4px solid var(--gold) !important;
     }
     .hero-media img{width:100%;height:auto;display:block;}
 
-    /* Keep page titles centered; vendor subheads left (for small card titles) */
+    /* Keep page titles centered; vendor card titles left */
     .cloud-page :is(h1.hero-title, h2.section-title){text-align:center !important;margin-left:auto;margin-right:auto;}
     .cloud-page .card h3{text-align:left !important;}
 
@@ -66,9 +66,7 @@
 
     /* Smaller inline CTA card */
     .inline-cta.card{
-      max-width:520px;
-      margin:1rem auto;
-      padding:1rem 1.1rem;
+      max-width:520px;margin:1rem auto;padding:1rem 1.1rem;
     }
     .inline-cta.card strong{font-size:1.02rem;}
     .inline-cta.card p{margin:.4rem 0 .75rem;}
@@ -79,29 +77,21 @@
       display:grid; gap:1.25rem; max-width:var(--content-max); margin:0 auto; padding:0 1rem;
       grid-template-columns:1fr; /* default mobile */
     }
-    @media(min-width:900px){
-      .vendor-columns{ grid-template-columns:repeat(2,1fr); }
-    }
-    @media(min-width:1200px){
-      .vendor-columns{ grid-template-columns:repeat(3,1fr); }
-    }
+    @media(min-width:900px){ .vendor-columns{ grid-template-columns:repeat(2,1fr); } }
+    @media(min-width:1200px){ .vendor-columns{ grid-template-columns:repeat(3,1fr); } }
 
     .vendor-col{ display:flex; flex-direction:column; gap:.9rem; }
 
-    /* >>> Match Home page "Why / What / How" (h3: 1.4rem, 600) and center above the cards */
+    /* Match Home page "Why / What / How" (h3: 1.4rem, 600) and center above the cards */
     .vendor-title{
-      font-size:1.4rem;           /* same as site h3 */
-      font-weight:600;            /* same weight */
-      color:var(--dark-blue);
-      text-align:center;
-      margin:.25rem auto .35rem;  /* small breathing room */
-      line-height:1.4;
+      font-size:1.4rem; font-weight:600; color:var(--dark-blue);
+      text-align:center; margin:.25rem auto .35rem; line-height:1.4;
     }
 
-    /* Tighter card padding inside vendor stacks for density */
+    /* Tighter card padding inside vendor stacks */
     .vendor-col .card{ padding:1rem; }
 
-    /* ---- Underline the parent "Cloud Suite" button when active/hovered ---- */
+    /* Underline the parent "Cloud Suite" button when a child is active or menu is open */
     .main-nav .nav-group > button.active,
     .main-nav .nav-group:hover > button,
     .main-nav .nav-group:focus-within > button{
@@ -196,7 +186,7 @@
     </nav>
   </header>
 
-  <!-- GOLD-framed hero -->
+  <!-- GOLD-framed hero (4px) -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="Cloud foundations and migration">
       <img src="assets/images/cloud-banner.png" alt="Cloud, governed by design — from foundations to outcomes" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
