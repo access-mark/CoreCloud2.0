@@ -16,41 +16,39 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
 
   <!-- Preload hero for LCP -->
   <link rel="preload" as="image" href="assets/images/talent-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
 
   <!-- Page-scoped styles -->
   <style>
-    /* Hero image */
+    /* Page-safe tweaks only */
     .hero-media img{width:100%;height:auto;display:block;}
 
-    /* Centered hero text under banner */
-    .hero{display:flex;align-items:center;justify-content:center;text-align:center;padding:40px 16px;}
+    .hero{
+      display:flex;align-items:center;justify-content:center;text-align:center;
+      padding:40px 16px;
+    }
     .hero .hero-body{max-width:900px;margin:0 auto;}
     .hero .hero-cta{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-top:.8rem;}
     .hero .hero-cta .cta-btn{min-width:200px;}
     @media (max-width:768px){ .hero{padding:28px 14px} .hero .hero-body{max-width:680px} }
 
-    /* Titles aligned like index */
     :root{ --h1-size:40px; --h2-size:28px; }
     h1{font-size:var(--h1-size); line-height:1.2; margin:28px 0 12px; text-align:center;}
     h2.section-title{font-size:var(--h2-size); line-height:1.25; margin:22px 0 12px; text-align:center;}
     @media (max-width:768px){ :root{--h1-size:30px; --h2-size:24px} }
 
-    /* Narrative blocks */
     .narrative{max-width:1000px;margin:0 auto;padding:0 1rem;}
     .narrative p{margin:.6rem 0;line-height:1.75;color:#444;}
     .kv{font-weight:700;color:var(--dark-blue);}
 
-    /* Two-up panels */
     .grid-2{display:grid;gap:1rem;max-width:1100px;margin:0 auto;padding:0 1rem;}
     @media (min-width:900px){ .grid-2{grid-template-columns:1fr 1fr;} }
     .panel{background:#fff;border:1px solid rgba(0,79,145,.18);border-radius:10px;padding:1rem 1.1rem;box-shadow:0 2px 6px rgba(0,0,0,.04);}
     .panel h3{margin:.1rem 0 .4rem;color:var(--dark-blue);font-size:1.05rem;}
 
-    /* Lumo CTA + highlight */
     .lumo-wrap{max-width:1000px;margin:18px auto 0;padding:0 16px;text-align:center;}
     .lumo-cta{
       --cc-blue: var(--dark-blue,#004f91);
@@ -79,38 +77,37 @@
     .btn-outline{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;border:1px solid var(--dark-blue,#004f91);color:var(--dark-blue,#004f91);background:#fff;}
     .btn-outline:hover{background:rgba(0,79,145,.06);}
 
-    /* Active underline (desktop + mobile) */
+    /* Ensure active underline renders (in case of older CSS) */
     .desktop-nav .nav-btn.active,
     .desktop-nav .nav-btn[aria-current="page"]{
       color: var(--dark-blue);
       border-bottom: 2px solid var(--dark-blue);
     }
-    .mobile-nav a.active,
-    .mobile-nav a[aria-current="page"]{
+    .mobile-drawer a.active,
+    .mobile-drawer a[aria-current="page"]{
       text-decoration: underline;
       text-underline-offset: 6px;
       text-decoration-thickness: 2px;
     }
-  </style>
 
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebPage","name":"CoreCloud Talent","url":"https://www.corecloudza.com/talent.html"}
-  </script>
+    /* Make sure the header bar is visible and spaced properly */
+    .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
+    .header-inner{max-width:var(--container);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
+    .brand .logo{height:120px;width:auto;object-fit:contain;}
+    @media(max-width:768px){.brand .logo{height:80px;}}
+  </style>
 </head>
 
 <body class="talent-page">
-  <!-- Header / Nav -->
-  <header class="small-banner">
-    <div class="banner-header">
-      <a href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+  <!-- Header / Nav: match site-header + main-nav + mobile-drawer pattern -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
-      <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
-
-      <nav class="desktop-nav" aria-label="Primary">
+      <!-- Desktop nav -->
+      <nav class="main-nav desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULT</a>
         <a href="cloud.html" class="nav-btn">CLOUD</a>
@@ -118,7 +115,7 @@
         <a href="hosted-private-cloud.html" class="nav-btn">HOSTED</a>
         <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
         <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
-        <a href="talent.html" class="nav-btn active" aria-current="page">TALENT</a>
+        <a href="talent.html" class="nav-btn">TALENT</a>
         <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
         <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
         <a href="about.html" class="nav-btn">ABOUT</a>
@@ -126,22 +123,27 @@
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
 
-      <nav class="mobile-nav" aria-label="Mobile">
-        <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULT</a>
-        <a href="cloud.html">CLOUD</a>
-        <a href="finops.html">FINOPS</a>
-        <a href="hosted-private-cloud.html">HOSTED</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
-        <a href="data-ai.html">DATA &amp; AI</a>
-        <a href="talent.html" class="active" aria-current="page">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">IMPRINTING</a>
-        <a href="about.html">ABOUT</a>
-        <a href="blog.html">BLOG</a>
-        <a href="contact.html">CONTACT</a>
-      </nav>
+      <!-- Mobile toggle -->
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
+
+    <!-- Mobile drawer -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <nav class="mobile-drawer" aria-label="Mobile">
+      <a href="index.html">HOME</a>
+      <a href="consulting.html">CONSULT</a>
+      <a href="cloud.html">CLOUD</a>
+      <a href="finops.html">FINOPS</a>
+      <a href="hosted-private-cloud.html">HOSTED</a>
+      <a href="application-development.html">APP DEVELOPMENT</a>
+      <a href="data-ai.html">DATA &amp; AI</a>
+      <a href="talent.html">TALENT</a>
+      <a href="talent-relaunch.html">RE / LAUNCH</a>
+      <a href="dynamic-imprinting.html">IMPRINTING</a>
+      <a href="about.html">ABOUT</a>
+      <a href="blog.html">BLOG</a>
+      <a href="contact.html">CONTACT</a>
+    </nav>
   </header>
 
   <!-- Hero image -->
@@ -304,17 +306,14 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current nav (normalizes both href and current path) -->
+  <!-- Auto-highlight current nav (robust normalization) -->
   <script>
     (function(){
       function normalize(p){
         if(!p) return 'index.html';
         p = p.toLowerCase();
-        // strip query/hash
         p = p.split('#')[0].split('?')[0];
-        // folder default → index
         if(p === '' || p === '/') p = 'index.html';
-        // aliases (legacy → current)
         if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
         if(p === 'mobile-web.html') p = 'application-development.html';
         return p;
@@ -322,7 +321,7 @@
 
       var current = normalize(location.pathname.split('/').pop());
 
-      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+      document.querySelectorAll('.desktop-nav a, .mobile-drawer a').forEach(function(a){
         var href = normalize(a.getAttribute('href') || '');
         if(href === current){
           a.classList.add('active');
