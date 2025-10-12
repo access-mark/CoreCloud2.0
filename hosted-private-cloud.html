@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Hosting & Private Cloud | CoreCloud — Predictable, Sovereign, Low-Latency Run</title>
+  <title>Hosted & Private Cloud | CoreCloud — Predictable, Sovereign, Low-Latency Run</title>
   <meta name="description" content="When steady, regulated, or latency-critical workloads need predictability: managed private cloud, colo, and sovereign patterns with DR, POPIA alignment, and FinOps by design."/>
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
   <meta name="theme-color" content="#004f91"/>
 
   <!-- Canonical + Social -->
-  <link rel="canonical" href="https://www.corecloudza.com/hosting-private-cloud.html"/>
+  <link rel="canonical" href="https://www.corecloudza.com/hosted-private-cloud.html"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Hosting & Private Cloud — Predictable, Sovereign, Low-Latency Run"/>
+  <meta property="og:title" content="Hosted & Private Cloud — Predictable, Sovereign, Low-Latency Run"/>
   <meta property="og:description" content="Managed private cloud and colo with POPIA-aligned controls, DR, and FinOps — when not every workload belongs in hyperscale."/>
-  <meta property="og:url" content="https://www.corecloudza.com/hosting-private-cloud.html"/>
+  <meta property="og:url" content="https://www.corecloudza.com/hosted-private-cloud.html"/>
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/hosting-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
@@ -190,7 +190,7 @@
   <!-- Hero with gold frame -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="Private cloud and colocation">
-      <img src="assets/images/hosting-bannerimage.png" alt="Hosting & Private Cloud — predictable, sovereign, low-latency run" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+      <img src="assets/images/hosting-bannerimage.png" alt="Hosted & Private Cloud — predictable, sovereign, low-latency run" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
@@ -338,19 +338,23 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current nav -->
+  <!-- Auto-highlight current nav (handles /hosted-private-cloud.html and /hosted-private-cloud/) -->
   <script>
     (function(){
-      var path=(location.pathname.split('/').pop()||'hosting-private-cloud.html').toLowerCase();
+      var raw = location.pathname.toLowerCase();
+      var file = raw.endsWith('/') ? raw.slice(0,-1) : raw;
+      file = file.split('/').pop() || 'hosted-private-cloud.html';
+      if(file === 'hosted-private-cloud'){ file = 'hosted-private-cloud.html'; }
+
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
-        var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){
+        var href = (a.getAttribute('href') || '').toLowerCase();
+        var hrefFile = href.replace(/\/+$/,'').split('/').pop();
+        if(hrefFile === file){
           a.classList.add('active');
           a.setAttribute('aria-current','page');
-          // If it's inside a dropdown, also mark the parent button as active
-          var group=a.closest('.nav-group');
+          var group = a.closest('.nav-group');
           if(group){
-            var btn=group.querySelector('button');
+            var btn = group.querySelector('button');
             if(btn){ btn.classList.add('active'); }
           }
         }else{
