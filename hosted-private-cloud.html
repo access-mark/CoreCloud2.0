@@ -18,145 +18,138 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/hosting-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
+  <!-- Global CSS (single source of truth) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
+
+  <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/hosting-bannerimage.png" fetchpriority="high"/>
 
-  <!-- Page-scoped styles -->
+  <!-- Page-scoped fixes -->
   <style>
-    /* a11y */
-    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
-    .skip-link:focus{position:static;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
-
-    /* Ensure active nav shows underline on small-banner pattern */
-    .desktop-nav .nav-btn.active,
-    .desktop-nav .nav-btn[aria-current="page"]{
-      color:var(--dark-blue);
-      border-bottom:2px solid var(--dark-blue);
+    /* Center the UL/OL blocks themselves (keep bullet text left for readability) */
+    .hosting-page .points,
+    .hosting-page .faq-list,
+    .hosting-page .metrics{
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
+    /* bullets rhythm */
+    .hosting-page .points{ padding-left: 1.25rem; margin:.25rem auto; }
+    .hosting-page .points li{ margin:.35rem 0; line-height:1.7; }
 
-    /* Hero + intro (titles centered, spacing aligned with global rhythm) */
-    .hosting-page .hero-intro{
-      max-width:900px;margin:0 auto 1.25rem;padding:0 1rem;text-align:center !important;
+    /* Page titles already centered globally; add a touch more breathing room */
+    .hosting-page .hero-title{ margin: 2.75rem auto 2rem !important; }
+    .hosting-page .section-title{ margin: 3.25rem auto 2rem !important; }
+
+    /* Inline CTA small spacing tune */
+    .hosting-page .inline-cta p{ margin:.7rem 0 0 !important; }
+
+    /* Ensure active underline appears in global header too */
+    .main-nav > a.active,
+    .main-nav > a[aria-current="page"]{
+      color: var(--dark-blue);
+      border-bottom: 2px solid var(--dark-blue);
     }
-    .hosting-page .hero-title{
-      font-size:2rem;color:var(--dark-blue);font-weight:700;
-      margin:2.5rem auto 2rem; /* extra breathing room */
-    }
-    .hosting-page .hero-intro p{
-      color:#444;text-align:center !important;margin-left:auto !important;margin-right:auto !important;max-width:900px;
-    }
-    @media (max-width:768px){
-      .hosting-page .hero-title{font-size:1.85rem;line-height:1.2;margin:2rem auto 1.5rem;}
-    }
-
-    /* Section spacing & title centering hardening (do not fight global) */
-    .hosting-page .section{padding:1.6rem 0; margin:3rem 0;}
-    .hosting-page .section-title{
-      text-align:center !important;display:block !important;margin-left:auto !important;margin-right:auto !important;
-      margin-top:3.5rem !important; margin-bottom:2rem !important; /* consistent rhythm */
-    }
-
-    /* keep subheads & list content left */
-    .hosting-page :is(.panel h3,.panel h4){text-align:left !important;}
-
-    /* narrative lists */
-    .points{padding-left:1.25rem;margin:.25rem 0;}
-    .points li{margin:.3rem 0;line-height:1.7;}
-    .muted{color:#5a6b85;font-size:.95rem}
-
-    /* metrics */
-    .metrics{display:grid;gap:.45rem;max-width:1000px;margin:0 auto;padding:0 1rem;}
-    .metric{display:flex;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;}
-    .metric b{color:#0b3d72;}
-
-    /* inline CTA */
-    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.3rem 0;text-align:center;}
-    .inline-cta p{margin:.65rem 0 0;color:#fff !important;} /* extra air above button text */
-    .hosting-page .cta-btn{padding:.9rem 1.15rem;min-height:46px;}
-
-    /* FAQ accordions */
-    .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12);}
-    .faq-list details:last-of-type{border-bottom:none;}
-    .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;list-style:none;outline:none;}
-    .faq-list summary::-webkit-details-marker{display:none;}
-    .faq-list p{margin:.45rem 0 0;}
-
-    /* wrap safety */
-    .hosting-page .content, .hosting-page .content p, .hosting-page .content li, .hosting-page .content a{word-break:break-word;overflow-wrap:anywhere;}
   </style>
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Service","name":"CoreCloud — Hosting & Private Cloud","description":"Managed private cloud and colocation for predictable, sovereign, low-latency workloads with DR and POPIA alignment.","provider":{"@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png"},"areaServed":"ZA","serviceOutput":"Predictable run with measured resilience, security, and cost posture","url":"https://www.corecloudza.com/hosting-private-cloud.html","offers":{"@type":"Offer","availability":"https://schema.org/InStock"}}
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
-    {"@type":"ListItem","position":2,"name":"Hosting & Private Cloud","item":"https://www.corecloudza.com/hosting-private-cloud.html"}
-  ]}
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-    {"@type":"Question","name":"When does hosted/private cloud beat hyperscale?","acceptedAnswer":{"@type":"Answer","text":"For steady or predictable workloads, strict data residency, low-latency proximity, legacy licensing, and where egress patterns or dedicated capacity economics win."}},
-    {"@type":"Question","name":"Can we burst to AWS/Azure when needed?","acceptedAnswer":{"@type":"Answer","text":"Yes. We design hybrid patterns with private cloud primary and cloud burst for peak or DR, with guardrails for routing, identity, and data movement."}},
-    {"@type":"Question","name":"Is POPIA alignment covered?","acceptedAnswer":{"@type":"Answer","text":"Yes. We map data classes, enforce residency, and implement customer-managed keys, logging, and revocation processes with board-level posture reporting."}}
-  ]}
-  </script>
 </head>
 
 <body class="hosting-page">
+  <!-- Skip -->
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav -->
-  <header class="small-banner">
-    <div class="banner-header">
-      <a href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+  <!-- Global Header / Nav (matches styles.css .site-header pattern) -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
+      <!-- Desktop nav -->
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
 
-      <nav class="desktop-nav" aria-label="Primary">
-        <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULT</a>
-        <a href="cloud.html" class="nav-btn">CLOUD</a>
-        <a href="finops.html" class="nav-btn">FINOPS</a>
-        <a href="hosting-private-cloud.html" class="nav-btn active" aria-current="page">HOSTING</a>
-        <a href="mobile-web.html" class="nav-btn">APP&nbsp;DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
-        <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
-        <a href="about.html" class="nav-btn">ABOUT</a>
-        <a href="blog.html" class="nav-btn">BLOG</a>
-        <a href="contact.html" class="nav-btn">CONTACT</a>
+        <!-- Consulting -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Consulting</button>
+          <div class="submenu" role="menu" aria-label="Consulting">
+            <a role="menuitem" href="consulting.html">Overview</a>
+            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
+          </div>
+        </div>
+
+        <!-- Cloud Suite -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <div class="submenu" role="menu" aria-label="Cloud Suite">
+            <a role="menuitem" href="cloud.html">Overview</a>
+            <a role="menuitem" href="finops.html">FinOps</a>
+            <a role="menuitem" href="application-development.html">Application Development</a>
+            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
+            <a role="menuitem" href="hosting-private-cloud.html" class="active" aria-current="page">Hosting (Private Cloud)</a>
+          </div>
+        </div>
+
+        <!-- Curated Talent -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <div class="submenu" role="menu" aria-label="Curated Talent">
+            <a role="menuitem" href="talent.html">Overview</a>
+            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="global-talent.html">Global Talent</a>
+          </div>
+        </div>
+
+        <!-- Standalone -->
+        <a href="infrastructure.html">Infrastructure</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Insights</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
-      <nav class="mobile-nav" aria-label="Mobile">
-        <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULT</a>
-        <a href="cloud.html">CLOUD</a>
-        <a href="finops.html">FINOPS</a>
-        <a href="hosting-private-cloud.html" class="active" aria-current="page">HOSTING</a>
-        <a href="mobile-web.html">APP DEVELOPMENT</a>
-        <a href="data-ai.html">DATA &amp; AI</a>
-        <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">IMPRINTING</a>
-        <a href="about.html">ABOUT</a>
-        <a href="blog.html">BLOG</a>
-        <a href="contact.html">CONTACT</a>
-      </nav>
+      <!-- Mobile toggle -->
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
+
+    <!-- Mobile drawer -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <nav class="mobile-drawer" aria-label="Mobile">
+      <a href="index.html">Home</a>
+
+      <details>
+        <summary>Consulting</summary>
+        <a href="consulting.html">Overview</a>
+        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+      </details>
+
+      <details open>
+        <summary>Cloud Suite</summary>
+        <a href="cloud.html">Overview</a>
+        <a href="finops.html">FinOps</a>
+        <a href="application-development.html">Application Development</a>
+        <a href="data-ai.html">Data &amp; AI</a>
+        <a href="hosting-private-cloud.html" aria-current="page">Hosting (Private Cloud)</a>
+      </details>
+
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="global-talent.html">Global Talent</a>
+      </details>
+
+      <a href="infrastructure.html">Infrastructure</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Insights</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <!-- GOLD-lined hero (uses global .hero-frame for top/bottom stripe) -->
+  <!-- Gold-lined hero (thickness comes from styles.css: --frame-thin) -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="Private cloud and colocation">
-      <img src="assets/images/hosting-bannerimage.png" alt="Hosting & Private Cloud — predictable, sovereign, low-latency run" loading="eager" decoding="async" fetchpriority="high" width="1920" height="500"/>
+      <img src="assets/images/hosting-bannerimage.png" alt="Hosting & Private Cloud — predictable, sovereign, low-latency run" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
@@ -172,7 +165,7 @@
       <h2 id="when-title" class="section-title">When Hosting Wins</h2>
       <ul class="points">
         <li><strong>Steady, business-critical loads:</strong> ERP, core databases, integration hubs with predictable usage.</li>
-        <li><strong>Residency & sovereignty:</strong> in-country storage, customer-managed keys, sector controls.</li>
+        <li><strong>Residency &amp; sovereignty:</strong> in-country storage, customer-managed keys, sector controls.</li>
         <li><strong>Low-latency proximity:</strong> keep compute close to users, branches, or plants.</li>
         <li><strong>Economics:</strong> avoid egress traps, legacy licenses, and over-provisioned cloud capacity.</li>
         <li><strong>Operational certainty:</strong> clear SLAs, tested DR, and measured reliability.</li>
@@ -189,7 +182,7 @@
         <li>Edge and branch workloads with centralised observability and config drift detection.</li>
         <li>VDI and specialised workloads with GPU options where needed.</li>
       </ul>
-      <p class="muted">*We optimise licensing footprints and placement — venue-neutral recommendations with TCO.</p>
+      <p class="muted points" style="list-style:none;padding-left:0;">*We optimise licensing footprints and placement — venue-neutral recommendations with TCO.</p>
     </section>
 
     <!-- Architecture & controls -->
@@ -215,7 +208,7 @@
         <div class="metric"><span>DR exercises</span><b>Quarterly failover tests</b></div>
         <div class="metric"><span>Security posture</span><b>Monthly board-level report</b></div>
       </div>
-      <p class="muted" style="max-width:1000px;margin:.5rem auto 0;padding:0 1rem;">*Stricter targets available where architecture supports it (synchronous replication, multi-AZ/DC design).</p>
+      <p class="muted points" style="list-style:none;padding-left:0;">*Stricter targets available where architecture supports it (synchronous replication, multi-AZ/DC design).</p>
     </section>
 
     <!-- 30-day move-in -->
@@ -227,7 +220,7 @@
         <li><strong>Days 13–22:</strong> build environments, migrate first workloads with rollback plans, backup regime live.</li>
         <li><strong>Days 23–30:</strong> DR drill, performance tune, runbook sign-off, and hand-over with dashboards.</li>
       </ol>
-      <div class="inline-cta">
+      <div class="inline-cta points" style="list-style:none;padding-left:0;">
         <strong>Make it predictable.</strong>
         <p>If you need sovereign, low-latency, predictable run — we can help.</p>
         <a class="cta-btn" href="contact.html">Request a Hosting Assessment</a>
@@ -243,7 +236,7 @@
         <li><strong>Right-sizing cadence:</strong> monthly reviews, lifecycle policies, and commitment strategy.</li>
         <li><strong>Compliance evidence:</strong> POPIA control coverage, key custody, and access revocation logs.</li>
       </ul>
-      <p class="muted">See also: <a href="finops.html">FinOps &amp; Governance</a> for cross-venue cost discipline.</p>
+      <p class="muted points" style="list-style:none;padding-left:0;">See also: <a href="finops.html">FinOps &amp; Governance</a> for cross-venue cost discipline.</p>
     </section>
 
     <!-- FAQ -->
@@ -308,7 +301,7 @@
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'hosting-private-cloud.html').toLowerCase();
-      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
         if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
         else{a.classList.remove('active');a.removeAttribute('aria-current');}
