@@ -19,13 +19,13 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=20"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=21"/>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
   <link rel="preload" as="image" href="assets/images/finops-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped styles (safe, minimal) -->
+  <!-- Page-scoped styles -->
   <style>
     :root{ --gold:#d4af37; --dark-blue:#004f91; }
 
@@ -33,20 +33,26 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;top:10px;left:10px;width:auto;height:auto;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:1000;}
 
-    /* ---- HERO FRAME: match site thickness (4px) ---- */
+    /* --- HERO LINES (robust override) --- */
+    .finops-page .hero-frame{ position:relative; }
+    /* Force thin gold stripes on top and bottom, above the image */
     .finops-page .hero-frame::before,
-    .finops-page .hero-frame::after{ content:none !important; } /* neutralize any global pseudo-lines */
-    .finops-page .hero-frame{
-      border-top:4px solid var(--gold) !important;
-      border-bottom:4px solid var(--gold) !important;
+    .finops-page .hero-frame::after{
+      content:"";
+      position:absolute; left:0; right:0;
+      height:4px !important;
+      background: var(--gold) !important;
+      z-index:2; pointer-events:none;
     }
-    .finops-page .hero-media img{width:100%;height:auto;display:block;}
-    .finops-page .hero-media{margin-bottom:2rem;}
-    @media (max-width:768px){ .finops-page .hero-media{margin-bottom:1.25rem;} }
+    .finops-page .hero-frame::before{ top:0; }
+    .finops-page .hero-frame::after { bottom:0; }
+    /* Ensure media sits under lines and can’t overlap them */
+    .finops-page .hero-media{ position:relative; z-index:0; }
+    .finops-page .hero-media img{ width:100%; height:auto; display:block; }
 
-    /* Title alignment hardening */
+    /* Title alignment */
     .finops-page :is(h1.hero-title,h2.section-title){
-      text-align:center !important;display:block !important;margin-left:auto !important;margin-right:auto !important;
+      text-align:center !important; display:block !important; margin-left:auto !important; margin-right:auto !important;
     }
     .finops-page .hero-intro{max-width:1000px;margin:0 auto 1.1rem;padding:0 1rem;text-align:center;}
     .finops-page .hero-title{font-size:2rem;color:var(--dark-blue);font-weight:700;margin:.2rem auto .6rem;}
@@ -66,11 +72,9 @@
     .inpage-nav{display:flex;flex-wrap:wrap;gap:8px;margin:0 auto .75rem;padding:.25rem .75rem;max-width:1000px;justify-content:center;}
     .inpage-nav a{border:1px solid #e4e8f1;border-radius:999px;padding:.35rem .6rem;text-decoration:none;color:#0d3b66;font-weight:600;background:#fff;white-space:nowrap;font-size:.95rem;}
 
-    /* Lists */
+    /* Lists / metrics */
     .checklist{margin:.25rem 0 0 1.2rem;padding:0;}
     .checklist li{list-style:disc;margin:.3rem 0;}
-
-    /* Metrics */
     .metrics{display:grid;gap:.45rem;max-width:1000px;margin:0 auto;padding:0 1rem;}
     .metric{display:flex;justify-content:space-between;gap:.75rem;border-bottom:1px dashed rgba(0,0,0,.12);padding:.35rem 0;}
     .metric b{color:#0b3d72;}
@@ -80,17 +84,14 @@
     .inline-cta p{margin:.5rem 0 0;color:#fff !important;}
     .cta-btn{padding:.78rem 1.05rem;}
 
-    /* FAQ accordions */
+    /* FAQ */
     .faq-list details{padding:.6rem 0;border-bottom:1px dashed rgba(0,0,0,.12);}
     .faq-list details:last-of-type{border-bottom:none;}
     .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;outline:none;list-style:none;}
     .faq-list summary::-webkit-details-marker{display:none;}
     .faq-list p{margin:.45rem 0 0;}
 
-    /* Safety */
-    .finops-page .content, .finops-page .content p, .finops-page .content li, .finops-page .content a{word-break:break-word;overflow-wrap:anywhere;}
-
-    /* Underline the parent "Cloud Suite" button when a child (FinOps) is active or menu is open */
+    /* Underline the parent "Cloud Suite" button when a child (FinOps) is active or the group is open/hovered */
     .main-nav .nav-group > button.active,
     .main-nav .nav-group:hover > button,
     .main-nav .nav-group:focus-within > button{
@@ -108,7 +109,7 @@
 <body class="finops-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Unified Header (matches other updated pages) -->
+  <!-- Unified Header -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -190,7 +191,7 @@
     </nav>
   </header>
 
-  <!-- HERO with gold lines -->
+  <!-- HERO with enforced gold lines -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="FinOps foundations and quick wins">
       <img src="assets/images/finops-bannerimage.png" alt="FinOps by design — visibility to action" width="1920" height="400" loading="eager" decoding="async" fetchpriority="high"/>
@@ -332,7 +333,7 @@
       </div>
     </section>
 
-    <!-- FAQ (collapsed) -->
+    <!-- FAQ -->
     <section class="section" id="faq" aria-labelledby="faq-title">
       <div class="narrative faq-list">
         <h2 id="faq-title" class="section-title">FAQ</h2>
@@ -400,7 +401,6 @@
         var href=(a.getAttribute('href')||'').toLowerCase();
         if(href===path){
           a.classList.add('active'); a.setAttribute('aria-current','page');
-          // underline parent "Cloud Suite" if a child is active
           var group=a.closest('.nav-group');
           if(group){
             var btn=group.querySelector('button');
