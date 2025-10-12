@@ -2,14 +2,13 @@
    CoreCloud — assets/css/styles.css
    Single source of truth
    - About-style header/nav (desktop + mobile drawer)
-   - Banner lines (royal top/bottom)
+   - Triple banner lines (blue / gold / blue; gold = 2x blue)
    - Consistent typography, grids, CTAs, footer
    - Mobile cut-off fix (no desktop change)
    =========================== */
 
 /* Reset */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-/* SAFE heights: allow page to grow */
 html, body { height: auto; min-height: 100%; }
 img { max-width: 100%; height: auto; display: block; }
 
@@ -38,6 +37,11 @@ img { max-width: 100%; height: auto; display: block; }
   /* Max widths */
   --heading-max: 1100px;
   --content-max: 1000px;
+
+  /* Banner frame (triple stripe) */
+  --frame-thin: 4px;                               /* blue thickness */
+  --frame-gold: calc(var(--frame-thin) * 2);       /* gold = 2x blue */
+  --frame-total: calc(var(--frame-thin)*2 + var(--frame-gold));
 }
 
 /* Base */
@@ -46,7 +50,6 @@ body{
   background-color:var(--light-bg);
   color:var(--text-gray);
   line-height:1.6;
-  /* Avoid flex height bugs on mobile; desktop unaffected */
   display:block;
   min-height:100vh;
 }
@@ -108,8 +111,26 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
 /* =========================
    Banner / Hero
    ========================= */
-/* Royal lines above & below */
-.hero-frame{border-top:4px solid var(--dark-blue);border-bottom:4px solid var(--dark-blue);}
+/* Triple-line frame: blue / gold / blue (gold = 2x blue) */
+.hero-frame{ position:relative; }
+.hero-frame::before,
+.hero-frame::after{
+  content:"";
+  position:absolute; left:0; right:0;
+  height:var(--frame-total);
+  pointer-events:none; z-index:1;
+  background:
+    linear-gradient(
+      to bottom,
+      var(--dark-blue) 0 var(--frame-thin),
+      var(--gold) var(--frame-thin) calc(var(--frame-thin) + var(--frame-gold)),
+      var(--dark-blue) calc(var(--frame-thin) + var(--frame-gold)) var(--frame-total)
+    );
+}
+.hero-frame::before{ top:0; }
+.hero-frame::after { bottom:0; }
+
+/* Banner media */
 .hero-media{
   width:100%;
   height: var(--hero-h-desktop);
@@ -121,7 +142,9 @@ p{ font-size:1rem; color:var(--text-gray); margin-bottom:1rem; }
   width:100%; height:100%; display:block;
   object-fit: cover; object-position: center;
 }
-.page-banner{ /* legacy background-image support */
+
+/* Legacy background-image support */
+.page-banner{
   width:100%; height: var(--hero-h-desktop); overflow:hidden;
   background-size: cover; background-position: center; background-repeat: no-repeat; background-color:#f4f6f8;
 }
@@ -353,7 +376,7 @@ footer #subscribe-form label{
   padding:0 !important; margin:-1px !important; overflow:hidden !important; clip:rect(0 0 0 0) !important; white-space:nowrap !important; border:0 !important;
 }
 
-/* ===== Accessibility: skip link (kept hidden, not visible) ===== */
+/* Accessibility: keep skip link hidden (not visible) */
 .skip-link{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
 
 /* ===== Mobile adjustments ===== */
