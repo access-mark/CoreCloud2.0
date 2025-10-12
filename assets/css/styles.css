@@ -406,3 +406,23 @@ footer #subscribe-form label{
     html, body{ height:auto !important; min-height:0 !important; overflow-y:auto !important; }
   }
 }
+/* ====== GLOBAL TITLE SPACING UPGRADE ====== */
+
+/* Hero titles — more top/bottom air */
+.hero-intro .hero-title {
+  margin-top: 2.5rem !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Section titles — consistent rhythm between sections */
+.section-title {
+  margin-top: 3.5rem !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Ensure consistent spacing for nested headings (fallbacks) */
+main.content > h1:first-of-type:not(.hero-title),
+section > h2:first-child:not(.section-title) {
+  margin-top: 3.5rem !important;
+  margin-bottom: 2rem !important;
+}
