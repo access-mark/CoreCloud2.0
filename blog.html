@@ -15,23 +15,36 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <link rel="stylesheet" href="assets/css/styles.css?v=15"/>
+  <!-- Global CSS (must include the single-line banner rules) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=16"/>
 
   <!-- Preload hero + logo -->
   <link rel="preload" as="image" href="assets/images/insights-bannerimage.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Minimal fallback so banner & line render even if CSS cache lags -->
+  <!-- Minimal fallback so banner + line render even if CSS cache lags -->
   <style>
     .hero-frame{position:relative}
-    .hero-frame::before,.hero-frame::after{content:"";position:absolute;left:0;right:0;height:var(--frame-thin,4px);background:var(--frame-color,#004f91);pointer-events:none;z-index:1}
+    .hero-frame::before,.hero-frame::after{
+      content:"";position:absolute;left:0;right:0;height:4px;background:#004f91;pointer-events:none;z-index:1
+    }
     .hero-frame::before{top:0}.hero-frame::after{bottom:0}
-    .hero-media{width:100%;height:var(--hero-h-desktop,500px);overflow:hidden;background:#f4f6f8}
+    .hero-media{width:100%;height:500px;overflow:hidden;background:#f4f6f8}
     .hero-media img{width:100%;height:100%;object-fit:cover;display:block}
+    /* Tighten grid on very small screens if global CSS is cached older */
+    .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;max-width:1000px;margin:0 auto;padding:0 1rem}
+    .p-card{display:flex;flex-direction:column;border:2px solid #004f91;border-radius:12px;background:#fff;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.06)}
+    .p-card img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;display:block}
+    .p-card .body{padding:14px;display:flex;flex-direction:column;gap:8px}
+    .p-card .kicker{font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;color:#0b3d72;opacity:.9}
+    .p-card h3{font-size:clamp(1rem,2.5vw,1.15rem);margin:0;color:#0b3d72;line-height:1.25}
+    .p-card p{margin:0;color:#333;line-height:1.5}
+    .p-card .meta{margin-top:auto;font-size:.85rem;color:#567;opacity:.9}
   </style>
 </head>
 
 <body class="blog-page">
+  <!-- Header -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -118,6 +131,7 @@
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud Insights">
       <img src="assets/images/insights-bannerimage.png" alt="CoreCloud Insights" width="1920" height="500" loading="eager" decoding="async"/>
+      <!-- If your file is named differently, e.g. blog-bannerimage.png, update the src accordingly -->
     </div>
   </div>
 
@@ -130,9 +144,9 @@
   <main class="content">
     <section class="section">
       <div class="blog-grid">
-        <!-- Sample cards -->
+        <!-- Example cards (replace with your CMS loop) -->
         <article class="p-card">
-          <img src="assets/images/blog/thumb-1.jpg" alt="">
+          <img src="assets/images/blog/thumb-1.jpg" alt="Run-rate reduction article image">
           <div class="body">
             <span class="kicker">FinOps</span>
             <h3 class="post-title"><a href="post-1.html">Cutting Run-Rate Without Slowing Delivery</a></h3>
@@ -142,12 +156,22 @@
         </article>
 
         <article class="p-card">
-          <img src="assets/images/blog/thumb-2.jpg" alt="">
+          <img src="assets/images/blog/thumb-2.jpg" alt="Hybrid placement article image">
           <div class="body">
             <span class="kicker">Hybrid</span>
             <h3 class="post-title"><a href="post-2.html">Where Each Workload Wins</a></h3>
             <p class="post-excerpt">Cloud, hosted private, and on-prem — venue-neutral decisions.</p>
             <div class="meta">6 min read</div>
+          </div>
+        </article>
+
+        <article class="p-card">
+          <img src="assets/images/blog/thumb-3.jpg" alt="App delivery article image">
+          <div class="body">
+            <span class="kicker">App Delivery</span>
+            <h3 class="post-title"><a href="post-3.html">Shipping with Discipline</a></h3>
+            <p class="post-excerpt">Secure, observable, and maintainable from day one.</p>
+            <div class="meta">7 min read</div>
           </div>
         </article>
       </div>
