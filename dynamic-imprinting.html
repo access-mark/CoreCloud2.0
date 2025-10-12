@@ -19,27 +19,29 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=11" />
+  <!-- Global CSS (use latest) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=14" />
 
   <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/dynamic-imprinting-banner.png" imagesizes="100vw" fetchpriority="high" />
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high" />
 
-  <!-- Page-scoped helpers (titles centered, gold frame, a11y skip link) -->
+  <!-- Page-scoped helpers (header, triple frame, type) -->
   <style>
     :root{ --gold:#d4af37; --royal:#004f91; --royal-2:#0b3d72; --h1-size:40px; --h2-size:28px; }
     @media (max-width:768px){ :root{ --h1-size:30px; --h2-size:24px; } }
 
-    /* Accessible skip link */
+    /* Accessible skip link (hidden unless focused) */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;top:10px;left:10px;width:auto;height:auto;padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;outline:2px solid #fff;z-index:1000;}
 
-    /* Use same header/nav system as unified pages */
+    /* Header / Nav — About-style (kept minimal here for parity) */
     .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
     .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
     .brand{display:inline-flex;align-items:center;text-decoration:none}
-    .brand .logo{height:110px;width:auto;} @media (max-width:768px){ .brand .logo{height:84px;} }
+    .brand .logo{height:110px;width:auto;}
+    @media (max-width:768px){ .brand .logo{height:84px;} }
+
     .main-nav{display:flex;align-items:center;gap:18px;}
     .main-nav > a,
     .main-nav > .nav-group > button{
@@ -49,7 +51,6 @@
     .main-nav > a:hover, .main-nav > .nav-group > button:hover{ color:var(--royal); }
     .main-nav > a.active{ color:var(--royal); border-bottom:2px solid var(--royal); }
 
-    /* Dropdowns */
     .nav-group{position:relative;}
     .nav-group .submenu{
       position:absolute;left:0;top:100%;background:#fff;border:1px solid rgba(0,0,0,.08);
@@ -70,12 +71,24 @@
     .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
     .mobile-drawer details[open] summary{background:#f7fbff}
     .mobile-drawer a:hover{background:#f2f7ff}
-    /* IMPORTANT: checkbox must be a sibling of the drawer for the ~ selector */
     #nav-toggle:checked ~ nav.mobile-drawer{display:block}
     @media (max-width:1024px){ .main-nav{display:none} .hamburger{display:inline-flex} }
 
-    /* Gold hero frame for dark banner */
-    .hero-frame{border-top:4px solid var(--gold);border-bottom:4px solid var(--gold);}
+    /* Triple banner frame (blue/gold/blue), same as index */
+    .hero-frame{position:relative;}
+    .hero-frame::before,
+    .hero-frame::after{
+      content:"";position:absolute;left:0;right:0;height:8px;z-index:2;pointer-events:none;
+      background:
+        linear-gradient(
+          to bottom,
+          var(--royal) 0 2px,
+          var(--gold)  2px 6px,
+          var(--royal) 6px 8px
+        );
+    }
+    .hero-frame::before{top:0;}
+    .hero-frame::after{bottom:0;}
     .hero-media img{width:100%;height:auto;display:block;}
 
     /* Page typography */
@@ -98,7 +111,6 @@
       font-style:italic;color:#003366;border-radius:4px;margin:1.5rem auto;max-width:800px;
     }
 
-    /* CTA */
     .cta-wrap{ text-align:center; margin-top:1.25rem; }
   </style>
 </head>
@@ -107,7 +119,7 @@
   <!-- Skip to main -->
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav (unified) -->
+  <!-- Header / Nav -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -118,7 +130,7 @@
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 
-        <!-- Consulting + Dynamic Imprinting -->
+        <!-- Consulting -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
@@ -133,9 +145,9 @@
           <div class="submenu" role="menu" aria-label="Cloud Suite">
             <a role="menuitem" href="cloud.html">Overview</a>
             <a role="menuitem" href="finops.html">FinOps</a>
-            <a role="menuitem" href="hosting-private-cloud.html">Hosting / Infrastructure</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
+            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
           </div>
         </div>
 
@@ -149,19 +161,20 @@
           </div>
         </div>
 
+        <!-- Standalone Infrastructure -->
+        <a href="infrastructure.html">Infrastructure</a>
+
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
       </nav>
 
-      <!-- Mobile toggle control (label must target the checkbox below) -->
+      <!-- Mobile toggle control -->
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
-    <!-- The checkbox must be a sibling of the mobile drawer for the CSS selector to work -->
+    <!-- Mobile checkbox + drawer -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
-
-    <!-- Mobile drawer -->
     <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html">Home</a>
 
@@ -175,9 +188,9 @@
         <summary>Cloud Suite</summary>
         <a href="cloud.html">Overview</a>
         <a href="finops.html">FinOps</a>
-        <a href="hosting-private-cloud.html">Hosting / Infrastructure</a>
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
+        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
       </details>
 
       <details>
@@ -187,13 +200,14 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
+      <a href="infrastructure.html">Infrastructure</a>
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero with gold frame -->
+  <!-- Hero with triple frame -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="Dynamic Imprinting — Executive Identity Transformation">
       <img
@@ -302,7 +316,7 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current nav -->
+  <!-- Active link highlighter -->
   <script>
     (function(){
       var path = (location.pathname.split('/').pop() || 'dynamic-imprinting.html').toLowerCase();
