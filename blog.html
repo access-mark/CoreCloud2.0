@@ -22,10 +22,10 @@
   <link rel="preload" as="image" href="assets/images/blog-bannerimage.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Inline critical CSS so the page is bulletproof even if external CSS is cached -->
+  <!-- Critical, minimal CSS (ensures banner + cards render even if cache is weird) -->
   <style>
-    :root{--royal:#004f91;--royal-2:#0b3d72;}
-    /* Header (minimal so it matches your template) */
+    :root{--royal:#004f91;--royal-2:#0b3d72}
+    /* Header */
     .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06)}
     .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px}
     .logo{height:110px;width:auto}
@@ -37,27 +37,24 @@
     .nav-group .submenu{position:absolute;left:0;top:100%;display:none;background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.08);min-width:260px;padding:8px}
     .nav-group:hover .submenu{display:block}
     .submenu a{display:block;padding:10px 12px;border-radius:8px;color:var(--royal-2);text-decoration:none;font-weight:500;font-size:.95rem}
-    .nav-toggle{display:none}
-    .hamburger{display:none}
+    .nav-toggle{display:none}.hamburger{display:none}
     @media(max-width:1024px){.main-nav{display:none}.hamburger{display:inline-flex;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center}}
     .mobile-drawer{display:none;border-top:1px solid rgba(0,0,0,.06);background:#fff}
     #nav-toggle:checked ~ nav.mobile-drawer{display:block}
 
-    /* Banner with single thin BLUE line above and below */
+    /* Banner: single thin BLUE line top & bottom */
     .hero-frame{position:relative}
-    .hero-frame::before,.hero-frame::after{
-      content:"";position:absolute;left:0;right:0;height:4px;background:#004f91;pointer-events:none;z-index:1
-    }
+    .hero-frame::before,.hero-frame::after{content:"";position:absolute;left:0;right:0;height:4px;background:#004f91;pointer-events:none;z-index:1}
     .hero-frame::before{top:0}.hero-frame::after{bottom:0}
     .hero-media{width:100%;height:500px;overflow:hidden;background:#f4f6f8}
     @media(max-width:768px){.hero-media{height:220px}}
     .hero-media img{width:100%;height:100%;object-fit:cover;display:block}
 
-    /* Page intro */
+    /* Intro */
     .hero-intro{max-width:1000px;margin:2rem auto 1rem;padding:0 1rem;text-align:center}
     .hero-title{font-weight:700;color:#004f91;font-size:clamp(1.75rem,2.2vw+1rem,2.25rem);margin:.2rem auto .8rem}
 
-    /* Grid + cards (self-contained) */
+    /* Cards */
     .section{margin:3rem 0}
     .blog-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;max-width:1000px;margin:0 auto;padding:0 1rem}
     .p-card{display:flex;flex-direction:column;border:2px solid #004f91;border-radius:12px;background:#fff;overflow:hidden;box-shadow:0 6px 18px rgba(0,0,0,.06);transition:transform .18s ease,box-shadow .18s ease}
@@ -159,10 +156,10 @@
   <!-- Banner (single thin BLUE line) -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud Insights">
-      <!-- Will fall back to insights-bannerimage.png if blog-bannerimage.png doesn't exist -->
+      <!-- IMPORTANT: use a real image file, not .html -->
       <img
         src="assets/images/blog-bannerimage.png"
-        onerror="this.src='assets/images/blog-bannerimage.png';this.onerror=null;"
+        onerror="this.src='assets/images/insights-bannerimage.png';this.onerror=null;"
         alt="CoreCloud Insights"
         width="1920" height="500" loading="eager" decoding="async"/>
     </div>
@@ -179,7 +176,7 @@
       <div class="blog-grid">
         <!-- Example cards (replace with your CMS loop / real posts) -->
         <article class="p-card">
-          <img src="assets/images/blog/thumb-1.jpg" alt="Run-rate reduction">
+          <img src="assets/images/blog/thumb-1.jpg" alt="Run-rate reduction" onerror="this.style.display='none'">
           <div class="body">
             <span class="kicker">FinOps</span>
             <h3 class="post-title"><a href="post-1.html">Cutting Run-Rate Without Slowing Delivery</a></h3>
@@ -189,7 +186,7 @@
         </article>
 
         <article class="p-card">
-          <img src="assets/images/blog/thumb-2.jpg" alt="Hybrid placement">
+          <img src="assets/images/blog/thumb-2.jpg" alt="Hybrid placement" onerror="this.style.display='none'">
           <div class="body">
             <span class="kicker">Hybrid</span>
             <h3 class="post-title"><a href="post-2.html">Where Each Workload Wins</a></h3>
@@ -199,7 +196,7 @@
         </article>
 
         <article class="p-card">
-          <img src="assets/images/blog/thumb-3.jpg" alt="App delivery">
+          <img src="assets/images/blog/thumb-3.jpg" alt="App delivery" onerror="this.style.display='none'">
           <div class="body">
             <span class="kicker">App Delivery</span>
             <h3 class="post-title"><a href="post-3.html">Shipping with Discipline</a></h3>
@@ -211,7 +208,7 @@
     </section>
   </main>
 
-  <!-- Footer (trimmed to essentials) -->
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
