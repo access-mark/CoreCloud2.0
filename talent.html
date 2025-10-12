@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Talent | CoreCloud</title>
@@ -15,91 +16,106 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/talent-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
+  <!-- Global CSS (cache-busted) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
 
   <!-- Preload hero for LCP -->
   <link rel="preload" as="image" href="assets/images/talent-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
 
-  <!-- Page-scoped styles -->
+  <!-- Page-scoped styles (kept tight; matches site conventions) -->
   <style>
-    /* Page-safe tweaks only */
-    .hero-media img{width:100%;height:auto;display:block;}
-
-    .hero{
-      display:flex;align-items:center;justify-content:center;text-align:center;
-      padding:40px 16px;
+    /* Ensure this page uses the standard single-line gold frame */
+    .hero-frame{position:relative;}
+    .hero-frame::before,
+    .hero-frame::after{
+      content:""; position:absolute; left:0; right:0;
+      height:var(--frame-thin,4px); background:var(--gold,#d4af37);
+      pointer-events:none; z-index:1;
     }
-    .hero .hero-body{max-width:900px;margin:0 auto;}
-    .hero .hero-cta{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-top:.8rem;}
-    .hero .hero-cta .cta-btn{min-width:200px;}
-    @media (max-width:768px){ .hero{padding:28px 14px} .hero .hero-body{max-width:680px} }
+    .hero-frame::before{ top:0; }
+    .hero-frame::after { bottom:0; }
 
+    /* Centered hero text under banner */
+    .hero { display:flex; align-items:center; justify-content:center; text-align:center; padding:40px 16px; }
+    .hero .hero-body{ max-width:900px; margin:0 auto; }
+    .hero .hero-cta{ display:flex; gap:.6rem; flex-wrap:wrap; justify-content:center; margin-top:.8rem; }
+    .hero .hero-cta .cta-btn{ min-width:200px; }
+    @media (max-width:768px){ .hero{ padding:28px 14px } .hero .hero-body{ max-width:680px } }
+
+    /* Titles aligned and spaced like index */
     :root{ --h1-size:40px; --h2-size:28px; }
-    h1{font-size:var(--h1-size); line-height:1.2; margin:28px 0 12px; text-align:center;}
-    h2.section-title{font-size:var(--h2-size); line-height:1.25; margin:22px 0 12px; text-align:center;}
-    @media (max-width:768px){ :root{--h1-size:30px; --h2-size:24px} }
+    h1.hero-title{ font-size:var(--h1-size); line-height:1.2; margin:32px 0 16px; text-align:center; }
+    h2.section-title{ font-size:var(--h2-size); line-height:1.25; margin:26px 0 14px; text-align:center; }
+    @media (max-width:768px){ :root{ --h1-size:30px; --h2-size:24px } }
 
-    .narrative{max-width:1000px;margin:0 auto;padding:0 1rem;}
-    .narrative p{margin:.6rem 0;line-height:1.75;color:#444;}
-    .kv{font-weight:700;color:var(--dark-blue);}
+    /* Narrative blocks */
+    .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .narrative p{ margin:.6rem 0; line-height:1.75; color:#444; }
+    .kv{ font-weight:700; color:var(--dark-blue); }
 
-    .grid-2{display:grid;gap:1rem;max-width:1100px;margin:0 auto;padding:0 1rem;}
-    @media (min-width:900px){ .grid-2{grid-template-columns:1fr 1fr;} }
-    .panel{background:#fff;border:1px solid rgba(0,79,145,.18);border-radius:10px;padding:1rem 1.1rem;box-shadow:0 2px 6px rgba(0,0,0,.04);}
-    .panel h3{margin:.1rem 0 .4rem;color:var(--dark-blue);font-size:1.05rem;}
+    /* Two-up panels */
+    .grid-2{ display:grid; gap:1rem; max-width:1100px; margin:0 auto; padding:0 1rem; }
+    @media (min-width:900px){ .grid-2{ grid-template-columns:1fr 1fr; } }
+    .panel{ background:#fff; border:1px solid rgba(0,79,145,.18); border-radius:10px; padding:1rem 1.1rem; box-shadow:0 2px 6px rgba(0,0,0,.04); }
+    .panel h3{ margin:.1rem 0 .4rem; color:var(--dark-blue); font-size:1.05rem; }
 
-    .lumo-wrap{max-width:1000px;margin:18px auto 0;padding:0 16px;text-align:center;}
+    /* Lumo CTA + highlight */
+    .lumo-wrap{ max-width:1000px; margin:18px auto 0; padding:0 16px; text-align:center; }
     .lumo-cta{
       --cc-blue: var(--dark-blue,#004f91);
-      display:inline-block;padding:14px 22px;border-radius:12px;font-weight:700;letter-spacing:.2px;text-decoration:none;color:#fff;
+      display:inline-block; padding:14px 22px; border-radius:12px; font-weight:700; letter-spacing:.2px; text-decoration:none; color:#fff;
       background:linear-gradient(98deg, var(--cc-blue) 0%, #0a3a6a 60%, #072a4c 100%);
       border:1px solid rgba(212,175,55,.65);
       box-shadow:0 10px 28px rgba(0,79,145,.35),0 0 0 1px rgba(212,175,55,.35) inset;
       transition:filter .2s ease;
       animation:ccPulse 2.2s ease-in-out infinite;
     }
-    .lumo-cta:hover{filter:saturate(1.08);}
-    @keyframes ccPulse{0%{transform:scale(1);}50%{transform:scale(1.015);}100%{transform:scale(1);}}
-    @media (prefers-reduced-motion:reduce){ .lumo-cta{animation:none;} }
+    .lumo-cta:hover{ filter:saturate(1.08); }
+    @keyframes ccPulse{ 0%{transform:scale(1);} 50%{transform:scale(1.015);} 100%{transform:scale(1);} }
+    @media (prefers-reduced-motion:reduce){ .lumo-cta{ animation:none; } }
 
     .lumo-card{
-      margin:14px auto 0;padding:16px 18px;border-radius:14px;
+      margin:14px auto 0; padding:16px 18px; border-radius:14px;
       background:linear-gradient(180deg, rgba(255,255,255,.86), rgba(255,255,255,.92));
       border:1px solid rgba(0,79,145,.18);
       box-shadow:0 12px 30px rgba(0,79,145,.12),0 0 0 1px rgba(212,175,55,.35) inset;
       backdrop-filter:blur(6px);
-      text-align:left;max-width:980px;
+      text-align:left; max-width:980px;
     }
-    .lumo-card h3{margin:0 0 6px;color:var(--dark-blue);font-size:1.05rem;}
-    .lumo-card p{margin:0;color:#333;line-height:1.6;}
-    .lumo-actions{margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center;}
-    .btn-outline{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;border:1px solid var(--dark-blue,#004f91);color:var(--dark-blue,#004f91);background:#fff;}
-    .btn-outline:hover{background:rgba(0,79,145,.06);}
+    .lumo-card h3{ margin:0 0 6px; color:var(--dark-blue); font-size:1.05rem; }
+    .lumo-card p{ margin:0; color:#333; line-height:1.6; }
+    .lumo-actions{ margin-top:10px; display:flex; gap:10px; flex-wrap:wrap; justify-content:center; }
+    .btn-outline{ display:inline-block; padding:10px 16px; border-radius:10px; text-decoration:none; border:1px solid var(--dark-blue,#004f91); color:var(--dark-blue,#004f91); background:#fff; }
+    .btn-outline:hover{ background:rgba(0,79,145,.06); }
 
-    /* Ensure active underline renders (in case of older CSS) */
-    .desktop-nav .nav-btn.active,
-    .desktop-nav .nav-btn[aria-current="page"]{
-      color: var(--dark-blue);
-      border-bottom: 2px solid var(--dark-blue);
+    /* Section spacing tweaks */
+    section[aria-labelledby="why-title"],
+    section[aria-labelledby="what-title"],
+    section[aria-labelledby="how-title"]{ margin-top:.25rem; }
+
+    /* Active nav underline (desktop + mobile) — belt & braces */
+    .main-nav a.active,
+    .main-nav a[aria-current="page"]{
+      color:var(--dark-blue);
+      border-bottom:2px solid var(--dark-blue);
     }
     .mobile-drawer a.active,
     .mobile-drawer a[aria-current="page"]{
-      text-decoration: underline;
-      text-underline-offset: 6px;
-      text-decoration-thickness: 2px;
+      text-decoration:underline;
+      text-underline-offset:6px;
+      text-decoration-thickness:2px;
     }
-
-    /* Make sure the header bar is visible and spaced properly */
-    .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
-    .header-inner{max-width:var(--container);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
-    .brand .logo{height:120px;width:auto;object-fit:contain;}
-    @media(max-width:768px){.brand .logo{height:80px;}}
   </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"CoreCloud Talent","url":"https://www.corecloudza.com/talent.html"}
+  </script>
 </head>
 
 <body class="talent-page">
-  <!-- Header / Nav: match site-header + main-nav + mobile-drawer pattern -->
+  <!-- Header / Nav (unified across site) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -146,9 +162,11 @@
     </nav>
   </header>
 
-  <!-- Hero image -->
-  <div class="hero-media">
-    <img src="assets/images/talent-bannerimage.png" alt="CoreCloud Talent — Elite ICT & Executive Talent" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+  <!-- Hero with GOLD frame -->
+  <div class="hero-frame">
+    <div class="hero-media" role="img" aria-label="CoreCloud Talent — Elite ICT & Executive Talent">
+      <img src="assets/images/talent-bannerimage.png" alt="CoreCloud Talent — Elite ICT & Executive Talent" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+    </div>
   </div>
 
   <!-- Hero text -->
@@ -176,7 +194,7 @@
     </div>
   </section>
 
-  <main class="content">
+  <main class="content" id="main">
     <!-- Why CoreCloud Talent? -->
     <section class="section narrative" aria-labelledby="why-title">
       <h2 id="why-title" class="section-title">Why CoreCloud Talent?</h2>
@@ -306,30 +324,23 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current nav (robust normalization) -->
+  <!-- Robust active-link highlighter (also maps old URLs to new) -->
   <script>
     (function(){
-      function normalize(p){
+      function norm(p){
         if(!p) return 'index.html';
-        p = p.toLowerCase();
-        p = p.split('#')[0].split('?')[0];
+        p = p.toLowerCase().split('#')[0].split('?')[0];
         if(p === '' || p === '/') p = 'index.html';
+        // Map legacy filenames to current routes so underline state works
         if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
         if(p === 'mobile-web.html') p = 'application-development.html';
         return p;
       }
-
-      var current = normalize(location.pathname.split('/').pop());
-
+      var current = norm(location.pathname.split('/').pop());
       document.querySelectorAll('.desktop-nav a, .mobile-drawer a').forEach(function(a){
-        var href = normalize(a.getAttribute('href') || '');
-        if(href === current){
-          a.classList.add('active');
-          a.setAttribute('aria-current','page');
-        }else{
-          a.classList.remove('active');
-          a.removeAttribute('aria-current');
-        }
+        var href = norm(a.getAttribute('href')||'');
+        if(href === current){ a.classList.add('active'); a.setAttribute('aria-current','page'); }
+        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
       });
     })();
   </script>
