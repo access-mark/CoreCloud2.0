@@ -426,3 +426,20 @@ section > h2:first-child:not(.section-title) {
   margin-top: 3.5rem !important;
   margin-bottom: 2rem !important;
 }
+/* Active page highlight (desktop + mobile, matches index style) */
+.main-nav > a.active,
+.main-nav > a[aria-current="page"],
+.main-nav .nav-group > button.active,
+.submenu a.active,
+.submenu a[aria-current="page"]{
+  color: var(--dark-blue);
+  border-bottom: 2px solid var(--dark-blue);
+}
+
+/* Mobile drawer underline */
+.mobile-drawer a.active,
+.mobile-drawer a[aria-current="page"]{
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
