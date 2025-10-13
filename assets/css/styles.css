@@ -443,3 +443,28 @@ section > h2:first-child:not(.section-title) {
   text-underline-offset: 6px;
   text-decoration-thickness: 2px;
 }
+/* ====== BODY COPY COLOR POLICY (site-wide, content areas) ====== */
+/* Normal body copy: BLACK */
+.content p,
+.content li,
+.narrative p,
+.narrative li,
+.card p,
+.card li,
+.metrics .metric span,
+.faq-list p {
+  color: #000 !important;
+}
+
+/* Bold body copy: ROYAL BLUE (var(--dark-blue)) */
+.content :where(p, li, dd, dt) :is(b, strong),
+.narrative :where(p, li, dd, dt) :is(b, strong),
+.card :where(p, li) :is(b, strong),
+.metrics :is(b, strong),
+.faq-list :is(b, strong) {
+  color: var(--dark-blue) !important;
+}
+
+/* Safety: keep CTA buttons and footer styling intact */
+.cta-btn { color: #fff !important; }               /* buttons stay white */
+footer p, footer h4, footer strong { color:#fff !important; } /* already present, ensure precedence */
