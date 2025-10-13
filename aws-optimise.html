@@ -25,11 +25,20 @@
   <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/cloud-banner.png?v=2" fetchpriority="high" />
 
-  <!-- Page-scoped (light) -->
+  <!-- Page-scoped fixes -->
   <style>
-    .center-subtitle{ text-align:center; color:#000; font-size:1.05rem; margin:0 auto 2rem; max-width:900px; line-height:1.65; }
+    /* Re-center hero subtitle (beats global .content p { text-align:left !important }) */
+    .hero-intro .center-subtitle{ text-align:center !important; color:#000; font-size:1.05rem; margin:0 auto 2rem; max-width:900px; line-height:1.65; }
+
+    /* Ensure visible underline on active nav (desktop + submenu + mobile) */
+    .main-nav .nav-group > button.active{ border-bottom:2px solid var(--dark-blue) !important; color:var(--dark-blue) !important; }
+    .submenu a.active{ border-bottom:2px solid var(--dark-blue) !important; color:var(--dark-blue) !important; }
+    .mobile-drawer a[aria-current="page"]{ text-decoration: underline; text-underline-offset:6px; text-decoration-thickness:2px; }
+
+    /* Card grid width harmony */
     .card-grid{ max-width:var(--content-max); margin:0 auto; }
-    /* keep tel link white/no underline in footer */
+
+    /* Footer tel stays white */
     .footer-right a[href^="tel"]{ color:#fff !important; text-decoration:none !important; font-weight:700; }
   </style>
 
@@ -91,10 +100,11 @@
         <div class="nav-group">
           <button type="button" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
-            <a role="menuitem" href="cloud.html" class="active" aria-current="page">Overview</a>
+            <a role="menuitem" href="cloud.html">Overview</a>
             <a role="menuitem" href="aws-migration.html">AWS Migration</a>
             <a role="menuitem" href="aws-modernization.html">AWS Modernization</a>
             <a role="menuitem" href="aws-manage.html">AWS Managed Services</a>
+            <!-- Only THIS page is active -->
             <a role="menuitem" href="aws-optimize.html" class="active" aria-current="page">AWS Optimization</a>
             <a role="menuitem" href="finops.html">FinOps</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
@@ -134,7 +144,7 @@
 
       <details open>
         <summary>Cloud Suite</summary>
-        <a href="cloud.html" aria-current="page">Overview</a>
+        <a href="cloud.html">Overview</a>
         <a href="aws-migration.html">AWS Migration</a>
         <a href="aws-modernization.html">AWS Modernization</a>
         <a href="aws-manage.html">AWS Managed Services</a>
