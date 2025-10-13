@@ -16,7 +16,7 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/talent-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (same as index) -->
+  <!-- Global CSS (v13) -->
   <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
 
   <!-- Preload -->
@@ -32,17 +32,14 @@
     .hero-intro{max-width:900px;margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
     .hero-intro p{color:#444;}
     .section{margin:2.25rem 0;}
-    /* hero frame uses global .hero-frame; no overrides needed */
-    /* narrative */
     .narrative{max-width:1000px;margin:0 auto;padding:0 1rem;}
     .narrative p{line-height:1.75;color:#444;margin:.55rem 0;}
     .kv{font-weight:700;color:var(--dark-blue);}
-    /* cards grid same as index */
     .card-grid.force-4{margin-top:.75rem;}
-    /* hero CTA row */
     .hero-cta{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-top:.8rem;}
     .hero-cta .cta-btn{min-width:200px;}
-    /* lumo highlight block (optional flourish kept) */
+
+    /* Lumo highlight (kept) */
     .lumo-wrap{max-width:1000px;margin:18px auto 0;padding:0 16px;text-align:center;}
     .lumo-cta{
       --cc-blue: var(--dark-blue,#004f91);
@@ -72,7 +69,7 @@
 </head>
 
 <body class="talent-page">
-  <!-- Header / Nav (exact same structure as index) -->
+  <!-- Header / Nav (unified) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -105,7 +102,7 @@
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
-            <a role="menuitem" href="talent.html" class="active" aria-current="page">Overview</a>
+            <a role="menuitem" href="talent.html">Overview</a>
             <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
             <a role="menuitem" href="global-talent.html">Global Talent</a>
           </div>
@@ -121,7 +118,7 @@
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
-    <!-- Mobile drawer (same as index) -->
+    <!-- Mobile drawer -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html">Home</a>
@@ -155,7 +152,7 @@
     </nav>
   </header>
 
-  <!-- Hero with GOLD frame (same pattern as index) -->
+  <!-- Hero (gold frame) -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud Talent — Elite ICT & Executive Talent">
       <img src="assets/images/talent-bannerimage.png" alt="CoreCloud Talent — Elite ICT & Executive Talent" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
@@ -171,7 +168,7 @@
       <a href="employ-form.html" class="cta-btn">Hire Talent</a>
     </div>
 
-    <!-- Lumo highlight (optional; matches house style) -->
+    <!-- Lumo highlight -->
     <div class="lumo-wrap">
       <a class="lumo-cta" href="global-talent.html">Global Talent — Hire Internationally (72-hour CV Pack)</a>
       <div class="lumo-card" role="region" aria-label="Global Talent Highlight">
@@ -227,23 +224,23 @@
       </div>
     </section>
 
-    <!-- Vetting -->
+    <!-- Vetting & Assurance (CARDS ONLY as requested) -->
     <section class="section" aria-labelledby="vet-title">
       <h2 id="vet-title" class="section-title">Vetting &amp; Assurance</h2>
-      <div class="grid-2">
-        <div class="panel">
+      <div class="card-grid force-4">
+        <div class="card">
           <h3>Evidence over claims</h3>
           <p>We validate outcomes with specifics: systems touched, constraints, decisions taken, and the cost/SLO impact. References focus on influence and reliability under pressure.</p>
         </div>
-        <div class="panel">
+        <div class="card">
           <h3>Scenario &amp; work review</h3>
           <p>Candidates walk through architecture decisions, incident narratives, or code/CI examples where appropriate. We’re looking for clarity, trade-offs, and steady judgement.</p>
         </div>
-        <div class="panel">
+        <div class="card">
           <h3>Culture &amp; leadership</h3>
           <p>We screen for collaboration style, feedback posture, and bias to action. Strong talent that lifts teams, not just output.</p>
         </div>
-        <div class="panel">
+        <div class="card">
           <h3>Checks that matter</h3>
           <p>Right-to-work and background checks as required. POPIA-aligned handling of candidate data and client information.</p>
         </div>
@@ -315,32 +312,37 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter (same behavior as index; handles legacy paths) -->
+  <!-- Active-link highlighter (v13 selectors + legacy path mapping) -->
   <script>
     (function(){
       function norm(p){
         if(!p) return 'index.html';
         p = p.toLowerCase().split('#')[0].split('?')[0];
         if(p === '' || p === '/') p = 'index.html';
-        // legacy mapping
         if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
         if(p === 'mobile-web.html') p = 'application-development.html';
         return p;
       }
-      var current = norm(location.pathname.split('/').pop());
+      var current = norm(location.pathname.split('/').pop() || 'talent.html');
 
-      // mark links
-      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
-        var href = norm(a.getAttribute('href')||'');
-        if(href === current){
-          a.classList.add('active'); a.setAttribute('aria-current','page');
-          // also light up parent group button if submenu item
-          var group = a.closest('.nav-group');
-          if(group){ var btn = group.querySelector('button'); if(btn){ btn.classList.add('active'); } }
-        }else{
-          a.classList.remove('active'); a.removeAttribute('aria-current');
-        }
-      });
+      // reset any stale states
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
+        .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
+
+      // mark current
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a')
+        .forEach(function(a){
+          var href = norm(a.getAttribute('href') || '');
+          if(href === current){
+            a.classList.add('active');
+            a.setAttribute('aria-current','page');
+            var group = a.closest('.nav-group');
+            if(group){
+              var btn = group.querySelector(':scope > button');
+              if(btn){ btn.classList.add('active'); }
+            }
+          }
+        });
     })();
   </script>
 </body>
