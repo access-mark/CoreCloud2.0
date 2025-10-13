@@ -92,9 +92,9 @@
         <div class="nav-group">
           <button type="button" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
-            <a role="menuitem" href="cloud.html" class="active" aria-current="page">Overview</a>
+            <a role="menuitem" href="cloud.html">Overview</a>
             <a role="menuitem" href="aws-migration.html">AWS Migration</a>
-            <a role="menuitem" href="aws-modernization.html" class="active" aria-current="page">AWS Modernization</a>
+            <a role="menuitem" href="aws-modernization.html">AWS Modernization</a>
             <a role="menuitem" href="finops.html">FinOps</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
@@ -133,9 +133,9 @@
 
       <details open>
         <summary>Cloud Suite</summary>
-        <a href="cloud.html" aria-current="page">Overview</a>
+        <a href="cloud.html">Overview</a>
         <a href="aws-migration.html">AWS Migration</a>
-        <a href="aws-modernization.html" aria-current="page">AWS Modernization</a>
+        <a href="aws-modernization.html">AWS Modernization</a>
         <a href="finops.html">FinOps</a>
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
@@ -264,35 +264,88 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter -->
+  <!-- Active-link highlighter (parent-aware) -->
   <script>
-    (function(){
-      function norm(p){
-        if(!p) return 'index.html';
-        p = p.toLowerCase().split('#')[0].split('?')[0];
-        if(p === '' || p === '/') p = 'index.html';
-        if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
-        if(p === 'mobile-web.html') p = 'application-development.html';
-        return p;
-      }
-      var current = norm(location.pathname.split('/').pop() || 'aws-modernization.html');
+  (function(){
+    function fileOf(url){
+      if(!url) return 'index.html';
+      let p = url.toLowerCase().split('#')[0].split('?')[0];
+      if(p === '' || p === '/') return 'index.html';
+      return p.split('/').pop();
+    }
 
-      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
-        var href = norm(a.getAttribute('href') || '');
-        if(href === current){
-          a.classList.add('active');
-          a.setAttribute('aria-current','page');
-          var group = a.closest('.nav-group');
-          if(group){
-            var btn = group.querySelector('button');
-            if(btn){ btn.classList.add('active'); }
-          }
-        }else{
-          a.classList.remove('active');
-          a.removeAttribute('aria-current');
+    // Map child pages to their parent tab for underline on the top-level
+    const parentMap = {
+      // Cloud Suite children -> Cloud Suite tab
+      'aws-migration.html': 'cloud.html',
+      'aws-modernization.html': 'cloud.html',
+      'aws-manage.html': 'cloud.html',
+      'aws-optimize.html': 'cloud.html',
+      'azure-migration.html': 'cloud.html',
+      'azure-modernization.html': 'cloud.html',
+      'azure-managed.html': 'cloud.html',
+      'azure-optimization.html': 'cloud.html',
+      'databricks-engineering.html': 'cloud.html',
+      'databricks-ml.html': 'cloud.html',
+      'databricks-optimize.html': 'cloud.html',
+      'hosted-private-cloud.html': 'cloud.html',
+
+      // App Dev children -> App Dev tab
+      'application-development.html': 'application-development.html',
+      'mobile-web.html': 'application-development.html',
+      'enterprise-portals.html': 'application-development.html',
+      'apis-integration.html': 'application-development.html',
+
+      // Talent children -> Talent tab
+      'talent-relaunch.html': 'talent.html',
+      'global-talent.html': 'talent.html'
+    };
+
+    // Aliases (old filenames behaving as new ones)
+    const alias = {
+      'hosting-private-cloud.html': 'hosted-private-cloud.html',
+      'mobile-web.html': 'application-development.html'
+    };
+
+    // Current page
+    let current = fileOf(location.pathname);
+    if(alias[current]) current = alias[current];
+
+    // Parent to underline at top level
+    const parent = parentMap[current] || current;
+
+    // Clear any hard-coded actives to avoid conflicts
+    document.querySelectorAll('.main-nav a.active, .submenu a.active, .mobile-drawer a.active, .main-nav .nav-group > button.active')
+      .forEach(el => { el.classList.remove('active'); el.removeAttribute('aria-current'); });
+
+    // Walk all nav links and set state
+    document.querySelectorAll('.main-nav a, .submenu a, .mobile-drawer a').forEach(a=>{
+      const href = fileOf(a.getAttribute('href') || '');
+      const hrefAlias = alias[href] || href;
+
+      // Mark the exact page active in menus
+      if(hrefAlias === current){
+        a.classList.add('active');
+        a.setAttribute('aria-current','page');
+        const group = a.closest('.nav-group');
+        if(group){
+          const btn = group.querySelector('button');
+          if(btn){ btn.classList.add('active'); }
         }
-      });
-    })();
+      }
+
+      // Underline the parent tab as well
+      if(hrefAlias === parent){
+        a.classList.add('active');
+        a.setAttribute('aria-current','page');
+        const group = a.closest('.nav-group');
+        if(group){
+          const btn = group.querySelector('button');
+          if(btn){ btn.classList.add('active'); }
+        }
+      }
+    });
+  })();
   </script>
 </body>
 </html>
