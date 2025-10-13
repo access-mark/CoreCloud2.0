@@ -1,98 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Mobile & Web Development | CoreCloud</title>
   <meta name="description" content="CoreCloud designs and delivers fast, responsive mobile and web applications tailored to your users. Cross-platform. Cloud-native. Built for business."/>
   <meta name="keywords" content="Mobile app development South Africa, web app developers, cross-platform apps, PWA, CoreCloud mobile and web"/>
   <meta name="author" content="CoreCloud"/>
+  <link rel="canonical" href="https://www.corecloudza.com/mobile-web.html"/>
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=4"/>
+  <!-- Social -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Mobile & Web Development | CoreCloud"/>
+  <meta property="og:description" content="Fast, responsive mobile & web apps. Cross-platform. Cloud-native. Built for business."/>
+  <meta property="og:url" content="https://www.corecloudza.com/mobile-web.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- Global CSS (v13 has unified header + active underline + hero-frame) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
+
   <!-- Preload hero -->
-  <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
+  <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
-  <!-- Page-scoped (content only) -->
+  <!-- Page-scoped helpers (content only; body copy black per site policy) -->
   <style>
-    main{max-width:1200px;margin:0 auto;padding:0 1.5rem 4rem}
-    .hero{ text-align:center; margin-top:2rem; }
-    .hero h1{ font-size:2rem; color:var(--dark-blue); font-weight:700; margin-bottom:1rem; }
-    .hero p{ font-size:1.1rem; color:#444; max-width:900px; margin:0 auto; line-height:1.6; }
-    .section{ margin-top:3rem; }
-    .section h2{ text-align:center; color:var(--dark-blue); font-size:2rem; margin-bottom:1rem; font-weight:700; }
-    .section p,.section ul{ max-width:900px; margin:0 auto 1.5rem; color:#333; line-height:1.6; font-size:1rem; }
-    .section ul{ list-style:disc; padding-left:2rem; }
-
-    /* Optional compact desktop nav spacing (matches other pages) */
-    nav.desktop-nav{ gap:.55rem; }
-    nav.desktop-nav .nav-btn{ font-size:.78rem; padding:.30rem .50rem; }
+    .apps-mobile-page main{max-width:1200px;margin:0 auto;padding:0 1.25rem 3rem;}
+    .apps-mobile-page .hero-intro{margin-top:2rem;text-align:center;}
+    .apps-mobile-page .hero-title{font-size:2.2rem;color:var(--dark-blue);font-weight:700;margin-bottom:.75rem;}
+    .apps-mobile-page .hero-sub{font-size:1.1rem;color:#000;max-width:900px;margin:0 auto;line-height:1.6;}
+    .apps-mobile-page .section{margin-top:3rem;}
+    .apps-mobile-page .section h2{ text-align:center;color:var(--dark-blue);font-size:2rem;margin-bottom:1rem;font-weight:700;}
+    .apps-mobile-page .section p,.apps-mobile-page .section ul{max-width:900px;margin:0 auto 1.25rem;color:#000;line-height:1.6;font-size:1rem;}
+    .apps-mobile-page .section ul{list-style:disc;padding-left:2rem;}
   </style>
 </head>
-<body class="mobile-web-page">
-  <!-- Header / Nav (short labels, consistent site-wide) -->
-  <div class="small-banner">
-    <div class="banner-header">
-      <a href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+
+<body class="apps-mobile-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Unified Header / Nav -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </label>
+      <!-- Desktop nav -->
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
 
-      <!-- Desktop Nav (short labels) -->
-      <nav class="desktop-nav" aria-label="Primary">
-        <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULT</a>
-        <a href="cloud.html" class="nav-btn">CLOUD</a>
-        <a href="finops.html" class="nav-btn">FINOPS</a>
-        <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn active" aria-current="page">APP&nbsp;DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
-        <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
-        <a href="about.html" class="nav-btn">ABOUT</a>
-        <a href="blog.html" class="nav-btn">BLOG</a>
-        <a href="contact.html" class="nav-btn">CONTACT</a>
+        <div class="nav-group">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Consulting</button>
+          <div class="submenu" role="menu" aria-label="Consulting">
+            <a role="menuitem" href="consulting.html">Overview</a>
+            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <div class="submenu" role="menu" aria-label="Cloud Suite">
+            <a role="menuitem" href="cloud.html">Overview</a>
+            <a role="menuitem" href="aws-migration.html">AWS Migration</a>
+            <a role="menuitem" href="aws-modernization.html">AWS Modernization</a>
+            <a role="menuitem" href="aws-manage.html">AWS Managed Services</a>
+            <a role="menuitem" href="aws-optimize.html">AWS Optimization</a>
+            <a role="menuitem" href="azure-migration.html">Azure Migration</a>
+            <a role="menuitem" href="azure-modernization.html">Azure Modernization</a>
+            <a role="menuitem" href="azure-managed.html">Azure Managed Services</a>
+            <a role="menuitem" href="azure-optimization.html">Azure Optimization</a>
+            <a role="menuitem" href="databricks-engineering.html">Databricks Engineering</a>
+            <a role="menuitem" href="databricks-ml.html">Databricks AI &amp; ML</a>
+            <a role="menuitem" href="databricks-optimize.html">Databricks Cost Optimization</a>
+            <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <div class="submenu" role="menu" aria-label="Curated Talent">
+            <a role="menuitem" href="talent.html">Overview</a>
+            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="global-talent.html">Global Talent</a>
+          </div>
+        </div>
+
+        <a href="infrastructure.html">Infrastructure</a>
+        <a href="application-development.html" class="active">App&nbsp;Dev</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Insights</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
-      <!-- Mobile Nav (short labels) -->
-      <nav class="mobile-nav" aria-label="Mobile">
-        <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULT</a>
-        <a href="cloud.html">CLOUD</a>
-        <a href="finops.html">FINOPS</a>
-        <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html" class="active" aria-current="page">APP DEVELOPMENT</a>
-        <a href="data-ai.html">DATA &amp; AI</a>
-        <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">IMPRINTING</a>
-        <a href="about.html">ABOUT</a>
-        <a href="blog.html">BLOG</a>
-        <a href="contact.html">CONTACT</a>
-      </nav>
+      <!-- Mobile hamburger -->
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
+    </div>
+
+    <!-- Mobile drawer trigger -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <!-- Mobile drawer -->
+    <nav class="mobile-drawer" aria-label="Mobile">
+      <a href="index.html">Home</a>
+
+      <details>
+        <summary>Consulting</summary>
+        <a href="consulting.html">Overview</a>
+        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+      </details>
+
+      <details open>
+        <summary>Cloud Suite</summary>
+        <a href="cloud.html">Overview</a>
+        <a href="aws-migration.html">AWS Migration</a>
+        <a href="aws-modernization.html">AWS Modernization</a>
+        <a href="aws-manage.html">AWS Managed Services</a>
+        <a href="aws-optimize.html">AWS Optimization</a>
+        <a href="azure-migration.html">Azure Migration</a>
+        <a href="azure-modernization.html">Azure Modernization</a>
+        <a href="azure-managed.html">Azure Managed Services</a>
+        <a href="azure-optimization.html">Azure Optimization</a>
+        <a href="databricks-engineering.html">Databricks Engineering</a>
+        <a href="databricks-ml.html">Databricks AI &amp; ML</a>
+        <a href="databricks-optimize.html">Databricks Cost Optimization</a>
+        <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+      </details>
+
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="global-talent.html">Global Talent</a>
+      </details>
+
+      <a href="infrastructure.html">Infrastructure</a>
+      <a href="application-development.html" class="active" aria-current="page">App Development</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Insights</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero (hero-frame prevents cropping) -->
+  <div class="hero-frame">
+    <div class="hero-media" role="img" aria-label="Mobile & Web Development – CoreCloud">
+      <img src="assets/images/appdev-bannerimage.png" alt="Mobile & Web Development – CoreCloud" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
-  <!-- Standard image hero -->
-  <div class="hero-media">
-    <img src="assets/images/appdev-bannerimage.png" alt="Mobile & Web Development – CoreCloud" loading="eager" decoding="async"/>
-  </div>
+  <!-- Content -->
+  <main class="content" id="main">
+    <section class="hero-intro">
+      <h1 class="hero-title">Mobile &amp; Web Development</h1>
+      <p class="hero-sub">Fast, intuitive applications that run smoothly on any device. Whether native, hybrid, or progressive — we build clean, responsive digital experiences that scale.</p>
+    </section>
 
-  <!-- Hero -->
-  <header class="hero">
-    <h1>Mobile &amp; Web Development</h1>
-    <p>Fast, intuitive applications that run smoothly on any device. Whether native, hybrid, or progressive—we build clean, responsive digital experiences that scale.</p>
-  </header>
-
-  <main>
     <section class="section">
       <h2>Experience Everywhere</h2>
-      <p>Our teams design and deliver mobile and web apps that adapt to your users—across platforms, screen sizes, and use cases. Speed, usability, and cloud-native performance are baked into every build.</p>
+      <p>Our teams design and deliver mobile and web apps that adapt to your users — across platforms, screen sizes, and use cases. Speed, usability, and cloud-native performance are baked into every build.</p>
       <ul>
         <li>iOS, Android, and cross-platform mobile development</li>
         <li>Single-page applications (SPA) and Progressive Web Apps (PWA)</li>
@@ -113,10 +179,10 @@
 
     <section class="section">
       <h2>Design Meets Execution</h2>
-      <p>We combine strong UX thinking with deep technical execution to deliver applications that don’t just look good—but perform under real-world pressure. Aligned to your cloud strategy and fully scalable from day one.</p>
+      <p>We combine strong UX thinking with deep technical execution to deliver applications that don’t just look good — they perform under real-world pressure. Aligned to your cloud strategy and fully scalable from day one.</p>
     </section>
 
-    <section class="cta">
+    <section class="section" style="text-align:center;">
       <a href="contact.html" class="cta-btn">Start Your App Journey</a>
     </section>
   </main>
@@ -147,7 +213,7 @@
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
         <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
-        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
 
@@ -159,14 +225,34 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current nav -->
+  <!-- Active-link highlighter -->
   <script>
     (function(){
-      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
-        var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
-        else{a.classList.remove('active');a.removeAttribute('aria-current');}
+      function norm(p){
+        if(!p) return 'index.html';
+        p = p.toLowerCase().split('#')[0].split('?')[0];
+        if(p === '' || p === '/') p = 'index.html';
+        if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
+        /* Map this page to the App Dev parent so the tab underlines */
+        if(p === 'mobile-web.html') p = 'application-development.html';
+        return p;
+      }
+      var current = norm(location.pathname.split('/').pop() || 'mobile-web.html');
+
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
+        var href = norm(a.getAttribute('href') || '');
+        if(href === current){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+          var group = a.closest('.nav-group');
+          if(group){
+            var btn = group.querySelector('button');
+            if(btn){ btn.classList.add('active'); }
+          }
+        }else{
+          a.classList.remove('active');
+          a.removeAttribute('aria-current');
+        }
       });
     })();
   </script>
