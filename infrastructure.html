@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=12"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
@@ -39,7 +39,7 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;left:12px;top:12px;padding:.5rem .75rem;background:#0d3b66;color:#fff;border-radius:8px;z-index:2002;}
 
-    /* Header + Nav */
+    /* Header + Nav (same pattern as index) */
     .site-header{position:sticky;top:0;z-index:2000;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
     .header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
     .brand{display:inline-flex;align-items:center;text-decoration:none}
@@ -49,13 +49,23 @@
     .main-nav{display:flex;align-items:center;gap:18px;}
     .main-nav > a,
     .main-nav > .nav-group > button{
-      font-size:.98rem;font-weight:500;
-      color:var(--royal-2);text-decoration:none;padding:14px 10px;
+      font-size:.98rem;font-weight:500;letter-spacing:.1px;
+      color:var(--royal-2);text-decoration:none;padding:14px 10px;line-height:1;
       border:none;background:transparent;cursor:pointer;
     }
     .main-nav > a:hover,
     .main-nav > .nav-group > button:hover{color:var(--royal);}
     .main-nav > a.active{color:var(--royal);border-bottom:2px solid var(--royal);}
+
+    /* underline for active link like other pages */
+    .main-nav a.active,
+    .submenu a.active{
+      text-decoration:underline;
+      text-underline-offset:8px;
+      text-decoration-thickness:2px;
+    }
+    /* highlight parent button when a submenu item is active */
+    .nav-group > button.active{color:var(--royal);border-bottom:2px solid var(--royal);}
 
     .nav-group{position:relative;}
     .nav-group .submenu{
@@ -93,20 +103,25 @@
     @media (max-width:1024px){ .main-nav{display:none} .hamburger{display:inline-flex} }
     @media (min-width:1025px){ .mobile-drawer{display:none !important;} }
 
-    /* Hero */
+    /* Hero (gold lines like index) */
     .hero-frame{border-top:4px solid var(--gold);border-bottom:4px solid var(--gold);}
     .hero-media img{width:100%;height:auto;display:block;}
     .hero{display:flex;justify-content:center;text-align:center;padding:32px 16px;}
     .hero .hero-body{max-width:900px;margin:0 auto;}
 
     /* Text + Sections */
-    h1{font-size:var(--h1-size);line-height:1.2;margin:28px 0 12px;text-align:center;color:var(--royal);}
-    h2,.section .section-title{font-size:var(--h2-size);line-height:1.25;margin:28px 0 12px;text-align:center;color:var(--royal);}
-    body, .content, .content p, .content li, .content a, p, li, a { color:var(--royal); }
-    .hosting .section{padding:1.6rem 0;}
-    .points{padding-left:1.25rem;margin:.25rem 0;}
-    .points li{margin:.3rem 0;line-height:1.7;}
+    h1{font-size:var(--h1-size);line-height:1.2;margin:28px auto 12px;text-align:center;color:var(--royal);}
+    h2,.section .section-title{font-size:var(--h2-size);line-height:1.25;margin:28px auto 12px;text-align:center;color:var(--royal);}
+
+    /* Keep normal body color from global; only themed accents use royal */
     .muted{color:#5a6b85;font-size:.95rem}
+
+    /* Sections */
+    .section{padding:1.8rem 0;}
+
+    /* Center bullet blocks on the page, keep bullet text left */
+    .points{max-width:1000px;margin:0 auto;padding-left:1.25rem;}
+    .points li{margin:.3rem 0;line-height:1.7;}
 
     /* Metrics */
     .metrics{display:grid;gap:.45rem;max-width:1000px;margin:0 auto;padding:0 1rem;}
@@ -114,9 +129,9 @@
     .metric b{color:var(--royal-2);}
 
     /* Inline CTA */
-    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.3rem auto;text-align:center;max-width:1000px;}
+    .inline-cta{background:#0d3b66;color:#fff;padding:1.1rem 1.25rem;border-radius:12px;margin:1.8rem auto;text-align:center;max-width:1000px;}
     .inline-cta p{margin:.55rem 0 0;color:#fff !important;}
-    .cta-btn{display:inline-block;background:var(--royal);color:#fff;text-decoration:none;padding:.7rem 1rem;border-radius:8px;font-weight:700}
+    .cta-btn{display:inline-block;background:var(--royal);color:#fff;text-decoration:none;padding:.85rem 1.25rem;border-radius:10px;font-weight:700;min-width:240px;}
     .cta-btn:hover{background:#0066b2}
 
     /* FAQ */
@@ -127,6 +142,7 @@
     .faq-list summary::-webkit-details-marker{display:none;}
     .faq-list p{margin:.45rem 0 0;}
 
+    /* Wrapping safety */
     .hosting .content, .hosting .content p, .hosting .content li, .hosting .content a{word-break:break-word;overflow-wrap:anywhere;}
   </style>
 </head>
@@ -394,14 +410,34 @@
   ]}
   </script>
 
-  <!-- Auto-highlight current links -->
+  <!-- Active-link highlighter (maps legacy paths + lights parent button) -->
   <script>
     (function(){
-      var path=(location.pathname.split('/').pop()||'infrastructure.html').toLowerCase();
-      document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
-        var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
-        else{a.classList.remove('active');a.removeAttribute('aria-current');}
+      function norm(p){
+        if(!p) return 'index.html';
+        p = p.toLowerCase().split('#')[0].split('?')[0];
+        if(p === '' || p === '/') p = 'index.html';
+        // legacy aliases used elsewhere on site
+        if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
+        if(p === 'mobile-web.html') p = 'application-development.html';
+        return p;
+      }
+      var current = norm(location.pathname.split('/').pop() || 'infrastructure.html');
+
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
+        var href = norm(a.getAttribute('href') || '');
+        if(href === current){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+          var group = a.closest('.nav-group');
+          if(group){
+            var btn = group.querySelector('button');
+            if(btn){ btn.classList.add('active'); }
+          }
+        }else{
+          a.classList.remove('active');
+          a.removeAttribute('aria-current');
+        }
       });
     })();
   </script>
