@@ -20,20 +20,18 @@
   <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=13" />
 
-  <!-- Page-scoped helpers (content only) -->
+  <!-- Preload hero -->
+  <link rel="preload" as="image" href="assets/images/cloud-banner.png?v=2" fetchpriority="high" />
+
+  <!-- Page-scoped (light, content-only) -->
   <style>
-    .section-title{ text-align:center;font-size:2rem;color:var(--dark-blue);margin-bottom:1.5rem;font-weight:700; }
-    .section-subtitle{ text-align:center;font-size:1.1rem;color:#444;max-width:900px;margin:0 auto 2rem;line-height:1.6; }
-
-    .card-grid{ display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem;padding:0 1rem; }
-    .card{ background:#fff;border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.08);padding:1.5rem;text-align:center;border:2px solid var(--dark-blue); }
-    .card h2,.card h3{ font-size:1.3rem;color:#0066b2;margin-bottom:.8rem;font-weight:700; }
-    .card p{ font-size:.95rem;color:#333; }
-
-    /* Footer link normalisation */
-    .footer-right a{ color:var(--primary-blue);text-decoration:underline;font-weight:600; }
+    .center-subtitle{ text-align:center; color:#000; font-size:1.05rem; margin:0 auto 2rem; max-width:900px; line-height:1.65; }
+    .checklist{ list-style:none; padding-left:0; max-width:1000px; }
+    .checklist li{ margin:.42rem 0; }
+    /* Defensive: footer tel link stays white + no underline */
+    .footer-right a[href^="tel"]{ color:#fff !important; text-decoration:none !important; font-weight:700; }
   </style>
 
   <!-- JSON-LD -->
@@ -69,131 +67,215 @@
   }
   </script>
 </head>
-<body class="aws-optimize-page">
-  <!-- Header / Nav -->
-  <div class="small-banner">
-    <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" />
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </label>
+<body class="cloud-page aws-optimize-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-      <nav class="desktop-nav" aria-label="Primary">
-        <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULTING</a>
-        <a href="cloud.html" class="nav-btn active" aria-current="page">CLOUD SUITE</a>
-        <a href="finops.html" class="nav-btn">FINOPS &amp; GOVERNANCE</a>
-        <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP DEVE</a>
-        <a href="data-ai.html" class="nav-btn">DATA &amp; AI</a>
-        <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">DYNAMIC IMPRINTING</a>
-        <a href="about.html" class="nav-btn">ABOUT</a>
-        <a href="blog.html" class="nav-btn">BLOG</a>
-        <a href="contact.html" class="nav-btn">CONTACT</a>
+  <!-- Unified Header / Nav -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async" />
+      </a>
+
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+
+        <div class="nav-group">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Consulting</button>
+          <div class="submenu" role="menu" aria-label="Consulting">
+            <a role="menuitem" href="consulting.html">Overview</a>
+            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <div class="submenu" role="menu" aria-label="Cloud Suite">
+            <a role="menuitem" href="cloud.html" class="active" aria-current="page">Overview</a>
+            <a role="menuitem" href="aws-migration.html">AWS Migration</a>
+            <a role="menuitem" href="aws-modernization.html">AWS Modernization</a>
+            <a role="menuitem" href="aws-manage.html">AWS Managed Services</a>
+            <a role="menuitem" href="aws-optimize.html" class="active" aria-current="page">AWS Optimization</a>
+            <a role="menuitem" href="finops.html">FinOps</a>
+            <a role="menuitem" href="application-development.html">Application Development</a>
+            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
+            <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <div class="submenu" role="menu" aria-label="Curated Talent">
+            <a role="menuitem" href="talent.html">Overview</a>
+            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="global-talent.html">Global Talent</a>
+          </div>
+        </div>
+
+        <a href="infrastructure.html">Infrastructure</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Insights</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
-      <nav class="mobile-nav" aria-label="Mobile">
-        <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULTING</a>
-        <a href="cloud.html" class="active" aria-current="page">CLOUD SUITE</a>
-        <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
-        <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">DYNAMIC IMPRINTING</a>
-        <a href="about.html">ABOUT</a>
-        <a href="blog.html">BLOG</a>
-        <a href="contact.html">CONTACT</a>
-      </nav>
+      <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-label="Open menu" />
+      <label class="hamburger" for="nav-toggle"><span></span></label>
+    </div>
+
+    <!-- Mobile drawer -->
+    <nav class="mobile-drawer" aria-label="Mobile">
+      <a href="index.html">Home</a>
+
+      <details>
+        <summary>Consulting</summary>
+        <a href="consulting.html">Overview</a>
+        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+      </details>
+
+      <details open>
+        <summary>Cloud Suite</summary>
+        <a href="cloud.html" aria-current="page">Overview</a>
+        <a href="aws-migration.html">AWS Migration</a>
+        <a href="aws-modernization.html">AWS Modernization</a>
+        <a href="aws-manage.html">AWS Managed Services</a>
+        <a href="aws-optimize.html" aria-current="page">AWS Optimization</a>
+        <a href="finops.html">FinOps</a>
+        <a href="application-development.html">Application Development</a>
+        <a href="data-ai.html">Data &amp; AI</a>
+        <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+      </details>
+
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="global-talent.html">Global Talent</a>
+      </details>
+
+      <a href="infrastructure.html">Infrastructure</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Insights</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero with single frame lines -->
+  <div class="hero-frame">
+    <div class="hero-media" role="img" aria-label="AWS Optimization – Cost and performance">
+      <img src="assets/images/cloud-banner.png?v=2" alt="AWS Optimization – Cost and performance" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high" />
     </div>
   </div>
 
-  <!-- Standard Cloud Banner (shared with home/AWS) -->
-  <div class="page-banner" style="background-image:url('assets/images/cloud-banner.png?v=2');"></div>
-
-  <!-- Main Content -->
+  <!-- Main -->
   <main class="content" id="main">
-    <h1 class="hero-title">AWS Optimization Services</h1>
-    <p class="section-subtitle">
-      Cloud waste is real — and expensive. We help South African enterprises run lean and efficient.
-      Our AWS Optimization services uncover hidden costs, right-size workloads, and keep your cloud running fast and cost-effectively.
-    </p>
-
-    <section class="section">
-      <h2 class="section-title">Our Optimization Pillars</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Cost Transparency</h3>
-          <p>Clear visibility across accounts, detection of untagged resources and anomalies, and elimination of unused services.</p>
-        </div>
-        <div class="card">
-          <h3>Performance Tuning</h3>
-          <p>Autoscaling, storage optimisation, and systematic performance benchmarking.</p>
-        </div>
-        <div class="card">
-          <h3>Reserved/Savings Strategy</h3>
-          <p>Smart RI and Savings Plans for maximum savings without losing flexibility.</p>
-        </div>
-        <div class="card">
-          <h3>FinOps Alignment</h3>
-          <p>Forecasting, budgets, and cost ownership integrated into your operating model.</p>
-        </div>
-        <div class="card">
-          <h3>Real-time Optimisation Tools</h3>
-          <p>Insights and automation that cut spend while improving performance.</p>
-        </div>
-        <div class="card">
-          <h3>Cloud ROI Realisation</h3>
-          <p>Move from simple consumption to extracting measurable value and savings.</p>
-        </div>
-      </div>
+    <section class="hero-intro">
+      <h1 class="hero-title">AWS Optimization Services</h1>
+      <p class="center-subtitle">
+        Cloud waste is real — and expensive. We run your estate lean: right-size, automate, and tune for performance.
+      </p>
     </section>
 
-    <div style="text-align:center;margin-top:3rem;">
+    <h2 class="section-title">Our Optimization Pillars</h2>
+    <div class="card-grid" style="max-width:var(--content-max); margin:0 auto;">
+      <div class="card">
+        <h3>Cost Transparency</h3>
+        <p>Clear multi-account visibility, anomaly detection, and cleanup of idle/untagged resources.</p>
+      </div>
+      <div class="card">
+        <h3>Performance Tuning</h3>
+        <p>Autoscaling policies, storage classes, caching, and systematic benchmarking.</p>
+      </div>
+      <div class="card">
+        <h3>RI / Savings Plans</h3>
+        <p>Commitment strategies that maximise savings without boxing you in.</p>
+      </div>
+      <div class="card">
+        <h3>FinOps Alignment</h3>
+        <p>Budgets, forecasts, and ownership embedded in your operating model.</p>
+      </div>
+      <div class="card">
+        <h3>Real-time Optimisation</h3>
+        <p>Insights + automation that cut spend while improving performance.</p>
+      </div>
+      <div class="card">
+        <h3>Cloud ROI</h3>
+        <p>Shift from consumption to measurable value and savings.</p>
+      </div>
+    </div>
+
+    <div class="centered" style="margin-top:2rem;">
       <a href="contact.html" class="cta-btn">Start Saving</a>
     </div>
   </main>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-left">
-      <p><strong>CoreCloud (Pty) Ltd</strong></p>
-      <p>Sandton<br>Johannesburg<br>South Africa</p>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton<br>Johannesburg<br>South Africa</p>
+      </div>
+
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <label class="vh" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-right">
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p><a href="https://www.linkedin.com/company/107657749" target="_blank" rel="noopener" class="linkedin-link">LinkedIn</a></p>
+      </div>
     </div>
 
-    <div class="footer-middle">
-      <h4>Stay Informed</h4>
-      <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-      <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-        <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
-        <label class="visually-hidden" for="newsletter_email">Email</label>
-        <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
-        <button type="submit" class="cta-btn">Subscribe</button>
-      </form>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
     </div>
+  </footer>
 
-    <div class="footer-right">
-      <p><strong>Contact</strong></p>
-      <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-      <p>Phone: <a href="mailto:sales@corecloudza.com">{+27) 011 568 8667</a></p>
-      <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
-    </div>
-  </div>
+  <!-- Active-link highlighter -->
+  <script>
+    (function(){
+      function norm(p){
+        if(!p) return 'index.html';
+        p = p.toLowerCase().split('#')[0].split('?')[0];
+        if(p === '' || p === '/') p = 'index.html';
+        if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
+        if(p === 'mobile-web.html') p = 'application-development.html';
+        return p;
+      }
+      var current = norm(location.pathname.split('/').pop() || 'aws-optimize.html');
 
-  <div class="footer-bottom">
-    <p>&copy; 2025 CoreCloud. All rights reserved. |
-      <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-      <a href="terms.html" class="legal-link">Terms</a>
-    </p>
-  </div>
-</footer>
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
+        var href = norm(a.getAttribute('href') || '');
+        if(href === current){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+          var group = a.closest('.nav-group');
+          if(group){
+            var btn = group.querySelector('button');
+            if(btn){ btn.classList.add('active'); }
+          }
+        }else{
+          a.classList.remove('active');
+          a.removeAttribute('aria-current');
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
