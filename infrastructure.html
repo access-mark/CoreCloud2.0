@@ -20,7 +20,7 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=14"/>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
@@ -55,17 +55,18 @@
     }
     .main-nav > a:hover,
     .main-nav > .nav-group > button:hover{color:var(--royal);}
-    .main-nav > a.active{color:var(--royal);border-bottom:2px solid var(--royal);}
-
-    /* underline for active link like other pages */
-    .main-nav a.active,
-    .submenu a.active{
-      text-decoration:underline;
-      text-underline-offset:8px;
-      text-decoration-thickness:2px;
+    /* Active: single bottom border (no extra underline) */
+    .main-nav > a.active,
+    .main-nav > a[aria-current="page"]{
+      color:var(--royal);
+      border-bottom:2px solid var(--royal);
+      text-decoration:none !important;
     }
-    /* highlight parent button when a submenu item is active */
-    .nav-group > button.active{color:var(--royal);border-bottom:2px solid var(--royal);}
+    /* If a submenu item is active, also light its parent button (single line) */
+    .nav-group > button.active{
+      color:var(--royal);
+      border-bottom:2px solid var(--royal);
+    }
 
     .nav-group{position:relative;}
     .nav-group .submenu{
@@ -79,6 +80,14 @@
       text-decoration:none;font-weight:500;font-size:.95rem;
     }
     .submenu a:hover{background:#f2f7ff;color:var(--royal);}
+    /* Submenu active: underline (matches other pages) */
+    .submenu a.active,
+    .submenu a[aria-current="page"]{
+      text-decoration:underline;
+      text-underline-offset:8px;
+      text-decoration-thickness:2px;
+      border-bottom:none !important;
+    }
 
     /* Mobile Drawer */
     .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center;z-index:2003;}
@@ -91,6 +100,13 @@
     .mobile-drawer details{border-top:1px dashed rgba(0,0,0,.08);padding:0 0 8px 0}
     .mobile-drawer details[open] summary{background:#f7fbff}
     .mobile-drawer a:hover{background:#f2f7ff}
+    /* Mobile active: underline only (no border) */
+    .mobile-drawer a.active,
+    .mobile-drawer a[aria-current="page"]{
+      text-decoration:underline;
+      text-underline-offset:6px;
+      text-decoration-thickness:2px;
+    }
 
     header.site-header > #nav-toggle:checked ~ nav.mobile-drawer{
       display:block;position:fixed;inset:0;top:0;padding:5rem 1.25rem 2rem;
@@ -103,8 +119,12 @@
     @media (max-width:1024px){ .main-nav{display:none} .hamburger{display:inline-flex} }
     @media (min-width:1025px){ .mobile-drawer{display:none !important;} }
 
-    /* Hero (gold lines like index) */
-    .hero-frame{border-top:4px solid var(--gold);border-bottom:4px solid var(--gold);}
+    /* Hero (use the same pseudo-line system as site-wide; no borders) */
+    .hero-frame::before,
+    .hero-frame::after{
+      height:var(--frame-thin);
+      background:var(--gold);
+    }
     .hero-media img{width:100%;height:auto;display:block;}
     .hero{display:flex;justify-content:center;text-align:center;padding:32px 16px;}
     .hero .hero-body{max-width:900px;margin:0 auto;}
@@ -113,7 +133,6 @@
     h1{font-size:var(--h1-size);line-height:1.2;margin:28px auto 12px;text-align:center;color:var(--royal);}
     h2,.section .section-title{font-size:var(--h2-size);line-height:1.25;margin:28px auto 12px;text-align:center;color:var(--royal);}
 
-    /* Keep normal body color from global; only themed accents use royal */
     .muted{color:#5a6b85;font-size:.95rem}
 
     /* Sections */
