@@ -30,20 +30,20 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;top:10px;left:10px;padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;outline:2px solid #fff;z-index:1000;}
 
-    /* Robust “visually hidden” utility (labels + honeypot) */
+    /* Robust visually-hidden utility (labels + honeypot) */
     .visually-hidden{
-      position:absolute !important;
-      width:1px !important;height:1px !important;
-      padding:0 !important;margin:-1px !important;
-      overflow:hidden !important;clip:rect(0 0 0 0) !important;clip-path:inset(50%) !important;border:0 !important;white-space:nowrap !important;
+      position:absolute !important;width:1px !important;height:1px !important;
+      padding:0 !important;margin:-1px !important;overflow:hidden !important;
+      clip:rect(0 0 0 0) !important;clip-path:inset(50%) !important;border:0 !important;white-space:nowrap !important;
     }
 
     /* Spacing/widths to match site rhythm */
     .contact-page .hero-title{margin:2.5rem auto 1.25rem !important;max-width:var(--heading-max);}
     .contact-page .contact-wrap{
       max-width:var(--content-max);margin:0 auto 3rem;padding:0 1rem;
-      display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem;
+      display:grid;gap:1.5rem;grid-template-columns:1fr;align-items:start;
     }
+    @media (min-width:980px){ .contact-page .contact-wrap{ grid-template-columns:1.1fr .9fr; } }
     .contact-page .section-title{margin-top:2rem !important;margin-bottom:1rem !important;}
 
     .contact-page .form-container{
@@ -70,7 +70,7 @@
 <body class="contact-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Unified Header / Nav (same structure as other updated pages) -->
+  <!-- Unified Header / Nav -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -82,7 +82,7 @@
         <a href="index.html">Home</a>
 
         <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Consulting</button>
+          <button type="button" aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
             <a role="menuitem" href="consulting.html">Overview</a>
             <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
@@ -90,7 +90,7 @@
         </div>
 
         <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <button type="button" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
             <a role="menuitem" href="cloud.html">Overview</a>
             <a role="menuitem" href="finops.html">FinOps</a>
@@ -101,7 +101,7 @@
         </div>
 
         <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <button type="button" aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
             <a role="menuitem" href="talent.html">Overview</a>
             <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
@@ -119,7 +119,7 @@
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
-    <!-- Mobile drawer trigger -->
+    <!-- Mobile drawer trigger MUST precede the drawer in the DOM -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <!-- Mobile drawer -->
     <nav class="mobile-drawer" aria-label="Mobile">
@@ -154,7 +154,7 @@
     </nav>
   </header>
 
-  <!-- Hero with single gold lines (uses global .hero-frame) -->
+  <!-- Hero with single frame lines -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="Contact CoreCloud – Sandton, Johannesburg">
       <img src="assets/images/contact-bannerimage.png" alt="Contact CoreCloud – Sandton, Johannesburg" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
@@ -174,7 +174,7 @@
         <p>Start a conversation that moves the needle! Strategy, Talent, Cloud Transformation.</p>
         <p><strong>CoreCloud (Pty) Ltd</strong><br/>Sandton,<br/>Johannesburg</p>
         <p><strong>Phone:</strong><br/><a href="tel:+27115688667">+27 11 568 8667</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener">linkedin.com/company/corecloudza</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/company/107657749" target="_blank" rel="noopener">linkedin.com/company/107657749</a></p>
 
         <div class="quote-box" aria-label="CoreCloud principles">
           <p style="font-style:italic;">“Execution isn’t optional. It’s the business.”</p>
@@ -188,14 +188,14 @@
       <section class="contact-col" aria-labelledby="send-message">
         <h2 id="send-message" class="section-title">Send a Message</h2>
 
-        <form action="https://formsubmit.co/mark@corecloudza.com" method="POST" class="form-container">
+        <form action="https://formsubmit.co/mark@corecloudza.com" method="POST" class="form-container" novalidate>
           <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=contact"/>
           <input type="hidden" name="_captcha" value="false"/>
           <input type="hidden" name="_template" value="table"/>
           <input type="hidden" name="_subject" value="New website enquiry — Contact page"/>
           <input type="hidden" name="_autoresponse" value="Thanks for contacting CoreCloud. We’ll get back to you shortly."/>
 
-          <!-- Honeypot (fully hidden but still present in DOM) -->
+          <!-- Honeypot -->
           <label class="visually-hidden" for="cc_hny">Do not fill</label>
           <input class="visually-hidden" type="text" id="cc_hny" name="_honey" autocomplete="off" tabindex="-1" aria-hidden="true"/>
 
@@ -240,7 +240,7 @@
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
         <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
-        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener" class="linkedin-link">LinkedIn</a></p>
+        <p><a href="https://www.linkedin.com/company/107657749" target="_blank" rel="noopener" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
 
@@ -252,7 +252,7 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter (same logic as other pages) -->
+  <!-- Active-link highlighter -->
   <script>
     (function(){
       function norm(p){
