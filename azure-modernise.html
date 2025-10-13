@@ -15,11 +15,8 @@
   <meta property="og:url" content="https://www.corecloudza.com/azure-modernization.html" />
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="CoreCloud Azure Modernization | Transform Legacy to Cloud-Native" />
-  <meta name="twitter:description" content="Assess, redesign, refactor and automate on Azure — delivered with clear milestones and governance." />
-  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
 
-  <!-- Global CSS (ensure v=13 for underline + hero fixes) -->
+  <!-- Global CSS (v13 = hero + underline fixes) -->
   <link rel="stylesheet" href="assets/css/styles.css?v=13" />
 
   <!-- Preload hero -->
@@ -27,28 +24,24 @@
 
   <!-- Page-scoped helpers -->
   <style>
-    /* Center the hero blurb (overrides global left-align in content areas) */
+    /* Center hero blurb */
     .hero-intro .section-subtitle{
       text-align:center !important; color:#000; font-size:1.05rem;
       margin:0 auto 2rem; max-width:900px; line-height:1.65;
     }
 
-    /* Grid/cards (use site look) */
-    .card-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; margin-top:2rem; padding:0 1rem; }
-    .card{ background:#fff; border:2px solid var(--dark-blue); border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,.08); padding:1.5rem; text-align:left; }
-    .card h3{ font-size:1.25rem; color:var(--primary-blue); margin-bottom:.8rem; font-weight:700; }
-    .card p{ font-size:.95rem; color:#000; }
-    .card .cta-btn{ margin-top:1rem; width:100%; }
+    /* Pillars: 4 in a line (uses global .card-grid.force-4) */
+    .pillar-grid.card-grid.force-4 .card{ text-align:left; }
+    .pillar-grid .card h3{ font-size:1.25rem; color:var(--primary-blue); margin-bottom:.8rem; font-weight:700; }
+    .pillar-grid .card p{ font-size:.95rem; color:#000; }
+    .pillar-grid .card .cta-btn{ margin-top:1rem; width:100%; }
 
-    .card-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; margin-top:2rem; padding:0 1rem; }
-    .card-row .card{ max-width:700px; }
-
-    /* Bullet lists (no green ticks) */
+    /* Narrative lists (no cards) */
     .bullet-list{ list-style:disc; padding-left:1.5rem; font-size:1.05rem; color:#000; line-height:1.8; margin:0 auto; max-width:800px; }
 
-    /* Force underline on active parent button (Cloud Suite) + current submenu */
+    /* Force underline on active parent (Cloud Suite) + current submenu */
     .main-nav .nav-group > button.active{ color:var(--dark-blue); border-bottom:2px solid var(--dark-blue) !important; }
-    .submenu a.active{ border-bottom:2px solid var(--dark-blue) !important; color:var(--dark-blue) !important; }
+    .submenu a.active{ color:var(--dark-blue) !important; border-bottom:2px solid var(--dark-blue) !important; }
 
     /* Footer tel stays white */
     .footer-right a[href^="tel"]{ color:#fff !important; text-decoration:none !important; font-weight:700; }
@@ -84,7 +77,6 @@
             <a role="menuitem" href="aws-modernization.html">AWS Modernization</a>
             <a role="menuitem" href="aws-manage.html">AWS Managed Services</a>
             <a role="menuitem" href="aws-optimize.html">AWS Optimization</a>
-            <!-- Only THIS page is active -->
             <a role="menuitem" href="azure-migration.html">Azure Migration</a>
             <a role="menuitem" href="azure-modernization.html" class="active" aria-current="page">Azure Modernization</a>
             <a role="menuitem" href="finops.html">FinOps</a>
@@ -152,14 +144,14 @@
     </nav>
   </header>
 
-  <!-- Hero with single frame lines (no cut-off) -->
+  <!-- Hero (no crop) -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="Azure Modernization – Cloud-native transformation">
       <img src="assets/images/cloud-banner.png?v=2" alt="Azure Modernization – Cloud-native transformation" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high" />
     </div>
   </div>
 
-  <!-- Main Content -->
+  <!-- Main -->
   <main class="content" id="main">
     <section class="hero-intro">
       <h1 class="hero-title">Azure Modernization Services</h1>
@@ -168,9 +160,10 @@
       </p>
     </section>
 
+    <!-- Pillars: single row of 4 -->
     <section class="section">
       <h2 class="section-title">Modernization Pillars</h2>
-      <div class="card-grid">
+      <div class="pillar-grid card-grid force-4">
         <div class="card">
           <h3>Legacy Assessment</h3>
           <p>Identify technical debt, dependencies, and scalability limits across your estate.</p>
@@ -194,32 +187,27 @@
       </div>
     </section>
 
+    <!-- Outcomes We Deliver (narrative, no cards) -->
     <section class="section">
       <h2 class="section-title">Outcomes We Deliver</h2>
-      <div class="card-row">
-        <div class="card">
-          <ul class="bullet-list">
-            <li>Faster innovation with cloud-native patterns</li>
-            <li>Modernised legacy with minimal disruption</li>
-            <li>Agile operations with DevOps baked in</li>
-            <li>Improved scalability, availability, and security</li>
-          </ul>
-        </div>
+      <div class="narrative">
+        <p><strong>Faster innovation</strong> through cloud-native patterns that shorten release cycles and unlock new features sooner.</p>
+        <p><strong>Minimal disruption</strong> to core operations as legacy systems are modernised with clear migration windows and rollback paths.</p>
+        <p><strong>DevOps built in</strong> — automated pipelines, testing, and observability for repeatable, safe delivery at pace.</p>
+        <p><strong>Scale and resilience</strong> improved across the stack, with measurable gains in availability, performance, and security posture.</p>
       </div>
     </section>
 
+    <!-- Microsoft CAF (narrative, no cards) -->
     <section class="section">
       <h2 class="section-title">Microsoft Cloud Adoption Framework</h2>
-      <div class="card-row">
-        <div class="card">
-          <ul class="bullet-list">
-            <li>Strategy &amp; governance aligned to Microsoft CAF</li>
-            <li>Enterprise landing zones for policy &amp; compliance</li>
-            <li>Execution with Azure Migrate, Defender for Cloud &amp; more</li>
-            <li>Partner-led delivery with SLAs and accountability</li>
-          </ul>
-        </div>
+      <div class="narrative">
+        <p><strong>Strategy &amp; governance first.</strong> We align objectives, risks, and controls to the Microsoft CAF so execution is anchored in policy and outcomes.</p>
+        <p><strong>Enterprise landing zones.</strong> Guardrails, identity, network, and policy baselines establish compliant foundations for scale.</p>
+        <p><strong>Tool-assisted execution.</strong> Azure Migrate, Defender for Cloud, and complementary tooling drive secure, auditable progress.</p>
+        <p><strong>Accountable delivery.</strong> Partner-led SLAs with clear milestones, ownership, and reporting from planning to steady state.</p>
       </div>
+
       <div class="centered" style="text-align:center; margin-top:1.5rem;">
         <a href="contact.html" class="cta-btn">Start Your Modernization</a>
       </div>
@@ -264,7 +252,7 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter -->
+  <!-- Active-link highlighter (drives underline) -->
   <script>
     (function(){
       function norm(p){
