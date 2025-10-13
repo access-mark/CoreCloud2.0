@@ -15,74 +15,129 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/talent-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css"/>
+  <!-- Global CSS (same as index) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
 
-  <!-- Preload hero -->
+  <!-- Preload -->
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/talent-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
 
-  <!-- Page-scoped helpers (narrative; no global overrides) -->
+  <!-- Page-scoped helpers -->
   <style>
-    .global-talent .hero-intro{ max-width:900px; margin:2rem auto 1.2rem; text-align:center; }
-    .global-talent .hero-cta{ display:flex; gap:.6rem; flex-wrap:wrap; justify-content:center; margin:.8rem auto 0; }
-    .global-talent .hero-cta .cta-btn{ min-width:220px; }
-    .global-talent .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
-    .global-talent .narrative p{ margin:.6rem 0; line-height:1.75; color:#444; }
-    .global-talent .kv{ font-weight:700; color:var(--dark-blue); }
-    .global-talent .section-note{ font-size:.95rem; color:#556; opacity:.95; }
+    /* Center titles like index */
+    .global-talent :is(h1.hero-title,h2.section-title){
+      text-align:center !important; margin-left:auto; margin-right:auto; display:block;
+    }
+
+    /* Hero intro + CTAs */
+    .hero-intro{ max-width:900px; margin:2rem auto 1.2rem; text-align:center; padding:0 1rem; }
+    .hero-cta{ display:flex; gap:.6rem; flex-wrap:wrap; justify-content:center; margin:.8rem auto 0; }
+    .hero-cta .cta-btn{ min-width:220px; }
+
+    /* Narrative blocks */
+    .narrative{ max-width:1000px; margin:0 auto; padding:0 1rem; }
+    .narrative p{ margin:.6rem 0; line-height:1.75; color:#444; }
+    .kv{ font-weight:700; color:var(--dark-blue); }
+    .section-note{ font-size:.95rem; color:#556; opacity:.95; }
+
+    /* Ensure hero frame lines are gold (index style) */
+    .hero-frame::before,.hero-frame::after{ background:var(--gold); }
   </style>
 </head>
 
 <body class="global-talent">
-  <!-- Header / Nav (exactly like Talent page) -->
-  <div class="small-banner">
-    <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" fetchpriority="high"/>
+  <!-- Header / Nav (same structure/behavior as index) -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
+      </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle"/>
-      <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
+      <!-- Desktop nav with dropdowns -->
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
 
-      <nav class="desktop-nav">
-        <a href="index.html" class="nav-btn">HOME</a>
-        <a href="consulting.html" class="nav-btn">CONSULT</a>
-        <a href="cloud.html" class="nav-btn">CLOUD</a>
-        <a href="finops.html" class="nav-btn">FINOPS</a>
-        <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-        <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
-        <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
-        <a href="talent.html" class="nav-btn">TALENT</a>
-        <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
-        <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
-        <a href="about.html" class="nav-btn">ABOUT</a>
-        <a href="blog.html" class="nav-btn">BLOG</a>
-        <a href="contact.html" class="nav-btn">CONTACT</a>
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Consulting</button>
+          <div class="submenu" role="menu" aria-label="Consulting">
+            <a role="menuitem" href="consulting.html">Overview</a>
+            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <div class="submenu" role="menu" aria-label="Cloud Suite">
+            <a role="menuitem" href="cloud.html">Overview</a>
+            <a role="menuitem" href="finops.html">FinOps</a>
+            <a role="menuitem" href="application-development.html">Application Development</a>
+            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
+            <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <div class="submenu" role="menu" aria-label="Curated Talent">
+            <a role="menuitem" href="talent.html">Overview</a>
+            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="global-talent.html" class="active" aria-current="page">Global Talent</a>
+          </div>
+        </div>
+
+        <a href="infrastructure.html">Infrastructure</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Insights</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
-      <nav class="mobile-nav" aria-label="Mobile">
-        <a href="index.html">HOME</a>
-        <a href="consulting.html">CONSULT</a>
-        <a href="cloud.html">CLOUD</a>
-        <a href="finops.html">FINOPS</a>
-        <a href="hosting-private-cloud.html">HOSTING</a>
-        <a href="application-development.html">APP DEVELOPMENT</a>
-        <a href="data-ai.html">DATA &amp; AI</a>
-        <a href="talent.html">TALENT</a>
-        <a href="talent-relaunch.html">RE / LAUNCH</a>
-        <a href="dynamic-imprinting.html">IMPRINTING</a>
-        <a href="about.html">ABOUT</a>
-        <a href="blog.html">BLOG</a>
-        <a href="contact.html">CONTACT</a>
-      </nav>
+      <!-- Mobile toggle -->
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
-  </div>
 
-  <!-- Hero -->
-  <div class="hero-media">
-    <img
-      src="assets/images/talent-bannerimage.png"
-      alt="CoreCloud Global Talent — Elite South African Engineers for Global Teams"
-      decoding="async" loading="eager" fetchpriority="high"
-      width="1920" height="500"/>
+    <!-- Mobile drawer -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <nav class="mobile-drawer" aria-label="Mobile">
+      <a href="index.html">Home</a>
+
+      <details>
+        <summary>Consulting</summary>
+        <a href="consulting.html">Overview</a>
+        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+      </details>
+
+      <details>
+        <summary>Cloud Suite</summary>
+        <a href="cloud.html">Overview</a>
+        <a href="finops.html">FinOps</a>
+        <a href="application-development.html">Application Development</a>
+        <a href="data-ai.html">Data &amp; AI</a>
+        <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+      </details>
+
+      <details open>
+        <summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="global-talent.html" aria-current="page">Global Talent</a>
+      </details>
+
+      <a href="infrastructure.html">Infrastructure</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Insights</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero with GOLD frame -->
+  <div class="hero-frame">
+    <div class="hero-media" role="img" aria-label="CoreCloud Global Talent — Elite South African Engineers for Global Teams">
+      <img
+        src="assets/images/talent-bannerimage.png"
+        alt="CoreCloud Global Talent — Elite South African Engineers for Global Teams"
+        decoding="async" loading="eager" fetchpriority="high"
+        width="1920" height="500"/>
+    </div>
   </div>
 
   <!-- Intro -->
@@ -95,8 +150,8 @@
     </div>
   </section>
 
-  <main class="content">
-    <!-- Why South Africa (narrative) -->
+  <main class="content" id="main">
+    <!-- Why South Africa -->
     <section class="section narrative" aria-labelledby="why-title">
       <h2 id="why-title" class="section-title">Why South Africa for Global Placements?</h2>
       <p><span class="kv">Execution under pressure:</span> resilient, outcome-driven professionals who deliver without hand-holding — comfortable with constraints and ambiguity.</p>
@@ -105,7 +160,7 @@
       <p><span class="kv">Cultural fit:</span> pragmatic, straight-talking, client-oriented — easy integration into international teams.</p>
     </section>
 
-    <!-- What we place (narrative) -->
+    <!-- What we place -->
     <section class="section narrative" aria-labelledby="what-title">
       <h2 id="what-title" class="section-title">What We Place</h2>
       <p><span class="kv">Cloud &amp; Platform:</span> AWS/Azure engineers, landing zones, IaC, platform ops, SRE/DevOps.</p>
@@ -114,7 +169,7 @@
       <p><span class="kv">Leadership &amp; Architecture:</span> solution/enterprise architects, delivery leads, FinOps &amp; governance specialists.</p>
     </section>
 
-    <!-- Engagement models (narrative) -->
+    <!-- Engagement models -->
     <section class="section narrative" aria-labelledby="models-title">
       <h2 id="models-title" class="section-title">Engagement Models</h2>
       <p><span class="kv">Contract placements (3–12 months):</span> extend or convert as needs evolve.</p>
@@ -127,7 +182,7 @@
       </div>
     </section>
 
-    <!-- Assurance (narrative) -->
+    <!-- Assurance -->
     <section class="section narrative" aria-labelledby="assure-title">
       <h2 id="assure-title" class="section-title">Assurance &amp; Compliance</h2>
       <p><span class="kv">Evidence over claims:</span> delivery stories, referenceable outcomes, and environment specifics — not keyword CVs.</p>
@@ -136,7 +191,7 @@
       <p><span class="kv">Replacement guarantee:</span> if a placement fails in probation, we replace — same fee, no risk.</p>
     </section>
 
-    <!-- Final CTA (narrative) -->
+    <!-- Final CTA -->
     <section class="section narrative" aria-labelledby="cta-title">
       <h2 id="cta-title" class="section-title">Ready to add capacity?</h2>
       <p>Tell us your stack, timezone, and start date. We’ll send 2–3 matched CVs within 48 hours and align on outcomes, not just roles.</p>
@@ -147,24 +202,24 @@
     </section>
   </main>
 
-  <!-- Footer (same as Talent page) -->
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton<br>Johannesburg<br>South Africa</p>
+        <p>Sandton<br/>Johannesburg<br/>South Africa</p>
       </div>
 
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
           <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
@@ -172,7 +227,7 @@
       <div class="footer-right">
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p>Phone: <a href="tel:+27 11 568 8667">+27 11 568 8667</a></p>
         <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
@@ -185,14 +240,29 @@
     </div>
   </footer>
 
-  <!-- Auto-highlight current nav -->
+  <!-- Active-link highlighter (with legacy path mapping) -->
   <script>
     (function(){
-      var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
-        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
+      function norm(p){
+        if(!p) return 'index.html';
+        p = p.toLowerCase().split('#')[0].split('?')[0];
+        if(p === '' || p === '/') p = 'index.html';
+        // legacy mappings used across the site
+        if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
+        if(p === 'mobile-web.html') p = 'application-development.html';
+        return p;
+      }
+      var current = norm(location.pathname.split('/').pop());
+
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
+        var href = norm(a.getAttribute('href')||'');
+        if(href === current){
+          a.classList.add('active'); a.setAttribute('aria-current','page');
+          var group = a.closest('.nav-group');
+          if(group){ var btn = group.querySelector('button'); if(btn){ btn.classList.add('active'); } }
+        }else{
+          a.classList.remove('active'); a.removeAttribute('aria-current');
+        }
       });
     })();
   </script>
