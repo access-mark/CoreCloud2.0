@@ -25,12 +25,11 @@
   <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/cloud-banner.png?v=2" fetchpriority="high" />
 
-  <!-- Page-scoped (light, content-only) -->
+  <!-- Page-scoped (light) -->
   <style>
     .center-subtitle{ text-align:center; color:#000; font-size:1.05rem; margin:0 auto 2rem; max-width:900px; line-height:1.65; }
-    .checklist{ list-style:none; padding-left:0; max-width:1000px; }
-    .checklist li{ margin:.42rem 0; }
-    /* Defensive: footer tel link stays white + no underline */
+    .card-grid{ max-width:var(--content-max); margin:0 auto; }
+    /* keep tel link white/no underline in footer */
     .footer-right a[href^="tel"]{ color:#fff !important; text-decoration:none !important; font-weight:700; }
   </style>
 
@@ -177,7 +176,7 @@
     </section>
 
     <h2 class="section-title">Our Optimization Pillars</h2>
-    <div class="card-grid" style="max-width:var(--content-max); margin:0 auto;">
+    <div class="card-grid">
       <div class="card">
         <h3>Cost Transparency</h3>
         <p>Clear multi-account visibility, anomaly detection, and cleanup of idle/untagged resources.</p>
