@@ -3,117 +3,32 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Cloud | CoreCloud — Secure Foundations, Migration, FinOps by Design</title>
-  <meta name="description" content="Cloud that’s governed by design: landing zones, secure migration/modernisation, POPIA-aligned controls, and FinOps baked in — outcomes in weeks, not quarters."/>
+  <title>Cloud Security | CoreCloud — AWS/Azure Guardrails, Identity, Data & Compliance</title>
+  <meta name="description" content="Identity-first guardrails for AWS & Azure. Reduce blast radius, protect data, and ship fast — with evidence you can audit."/>
   <meta name="robots" content="index, follow"/>
   <meta name="author" content="CoreCloud"/>
   <meta name="theme-color" content="#004f91"/>
-
-  <!-- Canonical + Social -->
-  <link rel="canonical" href="https://www.corecloudza.com/cloud.html"/>
+  <link rel="canonical" href="https://www.corecloudza.com/cloud-security.html"/>
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="CoreCloud Cloud — Secure Foundations, Migration, FinOps"/>
-  <meta property="og:description" content="Landing zones, governance guardrails, migration/modernisation, and FinOps — executed with measurable outcomes."/>
-  <meta property="og:url" content="https://www.corecloudza.com/cloud.html"/>
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png"/>
+  <meta property="og:title" content="Cloud Security — CoreCloud"/>
+  <meta property="og:description" content="Identity-first guardrails, data protection, and audit-ready evidence without slowing delivery."/>
+  <meta property="og:url" content="https://www.corecloudza.com/cloud-security.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-security.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=19"/>
-
-  <!-- Preload -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=14"/>
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
-  <link rel="preload" as="image" href="assets/images/cloud-banner.png" fetchpriority="high"/>
-
-  <!-- Page-scoped (safe) -->
-  <style>
-    :root{ --gold:#d4af37; --dark-blue:#004f91; }
-
-    /* Accessible skip link */
-    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
-    .skip-link:focus{position:fixed;top:10px;left:10px;width:auto;height:auto;padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;outline:2px solid #fff;z-index:1000;}
-
-    /* ---- HERO FRAME: match site thickness (4px) ---- */
-    .cloud-page .hero-frame::before,
-    .cloud-page .hero-frame::after{ content:none !important; } /* neutralize any global pseudo-lines */
-    .cloud-page .hero-frame{
-      border-top:4px solid var(--gold) !important;
-      border-bottom:4px solid var(--gold) !important;
-    }
-    .hero-media img{width:100%;height:auto;display:block;}
-
-    /* Keep page titles centered; vendor card titles left */
-    .cloud-page :is(h1.hero-title, h2.section-title){text-align:center !important;margin-left:auto;margin-right:auto;}
-    .cloud-page .card h3{text-align:left !important;}
-
-    /* In-page chip nav */
-    .inpage-nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;max-width:1000px;margin:0 auto 1rem;padding:0 1rem;}
-    .inpage-nav a{white-space:nowrap;border:1px solid #e4e8f1;border-radius:999px;padding:.45rem .75rem;text-decoration:none;color:#0b3d72;font-weight:700;background:#fff;font-size:.95rem;}
-
-    /* Points + muted */
-    .points{padding-left:1.25rem;margin:.25rem 0;}
-    .points li{margin:.25rem 0}
-    .muted{color:#5a6b85;font-size:.95rem}
-
-    /* Center the 30-day list block */
-    .foundation-wrap{
-      max-width:820px;
-      margin:0 auto;
-      padding:0 1rem;
-      text-align:left;
-    }
-    .foundation-wrap ol.points{ margin-left:0; }
-
-    /* Smaller inline CTA card */
-    .inline-cta.card{
-      max-width:520px;margin:1rem auto;padding:1rem 1.1rem;
-    }
-    .inline-cta.card strong{font-size:1.02rem;}
-    .inline-cta.card p{margin:.4rem 0 .75rem;}
-    .inline-cta.card .cta-btn{min-height:42px;padding:.7rem 1.1rem;}
-
-    /* Vendor columns: 3 side-by-side stacks (each stack has 4 cards) */
-    .vendor-columns{
-      display:grid; gap:1.25rem; max-width:var(--content-max); margin:0 auto; padding:0 1rem;
-      grid-template-columns:1fr; /* default mobile */
-    }
-    @media(min-width:900px){ .vendor-columns{ grid-template-columns:repeat(2,1fr); } }
-    @media(min-width:1200px){ .vendor-columns{ grid-template-columns:repeat(3,1fr); } }
-
-    .vendor-col{ display:flex; flex-direction:column; gap:.9rem; }
-
-    /* Match Home page "Why / What / How" (h3: 1.4rem, 600) and center above the cards */
-    .vendor-title{
-      font-size:1.4rem; font-weight:600; color:var(--dark-blue);
-      text-align:center; margin:.25rem auto .35rem; line-height:1.4;
-    }
-
-    /* Tighter card padding inside vendor stacks */
-    .vendor-col .card{ padding:1rem; }
-
-    /* Underline the parent "Cloud Suite" button when a child is active or menu is open */
-    .main-nav .nav-group > button.active,
-    .main-nav .nav-group:hover > button,
-    .main-nav .nav-group:focus-within > button{
-      color: var(--dark-blue);
-      border-bottom:2px solid var(--dark-blue);
-    }
-  </style>
+  <link rel="preload" as="image" href="assets/images/security-banner.jpg" fetchpriority="high"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Cloud Security","url":"https://www.corecloudza.com/cloud-security.html","publisher":{"@type":"Organization","name":"CoreCloud"}}</script>
 </head>
-
-<body class="cloud-page">
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <!-- Header / Nav (global pattern) -->
+<body class="security-page">
+  <!-- Header (unchanged structure) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
         <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
-
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
-
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
@@ -121,18 +36,16 @@
             <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
           </div>
         </div>
-
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
-            <a role="menuitem" href="cloud.html" class="active" aria-current="page">Overview</a>
+            <a role="menuitem" href="cloud.html">Overview</a>
             <a role="menuitem" href="finops.html">FinOps</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
             <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
           </div>
         </div>
-
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
@@ -141,349 +54,184 @@
             <a role="menuitem" href="global-talent.html">Global Talent</a>
           </div>
         </div>
-
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Security</button>
+          <div class="submenu" role="menu" aria-label="Security">
+            <a role="menuitem" href="cloud-security.html" class="active" aria-current="page">Cloud Security</a>
+            <a role="menuitem" href="hosting-security.html">Private Cloud / Hosting</a>
+          </div>
+        </div>
         <a href="infrastructure.html">Infrastructure</a>
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
       </nav>
-
-      <!-- Mobile toggle -->
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
-    <!-- Mobile drawer -->
+    <!-- Mobile -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html">Home</a>
-
-      <details>
-        <summary>Consulting</summary>
-        <a href="consulting.html">Overview</a>
-        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
-      </details>
-
-      <details open>
-        <summary>Cloud Suite</summary>
-        <a href="cloud.html" aria-current="page">Overview</a>
-        <a href="finops.html">FinOps</a>
-        <a href="application-development.html">Application Development</a>
-        <a href="data-ai.html">Data &amp; AI</a>
-        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
-      </details>
-
-      <details>
-        <summary>Curated Talent</summary>
-        <a href="talent.html">Overview</a>
-        <a href="talent-relaunch.html">RE/LAUNCH</a>
-        <a href="global-talent.html">Global Talent</a>
-      </details>
-
-      <a href="infrastructure.html">Infrastructure</a>
-      <a href="about.html">About</a>
-      <a href="blog.html">Insights</a>
-      <a href="contact.html">Contact</a>
+      <details><summary>Consulting</summary><a href="consulting.html">Overview</a><a href="dynamic-imprinting.html">Dynamic Imprinting</a></details>
+      <details><summary>Cloud Suite</summary><a href="cloud.html">Overview</a><a href="finops.html">FinOps</a><a href="application-development.html">Application Development</a><a href="data-ai.html">Data &amp; AI</a><a href="hosted-private-cloud.html">Hosting (Private Cloud)</a></details>
+      <details open><summary>Security</summary><a href="cloud-security.html" aria-current="page">Cloud Security</a><a href="hosting-security.html">Private Cloud / Hosting</a></details>
+      <a href="infrastructure.html">Infrastructure</a><a href="about.html">About</a><a href="blog.html">Insights</a><a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- GOLD-framed hero (4px) -->
+  <!-- Banner -->
   <div class="hero-frame">
-    <div class="hero-media" role="img" aria-label="Cloud foundations and migration">
-      <img src="assets/images/cloud-banner.png" alt="Cloud, governed by design — from foundations to outcomes" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+    <div class="hero-media" role="img" aria-label="Cloud Security">
+      <img src="assets/images/security-banner.jpg" alt="Cloud Security — guardrails that don’t slow delivery" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
-  <!-- Intro under hero -->
+  <!-- Intro -->
   <section class="hero-intro">
-    <h1 class="hero-title">Cloud, Governed by Design</h1>
-    <p>Secure landing zones, fast migration/modernisation, POPIA-aligned controls, and FinOps that keeps cost honest — all wired to measurable outcomes.</p>
+    <h1 class="hero-title">Cloud Security</h1>
+    <p>Identity-first guardrails for AWS &amp; Azure. Reduce blast radius, protect data, and keep developers fast.</p>
+    <div class="cta-row" style="margin-top:.5rem;"><a class="cta-btn" href="contact.html">Book a Security Review</a></div>
   </section>
 
   <main class="content" id="main">
-    <!-- In-page nav -->
-    <nav class="inpage-nav" aria-label="On this page">
-      <a href="#deliver">What we deliver</a>
-      <a href="#foundation">30-day foundation</a>
-      <a href="#vendors">AWS • Azure • Databricks</a>
-      <a href="#hybrid">Hybrid & Hosting</a>
-      <a href="#engagement">Engagements</a>
-      <a href="#insights">Insights</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-
-    <!-- What we deliver -->
-    <section class="section" id="deliver" aria-labelledby="deliver-title">
-      <h2 id="deliver-title" class="section-title">What We Deliver</h2>
-
-      <div class="card-grid">
-        <div class="card">
-          <h3>Landing Zones & Guardrails</h3>
-          <ul class="points">
-            <li>Multi-account baseline, least-privilege IAM</li>
-            <li>Network segmentation, egress control, logging</li>
-            <li>Policy-as-code with drift detection</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Migration & Modernisation</h3>
-          <ul class="points">
-            <li>Discovery & wave plans, profiling, change windows</li>
-            <li>Containerisation & managed services first</li>
-            <li>Rollback-ready go-lives</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Security & POPIA</h3>
-          <ul class="points">
-            <li>Residency patterns & key management separation</li>
-            <li>Encryption, tokenisation, lifecycle controls</li>
-            <li>Board-level posture reporting</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>FinOps by Design</h3>
-          <ul class="points">
-            <li>Tagging coverage, run-rate tracking, anomaly alerts</li>
-            <li>Right-sizing & scale-to-zero policies</li>
-            <li>Commitment strategy (SP/CUD/RI)</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Sovereign Options</h3>
-          <ul class="points">
-            <li>In-country primary, cross-AZ HA, local backups</li>
-            <li>Customer-managed keys (HSM/KMS)</li>
-            <li>Hyperscaler + African ecosystem</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Reliability & DR</h3>
-          <ul class="points">
-            <li>SLOs, error budgets, runbooks</li>
-            <li>Backup/restore drills & failover tests</li>
-            <li>Incident readiness & comms templates</li>
-          </ul>
-        </div>
+    <!-- Outcomes -->
+    <section class="section split" aria-labelledby="outcomes">
+      <div>
+        <h2 id="outcomes" class="section-title">Business Outcomes</h2>
+        <ul>
+          <li>Smaller blast radius, fewer critical incidents.</li>
+          <li>Audit-ready with evidence mapped to POPIA / ISO / CIS.</li>
+          <li>Delivery speed preserved — controls embedded in pipelines.</li>
+          <li>Clear ownership: who approves, who operates, who audits.</li>
+        </ul>
+      </div>
+      <div class="note">
+        <h3>Operator Rhythm</h3>
+        <p>Diagnose → Design → Do → Drive. We land the baseline in weeks, then run posture reviews and drift response monthly.</p>
       </div>
     </section>
 
-    <!-- 30-day foundation (centered block) -->
-    <section class="section" id="foundation" aria-labelledby="foundation-title">
-      <h2 id="foundation-title" class="section-title">30 Days to a Secure Foundation</h2>
-      <div class="foundation-wrap">
-        <ol class="points">
-          <li><strong>Days 1–5:</strong> data map, residency &amp; keys plan, baseline policies.</li>
-          <li><strong>Days 6–15:</strong> landing zone build, identity &amp; network guardrails, logging.</li>
-          <li><strong>Days 16–25:</strong> FinOps setup (tags, run-rate, alerts), cost quick wins.</li>
-          <li><strong>Days 26–30:</strong> first migration wave and go-live checklist.</li>
-        </ol>
-      </div>
-      <div class="inline-cta card">
-        <strong>Make cloud practical.</strong>
-        <p>If you’re aligning cost, compliance, and speed — we can help.</p>
-        <a class="cta-btn" href="contact.html">Start the 30-day build</a>
-      </div>
-    </section>
+    <!-- Controls Framework (accordions) -->
+    <section class="section">
+      <h2 class="section-title">Controls Framework</h2>
+      <div class="accordion">
+        <button class="acc-btn">Identity &amp; Access</button>
+        <div class="acc-panel"><div>
+          <ul>
+            <li>Org guardrails (AWS Orgs / Azure Policy), SCPs/deny-by-default, enforced MFA.</li>
+            <li>Federated SSO, least-privilege roles; right-sizing jobs; break-glass with rotation + logging.</li>
+          </ul>
+        </div></div>
 
-    <!-- Vendors -->
-    <section class="section" id="vendors" aria-labelledby="vendors-title">
-      <h2 id="vendors-title" class="section-title">AWS • Azure • Databricks</h2>
+        <button class="acc-btn">Network &amp; Perimeter</button>
+        <div class="acc-panel"><div>
+          <ul>
+            <li>Zero-trust segmentation, private endpoints, WAF/DDoS, egress control.</li>
+            <li>Service-to-service auth (mTLS/OIDC); secrets via KMS/Key Vault.</li>
+          </ul>
+        </div></div>
 
-      <div class="vendor-columns">
-        <!-- AWS column -->
-        <div class="vendor-col" aria-labelledby="aws-title">
-          <h3 id="aws-title" class="vendor-title">AWS</h3>
-          <div class="card">
-            <h3>AWS Migration</h3>
-            <p>Structured landing zones and migration factories. Zero-surprise cutovers.</p>
-            <a href="aws-migration.html" class="cta-btn">Explore Migration</a>
-          </div>
-          <div class="card">
-            <h3>AWS Modernise</h3>
-            <p>Containers, serverless, and managed data services to unlock agility and cost.</p>
-            <a href="aws-modernise.html" class="cta-btn">Modernise Now</a>
-          </div>
-          <div class="card">
-            <h3>AWS Manage</h3>
-            <p>SRE-grade ops with security, observability, backup/DR, and monthly reviews.</p>
-            <a href="aws-manage.html" class="cta-btn">See Managed Services</a>
-          </div>
-          <div class="card">
-            <h3>AWS Optimise</h3>
-            <p>Continuous FinOps: rightsizing, lifecycle, purchasing, and workload tuning.</p>
-            <a href="aws-optimise.html" class="cta-btn">Start Optimising</a>
-          </div>
-        </div>
+        <button class="acc-btn">Data Protection</button>
+        <div class="acc-panel"><div>
+          <ul>
+            <li>Encryption in transit/at rest; key rotation & lifecycle; envelope encryption for high-risk data.</li>
+            <li>Classification + residency policies aligned to POPIA.</li>
+          </ul>
+        </div></div>
 
-        <!-- Azure column -->
-        <div class="vendor-col" aria-labelledby="azure-title">
-          <h3 id="azure-title" class="vendor-title">Azure</h3>
-          <div class="card">
-            <h3>Azure Migration</h3>
-            <p>Blueprinted migrations with identity, networking, and policy baselines.</p>
-            <a href="azure-migration.html" class="cta-btn">Explore Migration</a>
-          </div>
-          <div class="card">
-            <h3>Azure Modernise</h3>
-            <p>AKS, PaaS data, serverless, and AI services wired into your delivery model.</p>
-            <a href="azure-modernise.html" class="cta-btn">Modernise Now</a>
-          </div>
-          <div class="card">
-            <h3>Azure Manage</h3>
-            <p>Operating model with policy-as-code, backup/DR, and proactive reliability.</p>
-            <a href="azure-manage.html" class="cta-btn">See Managed Services</a>
-          </div>
-          <div class="card">
-            <h3>Azure Optimise</h3>
-            <p>Spend visibility to action: budgets, alerts, rightsizing, and chargeback.</p>
-            <a href="azure-optimise.html" class="cta-btn">Start Optimising</a>
-          </div>
-        </div>
+        <button class="acc-btn">Workload &amp; Platform</button>
+        <div class="acc-panel"><div>
+          <ul>
+            <li>Hardened images, EDR, container/IaC scanning in CI; signed artifacts; drift detection.</li>
+          </ul>
+        </div></div>
 
-        <!-- Databricks column -->
-        <div class="vendor-col" aria-labelledby="dbx-title">
-          <h3 id="dbx-title" class="vendor-title">Databricks</h3>
-          <div class="card">
-            <h3>Lakehouse Architecture</h3>
-            <p>Open, governed layers for analytics and AI. Batch + streaming + quality by design.</p>
-            <a href="databricks-lakehouse.html" class="cta-btn">Explore Lakehouse</a>
-          </div>
-          <div class="card">
-            <h3>Data Engineering</h3>
-            <p>Ingestion, ETL, data contracts, and lineage with reliable, testable pipelines.</p>
-            <a href="databricks-engineering.html" class="cta-btn">See Engineering</a>
-          </div>
-          <div class="card">
-            <h3>AI &amp; ML Workflows</h3>
-            <p>MLOps and RAG — evaluated, monitored, and deployed to where latency wins.</p>
-            <a href="databricks-ml.html" class="cta-btn">Start Building AI</a>
-          </div>
-          <div class="card">
-            <h3>Cost Optimisation</h3>
-            <p>Clusters and storage tuned for performance and spend — visible to teams.</p>
-            <a href="databricks-optimise.html" class="cta-btn">Optimise Costs</a>
-          </div>
-        </div>
+        <button class="acc-btn">Monitoring &amp; Compliance</button>
+        <div class="acc-panel"><div>
+          <ul>
+            <li>CloudTrail/Activity Logs → SIEM; detective controls; evidence mapped to CIS/NIST/ISO/POPIA.</li>
+            <li>Quarterly posture reviews with exec reporting.</li>
+          </ul>
+        </div></div>
+
+        <button class="acc-btn">Incident Readiness</button>
+        <div class="acc-panel"><div>
+          <ul>
+            <li>IR playbooks per service; ring-fenced forensics; immutable backups; tabletop exercises.</li>
+          </ul>
+        </div></div>
       </div>
     </section>
 
-    <!-- Hybrid / Hosting -->
-    <section class="section" id="hybrid" aria-labelledby="hybrid-title" style="text-align:center;">
-      <h2 id="hybrid-title" class="section-title">Not Every Workload Belongs in Hyperscale</h2>
-      <p style="max-width:900px;margin:0 auto 1.1rem;">Steady ERP, core DB, and integration systems often run cheaper and closer to users on Hosted or On-Prem — with clear SLAs and DR.</p>
-      <a href="hosted-private-cloud.html" class="cta-btn">Explore Hosting &amp; Private Cloud</a>
+    <!-- Evidence & Audit -->
+    <section class="section">
+      <h2 class="section-title">Evidence &amp; Audit</h2>
+      <table class="table">
+        <thead><tr><th>Control Area</th><th>Evidence We Produce</th><th>Review Cadence</th></tr></thead>
+        <tbody>
+          <tr><td>Identity</td><td>Role inventory, unused perms diffs, MFA coverage</td><td>Monthly</td></tr>
+          <tr><td>Network</td><td>Ingress/egress allow lists, private endpoint coverage</td><td>Monthly</td></tr>
+          <tr><td>Data</td><td>Classifications, key rotation logs, residency policy hits</td><td>Quarterly</td></tr>
+          <tr><td>Workloads</td><td>Baseline drift reports, image provenance, CVE burn-down</td><td>Monthly</td></tr>
+          <tr><td>Backups/IR</td><td>Restore tests, RTO/RPO, tabletop outcomes</td><td>Quarterly</td></tr>
+        </tbody>
+      </table>
     </section>
 
-    <!-- Engagement options -->
-    <section class="section" id="engagement" aria-labelledby="engage-title">
-      <h2 id="engage-title" class="section-title">Engagement Options</h2>
-      <ul class="points" style="max-width:1000px;margin:0 auto;padding:0 1rem;">
-        <li><strong>Baseline + Quick Wins (2 weeks):</strong> Cost, posture, and governance gaps; immediate savings and risk reductions. <span class="muted">— <a href="finops.html">See FinOps</a></span></li>
-        <li><strong>Foundation (30 days):</strong> Landing zone, policies, FinOps dashboards, and first migration wave with rollback. <span class="muted">— <a href="consulting.html">How we execute</a></span></li>
-        <li><strong>Migrate & Modernise:</strong> Wave plans, containerisation, managed services adoption, and resilience patterns. <span class="muted">— <a href="application-development.html">App Dev approach</a></span></li>
-        <li><strong>Operator-on-Call:</strong> Senior cloud operator for incidents, design reviews, and board-level updates. <span class="muted">— <a href="about.html">About our team</a></span></li>
-      </ul>
-    </section>
-
-    <!-- Related insights -->
-    <section class="section" id="insights" aria-labelledby="insights-title">
-      <h2 id="insights-title" class="section-title">Related Insights</h2>
-      <div class="card-grid">
-        <a class="card" href="blog-eliminating-cloud-waste.html">
-          <h3>Eliminating Waste: The Fastest ROI in Cloud</h3>
-          <p>Where spend leaks — and how SA teams plug it in 30 days.</p>
-          <p class="muted">Cloud • 25 Sep 2025</p>
-        </a>
-        <a class="card" href="blog-databricks-cost-quick-wins.html">
-          <h3>Databricks Cost: Quick Wins</h3>
-          <p>Trim DBU burn without slowing delivery.</p>
-          <p class="muted">Cloud • 10 Sep 2025</p>
-        </a>
-        <a class="card" href="blog-secure-sovereign-cloud-africa.html">
-          <h3>Secure & Sovereign Cloud for Africa</h3>
-          <p>POPIA, residency patterns, and practical guardrails.</p>
-          <p class="muted">Cloud • 1 Sep 2025</p>
-        </a>
+    <!-- Packages -->
+    <section class="section split" aria-labelledby="packages">
+      <div>
+        <h2 id="packages" class="section-title">Engagement Packages</h2>
+        <ul>
+          <li><strong>Baseline Sprint (2–4 weeks):</strong> Land org guardrails, MFA, logging, and top-3 risks.</li>
+          <li><strong>Operate &amp; Assure:</strong> Monthly drift response, evidence packs, posture reviews.</li>
+          <li><strong>Outcome Add-ons:</strong> Container signing, PAM integration, secrets rotations, backup immutability tests.</li>
+        </ul>
+      </div>
+      <div class="note">
+        <h3>SLAs / SLOs</h3>
+        <p>Drift MTTR targets, evidence delivery dates, and control coverage goals agreed upfront.</p>
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section" id="faq" aria-labelledby="faq-title">
-      <h2 id="faq-title" class="section-title">FAQ</h2>
-      <div class="faq-list" style="max-width:1000px;margin:0 auto;padding:0 1rem;">
-        <details>
-          <summary>Can we keep regulated data in-country?</summary>
-          <p>Yes — we design for in-country primaries, customer-managed keys, and cross-AZ resilience with local backups.</p>
-        </details>
-        <details>
-          <summary>Will FinOps slow teams down?</summary>
-          <p>No — guardrails (tags, budgets, alerts) run in the background. We prioritise quick wins that don’t block delivery.</p>
-        </details>
-        <details>
-          <summary>How fast can we get to value?</summary>
-          <p>Most clients see a governed foundation in ~30 days, with the first migration wave and visible run-rate savings.</p>
-        </details>
+    <!-- FAQs -->
+    <section class="section">
+      <h2 class="section-title">FAQs</h2>
+      <div class="accordion">
+        <button class="acc-btn">Will this slow our releases?</button>
+        <div class="acc-panel"><div>No — controls live in CI/CD with pre-flight checks and golden images to keep speed.</div></div>
+
+        <button class="acc-btn">Do you integrate with our SIEM?</button>
+        <div class="acc-panel"><div>Yes — we forward logs and normalise fields for your existing SIEM and alerting.</div></div>
+
+        <button class="acc-btn">POPIA residency?</button>
+        <div class="acc-panel"><div>Policies enforce residency; we evidence storage locations and egress exceptions.</div></div>
       </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" style="text-align:center;">
+      <h2 class="section-title">Need a fast baseline?</h2>
+      <p>Controls in weeks, not quarters — without breaking delivery.</p>
+      <a class="cta-btn" href="contact.html">Start the Baseline</a>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-left">
-        <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton<br/>Johannesburg<br/>South Africa</p>
-      </div>
+  <!-- Footer (unchanged) -->
+  <!-- [Paste your standard footer exactly as in index.html] -->
 
-      <div class="footer-middle">
-        <h4>Stay Informed</h4>
-        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST">
-          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
-          <input type="hidden" name="_template" value="table"/>
-          <input type="hidden" name="_captcha" value="false"/>
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
-          <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email"/>
-          <button type="submit" class="cta-btn">Subscribe</button>
-        </form>
-      </div>
-
-      <div class="footer-right">
-        <p><strong>Contact</strong></p>
-        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-        <p>Phone: <a href="tel:+27 11 568 8667">+27 11 568 8667</a></p>
-        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved. |
-        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-        <a href="terms.html" class="legal-link">Terms</a>
-      </p>
-    </div>
-  </footer>
-
-  <!-- Active link + underline parent "Cloud Suite" -->
   <script>
     (function(){
-      var path=(location.pathname.split('/').pop()||'cloud.html').toLowerCase();
-
-      // mark exact link active
+      var path=(location.pathname.split('/').pop()||'cloud-security.html').toLowerCase();
       document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){
-          a.classList.add('active'); a.setAttribute('aria-current','page');
-          // underline parent "Cloud Suite" if a child is active
-          var group=a.closest('.nav-group');
-          if(group){
-            var btn=group.querySelector('button');
-            if(btn) btn.classList.add('active');
-          }
-        }
+        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
       });
     })();
+    document.querySelectorAll('.acc-btn').forEach(function(b){
+      b.addEventListener('click',function(){b.classList.toggle('open');var p=b.nextElementSibling;p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+'px';});
+    });
   </script>
 </body>
 </html>
