@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Cloud Security | CoreCloud</title>
+  <meta name="description" content="Pragmatic cloud security for AWS/Azure: identity, data, network, workload, and compliance — baked into your run, not bolted on."/>
+  <link rel="canonical" href="https://www.corecloudza.com/cloud-security.html"/>
+  <meta name="theme-color" content="#004f91"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
+</head>
+<body>
+  <!-- Header (use your existing header markup) -->
+  <header class="small-banner">
+    <div class="banner-header">
+      <a href="index.html" aria-label="CoreCloud Home">
+        <img class="logo" src="assets/images/corecloud-logo.png" alt="CoreCloud"/>
+      </a>
+      <!-- Include the updated nav with Security dropdown here -->
+      <nav class="desktop-nav">
+        <a class="nav-btn" href="index.html">Home</a>
+        <a class="nav-btn" href="cloud.html">Cloud</a>
+        <a class="nav-btn" href="infrastructure.html">Infrastructure</a>
+        <div class="nav-dropdown">
+          <button class="nav-btn nav-dropbtn" aria-haspopup="true" aria-expanded="false">Security</button>
+          <div class="nav-dropdown-menu">
+            <a href="cloud-security.html">Cloud Security</a>
+            <a href="hosting-security.html">Private Cloud / Hosting</a>
+          </div>
+        </div>
+        <a class="nav-btn" href="talent.html">Talent</a>
+        <a class="nav-btn" href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="hero hero-compact">
+      <h1>Cloud Security</h1>
+      <p class="hero-sub">Operator-grade guardrails for AWS & Azure — identity first, data always, automate where it counts.</p>
+      <div class="hero-cta">
+        <a class="btn-primary" href="contact.html">Book a Security Review</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Value blocks -->
+    <section class="grid-2" style="margin-top:30px">
+      <div class="card">
+        <h3>Outcome over theory</h3>
+        <p>Reduce blast radius, prove controls, and keep developers fast. Controls that stick under load.</p>
+      </div>
+      <div class="card">
+        <h3>Built for hybrid estates</h3>
+        <p>Cloud where it wins, hosted/on-prem where it must. Policies and telemetry align across venues.</p>
+      </div>
+    </section>
+
+    <!-- Accordions -->
+    <section style="margin-top:24px">
+      <div class="accordion">
+        <button class="acc-btn">Identity & Access (AWS/Azure)</button>
+        <div class="acc-panel">
+          <ul>
+            <li>Org-level guardrails (AWS Organizations / Azure Policy), SCPs & deny-by-default patterns.</li>
+            <li>Federated SSO, MFA enforced, least-privilege roles with automated right-sizing.</li>
+            <li>Break-glass and emergency access with rotation & logging.</li>
+          </ul>
+        </div>
+
+        <button class="acc-btn">Network & Perimeter</button>
+        <div class="acc-panel">
+          <ul>
+            <li>Zero-trust segmentation, private endpoints, WAF, DDoS, and egress controls.</li>
+            <li>Service-to-service auth (mTLS/OIDC), secrets via native managers.</li>
+          </ul>
+        </div>
+
+        <button class="acc-btn">Data Protection</button>
+        <div class="acc-panel">
+          <ul>
+            <li>Encryption at rest & in transit; KMS/Key Vault lifecycle & rotation; envelope encryption for high-risk data.</li>
+            <li>Data classification mapped to POPIA; regional residency enforcement.</li>
+          </ul>
+        </div>
+
+        <button class="acc-btn">Workload & Platform Security</button>
+        <div class="acc-panel">
+          <ul>
+            <li>Hardened images & baselines, EDR, container scanning (build & run), IaC policy checks in CI.</li>
+            <li>Runtime protections: admission controls, signed artifacts, drift detection.</li>
+          </ul>
+        </div>
+
+        <button class="acc-btn">Monitoring, Compliance & Audit</button>
+        <div class="acc-panel">
+          <ul>
+            <li>CloudTrail/Activity Logs + SIEM forwarding; control evidence mapped to CIS/NIST/ISO/POPIA.</li>
+            <li>Automated evidence packs for audits; quarterly posture reviews.</li>
+          </ul>
+        </div>
+
+        <button class="acc-btn">Incident Readiness</button>
+        <div class="acc-panel">
+          <ul>
+            <li>IR playbooks per service; ring-fenced forensics accounts; backup immutability checks.</li>
+            <li>Tabletop exercises with exec reporting; RTO/RPO validation.</li>
+          </ul>
+        </div>
+
+        <button class="acc-btn">Engagement & Pricing</button>
+        <div class="acc-panel">
+          <ul>
+            <li>Fixed-scope baseline (2–4 weeks) → monthly guardrail ops. Retainer or per-outcome.</li>
+            <li>Clear SLOs: control coverage, MTTR on drift, and audit-ready evidence.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-band">
+      <h3>Need a fast baseline?</h3>
+      <p>We land controls in weeks, not quarters — without slowing delivery.</p>
+      <a class="btn-primary" href="contact.html">Start the Baseline</a>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton,<br/>Johannesburg</p>
+      </div>
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" name="email" type="email" placeholder="you@company.com" required/>
+          <button type="submit" class="btn-secondary">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-right">
+        <p>&copy; <span id="y"></span> CoreCloud. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // year
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // accordions
+    document.querySelectorAll('.acc-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        btn.classList.toggle('open');
+        const panel = btn.nextElementSibling;
+        panel.style.maxHeight = panel.style.maxHeight ? null : panel.scrollHeight + 'px';
+      });
+    });
+  </script>
+
+  <style>
+    /* Page-local helpers (keeps global CSS clean) */
+    .hero-compact{ padding: 80px 20px 40px; text-align:center; color:#fff; background:linear-gradient(180deg, var(--dark-blue), var(--primary-blue)); }
+    .hero-compact .btn-primary{ margin-top:12px; }
+    .container{ max-width:1100px; margin:0 auto; padding:24px; }
+    .grid-2{ display:grid; grid-template-columns:repeat(2,1fr); gap:16px; }
+    .card{ background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:12px; padding:18px; }
+    .cta-band{ margin:36px 0; padding:20px; background:var(--light-bg); border:1px solid rgba(0,0,0,.06); border-radius:12px; text-align:center; }
+    /* Accordion */
+    .accordion{ border-radius:12px; overflow:hidden; border:1px solid rgba(0,0,0,.06); }
+    .acc-btn{
+      width:100%; text-align:left; padding:14px 16px; font-weight:600; border:0; border-bottom:1px solid rgba(0,0,0,.06);
+      background:#fff; cursor:pointer; color:var(--dark-blue);
+    }
+    .acc-btn.open{ background:var(--light-bg); }
+    .acc-panel{ max-height:0; overflow:hidden; transition:max-height .25s ease; background:#fff; }
+    .acc-panel ul{ padding:12px 20px 16px; color:var(--dark-blue); }
+    @media (max-width: 820px){ .grid-2{ grid-template-columns:1fr; } }
+  </style>
+</body>
+</html>
