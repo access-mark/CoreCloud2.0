@@ -529,3 +529,19 @@ footer p, footer h4, footer strong { color:#fff !important; } /* already present
   color: var(--dark-blue);
   border-bottom: 2px solid var(--dark-blue);
 }
+
+/* Accordions */
+.accordion{border:1px solid rgba(0,0,0,.06);border-radius:12px;overflow:hidden}
+.acc-btn{width:100%;text-align:left;padding:14px 16px;font-weight:600;border:0;border-top:1px solid rgba(0,0,0,.06);background:#fff;cursor:pointer;color:var(--dark-blue)}
+.acc-btn:first-of-type{border-top:0}
+.acc-btn.open{background:var(--light-bg)}
+.acc-panel{max-height:0;overflow:hidden;transition:max-height .25s ease;background:#fff}
+.acc-panel>div{padding:12px 16px 16px;color:var(--dark-blue)}
+/* Two-column narrative */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:900px){.split{grid-template-columns:1fr}}
+/* Simple table */
+.table{width:100%;border-collapse:collapse}
+.table th,.table td{border:1px solid rgba(0,0,0,.08);padding:10px 12px;vertical-align:top}
+.table th{background:var(--light-bg);text-align:left;font-weight:700}
+.note{font-size:.95rem;color:#2b3a55;opacity:.9}
