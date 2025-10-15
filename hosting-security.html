@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Private Cloud & Hosting Security | CoreCloud — Hardening, Segmentation, DR</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Private Cloud / Hosting Security | CoreCloud — Hardening, Segmentation, DR</title>
   <meta name="description" content="Security for hosted/on-prem estates: segmentation, OS hardening, PAM, immutable backups, DR drills, and audit-ready evidence."/>
-  <meta name="robots" content="index, follow"/><meta name="author" content="CoreCloud"/><meta name="theme-color" content="#004f91"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="CoreCloud"/>
+  <meta name="theme-color" content="#004f91"/>
+
+  <!-- Canonical + Social -->
   <link rel="canonical" href="https://www.corecloudza.com/hosting-security.html"/>
-  <meta property="og:type" content="website"/><meta property="og:title" content="Private Cloud & Hosting Security — CoreCloud"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Private Cloud / Hosting Security — CoreCloud"/>
   <meta property="og:description" content="Tight baselines, strong segmentation, tested DR — measurable resilience you can audit."/>
   <meta property="og:url" content="https://www.corecloudza.com/hosting-security.html"/>
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-security.jpg"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/security-bannerimage.png?v=2"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=15"/>
+
+  <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
-  <link rel="preload" as="image" href="assets/images/security-bannerimage.png" fetchpriority="high"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Private Cloud & Hosting Security","url":"https://www.corecloudza.com/hosting-security.html","publisher":{"@type":"Organization","name":"CoreCloud"}}</script>
+  <link rel="preload" as="image" href="assets/images/security-bannerimage.png?v=2" fetchpriority="high"/>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"Private Cloud / Hosting Security","url":"https://www.corecloudza.com/hosting-security.html","publisher":{"@type":"Organization","name":"CoreCloud"}}
+  </script>
 </head>
 
 <body class="security-page hosting-page">
-  <!-- Header (same as above) -->
+  <!-- Header / Nav -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -72,6 +87,7 @@
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
+    <!-- Mobile drawer -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html">Home</a>
@@ -107,7 +123,9 @@
   <!-- Banner -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="Private Cloud / Hosting Security">
-      <img src="assets/images/footer-bannerimage1.png" alt="Hosting Security — resilient by design" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+      <img src="assets/images/security-bannerimage.png?v=2"
+           alt="Hosting Security — resilient by design"
+           width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
@@ -115,11 +133,14 @@
   <section class="hero-intro">
     <h1 class="hero-title">Private Cloud / Hosting Security</h1>
     <p>Tight baselines, strong segmentation, and tested backups &amp; DR — measurable resilience on premises or hosted.</p>
-    <div class="cta-row" style="margin-top:.5rem;"><a class="cta-btn" href="contact.html">Request a Security Assessment</a></div>
+    <div class="cta-row" style="margin-top:.5rem;">
+      <a class="cta-btn" href="contact.html">Request a Security Assessment</a>
+    </div>
   </section>
 
   <main class="content" id="main">
     <div class="layout-rail">
+      <!-- Main -->
       <article class="rail-main">
         <section id="outcomes" class="section">
           <h2 class="section-title">Business Outcomes</h2>
@@ -201,6 +222,7 @@
         </section>
       </article>
 
+      <!-- Right rail -->
       <aside class="rail-aside">
         <nav class="toc" aria-label="On-page">
           <h4>On this page</h4>
@@ -267,15 +289,23 @@
       });
     })();
     document.querySelectorAll('.acc-btn').forEach(function(b){
-      b.addEventListener('click',function(){b.classList.toggle('open');var p=b.nextElementSibling;p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+'px';});
+      b.addEventListener('click',function(){
+        b.classList.toggle('open');
+        var p=b.nextElementSibling;
+        p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+'px';
+      });
     });
-    (function(){ // TOC highlight
+    // TOC highlight
+    (function(){
       var links=[...document.querySelectorAll('.toc a')];
       var map=links.map(a=>({id:a.getAttribute('href').slice(1), link:a}));
       var obs=new IntersectionObserver((entries)=>{
         entries.forEach(e=>{
           var item=map.find(m=>m.id===e.target.id);
-          if(item && e.isIntersecting){ links.forEach(x=>x.classList.remove('active')); item.link.classList.add('active'); }
+          if(item && e.isIntersecting){
+            links.forEach(x=>x.classList.remove('active'));
+            item.link.classList.add('active');
+          }
         });
       },{rootMargin:"-40% 0px -55% 0px", threshold:0});
       map.forEach(m=>{ var el=document.getElementById(m.id); if(el) obs.observe(el); });
