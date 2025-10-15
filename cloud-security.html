@@ -1,39 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta -->
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Cloud Security | CoreCloud — Guardrails, Identity, Data & Compliance</title>
-  <meta name="description" content="Identity-first guardrails for AWS & Azure. Reduce blast radius, protect data, keep delivery fast — with audit-ready evidence."/>
-  <meta name="robots" content="index, follow"/>
-  <meta name="author" content="CoreCloud"/>
-  <meta name="theme-color" content="#004f91"/>
-
-  <!-- Canonical + Social -->
-  <link rel="canonical" href="https://www.corecloudza.com/cloud-security.html"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:title" content="Cloud Security — CoreCloud"/>
-  <meta property="og:description" content="Identity-first guardrails and audit-ready evidence without slowing delivery."/>
-  <meta property="og:url" content="https://www.corecloudza.com/cloud-security.html"/>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Private Cloud & Hosting Security | CoreCloud — Hardening, Segmentation, DR</title>
+  <meta name="description" content="Security for hosted/on-prem estates: segmentation, OS hardening, PAM, immutable backups, DR drills, and audit-ready evidence."/>
+  <meta name="robots" content="index, follow"/><meta name="author" content="CoreCloud"/><meta name="theme-color" content="#004f91"/>
+  <link rel="canonical" href="https://www.corecloudza.com/hosting-security.html"/>
+  <meta property="og:type" content="website"/><meta property="og:title" content="Private Cloud & Hosting Security — CoreCloud"/>
+  <meta property="og:description" content="Tight baselines, strong segmentation, tested DR — measurable resilience you can audit."/>
+  <meta property="og:url" content="https://www.corecloudza.com/hosting-security.html"/>
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-security.jpg"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-
-  <!-- CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=15"/>
-
-  <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/footer-bannerimage1.png" fetchpriority="high"/>
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebPage","name":"Cloud Security","url":"https://www.corecloudza.com/cloud-security.html","publisher":{"@type":"Organization","name":"CoreCloud"}}
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Private Cloud & Hosting Security","url":"https://www.corecloudza.com/hosting-security.html","publisher":{"@type":"Organization","name":"CoreCloud"}}</script>
 </head>
 
-<body class="security-page">
-  <!-- ===== Header (exact from index + Security menu) ===== -->
+<body class="security-page hosting-page">
+  <!-- Header (same as above) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -88,7 +72,6 @@
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
-    <!-- Mobile drawer -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html">Home</a>
@@ -121,144 +104,103 @@
     </nav>
   </header>
 
-  <!-- ===== Banner (your image) ===== -->
+  <!-- Banner -->
   <div class="hero-frame">
-    <div class="hero-media" role="img" aria-label="Cloud Security">
-      <img src="assets/images/footer-bannerimage1.png" alt="Cloud Security — guardrails that don’t slow delivery" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+    <div class="hero-media" role="img" aria-label="Private Cloud / Hosting Security">
+      <img src="assets/images/footer-bannerimage1.png" alt="Hosting Security — resilient by design" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
-  <!-- ===== Centered hero intro ===== -->
+  <!-- Centered hero intro -->
   <section class="hero-intro">
-    <h1 class="hero-title">Cloud Security</h1>
-    <p>Identity-first guardrails for AWS &amp; Azure. Reduce blast radius, protect data, and keep developers fast — with evidence you can audit.</p>
-    <div class="cta-row" style="margin-top:.5rem;">
-      <a class="cta-btn" href="contact.html">Book a Security Review</a>
-    </div>
+    <h1 class="hero-title">Private Cloud / Hosting Security</h1>
+    <p>Tight baselines, strong segmentation, and tested backups &amp; DR — measurable resilience on premises or hosted.</p>
+    <div class="cta-row" style="margin-top:.5rem;"><a class="cta-btn" href="contact.html">Request a Security Assessment</a></div>
   </section>
 
   <main class="content" id="main">
     <div class="layout-rail">
-      <!-- Main track -->
       <article class="rail-main">
-        <!-- Outcomes -->
         <section id="outcomes" class="section">
           <h2 class="section-title">Business Outcomes</h2>
           <div class="longform">
             <ul>
-              <li>Smaller blast radius, fewer critical incidents.</li>
-              <li>Audit-ready posture mapped to POPIA / ISO / CIS with timestamped evidence.</li>
-              <li>Release velocity preserved — controls in CI/CD and golden images.</li>
-              <li>Clear ownership: approver / operator / auditor lines don’t blur.</li>
+              <li>Segmented networks; constrained lateral movement.</li>
+              <li>Hardened hosts; privileged access under control (PAM/JIT).</li>
+              <li>Recoverability proven — immutable tiers and restore drills.</li>
+              <li>Evidence packs that stand up to audit.</li>
             </ul>
           </div>
         </section>
 
-        <!-- Controls -->
         <section id="controls" class="section">
           <h2 class="section-title">Controls Framework</h2>
           <div class="accordion">
-            <button class="acc-btn">Identity &amp; Access</button>
+            <button class="acc-btn">Network Segmentation &amp; Edge</button>
             <div class="acc-panel"><div>
               <ul>
-                <li>Orgs/Policies, SCPs/deny-by-default, enforced MFA.</li>
-                <li>Federated SSO, least-privilege roles, right-sizing, break-glass rotation & logs.</li>
+                <li>VLAN/VRF/NSX micro-segmentation; policy-as-code; managed PKI.</li>
+                <li>WAF/DDoS, strict egress, private interconnects to cloud.</li>
               </ul>
             </div></div>
 
-            <button class="acc-btn">Network &amp; Perimeter</button>
+            <button class="acc-btn">OS / Platform Hardening</button>
             <div class="acc-panel"><div>
               <ul>
-                <li>Zero-trust segmentation, private endpoints, WAF/DDoS, strict egress.</li>
-                <li>Service auth mTLS/OIDC; secrets via KMS/Key Vault.</li>
+                <li>CIS baselines, patch orchestration, kernel/service lockdown, EDR everywhere.</li>
+                <li>PAM with JIT/JEA, credential vaulting, session recording.</li>
               </ul>
             </div></div>
 
-            <button class="acc-btn">Data Protection</button>
+            <button class="acc-btn">Data Protection &amp; Keys</button>
             <div class="acc-panel"><div>
               <ul>
-                <li>Encryption in transit/at rest; key lifecycle & rotation; envelope encryption.</li>
-                <li>Classification & residency policies aligned to POPIA.</li>
+                <li>At-rest encryption, HSM/KMS integration, rotation, tamper-evident logs.</li>
+                <li>POPIA-aligned handling; least-access patterns.</li>
               </ul>
             </div></div>
 
-            <button class="acc-btn">Workload &amp; Platform</button>
+            <button class="acc-btn">Backup, DR &amp; Ransomware</button>
             <div class="acc-panel"><div>
               <ul>
-                <li>Hardened images; EDR; container/IaC scanning; signed artifacts; drift detection.</li>
+                <li>Air-gapped/immutable tiers, quarterly restores, ransomware tabletops.</li>
+                <li>Automated reports: backup success, restore time, integrity checks.</li>
               </ul>
             </div></div>
 
-            <button class="acc-btn">Monitoring &amp; Compliance</button>
+            <button class="acc-btn">Monitoring, SIEM &amp; Audit</button>
             <div class="acc-panel"><div>
               <ul>
-                <li>CloudTrail/Activity Logs → SIEM; detective controls; evidence mapped to CIS/NIST/ISO/POPIA.</li>
-              </ul>
-            </div></div>
-
-            <button class="acc-btn">Incident Readiness</button>
-            <div class="acc-panel"><div>
-              <ul>
-                <li>IR playbooks per service; ring-fenced forensics; immutable backups; tabletops.</li>
+                <li>Syslog/ETW → SIEM, UEBA, tuned alerts surfacing real threats.</li>
+                <li>Audit packs mapped to ISO 27001, NIST CSF, CIS, and local regs.</li>
               </ul>
             </div></div>
           </div>
         </section>
 
-        <!-- Evidence -->
         <section id="evidence" class="section">
           <h2 class="section-title">Evidence &amp; Audit</h2>
           <table class="table">
             <thead><tr><th>Control Area</th><th>Evidence We Produce</th><th>Cadence</th></tr></thead>
             <tbody>
-              <tr><td>Identity</td><td>Role inventory, unused-perm diffs, MFA coverage</td><td>Monthly</td></tr>
-              <tr><td>Network</td><td>Ingress/egress allow lists, private endpoint coverage</td><td>Monthly</td></tr>
-              <tr><td>Data</td><td>Classifications, key rotation logs, residency hits</td><td>Quarterly</td></tr>
-              <tr><td>Workloads</td><td>Baseline drift, image provenance, CVE burn-down</td><td>Monthly</td></tr>
-              <tr><td>Backups/IR</td><td>Restore tests, RTO/RPO, tabletop outcomes</td><td>Quarterly</td></tr>
+              <tr><td>Segmentation</td><td>Policy diffs, blocked lateral paths, change logs</td><td>Monthly</td></tr>
+              <tr><td>Hardening</td><td>Baseline adherence, patch SLA, EDR coverage</td><td>Monthly</td></tr>
+              <tr><td>PAM</td><td>JIT/JEA usage, privileged session records</td><td>Monthly</td></tr>
+              <tr><td>Backups/DR</td><td>Restore tests, RTO/RPO, immutability proofs</td><td>Quarterly</td></tr>
             </tbody>
           </table>
         </section>
 
-        <!-- Packages -->
         <section id="packages" class="section">
           <h2 class="section-title">Engagement Packages</h2>
           <div class="card-grid">
-            <div class="card">
-              <h3>Baseline Sprint (2–4 weeks)</h3>
-              <ul>
-                <li>Org guardrails, MFA, logging, top-3 risks closed.</li>
-                <li>Evidence pack v1 + drift monitoring on.</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>Operate &amp; Assure</h3>
-              <ul>
-                <li>Drift response, monthly evidence, posture reviews with exec pack.</li>
-              </ul>
-            </div>
-            <div class="card">
-              <h3>Outcome Add-ons</h3>
-              <ul>
-                <li>Container signing, secrets rotation, backup immutability tests, PAM integration.</li>
-              </ul>
-            </div>
+            <div class="card"><h3>Baseline Sprint (2–4 weeks)</h3><ul><li>Segmentation policy, OS baselines, backup immutability checks.</li><li>Evidence pack v1; DR skeleton.</li></ul></div>
+            <div class="card"><h3>Operate &amp; Assure</h3><ul><li>Patch cadence, evidence packs, DR exercises, SIEM tuning.</li><li>SLAs for change windows, alert MTTR, false-positive thresholds.</li></ul></div>
+            <div class="card"><h3>Add-ons</h3><ul><li>PAM rollout, HSM integration, ransomware drills.</li></ul></div>
           </div>
-        </section>
-
-        <!-- Method -->
-        <section id="method" class="section">
-          <h2 class="section-title">How We Land It</h2>
-          <ol class="steps">
-            <li>Diagnose: bills, logs, IAM graph, egress map, backup health.</li>
-            <li>Design: venue-neutral options; control set with trade-offs.</li>
-            <li>Do: top-value controls first; CI/CD gates & images updated.</li>
-            <li>Drive: reviews, drift MTTR, evidence cadence.</li>
-          </ol>
         </section>
       </article>
 
-      <!-- Right rail -->
       <aside class="rail-aside">
         <nav class="toc" aria-label="On-page">
           <h4>On this page</h4>
@@ -266,19 +208,18 @@
           <a href="#controls">Controls Framework</a>
           <a href="#evidence">Evidence &amp; Audit</a>
           <a href="#packages">Engagement Packages</a>
-          <a href="#method">How We Land It</a>
         </nav>
 
         <div class="note mt-4">
-          <strong>Talk to an operator</strong>
-          <p class="mt-2">We’ll triage and give you options.</p>
-          <a class="cta-btn" href="contact.html">Book a Review</a>
+          <strong>Need triage?</strong>
+          <p class="mt-2">We’ll assess and prioritise controls that pay for themselves.</p>
+          <a class="cta-btn" href="contact.html">Request Assessment</a>
         </div>
       </aside>
     </div>
   </main>
 
-  <!-- ===== Footer (exact from index) ===== -->
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -294,8 +235,8 @@
           <input type="hidden" name="_template" value="table"/>
           <input type="hidden" name="_captcha" value="false"/>
           <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
-          <label class="visually-hidden" for="newsletter_email_cs">Email</label>
-          <input id="newsletter_email_cs" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email"/>
+          <label class="visually-hidden" for="newsletter_email_hs">Email</label>
+          <input id="newsletter_email_hs" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
@@ -316,10 +257,10 @@
     </div>
   </footer>
 
-  <!-- ===== Scripts: active link + accordions + TOC ===== -->
+  <!-- Scripts -->
   <script>
     (function(){
-      var path=(location.pathname.split('/').pop()||'cloud-security.html').toLowerCase();
+      var path=(location.pathname.split('/').pop()||'hosting-security.html').toLowerCase();
       document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
         if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
@@ -328,8 +269,7 @@
     document.querySelectorAll('.acc-btn').forEach(function(b){
       b.addEventListener('click',function(){b.classList.toggle('open');var p=b.nextElementSibling;p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+'px';});
     });
-    // TOC highlight
-    (function(){
+    (function(){ // TOC highlight
       var links=[...document.querySelectorAll('.toc a')];
       var map=links.map(a=>({id:a.getAttribute('href').slice(1), link:a}));
       var obs=new IntersectionObserver((entries)=>{
