@@ -480,3 +480,21 @@ footer #subscribe-form label{
     html, body{ height:auto !important; min-height:0 !important; overflow-y:auto !important; }
   }
 }
+/* QSE page helpers */
+.hero.banner-500.center .hero-inner { max-width: 980px; text-align: center; margin: 0 auto; }
+.timeline { display: grid; gap: 20px; }
+.timeline .step { background: #ffffff; border-radius: 14px; padding: 18px 20px; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+.timeline .step h4 { margin-bottom: 8px; }
+
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 20px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
+.card { background: #ffffff; border-radius: 14px; padding: 18px 20px; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+.card.list ul { padding-left: 18px; }
+.section.alt { background: var(--light-bg); }
+.center { text-align: center; }
+.cta-row { display: inline-flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
+
+@media (max-width: 900px){
+  .grid-3{ grid-template-columns: 1fr; }
+  .grid-2{ grid-template-columns: 1fr; }
+}
