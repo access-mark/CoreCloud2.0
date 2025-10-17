@@ -1,218 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>QSE Accelerator & Collective | CoreCloud</title>
-  <meta name="description" content="CoreCloud forms and incubates QSEs from scratch—governance, brand, GTM, shared services—then exits via a structured buy-out once milestones are met. The QSE graduates as an independent partner in the CoreCloud Collective."/>
-  <link rel="canonical" href="https://www.corecloudza.com/qse-collective.html"/>
-  <!-- Use the same stylesheet + version param as the rest of the site -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=10"/>
-</head>
-<body>
+  <meta name="description" content="We build QSEs from scratch — governance, brand, GTM, shared services — then exit via a structured buy-out once milestones are met. The QSE graduates as an independent partner in the CoreCloud Collective."/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="CoreCloud"/>
+  <meta name="theme-color" content="#004f91"/>
 
-  <!-- Header (identical to other pages) -->
-  <header class="small-banner">
-    <div class="banner-header container">
-      <a href="index.html" aria-label="CoreCloud Home">
-        <img class="logo" src="assets/images/corecloud-logo.png" alt="CoreCloud"/>
+  <!-- Canonical + Social -->
+  <link rel="canonical" href="https://www.corecloudza.com/qse-collective.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="QSE Accelerator & Collective | CoreCloud"/>
+  <meta property="og:description" content="Form, incubate, and graduate QSEs with a clear buy-out path and ongoing partnership."/>
+  <meta property="og:url" content="https://www.corecloudza.com/qse-collective.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- Global CSS (template v14 with single-line banner system) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=14"/>
+
+  <!-- Preload -->
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
+  <link rel="preload" as="image" href="assets/images/index-bannerimage.png" fetchpriority="high"/>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"QSE Accelerator & Collective","url":"https://www.corecloudza.com/qse-collective.html","publisher":{"@type":"Organization","name":"CoreCloud"}}
+  </script>
+</head>
+
+<body class="internal-page">
+  <!-- Header / Nav (matches your template v14) -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
-      <nav class="desktop-nav" aria-label="Primary">
-        <a class="nav-btn" href="index.html">Home</a>
-        <a class="nav-btn" href="consulting.html">Consulting</a>
-        <a class="nav-btn" href="cloud.html">Cloud</a>
-        <a class="nav-btn" href="finops.html">FinOps</a>
-        <a class="nav-btn" href="app-dev.html">Apps</a>
-        <a class="nav-btn" href="talent.html">Talent</a>
-        <a class="nav-btn active" href="qse-collective.html" aria-current="page">QSE Collective</a>
-        <a class="nav-btn" href="contact.html">Contact</a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Consulting</button>
+          <div class="submenu" role="menu" aria-label="Consulting">
+            <a role="menuitem" href="consulting.html">Overview</a>
+            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
+            <a role="menuitem" href="qse-collective.html" class="active" aria-current="page">QSE Accelerator &amp; Collective</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <div class="submenu" role="menu" aria-label="Cloud Suite">
+            <a role="menuitem" href="cloud.html">Overview</a>
+            <a role="menuitem" href="finops.html">FinOps</a>
+            <a role="menuitem" href="application-development.html">Application Development</a>
+            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
+            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <div class="submenu" role="menu" aria-label="Curated Talent">
+            <a role="menuitem" href="talent.html">Overview</a>
+            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="global-talent.html">Global Talent</a>
+          </div>
+        </div>
+
+        <a href="infrastructure.html">Infrastructure</a>
+        <a href="about.html">About</a>
+        <a href="blog.html">Insights</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
-      <button class="hamburger" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
-        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-      </button>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
-    <nav id="mobile-menu" class="mobile-nav" hidden>
+    <!-- Mobile drawer -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html">Home</a>
-      <a href="consulting.html">Consulting</a>
-      <a href="cloud.html">Cloud</a>
-      <a href="finops.html">FinOps</a>
-      <a href="app-dev.html">Apps</a>
-      <a href="talent.html">Talent</a>
-      <a class="active" href="qse-collective.html" aria-current="page">QSE Collective</a>
+
+      <details>
+        <summary>Consulting</summary>
+        <a href="consulting.html">Overview</a>
+        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+        <a href="qse-collective.html" aria-current="page">QSE Accelerator &amp; Collective</a>
+      </details>
+
+      <details>
+        <summary>Cloud Suite</summary>
+        <a href="cloud.html">Overview</a>
+        <a href="finops.html">FinOps</a>
+        <a href="application-development.html">Application Development</a>
+        <a href="data-ai.html">Data &amp; AI</a>
+        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+      </details>
+
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="global-talent.html">Global Talent</a>
+      </details>
+
+      <a href="infrastructure.html">Infrastructure</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero banner-500 center">
-    <div class="container hero-inner">
-      <h1>QSE Accelerator & Collective</h1>
-      <p class="lead">We build QSEs from zero to revenue — governance, brand, GTM, shared services. When milestones are hit, the QSE buys out CoreCloud and graduates as an independent partner.</p>
-      <div class="cta-row">
-        <a class="btn primary" href="contact.html?topic=qse">Start a QSE</a>
-        <a class="btn outline" href="contact.html?topic=qse-partner">Partner with the Collective</a>
-      </div>
+  <!-- Banner (single blue line per template) -->
+  <div class="hero-frame">
+    <div class="hero-media" role="img" aria-label="QSE Accelerator & Collective">
+      <img src="assets/images/index-bannerimage.png" alt="QSE Accelerator & Collective" width="1920" height="300" loading="eager" decoding="async" fetchpriority="high"/>
+    </div>
+  </div>
+
+  <!-- Page intro -->
+  <section class="hero-intro">
+    <h1 class="hero-title">QSE Accelerator &amp; Collective</h1>
+    <p>We build QSEs from zero to revenue — governance, brand, GTM, and shared services. On hitting milestones, the QSE buys out CoreCloud and stands alone as a partner in the Collective.</p>
+    <div class="cta-row" style="margin-top:.5rem;">
+      <a class="cta-btn" href="contact.html?topic=qse">Start a QSE</a>
+      <a class="cta-btn ghost" href="contact.html?topic=qse-esd">Discuss ESD Partnership</a>
     </div>
   </section>
 
-  <!-- Value Props -->
-  <section class="section padded">
-    <div class="container">
-      <div class="grid-3">
-        <div class="card">
-          <h3>Built Right, From Day One</h3>
-          <p>Company registration, governance, B-BBEE strategy, banking, brand, website, CRM and operating rhythm — set up on day one.</p>
+  <main class="content" id="main">
+    <!-- Value props -->
+    <section class="section" aria-labelledby="value-title">
+      <h2 id="value-title" class="section-title">Why this works</h2>
+      <div class="card-grid" role="list">
+        <div class="card" role="listitem">
+          <h3>Built Right, Day One</h3>
+          <p>Company registration, governance, B-BBEE plan, banking, brand, site, CRM, offers, and operating rhythm.</p>
         </div>
-        <div class="card">
+        <div class="card" role="listitem">
           <h3>Shared Services to Scale</h3>
-          <p>Finance, HR, legal, marketing, sales enablement and partner access (AWS, Azure, DVT, Cyberwin) to close deals faster.</p>
+          <p>Finance, HR, legal, marketing, sales enablement, and partner access (AWS, Azure, DVT, Cyberwin) to close faster.</p>
         </div>
-        <div class="card">
+        <div class="card" role="listitem">
           <h3>Graduate, Don’t Depend</h3>
-          <p>Hit revenue and maturity targets, execute the buy-out formula, and stand alone as a partner in the CoreCloud Collective.</p>
+          <p>Clear milestones and buy-out formula; stand alone and remain a partner in the CoreCloud Collective.</p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- How It Works -->
-  <section class="section alt padded">
-    <div class="container">
-      <h2>How it works</h2>
-      <div class="timeline">
-        <div class="step">
-          <h4>Phase 1 — Formation</h4>
-          <ul>
-            <li>Register (Pty) Ltd, governance, banking, tax & compliance.</li>
-            <li>B-BBEE plan aligned to QSE requirements (R10m–R50m turnover class).</li>
-            <li>Brand, site, domains, CRM, GTM plan and first offers.</li>
-            <li>Initial shareholding: CoreCloud majority; operator equity vesting.</li>
-          </ul>
-        </div>
-        <div class="step">
-          <h4>Phase 2 — Incubation</h4>
-          <ul>
-            <li>Operate using shared services: Finance, HR, legal, marketing, sales.</li>
-            <li>Access to CoreCloud leads, frameworks and partner vendors.</li>
-            <li>Targets: 2–3 recurring clients and R5m+ annual run-rate.</li>
-          </ul>
-        </div>
-        <div class="step">
-          <h4>Phase 3 — Buy-Out & Graduation</h4>
-          <ul>
-            <li>Trigger: revenue passes R10m with maturity KPIs met.</li>
-            <li>Buy-out via fixed formula (e.g. multiple on EBITDA) over 12–18 months.</li>
-            <li>Graduate as a stand-alone business and Collective partner.</li>
-          </ul>
-        </div>
+    <!-- How it works -->
+    <section class="section" aria-labelledby="how-title">
+      <h2 id="how-title" class="section-title">How it works</h2>
+      <div class="narrative">
+        <h3>Phase 1 — Formation</h3>
+        <p>(Pty) Ltd registration; governance, banking, tax, POPIA; B-BBEE roadmap for QSE (R10m–R50m turnover class); brand, domains, site, CRM; GTM plan; initial shareholding with operator vesting.</p>
+
+        <h3>Phase 2 — Incubation</h3>
+        <p>Operate on CoreCloud shared services; access frameworks, leads, partners; targets: 2–3 recurring clients, path to R5m+ ARR run-rate.</p>
+
+        <h3>Phase 3 — Buy-Out & Graduation</h3>
+        <p>Trigger when revenue & maturity KPIs met (≥ R10m turnover). Buy-out over 12–18 months via pre-agreed formula (e.g., 2×–3× EBITDA). QSE graduates and remains a Collective partner.</p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- What We Set Up -->
-  <section class="section padded">
-    <div class="container">
-      <h2>What we set up</h2>
-      <div class="grid-3">
-        <div class="card list">
-          <h4>Governance & Compliance</h4>
+    <!-- What we set up -->
+    <section class="section" aria-labelledby="setup-title">
+      <h2 id="setup-title" class="section-title">What we set up</h2>
+      <div class="card-grid" role="list">
+        <div class="card list" role="listitem">
+          <h3>Governance & Compliance</h3>
           <ul>
             <li>Company registration, shareholder docs, banking</li>
-            <li>B-BBEE roadmap & verification prep</li>
-            <li>Contracts, MSAs, NDAs, POPIA practices</li>
+            <li>B-BBEE roadmap & verification preparation</li>
+            <li>Contracts (MSA/NDA), POPIA-aligned practices</li>
           </ul>
         </div>
-        <div class="card list">
-          <h4>Go-to-Market</h4>
+        <div class="card list" role="listitem">
+          <h3>Go-to-Market</h3>
           <ul>
             <li>Positioning, offers, pricing, proposals</li>
             <li>Website, content, case references</li>
             <li>Partner onboarding (AWS, Azure, DVT, Cyberwin)</li>
           </ul>
         </div>
-        <div class="card list">
-          <h4>Operating System</h4>
+        <div class="card list" role="listitem">
+          <h3>Operating System</h3>
           <ul>
             <li>Finance & HR processes, payroll guidance</li>
-            <li>CRM, pipeline, delivery rhythm</li>
+            <li>CRM, pipeline, delivery cadence</li>
             <li>Brand kit and sales collateral</li>
           </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- KPIs -->
-  <section class="section alt padded">
-    <div class="container">
-      <h2>Milestones & KPIs</h2>
-      <div class="grid-2">
-        <div class="card list">
-          <h4>Incubation Targets</h4>
+    <!-- KPIs -->
+    <section class="section" aria-labelledby="kpi-title">
+      <h2 id="kpi-title" class="section-title">Milestones & KPIs</h2>
+      <div class="card-grid two" role="list">
+        <div class="card list" role="listitem">
+          <h3>Incubation Targets</h3>
           <ul>
-            <li>Quarter-on-quarter growth, path to R10m+ revenue</li>
-            <li>Recurring revenue base with 2–3 anchor clients</li>
+            <li>QoQ growth; path to ≥ R10m turnover</li>
+            <li>2–3 anchor clients with recurring revenue</li>
             <li>Priority-element progress on B-BBEE</li>
           </ul>
         </div>
-        <div class="card list">
-          <h4>Buy-Out Mechanics</h4>
+        <div class="card list" role="listitem">
+          <h3>Buy-Out Mechanics</h3>
           <ul>
-            <li>Pre-agreed valuation formula (e.g. 2×–3× EBITDA)</li>
-            <li>12–18 month vendor-financed buy-back from profits</li>
-            <li>Ongoing partner & reseller agreement post-graduation</li>
+            <li>Pre-agreed valuation (e.g., 2×–3× EBITDA)</li>
+            <li>12–18 month vendor-financed buy-back</li>
+            <li>Ongoing partner & reseller agreement</li>
           </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA -->
-  <section class="section padded">
-    <div class="container center">
-      <h2>Ready to build a QSE that can stand on its own?</h2>
-      <p class="lead">Let’s align on stream, milestones and the buy-out path. We’ll do the heavy lifting; you focus on delivery and clients.</p>
-      <div class="cta-row">
-        <a class="btn primary" href="contact.html?topic=qse">Start a QSE</a>
-        <a class="btn outline" href="contact.html?topic=qse-esd">Discuss ESD Partnership</a>
+    <!-- Who it's for -->
+    <section class="section" aria-labelledby="who-title">
+      <h2 id="who-title" class="section-title">Who it’s for</h2>
+      <div class="card-grid" role="list">
+        <div class="card" role="listitem">
+          <h3>Operator-Founders</h3>
+          <p>Senior delivery leaders ready to own a P&amp;L with CoreCloud scaffolding.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h3>Enterprise ESD Leaders</h3>
+          <p>Build credible, independent QSE partners to strengthen your supply chain.</p>
+        </div>
+        <div class="card" role="listitem">
+          <h3>Partners & MSPs</h3>
+          <p>Co-create specialist benches aligned to cloud, apps, data, and security demand.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Footer (identical to global footer) -->
+    <!-- CTA -->
+    <section class="section" aria-labelledby="cta-title">
+      <h2 id="cta-title" class="section-title">Ready to build a QSE that can stand on its own?</h2>
+      <p style="text-align:center;max-width:900px;margin:0 auto;">Align on stream, milestones, and buy-out path. We’ll handle the scaffolding; you focus on delivery and clients.</p>
+      <div class="cta-row" style="margin-top:.5rem;text-align:center;">
+        <a class="cta-btn" href="contact.html?topic=qse">Start a QSE</a>
+        <a class="cta-btn ghost" href="contact.html?topic=qse-partner">Partner with the Collective</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (unchanged) -->
   <footer>
-    <div class="footer-content container">
+    <div class="footer-content">
       <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton,<br>Johannesburg</p>
+        <p>Sandton<br/>Johannesburg<br/>South Africa</p>
       </div>
+
       <div class="footer-middle">
         <h4>Stay Informed</h4>
-        <p>Join our newsletter for updates on cloud, GTM, and leadership insights.</p>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
           <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" name="email" type="email" placeholder="you@company.com" required />
-          <button class="btn" type="submit">Subscribe</button>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email"/>
+          <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
+
       <div class="footer-right">
-        <p>&copy; <span id="year"></span> CoreCloud. All rights reserved.</p>
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27 11 568 8667">+27 11 568 8667</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
     </div>
   </footer>
 
+  <!-- Active link highlighter -->
   <script>
     (function(){
-      var y=document.getElementById('year'); if(y){ y.textContent=new Date().getFullYear(); }
-      var btn=document.querySelector('.hamburger'); var panel=document.getElementById('mobile-menu');
-      if(btn&&panel){ btn.addEventListener('click', function(){ var ex=this.getAttribute('aria-expanded')==='true'; this.setAttribute('aria-expanded', !ex); panel.toggleAttribute('hidden'); }); }
+      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+      document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
+        var href=(a.getAttribute('href')||'').toLowerCase();
+        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
+        else{a.classList.remove('active');a.removeAttribute('aria-current');}
+      });
     })();
   </script>
 </body>
