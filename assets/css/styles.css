@@ -498,3 +498,6 @@ footer #subscribe-form label{
   .grid-3{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
 }
+/* Center bottom CTA buttons */
+.cta-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+.cta-row .cta-btn { text-align: center; min-width: 220px; }
