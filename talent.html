@@ -119,15 +119,6 @@
           </div>
         </div>
 
-        <!-- NEW: Security -->
-        <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Security</button>
-          <div class="submenu" role="menu" aria-label="Security">
-            <a role="menuitem" href="cloud-security.html">Cloud Security</a>
-            <a role="menuitem" href="hosting-security.html">Private Cloud / Hosting</a>
-          </div>
-        </div>
-
         <a href="infrastructure.html">Infrastructure</a>
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
@@ -163,13 +154,6 @@
         <a href="talent.html" aria-current="page">Overview</a>
         <a href="talent-relaunch.html">RE/LAUNCH</a>
         <a href="global-talent.html">Global Talent</a>
-      </details>
-
-      <!-- NEW: Security -->
-      <details>
-        <summary>Security</summary>
-        <a href="cloud-security.html">Cloud Security</a>
-        <a href="hosting-security.html">Private Cloud / Hosting</a>
       </details>
 
       <a href="infrastructure.html">Infrastructure</a>
@@ -346,6 +330,8 @@
         if(!p) return 'index.html';
         p = p.toLowerCase().split('#')[0].split('?')[0];
         if(p === '' || p === '/') p = 'index.html';
+        if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
+        if(p === 'mobile-web.html') p = 'application-development.html';
         return p;
       }
       var current = norm(location.pathname.split('/').pop() || 'talent.html');
