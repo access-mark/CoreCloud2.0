@@ -507,3 +507,33 @@ footer #subscribe-form label{
   gap:.5rem;max-width:1000px;margin:0 auto;padding:0 1rem;text-align:center;
 }
 .partner-grid span{display:block;padding:.65rem .75rem;border:1px dashed rgba(0,0,0,.12);border-radius:10px;}
+/* ---- HERO CENTERING & CONSISTENT SPACING ---- */
+/* Cover-crop hero with centered focal point (works for any banner image) */
+.hero-media.hero-media-cover{position:relative;height:420px}
+.hero-media.hero-media-cover img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+}
+
+/* Text hero block: vertically center content and unify spacing */
+.hero{display:grid;place-items:center;text-align:center;padding:32px 16px}
+.hero-500{min-height:500px}
+.hero .hero-body{max-width:900px;margin:0 auto}
+.hero .hero-body p{color:var(--royal-2)}
+.lead{font-size:1.1rem;line-height:1.6;margin-top:.5rem}
+
+/* Section rhythm (same top/bottom on both pages) */
+.section{padding:2rem 0}
+.section > p, .section > ul, .section > ol{max-width:1000px;margin:0 auto;padding:0 1rem}
+.points{max-width:1000px;margin:0 auto;padding:0 1rem 0 2rem}
+.points li{margin:.35rem 0;line-height:1.7}
+
+/* Tighten h1/h2 and ensure consistent center */
+h1{font-size:40px;line-height:1.2;margin:24px auto 8px;color:var(--royal);text-align:center}
+h2{font-size:28px;line-height:1.25;margin:20px auto 10px;color:var(--royal);text-align:center}
+
+/* Responsive hero height */
+@media (max-width:768px){
+  .hero-media.hero-media-cover{height:300px}
+  .hero-500{min-height:380px}
+}
