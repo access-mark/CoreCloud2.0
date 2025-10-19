@@ -51,7 +51,7 @@
       max-width:780px;
     }
 
-    /* Force underline on active parent button (Cloud Suite) + current submenu */
+    /* Force underline on active parent button + current submenu */
     .main-nav .nav-group > button.active{ color:var(--dark-blue); border-bottom:2px solid var(--dark-blue) !important; }
     .submenu a.active{ border-bottom:2px solid var(--dark-blue) !important; color:var(--dark-blue) !important; }
 
@@ -106,7 +106,14 @@
           </div>
         </div>
 
-        <a href="infrastructure.html">Infrastructure</a>
+        <!-- Replaced single Infrastructure link with dropdown -->
+        <div class="nav-group">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+          </div>
+        </div>
+
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
@@ -147,7 +154,12 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
-      <a href="infrastructure.html">Infrastructure</a>
+      <!-- New Infrastructure dropdown for mobile -->
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+      </details>
+
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
@@ -262,7 +274,7 @@
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
         <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
-        <p><a href="https://www.linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+        <p><a href="https://www.linkedin.com/company/107657749" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
 
@@ -274,7 +286,7 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter (strict, single-active) -->
+  <!-- Active-link highlighter (strict, single-active; supports parent underline for any dropdown) -->
   <script>
     (function () {
       function norm(p){
@@ -288,17 +300,17 @@
 
       var current = norm(location.pathname.split('/').pop() || 'azure-migration.html');
 
-      // 1) Clear all existing active states
+      // Clear all active states
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
         .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
 
-      // 2) Mark ONLY the current page across desktop + mobile
+      // Mark ONLY the current page across desktop + mobile
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
         var href = norm(a.getAttribute('href') || '');
         if(href === current){
           a.classList.add('active');
           a.setAttribute('aria-current', 'page');
-          // 3) Also underline the parent top-level "Cloud Suite" button in desktop nav
+          // underline the parent button in desktop nav when child is active
           var group = a.closest('.nav-group');
           if(group){
             var btn = group.querySelector(':scope > button');
