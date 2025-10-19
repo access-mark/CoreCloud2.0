@@ -19,8 +19,8 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/hosting-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (template-aligned) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=19"/>
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=20"/>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
@@ -28,7 +28,7 @@
 </head>
 
 <body class="home-page">
-  <!-- Header / Nav (same as template, Infra dropdown) -->
+  <!-- Header / Nav -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -57,6 +57,7 @@
           </div>
         </div>
 
+        <!-- Infrastructure dropdown -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false" class="active">Infrastructure</button>
           <div class="submenu" role="menu" aria-label="Infrastructure">
@@ -138,50 +139,92 @@
   </section>
 
   <main class="content" id="main">
-    <section class="section" aria-labelledby="solutions">
-      <h2 id="solutions" class="section-title">Modern Workplace Solutions</h2>
-      <p style="max-width:900px;margin:0 auto;text-align:center;">
-        Empower employees to connect, collaborate and work securely on any device, anywhere — built for today’s hybrid work.
-        Services are centralised so people access what they need, when they need it, and stay focused on their work.
-        CoreCloud’s Modern Workplace now includes <strong>AI</strong> to provide a predictive, intelligent experience.
-      </p>
+    <!-- Pillars -->
+    <section class="section" aria-labelledby="pillars">
+      <h2 id="pillars" class="section-title">What “Modern” Looks Like</h2>
+      <div class="card-grid" role="list">
+        <div class="card" role="listitem"><h3>Device Management</h3><p>Autopilot/Intune or equivalent for zero-touch build, policy, app delivery, and health.</p></div>
+        <div class="card" role="listitem"><h3>Identity & Access</h3><p>Entra ID/Okta, SSO, conditional access, least-privilege roles, break-glass controls.</p></div>
+        <div class="card" role="listitem"><h3>Collaboration</h3><p>Teams/Zoom/Webex with meeting rooms, call routing, and interop guardrails.</p></div>
+        <div class="card" role="listitem"><h3>Security</h3><p>Defender/XDR, email security, DLP and insider risk with SOC workflows.</p></div>
+        <div class="card" role="listitem"><h3>Data Protection</h3><p>3-2-1 for M365/Google Workspace, legal hold, retention, and recovery testing.</p></div>
+        <div class="card" role="listitem"><h3>AI at Work</h3><p>Copilot enablement with data boundaries, prompts training, and usage guardrails.</p></div>
+      </div>
     </section>
 
-    <section class="section" aria-labelledby="devices">
-      <h2 id="devices" class="section-title">Modern Device Management</h2>
-      <p style="max-width:900px;margin:0 auto;text-align:center;">
-        Enable your users to work from anywhere and on any device — while we manage, secure and deliver a rich experience across devices and apps.
-      </p>
+    <!-- Outcomes -->
+    <section class="section" aria-labelledby="mw-outcomes">
+      <h2 id="mw-outcomes" class="section-title">Outcomes We Drive</h2>
+      <ul style="max-width:900px;margin:0 auto;padding-left:1.25rem;">
+        <li><strong>Happier users:</strong> first-call resolution and clear SLAs.</li>
+        <li><strong>Less noise:</strong> hardened baseline reduces incidents and drift.</li>
+        <li><strong>Faster work:</strong> AI assistance and automation remove waste.</li>
+        <li><strong>Lower spend:</strong> license rationalisation and consumption hygiene.</li>
+      </ul>
     </section>
 
-    <section class="section" aria-labelledby="collab">
-      <h2 id="collab" class="section-title">Intelligent Collaboration</h2>
-      <p style="max-width:900px;margin:0 auto;text-align:center;">
-        Connect and collaborate from anywhere with next-gen voice, video and web conferencing, <strong>generative AI</strong>, and traditional unified communications.
-      </p>
+    <!-- Services -->
+    <section class="section" aria-labelledby="mw-services">
+      <h2 id="mw-services" class="section-title">Services & Packages</h2>
+      <div class="card-grid" role="list">
+        <div class="card" role="listitem"><h3>Foundations</h3><p>Tenant hardening, identity baseline, device standards, collaboration posture.</p></div>
+        <div class="card" role="listitem"><h3>Adoption & Change</h3><p>Champions, bite-size learning, roles-based playbooks, comms cadence.</p></div>
+        <div class="card" role="listitem"><h3>Copilot Readiness</h3><p>Data mapping, permissions clean-up, safe prompts, usage analytics.</p></div>
+        <div class="card" role="listitem"><h3>Service Desk+</h3><p>24×7 or business-hours, self-service catalogue, SLA reporting, CSAT.</p></div>
+        <div class="card" role="listitem"><h3>Device Lifecycle</h3><p>Procure-to-retire, break/fix, warranty, secure wipe and redeploy.</p></div>
+        <div class="card" role="listitem"><h3>License Optimisation</h3><p>Tiering, re-harvesting, audits, and seasonal scaling.</p></div>
+      </div>
     </section>
 
-    <section class="section" aria-labelledby="asset">
-      <h2 id="asset" class="section-title">Asset Management</h2>
-      <p style="max-width:900px;margin:0 auto;text-align:center;">
-        Manage and optimise licensing for cloud and hybrid environments. Drive software cost optimisation, control and compliance.
-      </p>
+    <!-- 90-day rollout -->
+    <section class="section" aria-labelledby="mw-90">
+      <h2 id="mw-90" class="section-title">90-Day Rollout</h2>
+      <ol style="max-width:900px;margin:0 auto;padding-left:1.25rem;">
+        <li><strong>Weeks 1–3:</strong> assess, baseline identity and device policies; quick wins.</li>
+        <li><strong>Weeks 4–8:</strong> pilot groups for devices, rooms, telephony; adoption plan live.</li>
+        <li><strong>Weeks 9–12:</strong> scale to departments; Copilot enablement where data allows.</li>
+      </ol>
+      <div class="cta-row" style="margin-top:.75rem;text-align:center;">
+        <a class="cta-btn" href="contact.html">Plan My 90 Days</a>
+      </div>
     </section>
 
-    <section class="section" aria-labelledby="support">
-      <h2 id="support" class="section-title">Support Services</h2>
-      <p style="max-width:900px;margin:0 auto;text-align:center;">
-        Fast answers and resolution so users stay productive. We ensure uninterrupted access to tools, devices and data — wherever work gets done.
-      </p>
-      <div class="inline-cta" style="max-width:900px;margin:1.2rem auto 0;">
-        <strong>Elevate employee experience.</strong>
-        <p>Let’s align devices, collaboration and AI around your teams.</p>
-        <a class="cta-btn" href="contact.html">Start the Conversation</a>
+    <!-- Tiers -->
+    <section class="section" aria-labelledby="mw-tiers">
+      <h2 id="mw-tiers" class="section-title">Managed Tiers (Typical)</h2>
+      <div class="card-grid" role="list">
+        <div class="card" role="listitem"><h3>Core</h3><p>Business-hours support, baselines enforced, monthly health report.</p></div>
+        <div class="card" role="listitem"><h3>Plus</h3><p>Extended hours, change windows, quarterly adoption reviews.</p></div>
+        <div class="card" role="listitem"><h3>Elite</h3><p>24×7, dedicated TAM, AI usage coaching and advanced security.</p></div>
+      </div>
+    </section>
+
+    <!-- Tooling -->
+    <section class="section" aria-labelledby="mw-tools">
+      <h2 id="mw-tools" class="section-title">Tooling We Work With</h2>
+      <p style="max-width:900px;margin:0 auto;text-align:center;">Microsoft 365, Entra ID, Intune/Autopilot, Defender, Purview, Teams, Zoom, Webex, Okta, Google Workspace, JAMF, ServiceNow/JSM.</p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" aria-labelledby="mw-faq">
+      <h2 id="mw-faq" class="section-title">FAQ</h2>
+      <div class="faq-list" style="max-width:900px;margin:0 auto;padding:0 1rem;">
+        <details><summary>Do you support mixed collaboration stacks?</summary><p>Yes — Teams + Zoom/Webex interop with identity and meeting room guardrails.</p></details>
+        <details><summary>How do you make AI safe?</summary><p>Data mapping, permissions clean-up, sensitivity labels, DLP, and scoped rollouts.</p></details>
+        <details><summary>Will you work with our helpdesk?</summary><p>Yes — we can augment, run L2/L3 only, or provide end-to-end Service Desk.</p></details>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section" aria-labelledby="mw-cta">
+      <h2 id="mw-cta" class="section-title">Ready to Put People First?</h2>
+      <div class="cta-row" style="text-align:center;">
+        <a class="cta-btn" href="contact.html">Schedule a Working Session</a>
       </div>
     </section>
   </main>
 
-  <!-- Footer (template) -->
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -216,7 +259,7 @@
     </div>
   </footer>
 
-  <!-- Active link highlighter (template) -->
+  <!-- Active link highlighter -->
   <script>
     (function(){
       var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
