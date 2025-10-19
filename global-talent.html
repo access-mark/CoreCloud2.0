@@ -15,7 +15,7 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/talent-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (same as index) -->
+  <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
 
   <!-- Preload -->
@@ -46,7 +46,7 @@
 </head>
 
 <body class="global-talent">
-  <!-- Header / Nav (same structure/behavior as index) -->
+  <!-- Header / Nav (unified with site reference) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -57,6 +57,7 @@
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 
+        <!-- Consulting -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
@@ -65,6 +66,7 @@
           </div>
         </div>
 
+        <!-- Cloud Suite (includes Cloud Security) -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
@@ -73,11 +75,23 @@
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
             <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+            <a role="menuitem" href="cloud-security.html">Cloud Security</a>
           </div>
         </div>
 
+        <!-- Infrastructure (includes Hosting Security) -->
         <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="infrastructure.html">Modern Datacenter</a>
+            <a role="menuitem" href="modern-workplace.html">Modern Workplace</a>
+            <a role="menuitem" href="hosting-security.html">Hosting Security</a>
+          </div>
+        </div>
+
+        <!-- Curated Talent (current section) -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false" class="active">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
             <a role="menuitem" href="talent.html">Overview</a>
             <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
@@ -85,7 +99,15 @@
           </div>
         </div>
 
-        <a href="infrastructure.html">Infrastructure</a>
+        <!-- Incubation Hub -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
+          <div class="submenu" role="menu" aria-label="Incubation Hub">
+            <a role="menuitem" href="incubation-hub.html">Overview</a>
+            <a role="menuitem" href="qse-collective.html">QSE Collective</a>
+          </div>
+        </div>
+
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
@@ -113,6 +135,14 @@
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
         <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+        <a href="cloud-security.html">Cloud Security</a>
+      </details>
+
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="infrastructure.html">Modern Datacenter</a>
+        <a href="modern-workplace.html">Modern Workplace</a>
+        <a href="hosting-security.html">Hosting Security</a>
       </details>
 
       <details open>
@@ -122,7 +152,12 @@
         <a href="global-talent.html" aria-current="page">Global Talent</a>
       </details>
 
-      <a href="infrastructure.html">Infrastructure</a>
+      <details>
+        <summary>Incubation Hub</summary>
+        <a href="incubation-hub.html">Overview</a>
+        <a href="qse-collective.html">QSE Collective</a>
+      </details>
+
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
@@ -240,7 +275,7 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter (with legacy path mapping) -->
+  <!-- Active-link highlighter (unified; handles legacy path mappings) -->
   <script>
     (function(){
       function norm(p){
@@ -252,18 +287,22 @@
         if(p === 'mobile-web.html') p = 'application-development.html';
         return p;
       }
-      var current = norm(location.pathname.split('/').pop());
+      var current = norm(location.pathname.split('/').pop() || 'global-talent.html');
 
-      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
-        var href = norm(a.getAttribute('href')||'');
-        if(href === current){
-          a.classList.add('active'); a.setAttribute('aria-current','page');
-          var group = a.closest('.nav-group');
-          if(group){ var btn = group.querySelector('button'); if(btn){ btn.classList.add('active'); } }
-        }else{
-          a.classList.remove('active'); a.removeAttribute('aria-current');
-        }
-      });
+      // reset stale states
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
+        .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
+
+      // mark current + parent button
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a')
+        .forEach(function(a){
+          var href = norm(a.getAttribute('href')||'');
+          if(href === current){
+            a.classList.add('active'); a.setAttribute('aria-current','page');
+            var group = a.closest('.nav-group');
+            if(group){ var btn = group.querySelector(':scope > button'); if(btn){ btn.classList.add('active'); } }
+          }
+        });
     })();
   </script>
 </body>
