@@ -2,74 +2,61 @@
 <html lang="en">
 <head>
   <!-- Meta -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>CoreCloud AWS Managed Services | Visibility, Control & Governance</title>
-  <meta name="description" content="CoreCloud’s AWS Managed Services provide South African enterprises with full-stack cloud governance, visibility, and control — backed by executive-grade SLAs and local expertise." />
-  <link rel="canonical" href="https://www.corecloudza.com/aws-manage.html" />
+  <meta name="description" content="CoreCloud’s AWS Managed Services provide South African enterprises with full-stack cloud governance, visibility, and control — backed by executive-grade SLAs and local expertise."/>
+  <link rel="canonical" href="https://www.corecloudza.com/aws-manage.html"/>
 
-  <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="CoreCloud AWS Managed Services | Visibility, Control & Governance" />
-  <meta property="og:description" content="Full-stack governance, visibility, and cost control for AWS — with executive-grade SLAs." />
-  <meta property="og:url" content="https://www.corecloudza.com/aws-manage.html" />
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="CoreCloud AWS Managed Services | Visibility, Control & Governance" />
-  <meta name="twitter:description" content="Full-stack governance, visibility, and cost control for AWS — with executive-grade SLAs." />
-  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
+  <!-- Social -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="CoreCloud AWS Managed Services | Visibility, Control & Governance"/>
+  <meta property="og:description" content="Full-stack governance, visibility, and cost control for AWS — with executive-grade SLAs."/>
+  <meta property="og:url" content="https://www.corecloudza.com/aws-manage.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=13" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
 
-  <!-- Preload hero -->
-  <link rel="preload" as="image" href="assets/images/cloud-banner.png?v=2" fetchpriority="high" />
+  <!-- Preload -->
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
+  <link rel="preload" as="image" href="assets/images/cloud-banner.png?v=2" fetchpriority="high"/>
 
-  <!-- Page-scoped (light, content-only) -->
+  <!-- Page-scoped helpers -->
   <style>
-    .center-subtitle{
-      text-align:center;
-      color:#000;
-      font-size:1.05rem;
-      margin:0 auto 2rem;
+    /* Center & lock the AWS subtitle */
+    .awsms-page .hero-intro p.center-subtitle{
+      text-align:center !important;
+      margin-left:auto !important;
+      margin-right:auto !important;
+      display:block !important;
       max-width:900px;
       line-height:1.65;
+      color:#000;
+      font-size:1.05rem;
     }
-    /* cards use your global .card + .card-grid; this just ensures spacing feels right */
-    .awsms-grid{ max-width:var(--content-max); margin:0 auto; }
-
-    /* Defensive: footer tel link stays white + no underline */
-    .footer-right a[href^="tel"]{ color:#fff !important; text-decoration:none !important; font-weight:700; }
+    /* spacing harmony */
+    .awsms-grid{max-width:var(--content-max);margin:0 auto;}
+    /* keep phone link white in footer */
+    .footer-right a[href^="tel"]{color:#fff !important;text-decoration:none !important;font-weight:700;}
   </style>
 
-  <!-- JSON-LD -->
+  <!-- JSON-LD (optional) -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@graph":[
       {
-        "@type":"BreadcrumbList",
-        "itemListElement":[
-          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
-          {"@type":"ListItem","position":2,"name":"Cloud Suite","item":"https://www.corecloudza.com/cloud.html"},
-          {"@type":"ListItem","position":3,"name":"AWS Managed Services","item":"https://www.corecloudza.com/aws-manage.html"}
-        ]
-      },
-      {
-        "@type":"Organization",
-        "@id":"https://www.corecloudza.com/#org",
-        "name":"CoreCloud (Pty) Ltd",
-        "url":"https://www.corecloudza.com/",
-        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
-        "sameAs":["https://www.linkedin.com/company/corecloudza"]
+        "@type":"WebPage",
+        "name":"AWS Managed Services",
+        "url":"https://www.corecloudza.com/aws-manage.html"
       },
       {
         "@type":"Service",
         "name":"AWS Managed Services",
-        "provider":{"@id":"https://www.corecloudza.com/#org"},
         "areaServed":{"@type":"Country","name":"South Africa"},
-        "url":"https://www.corecloudza.com/aws-manage.html",
-        "description":"Managed AWS operations with monitoring, compliance automation, patching/backups, cost optimisation, CI/CD support, and 24/7 NOC."
+        "provider":{"@type":"Organization","name":"CoreCloud (Pty) Ltd","url":"https://www.corecloudza.com/"}
       }
     ]
   }
@@ -77,42 +64,51 @@
 </head>
 
 <body class="cloud-page awsms-page">
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <!-- Unified Header / Nav -->
+  <!-- Header / Nav (UNIFIED, matches reference) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async" />
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 
+        <!-- Consulting -->
         <div class="nav-group">
-          <button type="button" aria-haspopup="true" aria-expanded="false">Consulting</button>
+          <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
             <a role="menuitem" href="consulting.html">Overview</a>
             <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
           </div>
         </div>
 
+        <!-- Cloud Suite (per reference) -->
         <div class="nav-group">
-          <button type="button" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <button aria-haspopup="true" aria-expanded="false" class="active">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
             <a role="menuitem" href="cloud.html" class="active" aria-current="page">Overview</a>
-            <a role="menuitem" href="aws-migration.html">AWS Migration</a>
-            <a role="menuitem" href="aws-modernization.html">AWS Modernization</a>
-            <a role="menuitem" href="aws-manage.html" class="active" aria-current="page">AWS Managed Services</a>
             <a role="menuitem" href="finops.html">FinOps</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
-            <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+            <a role="menuitem" href="cloud-security.html">Cloud Security</a>
           </div>
         </div>
 
+        <!-- Infrastructure (per reference) -->
         <div class="nav-group">
-          <button type="button" aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="infrastructure.html">Modern Datacenter</a>
+            <a role="menuitem" href="modern-workplace.html">Modern Workplace</a>
+            <a role="menuitem" href="hosting-security.html">Hosting Security</a>
+          </div>
+        </div>
+
+        <!-- Curated Talent -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
             <a role="menuitem" href="talent.html">Overview</a>
             <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
@@ -120,17 +116,25 @@
           </div>
         </div>
 
-        <a href="infrastructure.html">Infrastructure</a>
+        <!-- Incubation Hub -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
+          <div class="submenu" role="menu" aria-label="Incubation Hub">
+            <a role="menuitem" href="incubation-hub.html">Overview</a>
+            <a role="menuitem" href="qse-collective.html">QSE Collective</a>
+          </div>
+        </div>
+
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
       </nav>
 
-      <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-label="Open menu" />
-      <label class="hamburger" for="nav-toggle"><span></span></label>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
     <!-- Mobile drawer -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html">Home</a>
 
@@ -143,13 +147,18 @@
       <details open>
         <summary>Cloud Suite</summary>
         <a href="cloud.html" aria-current="page">Overview</a>
-        <a href="aws-migration.html">AWS Migration</a>
-        <a href="aws-modernization.html">AWS Modernization</a>
-        <a href="aws-manage.html" aria-current="page">AWS Managed Services</a>
         <a href="finops.html">FinOps</a>
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
-        <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+        <a href="cloud-security.html">Cloud Security</a>
+      </details>
+
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="infrastructure.html">Modern Datacenter</a>
+        <a href="modern-workplace.html">Modern Workplace</a>
+        <a href="hosting-security.html">Hosting Security</a>
       </details>
 
       <details>
@@ -159,51 +168,58 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
-      <a href="infrastructure.html">Infrastructure</a>
+      <details>
+        <summary>Incubation Hub</summary>
+        <a href="incubation-hub.html">Overview</a>
+        <a href="qse-collective.html">QSE Collective</a>
+      </details>
+
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero with single frame lines -->
+  <!-- Banner -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="AWS Managed Services – Governance and visibility">
-      <img src="assets/images/cloud-banner.png?v=2" alt="AWS Managed Services – Governance and visibility" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high" />
+      <img src="assets/images/cloud-banner.png?v=2" alt="AWS Managed Services – Governance and visibility" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
-  <!-- Main -->
-  <main class="content" id="main">
-    <section class="hero-intro">
-      <h1 class="hero-title">AWS Managed Services</h1>
-      <!-- Centered subtitle -->
-      <p class="center-subtitle">
-        After migration and modernisation, the work starts: run with confidence, govern with clarity, and keep cost in check.
-        We keep your AWS estate secure, observable, and efficient — so you can stay focused on outcomes.
-      </p>
-    </section>
-
-    <h2 class="section-title">Our AWS Management Toolkit</h2>
-    <div class="card-grid awsms-grid">
-      <div class="card"><h3>Monitoring &amp; Dashboards</h3><p>Real-time health views and proactive alerts for uptime and performance.</p></div>
-      <div class="card"><h3>Compliance Automation</h3><p>Well-Architected + security controls enforced without manual drag.</p></div>
-      <div class="card"><h3>Patching &amp; Backups</h3><p>Automated patching, snapshots, and DR for resilience you can prove.</p></div>
-      <div class="card"><h3>Cost Optimisation</h3><p>Tagging, savings plans, and usage insights to cut waste and forecast spend.</p></div>
-      <div class="card"><h3>DevOps CI/CD Support</h3><p>Reliable pipelines, release hygiene, and rapid incident response.</p></div>
-      <div class="card"><h3>24/7 Managed NOC</h3><p>Always-on partner NOC with proactive monitoring and fast remediation.</p></div>
-    </div>
-
-    <h2 class="section-title">Why Clients Trust CoreCloud</h2>
-    <div class="card-grid awsms-grid">
-      <div class="card"><h3>Action-Oriented</h3><p>We don’t just alert — we act to keep services healthy and secure.</p></div>
-      <div class="card"><h3>Full Visibility</h3><p>Cost, uptime, and risk in one view — so leadership can steer decisively.</p></div>
-      <div class="card"><h3>Outcome-Obsessed</h3><p>Risk down. Cost controlled. Efficiency up. Measured, not promised.</p></div>
-    </div>
-
-    <div class="centered" style="margin-top:2rem;text-align:center;">
+  <!-- Intro -->
+  <section class="hero-intro">
+    <h1 class="hero-title">AWS Managed Services</h1>
+    <p class="center-subtitle">
+      After migration and modernisation, the work starts: run with confidence, govern with clarity, and keep cost in check.
+      We keep your AWS estate secure, observable, and efficient — so you can stay focused on outcomes.
+    </p>
+    <div class="cta-row" style="margin-top:.5rem;text-align:center;">
       <a href="contact.html" class="cta-btn">Request a Managed Services Demo</a>
     </div>
+  </section>
+
+  <main class="content" id="main">
+    <section class="section" aria-labelledby="toolkit">
+      <h2 id="toolkit" class="section-title">Our AWS Management Toolkit</h2>
+      <div class="card-grid awsms-grid" role="list">
+        <div class="card" role="listitem"><h3>Monitoring &amp; Dashboards</h3><p>Real-time health views and proactive alerts for uptime and performance.</p></div>
+        <div class="card" role="listitem"><h3>Compliance Automation</h3><p>Well-Architected + security controls enforced without manual drag.</p></div>
+        <div class="card" role="listitem"><h3>Patching &amp; Backups</h3><p>Automated patching, snapshots, and DR for resilience you can prove.</p></div>
+        <div class="card" role="listitem"><h3>Cost Optimisation</h3><p>Tagging, savings plans, and usage insights to cut waste and forecast spend.</p></div>
+        <div class="card" role="listitem"><h3>DevOps CI/CD Support</h3><p>Reliable pipelines, release hygiene, and rapid incident response.</p></div>
+        <div class="card" role="listitem"><h3>24/7 Managed NOC</h3><p>Always-on partner NOC with proactive monitoring and fast remediation.</p></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="trust">
+      <h2 id="trust" class="section-title">Why Clients Trust CoreCloud</h2>
+      <div class="card-grid awsms-grid" role="list">
+        <div class="card" role="listitem"><h3>Action-Oriented</h3><p>We don’t just alert — we act to keep services healthy and secure.</p></div>
+        <div class="card" role="listitem"><h3>Full Visibility</h3><p>Cost, uptime, and risk in one view — so leadership can steer decisively.</p></div>
+        <div class="card" role="listitem"><h3>Outcome-Obsessed</h3><p>Risk down. Cost controlled. Efficiency up. Measured, not promised.</p></div>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
@@ -211,19 +227,19 @@
     <div class="footer-content">
       <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton<br>Johannesburg<br>South Africa</p>
+        <p>Sandton<br/>Johannesburg<br/>South Africa</p>
       </div>
 
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
-          <label class="vh" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px;flex:1;"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
@@ -244,7 +260,7 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter -->
+  <!-- Active-link highlighter (reference logic with legacy mappings) -->
   <script>
     (function(){
       function norm(p){
