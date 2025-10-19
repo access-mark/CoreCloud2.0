@@ -65,6 +65,17 @@
 
     /* ensure gold frame lines show (uses global var) */
     .hero-frame::before,.hero-frame::after{background:var(--frame-color,var(--gold));}
+
+    /* Desktop parent underline + Mobile summary cue for active section */
+    .main-nav .nav-group > button.active{
+      color: var(--dark-blue);
+      border-bottom: 2px solid var(--dark-blue);
+    }
+    .mobile-drawer details > summary.active{
+      color: var(--dark-blue);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
   </style>
 </head>
 
@@ -102,7 +113,7 @@
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
-            <a role="menuitem" href="talent.html">Overview</a>
+            <a role="menuitem" href="talent.html" class="active" aria-current="page">Overview</a>
             <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
             <a role="menuitem" href="global-talent.html">Global Talent</a>
           </div>
@@ -312,24 +323,22 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter (v13 selectors + legacy path mapping) -->
+  <!-- Active-link highlighter (with parent underline + mobile summary cue) -->
   <script>
     (function(){
       function norm(p){
         if(!p) return 'index.html';
         p = p.toLowerCase().split('#')[0].split('?')[0];
         if(p === '' || p === '/') p = 'index.html';
-        if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
-        if(p === 'mobile-web.html') p = 'application-development.html';
         return p;
       }
       var current = norm(location.pathname.split('/').pop() || 'talent.html');
 
-      // reset any stale states
+      // reset states
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
         .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
 
-      // mark current
+      // mark current + underline parent button
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a')
         .forEach(function(a){
           var href = norm(a.getAttribute('href') || '');
@@ -343,6 +352,18 @@
             }
           }
         });
+
+      // Mobile: add cue on matching <summary>
+      document.querySelectorAll('.mobile-drawer details').forEach(function(d){
+        var links = Array.from(d.querySelectorAll('a'));
+        var hasCurrent = links.some(function(link){
+          return norm(link.getAttribute('href')||'') === current;
+        });
+        if(hasCurrent){
+          var summary = d.querySelector('summary');
+          if(summary){ summary.classList.add('active'); }
+        }
+      });
     })();
   </script>
 </body>
