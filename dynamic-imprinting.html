@@ -86,15 +86,16 @@
           </div>
         </div>
 
-        <!-- Cloud -->
+        <!-- Cloud Suite -->
         <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Cloud</button>
-          <div class="submenu" role="menu" aria-label="Cloud">
+          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <div class="submenu" role="menu" aria-label="Cloud Suite">
             <a role="menuitem" href="/cloud.html">Overview</a>
             <a role="menuitem" href="/finops.html">FinOps</a>
             <a role="menuitem" href="/application-development.html">Application Development</a>
             <a role="menuitem" href="/data-ai.html">Data &amp; AI</a>
             <a role="menuitem" href="/hosted-private-cloud.html">Hosting (Private Cloud)</a>
+            <a role="menuitem" href="/cloud-security.html">Cloud Security</a>
           </div>
         </div>
 
@@ -104,6 +105,7 @@
           <div class="submenu" role="menu" aria-label="Infrastructure">
             <a role="menuitem" href="/infrastructure.html">Modern Datacenter</a>
             <a role="menuitem" href="/modern-workplace.html">Modern Workplace</a>
+            <a role="menuitem" href="/hosting-security.html">Hosting Security</a>
           </div>
         </div>
 
@@ -118,7 +120,13 @@
         </div>
 
         <!-- Incubation Hub -->
-        <a href="/incubation-hub.html">Incubation Hub</a>
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
+          <div class="submenu" role="menu" aria-label="Incubation Hub">
+            <a role="menuitem" href="/incubation-hub.html">Overview</a>
+            <a role="menuitem" href="/qse-collective.html">QSE Collective</a>
+          </div>
+        </div>
 
         <a href="/about.html">About</a>
         <a href="/blog.html">Insights</a>
@@ -140,18 +148,20 @@
       </details>
 
       <details>
-        <summary>Cloud</summary>
+        <summary>Cloud Suite</summary>
         <a href="/cloud.html">Overview</a>
         <a href="/finops.html">FinOps</a>
         <a href="/application-development.html">Application Development</a>
         <a href="/data-ai.html">Data &amp; AI</a>
         <a href="/hosted-private-cloud.html">Hosting (Private Cloud)</a>
+        <a href="/cloud-security.html">Cloud Security</a>
       </details>
 
       <details>
         <summary>Infrastructure</summary>
         <a href="/infrastructure.html">Modern Datacenter</a>
         <a href="/modern-workplace.html">Modern Workplace</a>
+        <a href="/hosting-security.html">Hosting Security</a>
       </details>
 
       <details>
@@ -161,7 +171,11 @@
         <a href="/global-talent.html">Global Talent</a>
       </details>
 
-      <a href="/incubation-hub.html">Incubation Hub</a>
+      <details>
+        <summary>Incubation Hub</summary>
+        <a href="/incubation-hub.html">Overview</a>
+        <a href="/qse-collective.html">QSE Collective</a>
+      </details>
 
       <a href="/about.html">About</a>
       <a href="/blog.html">Insights</a>
@@ -169,7 +183,7 @@
     </nav>
   </header>
 
-  <!-- Active-link highlighter (single, robust) -->
+  <!-- Active-link highlighter -->
   <script>
     (function(){
       function norm(href){
@@ -198,7 +212,7 @@
     })();
   </script>
 
-  <!-- Hero (single thin gold line via global .hero-frame and --frame-color) -->
+  <!-- Hero -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="Dynamic Imprinting — Executive Identity Transformation">
       <img
