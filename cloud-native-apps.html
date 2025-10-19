@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Cloud-Native Application Development | CoreCloud</title>
   <meta name="description" content="CoreCloud builds secure, scalable cloud-native apps that drive business outcomes. Fast development, clean code, and seamless cloud integration."/>
+  <meta name="author" content="CoreCloud"/>
   <link rel="canonical" href="https://www.corecloudza.com/application-development.html"/>
 
   <!-- Social -->
@@ -19,7 +20,7 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
 
-  <!-- Preload hero -->
+  <!-- Preload hero for crisp LCP -->
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
   <!-- Page-scoped helpers -->
@@ -28,9 +29,9 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;top:10px;left:10px;padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;outline:2px solid #fff;z-index:1000;}
 
-    /* Force hero heading + body centered */
+    /* Center hero text and keep body copy black per site-wide ask */
     .apps-page .hero-title{margin:2.5rem auto .75rem !important;text-align:center;}
-    .apps-page .hero-sub{color:#000;text-align:center !important;max-width:900px;margin:0 auto 2rem;line-height:1.65;font-size:1.06rem;}
+    .apps-page .hero-sub{color:#000;text-align:center;max-width:900px;margin:0 auto 2rem;line-height:1.65;font-size:1.06rem;}
     .apps-page main p, .apps-page main li{color:#000;}
 
     /* Content rhythm */
@@ -40,6 +41,16 @@
     .apps-page .section p{max-width:900px;margin:0 auto 1rem;line-height:1.6;}
     .apps-page .section ul{max-width:900px;margin:0 auto 1.25rem;line-height:1.6;padding-left:1.25rem;}
 
+    /* Force underline on active parent + submenu (desktop) */
+    .main-nav .nav-group > button.active{
+      border-bottom:2px solid var(--dark-blue);
+      color:var(--dark-blue);
+    }
+    .submenu a.active{
+      border-bottom:2px solid var(--dark-blue);
+      color:var(--dark-blue);
+    }
+
     /* Footer phone link white/no underline */
     .footer-right p a[href^="tel"]{color:#fff !important;text-decoration:none !important;font-weight:700;}
   </style>
@@ -48,7 +59,7 @@
 <body class="apps-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Unified Header / Nav -->
+  <!-- Unified Header / Nav (fixed) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -72,19 +83,30 @@
           <button type="button" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
             <a role="menuitem" href="cloud.html">Overview</a>
+
+            <!-- AWS -->
             <a role="menuitem" href="aws-migration.html">AWS Migration</a>
             <a role="menuitem" href="aws-modernization.html">AWS Modernization</a>
             <a role="menuitem" href="aws-manage.html">AWS Managed Services</a>
             <a role="menuitem" href="aws-optimize.html">AWS Optimization</a>
+
+            <!-- Azure -->
             <a role="menuitem" href="azure-migration.html">Azure Migration</a>
             <a role="menuitem" href="azure-modernization.html">Azure Modernization</a>
             <a role="menuitem" href="azure-managed.html">Azure Managed Services</a>
             <a role="menuitem" href="azure-optimization.html">Azure Optimization</a>
+
+            <!-- Databricks -->
             <a role="menuitem" href="databricks-engineering.html">Databricks Engineering</a>
             <a role="menuitem" href="databricks-ml.html">Databricks AI &amp; ML</a>
             <a role="menuitem" href="databricks-optimize.html">Databricks Cost Optimization</a>
             <a role="menuitem" href="databricks-lakehouse.html">Databricks Lakehouse</a>
+
+            <!-- Other -->
+            <a role="menuitem" href="application-development.html" class="active" aria-current="page">Application Development</a>
+            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
             <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+            <a role="menuitem" href="finops.html">FinOps</a>
           </div>
         </div>
 
@@ -122,19 +144,30 @@
       <details open>
         <summary>Cloud Suite</summary>
         <a href="cloud.html">Overview</a>
+
+        <!-- AWS -->
         <a href="aws-migration.html">AWS Migration</a>
         <a href="aws-modernization.html">AWS Modernization</a>
         <a href="aws-manage.html">AWS Managed Services</a>
         <a href="aws-optimize.html">AWS Optimization</a>
+
+        <!-- Azure -->
         <a href="azure-migration.html">Azure Migration</a>
         <a href="azure-modernization.html">Azure Modernization</a>
         <a href="azure-managed.html">Azure Managed Services</a>
         <a href="azure-optimization.html">Azure Optimization</a>
+
+        <!-- Databricks -->
         <a href="databricks-engineering.html">Databricks Engineering</a>
         <a href="databricks-ml.html">Databricks AI &amp; ML</a>
         <a href="databricks-optimize.html">Databricks Cost Optimization</a>
         <a href="databricks-lakehouse.html">Databricks Lakehouse</a>
+
+        <!-- Other -->
+        <a href="application-development.html" aria-current="page">Application Development</a>
+        <a href="data-ai.html">Data &amp; AI</a>
         <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+        <a href="finops.html">FinOps</a>
       </details>
 
       <details>
@@ -151,14 +184,14 @@
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero (keeps banner from being clipped) -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="Cloud-Native Application Development">
       <img src="assets/images/appdev-bannerimage.png" alt="Cloud-Native Application Development – CoreCloud" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
-  <!-- Main -->
+  <!-- Title + intro -->
   <main class="content" id="main">
     <section class="hero-intro">
       <h1 class="hero-title">Cloud-Native Application Development</h1>
@@ -242,21 +275,24 @@
       }
       var current = norm(location.pathname.split('/').pop() || 'application-development.html');
 
-      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
-        var href = norm(a.getAttribute('href') || '');
-        if(href === current){
-          a.classList.add('active');
-          a.setAttribute('aria-current','page');
-          var group = a.closest('.nav-group');
-          if(group){
-            var btn = group.querySelector('button');
-            if(btn){ btn.classList.add('active'); }
+      // clear any leftovers
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
+        .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
+
+      // mark matches + parent button
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a')
+        .forEach(function(a){
+          var href = norm(a.getAttribute('href') || '');
+          if(href === current){
+            a.classList.add('active');
+            a.setAttribute('aria-current','page');
+            var group = a.closest('.nav-group');
+            if(group){
+              var btn = group.querySelector(':scope > button');
+              if(btn){ btn.classList.add('active'); }
+            }
           }
-        }else{
-          a.classList.remove('active');
-          a.removeAttribute('aria-current');
-        }
-      });
+        });
     })();
   </script>
 </body>
