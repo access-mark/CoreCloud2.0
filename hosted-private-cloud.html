@@ -19,9 +19,9 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
-  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
-  <link rel="preload" as="image" href="assets/images/hosting-bannerimage.png" fetchpriority="high"/>
+  <link rel="stylesheet" href="/assets/css/styles.css?v=19"/>
+  <link rel="preload" as="image" href="/assets/images/corecloud-logo.png" fetchpriority="high"/>
+  <link rel="preload" as="image" href="/assets/images/hosting-bannerimage.png" fetchpriority="high"/>
 
   <!-- Page-scoped styles -->
   <style>
@@ -79,72 +79,72 @@
     .faq-list summary{font-weight:700;color:var(--dark-blue);cursor:pointer;list-style:none;outline:none;}
     .faq-list summary::-webkit-details-marker{display:none;}
     .faq-list p{margin:.45rem 0 0;}
-
-    /* Active nav underline (desktop + parent button + mobile) */
-    .main-nav > a.active,
-    .main-nav > a[aria-current="page"]{
-      color:var(--dark-blue);
-      border-bottom:2px solid var(--dark-blue);
-    }
-    .main-nav > .nav-group > button.active{
-      color:var(--dark-blue);
-      border-bottom:2px solid var(--dark-blue);
-    }
-    .mobile-drawer a.active,
-    .mobile-drawer a[aria-current="page"]{
-      text-decoration:underline;
-      text-underline-offset:6px;
-      text-decoration-thickness:2px;
-    }
   </style>
 </head>
 
 <body class="hosting-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav (About-style, global) -->
+  <!-- Header / Nav -->
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
+      <a class="brand" href="/index.html" aria-label="CoreCloud Home">
+        <img src="/assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
       <!-- Desktop nav -->
       <nav class="main-nav" aria-label="Primary">
-        <a href="index.html">Home</a>
+        <a href="/index.html">Home</a>
 
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
-            <a role="menuitem" href="consulting.html">Overview</a>
-            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
+            <a role="menuitem" href="/consulting.html">Overview</a>
+            <a role="menuitem" href="/dynamic-imprinting.html">Dynamic Imprinting</a>
           </div>
         </div>
 
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
-            <a role="menuitem" href="cloud.html">Overview</a>
-            <a role="menuitem" href="finops.html">FinOps</a>
-            <a role="menuitem" href="application-development.html">Application Development</a>
-            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
-            <a role="menuitem" href="hosted-private-cloud.html" class="active" aria-current="page">Hosted (Private Cloud)</a>
+            <a role="menuitem" href="/cloud.html">Overview</a>
+            <a role="menuitem" href="/finops.html">FinOps</a>
+            <a role="menuitem" href="/application-development.html">Application Development</a>
+            <a role="menuitem" href="/data-ai.html">Data &amp; AI</a>
+            <a role="menuitem" href="/hosted-private-cloud.html" class="active" aria-current="page">Hosting (Private Cloud)</a>
+            <a role="menuitem" href="/cloud-security.html">Cloud Security</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="/infrastructure.html">Modern Datacenter</a>
+            <a role="menuitem" href="/modern-workplace.html">Modern Workplace</a>
+            <a role="menuitem" href="/hosting-security.html">Hosting Security</a>
           </div>
         </div>
 
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
-            <a role="menuitem" href="talent.html">Overview</a>
-            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
-            <a role="menuitem" href="global-talent.html">Global Talent</a>
+            <a role="menuitem" href="/talent.html">Overview</a>
+            <a role="menuitem" href="/talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="/global-talent.html">Global Talent</a>
           </div>
         </div>
 
-        <a href="infrastructure.html">Infrastructure</a>
-        <a href="about.html">About</a>
-        <a href="blog.html">Insights</a>
-        <a href="contact.html">Contact</a>
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
+          <div class="submenu" role="menu" aria-label="Incubation Hub">
+            <a role="menuitem" href="/incubation-hub.html">Overview</a>
+            <a role="menuitem" href="/qse-collective.html">QSE Collective</a>
+          </div>
+        </div>
+
+        <a href="/about.html">About</a>
+        <a href="/blog.html">Insights</a>
+        <a href="/contact.html">Contact</a>
       </nav>
 
       <!-- Mobile toggle -->
@@ -154,48 +154,61 @@
     <!-- Mobile drawer -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <nav class="mobile-drawer" aria-label="Mobile">
-      <a href="index.html">Home</a>
+      <a href="/index.html">Home</a>
 
       <details>
         <summary>Consulting</summary>
-        <a href="consulting.html">Overview</a>
-        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+        <a href="/consulting.html">Overview</a>
+        <a href="/dynamic-imprinting.html">Dynamic Imprinting</a>
       </details>
 
       <details open>
         <summary>Cloud Suite</summary>
-        <a href="cloud.html">Overview</a>
-        <a href="finops.html">FinOps</a>
-        <a href="application-development.html">Application Development</a>
-        <a href="data-ai.html">Data &amp; AI</a>
-        <a href="hosted-private-cloud.html" aria-current="page">Hosted (Private Cloud)</a>
+        <a href="/cloud.html">Overview</a>
+        <a href="/finops.html">FinOps</a>
+        <a href="/application-development.html">Application Development</a>
+        <a href="/data-ai.html">Data &amp; AI</a>
+        <a href="/hosted-private-cloud.html" aria-current="page" class="active">Hosting (Private Cloud)</a>
+        <a href="/cloud-security.html">Cloud Security</a>
+      </details>
+
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="/infrastructure.html">Modern Datacenter</a>
+        <a href="/modern-workplace.html">Modern Workplace</a>
+        <a href="/hosting-security.html">Hosting Security</a>
       </details>
 
       <details>
         <summary>Curated Talent</summary>
-        <a href="talent.html">Overview</a>
-        <a href="talent-relaunch.html">RE/LAUNCH</a>
-        <a href="global-talent.html">Global Talent</a>
+        <a href="/talent.html">Overview</a>
+        <a href="/talent-relaunch.html">RE/LAUNCH</a>
+        <a href="/global-talent.html">Global Talent</a>
       </details>
 
-      <a href="infrastructure.html">Infrastructure</a>
-      <a href="about.html">About</a>
-      <a href="blog.html">Insights</a>
-      <a href="contact.html">Contact</a>
+      <details>
+        <summary>Incubation Hub</summary>
+        <a href="/incubation-hub.html">Overview</a>
+        <a href="/qse-collective.html">QSE Collective</a>
+      </details>
+
+      <a href="/about.html">About</a>
+      <a href="/blog.html">Insights</a>
+      <a href="/contact.html">Contact</a>
     </nav>
   </header>
 
   <!-- Hero with gold frame -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="Private cloud and colocation">
-      <img src="assets/images/hosting-bannerimage.png" alt="Hosted & Private Cloud — predictable, sovereign, low-latency run" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+      <img src="/assets/images/hosting-bannerimage.png" alt="Hosted & Private Cloud — predictable, sovereign, low-latency run" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
   <!-- Intro -->
   <section class="hero-intro" id="main">
     <h1 class="hero-title">Hosted &amp; Private Cloud — Predictable, Close, Compliant</h1>
-    <p>Not every workload belongs in hyperscale. We run steady, regulated, and latency-critical systems on managed private cloud and colocation — with DR, POPIA alignment, and <a href="finops.html">FinOps</a> built in. When cloud is right, we use it. When predictability wins, we host.</p>
+    <p>Not every workload belongs in hyperscale. We run steady, regulated, and latency-critical systems on managed private cloud and colocation — with DR, POPIA alignment, and <a href="/finops.html">FinOps</a> built in. When cloud is right, we use it. When predictability wins, we host.</p>
   </section>
 
   <main class="content">
@@ -233,7 +246,7 @@
         <li><strong>Data protection:</strong> encryption at rest/in transit, key custody options (HSM/KMS), retention by class.</li>
         <li><strong>Backups &amp; DR:</strong> local + offsite copies, immutable snapshots, quarterly restore and failover tests.</li>
         <li><strong>Observability:</strong> logs, metrics, traces with SLOs and error budgets — not just “up/down”.</li>
-        <li><strong>Hybrid patterns:</strong> burst to <a href="cloud.html">AWS/Azure</a> for peak or analytics; controlled data flows with showback.</li>
+        <li><strong>Hybrid patterns:</strong> burst to <a href="/cloud.html">AWS/Azure</a> for peak or analytics; controlled data flows with showback.</li>
       </ul>
     </section>
 
@@ -262,7 +275,7 @@
       <div class="inline-cta">
         <strong>Make it predictable.</strong>
         <p>If you need sovereign, low-latency, predictable run — we can help.</p>
-        <a class="cta-btn" href="contact.html">Request a Hosting Assessment</a>
+        <a class="cta-btn" href="/contact.html">Request a Hosting Assessment</a>
       </div>
     </section>
 
@@ -275,7 +288,7 @@
         <li><strong>Right-sizing cadence:</strong> monthly reviews, lifecycle policies, and commitment strategy.</li>
         <li><strong>Compliance evidence:</strong> POPIA control coverage, key custody, and access revocation logs.</li>
       </ul>
-      <p class="muted">See also: <a href="finops.html">FinOps &amp; Governance</a> for cross-venue cost discipline.</p>
+      <p class="muted">See also: <a href="/finops.html">FinOps &amp; Governance</a> for cross-venue cost discipline.</p>
     </section>
 
     <!-- FAQ -->
@@ -330,29 +343,49 @@
 
     <div class="footer-bottom">
       <p>&copy; 2025 CoreCloud. All rights reserved. |
-        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-        <a href="terms.html" class="legal-link">Terms</a>
+        <a href="/privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="/terms.html" class="legal-link">Terms</a>
       </p>
     </div>
   </footer>
 
-  <!-- Auto-highlight current nav + mark parent button active -->
+  <!-- Robust active-link + parent underline -->
   <script>
     (function(){
-      var path=(location.pathname.split('/').pop()||'hosted-private-cloud.html').toLowerCase();
+      function norm(href){
+        if(!href) return 'index.html';
+        href = href.toLowerCase().split('#')[0].split('?')[0];
+        if(href === '' || href === '/') href = 'index.html';
+        return href.startsWith('/') ? href.slice(1) : href;
+      }
+      var current = norm(location.pathname.split('/').pop() || 'hosted-private-cloud.html');
+
+      // Mark exact link active and underline parent button
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
-        var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){
+        var href = norm(a.getAttribute('href') || '');
+        if(href === current){
           a.classList.add('active');
           a.setAttribute('aria-current','page');
-          var group=a.closest('.nav-group');
+          var group = a.closest('.nav-group');
           if(group){
-            var btn=group.querySelector('button');
+            var btn = group.querySelector('button');
             if(btn){ btn.classList.add('active'); }
           }
         }else{
           a.classList.remove('active');
           a.removeAttribute('aria-current');
+        }
+      });
+
+      // Mobile: mark the matching summary as active
+      var blocks = document.querySelectorAll('.mobile-drawer details');
+      blocks.forEach(function(d){
+        var match = Array.from(d.querySelectorAll('a')).some(function(link){
+          return norm(link.getAttribute('href')||'') === current;
+        });
+        if(match){
+          var summary = d.querySelector('summary');
+          if(summary){ summary.classList.add('active'); }
         }
       });
     })();
