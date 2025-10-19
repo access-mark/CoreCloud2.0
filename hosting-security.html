@@ -30,6 +30,19 @@
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage","name":"Private Cloud / Hosting Security","url":"https://www.corecloudza.com/hosting-security.html","publisher":{"@type":"Organization","name":"CoreCloud"}}
   </script>
+
+  <style>
+    /* Optional: small helpers for active parent underline cues (matches other pages) */
+    .main-nav .nav-group > button.active{
+      color: var(--dark-blue);
+      border-bottom: 2px solid var(--dark-blue);
+    }
+    .mobile-drawer details > summary.active{
+      color: var(--dark-blue);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+  </style>
 </head>
 
 <body class="security-page hosting-page">
@@ -64,12 +77,13 @@
           </div>
         </div>
 
-        <!-- Infrastructure -->
+        <!-- Infrastructure (now includes this page under Security) -->
         <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <button aria-haspopup="true" aria-expanded="false" class="active">Infrastructure</button>
           <div class="submenu" role="menu" aria-label="Infrastructure">
             <a role="menuitem" href="infrastructure.html">Modern Datacenter</a>
             <a role="menuitem" href="modern-workplace.html">Modern Workplace</a>
+            <a role="menuitem" href="hosting-security.html" class="active" aria-current="page">Security (Private/Hosting)</a>
           </div>
         </div>
 
@@ -80,15 +94,6 @@
             <a role="menuitem" href="talent.html">Overview</a>
             <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
             <a role="menuitem" href="global-talent.html">Global Talent</a>
-          </div>
-        </div>
-
-        <!-- Security -->
-        <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false" class="active">Security</button>
-          <div class="submenu" role="menu" aria-label="Security">
-            <a role="menuitem" href="cloud-security.html">Cloud Security</a>
-            <a role="menuitem" href="hosting-security.html" class="active" aria-current="page">Private Cloud / Hosting</a>
           </div>
         </div>
 
@@ -129,16 +134,11 @@
         <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
       </details>
 
-      <details>
+      <details open>
         <summary>Infrastructure</summary>
         <a href="infrastructure.html">Modern Datacenter</a>
         <a href="modern-workplace.html">Modern Workplace</a>
-      </details>
-
-      <details open>
-        <summary>Security</summary>
-        <a href="cloud-security.html">Cloud Security</a>
-        <a href="hosting-security.html" aria-current="page">Private Cloud / Hosting</a>
+        <a href="hosting-security.html" aria-current="page">Security (Private/Hosting)</a>
       </details>
 
       <details>
