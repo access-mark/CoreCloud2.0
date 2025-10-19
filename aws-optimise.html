@@ -15,9 +15,6 @@
   <meta property="og:url" content="https://www.corecloudza.com/aws-optimize.html" />
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="CoreCloud AWS Optimization | Cost Savings & Cloud Performance" />
-  <meta name="twitter:description" content="Cut AWS waste, right-size workloads, and boost performance with CoreCloud." />
-  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
 
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=13" />
@@ -27,10 +24,13 @@
 
   <!-- Page-scoped fixes -->
   <style>
-    /* Re-center hero subtitle (beats global .content p { text-align:left !important }) */
-    .hero-intro .center-subtitle{ text-align:center !important; color:#000; font-size:1.05rem; margin:0 auto 2rem; max-width:900px; line-height:1.65; }
+    /* Re-center hero subtitle (beats any global left-align) */
+    .hero-intro .center-subtitle{
+      text-align:center !important; color:#000; font-size:1.05rem;
+      margin:0 auto 2rem; max-width:900px; line-height:1.65;
+    }
 
-    /* Ensure visible underline on active nav (desktop + submenu + mobile) */
+    /* Visible underline on active nav (desktop + submenu + mobile) */
     .main-nav .nav-group > button.active{ border-bottom:2px solid var(--dark-blue) !important; color:var(--dark-blue) !important; }
     .submenu a.active{ border-bottom:2px solid var(--dark-blue) !important; color:var(--dark-blue) !important; }
     .mobile-drawer a[aria-current="page"]{ text-decoration: underline; text-underline-offset:6px; text-decoration-thickness:2px; }
@@ -79,7 +79,7 @@
 <body class="cloud-page aws-optimize-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Unified Header / Nav -->
+  <!-- Unified Header / Nav (matches reference across pages) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -89,6 +89,7 @@
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 
+        <!-- Consulting -->
         <div class="nav-group">
           <button type="button" aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
@@ -97,6 +98,7 @@
           </div>
         </div>
 
+        <!-- Cloud Suite -->
         <div class="nav-group">
           <button type="button" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
@@ -104,21 +106,41 @@
             <a role="menuitem" href="aws-migration.html">AWS Migration</a>
             <a role="menuitem" href="aws-modernization.html">AWS Modernization</a>
             <a role="menuitem" href="aws-manage.html">AWS Managed Services</a>
-            <!-- Only THIS page is active -->
             <a role="menuitem" href="aws-optimize.html" class="active" aria-current="page">AWS Optimization</a>
             <a role="menuitem" href="finops.html">FinOps</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
-            <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+            <a role="menuitem" href="cloud-security.html">Cloud Security</a>
           </div>
         </div>
 
+        <!-- Infrastructure (submenu) -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="infrastructure.html">Modern Datacenter</a>
+            <a role="menuitem" href="modern-workplace.html">Modern Workplace</a>
+            <a role="menuitem" href="hosting-security.html">Hosting Security</a>
+          </div>
+        </div>
+
+        <!-- Curated Talent -->
         <div class="nav-group">
           <button type="button" aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
             <a role="menuitem" href="talent.html">Overview</a>
             <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
             <a role="menuitem" href="global-talent.html">Global Talent</a>
+          </div>
+        </div>
+
+        <!-- Incubation Hub -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
+          <div class="submenu" role="menu" aria-label="Incubation Hub">
+            <a role="menuitem" href="incubation-hub.html">Overview</a>
+            <a role="menuitem" href="qse-collective.html">QSE Collective</a>
           </div>
         </div>
 
@@ -152,7 +174,15 @@
         <a href="finops.html">FinOps</a>
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
-        <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+        <a href="cloud-security.html">Cloud Security</a>
+      </details>
+
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="infrastructure.html">Modern Datacenter</a>
+        <a href="modern-workplace.html">Modern Workplace</a>
+        <a href="hosting-security.html">Hosting Security</a>
       </details>
 
       <details>
@@ -162,7 +192,12 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
-      <a href="infrastructure.html">Infrastructure</a>
+      <details>
+        <summary>Incubation Hub</summary>
+        <a href="incubation-hub.html">Overview</a>
+        <a href="qse-collective.html">QSE Collective</a>
+      </details>
+
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
@@ -213,7 +248,7 @@
       </div>
     </div>
 
-    <div class="centered" style="margin-top:2rem;">
+    <div class="centered" style="margin-top:2rem; text-align:center;">
       <a href="contact.html" class="cta-btn">Start Saving</a>
     </div>
   </main>
@@ -256,34 +291,38 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter -->
+  <!-- Active-link highlighter (with legacy path mapping) -->
   <script>
     (function(){
       function norm(p){
         if(!p) return 'index.html';
         p = p.toLowerCase().split('#')[0].split('?')[0];
         if(p === '' || p === '/') p = 'index.html';
+        // legacy alias handling
         if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
         if(p === 'mobile-web.html') p = 'application-development.html';
         return p;
       }
       var current = norm(location.pathname.split('/').pop() || 'aws-optimize.html');
 
-      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
-        var href = norm(a.getAttribute('href') || '');
-        if(href === current){
-          a.classList.add('active');
-          a.setAttribute('aria-current','page');
-          var group = a.closest('.nav-group');
-          if(group){
-            var btn = group.querySelector('button');
-            if(btn){ btn.classList.add('active'); }
+      // Clear any stale active states
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
+        .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
+
+      // Mark current
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a')
+        .forEach(function(a){
+          var href = norm(a.getAttribute('href') || '');
+          if(href === current){
+            a.classList.add('active');
+            a.setAttribute('aria-current','page');
+            var group = a.closest('.nav-group');
+            if(group){
+              var btn = group.querySelector(':scope > button');
+              if(btn){ btn.classList.add('active'); }
+            }
           }
-        }else{
-          a.classList.remove('active');
-          a.removeAttribute('aria-current');
-        }
-      });
+        });
     })();
   </script>
 </body>
