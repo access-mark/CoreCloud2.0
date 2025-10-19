@@ -36,88 +36,110 @@
 </head>
 
 <body class="home-page">
-  <!-- Header / Nav (About-style; Infrastructure standalone; Hosting under Cloud; Curated Talent present) -->
-  <header class="site-header" role="banner">
-    <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
-      </a>
+ <!-- Header / Nav -->
+<header class="site-header" role="banner">
+  <div class="header-inner">
+    <a class="brand" href="/index.html" aria-label="CoreCloud Home">
+      <img src="/assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
+    </a>
 
-      <nav class="main-nav" aria-label="Primary">
-        <a href="index.html" class="active" aria-current="page">Home</a>
+    <!-- Desktop Nav -->
+    <nav class="main-nav" aria-label="Primary">
+      <a href="/index.html">Home</a>
 
-        <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Consulting</button>
-          <div class="submenu" role="menu" aria-label="Consulting">
-            <a role="menuitem" href="consulting.html">Overview</a>
-            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
-          </div>
+      <!-- Consulting -->
+      <div class="nav-group">
+        <button aria-haspopup="true" aria-expanded="false">Consulting</button>
+        <div class="submenu" role="menu" aria-label="Consulting">
+          <a role="menuitem" href="/consulting.html">Overview</a>
+          <a role="menuitem" href="/dynamic-imprinting.html">Dynamic Imprinting</a>
         </div>
+      </div>
 
-        <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
-          <div class="submenu" role="menu" aria-label="Cloud Suite">
-            <a role="menuitem" href="cloud.html">Overview</a>
-            <a role="menuitem" href="finops.html">FinOps</a>
-            <a role="menuitem" href="application-development.html">Application Development</a>
-            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
-            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
-          </div>
+      <!-- Cloud Suite -->
+      <div class="nav-group">
+        <button aria-haspopup="true" aria-expanded="false">Cloud</button>
+        <div class="submenu" role="menu" aria-label="Cloud Suite">
+          <a role="menuitem" href="/cloud.html">Overview</a>
+          <a role="menuitem" href="/finops.html">FinOps</a>
+          <a role="menuitem" href="/application-development.html">Application Development</a>
+          <a role="menuitem" href="/data-ai.html">Data &amp; AI</a>
+          <a role="menuitem" href="/hosted-private-cloud.html">Hosting (Private Cloud)</a>
         </div>
+      </div>
 
-        <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
-          <div class="submenu" role="menu" aria-label="Curated Talent">
-            <a role="menuitem" href="talent.html">Overview</a>
-            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
-            <a role="menuitem" href="global-talent.html">Global Talent</a>
-          </div>
+      <!-- Infrastructure -->
+      <div class="nav-group">
+        <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+        <div class="submenu" role="menu" aria-label="Infrastructure">
+          <a role="menuitem" href="/infrastructure.html">Modern Datacenter</a>
+          <a role="menuitem" href="/modern-workplace.html">Modern Workplace</a>
         </div>
+      </div>
 
-        <a href="infrastructure.html">Infrastructure</a>
+      <!-- Curated Talent -->
+      <div class="nav-group">
+        <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+        <div class="submenu" role="menu" aria-label="Curated Talent">
+          <a role="menuitem" href="/talent.html">Overview</a>
+          <a role="menuitem" href="/talent-relaunch.html">RE/LAUNCH</a>
+          <a role="menuitem" href="/global-talent.html">Global Talent</a>
+        </div>
+      </div>
 
-        <a href="about.html">About</a>
-        <a href="blog.html">Insights</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+      <!-- Incubation Hub (single link) -->
+      <a href="/incubation-hub.html">Incubation Hub</a>
 
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
-    </div>
-
-    <!-- Mobile drawer (About-style) -->
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
-    <nav class="mobile-drawer" aria-label="Mobile">
-      <a href="index.html" aria-current="page">Home</a>
-
-      <details>
-        <summary>Consulting</summary>
-        <a href="consulting.html">Overview</a>
-        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
-      </details>
-
-      <details>
-        <summary>Cloud Suite</summary>
-        <a href="cloud.html">Overview</a>
-        <a href="finops.html">FinOps</a>
-        <a href="application-development.html">Application Development</a>
-        <a href="data-ai.html">Data &amp; AI</a>
-        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
-      </details>
-
-      <details>
-        <summary>Curated Talent</summary>
-        <a href="talent.html">Overview</a>
-        <a href="talent-relaunch.html">RE/LAUNCH</a>
-        <a href="global-talent.html">Global Talent</a>
-      </details>
-
-      <a href="infrastructure.html">Infrastructure</a>
-
-      <a href="about.html">About</a>
-      <a href="blog.html">Insights</a>
-      <a href="contact.html">Contact</a>
+      <a href="/about.html">About</a>
+      <a href="/blog.html">Insights</a>
+      <a href="/contact.html">Contact</a>
     </nav>
-  </header>
+
+    <!-- Mobile toggle -->
+    <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+  <nav class="mobile-drawer" aria-label="Mobile">
+    <a href="/index.html">Home</a>
+
+    <details>
+      <summary>Consulting</summary>
+      <a href="/consulting.html">Overview</a>
+      <a href="/dynamic-imprinting.html">Dynamic Imprinting</a>
+    </details>
+
+    <details>
+      <summary>Cloud</summary>
+      <a href="/cloud.html">Overview</a>
+      <a href="/finops.html">FinOps</a>
+      <a href="/application-development.html">Application Development</a>
+      <a href="/data-ai.html">Data &amp; AI</a>
+      <a href="/hosted-private-cloud.html">Hosting (Private Cloud)</a>
+    </details>
+
+    <details>
+      <summary>Infrastructure</summary>
+      <a href="/infrastructure.html">Modern Datacenter</a>
+      <a href="/modern-workplace.html">Modern Workplace</a>
+    </details>
+
+    <details>
+      <summary>Curated Talent</summary>
+      <a href="/talent.html">Overview</a>
+      <a href="/talent-relaunch.html">RE/LAUNCH</a>
+      <a href="/global-talent.html">Global Talent</a>
+    </details>
+
+    <a href="/incubation-hub.html">Incubation Hub</a>
+
+    <a href="/about.html">About</a>
+    <a href="/blog.html">Insights</a>
+    <a href="/contact.html">Contact</a>
+  </nav>
+</header>
+
 
   <!-- Banner (single blue line via global CSS because of .home-page) -->
   <div class="hero-frame">
