@@ -29,13 +29,29 @@
       text-align:center !important; color:#000; font-size:1.06rem;
       margin:0 auto 2rem; max-width:900px; line-height:1.65;
     }
-    /* Cards (Databricks accent comes from .databricks-page in global CSS too) */
-    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:2rem;padding:0 1rem;}
-    .card{background:#fff;color:#000;padding:1.5rem;border-radius:12px;text-align:left;box-shadow:0 2px 8px rgba(0,0,0,.08);border:2px solid var(--dark-blue);transition:transform .25s ease;}
-    .card:hover{transform:translateY(-3px);}
-    .card h3,.card h2{color:#ff3621;font-size:1.25rem;margin-bottom:.8rem;font-weight:700;}
+
+    /* Grid + equal-height cards with bottom-aligned CTAs */
+    .card-grid{
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:2rem; margin-top:2rem; padding:0 1rem;
+      max-width:var(--content-max); margin-left:auto; margin-right:auto;
+    }
+    .card{
+      background:#fff; color:#000; padding:1.5rem; border-radius:12px; text-align:left;
+      box-shadow:0 2px 8px rgba(0,0,0,.08); border:2px solid var(--dark-blue);
+      display:flex; flex-direction:column; min-height:280px; transition:transform .25s ease;
+    }
+    .card:hover{ transform:translateY(-3px); }
+    .card h3,.card h2{ color:#ff3621; font-size:1.25rem; margin:0 0 .8rem; font-weight:700; }
+    .card p{ margin:0 0 1rem; line-height:1.6; }
+    .card .cta-btn{ margin-top:auto; width:100%; }
+
+    /* Force underline on active parent + submenu (defensive) */
+    .main-nav .nav-group > button.active{ color:var(--dark-blue); border-bottom:2px solid var(--dark-blue) !important; }
+    .submenu a.active{ color:var(--dark-blue) !important; border-bottom:2px solid var(--dark-blue) !important; }
+
     /* Footer phone link white/no underline (match site) */
-    .footer-right a[href^="tel"]{color:#fff !important;text-decoration:none !important;font-weight:700;}
+    .footer-right a[href^="tel"]{ color:#fff !important; text-decoration:none !important; font-weight:700; }
   </style>
 
   <!-- JSON-LD -->
@@ -91,7 +107,7 @@
             <a role="menuitem" href="azure-optimization.html">Azure Optimization</a>
             <a role="menuitem" href="databricks-engineering.html">Databricks Engineering</a>
             <a role="menuitem" href="databricks-ml.html">Databricks AI &amp; ML</a>
-            <a role="menuitem" href="databricks-optimize.html">Databricks Cost Optimization</a>
+            <a role="menuitem" href="databricks-optimize.html" class="active" aria-current="page">Databricks Cost Optimization</a>
             <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
           </div>
         </div>
@@ -105,7 +121,23 @@
           </div>
         </div>
 
-        <a href="infrastructure.html">Infrastructure</a>
+        <!-- Incubation Hub dropdown -->
+        <div class="nav-group">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
+          <div class="submenu" role="menu" aria-label="Incubation Hub">
+            <a role="menuitem" href="incubation-hub.html">Overview</a>
+            <a role="menuitem" href="qse-collective.html">QSE Accelerator &amp; Collective</a>
+          </div>
+        </div>
+
+        <!-- Infrastructure as dropdown -->
+        <div class="nav-group">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+          </div>
+        </div>
+
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
@@ -151,7 +183,17 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
-      <a href="infrastructure.html">Infrastructure</a>
+      <details>
+        <summary>Incubation Hub</summary>
+        <a href="incubation-hub.html">Overview</a>
+        <a href="qse-collective.html">QSE Accelerator &amp; Collective</a>
+      </details>
+
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+      </details>
+
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
@@ -180,22 +222,27 @@
         <div class="card">
           <h3>Workload Assessment</h3>
           <p>Analyse cluster usage and workload patterns to pinpoint cost-saving opportunities.</p>
+          <a href="contact.html" class="cta-btn">Request Assessment</a>
         </div>
         <div class="card">
           <h3>Cluster Tuning</h3>
           <p>Right-size nodes, tighten autoscaling, and leverage spot where it makes sense.</p>
+          <a href="contact.html" class="cta-btn">Tune Clusters</a>
         </div>
         <div class="card">
           <h3>Cost Visibility</h3>
           <p>Dashboards and alerts for full visibility into Databricks spend across teams and envs.</p>
+          <a href="contact.html" class="cta-btn">See Spend</a>
         </div>
         <div class="card">
           <h3>Governance Policies</h3>
           <p>Quotas, tags, and guardrails to prevent runaway spending before it starts.</p>
+          <a href="contact.html" class="cta-btn">Enforce Guardrails</a>
         </div>
         <div class="card">
           <h3>Reserved/Committed Planning</h3>
           <p>Maximise savings via committed cloud resources and Databricks consumption discounts.</p>
+          <a href="contact.html" class="cta-btn">Plan Commitments</a>
         </div>
       </div>
     </section>
@@ -206,14 +253,17 @@
         <div class="card">
           <h3>Local Understanding</h3>
           <p>Strategies tuned for South African realities and hybrid/multi-cloud patterns.</p>
+          <a href="contact.html" class="cta-btn">Talk SA Context</a>
         </div>
         <div class="card">
           <h3>Speed to Savings</h3>
           <p>Quick wins plus sustained reductions through targeted optimisation.</p>
+          <a href="contact.html" class="cta-btn">Start Saving</a>
         </div>
         <div class="card">
           <h3>Outcome Focused</h3>
           <p>Every recommendation maps to measurable business objectives.</p>
+          <a href="contact.html" class="cta-btn">See Outcomes</a>
         </div>
       </div>
     </section>
@@ -261,7 +311,7 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter (matches global logic) -->
+  <!-- Active-link highlighter (cleans state, marks current, underlines parent) -->
   <script>
     (function(){
       function norm(p){
@@ -274,6 +324,10 @@
       }
       var current = norm(location.pathname.split('/').pop() || 'databricks-optimize.html');
 
+      // Clear leftovers then mark current + parent
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
+        .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
+
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
         var href = norm(a.getAttribute('href') || '');
         if(href === current){
@@ -281,12 +335,9 @@
           a.setAttribute('aria-current','page');
           var group = a.closest('.nav-group');
           if(group){
-            var btn = group.querySelector('button');
+            var btn = group.querySelector(':scope > button');
             if(btn){ btn.classList.add('active'); }
           }
-        }else{
-          a.classList.remove('active');
-          a.removeAttribute('aria-current');
         }
       });
     })();
