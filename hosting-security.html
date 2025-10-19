@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Private Cloud / Hosting Security | CoreCloud — Hardening, Segmentation, DR</title>
@@ -42,6 +43,7 @@
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 
+        <!-- Consulting -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
@@ -50,6 +52,7 @@
           </div>
         </div>
 
+        <!-- Cloud Suite -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
@@ -61,6 +64,16 @@
           </div>
         </div>
 
+        <!-- Infrastructure -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="infrastructure.html">Modern Datacenter</a>
+            <a role="menuitem" href="modern-workplace.html">Modern Workplace</a>
+          </div>
+        </div>
+
+        <!-- Curated Talent -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
@@ -70,15 +83,24 @@
           </div>
         </div>
 
+        <!-- Security -->
         <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Security</button>
+          <button aria-haspopup="true" aria-expanded="false" class="active">Security</button>
           <div class="submenu" role="menu" aria-label="Security">
             <a role="menuitem" href="cloud-security.html">Cloud Security</a>
-            <a role="menuitem" href="hosting-security.html">Private Cloud / Hosting</a>
+            <a role="menuitem" href="hosting-security.html" class="active" aria-current="page">Private Cloud / Hosting</a>
           </div>
         </div>
 
-        <a href="infrastructure.html">Infrastructure</a>
+        <!-- Incubation Hub -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
+          <div class="submenu" role="menu" aria-label="Incubation Hub">
+            <a role="menuitem" href="incubation-hub.html">Overview</a>
+            <a role="menuitem" href="qse-collective.html">QSE Collective</a>
+          </div>
+        </div>
+
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
@@ -107,13 +129,31 @@
         <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
       </details>
 
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="infrastructure.html">Modern Datacenter</a>
+        <a href="modern-workplace.html">Modern Workplace</a>
+      </details>
+
       <details open>
         <summary>Security</summary>
         <a href="cloud-security.html">Cloud Security</a>
-        <a href="hosting-security.html">Private Cloud / Hosting</a>
+        <a href="hosting-security.html" aria-current="page">Private Cloud / Hosting</a>
       </details>
 
-      <a href="infrastructure.html">Infrastructure</a>
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="global-talent.html">Global Talent</a>
+      </details>
+
+      <details>
+        <summary>Incubation Hub</summary>
+        <a href="incubation-hub.html">Overview</a>
+        <a href="qse-collective.html">QSE Collective</a>
+      </details>
+
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
@@ -279,15 +319,49 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Scripts: active link + accordions + TOC -->
   <script>
+    // Active-link highlighter with parent underline + mobile summary cue
     (function(){
-      var path=(location.pathname.split('/').pop()||'hosting-security.html').toLowerCase();
-      document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
-        var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
+      function norm(href){
+        if(!href) return 'index.html';
+        href = href.toLowerCase().split('#')[0].split('?')[0];
+        if(href === '' || href === '/') href = 'index.html';
+        return href.startsWith('/') ? href.slice(1) : href;
+      }
+      var current = norm(location.pathname.split('/').pop() || 'hosting-security.html');
+
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
+        var href = norm(a.getAttribute('href') || '');
+        if(href === current){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+
+          // Desktop: underline the parent group button
+          var group = a.closest('.nav-group');
+          if(group){
+            var btn = group.querySelector('button');
+            if(btn){ btn.classList.add('active'); }
+          }
+
+          // Mobile: mark the matching <summary> as active
+          document.querySelectorAll('.mobile-drawer details').forEach(function(d){
+            var match = Array.from(d.querySelectorAll('a')).some(function(link){
+              return norm(link.getAttribute('href')||'') === current;
+            });
+            if(match){
+              var summary = d.querySelector('summary');
+              if(summary){ summary.classList.add('active'); }
+            }
+          });
+        }else{
+          a.classList.remove('active');
+          a.removeAttribute('aria-current');
+        }
       });
     })();
+
+    // Accordions
     document.querySelectorAll('.acc-btn').forEach(function(b){
       b.addEventListener('click',function(){
         b.classList.toggle('open');
@@ -295,6 +369,7 @@
         p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+'px';
       });
     });
+
     // TOC highlight
     (function(){
       var links=[...document.querySelectorAll('.toc a')];
