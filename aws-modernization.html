@@ -2,35 +2,33 @@
 <html lang="en">
 <head>
   <!-- Meta -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>CoreCloud AWS Modernization | Refactor, Rebuild & Replatform</title>
-  <meta name="description" content="CoreCloud helps South African enterprises modernise legacy systems on AWS through expert refactoring, replatforming, and cloud-native rebuilds — built for scale and agility." />
-  <link rel="canonical" href="https://www.corecloudza.com/aws-modernization.html" />
+  <meta name="description" content="CoreCloud helps South African enterprises modernise legacy systems on AWS through expert refactoring, replatforming, and cloud-native rebuilds — built for scale and agility."/>
+  <link rel="canonical" href="https://www.corecloudza.com/aws-modernization.html"/>
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="CoreCloud AWS Modernization | Refactor, Rebuild & Replatform" />
-  <meta property="og:description" content="Modernise on AWS with replatforming, refactoring, and cloud-native rebuilds delivered with real execution." />
-  <meta property="og:url" content="https://www.corecloudza.com/aws-modernization.html" />
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="CoreCloud AWS Modernization | Refactor, Rebuild & Replatform" />
-  <meta name="twitter:description" content="Modernise on AWS with replatforming, refactoring, and cloud-native rebuilds delivered with real execution." />
-  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="CoreCloud AWS Modernization | Refactor, Rebuild & Replatform"/>
+  <meta property="og:description" content="Modernise on AWS with replatforming, refactoring, and cloud-native rebuilds delivered with real execution."/>
+  <meta property="og:url" content="https://www.corecloudza.com/aws-modernization.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (make sure v=13 or later is deployed) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=13" />
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
 
   <!-- Preload hero -->
-  <link rel="preload" as="image" href="assets/images/cloud-banner.png?v=2" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/images/cloud-banner.png?v=2" fetchpriority="high"/>
 
   <!-- Page-scoped (light, content-only) -->
   <style>
     .center-subtitle{
-      text-align:center; color:#000; font-size:1.05rem; margin:0 auto 2rem; max-width:900px; line-height:1.65;
+      text-align:center; color:#000; font-size:1.05rem;
+      margin:0 auto 2rem; max-width:900px; line-height:1.65;
     }
-    .checklist{ list-style:none; padding-left:0; max-width:1000px; }
+    .checklist{ list-style:none; padding-left:0; max-width:1000px; margin:0 auto; }
     .checklist li{ margin:.42rem 0; }
     /* Defensive: footer tel link stays white + no underline */
     .footer-right a[href^="tel"]{ color:#fff !important; text-decoration:none !important; font-weight:700; }
@@ -40,44 +38,67 @@
 <body class="cloud-page aws-modernize-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Unified Header / Nav -->
+  <!-- Unified Header / Nav (matches your reference) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async" />
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
-      <!-- Desktop nav -->
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 
+        <!-- Consulting -->
         <div class="nav-group">
-          <button type="button" aria-haspopup="true" aria-expanded="false">Consulting</button>
+          <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
             <a role="menuitem" href="consulting.html">Overview</a>
             <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
           </div>
         </div>
 
+        <!-- Cloud Suite -->
         <div class="nav-group">
-          <button type="button" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
             <a role="menuitem" href="cloud.html">Overview</a>
             <a role="menuitem" href="aws-migration.html">AWS Migration</a>
-            <a role="menuitem" href="aws-modernization.html">AWS Modernization</a>
+            <a role="menuitem" href="aws-modernization.html" class="active" aria-current="page">AWS Modernization</a>
+            <a role="menuitem" href="aws-manage.html">AWS Managed Services</a>
             <a role="menuitem" href="finops.html">FinOps</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
-            <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+            <a role="menuitem" href="cloud-security.html">Cloud Security</a>
           </div>
         </div>
 
+        <!-- Infrastructure -->
         <div class="nav-group">
-          <button type="button" aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="infrastructure.html">Modern Datacenter</a>
+            <a role="menuitem" href="modern-workplace.html">Modern Workplace</a>
+            <a role="menuitem" href="hosting-security.html">Hosting Security</a>
+          </div>
+        </div>
+
+        <!-- Curated Talent -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
             <a role="menuitem" href="talent.html">Overview</a>
             <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
             <a role="menuitem" href="global-talent.html">Global Talent</a>
+          </div>
+        </div>
+
+        <!-- Incubation Hub -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
+          <div class="submenu" role="menu" aria-label="Incubation Hub">
+            <a role="menuitem" href="incubation-hub.html">Overview</a>
+            <a role="menuitem" href="qse-collective.html">QSE Collective</a>
           </div>
         </div>
 
@@ -88,11 +109,11 @@
       </nav>
 
       <!-- Mobile toggle -->
-      <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-label="Open menu" />
-      <label class="hamburger" for="nav-toggle"><span></span></label>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
     <!-- Mobile drawer -->
+    <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-hidden="true">
     <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html">Home</a>
 
@@ -106,11 +127,20 @@
         <summary>Cloud Suite</summary>
         <a href="cloud.html">Overview</a>
         <a href="aws-migration.html">AWS Migration</a>
-        <a href="aws-modernization.html">AWS Modernization</a>
+        <a href="aws-modernization.html" aria-current="page">AWS Modernization</a>
+        <a href="aws-manage.html">AWS Managed Services</a>
         <a href="finops.html">FinOps</a>
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
-        <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+        <a href="cloud-security.html">Cloud Security</a>
+      </details>
+
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="infrastructure.html">Modern Datacenter</a>
+        <a href="modern-workplace.html">Modern Workplace</a>
+        <a href="hosting-security.html">Hosting Security</a>
       </details>
 
       <details>
@@ -120,17 +150,22 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
-      <a href="infrastructure.html">Infrastructure</a>
+      <details>
+        <summary>Incubation Hub</summary>
+        <a href="incubation-hub.html">Overview</a>
+        <a href="qse-collective.html">QSE Collective</a>
+      </details>
+
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero with single frame lines (from global CSS) -->
+  <!-- Hero -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="AWS Modernization – Cloud transformation">
-      <img src="assets/images/cloud-banner.png?v=2" alt="AWS Modernization – Cloud transformation" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high" />
+      <img src="assets/images/cloud-banner.png?v=2" alt="AWS Modernization – Cloud transformation" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
@@ -191,7 +226,7 @@
       </div>
     </div>
 
-    <div class="centered" style="margin-top:2rem;">
+    <div class="centered" style="text-align:center; margin-top:2rem;">
       <a href="contact.html" class="cta-btn">Let’s Modernise</a>
     </div>
   </main>
@@ -208,12 +243,12 @@
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
           <label class="vh" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
@@ -234,33 +269,31 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter (matches v13 CSS selectors) -->
+  <!-- Active-link highlighter (with legacy path mapping) -->
   <script>
     (function(){
-      // Normalise hrefs so aliases still underline correctly
       function norm(p){
         if(!p) return 'index.html';
         p = p.toLowerCase().split('#')[0].split('?')[0];
         if(p === '' || p === '/') p = 'index.html';
+        // legacy alias handling
         if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
         if(p === 'mobile-web.html') p = 'application-development.html';
         return p;
       }
-
       var current = norm(location.pathname.split('/').pop() || 'aws-modernization.html');
 
-      // Clear any leftover states first (prevents double underlines between pages)
+      // Clear any stale active states
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
         .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
 
-      // Mark current link(s)
+      // Mark current
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a')
         .forEach(function(a){
           var href = norm(a.getAttribute('href') || '');
           if(href === current){
             a.classList.add('active');
             a.setAttribute('aria-current','page');
-            // Also underline the parent top-level button in desktop nav
             var group = a.closest('.nav-group');
             if(group){
               var btn = group.querySelector(':scope > button');
