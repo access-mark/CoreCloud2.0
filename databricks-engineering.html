@@ -28,10 +28,18 @@
       text-align:center !important; color:#000; font-size:1.05rem;
       margin:0 auto 2rem; max-width:900px; line-height:1.65;
     }
-    /* Card tone for Databricks already picks up red headers via .databricks-page in global */
-    .card-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; margin-top:2rem; padding:0 1rem; }
-    .card{ background:#fff; color:#000; padding:1.5rem; border-radius:12px; text-align:left; box-shadow:0 2px 8px rgba(0,0,0,.08); border:2px solid var(--dark-blue); }
-    .card h3{ color:#ff3621; font-size:1.25rem; margin-bottom:.8rem; font-weight:700; }
+
+    /* Grid + equal-height cards with bottom-aligned CTAs */
+    .card-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; margin-top:2rem; padding:0 1rem; max-width:var(--content-max); margin-left:auto; margin-right:auto;}
+    .card{
+      background:#fff; color:#000; padding:1.5rem; border-radius:12px;
+      box-shadow:0 2px 8px rgba(0,0,0,.08); border:2px solid var(--dark-blue);
+      display:flex; flex-direction:column; min-height:280px;
+    }
+    .card h3{ color:#ff3621; font-size:1.25rem; margin:0 0 .8rem; font-weight:700; }
+    .card p{ margin:0 0 1rem; line-height:1.6;}
+    .card .cta-btn{ margin-top:auto; width:100%; }
+
     /* Footer tel stays white */
     .footer-right a[href^="tel"]{ color:#fff !important; text-decoration:none !important; font-weight:700; }
   </style>
@@ -95,14 +103,17 @@
           <button type="button" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
             <a role="menuitem" href="cloud.html">Overview</a>
+            <!-- AWS -->
             <a role="menuitem" href="aws-migration.html">AWS Migration</a>
             <a role="menuitem" href="aws-modernization.html">AWS Modernization</a>
             <a role="menuitem" href="aws-manage.html">AWS Managed Services</a>
             <a role="menuitem" href="aws-optimize.html">AWS Optimization</a>
+            <!-- Azure -->
             <a role="menuitem" href="azure-migration.html">Azure Migration</a>
             <a role="menuitem" href="azure-modernization.html">Azure Modernization</a>
             <a role="menuitem" href="azure-managed.html">Azure Managed Services</a>
             <a role="menuitem" href="azure-optimization.html">Azure Optimization</a>
+            <!-- Platform-wide -->
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
             <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
@@ -118,7 +129,23 @@
           </div>
         </div>
 
-        <a href="infrastructure.html">Infrastructure</a>
+        <!-- Incubation Hub -->
+        <div class="nav-group">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
+          <div class="submenu" role="menu" aria-label="Incubation Hub">
+            <a role="menuitem" href="incubation-hub.html">Overview</a>
+            <a role="menuitem" href="qse-collective.html">QSE Accelerator &amp; Collective</a>
+          </div>
+        </div>
+
+        <!-- Infrastructure as dropdown (no standalone link) -->
+        <div class="nav-group">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+          </div>
+        </div>
+
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
@@ -161,7 +188,17 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
-      <a href="infrastructure.html">Infrastructure</a>
+      <details>
+        <summary>Incubation Hub</summary>
+        <a href="incubation-hub.html">Overview</a>
+        <a href="qse-collective.html">QSE Accelerator &amp; Collective</a>
+      </details>
+
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+      </details>
+
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
@@ -190,22 +227,27 @@
         <div class="card">
           <h3>ETL Pipeline Automation</h3>
           <p>Accelerate time-to-insight with scalable, reusable pipelines that reduce manual data wrangling.</p>
+          <a href="contact.html" class="cta-btn">Automate ETL</a>
         </div>
         <div class="card">
           <h3>Delta Lake Reliability</h3>
           <p>Ensure ACID compliance and data quality for trustworthy analytics and reporting.</p>
+          <a href="contact.html" class="cta-btn">Harden with Delta</a>
         </div>
         <div class="card">
           <h3>Cost-Optimised Spark</h3>
           <p>Leverage Databricks’ managed Spark clusters for lower operational costs and high performance.</p>
+          <a href="contact.html" class="cta-btn">Tune Spark Cost</a>
         </div>
         <div class="card">
           <h3>Streaming Data</h3>
           <p>Handle real-time workloads and deliver immediate insights for mission-critical applications.</p>
+          <a href="contact.html" class="cta-btn">Stream Now</a>
         </div>
         <div class="card">
           <h3>Unified Governance</h3>
           <p>Integrate governance aligned to POPIA and enterprise compliance needs.</p>
+          <a href="contact.html" class="cta-btn">Govern Data</a>
         </div>
       </div>
     </section>
@@ -216,14 +258,17 @@
         <div class="card">
           <h3>Local Experience</h3>
           <p>Pipelines tuned for South Africa’s data realities and regulatory landscape.</p>
+          <a href="contact.html" class="cta-btn">Speak to Experts</a>
         </div>
         <div class="card">
           <h3>Accelerated Delivery</h3>
           <p>Rapid implementation reduces risk and speeds up value capture.</p>
+          <a href="contact.html" class="cta-btn">Start Faster</a>
         </div>
         <div class="card">
           <h3>End-to-End Support</h3>
           <p>From architecture to managed services — stable, observable, and cost-aware.</p>
+          <a href="contact.html" class="cta-btn">Get Support</a>
         </div>
       </div>
     </section>
@@ -290,6 +335,10 @@
       }
       var current = norm(location.pathname.split('/').pop() || 'databricks-engineering.html');
 
+      // Clear leftovers then mark current + parent
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
+        .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
+
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
         var href = norm(a.getAttribute('href') || '');
         if(href === current){
@@ -297,12 +346,9 @@
           a.setAttribute('aria-current','page');
           var group = a.closest('.nav-group');
           if(group){
-            var btn = group.querySelector('button');
+            var btn = group.querySelector(':scope > button');
             if(btn){ btn.classList.add('active'); }
           }
-        }else{
-          a.classList.remove('active');
-          a.removeAttribute('aria-current');
         }
       });
     })();
