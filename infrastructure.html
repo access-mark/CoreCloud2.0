@@ -19,185 +19,186 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/hosting-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- CSS (bump version after edits) -->
-  <link rel="stylesheet" href="/assets/css/styles.css?v=18"/>
+  <!-- Global CSS (template-aligned) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=19"/>
 
   <!-- Preload -->
-  <link rel="preload" as="image" href="/assets/images/corecloud-logo.png" fetchpriority="high"/>
-  <link rel="preload" as="image" href="/assets/images/hosting-bannerimage.png" fetchpriority="high"/>
+  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
+  <link rel="preload" as="image" href="assets/images/hosting-bannerimage.png" fetchpriority="high"/>
 </head>
 
-<body class="hosting">
-  <a class="skip-link" href="#main">Skip to main content</a>
-
-  <!-- Header / Nav -->
+<body class="home-page">
+  <!-- Header / Nav (template style, with Infrastructure dropdown for both Modern pages) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <a class="brand" href="/index.html" aria-label="CoreCloud Home">
-        <img src="/assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
+      <a class="brand" href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
       <nav class="main-nav" aria-label="Primary">
-        <a href="/index.html">Home</a>
+        <a href="index.html">Home</a>
 
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
-            <a role="menuitem" href="/consulting.html">Overview</a>
-            <a role="menuitem" href="/dynamic-imprinting.html">Dynamic Imprinting</a>
+            <a role="menuitem" href="consulting.html">Overview</a>
+            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
           </div>
         </div>
 
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
-            <a role="menuitem" href="/cloud.html">Overview</a>
-            <a role="menuitem" href="/finops.html">FinOps</a>
-            <a role="menuitem" href="/application-development.html">Application Development</a>
-            <a role="menuitem" href="/data-ai.html">Data &amp; AI</a>
+            <a role="menuitem" href="cloud.html">Overview</a>
+            <a role="menuitem" href="finops.html">FinOps</a>
+            <a role="menuitem" href="application-development.html">Application Development</a>
+            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
+            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
           </div>
         </div>
 
-        <!-- Infrastructure dropdown -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false" class="active">Infrastructure</button>
           <div class="submenu" role="menu" aria-label="Infrastructure">
-            <a role="menuitem" href="/infrastructure.html" class="active" aria-current="page">Modern Datacenter</a>
-            <a role="menuitem" href="/modern-workplace.html">Modern Workplace</a>
+            <a role="menuitem" href="infrastructure.html" class="active" aria-current="page">Modern Datacenter</a>
+            <a role="menuitem" href="modern-workplace.html">Modern Workplace</a>
           </div>
         </div>
 
-        <a href="/talent.html">Curated Talent</a>
-        <a href="/about.html">About</a>
-        <a href="/blog.html">Insights</a>
-        <a href="/contact.html">Contact</a>
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <div class="submenu" role="menu" aria-label="Curated Talent">
+            <a role="menuitem" href="talent.html">Overview</a>
+            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="global-talent.html">Global Talent</a>
+          </div>
+        </div>
+
+        <a href="about.html">About</a>
+        <a href="blog.html">Insights</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
-      <!-- Mobile toggle -->
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true"/>
-
-    <!-- Mobile drawer -->
+    <!-- Mobile drawer (template style) -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <nav class="mobile-drawer" aria-label="Mobile">
-      <a href="/index.html">Home</a>
+      <a href="index.html">Home</a>
 
       <details>
         <summary>Consulting</summary>
-        <a href="/consulting.html">Overview</a>
-        <a href="/dynamic-imprinting.html">Dynamic Imprinting</a>
+        <a href="consulting.html">Overview</a>
+        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
       </details>
 
       <details>
         <summary>Cloud Suite</summary>
-        <a href="/cloud.html">Overview</a>
-        <a href="/finops.html">FinOps</a>
-        <a href="/application-development.html">Application Development</a>
-        <a href="/data-ai.html">Data &amp; AI</a>
+        <a href="cloud.html">Overview</a>
+        <a href="finops.html">FinOps</a>
+        <a href="application-development.html">Application Development</a>
+        <a href="data-ai.html">Data &amp; AI</a>
+        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
       </details>
 
       <details open>
         <summary>Infrastructure</summary>
-        <a href="/infrastructure.html" aria-current="page">Modern Datacenter</a>
-        <a href="/modern-workplace.html">Modern Workplace</a>
+        <a href="infrastructure.html" aria-current="page">Modern Datacenter</a>
+        <a href="modern-workplace.html">Modern Workplace</a>
       </details>
 
-      <a href="/talent.html">Curated Talent</a>
-      <a href="/about.html">About</a>
-      <a href="/blog.html">Insights</a>
-      <a href="/contact.html">Contact</a>
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="global-talent.html">Global Talent</a>
+      </details>
+
+      <a href="about.html">About</a>
+      <a href="blog.html">Insights</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero (center-cropped) -->
+  <!-- Banner (template single-line frame) -->
   <div class="hero-frame">
-    <div class="hero-media hero-media-cover" role="img" aria-label="Modern datacenter, private cloud, and hybrid">
-      <img src="/assets/images/hosting-bannerimage.png" alt="Modern Datacenter — predictable, sovereign, low-latency run" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+    <div class="hero-media" role="img" aria-label="Modern datacenter, private cloud, and hybrid">
+      <img src="assets/images/hosting-bannerimage.png" alt="Modern Datacenter — predictable, sovereign, low-latency run" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
-  <!-- Intro -->
-  <section class="hero hero-500" id="main">
-    <div class="hero-body">
-      <h1>Modern Datacenter</h1>
-      <p><strong>The Data Centre — Private Cloud</strong></p>
-      <p>CoreCloud’s 60+ years of combined experience in datacenter and private cloud design and solution sales allows us to recommend best-of-breed data protection and modern technology for compute, networking, security, and data storage — in either traditional <strong>3-2-1</strong> architectures or modern <strong>HC (Hyper-Converged)</strong> platforms.</p>
+  <!-- Hero intro (template rhythm) -->
+  <section class="hero-intro">
+    <h1 class="hero-title">Modern Datacenter</h1>
+    <p><strong>The Data Centre — Private Cloud.</strong> 60+ years combined CoreCloud experience in DC and private cloud design. We recommend best-of-breed data protection and modern compute, networking, security, and storage — in classic <strong>3-2-1</strong> or modern <strong>Hyper-Converged</strong> platforms.</p>
+    <div class="cta-row" style="margin-top:.5rem;">
+      <a class="cta-btn" href="contact.html">Request a Datacenter Assessment</a>
     </div>
   </section>
 
-  <main class="content">
-    <!-- A Modern Datacentre -->
-    <section class="section">
-      <h2>A Modern Datacentre</h2>
-      <ul class="points">
-        <li><strong>Multi-venue reality:</strong> Modern workloads run on-prem, in hosted colo, and in public cloud.</li>
-        <li><strong>Right venue, right time:</strong> We guide decisions that grow and adapt with your organisation — avoiding long-run cost traps.</li>
-        <li><strong>Balance the triad:</strong> Performance, availability, and reliability tuned to your business goals.</li>
+  <main class="content" id="main">
+    <section class="section" aria-labelledby="modern-dc">
+      <h2 id="modern-dc" class="section-title">A Modern Datacentre</h2>
+      <ul style="max-width:900px;margin:0 auto;padding-left:1.25rem;">
+        <li><strong>Multi-venue reality:</strong> Run on-prem, in hosted colo, and in public cloud.</li>
+        <li><strong>Right venue, right time:</strong> Decisions that grow and adapt with your organisation — avoid long-run cost traps.</li>
+        <li><strong>Balance the triad:</strong> Performance, availability, reliability tuned to business goals.</li>
       </ul>
     </section>
 
-    <!-- Infrastructure on demand -->
-    <section class="section">
-      <h2>Infrastructure — On Demand</h2>
-      <p>Industry trends are shifting: repatriation of workloads is driving demand for <strong>hybrid-cloud platforms</strong> — bringing the flexibility of public cloud into the datacentre with <strong>on-demand, dedicated infrastructure</strong>.</p>
-      <p>We combine <strong>OPEX</strong> and <strong>CAPEX</strong> options to support a consumption operating model. You get scalability and commercial efficiency while maintaining best-in-breed availability, continuity, and management for datacentre infrastructure.</p>
-      <div class="inline-cta">
-        <strong>Design for predictability.</strong>
-        <p>Want a modern DC that scales like cloud but stays sovereign and cost-clear?</p>
-        <a class="cta-btn" href="/contact.html">Request a Datacenter Assessment</a>
-      </div>
+    <section class="section" aria-labelledby="on-demand">
+      <h2 id="on-demand" class="section-title">Infrastructure — On Demand</h2>
+      <p style="max-width:900px;margin:0 auto;text-align:center;">
+        Repatriation is real: customers want hybrid-cloud platforms that bring public-cloud flexibility <em>into</em> the DC with on-demand, dedicated infrastructure.
+        We blend <strong>OPEX</strong> and <strong>CAPEX</strong> to enable consumption models — scalable, commercially efficient, and resilient.
+      </p>
     </section>
 
-    <!-- Reference Architectures -->
-    <section class="section">
-      <h2>Reference Architectures</h2>
-      <ul class="points">
-        <li><strong>Traditional 3-2-1:</strong> Proven backup/restore, clear RPO/RTO tiers, air-gaps and immutable copies.</li>
-        <li><strong>Hyper-Converged:</strong> Compute-storage-network fabrics with scale-out growth, simplified ops, and DR orchestration.</li>
-        <li><strong>Hybrid Burst:</strong> Keep primary data local; burst to AWS/Azure for analytics or peak — governed by data-class rules and showback.</li>
+    <section class="section" aria-labelledby="refs">
+      <h2 id="refs" class="section-title">Reference Architectures</h2>
+      <ul style="max-width:900px;margin:0 auto;padding-left:1.25rem;">
+        <li><strong>Traditional 3-2-1:</strong> Clear RPO/RTO tiers, air-gaps, immutable copies.</li>
+        <li><strong>Hyper-Converged:</strong> Scale-out fabrics, simplified ops, DR orchestration.</li>
+        <li><strong>Hybrid Burst:</strong> Primary data local; burst to AWS/Azure for analytics or peak with showback.</li>
       </ul>
     </section>
 
-    <!-- What We Run -->
-    <section class="section">
-      <h2>What We Run</h2>
-      <ul class="points">
-        <li>Private cloud (VMs/containers) with segmented networks and identity guardrails.</li>
+    <section class="section" aria-labelledby="what-we-run">
+      <h2 id="what-we-run" class="section-title">What We Run</h2>
+      <ul style="max-width:900px;margin:0 auto;padding-left:1.25rem;">
+        <li>Private cloud (VMs/containers), segmented networks, identity guardrails.</li>
         <li>Databases (PostgreSQL, SQL Server, Oracle) with <em>prove-you-can-recover</em> drills.</li>
         <li>ERP/LOB stacks, integration brokers, secure partner connectivity.</li>
-        <li>Edge/branch workloads with central observability and config drift detection.</li>
+        <li>Edge/branch workloads, central observability, config drift detection.</li>
         <li>VDI and special compute incl. GPU where required.</li>
       </ul>
     </section>
 
-    <!-- Service Levels -->
-    <section class="section" aria-labelledby="slas-title">
-      <h2 id="slas-title">Service Levels (Typical)</h2>
-      <div class="metrics">
-        <div class="metric"><span>Availability (core tiers)</span><b>99.9–99.99%</b></div>
-        <div class="metric"><span>RPO / RTO</span><b>≤15m / ≤60m*</b></div>
-        <div class="metric"><span>Backup verification</span><b>Daily jobs + monthly test restores</b></div>
-        <div class="metric"><span>DR/cyber run-book drills</span><b>Quarterly</b></div>
-        <div class="metric"><span>Security posture</span><b>Monthly board report</b></div>
-      </div>
-      <p class="muted slas-note">*Tighter targets available with sync replication and multi-AZ/DC designs.</p>
+    <section class="section" aria-labelledby="slas">
+      <h2 id="slas" class="section-title">Service Levels (Typical)</h2>
+      <ul style="max-width:900px;margin:0 auto;padding-left:1.25rem;">
+        <li><strong>Availability:</strong> 99.9–99.99%</li>
+        <li><strong>RPO / RTO:</strong> ≤15m / ≤60m*</li>
+        <li><strong>Backup verification:</strong> Daily jobs + monthly test restores</li>
+        <li><strong>DR/cyber drills:</strong> Quarterly</li>
+        <li><strong>Security posture:</strong> Monthly board report</li>
+      </ul>
+      <p class="muted" style="max-width:900px;margin:.5rem auto 0;text-align:center;">*Tighter targets available with sync replication and multi-AZ/DC designs.</p>
     </section>
 
-    <!-- Partners -->
-    <section class="section">
-      <h2>Partners</h2>
-      <p class="muted" style="text-align:center;max-width:900px;margin:0 auto 12px;">We design and build solutions across multiple vendors, including:</p>
+    <section class="section" aria-labelledby="partners">
+      <h2 id="partners" class="section-title">Partners</h2>
+      <p class="muted" style="text-align:center;max-width:900px;margin:0 auto 12px;">We design and build across multiple vendors, including:</p>
       <div class="partner-grid">
         <span>Dell</span><span>HPE</span><span>Lenovo</span><span>VMware</span>
         <span>Microsoft (Azure Stack HCI)</span><span>Nutanix</span><span>Veeam</span>
         <span>Commvault</span><span>Fortinet</span><span>Cisco</span>
       </div>
-      <!-- swap <span> for logos when ready -->
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- Footer (template) -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
@@ -214,7 +215,7 @@
           <input type="hidden" name="_captcha" value="false"/>
           <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
           <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;"/>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
@@ -222,51 +223,27 @@
       <div class="footer-right">
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p>Phone: <a href="tel:+27 11 568 8667">+27 11 568 8667</a></p>
         <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
 
     <div class="footer-bottom">
       <p>&copy; 2025 CoreCloud. All rights reserved. |
-        <a href="/privacy.html" class="legal-link">Privacy Policy</a> |
-        <a href="/terms.html" class="legal-link">Terms</a>
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
       </p>
     </div>
   </footer>
 
-  <!-- JSON-LD (Service + Breadcrumbs) -->
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Service","name":"CoreCloud — Modern Datacenter","description":"Modern datacenter patterns — private cloud and hybrid with predictable cost, sovereignty, and low-latency run.","provider":{"@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png"},"areaServed":"ZA","url":"https://www.corecloudza.com/infrastructure.html","offers":{"@type":"Offer","availability":"https://schema.org/InStock"}}
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
-    {"@type":"ListItem","position":2,"name":"Infrastructure","item":"https://www.corecloudza.com/infrastructure.html"},
-    {"@type":"ListItem","position":3,"name":"Modern Datacenter","item":"https://www.corecloudza.com/infrastructure.html"}
-  ]}
-  </script>
-
-  <!-- Active-link highlighter -->
+  <!-- Active link highlighter (template) -->
   <script>
     (function(){
-      function norm(p){
-        if(!p) return 'index.html';
-        p = p.toLowerCase().split('#')[0].split('?')[0];
-        if(p === '' || p === '/') p = 'index.html';
-        if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
-        if(p === 'mobile-web.html') p = 'application-development.html';
-        return p;
-      }
-      var current = norm(location.pathname.split('/').pop() || 'infrastructure.html');
-      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
-        var href = norm(a.getAttribute('href') || '');
-        if(href === current){
-          a.classList.add('active'); a.setAttribute('aria-current','page');
-          var group = a.closest('.nav-group'); if(group){ var btn = group.querySelector('button'); if(btn){ btn.classList.add('active'); } }
-        }else{
-          a.classList.remove('active'); a.removeAttribute('aria-current');
-        }
+      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+      document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
+        var href=(a.getAttribute('href')||'').toLowerCase();
+        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
+        else{a.classList.remove('active');a.removeAttribute('aria-current');}
       });
     })();
   </script>
