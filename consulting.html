@@ -18,28 +18,24 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/consulting-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (uses single-line frame; set color per page class) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=17"/>
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="/assets/css/styles.css?v=17"/>
 
   <!-- Preload -->
-  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/images/consulting-bannerimage.png" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/images/corecloud-logo.png" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/images/consulting-bannerimage.png" fetchpriority="high">
 
-  <!-- Page-scoped (kept minimal) -->
+  <!-- Page-scoped (minimal) -->
   <style>
     :root{ --royal:#004f91; --royal-2:#0b3d72; --gold:#d4af37; --dark-blue:#004f91; }
-
-    /* 🔶 This page uses the global single-line frame; color = GOLD */
     .consulting-page{ --frame-color: var(--gold); }
 
-    /* Center section titles (guard against stray overrides) */
     .consulting-page .section .section-title{
       text-align:center !important;
       margin-left:auto !important;
       margin-right:auto !important;
     }
 
-    /* Subtitles (match index Why/What/How) */
     .panel h4{
       font-size: 1.4rem !important;
       font-weight: 600 !important;
@@ -49,11 +45,9 @@
       text-align: left;
     }
 
-    /* Anchor jump offset for sticky header */
     .consulting-page section[id]{ scroll-margin-top:132px; }
     @media (max-width:768px){ .consulting-page section[id]{ scroll-margin-top:96px; } }
 
-    /* Pill links (centered) */
     .inpage-nav{
       display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
       gap:8px; margin:0 auto 1rem; padding:.35rem 1rem; max-width:1000px;
@@ -69,13 +63,11 @@
       .inpage-nav a{ padding:.35rem .6rem; font-size:.9rem; }
     }
 
-    /* Underline top-level "Consulting" when active */
     .main-nav .nav-group > button.active{
       color: var(--royal);
       border-bottom:2px solid var(--royal);
     }
 
-    /* Minor metrics/panels helpers (already styled globally; left as is) */
     .metrics{ display:grid; gap:.4rem; max-width:1000px; margin:0 auto; padding:0 1rem; }
     .metric{ display:flex; justify-content:space-between; gap:.75rem; border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; }
     .metric b{ color:#0b3d72; }
@@ -90,91 +82,152 @@
 </head>
 
 <body class="consulting-page">
-  <!-- Header -->
+  <!-- Header / Nav -->
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
+      <a class="brand" href="/index.html" aria-label="CoreCloud Home">
+        <img src="/assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
       <nav class="main-nav" aria-label="Primary">
-        <a href="index.html">Home</a>
+        <a href="/index.html">Home</a>
 
+        <!-- Consulting -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
-            <a role="menuitem" href="consulting.html" class="active" aria-current="page">Overview</a>
-            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
+            <a role="menuitem" href="/consulting.html" class="active" aria-current="page">Overview</a>
+            <a role="menuitem" href="/dynamic-imprinting.html">Dynamic Imprinting</a>
           </div>
         </div>
 
+        <!-- Cloud -->
         <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
-          <div class="submenu" role="menu" aria-label="Cloud Suite">
-            <a role="menuitem" href="cloud.html">Overview</a>
-            <a role="menuitem" href="finops.html">FinOps</a>
-            <a role="menuitem" href="application-development.html">Application Development</a>
-            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
-            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+          <button aria-haspopup="true" aria-expanded="false">Cloud</button>
+          <div class="submenu" role="menu" aria-label="Cloud">
+            <a role="menuitem" href="/cloud.html">Overview</a>
+            <a role="menuitem" href="/finops.html">FinOps</a>
+            <a role="menuitem" href="/application-development.html">Application Development</a>
+            <a role="menuitem" href="/data-ai.html">Data &amp; AI</a>
+            <a role="menuitem" href="/hosted-private-cloud.html">Hosting (Private Cloud)</a>
           </div>
         </div>
 
+        <!-- Infrastructure -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="/infrastructure.html">Modern Datacenter</a>
+            <a role="menuitem" href="/modern-workplace.html">Modern Workplace</a>
+          </div>
+        </div>
+
+        <!-- Curated Talent -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
-            <a role="menuitem" href="talent.html">Overview</a>
-            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
-            <a role="menuitem" href="global-talent.html">Global Talent</a>
+            <a role="menuitem" href="/talent.html">Overview</a>
+            <a role="menuitem" href="/talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="/global-talent.html">Global Talent</a>
           </div>
         </div>
 
-        <a href="infrastructure.html">Infrastructure</a>
-        <a href="about.html">About</a>
-        <a href="blog.html">Insights</a>
-        <a href="contact.html">Contact</a>
+        <!-- Incubation Hub -->
+        <a href="/incubation-hub.html">Incubation Hub</a>
+
+        <a href="/about.html">About</a>
+        <a href="/blog.html">Insights</a>
+        <a href="/contact.html">Contact</a>
       </nav>
 
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
-    <!-- Mobile -->
+    <!-- Mobile Drawer -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <nav class="mobile-drawer" aria-label="Mobile">
-      <a href="index.html">Home</a>
+      <a href="/index.html">Home</a>
 
       <details open>
         <summary>Consulting</summary>
-        <a href="consulting.html" aria-current="page">Overview</a>
-        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+        <a href="/consulting.html" aria-current="page">Overview</a>
+        <a href="/dynamic-imprinting.html">Dynamic Imprinting</a>
       </details>
 
       <details>
-        <summary>Cloud Suite</summary>
-        <a href="cloud.html">Overview</a>
-        <a href="finops.html">FinOps</a>
-        <a href="application-development.html">Application Development</a>
-        <a href="data-ai.html">Data &amp; AI</a>
-        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+        <summary>Cloud</summary>
+        <a href="/cloud.html">Overview</a>
+        <a href="/finops.html">FinOps</a>
+        <a href="/application-development.html">Application Development</a>
+        <a href="/data-ai.html">Data &amp; AI</a>
+        <a href="/hosted-private-cloud.html">Hosting (Private Cloud)</a>
+      </details>
+
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="/infrastructure.html">Modern Datacenter</a>
+        <a href="/modern-workplace.html">Modern Workplace</a>
       </details>
 
       <details>
         <summary>Curated Talent</summary>
-        <a href="talent.html">Overview</a>
-        <a href="talent-relaunch.html">RE/LAUNCH</a>
-        <a href="global-talent.html">Global Talent</a>
+        <a href="/talent.html">Overview</a>
+        <a href="/talent-relaunch.html">RE/LAUNCH</a>
+        <a href="/global-talent.html">Global Talent</a>
       </details>
 
-      <a href="infrastructure.html">Infrastructure</a>
-      <a href="about.html">About</a>
-      <a href="blog.html">Insights</a>
-      <a href="contact.html">Contact</a>
+      <a href="/incubation-hub.html">Incubation Hub</a>
+
+      <a href="/about.html">About</a>
+      <a href="/blog.html">Insights</a>
+      <a href="/contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Banner (uses global hero-frame single gold line via --frame-color) -->
+  <!-- Active-link highlighter (single, robust) -->
+  <script>
+    (function(){
+      function norm(href){
+        if(!href) return 'index.html';
+        href = href.toLowerCase().split('#')[0].split('?')[0];
+        if(href === '' || href === '/') href = 'index.html';
+        return href.startsWith('/') ? href.slice(1) : href;
+      }
+      var current = norm(location.pathname.split('/').pop() || 'consulting.html');
+
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
+        var href = norm(a.getAttribute('href') || '');
+        if(href === current){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+          var group = a.closest('.nav-group');
+          if(group){
+            var btn = group.querySelector('button');
+            if(btn){ btn.classList.add('active'); }
+          }
+        }else{
+          a.classList.remove('active');
+          a.removeAttribute('aria-current');
+        }
+      });
+
+      // In-page chip highlighting for hash nav
+      function markChip(){
+        var hash = location.hash.replace('#','');
+        document.querySelectorAll('.inpage-nav a').forEach(function(link){
+          if(link.getAttribute('href').replace('#','')===hash){ link.classList.add('active'); }
+          else{ link.classList.remove('active'); }
+        });
+      }
+      window.addEventListener('hashchange', markChip);
+      markChip();
+    })();
+  </script>
+
+  <!-- Banner -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud Consulting — Operator-led execution">
-      <img src="assets/images/consulting-bannerimage.png" alt="CoreCloud Consulting — Operator-led execution" decoding="async" loading="eager" width="1920" height="500">
+      <img src="/assets/images/consulting-bannerimage.png" alt="CoreCloud Consulting — Operator-led execution" decoding="async" loading="eager" width="1920" height="500">
     </div>
   </div>
 
@@ -198,6 +251,7 @@
       <a href="#faq">FAQ</a>
     </nav>
 
+    <!-- (content unchanged below) -->
     <!-- SIGNALS -->
     <section class="section narrative" id="signals" aria-labelledby="signals-title">
       <h2 id="signals-title" class="section-title">Signals You Might Need Us</h2>
@@ -414,7 +468,7 @@
     </section>
 
     <div class="cta-wrap" style="display:flex; justify-content:center; margin-top:.85rem; padding:0 1rem;">
-      <a href="contact.html" class="cta-btn">Book an Intro Call</a>
+      <a href="/contact.html" class="cta-btn">Book an Intro Call</a>
     </div>
   </main>
 
@@ -450,41 +504,10 @@
 
     <div class="footer-bottom">
       <p>&copy; 2025 CoreCloud. All rights reserved. |
-        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-        <a href="terms.html" class="legal-link">Terms</a>
+        <a href="/privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="/terms.html" class="legal-link">Terms</a>
       </p>
     </div>
   </footer>
-
-  <!-- Active link + underline parent "Consulting" -->
-  <script>
-    (function(){
-      var path=(location.pathname.split('/').pop()||'consulting.html').toLowerCase();
-
-      // mark exact link active
-      document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
-        var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){
-          a.classList.add('active'); a.setAttribute('aria-current','page');
-          var group=a.closest('.nav-group');
-          if(group){
-            var btn=group.querySelector('button');
-            if(btn) btn.classList.add('active');
-          }
-        }
-      });
-
-      // chip highlight on hash
-      function markChip(){
-        var hash=location.hash.replace('#','');
-        document.querySelectorAll('.inpage-nav a').forEach(function(link){
-          if(link.getAttribute('href').replace('#','')===hash){ link.classList.add('active'); }
-          else{ link.classList.remove('active'); }
-        });
-      }
-      window.addEventListener('hashchange', markChip);
-      markChip();
-    })();
-  </script>
 </body>
 </html>
