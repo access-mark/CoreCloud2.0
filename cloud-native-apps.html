@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Cloud-Native Application Development | CoreCloud</title>
   <meta name="description" content="CoreCloud builds secure, scalable cloud-native apps that drive business outcomes. Fast development, clean code, and seamless cloud integration."/>
-  <meta name="author" content="CoreCloud"/>
   <link rel="canonical" href="https://www.corecloudza.com/application-development.html"/>
 
   <!-- Social -->
@@ -17,10 +16,10 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (v13 has active-underline + hero-frame) -->
+  <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
 
-  <!-- Preload hero for crisp LCP -->
+  <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
   <!-- Page-scoped helpers -->
@@ -29,9 +28,9 @@
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;top:10px;left:10px;padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;outline:2px solid #fff;z-index:1000;}
 
-    /* Center hero text and keep body copy black per site-wide ask */
+    /* Force hero heading + body centered */
     .apps-page .hero-title{margin:2.5rem auto .75rem !important;text-align:center;}
-    .apps-page .hero-sub{color:#000;text-align:center;max-width:900px;margin:0 auto 2rem;line-height:1.65;font-size:1.06rem;}
+    .apps-page .hero-sub{color:#000;text-align:center !important;max-width:900px;margin:0 auto 2rem;line-height:1.65;font-size:1.06rem;}
     .apps-page main p, .apps-page main li{color:#000;}
 
     /* Content rhythm */
@@ -98,18 +97,17 @@
           </div>
         </div>
 
-        <!-- Removed Infrastructure per new nav spec -->
+        <!-- Removed Infrastructure -->
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
       </nav>
 
       <!-- Mobile toggle -->
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
+      <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-label="Open menu" />
+      <label class="hamburger" for="nav-toggle"><span></span></label>
     </div>
 
-    <!-- Mobile drawer trigger -->
-    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <!-- Mobile drawer -->
     <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html">Home</a>
@@ -146,21 +144,21 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
-      <!-- Removed Infrastructure per new nav spec -->
+      <!-- Removed Infrastructure -->
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero (standard hero-frame, keeps banner from being clipped) -->
+  <!-- Hero -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="Cloud-Native Application Development">
       <img src="assets/images/appdev-bannerimage.png" alt="Cloud-Native Application Development – CoreCloud" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
-  <!-- Title + intro -->
+  <!-- Main -->
   <main class="content" id="main">
     <section class="hero-intro">
       <h1 class="hero-title">Cloud-Native Application Development</h1>
@@ -231,7 +229,7 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter (keeps underline correct across pages) -->
+  <!-- Active-link highlighter -->
   <script>
     (function(){
       function norm(p){
