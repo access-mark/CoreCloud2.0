@@ -19,11 +19,11 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=18"/>
+  <link rel="stylesheet" href="/assets/css/styles.css?v=18"/>
 
   <!-- Preload -->
-  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/images/finops-bannerimage.png" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/images/corecloud-logo.png" fetchpriority="high">
+  <link rel="preload" as="image" href="/assets/images/finops-bannerimage.png" fetchpriority="high">
 
   <!-- Page-scoped tweaks -->
   <style>
@@ -74,12 +74,12 @@
       text-align:center !important; display:block !important; margin-left:auto !important; margin-right:auto !important;
     }
 
-    /* ✅ Underline the ACTIVE parent button in the desktop nav */
+    /* Underline the ACTIVE parent button in the desktop nav */
     .main-nav .nav-group > button.active{
       color: var(--dark-blue);
       border-bottom: 2px solid var(--dark-blue);
     }
-    /* ✅ Mobile: give the active section summary a visual cue */
+    /* Mobile: give the active section summary a visual cue */
     .mobile-drawer details > summary.active{
       color: var(--dark-blue);
       text-decoration: underline;
@@ -92,45 +92,62 @@
   <!-- Header (unified) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
+      <a class="brand" href="/index.html" aria-label="CoreCloud Home">
+        <img src="/assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
       <nav class="main-nav" aria-label="Primary">
-        <a href="index.html">Home</a>
+        <a href="/index.html">Home</a>
 
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
-            <a role="menuitem" href="consulting.html">Overview</a>
-            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
+            <a role="menuitem" href="/consulting.html">Overview</a>
+            <a role="menuitem" href="/dynamic-imprinting.html">Dynamic Imprinting</a>
           </div>
         </div>
 
         <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <button aria-haspopup="true" aria-expanded="false" class="active">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
-            <a role="menuitem" href="cloud.html">Overview</a>
-            <a role="menuitem" href="finops.html" class="active" aria-current="page">FinOps</a>
-            <a role="menuitem" href="application-development.html">Application Development</a>
-            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
-            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+            <a role="menuitem" href="/cloud.html">Overview</a>
+            <a role="menuitem" href="/finops.html" class="active" aria-current="page">FinOps</a>
+            <a role="menuitem" href="/application-development.html">Application Development</a>
+            <a role="menuitem" href="/data-ai.html">Data &amp; AI</a>
+            <a role="menuitem" href="/hosted-private-cloud.html">Hosting (Private Cloud)</a>
+            <a role="menuitem" href="/cloud-security.html">Cloud Security</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="/infrastructure.html">Modern Datacenter</a>
+            <a role="menuitem" href="/modern-workplace.html">Modern Workplace</a>
+            <a role="menuitem" href="/hosting-security.html">Hosting Security</a>
           </div>
         </div>
 
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
-            <a role="menuitem" href="talent.html">Overview</a>
-            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
-            <a role="menuitem" href="global-talent.html">Global Talent</a>
+            <a role="menuitem" href="/talent.html">Overview</a>
+            <a role="menuitem" href="/talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="/global-talent.html">Global Talent</a>
           </div>
         </div>
 
-        <a href="infrastructure.html">Infrastructure</a>
-        <a href="about.html">About</a>
-        <a href="blog.html">Insights</a>
-        <a href="contact.html">Contact</a>
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
+          <div class="submenu" role="menu" aria-label="Incubation Hub">
+            <a role="menuitem" href="/incubation-hub.html">Overview</a>
+            <a role="menuitem" href="/qse-collective.html">QSE Collective</a>
+          </div>
+        </div>
+
+        <a href="/about.html">About</a>
+        <a href="/blog.html">Insights</a>
+        <a href="/contact.html">Contact</a>
       </nav>
 
       <!-- Mobile toggle -->
@@ -140,41 +157,54 @@
     <!-- Mobile drawer -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <nav class="mobile-drawer" aria-label="Mobile">
-      <a href="index.html">Home</a>
+      <a href="/index.html">Home</a>
 
       <details>
         <summary>Consulting</summary>
-        <a href="consulting.html">Overview</a>
-        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+        <a href="/consulting.html">Overview</a>
+        <a href="/dynamic-imprinting.html">Dynamic Imprinting</a>
       </details>
 
       <details open>
         <summary>Cloud Suite</summary>
-        <a href="cloud.html">Overview</a>
-        <a href="finops.html" aria-current="page">FinOps</a>
-        <a href="application-development.html">Application Development</a>
-        <a href="data-ai.html">Data &amp; AI</a>
-        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+        <a href="/cloud.html">Overview</a>
+        <a href="/finops.html" aria-current="page">FinOps</a>
+        <a href="/application-development.html">Application Development</a>
+        <a href="/data-ai.html">Data &amp; AI</a>
+        <a href="/hosted-private-cloud.html">Hosting (Private Cloud)</a>
+        <a href="/cloud-security.html">Cloud Security</a>
+      </details>
+
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="/infrastructure.html">Modern Datacenter</a>
+        <a href="/modern-workplace.html">Modern Workplace</a>
+        <a href="/hosting-security.html">Hosting Security</a>
       </details>
 
       <details>
         <summary>Curated Talent</summary>
-        <a href="talent.html">Overview</a>
-        <a href="talent-relaunch.html">RE/LAUNCH</a>
-        <a href="global-talent.html">Global Talent</a>
+        <a href="/talent.html">Overview</a>
+        <a href="/talent-relaunch.html">RE/LAUNCH</a>
+        <a href="/global-talent.html">Global Talent</a>
       </details>
 
-      <a href="infrastructure.html">Infrastructure</a>
-      <a href="about.html">About</a>
-      <a href="blog.html">Insights</a>
-      <a href="contact.html">Contact</a>
+      <details>
+        <summary>Incubation Hub</summary>
+        <a href="/incubation-hub.html">Overview</a>
+        <a href="/qse-collective.html">QSE Collective</a>
+      </details>
+
+      <a href="/about.html">About</a>
+      <a href="/blog.html">Insights</a>
+      <a href="/contact.html">Contact</a>
     </nav>
   </header>
 
   <!-- Hero (thin gold lines from global .hero-frame) -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="FinOps foundations and quick wins">
-      <img src="assets/images/finops-bannerimage.png" alt="FinOps by design — visibility to action" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+      <img src="/assets/images/finops-bannerimage.png" alt="FinOps by design — visibility to action" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
@@ -241,7 +271,7 @@
         <div class="inline-cta">
           <strong>Need savings this month?</strong>
           <p>We’ll land quick wins without breaking delivery.</p>
-          <a class="cta-btn" href="contact.html">Start the baseline &amp; quick wins</a>
+          <a class="cta-btn" href="/contact.html">Start the baseline &amp; quick wins</a>
         </div>
       </div>
     </section>
@@ -277,7 +307,7 @@
           <li><strong>Data transfer:</strong> placement, caching, peering, CDN; avoid accidental egress</li>
           <li><strong>Patterns:</strong> queues/caches to flatten peaks; serverless where it wins</li>
         </ul>
-        <p>See <a href="cloud.html">Cloud foundations</a> and <a href="hosted-private-cloud.html">Hosting</a> for venue decisions when hyperscale isn’t the best fit.</p>
+        <p>See <a href="/cloud.html">Cloud foundations</a> and <a href="/hosted-private-cloud.html">Hosting</a> for venue decisions when hyperscale isn’t the best fit.</p>
       </div>
     </section>
 
@@ -298,7 +328,7 @@
           <li>Photon where it helps; checkpointing & caching to cut recompute</li>
           <li>Job orchestration to avoid zombie runs; visibility of DBU burn by team</li>
         </ul>
-        <p>Deep dive: <a href="blog-databricks-cost-quick-wins.html">Databricks Cost — Quick Wins</a>.</p>
+        <p>Deep dive: <a href="/blog-databricks-cost-quick-wins.html">Databricks Cost — Quick Wins</a>.</p>
       </div>
     </section>
 
@@ -365,8 +395,8 @@
 
     <div class="footer-bottom">
       <p>&copy; 2025 CoreCloud. All rights reserved. |
-        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-        <a href="terms.html" class="legal-link">Terms</a>
+        <a href="/privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="/terms.html" class="legal-link">Terms</a>
       </p>
     </div>
   </footer>
@@ -374,11 +404,18 @@
   <!-- Active link + underline parent "Cloud Suite" when a child is active -->
   <script>
     (function(){
-      var path=(location.pathname.split('/').pop()||'finops.html').toLowerCase();
+      function norm(href){
+        if(!href) return 'index.html';
+        href = href.toLowerCase().split('#')[0].split('?')[0];
+        if(href === '' || href === '/') href = 'index.html';
+        return href.startsWith('/') ? href.slice(1) : href;
+      }
+      var current = norm(location.pathname.split('/').pop() || 'finops.html');
 
       document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
         var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){
+        href = norm(href);
+        if(href===current){
           a.classList.add('active');
           a.setAttribute('aria-current','page');
 
@@ -387,19 +424,20 @@
           if(group){
             var btn=group.querySelector('button');
             if(btn){ btn.classList.add('active'); }
-
-            // Also style the matching mobile summary
-            var details = document.querySelector('.mobile-drawer details:nth-of-type(2)'); // "Cloud Suite" block
-            if(details){
-              var summary = details.querySelector('summary');
-              if(summary){ summary.classList.add('active'); }
-            }
           }
         }else{
           a.classList.remove('active');
           a.removeAttribute('aria-current');
         }
       });
+
+      // Also mark the Cloud Suite summary in mobile as active when on a Cloud child page
+      var isCloudChild = ['cloud.html','finops.html','application-development.html','data-ai.html','hosted-private-cloud.html','cloud-security.html'].includes(current);
+      if(isCloudChild){
+        document.querySelectorAll('.mobile-drawer details > summary').forEach(function(s){
+          if(s.textContent.trim().toLowerCase() === 'cloud suite'){ s.classList.add('active'); }
+        });
+      }
     })();
   </script>
 </body>
