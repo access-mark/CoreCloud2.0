@@ -16,7 +16,7 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- Global CSS -->
+  <!-- Global CSS (v13+ for hero + underline fixes) -->
   <link rel="stylesheet" href="assets/css/styles.css?v=13" />
 
   <!-- Preload hero -->
@@ -24,64 +24,46 @@
 
   <!-- Page-scoped helpers -->
   <style>
-    /* ---------- NAV CONSISTENCY ---------- */
-    /* Make submenu look consistent: same width & item height */
-    .nav-group .submenu{min-width:260px}
-    .nav-group .submenu a{
-      display:flex;align-items:center;min-height:44px;
-      padding:10px 12px;border-radius:8px
-    }
-    /* Active underline on parent buttons + submenu links */
-    .main-nav .nav-group>button.active{color:var(--dark-blue);border-bottom:2px solid var(--dark-blue)}
-    .submenu a.active{color:var(--dark-blue);border-bottom:2px solid var(--dark-blue)}
-
-    /* ---------- HERO COPY ---------- */
+    /* Center hero blurb */
     .hero-intro .section-subtitle{
-      text-align:center !important;color:#000;font-size:1.05rem;
-      margin:0 auto 2rem;max-width:900px;line-height:1.65
+      text-align:center !important; color:#000; font-size:1.05rem;
+      margin:0 auto 2rem; max-width:900px; line-height:1.65;
     }
 
-    /* ---------- EQUAL CARD HEIGHTS + CTA ALIGN ---------- */
-    /* Use your global grid, force 4 columns on desktop */
-    .card-grid.force-4{
-      display:grid;gap:1rem;grid-template-columns:repeat(4,minmax(0,1fr));
-      max-width:var(--content-max);margin:0 auto
+    /* ==== Equal-height 4-up cards with bottom-aligned CTA ==== */
+    .card-grid.force-4{ max-width:var(--content-max); margin:0 auto; }
+    .card-grid.force-4 .card{
+      display:flex; flex-direction:column; /* equal-height container */
+      text-align:left; border:2px solid var(--dark-blue);
     }
-    @media (max-width:1100px){ .card-grid.force-4{grid-template-columns:repeat(2,minmax(0,1fr))} }
-    @media (max-width:640px){ .card-grid.force-4{grid-template-columns:1fr} }
+    .card .card-body{ display:flex; flex-direction:column; gap:.65rem; }
+    .card .card-title{ font-size:1.25rem; color:var(--primary-blue); margin:0 0 .25rem; font-weight:700; }
+    .card .card-text{ color:#000; font-size:.95rem; line-height:1.6; }
+    .card .cta-btn{ margin-top:auto; width:100%; } /* push CTA to the bottom */
 
-    /* Equalize cards by using flex column + auto height via grid track */
-    .pillar-grid.card-grid.force-4 .card{
-      display:flex;flex-direction:column;height:100%;
-      background:#fff;border:2px solid var(--dark-blue);
-      border-radius:12px;box-shadow:0 2px 6px rgba(0,0,0,.08);
-      padding:1.25rem
-    }
-    .pillar-grid .card h3{font-size:1.25rem;color:var(--primary-blue);margin-bottom:.8rem;font-weight:700}
-    .pillar-grid .card p{font-size:.95rem;color:#000}
+    /* Narrative lists */
+    .bullet-list{ list-style:disc; padding-left:1.5rem; font-size:1.05rem; color:#000; line-height:1.8; margin:0 auto; max-width:800px; }
 
-    /* Make all CTAs same size and aligned bottom */
-    .pillar-grid .card .cta-btn{
-      margin-top:auto; /* pushes button to bottom */
-      width:100%;text-align:center;display:inline-flex;justify-content:center;align-items:center;
-      min-height:44px
-    }
+    /* Active states for parent + submenu */
+    .main-nav .nav-group > button.active{ color:var(--dark-blue); border-bottom:2px solid var(--dark-blue) !important; }
+    .submenu a.active{ color:var(--dark-blue) !important; border-bottom:2px solid var(--dark-blue) !important; }
 
     /* Footer tel stays white */
-    .footer-right a[href^="tel"]{color:#fff !important;text-decoration:none !important;font-weight:700}
+    .footer-right a[href^="tel"]{ color:#fff !important; text-decoration:none !important; font-weight:700; }
   </style>
 </head>
 
 <body class="cloud-page azure-modernization-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav -->
+  <!-- =============== HEADER / NAV (with Incubation Hub + Infrastructure dropdown) =============== -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async" />
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
+      <!-- Desktop nav -->
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 
@@ -97,17 +79,19 @@
           <button type="button" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
             <a role="menuitem" href="cloud.html">Overview</a>
+            <!-- AWS -->
             <a role="menuitem" href="aws-migration.html">AWS Migration</a>
             <a role="menuitem" href="aws-modernization.html">AWS Modernization</a>
             <a role="menuitem" href="aws-manage.html">AWS Managed Services</a>
             <a role="menuitem" href="aws-optimize.html">AWS Optimization</a>
+            <!-- Azure -->
             <a role="menuitem" href="azure-migration.html">Azure Migration</a>
             <a role="menuitem" href="azure-modernization.html" class="active" aria-current="page">Azure Modernization</a>
             <a role="menuitem" href="azure-managed.html">Azure Managed Services</a>
+            <!-- Platform-wide -->
             <a role="menuitem" href="finops.html">FinOps</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
-            <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
           </div>
         </div>
 
@@ -129,7 +113,7 @@
           </div>
         </div>
 
-        <!-- Infrastructure dropdown (not standalone) -->
+        <!-- Infrastructure dropdown -->
         <div class="nav-group">
           <button type="button" aria-haspopup="true" aria-expanded="false">Infrastructure</button>
           <div class="submenu" role="menu" aria-label="Infrastructure">
@@ -142,7 +126,8 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-label="Open menu" />
+      <!-- Mobile toggle -->
+      <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-label="Open menu"/>
       <label class="hamburger" for="nav-toggle"><span></span></label>
     </div>
 
@@ -169,7 +154,6 @@
         <a href="finops.html">FinOps</a>
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
-        <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
       </details>
 
       <details>
@@ -195,6 +179,7 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
+  <!-- =============== /HEADER =============== -->
 
   <!-- Hero -->
   <div class="hero-frame">
@@ -212,34 +197,42 @@
       </p>
     </section>
 
-    <!-- Pillars: equal cards + equal CTA -->
+    <!-- Pillars: equal-height row of 4 with bottom-aligned CTAs -->
     <section class="section">
       <h2 class="section-title">Modernization Pillars</h2>
-      <div class="pillar-grid card-grid force-4">
+      <div class="card-grid force-4">
         <div class="card">
-          <h3>Legacy Assessment</h3>
-          <p>Identify technical debt, dependencies, and scalability limits across your estate.</p>
-          <a href="contact.html" class="cta-btn">Get Assessed</a>
+          <div class="card-body">
+            <h3 class="card-title">Legacy Assessment</h3>
+            <p class="card-text">Identify technical debt, dependencies, and scalability limits across your estate.</p>
+            <a href="contact.html" class="cta-btn">Get Assessed</a>
+          </div>
         </div>
         <div class="card">
-          <h3>Architecture Redesign</h3>
-          <p>Microservices, containers, and event-driven patterns for resilience and scale.</p>
-          <a href="contact.html" class="cta-btn">Redesign Now</a>
+          <div class="card-body">
+            <h3 class="card-title">Architecture Redesign</h3>
+            <p class="card-text">Microservices, containers, and event-driven patterns for resilience and scale.</p>
+            <a href="contact.html" class="cta-btn">Redesign Now</a>
+          </div>
         </div>
         <div class="card">
-          <h3>Migration &amp; Refactoring</h3>
-          <p>Move and refactor with minimal disruption using proven Azure tooling.</p>
-          <a href="contact.html" class="cta-btn">Refactor Smart</a>
+          <div class="card-body">
+            <h3 class="card-title">Migration &amp; Refactoring</h3>
+            <p class="card-text">Move and refactor with minimal disruption using proven Azure tooling.</p>
+            <a href="contact.html" class="cta-btn">Refactor Smart</a>
+          </div>
         </div>
         <div class="card">
-          <h3>Cloud-Native DevOps</h3>
-          <p>CI/CD, automated testing, and observability for fast, safe delivery.</p>
-          <a href="contact.html" class="cta-btn">Enable DevOps</a>
+          <div class="card-body">
+            <h3 class="card-title">Cloud-Native DevOps</h3>
+            <p class="card-text">CI/CD, automated testing, and observability for fast, safe delivery.</p>
+            <a href="contact.html" class="cta-btn">Enable DevOps</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Outcomes -->
+    <!-- Outcomes (narrative) -->
     <section class="section">
       <h2 class="section-title">Outcomes We Deliver</h2>
       <div class="narrative">
@@ -250,7 +243,7 @@
       </div>
     </section>
 
-    <!-- CAF -->
+    <!-- CAF (narrative) -->
     <section class="section">
       <h2 class="section-title">Microsoft Cloud Adoption Framework</h2>
       <div class="narrative">
@@ -304,22 +297,25 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter -->
+  <!-- Active-link highlighter (consistent across all pages) -->
   <script>
     (function(){
       function norm(p){
         if(!p) return 'index.html';
         p = p.toLowerCase().split('#')[0].split('?')[0];
         if(p === '' || p === '/') p = 'index.html';
+        // legacy aliases
         if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
         if(p === 'mobile-web.html') p = 'application-development.html';
         return p;
       }
       var current = norm(location.pathname.split('/').pop() || 'azure-modernization.html');
 
+      // clear previous states
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
         .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
 
+      // mark current link(s) + parent
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
         var href = norm(a.getAttribute('href') || '');
         if(href === current){
