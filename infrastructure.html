@@ -27,7 +27,7 @@
   <link rel="preload" as="image" href="assets/images/hosting-bannerimage.png" fetchpriority="high"/>
 </head>
 
-<body class="home-page">
+<body class="infrastructure-page">
   <!-- Header / Nav -->
   <header class="site-header" role="banner">
     <div class="header-inner">
@@ -59,10 +59,11 @@
 
         <!-- Infrastructure dropdown -->
         <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false" class="active">Infrastructure</button>
+          <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
           <div class="submenu" role="menu" aria-label="Infrastructure">
             <a role="menuitem" href="infrastructure.html" class="active" aria-current="page">Modern Datacenter</a>
             <a role="menuitem" href="modern-workplace.html">Modern Workplace</a>
+            <a role="menuitem" href="hosting-security.html">Hosting Security</a>
           </div>
         </div>
 
@@ -107,6 +108,7 @@
         <summary>Infrastructure</summary>
         <a href="infrastructure.html" aria-current="page">Modern Datacenter</a>
         <a href="modern-workplace.html">Modern Workplace</a>
+        <a href="hosting-security.html">Hosting Security</a>
       </details>
 
       <details>
@@ -275,14 +277,31 @@
     </div>
   </footer>
 
-  <!-- Active link highlighter -->
+  <!-- Active link highlighter (+ underline parent button when a child is active) -->
   <script>
     (function(){
-      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-      document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
-        var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
-        else{a.classList.remove('active');a.removeAttribute('aria-current');}
+      function norm(href){
+        if(!href) return 'index.html';
+        href = href.toLowerCase().split('#')[0].split('?')[0];
+        if(href === '' || href === '/') href = 'index.html';
+        return href.startsWith('/') ? href.slice(1) : href;
+      }
+      var current = norm(location.pathname.split('/').pop() || 'infrastructure.html');
+
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
+        var href = norm(a.getAttribute('href') || '');
+        if(href === current){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+          var group = a.closest('.nav-group');
+          if(group){
+            var btn = group.querySelector('button');
+            if(btn){ btn.classList.add('active'); }
+          }
+        }else{
+          a.classList.remove('active');
+          a.removeAttribute('aria-current');
+        }
       });
     })();
   </script>
