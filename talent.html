@@ -16,7 +16,7 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/talent-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (v13) -->
+  <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
 
   <!-- Preload -->
@@ -25,7 +25,7 @@
 
   <!-- Page-scoped (light) -->
   <style>
-    /* match index: center titles & tighten rhythm */
+    /* Center titles & tighten rhythm */
     .talent-page :is(h1.hero-title,h2.section-title){
       text-align:center !important; margin-left:auto; margin-right:auto; display:block;
     }
@@ -39,7 +39,7 @@
     .hero-cta{display:flex;gap:.6rem;flex-wrap:wrap;justify-content:center;margin-top:.8rem;}
     .hero-cta .cta-btn{min-width:200px;}
 
-    /* Lumo highlight (kept) */
+    /* Lumo highlight */
     .lumo-wrap{max-width:1000px;margin:18px auto 0;padding:0 16px;text-align:center;}
     .lumo-cta{
       --cc-blue: var(--dark-blue,#004f91);
@@ -63,34 +63,23 @@
     .btn-outline{display:inline-block;padding:10px 16px;border-radius:10px;text-decoration:none;border:1px solid var(--dark-blue);color:var(--dark-blue);background:#fff;}
     .btn-outline:hover{background:rgba(0,79,145,.06);}
 
-    /* ensure gold frame lines show (uses global var) */
+    /* Ensure gold frame lines show (uses global var) */
     .hero-frame::before,.hero-frame::after{background:var(--frame-color,var(--gold));}
-
-    /* Desktop parent underline + Mobile summary cue for active section */
-    .main-nav .nav-group > button.active{
-      color: var(--dark-blue);
-      border-bottom: 2px solid var(--dark-blue);
-    }
-    .mobile-drawer details > summary.active{
-      color: var(--dark-blue);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-    }
   </style>
 </head>
 
 <body class="talent-page">
-  <!-- Header / Nav (unified) -->
+  <!-- ======= SITE HEADER / NAV (CoreCloud standard) ======= -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
         <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
-      <!-- Desktop nav with dropdowns -->
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 
+        <!-- Consulting -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
@@ -99,6 +88,7 @@
           </div>
         </div>
 
+        <!-- Cloud Suite (includes Cloud Security) -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
@@ -106,10 +96,22 @@
             <a role="menuitem" href="finops.html">FinOps</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
-            <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+            <a role="menuitem" href="cloud-security.html">Cloud Security</a>
           </div>
         </div>
 
+        <!-- Infrastructure (includes Hosting Security) -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="infrastructure.html">Modern Datacenter</a>
+            <a role="menuitem" href="modern-workplace.html">Modern Workplace</a>
+            <a role="menuitem" href="hosting-security.html">Hosting Security</a>
+          </div>
+        </div>
+
+        <!-- Curated Talent -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
@@ -119,13 +121,20 @@
           </div>
         </div>
 
-        <a href="infrastructure.html">Infrastructure</a>
+        <!-- Incubation Hub -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
+          <div class="submenu" role="menu" aria-label="Incubation Hub">
+            <a role="menuitem" href="incubation-hub.html">Overview</a>
+            <a role="menuitem" href="qse-collective.html">QSE Collective</a>
+          </div>
+        </div>
+
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
       </nav>
 
-      <!-- Mobile toggle -->
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
@@ -146,7 +155,15 @@
         <a href="finops.html">FinOps</a>
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
-        <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+        <a href="cloud-security.html">Cloud Security</a>
+      </details>
+
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="infrastructure.html">Modern Datacenter</a>
+        <a href="modern-workplace.html">Modern Workplace</a>
+        <a href="hosting-security.html">Hosting Security</a>
       </details>
 
       <details open>
@@ -156,12 +173,18 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
-      <a href="infrastructure.html">Infrastructure</a>
+      <details>
+        <summary>Incubation Hub</summary>
+        <a href="incubation-hub.html">Overview</a>
+        <a href="qse-collective.html">QSE Collective</a>
+      </details>
+
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
+  <!-- ======= /SITE HEADER ======= -->
 
   <!-- Hero (gold frame) -->
   <div class="hero-frame">
@@ -235,7 +258,7 @@
       </div>
     </section>
 
-    <!-- Vetting & Assurance (CARDS ONLY as requested) -->
+    <!-- Vetting & Assurance -->
     <section class="section" aria-labelledby="vet-title">
       <h2 id="vet-title" class="section-title">Vetting &amp; Assurance</h2>
       <div class="card-grid force-4">
@@ -310,7 +333,7 @@
       <div class="footer-right">
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p>Phone: <a href="tel:+27 11 568 8667">+27 11 568 8667</a></p>
         <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
@@ -323,24 +346,25 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter (with parent underline + mobile summary cue) -->
+  <!-- ======= ACTIVE LINK HIGHLIGHTER (shared) ======= -->
   <script>
     (function(){
-      function norm(p){
-        if(!p) return 'index.html';
-        p = p.toLowerCase().split('#')[0].split('?')[0];
-        if(p === '' || p === '/') p = 'index.html';
-        if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
-        if(p === 'mobile-web.html') p = 'application-development.html';
-        return p;
+      function norm(href){
+        if(!href) return 'index.html';
+        href = href.toLowerCase().split('#')[0].split('?')[0];
+        if(href === '' || href === '/') href = 'index.html';
+        // Legacy aliases that should still highlight correctly
+        if(href === 'hosting-private-cloud.html') href = 'hosted-private-cloud.html';
+        if(href === 'mobile-web.html') href = 'application-development.html';
+        return href;
       }
-      var current = norm(location.pathname.split('/').pop() || 'talent.html');
+      var current = norm((location.pathname.split('/').pop() || 'talent.html'));
 
-      // reset states
+      // reset any stale states
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
         .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
 
-      // mark current + underline parent button
+      // mark current and underline parent
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a')
         .forEach(function(a){
           var href = norm(a.getAttribute('href') || '');
@@ -354,18 +378,6 @@
             }
           }
         });
-
-      // Mobile: add cue on matching <summary>
-      document.querySelectorAll('.mobile-drawer details').forEach(function(d){
-        var links = Array.from(d.querySelectorAll('a'));
-        var hasCurrent = links.some(function(link){
-          return norm(link.getAttribute('href')||'') === current;
-        });
-        if(hasCurrent){
-          var summary = d.querySelector('summary');
-          if(summary){ summary.classList.add('active'); }
-        }
-      });
     })();
   </script>
 </body>
