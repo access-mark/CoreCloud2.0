@@ -19,17 +19,26 @@
   <meta name="twitter:description" content="Full-stack governance, visibility, and cost control for AWS — with executive-grade SLAs." />
   <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
 
-  <!-- Global CSS (version aligned) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=17" />
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=13" />
 
   <!-- Preload hero -->
   <link rel="preload" as="image" href="assets/images/cloud-banner.png?v=2" fetchpriority="high" />
 
   <!-- Page-scoped (light, content-only) -->
   <style>
-    .center-subtitle{ text-align:center; color:#000; font-size:1.05rem; margin:0 auto 2rem; max-width:900px; line-height:1.65; }
+    .center-subtitle{
+      text-align:center;
+      color:#000;
+      font-size:1.05rem;
+      margin:0 auto 2rem;
+      max-width:900px;
+      line-height:1.65;
+    }
+    /* cards use your global .card + .card-grid; this just ensures spacing feels right */
     .awsms-grid{ max-width:var(--content-max); margin:0 auto; }
-    /* Footer tel link stays white + no underline */
+
+    /* Defensive: footer tel link stays white + no underline */
     .footer-right a[href^="tel"]{ color:#fff !important; text-decoration:none !important; font-weight:700; }
   </style>
 
@@ -70,7 +79,7 @@
 <body class="cloud-page awsms-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Unified Header / Nav (site-wide standard) -->
+  <!-- Unified Header / Nav -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -80,7 +89,6 @@
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 
-        <!-- Consulting -->
         <div class="nav-group">
           <button type="button" aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
@@ -89,30 +97,20 @@
           </div>
         </div>
 
-        <!-- Cloud Suite -->
         <div class="nav-group">
           <button type="button" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
-            <a role="menuitem" href="cloud.html">Overview</a>
+            <a role="menuitem" href="cloud.html" class="active" aria-current="page">Overview</a>
+            <a role="menuitem" href="aws-migration.html">AWS Migration</a>
+            <a role="menuitem" href="aws-modernization.html">AWS Modernization</a>
+            <a role="menuitem" href="aws-manage.html" class="active" aria-current="page">AWS Managed Services</a>
             <a role="menuitem" href="finops.html">FinOps</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
-            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
-            <a role="menuitem" href="cloud-security.html">Cloud Security</a>
+            <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
           </div>
         </div>
 
-        <!-- Infrastructure -->
-        <div class="nav-group">
-          <button type="button" aria-haspopup="true" aria-expanded="false">Infrastructure</button>
-          <div class="submenu" role="menu" aria-label="Infrastructure">
-            <a role="menuitem" href="infrastructure.html">Modern Datacenter</a>
-            <a role="menuitem" href="modern-workplace.html">Modern Workplace</a>
-            <a role="menuitem" href="hosting-security.html">Hosting Security</a>
-          </div>
-        </div>
-
-        <!-- Curated Talent -->
         <div class="nav-group">
           <button type="button" aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
@@ -122,15 +120,7 @@
           </div>
         </div>
 
-        <!-- Incubation Hub -->
-        <div class="nav-group">
-          <button type="button" aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
-          <div class="submenu" role="menu" aria-label="Incubation Hub">
-            <a role="menuitem" href="incubation-hub.html">Overview</a>
-            <a role="menuitem" href="qse-collective.html">QSE Collective</a>
-          </div>
-        </div>
-
+        <a href="infrastructure.html">Infrastructure</a>
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
@@ -152,19 +142,14 @@
 
       <details open>
         <summary>Cloud Suite</summary>
-        <a href="cloud.html">Overview</a>
+        <a href="cloud.html" aria-current="page">Overview</a>
+        <a href="aws-migration.html">AWS Migration</a>
+        <a href="aws-modernization.html">AWS Modernization</a>
+        <a href="aws-manage.html" aria-current="page">AWS Managed Services</a>
         <a href="finops.html">FinOps</a>
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
         <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
-        <a href="cloud-security.html">Cloud Security</a>
-      </details>
-
-      <details>
-        <summary>Infrastructure</summary>
-        <a href="infrastructure.html">Modern Datacenter</a>
-        <a href="modern-workplace.html">Modern Workplace</a>
-        <a href="hosting-security.html">Hosting Security</a>
       </details>
 
       <details>
@@ -174,19 +159,14 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
-      <details>
-        <summary>Incubation Hub</summary>
-        <a href="incubation-hub.html">Overview</a>
-        <a href="qse-collective.html">QSE Collective</a>
-      </details>
-
+      <a href="infrastructure.html">Infrastructure</a>
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero with single frame lines -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="AWS Managed Services – Governance and visibility">
       <img src="assets/images/cloud-banner.png?v=2" alt="AWS Managed Services – Governance and visibility" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high" />
@@ -197,6 +177,7 @@
   <main class="content" id="main">
     <section class="hero-intro">
       <h1 class="hero-title">AWS Managed Services</h1>
+      <!-- Centered subtitle -->
       <p class="center-subtitle">
         After migration and modernisation, the work starts: run with confidence, govern with clarity, and keep cost in check.
         We keep your AWS estate secure, observable, and efficient — so you can stay focused on outcomes.
@@ -251,7 +232,7 @@
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
         <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
-        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener" class="linkedin-link">LinkedIn</a></p>
+        <p><a href="https://www.linkedin.com/company/107657749" target="_blank" rel="noopener" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
 
@@ -263,25 +244,19 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter (normalized paths + parent button state) -->
+  <!-- Active-link highlighter -->
   <script>
     (function(){
       function norm(p){
         if(!p) return 'index.html';
         p = p.toLowerCase().split('#')[0].split('?')[0];
         if(p === '' || p === '/') p = 'index.html';
-        // legacy aliases used elsewhere
         if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
         if(p === 'mobile-web.html') p = 'application-development.html';
         return p;
       }
       var current = norm(location.pathname.split('/').pop() || 'aws-manage.html');
 
-      // clear any stale classes
-      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
-        .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
-
-      // mark current link and its parent dropdown button
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
         var href = norm(a.getAttribute('href') || '');
         if(href === current){
@@ -289,9 +264,12 @@
           a.setAttribute('aria-current','page');
           var group = a.closest('.nav-group');
           if(group){
-            var btn = group.querySelector(':scope > button');
+            var btn = group.querySelector('button');
             if(btn){ btn.classList.add('active'); }
           }
+        }else{
+          a.classList.remove('active');
+          a.removeAttribute('aria-current');
         }
       });
     })();
