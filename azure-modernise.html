@@ -39,7 +39,7 @@
     /* Narrative lists (no cards) */
     .bullet-list{ list-style:disc; padding-left:1.5rem; font-size:1.05rem; color:#000; line-height:1.8; margin:0 auto; max-width:800px; }
 
-    /* Force underline on active parent (Cloud Suite) + current submenu */
+    /* Force underline on active parent buttons + current submenu */
     .main-nav .nav-group > button.active{ color:var(--dark-blue); border-bottom:2px solid var(--dark-blue) !important; }
     .submenu a.active{ color:var(--dark-blue) !important; border-bottom:2px solid var(--dark-blue) !important; }
 
@@ -79,6 +79,7 @@
             <a role="menuitem" href="aws-optimize.html">AWS Optimization</a>
             <a role="menuitem" href="azure-migration.html">Azure Migration</a>
             <a role="menuitem" href="azure-modernization.html" class="active" aria-current="page">Azure Modernization</a>
+            <a role="menuitem" href="azure-managed.html">Azure Managed Services</a>
             <a role="menuitem" href="finops.html">FinOps</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
@@ -95,7 +96,23 @@
           </div>
         </div>
 
-        <a href="infrastructure.html">Infrastructure</a>
+        <!-- NEW: Incubation Hub dropdown -->
+        <div class="nav-group">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
+          <div class="submenu" role="menu" aria-label="Incubation Hub">
+            <a role="menuitem" href="incubation-hub.html">Overview</a>
+            <a role="menuitem" href="qse-collective.html">QSE Accelerator &amp; Collective</a>
+          </div>
+        </div>
+
+        <!-- Infrastructure as a dropdown (no standalone link) -->
+        <div class="nav-group">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+          </div>
+        </div>
+
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
@@ -124,6 +141,7 @@
         <a href="aws-optimize.html">AWS Optimization</a>
         <a href="azure-migration.html">Azure Migration</a>
         <a href="azure-modernization.html" aria-current="page">Azure Modernization</a>
+        <a href="azure-managed.html">Azure Managed Services</a>
         <a href="finops.html">FinOps</a>
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
@@ -137,7 +155,19 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
-      <a href="infrastructure.html">Infrastructure</a>
+      <!-- NEW: Incubation Hub -->
+      <details>
+        <summary>Incubation Hub</summary>
+        <a href="incubation-hub.html">Overview</a>
+        <a href="qse-collective.html">QSE Accelerator &amp; Collective</a>
+      </details>
+
+      <!-- Infrastructure dropdown -->
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+      </details>
+
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
@@ -259,12 +289,18 @@
         if(!p) return 'index.html';
         p = p.toLowerCase().split('#')[0].split('?')[0];
         if(p === '' || p === '/') p = 'index.html';
+        // legacy mappings
         if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
         if(p === 'mobile-web.html') p = 'application-development.html';
         return p;
       }
       var current = norm(location.pathname.split('/').pop() || 'azure-modernization.html');
 
+      // Clear any previous states
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
+        .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
+
+      // Mark current link(s) and parent top-level button
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
         var href = norm(a.getAttribute('href') || '');
         if(href === current){
@@ -272,12 +308,9 @@
           a.setAttribute('aria-current','page');
           var group = a.closest('.nav-group');
           if(group){
-            var btn = group.querySelector('button');
+            var btn = group.querySelector(':scope > button');
             if(btn){ btn.classList.add('active'); }
           }
-        }else{
-          a.classList.remove('active');
-          a.removeAttribute('aria-current');
         }
       });
     })();
