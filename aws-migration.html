@@ -2,42 +2,37 @@
 <html lang="en">
 <head>
   <!-- Meta -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>CoreCloud AWS Migration | Seamless Cloud Transitions for SA Enterprises</title>
-  <meta name="description" content="Migrate to AWS with confidence. CoreCloud delivers secure, low-risk cloud migrations tailored to South African enterprise needs – with proven frameworks and expert execution." />
-  <link rel="canonical" href="https://www.corecloudza.com/aws-migration.html" />
+  <meta name="description" content="Migrate to AWS with confidence. CoreCloud delivers secure, low-risk cloud migrations tailored to South African enterprise needs – with proven frameworks and expert execution."/>
+  <link rel="canonical" href="https://www.corecloudza.com/aws-migration.html"/>
 
   <!-- Open Graph / Twitter -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="CoreCloud AWS Migration | Seamless Cloud Transitions for SA Enterprises" />
-  <meta property="og:description" content="Secure, low-risk AWS migrations with clear milestones and expert execution." />
-  <meta property="og:url" content="https://www.corecloudza.com/aws-migration.html" />
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="CoreCloud AWS Migration | Seamless Cloud Transitions for SA Enterprises"/>
+  <meta property="og:description" content="Secure, low-risk AWS migrations with clear milestones and expert execution."/>
+  <meta property="og:url" content="https://www.corecloudza.com/aws-migration.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=13" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
 
   <!-- Preload hero -->
-  <link rel="preload" as="image" href="assets/images/cloud-banner.png?v=2" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/images/cloud-banner.png?v=2" fetchpriority="high"/>
 
   <!-- Page-scoped helpers -->
   <style>
-    /* Hard-center the subtitle and lock width */
-    .aws-migration-page .hero-intro p.center-subtitle{
-      text-align:center !important;
-      margin-left:auto !important;
-      margin-right:auto !important;
-      display:block !important;
-      max-width:900px;
-      line-height:1.65;
-      color:#000;
-      font-size:1.05rem;
+    /* Center hero subtitle */
+    .center-subtitle{
+      text-align:center;color:#000;font-size:1.05rem;margin:0 auto 2rem;max-width:900px;line-height:1.65;
     }
-    .checklist{ list-style:none; padding-left:0; max-width:1000px; margin:0 auto; }
-    .checklist li{ margin:.4rem 0; }
-    .footer-right a[href^="tel"]{ color:#fff !important; text-decoration:none !important; font-weight:700; }
+    /* Optional checklist look */
+    .checklist{list-style:none;padding-left:0;max-width:1000px;margin:0 auto;}
+    .checklist li{margin:.45rem 0;}
+    /* Defensive: footer tel white/no underline */
+    .footer-right a[href^="tel"]{color:#fff !important;text-decoration:none !important;font-weight:700;}
   </style>
 
   <!-- JSON-LD -->
@@ -77,11 +72,11 @@
 <body class="cloud-page aws-migration-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav (EXACT reference) -->
+  <!-- Unified Header / Nav (matches site reference) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async" />
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
       <nav class="main-nav" aria-label="Primary">
@@ -98,9 +93,12 @@
 
         <!-- Cloud Suite -->
         <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false" class="active">Cloud Suite</button>
+          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
-            <a role="menuitem" href="cloud.html" class="active" aria-current="page">Overview</a>
+            <a role="menuitem" href="cloud.html">Overview</a>
+            <a role="menuitem" href="aws-migration.html" class="active" aria-current="page">AWS Migration</a>
+            <a role="menuitem" href="aws-modernization.html">AWS Modernization</a>
+            <a role="menuitem" href="aws-manage.html">AWS Managed Services</a>
             <a role="menuitem" href="finops.html">FinOps</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
@@ -109,7 +107,7 @@
           </div>
         </div>
 
-        <!-- Infrastructure -->
+        <!-- Infrastructure (incl. Hosting Security) -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
           <div class="submenu" role="menu" aria-label="Infrastructure">
@@ -143,11 +141,11 @@
         <a href="contact.html">Contact</a>
       </nav>
 
-      <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-label="Open menu" />
-      <label class="hamburger" for="nav-toggle"><span></span></label>
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
 
     <!-- Mobile drawer -->
+    <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-hidden="true">
     <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html">Home</a>
 
@@ -159,7 +157,10 @@
 
       <details open>
         <summary>Cloud Suite</summary>
-        <a href="cloud.html" aria-current="page">Overview</a>
+        <a href="cloud.html">Overview</a>
+        <a href="aws-migration.html" aria-current="page">AWS Migration</a>
+        <a href="aws-modernization.html">AWS Modernization</a>
+        <a href="aws-manage.html">AWS Managed Services</a>
         <a href="finops.html">FinOps</a>
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
@@ -196,7 +197,7 @@
   <!-- Hero -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="AWS Migration – Cloud transformation">
-      <img src="assets/images/cloud-banner.png?v=2" alt="AWS Migration – Cloud transformation" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high" />
+      <img src="assets/images/cloud-banner.png?v=2" alt="AWS Migration – Cloud transformation" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
@@ -211,23 +212,11 @@
     </section>
 
     <h2 class="section-title">Why Migrate to AWS?</h2>
-    <div class="card-grid force-4" style="max-width:var(--content-max); margin:0 auto;">
-      <div class="card">
-        <h3>Scale Without Limits</h3>
-        <p>Elastic infrastructure that grows with demand — no capex delays.</p>
-      </div>
-      <div class="card">
-        <h3>Security &amp; Compliance</h3>
-        <p>Encrypted, auditable environments that satisfy SA and global regs.</p>
-      </div>
-      <div class="card">
-        <h3>Innovation Velocity</h3>
-        <p>Tap 200+ AWS services to modernise with AI, analytics, and DevOps.</p>
-      </div>
-      <div class="card">
-        <h3>Total Cost Control</h3>
-        <p>Right-size, automate, and govern from day one with FinOps guardrails.</p>
-      </div>
+    <div class="card-grid force-4" style="max-width:var(--content-max);margin:0 auto;">
+      <div class="card"><h3>Scale Without Limits</h3><p>Elastic infrastructure that grows with demand — no capex delays.</p></div>
+      <div class="card"><h3>Security &amp; Compliance</h3><p>Encrypted, auditable environments that satisfy SA and global regs.</p></div>
+      <div class="card"><h3>Innovation Velocity</h3><p>Tap 200+ AWS services to modernise with AI, analytics, and DevOps.</p></div>
+      <div class="card"><h3>Total Cost Control</h3><p>Right-size, automate, and govern from day one with FinOps guardrails.</p></div>
     </div>
 
     <section class="section">
@@ -243,23 +232,24 @@
       </div>
     </section>
 
+    <!-- Four-across, same as above -->
     <h2 class="section-title">Our Migration Process</h2>
-    <div class="card-grid" style="max-width:var(--content-max); margin:0 auto;">
+    <div class="card-grid force-4" style="max-width:var(--content-max);margin:0 auto;">
       <div class="card">
         <h3>1) Discovery</h3>
-        <p>Inventory, dependencies, and business impact mapping.</p>
+        <p>Inventory apps & infra, map dependencies, capture SLAs and risk.</p>
       </div>
       <div class="card">
         <h3>2) Planning</h3>
-        <p>Factory model with prioritised waves and rollback paths.</p>
+        <p>Wave plan, rollback paths, landing zone readiness, success criteria.</p>
       </div>
       <div class="card">
         <h3>3) Execution</h3>
-        <p>Tool-driven moves for precision, speed, and repeatability.</p>
+        <p>Tool-driven moves, change windows, observability & cutover support.</p>
       </div>
       <div class="card">
         <h3>4) Optimisation</h3>
-        <p>Right-size, observe, and govern for sustainable value.</p>
+        <p>Right-size, FinOps guardrails, security baselines, and ops handover.</p>
       </div>
     </div>
 
@@ -274,7 +264,7 @@
       </div>
     </section>
 
-    <div class="centered" style="text-align:center;">
+    <div class="centered" style="text-align:center;margin-top:1.5rem;">
       <a href="contact.html" class="cta-btn">Start Your AWS Migration</a>
     </div>
   </main>
@@ -290,13 +280,13 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
           <label class="vh" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px;flex:1;"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
@@ -317,7 +307,7 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter (reference logic + legacy mappings) -->
+  <!-- Active-link highlighter (with legacy path mapping) -->
   <script>
     (function(){
       function norm(p){
@@ -330,6 +320,10 @@
       }
       var current = norm(location.pathname.split('/').pop() || 'aws-migration.html');
 
+      // reset + mark
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
+        .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
+
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
         var href = norm(a.getAttribute('href') || '');
         if(href === current){
@@ -337,12 +331,9 @@
           a.setAttribute('aria-current','page');
           var group = a.closest('.nav-group');
           if(group){
-            var btn = group.querySelector('button');
+            var btn = group.querySelector(':scope > button');
             if(btn){ btn.classList.add('active'); }
           }
-        }else{
-          a.classList.remove('active');
-          a.removeAttribute('aria-current');
         }
       });
     })();
