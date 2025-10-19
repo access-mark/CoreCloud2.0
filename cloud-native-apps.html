@@ -4,64 +4,62 @@
   <!-- Meta -->
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>PAGE TITLE | CoreCloud</title>
-  <meta name="description" content="PAGE DESCRIPTION"/>
-  <link rel="canonical" href="https://www.corecloudza.com/THIS-PAGE.html"/>
+  <title>Cloud-Native Application Development | CoreCloud</title>
+  <meta name="description" content="CoreCloud builds secure, scalable cloud-native apps that drive business outcomes. Fast development, clean code, and seamless cloud integration."/>
+  <meta name="author" content="CoreCloud"/>
+  <link rel="canonical" href="https://www.corecloudza.com/application-development.html"/>
 
   <!-- Social -->
   <meta property="og:type" content="website"/>
-  <meta property="og:title" content="PAGE TITLE | CoreCloud"/>
-  <meta property="og:description" content="PAGE DESCRIPTION"/>
-  <meta property="og:url" content="https://www.corecloudza.com/THIS-PAGE.html"/>
-  <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2"/>
+  <meta property="og:title" content="Cloud-Native Application Development | CoreCloud"/>
+  <meta property="og:description" content="Secure, scalable cloud-native apps that drive outcomes — built fast, delivered clean."/>
+  <meta property="og:url" content="https://www.corecloudza.com/application-development.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/appdev-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (v13 = hero-frame + active underline) -->
+  <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
 
-  <!-- Preload hero -->
-  <link rel="preload" as="image" href="assets/images/cloud-banner.png?v=2" fetchpriority="high"/>
+  <!-- Preload hero for crisp LCP -->
+  <link rel="preload" as="image" href="assets/images/appdev-bannerimage.png" fetchpriority="high"/>
 
   <!-- Page-scoped helpers -->
   <style>
-    /* a11y skip */
+    /* a11y: Skip to content */
     .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;}
     .skip-link:focus{position:fixed;top:10px;left:10px;padding:8px 12px;background:#0d3b66;color:#fff;border-radius:8px;outline:2px solid #fff;z-index:1000;}
-    /* Center hero body copy */
-    .hero-intro .center-subtitle{
-      text-align:center !important; color:#000; font-size:1.06rem;
-      margin:0 auto 2rem; max-width:900px; line-height:1.65;
-    }
-    /* Ensure visible active states */
+
+    /* Center hero text and keep body copy black per site-wide ask */
+    .apps-page .hero-title{margin:2.5rem auto .75rem !important;text-align:center;}
+    .apps-page .hero-sub{color:#000;text-align:center;max-width:900px;margin:0 auto 2rem;line-height:1.65;font-size:1.06rem;}
+    .apps-page main p, .apps-page main li{color:#000;}
+
+    /* Content rhythm */
+    .apps-page main{max-width:1200px;margin:0 auto;padding:0 1.25rem 3rem;}
+    .apps-page .section{margin-top:2.5rem;}
+    .apps-page .section-title{font-size:2rem;color:var(--dark-blue);text-align:center;margin:0 auto 1rem;font-weight:700;}
+    .apps-page .section p{max-width:900px;margin:0 auto 1rem;line-height:1.6;}
+    .apps-page .section ul{max-width:900px;margin:0 auto 1.25rem;line-height:1.6;padding-left:1.25rem;}
+
+    /* Force underline on active parent + submenu (desktop) */
     .main-nav .nav-group > button.active{
-      border-bottom:2px solid var(--dark-blue); color:var(--dark-blue);
+      border-bottom:2px solid var(--dark-blue);
+      color:var(--dark-blue);
     }
     .submenu a.active{
-      border-bottom:2px solid var(--dark-blue); color:var(--dark-blue);
+      border-bottom:2px solid var(--dark-blue);
+      color:var(--dark-blue);
     }
-    .mobile-drawer a[aria-current="page"]{
-      text-decoration:underline; text-underline-offset:6px; text-decoration-thickness:2px;
-    }
-    /* Optional layout niceties */
-    main.content{max-width:1200px;margin:0 auto;padding:0 1.25rem 3rem;}
-    .section{margin-top:2.5rem;}
-    .section-title{font-size:2rem;color:var(--dark-blue);text-align:center;margin:0 auto 1rem;font-weight:700;}
-    .centered{text-align:center;}
-    /* Card grid (if you use cards) */
-    .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;max-width:var(--content-max);margin:0 auto;}
-    .card{display:flex;flex-direction:column;gap:.75rem;background:#fff;border:2px solid var(--dark-blue);border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);padding:1.25rem;color:#000;}
-    .card h3{font-size:1.15rem;color:var(--primary-blue);margin:0 0 .25rem;}
-    .card p{margin:0 0 .5rem;line-height:1.55;}
-    .card .cta-btn{margin-top:auto;align-self:stretch;}
-    /* Footer tel stays white */
-    .footer-right a[href^="tel"]{color:#fff !important;text-decoration:none !important;font-weight:700;}
+
+    /* Footer phone link white/no underline */
+    .footer-right p a[href^="tel"]{color:#fff !important;text-decoration:none !important;font-weight:700;}
   </style>
 </head>
 
-<body class="cloud-page">
+<body class="apps-page">
   <a class="skip-link" href="#main">Skip to main content</a>
 
-  <!-- Header / Nav -->
+  <!-- Unified Header / Nav (fixed) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -105,7 +103,7 @@
             <a role="menuitem" href="databricks-lakehouse.html">Databricks Lakehouse</a>
 
             <!-- Other -->
-            <a role="menuitem" href="application-development.html">Application Development</a>
+            <a role="menuitem" href="application-development.html" class="active" aria-current="page">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
             <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
             <a role="menuitem" href="finops.html">FinOps</a>
@@ -121,13 +119,14 @@
           </div>
         </div>
 
+        <!-- Removed Infrastructure -->
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
       </nav>
 
       <!-- Mobile toggle -->
-      <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-label="Open menu"/>
+      <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-label="Open menu" />
       <label class="hamburger" for="nav-toggle"><span></span></label>
     </div>
 
@@ -165,7 +164,7 @@
         <a href="databricks-lakehouse.html">Databricks Lakehouse</a>
 
         <!-- Other -->
-        <a href="application-development.html">Application Development</a>
+        <a href="application-development.html" aria-current="page">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
         <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
         <a href="finops.html">FinOps</a>
@@ -178,59 +177,50 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
+      <!-- Removed Infrastructure -->
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero (keeps banner from being clipped) -->
   <div class="hero-frame">
-    <div class="hero-media" role="img" aria-label="HERO ALT TEXT">
-      <img src="assets/images/cloud-banner.png?v=2" alt="HERO ALT TEXT" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+    <div class="hero-media" role="img" aria-label="Cloud-Native Application Development">
+      <img src="assets/images/appdev-bannerimage.png" alt="Cloud-Native Application Development – CoreCloud" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
-  <!-- Main -->
+  <!-- Title + intro -->
   <main class="content" id="main">
     <section class="hero-intro">
-      <h1 class="hero-title">PAGE HEADING</h1>
-      <p class="center-subtitle">
-        This is your hero body copy. It’s centrally aligned across all breakpoints and respects site typography.
-      </p>
-    </section>
-
-    <!-- Example content blocks (safe to delete/replace) -->
-    <section class="section">
-      <h2 class="section-title">Section Title</h2>
-      <p class="centered" style="max-width:900px;margin:0 auto;">
-        Add your content here. Keep paragraphs concise and scannable.
-      </p>
+      <h1 class="hero-title">Cloud-Native Application Development</h1>
+      <p class="hero-sub">Modern, scalable, and secure cloud-native apps designed to solve real business problems. Built fast. Delivered clean. Deployed right.</p>
     </section>
 
     <section class="section">
-      <h2 class="section-title">Optional Card Grid</h2>
-      <div class="card-grid">
-        <div class="card">
-          <h3>Card One</h3>
-          <p>Short supporting copy goes here.</p>
-          <a href="contact.html" class="cta-btn">Call to Action</a>
-        </div>
-        <div class="card">
-          <h3>Card Two</h3>
-          <p>Short supporting copy goes here.</p>
-          <a href="contact.html" class="cta-btn">Call to Action</a>
-        </div>
-        <div class="card">
-          <h3>Card Three</h3>
-          <p>Short supporting copy goes here.</p>
-          <a href="contact.html" class="cta-btn">Call to Action</a>
-        </div>
-      </div>
+      <h2 class="section-title">What We Build</h2>
+      <p>We develop custom cloud-native applications using proven frameworks, agile methods, and scalable architectures. From customer-facing platforms to internal business tools — everything we deliver is secure, responsive, and future-proof.</p>
+      <ul>
+        <li>Microservices and containerised app architectures</li>
+        <li>Serverless functions and API-first systems</li>
+        <li>Cloud-agnostic or AWS/Azure-native integrations</li>
+        <li>Robust CI/CD pipelines and test automation</li>
+      </ul>
     </section>
 
-    <div class="centered" style="margin-top:2rem;">
-      <a href="contact.html" class="cta-btn">Primary CTA</a>
+    <section class="section">
+      <h2 class="section-title">Why It Works</h2>
+      <p>Our method blends deep technical capability with commercial clarity. We keep delivery tight, architecture clean, and outcomes aligned to business value. Expect minimal rework, no fluff, and full transparency from day one.</p>
+    </section>
+
+    <section class="section">
+      <h2 class="section-title">CoreCloud Advantage</h2>
+      <p>We bring together seasoned architects, senior engineers, and delivery leads who understand both enterprise complexity and agile velocity. Every build is tailored to your infrastructure, security standards, and integration points.</p>
+    </section>
+
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="contact.html" class="cta-btn">Let’s Build Your App</a>
     </div>
   </main>
 
@@ -260,7 +250,7 @@
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
         <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
-        <p><a href="https://www.linkedin.com/company/corecloudza" target="_blank" rel="noopener" class="linkedin-link">LinkedIn</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
 
@@ -272,37 +262,37 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter (drop in once; works everywhere) -->
+  <!-- Active-link highlighter -->
   <script>
     (function(){
       function norm(p){
         if(!p) return 'index.html';
         p = p.toLowerCase().split('#')[0].split('?')[0];
         if(p === '' || p === '/') p = 'index.html';
-        // legacy aliases -> canonical
         if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
         if(p === 'mobile-web.html') p = 'application-development.html';
         return p;
       }
-      var current = norm(location.pathname.split('/').pop() || 'index.html');
+      var current = norm(location.pathname.split('/').pop() || 'application-development.html');
 
-      // reset
+      // clear any leftovers
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
         .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
 
-      // mark matches + parent
-      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
-        var href = norm(a.getAttribute('href') || '');
-        if(href === current){
-          a.classList.add('active');
-          a.setAttribute('aria-current','page');
-          var group = a.closest('.nav-group');
-          if(group){
-            var btn = group.querySelector(':scope > button');
-            if(btn){ btn.classList.add('active'); }
+      // mark matches + parent button
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a')
+        .forEach(function(a){
+          var href = norm(a.getAttribute('href') || '');
+          if(href === current){
+            a.classList.add('active');
+            a.setAttribute('aria-current','page');
+            var group = a.closest('.nav-group');
+            if(group){
+              var btn = group.querySelector(':scope > button');
+              if(btn){ btn.classList.add('active'); }
+            }
           }
-        }
-      });
+        });
     })();
   </script>
 </body>
