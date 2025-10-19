@@ -15,11 +15,8 @@
   <meta property="og:url" content="https://www.corecloudza.com/azure-migration.html" />
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="CoreCloud Azure Migration | Seamless Cloud Transitions for SA Enterprises" />
-  <meta name="twitter:description" content="Secure, low-risk Azure migrations with governance-first landing zones and clear delivery milestones." />
-  <meta name="twitter:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2" />
 
-  <!-- Global CSS (ensure v=13 for underline + hero fixes) -->
+  <!-- Global CSS (ensure v=13+) -->
   <link rel="stylesheet" href="assets/css/styles.css?v=13" />
 
   <!-- Preload hero -->
@@ -27,26 +24,59 @@
 
   <!-- Page-scoped helpers -->
   <style>
-    /* Center the hero blurb (overrides global left-align in content areas) */
+    /* Center the hero blurb (overrides any global left-align in content areas) */
     .hero-intro .center-subtitle{
       text-align:center !important; color:#000; font-size:1.05rem;
       margin:0 auto 2rem; max-width:900px; line-height:1.65;
     }
 
-    /* Cards & lists */
-    .card-row{ display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; margin-top:2rem; padding:0 1rem; }
-    .card{ background:#fff; border:2px solid var(--dark-blue); border-radius:12px; box-shadow:0 2px 6px rgba(0,0,0,.08); padding:1.5rem; max-width:360px; flex:1 1 300px; text-align:left; }
-    .card h3{ font-size:1.2rem; color:var(--primary-blue); margin-bottom:.8rem; font-weight:700; }
-    .card p{ font-size:.95rem; color:#000; }
-    ul.checklist{ list-style:disc; padding-left:1.5rem; font-size:1.05rem; color:#000; line-height:1.8; max-width:800px; margin:1rem auto; }
+    /* Use global card-grid for consistent 3-up / 4-up layouts */
+    .card-grid{ max-width:var(--content-max); margin:0 auto; }
+    .card-grid .card h3{ color:var(--primary-blue); font-weight:700; }
 
-    /* Force underline on active parent button (Cloud Suite) + current submenu */
+    /* Checklist bullets */
+    .checklist{ list-style:disc; padding-left:1.5rem; font-size:1.05rem; color:#000; line-height:1.8; max-width:900px; margin:1rem auto; }
+
+    /* Active nav visuals (parent button + current submenu) */
     .main-nav .nav-group > button.active{ color:var(--dark-blue); border-bottom:2px solid var(--dark-blue) !important; }
     .submenu a.active{ border-bottom:2px solid var(--dark-blue) !important; color:var(--dark-blue) !important; }
 
     /* Footer tel stays white */
     .footer-right a[href^="tel"]{ color:#fff !important; text-decoration:none !important; font-weight:700; }
   </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"BreadcrumbList",
+        "itemListElement":[
+          {"@type":"ListItem","position":1,"name":"Home","item":"https://www.corecloudza.com/"},
+          {"@type":"ListItem","position":2,"name":"Cloud Suite","item":"https://www.corecloudza.com/cloud.html"},
+          {"@type":"ListItem","position":3,"name":"Azure Migration","item":"https://www.corecloudza.com/azure-migration.html"}
+        ]
+      },
+      {
+        "@type":"Organization",
+        "@id":"https://www.corecloudza.com/#org",
+        "name":"CoreCloud (Pty) Ltd",
+        "url":"https://www.corecloudza.com/",
+        "logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png",
+        "sameAs":["https://www.linkedin.com/company/corecloudza"]
+      },
+      {
+        "@type":"Service",
+        "name":"Azure Migration Services",
+        "provider":{"@id":"https://www.corecloudza.com/#org"},
+        "areaServed":{"@type":"Country","name":"South Africa"},
+        "url":"https://www.corecloudza.com/azure-migration.html",
+        "description":"Cloud readiness, migration planning, governance-first landing zones, tool-driven execution, and post-migration optimisation on Microsoft Azure."
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body class="cloud-page azure-migration-page">
@@ -62,6 +92,7 @@
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 
+        <!-- Consulting -->
         <div class="nav-group">
           <button type="button" aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
@@ -70,6 +101,7 @@
           </div>
         </div>
 
+        <!-- Cloud Suite -->
         <div class="nav-group">
           <button type="button" aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
@@ -78,15 +110,28 @@
             <a role="menuitem" href="aws-modernization.html">AWS Modernization</a>
             <a role="menuitem" href="aws-manage.html">AWS Managed Services</a>
             <a role="menuitem" href="aws-optimize.html">AWS Optimization</a>
-            <!-- Only this page is active -->
             <a role="menuitem" href="azure-migration.html" class="active" aria-current="page">Azure Migration</a>
+            <a role="menuitem" href="azure-modernization.html">Azure Modernization</a>
+            <a role="menuitem" href="azure-managed.html">Azure Managed Services</a>
             <a role="menuitem" href="finops.html">FinOps</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
             <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+            <a role="menuitem" href="cloud-security.html">Cloud Security</a>
           </div>
         </div>
 
+        <!-- Infrastructure -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="infrastructure.html">Modern Datacenter</a>
+            <a role="menuitem" href="modern-workplace.html">Modern Workplace</a>
+            <a role="menuitem" href="hosting-security.html">Hosting Security</a>
+          </div>
+        </div>
+
+        <!-- Curated Talent -->
         <div class="nav-group">
           <button type="button" aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
@@ -96,7 +141,15 @@
           </div>
         </div>
 
-        <a href="infrastructure.html">Infrastructure</a>
+        <!-- Incubation Hub -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
+          <div class="submenu" role="menu" aria-label="Incubation Hub">
+            <a role="menuitem" href="incubation-hub.html">Overview</a>
+            <a role="menuitem" href="qse-collective.html">QSE Collective</a>
+          </div>
+        </div>
+
         <a href="about.html">About</a>
         <a href="blog.html">Insights</a>
         <a href="contact.html">Contact</a>
@@ -124,10 +177,20 @@
         <a href="aws-manage.html">AWS Managed Services</a>
         <a href="aws-optimize.html">AWS Optimization</a>
         <a href="azure-migration.html" aria-current="page">Azure Migration</a>
+        <a href="azure-modernization.html">Azure Modernization</a>
+        <a href="azure-managed.html">Azure Managed Services</a>
         <a href="finops.html">FinOps</a>
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
         <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
+        <a href="cloud-security.html">Cloud Security</a>
+      </details>
+
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="infrastructure.html">Modern Datacenter</a>
+        <a href="modern-workplace.html">Modern Workplace</a>
+        <a href="hosting-security.html">Hosting Security</a>
       </details>
 
       <details>
@@ -137,14 +200,19 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
-      <a href="infrastructure.html">Infrastructure</a>
+      <details>
+        <summary>Incubation Hub</summary>
+        <a href="incubation-hub.html">Overview</a>
+        <a href="qse-collective.html">QSE Collective</a>
+      </details>
+
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero with single frame lines (prevents cropping) -->
+  <!-- Hero with single frame lines -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="Azure Migration – Governance-first landing zones">
       <img src="assets/images/cloud-banner.png?v=2" alt="Azure Migration – Governance-first landing zones" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high" />
@@ -161,7 +229,7 @@
     </section>
 
     <h2 class="section-title">Why Migrate to Azure?</h2>
-    <div class="card-row">
+    <div class="card-grid">
       <div class="card">
         <h3>Seamless Microsoft Integration</h3>
         <p>Azure synergy with Microsoft 365, Dynamics, and Windows Server reduces friction and accelerates adoption.</p>
@@ -188,7 +256,7 @@
     </section>
 
     <h2 class="section-title">Our Migration Process</h2>
-    <div class="card-row">
+    <div class="card-grid force-4">
       <div class="card">
         <h3>1. Discovery</h3>
         <p>Assess workloads, security, and objectives to define your Azure roadmap.</p>
@@ -260,7 +328,7 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter -->
+  <!-- Active-link highlighter (clears stale states + legacy mappings) -->
   <script>
     (function(){
       function norm(p){
@@ -271,24 +339,26 @@
         if(p === 'mobile-web.html') p = 'application-development.html';
         return p;
       }
-      // current page
       var current = norm(location.pathname.split('/').pop() || 'azure-migration.html');
 
-      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
-        var href = norm(a.getAttribute('href') || '');
-        if(href === current){
-          a.classList.add('active');
-          a.setAttribute('aria-current','page');
-          var group = a.closest('.nav-group');
-          if(group){
-            var btn = group.querySelector('button');
-            if(btn){ btn.classList.add('active'); }
+      // Clear previous states
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
+        .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
+
+      // Mark current link(s) and parent groups
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a')
+        .forEach(function(a){
+          var href = norm(a.getAttribute('href') || '');
+          if(href === current){
+            a.classList.add('active');
+            a.setAttribute('aria-current','page');
+            var group = a.closest('.nav-group');
+            if(group){
+              var btn = group.querySelector(':scope > button');
+              if(btn){ btn.classList.add('active'); }
+            }
           }
-        }else{
-          a.classList.remove('active');
-          a.removeAttribute('aria-current');
-        }
-      });
+        });
     })();
   </script>
 </body>
