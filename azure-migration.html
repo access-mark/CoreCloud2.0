@@ -39,19 +39,13 @@
     .card h3{ font-size:1.2rem; color:var(--primary-blue); margin-bottom:.8rem; font-weight:700; }
     .card p{ font-size:.95rem; color:#000; }
 
-    /* Base checklist look */
-    ul.checklist{ list-style:disc; padding-left:1.5rem; font-size:1.05rem; color:#000; line-height:1.8; }
+    ul.checklist{ list-style:disc; padding-left:1.5rem; font-size:1.05rem; color:#000; line-height:1.8; max-width:800px; margin:1rem auto; }
 
-    /* Center the list block while keeping bullets left-aligned */
+    /* Center both “What We Deliver” and “Why CoreCloud” lists */
     .center-wrap { text-align:center; }
-    .checklist.centered{
-      display:inline-block;
-      text-align:left;
-      margin:0 auto 1.25rem;
-      max-width:780px;
-    }
+    .checklist.centered{ display:inline-block; text-align:left; max-width:820px; margin:0 auto; }
 
-    /* Force underline on active parent button + current submenu */
+    /* Force underline on active parent button (Cloud Suite / Incubation Hub / Infrastructure) + current submenu */
     .main-nav .nav-group > button.active{ color:var(--dark-blue); border-bottom:2px solid var(--dark-blue) !important; }
     .submenu a.active{ border-bottom:2px solid var(--dark-blue) !important; color:var(--dark-blue) !important; }
 
@@ -89,7 +83,10 @@
             <a role="menuitem" href="aws-modernization.html">AWS Modernization</a>
             <a role="menuitem" href="aws-manage.html">AWS Managed Services</a>
             <a role="menuitem" href="aws-optimize.html">AWS Optimization</a>
-            <a role="menuitem" href="azure-migration.html">Azure Migration</a>
+            <!-- This page -->
+            <a role="menuitem" href="azure-migration.html" class="active" aria-current="page">Azure Migration</a>
+            <a role="menuitem" href="azure-modernization.html">Azure Modernization</a>
+            <a role="menuitem" href="azure-managed.html">Azure Managed Services</a>
             <a role="menuitem" href="finops.html">FinOps</a>
             <a role="menuitem" href="application-development.html">Application Development</a>
             <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
@@ -106,7 +103,16 @@
           </div>
         </div>
 
-        <!-- Replaced single Infrastructure link with dropdown -->
+        <!-- NEW: Incubation Hub dropdown -->
+        <div class="nav-group">
+          <button type="button" aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
+          <div class="submenu" role="menu" aria-label="Incubation Hub">
+            <a role="menuitem" href="incubation-hub.html">Overview</a>
+            <a role="menuitem" href="qse-collective.html">QSE Accelerator &amp; Collective</a>
+          </div>
+        </div>
+
+        <!-- Infrastructure as a dropdown (no standalone link) -->
         <div class="nav-group">
           <button type="button" aria-haspopup="true" aria-expanded="false">Infrastructure</button>
           <div class="submenu" role="menu" aria-label="Infrastructure">
@@ -140,7 +146,9 @@
         <a href="aws-modernization.html">AWS Modernization</a>
         <a href="aws-manage.html">AWS Managed Services</a>
         <a href="aws-optimize.html">AWS Optimization</a>
-        <a href="azure-migration.html">Azure Migration</a>
+        <a href="azure-migration.html" aria-current="page">Azure Migration</a>
+        <a href="azure-modernization.html">Azure Modernization</a>
+        <a href="azure-managed.html">Azure Managed Services</a>
         <a href="finops.html">FinOps</a>
         <a href="application-development.html">Application Development</a>
         <a href="data-ai.html">Data &amp; AI</a>
@@ -154,7 +162,14 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
-      <!-- New Infrastructure dropdown for mobile -->
+      <!-- NEW: Incubation Hub -->
+      <details>
+        <summary>Incubation Hub</summary>
+        <a href="incubation-hub.html">Overview</a>
+        <a href="qse-collective.html">QSE Accelerator &amp; Collective</a>
+      </details>
+
+      <!-- Infrastructure dropdown -->
       <details>
         <summary>Infrastructure</summary>
         <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
@@ -274,7 +289,7 @@
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
         <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
-        <p><a href="https://www.linkedin.com/company/107657749" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+        <p><a href="https://www.linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
 
@@ -286,9 +301,9 @@
     </div>
   </footer>
 
-  <!-- Active-link highlighter (strict, single-active; supports parent underline for any dropdown) -->
+  <!-- Active-link highlighter -->
   <script>
-    (function () {
+    (function(){
       function norm(p){
         if(!p) return 'index.html';
         p = p.toLowerCase().split('#')[0].split('?')[0];
@@ -297,20 +312,19 @@
         if(p === 'mobile-web.html') p = 'application-development.html';
         return p;
       }
-
+      // current page
       var current = norm(location.pathname.split('/').pop() || 'azure-migration.html');
 
-      // Clear all active states
+      // Clear all states first
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
         .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
 
-      // Mark ONLY the current page across desktop + mobile
+      // Mark current link(s) and parent button
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
         var href = norm(a.getAttribute('href') || '');
         if(href === current){
           a.classList.add('active');
-          a.setAttribute('aria-current', 'page');
-          // underline the parent button in desktop nav when child is active
+          a.setAttribute('aria-current','page');
           var group = a.closest('.nav-group');
           if(group){
             var btn = group.querySelector(':scope > button');
