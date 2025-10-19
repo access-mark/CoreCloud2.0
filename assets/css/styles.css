@@ -501,3 +501,9 @@ footer #subscribe-form label{
 /* Center bottom CTA buttons */
 .cta-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
 .cta-row .cta-btn { text-align: center; min-width: 220px; }
+/* Partners grid */
+.partner-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:.5rem;max-width:1000px;margin:0 auto;padding:0 1rem;text-align:center;
+}
+.partner-grid span{display:block;padding:.65rem .75rem;border:1px dashed rgba(0,0,0,.12);border-radius:10px;}
