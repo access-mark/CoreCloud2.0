@@ -20,69 +20,83 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=15"/>
+  <link rel="stylesheet" href="/assets/css/styles.css?v=19"/>
 
   <!-- Preload -->
-  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
-  <link rel="preload" as="image" href="assets/images/security-bannerimage.png?v=2" fetchpriority="high"/>
+  <link rel="preload" as="image" href="/assets/images/corecloud-logo.png" fetchpriority="high"/>
+  <link rel="preload" as="image" href="/assets/images/security-bannerimage.png?v=2" fetchpriority="high"/>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"WebPage","name":"Cloud Security","url":"https://www.corecloudza.com/cloud-security.html","publisher":{"@type":"Organization","name":"CoreCloud"}}
   </script>
+
+  <style>
+    /* Optional page token to force gold hero line if your CSS uses it */
+    .security-page{ --frame-color: var(--gold); }
+  </style>
 </head>
 
 <body class="security-page">
   <!-- Header / Nav -->
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <a class="brand" href="index.html" aria-label="CoreCloud Home">
-        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
+      <a class="brand" href="/index.html" aria-label="CoreCloud Home">
+        <img src="/assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
       <nav class="main-nav" aria-label="Primary">
-        <a href="index.html">Home</a>
+        <a href="/index.html">Home</a>
 
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
-            <a role="menuitem" href="consulting.html">Overview</a>
-            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
+            <a role="menuitem" href="/consulting.html">Overview</a>
+            <a role="menuitem" href="/dynamic-imprinting.html">Dynamic Imprinting</a>
           </div>
         </div>
 
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
-            <a role="menuitem" href="cloud.html">Overview</a>
-            <a role="menuitem" href="finops.html">FinOps</a>
-            <a role="menuitem" href="application-development.html">Application Development</a>
-            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
-            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+            <a role="menuitem" href="/cloud.html">Overview</a>
+            <a role="menuitem" href="/finops.html">FinOps</a>
+            <a role="menuitem" href="/application-development.html">Application Development</a>
+            <a role="menuitem" href="/data-ai.html">Data &amp; AI</a>
+            <a role="menuitem" href="/hosted-private-cloud.html">Hosting (Private Cloud)</a>
+            <a role="menuitem" href="/cloud-security.html" class="active" aria-current="page">Cloud Security</a>
+          </div>
+        </div>
+
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="/infrastructure.html">Modern Datacenter</a>
+            <a role="menuitem" href="/modern-workplace.html">Modern Workplace</a>
+            <a role="menuitem" href="/hosting-security.html">Hosting Security</a>
           </div>
         </div>
 
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
-            <a role="menuitem" href="talent.html">Overview</a>
-            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
-            <a role="menuitem" href="global-talent.html">Global Talent</a>
+            <a role="menuitem" href="/talent.html">Overview</a>
+            <a role="menuitem" href="/talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="/global-talent.html">Global Talent</a>
           </div>
         </div>
 
         <div class="nav-group">
-          <button aria-haspopup="true" aria-expanded="false">Security</button>
-          <div class="submenu" role="menu" aria-label="Security">
-            <a role="menuitem" href="cloud-security.html">Cloud Security</a>
-            <a role="menuitem" href="hosting-security.html">Private Cloud / Hosting</a>
+          <button aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
+          <div class="submenu" role="menu" aria-label="Incubation Hub">
+            <a role="menuitem" href="/incubation-hub.html">Overview</a>
+            <a role="menuitem" href="/qse-collective.html">QSE Collective</a>
           </div>
         </div>
 
-        <a href="infrastructure.html">Infrastructure</a>
-        <a href="about.html">About</a>
-        <a href="blog.html">Insights</a>
-        <a href="contact.html">Contact</a>
+        <a href="/about.html">About</a>
+        <a href="/blog.html">Insights</a>
+        <a href="/contact.html">Contact</a>
       </nav>
 
       <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
@@ -91,40 +105,54 @@
     <!-- Mobile drawer -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <nav class="mobile-drawer" aria-label="Mobile">
-      <a href="index.html">Home</a>
+      <a href="/index.html">Home</a>
 
       <details>
         <summary>Consulting</summary>
-        <a href="consulting.html">Overview</a>
-        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
-      </details>
-
-      <details>
-        <summary>Cloud Suite</summary>
-        <a href="cloud.html">Overview</a>
-        <a href="finops.html">FinOps</a>
-        <a href="application-development.html">Application Development</a>
-        <a href="data-ai.html">Data &amp; AI</a>
-        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+        <a href="/consulting.html">Overview</a>
+        <a href="/dynamic-imprinting.html">Dynamic Imprinting</a>
       </details>
 
       <details open>
-        <summary>Security</summary>
-        <a href="cloud-security.html">Cloud Security</a>
-        <a href="hosting-security.html">Private Cloud / Hosting</a>
+        <summary>Cloud Suite</summary>
+        <a href="/cloud.html">Overview</a>
+        <a href="/finops.html">FinOps</a>
+        <a href="/application-development.html">Application Development</a>
+        <a href="/data-ai.html">Data &amp; AI</a>
+        <a href="/hosted-private-cloud.html">Hosting (Private Cloud)</a>
+        <a href="/cloud-security.html" aria-current="page" class="active">Cloud Security</a>
       </details>
 
-      <a href="infrastructure.html">Infrastructure</a>
-      <a href="about.html">About</a>
-      <a href="blog.html">Insights</a>
-      <a href="contact.html">Contact</a>
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="/infrastructure.html">Modern Datacenter</a>
+        <a href="/modern-workplace.html">Modern Workplace</a>
+        <a href="/hosting-security.html">Hosting Security</a>
+      </details>
+
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="/talent.html">Overview</a>
+        <a href="/talent-relaunch.html">RE/LAUNCH</a>
+        <a href="/global-talent.html">Global Talent</a>
+      </details>
+
+      <details>
+        <summary>Incubation Hub</summary>
+        <a href="/incubation-hub.html">Overview</a>
+        <a href="/qse-collective.html">QSE Collective</a>
+      </details>
+
+      <a href="/about.html">About</a>
+      <a href="/blog.html">Insights</a>
+      <a href="/contact.html">Contact</a>
     </nav>
   </header>
 
   <!-- Banner -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="Cloud Security">
-      <img src="assets/images/security-bannerimage.png?v=2"
+      <img src="/assets/images/security-bannerimage.png?v=2"
            alt="Cloud Security — guardrails that don’t slow delivery"
            width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
@@ -135,7 +163,7 @@
     <h1 class="hero-title">Cloud Security</h1>
     <p>Identity-first guardrails for AWS &amp; Azure. Reduce blast radius, protect data, and keep developers fast — with evidence you can audit.</p>
     <div class="cta-row" style="margin-top:.5rem;">
-      <a class="cta-btn" href="contact.html">Book a Security Review</a>
+      <a class="cta-btn" href="/contact.html">Book a Security Review</a>
     </div>
   </section>
 
@@ -162,7 +190,7 @@
             <div class="acc-panel"><div>
               <ul>
                 <li>Orgs/Policies, SCPs/deny-by-default, enforced MFA.</li>
-                <li>Federated SSO, least-privilege roles, right-sizing, break-glass rotation & logs.</li>
+                <li>Federated SSO, least-privilege roles, right-sizing, break-glass rotation &amp; logs.</li>
               </ul>
             </div></div>
 
@@ -177,8 +205,8 @@
             <button class="acc-btn">Data Protection</button>
             <div class="acc-panel"><div>
               <ul>
-                <li>Encryption in transit/at rest; key lifecycle & rotation; envelope encryption.</li>
-                <li>Classification & residency policies aligned to POPIA.</li>
+                <li>Encryption in transit/at rest; key lifecycle &amp; rotation; envelope encryption.</li>
+                <li>Classification &amp; residency policies aligned to POPIA.</li>
               </ul>
             </div></div>
 
@@ -249,7 +277,7 @@
           <ol class="steps">
             <li>Diagnose: bills, logs, IAM graph, egress map, backup health.</li>
             <li>Design: venue-neutral options; control set with trade-offs.</li>
-            <li>Do: top-value controls first; CI/CD gates & images updated.</li>
+            <li>Do: top-value controls first; CI/CD gates &amp; images updated.</li>
             <li>Drive: reviews, drift MTTR, evidence cadence.</li>
           </ol>
         </section>
@@ -269,7 +297,7 @@
         <div class="note mt-4">
           <strong>Talk to an operator</strong>
           <p class="mt-2">We’ll triage and give you options.</p>
-          <a class="cta-btn" href="contact.html">Book a Review</a>
+          <a class="cta-btn" href="/contact.html">Book a Review</a>
         </div>
       </aside>
     </div>
@@ -307,8 +335,8 @@
 
     <div class="footer-bottom">
       <p>&copy; 2025 CoreCloud. All rights reserved. |
-        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-        <a href="terms.html" class="legal-link">Terms</a>
+        <a href="/privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="/terms.html" class="legal-link">Terms</a>
       </p>
     </div>
   </footer>
@@ -316,19 +344,41 @@
   <!-- Scripts: active link + accordions + TOC -->
   <script>
     (function(){
-      var path=(location.pathname.split('/').pop()||'cloud-security.html').toLowerCase();
-      document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
-        var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
+      function norm(href){
+        if(!href) return 'index.html';
+        href = href.toLowerCase().split('#')[0].split('?')[0];
+        if(href === '' || href === '/') href = 'index.html';
+        return href.startsWith('/') ? href.slice(1) : href;
+      }
+      var current = norm(location.pathname.split('/').pop() || 'cloud-security.html');
+
+      // Mark active link + underline parent button
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
+        var href = norm(a.getAttribute('href') || '');
+        if(href === current){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+          var group = a.closest('.nav-group');
+          if(group){
+            var btn = group.querySelector('button');
+            if(btn){ btn.classList.add('active'); }
+          }
+        }else{
+          a.classList.remove('active');
+          a.removeAttribute('aria-current');
+        }
       });
     })();
+
+    // Simple accordion
     document.querySelectorAll('.acc-btn').forEach(function(b){
       b.addEventListener('click',function(){
         b.classList.toggle('open');
         var p=b.nextElementSibling;
-        p.style.maxHeight=p.style.maxHeight?null:p.scrollHeight+'px';
+        p.style.maxHeight = p.style.maxHeight ? null : p.scrollHeight + 'px';
       });
     });
+
     // TOC highlight
     (function(){
       var links=[...document.querySelectorAll('.toc a')];
