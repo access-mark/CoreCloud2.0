@@ -140,6 +140,33 @@
   </nav>
 </header>
 
+<script>
+  (function(){
+    function norm(href){
+      if(!href) return 'index.html';
+      href = href.toLowerCase().split('#')[0].split('?')[0];
+      if(href === '' || href === '/') href = 'index.html';
+      return href.startsWith('/') ? href.slice(1) : href;
+    }
+    var current = norm(location.pathname.split('/').pop() || 'index.html');
+
+    document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
+      var href = norm(a.getAttribute('href') || '');
+      if(href === current){
+        a.classList.add('active');
+        a.setAttribute('aria-current','page');
+        var group = a.closest('.nav-group');
+        if(group){
+          var btn = group.querySelector('button');
+          if(btn){ btn.classList.add('active'); }
+        }
+      }else{
+        a.classList.remove('active');
+        a.removeAttribute('aria-current');
+      }
+    });
+  })();
+</script>
 
   <!-- Banner (single blue line via global CSS because of .home-page) -->
   <div class="hero-frame">
