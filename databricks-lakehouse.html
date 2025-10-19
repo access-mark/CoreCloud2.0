@@ -5,18 +5,18 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Databricks Lakehouse – CoreCloud</title>
-  <meta name="description" content="CoreCloud designs and operates Databricks Lakehouse platforms for clean, governed data and faster analytics & AI — built for South African enterprises."/>
+  <meta name="description" content="CoreCloud designs and runs Databricks Lakehouse platforms: secure landing zones, reusable ingestion, cost-optimised jobs, data quality, and BI/ML enablement."/>
   <link rel="canonical" href="https://www.corecloudza.com/databricks-lakehouse.html"/>
 
-  <!-- Open Graph / Twitter -->
+  <!-- Social -->
   <meta property="og:type" content="website"/>
   <meta property="og:title" content="Databricks Lakehouse – CoreCloud"/>
-  <meta property="og:description" content="Unified data, analytics, and AI on Databricks Lakehouse with governance, reliability, and cost control."/>
+  <meta property="og:description" content="Secure, governed Databricks Lakehouse foundations with reliable pipelines and BI/ML enablement."/>
   <meta property="og:url" content="https://www.corecloudza.com/databricks-lakehouse.html"/>
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/cloud-banner.png?v=2"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (v13 = hero-frame + active underline) -->
+  <!-- Global CSS (v13 has hero-frame + underline) -->
   <link rel="stylesheet" href="assets/css/styles.css?v=13"/>
 
   <!-- Preload hero -->
@@ -24,36 +24,36 @@
 
   <!-- Page-scoped helpers -->
   <style>
-    /* Databricks accent + centered hero copy */
+    /* Centered hero copy */
     .hero-intro .center-subtitle{
       text-align:center !important; color:#000; font-size:1.06rem;
       margin:0 auto 2rem; max-width:900px; line-height:1.65;
     }
 
-    /* Grid with equal-height cards & bottom-aligned CTAs */
-    .card-grid{
-      display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      gap:2rem; margin-top:2rem; padding:0 1rem;
-      max-width:var(--content-max); margin-left:auto; margin-right:auto;
-    }
+    /* Cards with Databricks accent */
+    .card-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:2rem; margin-top:2rem; padding:0 1rem; }
     .card{
       background:#fff; color:#000; padding:1.5rem; border-radius:12px; text-align:left;
-      box-shadow:0 2px 8px rgba(0,0,0,.08); border:2px solid var(--dark-blue);
-      display:flex; flex-direction:column; min-height:280px; transition:transform .25s ease;
+      box-shadow:0 2px 8px rgba(0,0,0,.08); border:2px solid var(--dark-blue); transition:transform .25s ease;
+      display:flex; flex-direction:column; min-height:220px;
     }
     .card:hover{ transform:translateY(-3px); }
-    .card h3{ color:#ff3621; font-size:1.25rem; margin:0 0 .8rem; font-weight:700; }
-    .card p{ margin:0 0 1rem; line-height:1.6; }
-    .card .cta-btn{ margin-top:auto; width:100%; }
+    .card h3{ color:#ff3621; font-size:1.25rem; margin-bottom:.8rem; font-weight:700; }
+    .card .cta-btn{ margin-top:auto; }
 
-    /* Narrative list */
-    .bullet-list{ list-style:disc; padding-left:1.5rem; line-height:1.8; color:#000; max-width:900px; margin:0 auto; }
+    /* Center the “What You Get” bullets */
+    .bullet-list{
+      list-style:disc;
+      list-style-position:inside;
+      padding-left:0;
+      text-align:center;
+      line-height:1.8;
+      color:#000;
+      max-width:900px;
+      margin:0 auto;
+    }
 
-    /* Active nav underline (defensive) */
-    .main-nav .nav-group > button.active{ color:var(--dark-blue); border-bottom:2px solid var(--dark-blue) !important; }
-    .submenu a.active{ color:var(--dark-blue) !important; border-bottom:2px solid var(--dark-blue) !important; }
-
-    /* Footer tel stays white */
+    /* Footer phone link white/no underline (match site) */
     .footer-right a[href^="tel"]{ color:#fff !important; text-decoration:none !important; font-weight:700; }
   </style>
 
@@ -84,7 +84,7 @@
         "provider":{"@id":"https://www.corecloudza.com/#org"},
         "areaServed":{"@type":"Country","name":"South Africa"},
         "url":"https://www.corecloudza.com/databricks-lakehouse.html",
-        "description":"Unified data, analytics, and AI on Databricks with Delta Lake reliability, governance, and cost optimisation."
+        "description":"Design and operate Databricks Lakehouse: landing zones, ingestion frameworks, cost-optimised jobs, data quality, and BI/ML enablement."
       }
     ]
   }
@@ -101,7 +101,6 @@
         <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
       </a>
 
-      <!-- Desktop nav -->
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 
@@ -127,8 +126,8 @@
             <a role="menuitem" href="azure-optimization.html">Azure Optimization</a>
             <a role="menuitem" href="databricks-engineering.html">Databricks Engineering</a>
             <a role="menuitem" href="databricks-ml.html">Databricks AI &amp; ML</a>
-            <a role="menuitem" href="databricks-lakehouse.html" class="active" aria-current="page">Databricks Lakehouse</a>
             <a role="menuitem" href="databricks-optimize.html">Databricks Cost Optimization</a>
+            <a role="menuitem" href="databricks-lakehouse.html" class="active" aria-current="page">Databricks Lakehouse</a>
             <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
           </div>
         </div>
@@ -139,23 +138,6 @@
             <a role="menuitem" href="talent.html">Overview</a>
             <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
             <a role="menuitem" href="global-talent.html">Global Talent</a>
-          </div>
-        </div>
-
-        <!-- Incubation Hub -->
-        <div class="nav-group">
-          <button type="button" aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
-          <div class="submenu" role="menu" aria-label="Incubation Hub">
-            <a role="menuitem" href="incubation-hub.html">Overview</a>
-            <a role="menuitem" href="qse-collective.html">QSE Accelerator &amp; Collective</a>
-          </div>
-        </div>
-
-        <!-- Infrastructure dropdown (no standalone link) -->
-        <div class="nav-group">
-          <button type="button" aria-haspopup="true" aria-expanded="false">Infrastructure</button>
-          <div class="submenu" role="menu" aria-label="Infrastructure">
-            <a role="menuitem" href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
           </div>
         </div>
 
@@ -170,7 +152,6 @@
 
     <!-- Mobile drawer trigger -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
-
     <!-- Mobile drawer -->
     <nav class="mobile-drawer" aria-label="Mobile">
       <a href="index.html">Home</a>
@@ -194,8 +175,8 @@
         <a href="azure-optimization.html">Azure Optimization</a>
         <a href="databricks-engineering.html">Databricks Engineering</a>
         <a href="databricks-ml.html">Databricks AI &amp; ML</a>
-        <a href="databricks-lakehouse.html" aria-current="page">Databricks Lakehouse</a>
         <a href="databricks-optimize.html">Databricks Cost Optimization</a>
+        <a href="databricks-lakehouse.html" aria-current="page">Databricks Lakehouse</a>
         <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
       </details>
 
@@ -206,27 +187,16 @@
         <a href="global-talent.html">Global Talent</a>
       </details>
 
-      <details>
-        <summary>Incubation Hub</summary>
-        <a href="incubation-hub.html">Overview</a>
-        <a href="qse-collective.html">QSE Accelerator &amp; Collective</a>
-      </details>
-
-      <details>
-        <summary>Infrastructure</summary>
-        <a href="hosted-private-cloud.html">Hosted (Private Cloud)</a>
-      </details>
-
       <a href="about.html">About</a>
       <a href="blog.html">Insights</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- Hero with single-frame lines -->
   <div class="hero-frame">
-    <div class="hero-media" role="img" aria-label="Databricks Lakehouse — Unified analytics and AI">
-      <img src="assets/images/cloud-banner.png?v=2" alt="Databricks Lakehouse — Unified analytics and AI" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+    <div class="hero-media" role="img" aria-label="Databricks Lakehouse">
+      <img src="assets/images/cloud-banner.png?v=2" alt="Databricks Lakehouse" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
@@ -235,38 +205,38 @@
     <section class="hero-intro">
       <h1 class="hero-title">Databricks Lakehouse</h1>
       <p class="center-subtitle">
-        One platform for all your data — from raw ingestion to BI and AI. We design and operate Lakehouse foundations with Delta Lake reliability, Unity Catalog governance, and cost-aware pipelines tailored for South African enterprises.
+        Build a dependable, governed Lakehouse on Databricks. We design secure foundations, reusable pipelines, and cost-aware operations — ready for analytics and AI.
       </p>
     </section>
 
-    <!-- Pillars -->
+    <!-- Foundations -->
     <section class="section">
-      <h2 class="section-title">Lakehouse Pillars</h2>
+      <h2 class="section-title">Lakehouse Foundations</h2>
       <div class="card-grid">
         <div class="card">
-          <h3>Delta Lake Reliability</h3>
-          <p>ACID transactions, schema enforcement, and time travel for trustworthy analytics.</p>
-          <a href="contact.html" class="cta-btn">Enable Delta</a>
+          <h3>Landing Zones</h3>
+          <p>Identity, networking, policies, and guardrails for secure scale from day one.</p>
+          <a class="cta-btn" href="contact.html">Design My Landing Zone</a>
         </div>
         <div class="card">
-          <h3>Bronze / Silver / Gold</h3>
-          <p>Layered data architecture for clean promotion from raw to curated and semantic.</p>
-          <a href="contact.html" class="cta-btn">Design Layers</a>
+          <h3>Delta Lake</h3>
+          <p>ACID tables, schema enforcement, and time travel for trustworthy data.</p>
+          <a class="cta-btn" href="contact.html">Enable Delta</a>
         </div>
         <div class="card">
-          <h3>Unity Catalog Governance</h3>
-          <p>Central lineage, permissions, and audit — aligned to POPIA and enterprise standards.</p>
-          <a href="contact.html" class="cta-btn">Set Guardrails</a>
+          <h3>Pipelines</h3>
+          <p>Reusable ingestion and transformation frameworks with orchestration baked in.</p>
+          <a class="cta-btn" href="contact.html">Build Pipelines</a>
         </div>
         <div class="card">
-          <h3>Batch &amp; Streaming</h3>
-          <p>Structured Streaming patterns for real-time plus efficient scheduled ELT/ETL.</p>
-          <a href="contact.html" class="cta-btn">Stream Data</a>
+          <h3>Cost Control</h3>
+          <p>Optimised clusters, autoscaling, and workload policies to keep spend in check.</p>
+          <a class="cta-btn" href="contact.html">Optimise Spend</a>
         </div>
       </div>
     </section>
 
-    <!-- What You Get -->
+    <!-- What You Get (centered bullets as requested) -->
     <section class="section">
       <h2 class="section-title">What You Get</h2>
       <ul class="bullet-list">
@@ -286,31 +256,25 @@
       <h2 class="section-title">Why CoreCloud?</h2>
       <div class="card-grid">
         <div class="card">
-          <h3>Local Expertise</h3>
-          <p>Architectures shaped by SA connectivity, governance, and cost realities.</p>
-          <a href="contact.html" class="cta-btn">Talk to Engineers</a>
+          <h3>Execution First</h3>
+          <p>Working platforms, not slideware — with accountable delivery and clear milestones.</p>
+          <a class="cta-btn" href="contact.html">See the Approach</a>
         </div>
         <div class="card">
-          <h3>Execution over Slides</h3>
-          <p>IaC + automation first; measured outcomes for data teams and leadership.</p>
-          <a href="contact.html" class="cta-btn">See Our Approach</a>
+          <h3>Governed by Design</h3>
+          <p>Security, lineage, and cost ownership embedded into the operating model.</p>
+          <a class="cta-btn" href="contact.html">Talk Governance</a>
         </div>
         <div class="card">
-          <h3>Operate with Confidence</h3>
-          <p>Runbooks, monitoring, and support — from day-2 ops to cost governance.</p>
-          <a href="contact.html" class="cta-btn">Run Steady State</a>
+          <h3>Outcomes for BI &amp; AI</h3>
+          <p>From analytics to ML — enablement that gets teams shipping value faster.</p>
+          <a class="cta-btn" href="contact.html">Enable Teams</a>
         </div>
       </div>
     </section>
 
-    <div class="centered" style="text-align:center;margin-top:3rem;">
-      <a href="contact.html" class="cta-btn">Start Your Lakehouse</a>
-    </div>
-
-    <div class="related-links" style="text-align:center;margin-top:2rem;" aria-label="Related Databricks services">
-      <a href="databricks-engineering.html">Data Engineering</a> •
-      <a href="databricks-ml.html">AI &amp; ML</a> •
-      <a href="databricks-optimize.html">Cost Optimization</a>
+    <div class="centered" style="text-align:center;margin-top:2rem;">
+      <a href="contact.html" class="cta-btn">Get a Lakehouse Assessment</a>
     </div>
   </main>
 
@@ -365,10 +329,6 @@
       }
       var current = norm(location.pathname.split('/').pop() || 'databricks-lakehouse.html');
 
-      // Clear leftovers then mark current + parent
-      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
-        .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
-
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
         var href = norm(a.getAttribute('href') || '');
         if(href === current){
@@ -376,9 +336,12 @@
           a.setAttribute('aria-current','page');
           var group = a.closest('.nav-group');
           if(group){
-            var btn = group.querySelector(':scope > button');
+            var btn = group.querySelector('button');
             if(btn){ btn.classList.add('active'); }
           }
+        }else{
+          a.classList.remove('active');
+          a.removeAttribute('aria-current');
         }
       });
     })();
