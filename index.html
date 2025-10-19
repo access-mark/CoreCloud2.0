@@ -19,12 +19,12 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-home.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS (template v14 with single-line banner system) -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=14"/>
+  <!-- Global CSS (template with single-line banner system) -->
+  <link rel="stylesheet" href="/assets/css/styles.css?v=14"/>
 
   <!-- Preload -->
-  <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
-  <link rel="preload" as="image" href="assets/images/index-bannerimage.png" fetchpriority="high"/>
+  <link rel="preload" as="image" href="/assets/images/corecloud-logo.png" fetchpriority="high"/>
+  <link rel="preload" as="image" href="/assets/images/index-bannerimage.png" fetchpriority="high"/>
 
   <!-- JSON-LD -->
   <script type="application/ld+json">
@@ -36,142 +36,143 @@
 </head>
 
 <body class="home-page">
- <!-- Header / Nav -->
-<header class="site-header" role="banner">
-  <div class="header-inner">
-    <a class="brand" href="/index.html" aria-label="CoreCloud Home">
-      <img src="/assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
-    </a>
+  <!-- Header / Nav -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="/index.html" aria-label="CoreCloud Home">
+        <img src="/assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
+      </a>
 
-    <!-- Desktop Nav -->
-    <nav class="main-nav" aria-label="Primary">
-      <a href="/index.html">Home</a>
+      <!-- Desktop Nav -->
+      <nav class="main-nav" aria-label="Primary">
+        <a href="/index.html">Home</a>
 
-      <!-- Consulting -->
-      <div class="nav-group">
-        <button aria-haspopup="true" aria-expanded="false">Consulting</button>
-        <div class="submenu" role="menu" aria-label="Consulting">
-          <a role="menuitem" href="/consulting.html">Overview</a>
-          <a role="menuitem" href="/dynamic-imprinting.html">Dynamic Imprinting</a>
+        <!-- Consulting -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Consulting</button>
+          <div class="submenu" role="menu" aria-label="Consulting">
+            <a role="menuitem" href="/consulting.html">Overview</a>
+            <a role="menuitem" href="/dynamic-imprinting.html">Dynamic Imprinting</a>
+          </div>
         </div>
-      </div>
 
-      <!-- Cloud Suite -->
-      <div class="nav-group">
-        <button aria-haspopup="true" aria-expanded="false">Cloud</button>
-        <div class="submenu" role="menu" aria-label="Cloud Suite">
-          <a role="menuitem" href="/cloud.html">Overview</a>
-          <a role="menuitem" href="/finops.html">FinOps</a>
-          <a role="menuitem" href="/application-development.html">Application Development</a>
-          <a role="menuitem" href="/data-ai.html">Data &amp; AI</a>
-          <a role="menuitem" href="/hosted-private-cloud.html">Hosting (Private Cloud)</a>
+        <!-- Cloud Suite -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Cloud</button>
+          <div class="submenu" role="menu" aria-label="Cloud Suite">
+            <a role="menuitem" href="/cloud.html">Overview</a>
+            <a role="menuitem" href="/finops.html">FinOps</a>
+            <a role="menuitem" href="/application-development.html">Application Development</a>
+            <a role="menuitem" href="/data-ai.html">Data &amp; AI</a>
+            <a role="menuitem" href="/hosted-private-cloud.html">Hosting (Private Cloud)</a>
+          </div>
         </div>
-      </div>
 
-      <!-- Infrastructure -->
-      <div class="nav-group">
-        <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
-        <div class="submenu" role="menu" aria-label="Infrastructure">
-          <a role="menuitem" href="/infrastructure.html">Modern Datacenter</a>
-          <a role="menuitem" href="/modern-workplace.html">Modern Workplace</a>
+        <!-- Infrastructure -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="/infrastructure.html">Modern Datacenter</a>
+            <a role="menuitem" href="/modern-workplace.html">Modern Workplace</a>
+          </div>
         </div>
-      </div>
 
-      <!-- Curated Talent -->
-      <div class="nav-group">
-        <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
-        <div class="submenu" role="menu" aria-label="Curated Talent">
-          <a role="menuitem" href="/talent.html">Overview</a>
-          <a role="menuitem" href="/talent-relaunch.html">RE/LAUNCH</a>
-          <a role="menuitem" href="/global-talent.html">Global Talent</a>
+        <!-- Curated Talent -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <div class="submenu" role="menu" aria-label="Curated Talent">
+            <a role="menuitem" href="/talent.html">Overview</a>
+            <a role="menuitem" href="/talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="/global-talent.html">Global Talent</a>
+          </div>
         </div>
-      </div>
 
-      <!-- Incubation Hub (single link) -->
+        <!-- Incubation Hub -->
+        <a href="/incubation-hub.html">Incubation Hub</a>
+
+        <a href="/about.html">About</a>
+        <a href="/blog.html">Insights</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+
+      <!-- Mobile toggle -->
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <nav class="mobile-drawer" aria-label="Mobile">
+      <a href="/index.html" aria-current="page">Home</a>
+
+      <details>
+        <summary>Consulting</summary>
+        <a href="/consulting.html">Overview</a>
+        <a href="/dynamic-imprinting.html">Dynamic Imprinting</a>
+      </details>
+
+      <details>
+        <summary>Cloud</summary>
+        <a href="/cloud.html">Overview</a>
+        <a href="/finops.html">FinOps</a>
+        <a href="/application-development.html">Application Development</a>
+        <a href="/data-ai.html">Data &amp; AI</a>
+        <a href="/hosted-private-cloud.html">Hosting (Private Cloud)</a>
+      </details>
+
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="/infrastructure.html">Modern Datacenter</a>
+        <a href="/modern-workplace.html">Modern Workplace</a>
+      </details>
+
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="/talent.html">Overview</a>
+        <a href="/talent-relaunch.html">RE/LAUNCH</a>
+        <a href="/global-talent.html">Global Talent</a>
+      </details>
+
       <a href="/incubation-hub.html">Incubation Hub</a>
 
       <a href="/about.html">About</a>
       <a href="/blog.html">Insights</a>
       <a href="/contact.html">Contact</a>
     </nav>
+  </header>
 
-    <!-- Mobile toggle -->
-    <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
-  </div>
-
-  <!-- Mobile Drawer -->
-  <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
-  <nav class="mobile-drawer" aria-label="Mobile">
-    <a href="/index.html">Home</a>
-
-    <details>
-      <summary>Consulting</summary>
-      <a href="/consulting.html">Overview</a>
-      <a href="/dynamic-imprinting.html">Dynamic Imprinting</a>
-    </details>
-
-    <details>
-      <summary>Cloud</summary>
-      <a href="/cloud.html">Overview</a>
-      <a href="/finops.html">FinOps</a>
-      <a href="/application-development.html">Application Development</a>
-      <a href="/data-ai.html">Data &amp; AI</a>
-      <a href="/hosted-private-cloud.html">Hosting (Private Cloud)</a>
-    </details>
-
-    <details>
-      <summary>Infrastructure</summary>
-      <a href="/infrastructure.html">Modern Datacenter</a>
-      <a href="/modern-workplace.html">Modern Workplace</a>
-    </details>
-
-    <details>
-      <summary>Curated Talent</summary>
-      <a href="/talent.html">Overview</a>
-      <a href="/talent-relaunch.html">RE/LAUNCH</a>
-      <a href="/global-talent.html">Global Talent</a>
-    </details>
-
-    <a href="/incubation-hub.html">Incubation Hub</a>
-
-    <a href="/about.html">About</a>
-    <a href="/blog.html">Insights</a>
-    <a href="/contact.html">Contact</a>
-  </nav>
-</header>
-
-<script>
-  (function(){
-    function norm(href){
-      if(!href) return 'index.html';
-      href = href.toLowerCase().split('#')[0].split('?')[0];
-      if(href === '' || href === '/') href = 'index.html';
-      return href.startsWith('/') ? href.slice(1) : href;
-    }
-    var current = norm(location.pathname.split('/').pop() || 'index.html');
-
-    document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
-      var href = norm(a.getAttribute('href') || '');
-      if(href === current){
-        a.classList.add('active');
-        a.setAttribute('aria-current','page');
-        var group = a.closest('.nav-group');
-        if(group){
-          var btn = group.querySelector('button');
-          if(btn){ btn.classList.add('active'); }
-        }
-      }else{
-        a.classList.remove('active');
-        a.removeAttribute('aria-current');
+  <!-- Active-link highlighter (keep ONE; this is the canonical one) -->
+  <script>
+    (function(){
+      function norm(href){
+        if(!href) return 'index.html';
+        href = href.toLowerCase().split('#')[0].split('?')[0];
+        if(href === '' || href === '/') href = 'index.html';
+        return href.startsWith('/') ? href.slice(1) : href;
       }
-    });
-  })();
-</script>
+      var current = norm(location.pathname.split('/').pop() || 'index.html');
 
-  <!-- Banner (single blue line via global CSS because of .home-page) -->
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
+        var href = norm(a.getAttribute('href') || '');
+        if(href === current){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+          var group = a.closest('.nav-group');
+          if(group){
+            var btn = group.querySelector('button');
+            if(btn){ btn.classList.add('active'); }
+          }
+        }else{
+          a.classList.remove('active');
+          a.removeAttribute('aria-current');
+        }
+      });
+    })();
+  </script>
+
+  <!-- Banner -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
-      <img src="assets/images/index-bannerimage.png" alt="From Strategy to Revenue. From Cloud to People." width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+      <img src="/assets/images/index-bannerimage.png" alt="From Strategy to Revenue. From Cloud to People." width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
@@ -180,7 +181,7 @@
     <h1 class="hero-title">From Strategy to Revenue. From Cloud to People.</h1>
     <p>We help South African enterprises turn strategy into action — sharper sales execution, modernised cloud &amp; hybrid infrastructure, elite ICT talent, and disciplined app delivery.</p>
     <div class="cta-row" style="margin-top:.5rem;">
-      <a class="cta-btn" href="cloud.html">Design My Hybrid</a>
+      <a class="cta-btn" href="/cloud.html">Design My Hybrid</a>
     </div>
   </section>
 
@@ -233,47 +234,47 @@
     <section class="section home-services" aria-labelledby="services-title">
       <h2 id="services-title" class="section-title">Explore Our Services</h2>
       <div class="card-grid" role="list">
-        <a class="card" role="listitem" href="consulting.html">
+        <a class="card" role="listitem" href="/consulting.html">
           <h3>Consulting</h3>
           <p>From strategy to execution: GTM precision, pipeline discipline, partner motions that convert.</p>
           <span class="cta-btn">Explore</span>
         </a>
-        <a class="card" role="listitem" href="cloud.html">
+        <a class="card" role="listitem" href="/cloud.html">
           <h3>Cloud Suite</h3>
           <p>AWS &amp; Azure architecture, landing zones, security, cost control, and modernisation.</p>
           <span class="cta-btn">Explore</span>
         </a>
-        <a class="card" role="listitem" href="finops.html">
+        <a class="card" role="listitem" href="/finops.html">
           <h3>Hybrid FinOps &amp; Governance</h3>
           <p>Cut run-rate and stop drift. Tags, budgets, policies, and showback across venues.</p>
           <span class="cta-btn">Explore</span>
         </a>
-        <a class="card" role="listitem" href="infrastructure.html">
+        <a class="card" role="listitem" href="/infrastructure.html">
           <h3>Infrastructure</h3>
           <p>Predictable cost, SA residency, and low latency — private or hybrid with burst to public cloud.</p>
           <span class="cta-btn">Explore</span>
         </a>
-        <a class="card" role="listitem" href="application-development.html">
+        <a class="card" role="listitem" href="/application-development.html">
           <h3>App Development</h3>
           <p>Cloud-native apps, portals, mobile &amp; web, and APIs — delivered with DevOps discipline.</p>
           <span class="cta-btn">Explore</span>
         </a>
-        <a class="card" role="listitem" href="data-ai.html">
+        <a class="card" role="listitem" href="/data-ai.html">
           <h3>Sovereign Data &amp; AI</h3>
           <p>Analytics and AI with SA residency. On-prem GPU + cloud burst, governed pipelines.</p>
           <span class="cta-btn">Explore</span>
         </a>
-        <a class="card" role="listitem" href="talent.html">
+        <a class="card" role="listitem" href="/talent.html">
           <h3>Talent Placement</h3>
           <p>Cloud, data, and platform talent — vetted for impact, not keywords.</p>
           <span class="cta-btn">Explore</span>
         </a>
-        <a class="card" role="listitem" href="hosted-private-cloud.html">
+        <a class="card" role="listitem" href="/hosted-private-cloud.html">
           <h3>Hosting (Private Cloud)</h3>
           <p>SA-hosted workloads with predictable cost and performance. Burst to public cloud when it wins.</p>
           <span class="cta-btn">Explore</span>
         </a>
-        <a class="card" role="listitem" href="dynamic-imprinting.html">
+        <a class="card" role="listitem" href="/dynamic-imprinting.html">
           <h3>Dynamic Imprinting</h3>
           <p>Leadership identity work that sticks — perform under pressure, consistently.</p>
           <span class="cta-btn">Explore</span>
@@ -314,22 +315,10 @@
 
     <div class="footer-bottom">
       <p>&copy; 2025 CoreCloud. All rights reserved. |
-        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-        <a href="terms.html" class="legal-link">Terms</a>
+        <a href="/privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="/terms.html" class="legal-link">Terms</a>
       </p>
     </div>
   </footer>
-
-  <!-- Active link highlighter -->
-  <script>
-    (function(){
-      var path=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-      document.querySelectorAll('.main-nav > a, .mobile-drawer > a, .submenu a').forEach(function(a){
-        var href=(a.getAttribute('href')||'').toLowerCase();
-        if(href===path){a.classList.add('active');a.setAttribute('aria-current','page');}
-        else{a.classList.remove('active');a.removeAttribute('aria-current');}
-      });
-    })();
-  </script>
 </body>
 </html>
