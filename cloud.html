@@ -30,6 +30,7 @@
   <style>
     .cloud-page{ --frame-color: var(--royal); }
     .lead{max-width:900px;margin:.5rem auto 0;text-align:center;}
+    .muted-center{color:#5a6b85;text-align:center;max-width:900px;margin:.25rem auto 0}
     .grid-3,.grid-2{display:grid;gap:1rem}
     @media (min-width:900px){ .grid-3{grid-template-columns:1fr 1fr 1fr} .grid-2{grid-template-columns:1fr 1fr} }
     .panel{background:#fff;border:1px solid rgba(0,79,145,.18);border-radius:12px;padding:1rem 1.1rem;box-shadow:0 2px 6px rgba(0,0,0,.04)}
@@ -37,7 +38,6 @@
     .checklist{margin:.35rem 0 0 1.2rem}
     .checklist li{margin:.32rem 0;list-style:disc}
     .badge{display:inline-block;border:1px solid rgba(0,79,145,.25);border-radius:999px;padding:.35rem .65rem;font-weight:700;font-size:.9rem;color:#0b3d72;margin:.15rem .25rem .15rem 0}
-    .muted-center{color:#5a6b85;text-align:center;max-width:900px;margin:.25rem auto 0}
   </style>
 </head>
 
@@ -186,6 +186,79 @@
     <h1 class="hero-title">Cloud Overview — AWS, Azure &amp; Databricks</h1>
     <p class="lead">Operator-led architecture, not slides. Landing zones, security, cost control, and modernisation across AWS &amp; Azure — with Databricks for data &amp; AI.</p>
     <p class="muted-center">Venue-neutral: we’ll put each workload where it wins — and prove it on cost, latency, and risk.</p>
+  </section>
+
+  <!-- Deep Dives -->
+  <section class="section" aria-labelledby="deep-dives-title">
+    <h2 id="deep-dives-title" class="section-title">Deep Dives</h2>
+    <p class="muted-center">Pick your platform and focus area to see reference architectures, guardrails, playbooks, and cost levers.</p>
+
+    <!-- AWS -->
+    <div class="card-grid" role="list" style="max-width:1100px;margin:0 auto;">
+      <a class="card" role="listitem" href="/aws-manage.html">
+        <h3>AWS — Manage</h3>
+        <p>Landing Zone, org/account strategy, budgets/tags, posture reporting.</p>
+        <span class="cta-btn">Explore</span>
+      </a>
+      <a class="card" role="listitem" href="/aws-migration.html">
+        <h3>AWS — Migration</h3>
+        <p>Blueprints, connectivity, data move, rollback paths, prove-you-can-recover.</p>
+        <span class="cta-btn">Explore</span>
+      </a>
+      <a class="card" role="listitem" href="/aws-modernise.html">
+        <h3>AWS — Modernise</h3>
+        <p>EKS/ECS, serverless, event-driven, managed DBs, zero-trust edges.</p>
+        <span class="cta-btn">Explore</span>
+      </a>
+      <a class="card" role="listitem" href="/aws-optimise.html">
+        <h3>AWS — Optimise</h3>
+        <p>Rightsizing, SP/RI strategy, storage tiers, egress-aware design.</p>
+        <span class="cta-btn">Explore</span>
+      </a>
+    </div>
+
+    <!-- Azure -->
+    <div class="card-grid" role="list" style="max-width:1100px;margin:1rem auto 0;">
+      <a class="card" role="listitem" href="/azure-manage.html">
+        <h3>Azure — Manage</h3>
+        <p>Landing Zones, policy-as-code, budgets/tags, Sentinel &amp; posture.</p>
+        <span class="cta-btn">Explore</span>
+      </a>
+      <a class="card" role="listitem" href="/azure-migration.html">
+        <h3>Azure — Migration</h3>
+        <p>vWAN/ER design, data move, blue/green, DR drills with RPO/RTO tiers.</p>
+        <span class="cta-btn">Explore</span>
+      </a>
+      <a class="card" role="listitem" href="/azure-modernise.html">
+        <h3>Azure — Modernise</h3>
+        <p>AKS, Functions, App Service, Private Link, managed data services.</p>
+        <span class="cta-btn">Explore</span>
+      </a>
+      <a class="card" role="listitem" href="/azure-optimise.html">
+        <h3>Azure — Optimise</h3>
+        <p>Rightsizing, reservations/savings, lifecycle policies, showback cadence.</p>
+        <span class="cta-btn">Explore</span>
+      </a>
+    </div>
+
+    <!-- Databricks -->
+    <div class="card-grid" role="list" style="max-width:1100px;margin:1rem auto 0;">
+      <a class="card" role="listitem" href="/databricks-engineering.html">
+        <h3>Databricks — Engineering</h3>
+        <p>Lakehouse on AWS/Azure, Unity Catalog, ingestion/ELT, streaming.</p>
+        <span class="cta-btn">Explore</span>
+      </a>
+      <a class="card" role="listitem" href="/databricks-ml.html">
+        <h3>Databricks — ML/AI</h3>
+        <p>Feature stores, model lifecycle, inference, GenAI enablement.</p>
+        <span class="cta-btn">Explore</span>
+      </a>
+      <a class="card" role="listitem" href="/databricks-optimise.html">
+        <h3>Databricks — Optimise</h3>
+        <p>Cluster policies, auto-stop, job orchestration, cost controls &amp; showback.</p>
+        <span class="cta-btn">Explore</span>
+      </a>
+    </div>
   </section>
 
   <main class="content">
