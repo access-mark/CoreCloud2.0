@@ -22,6 +22,12 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="/assets/css/styles.css?v=17" />
 
+  <!-- One-shot banner height lock (match Home: 500 / 220) -->
+  <style>
+    .imprinting-page .hero-media{ height:500px; }
+    @media (max-width:768px){ .imprinting-page .hero-media{ height:220px; } }
+  </style>
+
   <!-- Preload hero + logo -->
   <link rel="preload" as="image" href="/assets/images/dynamic-imprinting-banner.png" imagesizes="100vw" fetchpriority="high" />
   <link rel="preload" as="image" href="/assets/images/corecloud-logo.png" fetchpriority="high" />
