@@ -448,3 +448,25 @@ footer #subscribe-form label{
   gap:.5rem; max-width:1000px; margin:0 auto; padding:0 1rem; text-align:center;
 }
 .partner-grid span{ display:block; padding:.65rem .75rem; border:1px dashed rgba(0,0,0,.12); border-radius:10px; }
+/* === Canonical hero spacing (match Home) — minimal + safe === */
+
+/* Case 1: pages that use <section class="hero-banner"> after the banner */
+.hero-frame + .hero-banner{
+  background: transparent;
+  padding: 14px 16px 8px !important;  /* same as Home */
+  margin: 0 0 1.5rem !important;      /* gap before next section */
+}
+.hero-frame + .hero-banner .hero-title{ margin: 6px 0 8px !important; }
+.hero-frame + .hero-banner .lead{ margin: 0 0 10px !important; }
+
+/* Case 2: pages that use <section class="hero-intro"> directly after the banner */
+.hero-frame + .hero-intro{
+  background: transparent;
+  text-align: center;
+  padding: 14px 16px 8px !important;  /* same as Home */
+  margin: 0 0 1.5rem !important;      /* gap before next section */
+  max-width: var(--content-max);
+  margin-left: auto; margin-right: auto;
+}
+.hero-frame + .hero-intro .hero-title{ margin: 6px 0 8px !important; text-align: center; }
+.hero-frame + .hero-intro .lead{ margin: 0 0 10px !important; }
