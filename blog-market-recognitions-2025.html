@@ -74,50 +74,155 @@
 </head>
 
 <body class="post-page">
-  <!-- Header / Nav (short labels to match blog.html) -->
-  <div class="small-banner">
-    <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="220" height="64" decoding="async" loading="lazy" />
+  <!-- Header / Nav (unified) -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
+      </a>
 
-      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
-      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></label>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
 
-     <!-- Desktop nav (short labels, consistent site-wide) -->
-<nav class="desktop-nav" aria-label="Primary">
-  <a href="index.html" class="nav-btn">HOME</a>
-  <a href="consulting.html" class="nav-btn">CONSULT</a>
-  <a href="cloud.html" class="nav-btn">CLOUD</a>
-  <a href="finops.html" class="nav-btn">FINOPS</a>
-  <a href="hosting-private-cloud.html" class="nav-btn">HOSTING</a>
-  <a href="application-development.html" class="nav-btn">APP&nbsp;DEV</a>
-  <a href="data-ai.html" class="nav-btn">DATA&nbsp;&amp;&nbsp;AI</a>
-  <a href="talent.html" class="nav-btn">TALENT</a>
-  <a href="talent-relaunch.html" class="nav-btn">RE/LAUNCH</a>
-  <a href="dynamic-imprinting.html" class="nav-btn">IMPRINTING</a>
-  <a href="about.html" class="nav-btn">ABOUT</a>
-  <a href="blog.html" class="nav-btn active" aria-current="page">BLOG</a>
-  <a href="contact.html" class="nav-btn">CONTACT</a>
-</nav>
+        <!-- Consulting -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Consulting</button>
+          <div class="submenu" role="menu" aria-label="Consulting">
+            <a role="menuitem" href="consulting.html">Overview</a>
+            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
+          </div>
+        </div>
 
-<!-- Mobile nav (short labels) -->
-<nav class="mobile-nav" aria-label="Mobile">
-  <a href="index.html">HOME</a>
-  <a href="consulting.html">CONSULT</a>
-  <a href="cloud.html">CLOUD</a>
-  <a href="finops.html">FINOPS</a>
-  <a href="hosting-private-cloud.html">HOSTING</a>
-  <a href="application-development.html">APP DEVELOPMENT</a>
-  <a href="data-ai.html">DATA &amp; AI</a>
-  <a href="talent.html">TALENT</a>
-  <a href="talent-relaunch.html">RE / LAUNCH</a>
-  <a href="dynamic-imprinting.html">IMPRINTING</a>
-  <a href="about.html">ABOUT</a>
-  <a href="blog.html" class="active" aria-current="page">BLOG</a>
-  <a href="contact.html">CONTACT</a>
-</nav>
+        <!-- Cloud Suite -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <div class="submenu" role="menu" aria-label="Cloud Suite">
+            <a role="menuitem" href="cloud.html">Overview</a>
+            <a role="menuitem" href="finops.html">FinOps</a>
+            <a role="menuitem" href="application-development.html">Application Development</a>
+            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
+            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+            <a role="menuitem" href="cloud-security.html">Cloud Security</a>
+          </div>
+        </div>
 
+        <!-- Infrastructure -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="infrastructure.html">Modern Datacenter</a>
+            <a role="menuitem" href="modern-workplace.html">Modern Workplace</a>
+            <a role="menuitem" href="hosting-security.html">Hosting Security</a>
+          </div>
+        </div>
+
+        <!-- Curated Talent -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <div class="submenu" role="menu" aria-label="Curated Talent">
+            <a role="menuitem" href="talent.html">Overview</a>
+            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="global-talent.html">Global Talent</a>
+          </div>
+        </div>
+
+        <!-- Incubation Hub -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
+          <div class="submenu" role="menu" aria-label="Incubation Hub">
+            <a role="menuitem" href="incubation-hub.html">Overview</a>
+            <a role="menuitem" href="qse-collective.html">QSE Collective</a>
+          </div>
+        </div>
+
+        <a href="about.html">About</a>
+        <a href="blog.html" class="active" aria-current="page">Insights</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
     </div>
-  </div>
+
+    <!-- Mobile drawer -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <nav class="mobile-drawer" aria-label="Mobile">
+      <a href="index.html">Home</a>
+
+      <details>
+        <summary>Consulting</summary>
+        <a href="consulting.html">Overview</a>
+        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+      </details>
+
+      <details>
+        <summary>Cloud Suite</summary>
+        <a href="cloud.html">Overview</a>
+        <a href="finops.html">FinOps</a>
+        <a href="application-development.html">Application Development</a>
+        <a href="data-ai.html">Data &amp; AI</a>
+        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+        <a href="cloud-security.html">Cloud Security</a>
+      </details>
+
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="infrastructure.html">Modern Datacenter</a>
+        <a href="modern-workplace.html">Modern Workplace</a>
+        <a href="hosting-security.html">Hosting Security</a>
+      </details>
+
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="global-talent.html">Global Talent</a>
+      </details>
+
+      <details>
+        <summary>Incubation Hub</summary>
+        <a href="incubation-hub.html">Overview</a>
+        <a href="qse-collective.html">QSE Collective</a>
+      </details>
+
+      <a href="about.html">About</a>
+      <a href="blog.html" aria-current="page">Insights</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Active link highlighter (maps any blog-*.html to blog.html and normalizes legacy) -->
+  <script>
+    (function(){
+      function norm(p){
+        if(!p) return 'index.html';
+        p = p.toLowerCase().split('#')[0].split('?')[0];
+        if(p === '' || p === '/') p = 'index.html';
+        if(p === 'blog.html' || p.startsWith('blog-')) p = 'blog.html';
+        if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
+        if(p === 'mobile-web.html') p = 'application-development.html';
+        return p;
+      }
+      var current = norm(location.pathname.split('/').pop() || 'blog-market-recognitions-2025.html');
+
+      // Reset any stale states
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
+        .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
+
+      // Mark current + parent button
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
+        var href = norm(a.getAttribute('href') || '');
+        if(href === current){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+          var group = a.closest('.nav-group');
+          if(group){
+            var btn = group.querySelector(':scope > button');
+            if(btn){ btn.classList.add('active'); }
+          }
+        }
+      });
+    })();
+  </script>
 
   <div class="post-wrap">
     <nav class="breadcrumbs" aria-label="Breadcrumbs"><a href="index.html">Home</a> / <a href="blog.html">Blog</a> / News</nav>
@@ -203,17 +308,5 @@
       </p>
     </div>
   </footer>
-
-  <!-- Auto-highlight current nav -->
-  <script>
-    (function(){
-      var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
-      document.querySelectorAll('.desktop-nav a, .mobile-nav a').forEach(function(a){
-        var href = (a.getAttribute('href') || '').toLowerCase();
-        if (href === path) { a.classList.add('active'); a.setAttribute('aria-current','page'); }
-        else { a.classList.remove('active'); a.removeAttribute('aria-current'); }
-      });
-    })();
-  </script>
 </body>
 </html>
