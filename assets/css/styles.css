@@ -539,3 +539,38 @@ footer #subscribe-form label{
 
 /* Bring the next section a little closer */
 .home-page .best-venue-section{ padding-top: 1rem; }
+/* Utilities used above */
+.pl-5 { padding-left: 1.25rem; }
+.max-900 { max-width: 900px; margin-left:auto; margin-right:auto; }
+
+/* === Home: restore taller banner + bump hero text === */
+.home-page .hero-frame { margin: 0; }
+
+/* Banner (image) height */
+.home-page .hero-media{ height: 420px; }          /* desktop */
+@media (max-width:768px){
+  .home-page .hero-media{ height: 220px; }        /* mobile */
+}
+
+/* Hero text block: no background + compact spacing */
+.home-page .hero-banner{
+  background: transparent;
+  min-height: 0;
+  padding: 14px 16px 8px;
+}
+
+/* Hero typography (slightly larger now) */
+.home-page .hero-title{
+  font-size: clamp(1.6rem, 2.2vw + 1rem, 2.2rem);
+  line-height: 1.22;
+  margin: 6px 0 8px;
+}
+.home-page .hero-banner .lead{
+  font-size: 1.08rem;
+  line-height: 1.55;
+  margin: 0 0 10px;
+}
+.home-page .hero-banner .cta-row{ margin-top: 8px; }
+
+/* Bring next section closer */
+.home-page .best-venue-section{ padding-top: 1rem; }
