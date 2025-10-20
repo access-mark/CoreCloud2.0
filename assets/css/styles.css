@@ -574,3 +574,5 @@ footer #subscribe-form label{
 
 /* Bring next section closer */
 .home-page .best-venue-section{ padding-top: 1rem; }
+/* Add breathing room between hero CTA and the "Hybrid" section */
+.home-page .hero-banner { margin-bottom: 1.5rem; }
