@@ -28,9 +28,16 @@
 
   <!-- Page-scoped (minimal) -->
   <style>
-    .cloud-page{ --frame-color: var(--royal); }
+    /* Gold frame on this page */
+    .cloud-page{ --frame-color: var(--gold); }
+
+    /* Ensure hero image is 500/220 and remove grey fallback */
+    .cloud-page .hero-media{ height: 500px; background: transparent; }
+    @media (max-width:768px){ .cloud-page .hero-media{ height: 220px; } }
+
     .lead{max-width:900px;margin:.5rem auto 0;text-align:center;}
     .muted-center{color:#5a6b85;text-align:center;max-width:900px;margin:.25rem auto 0}
+
     .grid-3,.grid-2{display:grid;gap:1rem}
     @media (min-width:900px){ .grid-3{grid-template-columns:1fr 1fr 1fr} .grid-2{grid-template-columns:1fr 1fr} }
     .panel{background:#fff;border:1px solid rgba(0,79,145,.18);border-radius:12px;padding:1rem 1.1rem;box-shadow:0 2px 6px rgba(0,0,0,.04)}
@@ -44,6 +51,13 @@
     @media (min-width:1000px){.deep-dives .columns{grid-template-columns:1fr 1fr 1fr}}
     .deep-dives .column-title{margin:.25rem 0 .5rem;text-align:center;color:#0b3d72}
     .deep-dives .stack{display:grid;gap:1rem}
+
+    /* Inline CTA polish */
+    .inline-cta{
+      max-width:900px;margin:0 auto;padding:16px;border:1px solid rgba(0,0,0,.08);
+      border-radius:12px;background:#fff;text-align:center;
+    }
+    .inline-cta p{margin:.4rem 0 1rem}
   </style>
 </head>
 
@@ -209,7 +223,7 @@
     <p class="muted-center">Venue-neutral: we’ll put each workload where it wins — and prove it on cost, latency, and risk.</p>
   </section>
 
-  <!-- Deep Dives (3 columns; vertical cards under each) -->
+  <!-- Deep Dives -->
   <section class="section deep-dives" aria-labelledby="deep-dives-title">
     <h2 id="deep-dives-title" class="section-title">Deep Dives</h2>
     <p class="muted-center">Choose a platform, then drill into manage, migrate, modernise, and optimise.</p>
@@ -269,7 +283,7 @@
         </div>
       </div>
 
-      <!-- Databricks column (Lakehouse first) -->
+      <!-- Databricks column -->
       <div class="column">
         <h3 class="column-title">Databricks</h3>
         <div role="list" class="stack">
