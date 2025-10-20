@@ -448,33 +448,3 @@ footer #subscribe-form label{
   gap:.5rem; max-width:1000px; margin:0 auto; padding:0 1rem; text-align:center;
 }
 .partner-grid span{ display:block; padding:.65rem .75rem; border:1px dashed rgba(0,0,0,.12); border-radius:10px; }
-/* === Uniform hero spacing after banner (works for both markups) === */
-.hero-frame + .hero-banner,
-.hero-frame + .hero-intro{
-  background:transparent;
-  min-height:0;
-  padding:14px 16px 8px !important;   /* match Home */
-  margin:0 0 1.5rem !important;       /* consistent gap before next section */
-  display:grid; place-items:center; text-align:center;
-}
-
-.hero-frame + .hero-banner .hero-intro{ max-width:var(--content-max); margin:0 auto; padding:0 1rem; }
-.hero-frame + .hero-intro{ max-width:var(--content-max); margin:0 auto; padding:0 1rem !important; }
-
-.hero-frame + .hero-banner .hero-title,
-.hero-frame + .hero-intro .hero-title{
-  font-size:clamp(1.6rem, 2.2vw + 1rem, 2.2rem);
-  line-height:1.22;
-  margin:6px 0 8px !important;
-}
-
-.hero-frame + .hero-banner .lead,
-.hero-frame + .hero-intro .lead{
-  font-size:1.08rem;
-  line-height:1.55;
-  margin:0 0 10px !important;
-}
-
-/* Universal banner height (already in 17.2, here for completeness) */
-.hero-media{ height:500px !important; }
-@media (max-width:768px){ .hero-media{ height:220px !important; } }
