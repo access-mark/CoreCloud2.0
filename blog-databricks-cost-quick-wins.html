@@ -1,78 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Databricks Cost: Quick Wins | CoreCloud Insights</title>
-<meta name="description" content="Right-size clusters, trim idle, and fix the three config traps that quietly burn budget — without slowing delivery." />
-<meta name="robots" content="index, follow" />
-<meta name="author" content="CoreCloud" />
-<meta name="theme-color" content="#004f91" />
+  <!-- Meta -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Databricks Cost: Quick Wins | CoreCloud Insights</title>
+  <meta name="description" content="Right-size clusters, trim idle, and fix the three config traps that quietly burn budget — without slowing delivery."/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="author" content="CoreCloud"/>
+  <meta name="theme-color" content="#004f91"/>
 
-<!-- Canonical + Social -->
-<link rel="canonical" href="https://www.corecloudza.com/blog-databricks-cost-quick-wins.html" />
-<meta property="og:title" content="Databricks Cost: Quick Wins — CoreCloud" />
-<meta property="og:description" content="Quick, practical moves to cut DBU burn and keep performance." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://www.corecloudza.com/blog-databricks-cost-quick-wins.html" />
-<meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg" />
-<meta name="twitter:card" content="summary_large_image" />
+  <!-- Canonical + Social -->
+  <link rel="canonical" href="https://www.corecloudza.com/blog-databricks-cost-quick-wins.html"/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:title" content="Databricks Cost: Quick Wins — CoreCloud"/>
+  <meta property="og:description" content="Quick, practical moves to cut DBU burn and keep performance."/>
+  <meta property="og:url" content="https://www.corecloudza.com/blog-databricks-cost-quick-wins.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/social-blog.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
 
-<link rel="stylesheet" href="assets/css/styles.css?v=17.2" />
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=17.2"/>
 
-<style>
-  .post-wrap{ max-width:900px; margin:0 auto; padding:1rem; }
-  .post-header h1{ margin:1rem 0 .5rem; }
-  .post-meta{ color:#5a6b85; font-size:.9rem; }
-  .post-hero{ height:300px; background:#eef3fa url('assets/images/index-bannerimage.png') center/cover no-repeat; border-radius:12px; }
-  .post-body{ color:#222; line-height:1.8; font-size:1.05rem; }
-  .post-body h2{ color:#0d3b66; margin-top:1.4rem; }
-  .inline-note{ background:#f7fafc; border:1px solid #e4e8f1; border-radius:10px; padding:.8rem 1rem; margin:1rem 0; font-size:.95rem; color:#5a6b85; }
-  .inline-cta{ background:#0d3b66; color:#fff; padding:1rem 1.2rem; border-radius:12px; margin:1.5rem 0; }
-  .inline-cta .cta-btn{ margin-top:.8rem; }
-  .related{ border-top:1px solid #e4e8f1; margin-top:2rem; padding-top:1rem; }
-  .next-prev{ display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
-  .next-prev a{ text-decoration:none; color:#0d3b66; font-weight:700; }
-  .next-prev a:hover{ text-decoration:underline; }
+  <!-- Post-scoped styles (kept from your version) -->
+  <style>
+    .post-wrap{ max-width:900px; margin:0 auto; padding:1rem; }
+    .post-header h1{ margin:1rem 0 .5rem; }
+    .post-meta{ color:#5a6b85; font-size:.9rem; }
+    .post-hero{ height:300px; background:#eef3fa url('assets/images/index-bannerimage.png') center/cover no-repeat; border-radius:12px; }
+    .post-body{ color:#222; line-height:1.8; font-size:1.05rem; }
+    .post-body h2{ color:#0d3b66; margin-top:1.4rem; }
+    .inline-note{ background:#f7fafc; border:1px solid #e4e8f1; border-radius:10px; padding:.8rem 1rem; margin:1rem 0; font-size:.95rem; color:#5a6b85; }
+    .inline-cta{ background:#0d3b66; color:#fff; padding:1rem 1.2rem; border-radius:12px; margin:1.5rem 0; }
+    .inline-cta .cta-btn{ margin-top:.8rem; }
+    .related{ border-top:1px solid #e4e8f1; margin-top:2rem; padding-top:1rem; }
+    .next-prev{ display:flex; justify-content:space-between; gap:1rem; margin-top:1.5rem; }
+    .next-prev a{ text-decoration:none; color:#0d3b66; font-weight:700; }
+    .next-prev a:hover{ text-decoration:underline; }
 
-  /* Force white CTA text on dark card */
-  .post-page .inline-cta,
-  .post-page .inline-cta p,
-  .post-page .inline-cta a,
-  .post-page .inline-cta .cta-btn { color:#fff !important; }
+    /* Force white CTA text on dark card */
+    .post-page .inline-cta,
+    .post-page .inline-cta p,
+    .post-page .inline-cta a,
+    .post-page .inline-cta .cta-btn { color:#fff !important; }
 
-  /* Mobile hardening */
-  .post-page .post-wrap{ padding:0 1rem; }
-  .post-page .breadcrumbs, .post-page .post-header h1, .post-page .post-meta,
-  .post-page .post-body p, .post-page .post-body li, .post-page .inline-note,
-  .post-page .next-prev a{ word-break:break-word; overflow-wrap:anywhere; }
-  @media (max-width:768px){
-    .post-page .post-hero{ height:200px; border-radius:10px; }
-    .post-page .post-header h1{ font-size:1.6rem; line-height:1.25; }
-    .post-page .post-meta{ font-size:.9rem; }
-    .post-page .post-body{ font-size:1rem; line-height:1.7; }
-    .post-page .inline-cta{ padding:.9rem 1rem; border-radius:10px; }
-    .post-page .next-prev{ gap:.75rem; flex-wrap:wrap; }
-    .post-page .next-prev a{ display:block; width:100%; text-align:center; padding:.75rem 1rem; border:1px solid #e4e8f1; border-radius:8px; background:#fff; }
+    /* Mobile hardening */
+    .post-page .post-wrap{ padding:0 1rem; }
+    .post-page .breadcrumbs, .post-page .post-header h1, .post-page .post-meta,
+    .post-page .post-body p, .post-page .post-body li, .post-page .inline-note,
+    .post-page .next-prev a{ word-break:break-word; overflow-wrap:anywhere; }
+    @media (max-width:768px){
+      .post-page .post-hero{ height:200px; border-radius:10px; }
+      .post-page .post-header h1{ font-size:1.6rem; line-height:1.25; }
+      .post-page .post-meta{ font-size:.9rem; }
+      .post-page .post-body{ font-size:1rem; line-height:1.7; }
+      .post-page .inline-cta{ padding:.9rem 1rem; border-radius:10px; }
+      .post-page .next-prev{ gap:.75rem; flex-wrap:wrap; }
+      .post-page .next-prev a{ display:block; width:100%; text-align:center; padding:.75rem 1rem; border:1px solid #e4e8f1; border-radius:8px; background:#fff; }
+    }
+  </style>
+
+  <!-- JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BlogPosting",
+    "headline":"Databricks Cost: Quick Wins",
+    "description":"Right-size clusters, trim idle, and fix config traps that quietly burn budget — without slowing delivery.",
+    "author":{"@type":"Person","name":"Mark Louw"},
+    "publisher":{"@type":"Organization","name":"CoreCloud","logo":{"@type":"ImageObject","url":"https://www.corecloudza.com/assets/images/corecloud-logo.png"}},
+    "datePublished":"2025-09-10",
+    "image":"https://www.corecloudza.com/assets/images/social-blog.jpg",
+    "mainEntityOfPage":"https://www.corecloudza.com/blog-databricks-cost-quick-wins.html"
   }
-</style>
-
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"BlogPosting",
-  "headline":"Databricks Cost: Quick Wins",
-  "description":"Right-size clusters, trim idle, and fix config traps that quietly burn budget — without slowing delivery.",
-  "author":{"@type":"Person","name":"Mark Louw"},
-  "publisher":{"@type":"Organization","name":"CoreCloud","logo":{"@type":"ImageObject","url":"https://www.corecloudza.com/assets/images/corecloud-logo.png"}} ,
-  "datePublished":"2025-09-10",
-  "image":"https://www.corecloudza.com/assets/images/social-blog.jpg",
-  "mainEntityOfPage":"https://www.corecloudza.com/blog-databricks-cost-quick-wins.html"
-}
-</script>
+  </script>
 </head>
 
-<body class="post-page blog-page">
+<body class="post-page databricks-page">
   <!-- Header / Nav (unified) -->
   <header class="site-header" role="banner">
     <div class="header-inner">
@@ -189,6 +193,43 @@
     </nav>
   </header>
 
+  <!-- Active link highlighter (treat any blog-*.html as blog.html) -->
+  <script>
+    (function(){
+      function norm(p){
+        if(!p) return 'index.html';
+        p = p.toLowerCase().split('#')[0].split('?')[0];
+        if(p === '' || p === '/') p = 'index.html';
+
+        // ✅ Insights highlight on all blog pages
+        if (p === 'blog.html' || p.startsWith('blog-')) p = 'blog.html';
+
+        // Legacy aliases
+        if (p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
+        if (p === 'mobile-web.html') p = 'application-development.html';
+        return p;
+      }
+      var current = norm(location.pathname.split('/').pop() || 'blog-databricks-cost-quick-wins.html');
+
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
+        .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
+
+      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
+        var href = norm(a.getAttribute('href') || '');
+        if (href === current){
+          a.classList.add('active');
+          a.setAttribute('aria-current','page');
+          var group = a.closest('.nav-group');
+          if(group){
+            var btn = group.querySelector(':scope > button');
+            if(btn){ btn.classList.add('active'); }
+          }
+        }
+      });
+    })();
+  </script>
+
+  <!-- Post -->
   <div class="post-wrap">
     <nav class="breadcrumbs" aria-label="Breadcrumbs"><a href="index.html">Home</a> / <a href="blog.html">Blog</a> / Cloud</nav>
 
@@ -247,23 +288,24 @@
     </article>
   </div>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-content">
       <div class="footer-left">
         <p><strong>CoreCloud (Pty) Ltd</strong></p>
-        <p>Sandton<br>Johannesburg<br>South Africa</p>
+        <p>Sandton<br/>Johannesburg<br/>South Africa</p>
       </div>
 
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
         <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-          <input type="hidden" name="_template" value="table" />
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
           <label class="visually-hidden" for="newsletter_email">Email</label>
-          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
       </div>
@@ -283,34 +325,5 @@
       </p>
     </div>
   </footer>
-
-  <!-- Active link highlighter (unified; also underlines parent when submenu active) -->
-  <script>
-    (function(){
-      function norm(p){
-        if(!p) return 'index.html';
-        p = p.toLowerCase().split('#')[0].split('?')[0];
-        if(p === '' || p === '/') p = 'index.html';
-        if(p === 'hosting-private-cloud.html') p = 'hosted-private-cloud.html';
-        if(p === 'mobile-web.html') p = 'application-development.html';
-        return p;
-      }
-      var current = norm(location.pathname.split('/').pop() || 'blog-databricks-cost-quick-wins.html');
-
-      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
-        .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
-
-      document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a')
-        .forEach(function(a){
-          var href = norm(a.getAttribute('href')||'');
-          if(href === current){
-            a.classList.add('active');
-            a.setAttribute('aria-current','page');
-            var group = a.closest('.nav-group');
-            if(group){ var btn = group.querySelector(':scope > button'); if(btn){ btn.classList.add('active'); } }
-          }
-        });
-    })();
-  </script>
 </body>
 </html>
