@@ -470,3 +470,32 @@ footer #subscribe-form label{
 }
 .hero-frame + .hero-intro .hero-title{ margin: 6px 0 8px !important; text-align: center; }
 .hero-frame + .hero-intro .lead{ margin: 0 0 10px !important; }
+/* === Canonical hero centering (works for both patterns) === */
+
+/* Center the section itself */
+.hero-frame + .hero-banner,
+.hero-frame + .hero-intro{
+  text-align: center !important;
+}
+
+/* Ensure the inner container is centered and constrained */
+.hero-frame + .hero-banner .hero-intro,
+.hero-frame + .hero-intro{
+  max-width: var(--content-max);
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Normalize inner elements */
+.hero-frame + .hero-banner :is(h1,.hero-title,.lead,.cta-row),
+.hero-frame + .hero-intro :is(h1,.hero-title,.lead,.cta-row){
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* If any page had a left-align override, neutralize it */
+.hosting-page .hero-intro,
+.hosting-page .hero-intro :is(h1,p){
+  text-align: center !important;
+}
