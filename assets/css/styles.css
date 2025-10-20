@@ -508,3 +508,34 @@ footer #subscribe-form label{
   gap:.5rem;max-width:1000px;margin:0 auto;padding:0 1rem;text-align:center;
 }
 .partner-grid span{display:block;padding:.65rem .75rem;border:1px dashed rgba(0,0,0,.12);border-radius:10px;}
+/* === Home: banner-first layout, tight hero, no background === */
+.home-page .hero-frame { margin: 0; }
+
+/* Banner image height (feel free to tweak the pixels) */
+.home-page .hero-media{ height: 340px; }
+@media (max-width:768px){
+  .home-page .hero-media{ height: 200px; }
+}
+
+/* Hero text block: remove bg + tighten spacing */
+.home-page .hero-banner{
+  background: transparent;
+  min-height: 0;
+  padding: 12px 16px 6px;
+}
+
+/* Smaller, tighter heading + lead */
+.home-page .hero-title{
+  font-size: clamp(1.35rem, 1.8vw + 0.9rem, 1.9rem);
+  line-height: 1.2;
+  margin: 4px 0 6px;
+}
+.home-page .hero-banner .lead{
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0 0 8px;
+}
+.home-page .hero-banner .cta-row{ margin-top: 6px; }
+
+/* Bring the next section a little closer */
+.home-page .best-venue-section{ padding-top: 1rem; }
