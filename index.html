@@ -20,19 +20,15 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=17"/>
+  <link rel="stylesheet" href="assets/css/styles.css?v=14.2"/>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/index-bannerimage.png" fetchpriority="high"/>
 
   <!-- JSON-LD -->
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","name":"CoreCloud","url":"https://www.corecloudza.com/","publisher":{"@type":"Organization","name":"CoreCloud"}}
-  </script>
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png","sameAs":["https://www.linkedin.com/company/corecloudza"],"contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"sales@corecloudza.com","telephone":"+27 11 568 8667","areaServed":"ZA"}],"address":{"@type":"PostalAddress","addressLocality":"Johannesburg","addressRegion":"Gauteng","addressCountry":"ZA"}}
-  </script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"CoreCloud","url":"https://www.corecloudza.com/","publisher":{"@type":"Organization","name":"CoreCloud"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"CoreCloud","url":"https://www.corecloudza.com/","logo":"https://www.corecloudza.com/assets/images/corecloud-logo.png","sameAs":["https://www.linkedin.com/company/corecloudza"],"contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"sales@corecloudza.com","telephone":"+27 11 568 8667","areaServed":"ZA"}],"address":{"@type":"PostalAddress","addressLocality":"Johannesburg","addressRegion":"Gauteng","addressCountry":"ZA"}}</script>
 </head>
 
 <body class="home-page">
@@ -55,7 +51,7 @@
           </div>
         </div>
 
-        <!-- Cloud Suite (now includes Cloud Security) -->
+        <!-- Cloud Suite -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
@@ -68,7 +64,7 @@
           </div>
         </div>
 
-        <!-- Infrastructure (now includes Hosting Security) -->
+        <!-- Infrastructure -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
           <div class="submenu" role="menu" aria-label="Infrastructure">
@@ -88,7 +84,7 @@
           </div>
         </div>
 
-        <!-- Incubation Hub (dropdown with QSE Collective) -->
+        <!-- Incubation Hub -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
           <div class="submenu" role="menu" aria-label="Incubation Hub">
@@ -162,58 +158,47 @@
         return href;
       }
       var current = norm((location.pathname.split('/').pop() || 'index.html'));
-
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a').forEach(function(a){
         var href = norm(a.getAttribute('href') || '');
         if(href === current){
-          a.classList.add('active');
-          a.setAttribute('aria-current','page');
-          var group = a.closest('.nav-group');
-          if(group){
-            var btn = group.querySelector('button');
-            if(btn){ btn.classList.add('active'); }
-          }
+          a.classList.add('active'); a.setAttribute('aria-current','page');
+          var group = a.closest('.nav-group'); if(group){ var btn = group.querySelector('button'); if(btn){ btn.classList.add('active'); } }
         }else{
-          a.classList.remove('active');
-          a.removeAttribute('aria-current');
+          a.classList.remove('active'); a.removeAttribute('aria-current');
         }
       });
     })();
   </script>
 
-  <!-- Banner -->
-  <div class="hero-frame">
-    <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
-      <img src="assets/images/index-bannerimage.png" alt="From Strategy to Revenue. From Cloud to People." width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
-    </div>
-  </div>
-
-  <!-- Hero intro -->
-  <section class="hero-intro">
-    <h1 class="hero-title">From Strategy to Revenue. From Cloud to People.</h1>
-    <p>We help South African enterprises turn strategy into action — sharper sales execution, modernised cloud &amp; hybrid infrastructure, elite ICT talent, and disciplined app delivery.</p>
-    <div class="cta-row" style="margin-top:.5rem;">
-      <a class="cta-btn" href="cloud.html">Design My Hybrid</a>
+  <!-- HERO (centered body) -->
+  <section class="hero-banner hero-frame">
+    <div class="hero-intro">
+      <h1 class="hero-title">From Strategy to Revenue. From Cloud to People.</h1>
+      <p class="lead">We help South African enterprises turn strategy into action — sharper sales execution, modernised cloud &amp; hybrid infrastructure, elite ICT talent, and disciplined app delivery.</p>
+      <div class="cta-row">
+        <a class="cta-btn" href="cloud.html">Design My Hybrid</a>
+      </div>
     </div>
   </section>
+
+  <!-- Optional banner image below hero (kept for your look) -->
+  <div class="hero-media" role="img" aria-label="CoreCloud — Strategy, Cloud, Talent, Applications">
+    <img src="assets/images/index-bannerimage.png" alt="From Strategy to Revenue. From Cloud to People." width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
+  </div>
 
   <!-- Hybrid (centered) -->
   <section class="section best-venue-section" aria-labelledby="hybrid-title">
     <h2 id="hybrid-title" class="section-title">Hybrid Isn’t Optional — It’s the Operating Model</h2>
-    <p style="text-align:center;">
-      One venue cannot win on cost, performance, and risk at the same time. We place each workload where it wins:
-      cloud for elasticity &amp; services; hosted/on-prem for predictable, low-latency, compliant run.
-    </p>
+    <p class="centered">One venue cannot win on cost, performance, and risk at the same time. We place each workload where it wins:
+      cloud for elasticity &amp; services; hosted/on-prem for predictable, low-latency, compliant run.</p>
   </section>
 
   <main class="content" id="main">
     <!-- About (centered) -->
     <section class="section" aria-labelledby="about-title">
       <h2 id="about-title" class="section-title">About CoreCloud</h2>
-      <p style="max-width:900px;margin:0 auto;text-align:center;">
-        Operators, not theorists. We’ve been under real boardroom pressure and know how to land change.
-        Sales, cloud, hybrid infrastructure, and applications — focused on outcomes that move the needle.
-      </p>
+      <p class="centered" style="max-width:900px">Operators, not theorists. We’ve been under real boardroom pressure and know how to land change.
+        Sales, cloud, hybrid infrastructure, and applications — focused on outcomes that move the needle.</p>
     </section>
 
     <!-- Focus & Method -->
@@ -234,7 +219,7 @@
     <!-- Recent wins -->
     <section class="section" aria-labelledby="wins-title">
       <h2 id="wins-title" class="section-title">Recent Wins Through Partner Collective</h2>
-      <ul style="max-width:900px;margin:0 auto;padding-left:1.25rem;">
+      <ul class="narrative" style="padding-left:1.25rem; max-width:900px;">
         <li>−32% run-rate: ERP + SQL to hosted private cloud; burst to Azure for quarter-end. DR bundled.</li>
         <li>−48% latency: Trading analytics hybridised — on-prem GPU + S3-compatible store; cloud for global insights.</li>
         <li>Zero-downtime move: Payments core via blue/green + feature flags reduced risk during cutover.</li>
@@ -306,12 +291,12 @@
       <div class="footer-middle">
         <h4>Stay Informed</h4>
         <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST">
           <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
           <input type="hidden" name="_template" value="table"/>
           <input type="hidden" name="_captcha" value="false"/>
           <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
-          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <label for="newsletter_email">Email</label>
           <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email"/>
           <button type="submit" class="cta-btn">Subscribe</button>
         </form>
@@ -320,13 +305,13 @@
       <div class="footer-right">
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-        <p>Phone: <a href="tel:+27 11 568 8667">+27 11 568 8667</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
         <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2025 CoreCloud. All rights reserved. |
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> CoreCloud. All rights reserved. |
         <a href="privacy.html" class="legal-link">Privacy Policy</a> |
         <a href="terms.html" class="legal-link">Terms</a>
       </p>
