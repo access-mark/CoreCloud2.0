@@ -19,7 +19,7 @@
   <meta name="twitter:card" content="summary_large_image"/>
 
   <!-- Global CSS -->
-  <link rel="stylesheet" href="/assets/css/styles.css?v=17"/>
+  <link rel="stylesheet" href="/assets/css/styles.css?v=14.2"/>
 
   <!-- Preload -->
   <link rel="preload" as="image" href="/assets/images/corecloud-logo.png" fetchpriority="high">
@@ -28,14 +28,18 @@
   <!-- Page-scoped (minimal) -->
   <style>
     :root{ --royal:#004f91; --royal-2:#0b3d72; --gold:#d4af37; --dark-blue:#004f91; }
+
+    /* Page frame color (single stripe) */
     .consulting-page{ --frame-color: var(--gold); }
 
+    /* Center section titles (safely) */
     .consulting-page .section .section-title{
       text-align:center !important;
       margin-left:auto !important;
       margin-right:auto !important;
     }
 
+    /* Panel headings */
     .panel h4{
       font-size: 1.4rem !important;
       font-weight: 600 !important;
@@ -45,9 +49,11 @@
       text-align: left;
     }
 
+    /* Anchor offset for sticky header */
     .consulting-page section[id]{ scroll-margin-top:132px; }
     @media (max-width:768px){ .consulting-page section[id]{ scroll-margin-top:96px; } }
 
+    /* On-page chips nav */
     .inpage-nav{
       display:flex; flex-wrap:wrap; align-items:center; justify-content:center;
       gap:8px; margin:0 auto 1rem; padding:.35rem 1rem; max-width:1000px;
@@ -63,11 +69,13 @@
       .inpage-nav a{ padding:.35rem .6rem; font-size:.9rem; }
     }
 
+    /* Ensure desktop nav group button shows active underline */
     .main-nav .nav-group > button.active{
       color: var(--royal);
       border-bottom:2px solid var(--royal);
     }
 
+    /* Content grids */
     .metrics{ display:grid; gap:.4rem; max-width:1000px; margin:0 auto; padding:0 1rem; }
     .metric{ display:flex; justify-content:space-between; gap:.75rem; border-bottom:1px dashed rgba(0,0,0,.12); padding:.35rem 0; }
     .metric b{ color:#0b3d72; }
@@ -78,6 +86,10 @@
     .chip{ border:1px solid rgba(0,79,145,.2); background:#fff; border-radius:999px; padding:.45rem .75rem; font-weight:700; color:#0b3d72; font-size:.92rem; }
     .checklist{ margin:.3rem 0 0 1.2rem; }
     .checklist li{ margin:.32rem 0; list-style:disc; }
+
+    /* Breathing room between hero and chips nav */
+    .consulting-page .hero-intro{ padding-top: 16px; padding-bottom: 8px; }
+    .consulting-page .hero-intro{ margin-bottom: 1.25rem; }
   </style>
 </head>
 
@@ -96,12 +108,12 @@
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
-            <a role="menuitem" href="/consulting.html" class="active" aria-current="page">Overview</a>
+            <a role="menuitem" href="/consulting.html">Overview</a>
             <a role="menuitem" href="/dynamic-imprinting.html">Dynamic Imprinting</a>
           </div>
         </div>
 
-        <!-- Cloud Suite (includes Cloud Security) -->
+        <!-- Cloud Suite -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
@@ -114,7 +126,7 @@
           </div>
         </div>
 
-        <!-- Infrastructure (includes Hosting Security) -->
+        <!-- Infrastructure -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
           <div class="submenu" role="menu" aria-label="Infrastructure">
@@ -134,7 +146,7 @@
           </div>
         </div>
 
-        <!-- Incubation Hub (dropdown with QSE Collective) -->
+        <!-- Incubation Hub -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
           <div class="submenu" role="menu" aria-label="Incubation Hub">
@@ -198,7 +210,7 @@
     </nav>
   </header>
 
-  <!-- Active-link highlighter (single, robust) -->
+  <!-- Active-link highlighter -->
   <script>
     (function(){
       function norm(href){
@@ -225,7 +237,7 @@
         }
       });
 
-      // In-page chip highlighting for hash nav
+      /* In-page chip highlighting for hash nav */
       function markChip(){
         var hash = location.hash.replace('#','');
         document.querySelectorAll('.inpage-nav a').forEach(function(link){
@@ -238,14 +250,14 @@
     })();
   </script>
 
-  <!-- Banner -->
+  <!-- Banner (directly under nav) -->
   <div class="hero-frame">
     <div class="hero-media" role="img" aria-label="CoreCloud Consulting — Operator-led execution">
       <img src="/assets/images/consulting-bannerimage.png" alt="CoreCloud Consulting — Operator-led execution" decoding="async" loading="eager" width="1920" height="500">
     </div>
   </div>
 
-  <!-- Hero intro -->
+  <!-- Hero intro (below banner) -->
   <section class="hero-intro">
     <h1 class="hero-title">Consulting That Lands Results</h1>
     <p>We connect <strong>GTM</strong>, <strong>people</strong>, and <strong>platform</strong> so strategy turns into revenue. Operator-led, vendor-neutral, built for the South African market.</p>
@@ -510,7 +522,7 @@
       <div class="footer-right">
         <p><strong>Contact</strong></p>
         <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-        <p>Phone: <a href="tel:+27 11 568 8667">+27 11 568 8667</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
         <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
       </div>
     </div>
