@@ -533,3 +533,27 @@ footer #subscribe-form label{
 
 /* 3) Force Cloud page banner lines to GOLD (overrides any inline page rule) */
 body.cloud-page{ --frame-color: var(--gold) !important; }
+/* === Canonical hero spacing (site-wide) === */
+.hero-frame{ margin:0; }
+
+/* Spacing for the text hero that follows the banner image */
+.hero-frame + .hero-banner{
+  margin-top:0;
+  padding-top:14px;
+  padding-bottom:8px;
+  margin-bottom:1.5rem;     /* gap before the next section */
+}
+
+/* Keep the intro container tidy and centered */
+.hero-banner .hero-intro{
+  max-width:var(--content-max);
+  margin:0 auto;
+}
+
+/* Normalize the first elements inside the hero */
+.hero-banner .hero-title{ margin-top:0; }
+.hero-banner .lead{ margin:0 0 10px; }
+.hero-banner .cta-row{ margin-top:8px; }
+
+/* Make sure the first section after the hero starts consistently */
+.hero-banner + .section{ padding-top:1rem; }
