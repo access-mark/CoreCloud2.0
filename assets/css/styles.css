@@ -1,11 +1,6 @@
 /* ===========================
-   CoreCloud — assets/css/styles.css (v14.2)
-   Single source of truth
-   - Unified header/nav (desktop + mobile drawer)
-   - One hero behaviour (centered, responsive)
-   - Consistent typography, grids, CTAs, footer
-   - Spacing scale, readable measure, sticky rail
-   - Mobile cut-off fixes (no !important hacks)
+   CoreCloud — assets/css/styles.css (v17.1)
+   One source of truth (unified hero + spacing across all pages)
    =========================== */
 
 /* Reset */
@@ -24,7 +19,7 @@ img { max-width: 100%; height: auto; display: block; }
   --text-gray:#444;
   --gold:#d4af37;
 
-  /* Canonical body text blues */
+  /* Canonical text blues */
   --text-blue:#0a2b4f;
   --royal: var(--dark-blue);
   --royal-2:#0e3560;
@@ -44,7 +39,7 @@ img { max-width: 100%; height: auto; display: block; }
   --space-5:1.25rem; --space-6:1.5rem; --space-7:2rem; --space-8:2.5rem;
   --space-9:3rem; --space-10:4rem;
 
-  /* Hero/banner heights */
+  /* Default hero heights */
   --hero-h-desktop: 500px;
   --hero-h-mobile: 220px;
 
@@ -53,7 +48,7 @@ img { max-width: 100%; height: auto; display: block; }
 
   /* Banner frame (single stripe) */
   --frame-thin: 4px;
-  --frame-color: var(--gold);
+  --frame-color: var(--gold); /* default gold */
 }
 
 /* Override frame color to BLUE where required */
@@ -72,21 +67,21 @@ body{
   min-height:100vh;
 }
 
-/* Typography (single definition) */
+/* Typography */
 h1{ font-size:2.8rem; font-weight:700; color:var(--dark-blue); margin-bottom:1.2rem; line-height:1.3; text-align:center; }
 h2{ font-size:1.8rem; font-weight:600; color:var(--dark-blue); margin-bottom:1rem; line-height:1.4; text-align:center; }
 h3{ font-size:1.4rem; font-weight:600; color:var(--dark-blue); margin-bottom:.8rem; }
 p{ font-size:1rem; color:var(--text-blue); margin-bottom:1rem; }
 
 /* =========================
-   Unified Header / Nav
+   Header / Nav
    ========================= */
 .site-header{position:sticky;top:0;z-index:999;background:#fff;border-bottom:1px solid rgba(0,0,0,.06);}
 .header-inner{max-width:var(--container);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:6px 16px;}
 .brand .logo{height:var(--logo-h-desktop);width:auto;object-fit:contain;}
 @media(max-width:768px){.brand .logo{height:var(--logo-h-mobile);}}
 
-/* Desktop nav (main + legacy desktop-nav normalized) */
+/* Desktop nav */
 .main-nav,.desktop-nav{display:flex;align-items:center;gap:18px;}
 .main-nav > a, .desktop-nav > a,
 .main-nav > .nav-group > button, .desktop-nav > .nav-group > button{
@@ -109,7 +104,7 @@ p{ font-size:1rem; color:var(--text-blue); margin-bottom:1rem; }
 }
 .submenu a:hover{background:#f2f7ff;color:var(--dark-blue);}
 
-/* Mobile nav (About pattern + legacy mobile-nav normalized) */
+/* Mobile nav */
 .nav-toggle{display:none}
 .hamburger{display:none;cursor:pointer;width:44px;height:44px;border-radius:8px;border:1px solid rgba(0,0,0,.08);align-items:center;justify-content:center}
 .hamburger span{display:block;width:20px;height:2px;background:#0b3d72;position:relative}
@@ -128,7 +123,7 @@ p{ font-size:1rem; color:var(--text-blue); margin-bottom:1rem; }
 #nav-toggle:checked ~ nav.mobile-nav{display:block}
 @media(max-width:1024px){.main-nav,.desktop-nav{display:none}.hamburger{display:inline-flex}}
 
-/* Active page highlight (desktop + mobile) */
+/* Active page highlight */
 .main-nav > a.active, .main-nav > a[aria-current="page"],
 .main-nav .nav-group > button.active,
 .submenu a.active, .submenu a[aria-current="page"]{
@@ -146,7 +141,7 @@ p{ font-size:1rem; color:var(--text-blue); margin-bottom:1rem; }
 }
 
 /* =========================
-   Banner / Hero (unified)
+   Banner / Hero
    ========================= */
 .hero-frame{ position:relative; }
 .hero-frame::before,
@@ -157,7 +152,22 @@ p{ font-size:1rem; color:var(--text-blue); margin-bottom:1rem; }
 .hero-frame::before{ top:0; }
 .hero-frame::after { bottom:0; }
 
-/* Unified HERO: center content; pair with hero-media if needed */
+/* Banner image */
+.hero-media{
+  width:100%;
+  height: var(--hero-h-desktop);
+  overflow:hidden;
+  background:#f4f6f8;
+}
+.hero-media picture, .hero-media img{ width:100%; height:100%; display:block; object-fit: cover; object-position: center; }
+
+/* Legacy background-image support */
+.page-banner{
+  width:100%; height: var(--hero-h-desktop); overflow:hidden;
+  background-size: cover; background-position: center; background-repeat: no-repeat; background-color:#f4f6f8;
+}
+
+/* HERO text block */
 .hero-banner{
   position:relative;
   display:grid;
@@ -179,18 +189,6 @@ p{ font-size:1rem; color:var(--text-blue); margin-bottom:1rem; }
   margin: 0 0 1.25rem 0;
 }
 
-/* Media */
-.hero-media{
-  width:100%; height: var(--hero-h-desktop); overflow:hidden; background:#f4f6f8;
-}
-.hero-media picture, .hero-media img{ width:100%; height:100%; display:block; object-fit: cover; object-position: center; }
-
-/* Legacy background-image support */
-.page-banner{
-  width:100%; height: var(--hero-h-desktop); overflow:hidden;
-  background-size: cover; background-position: center; background-repeat: no-repeat; background-color:#f4f6f8;
-}
-
 @media (max-width:768px){
   .hero-banner{ min-height: var(--hero-h-mobile); }
   .hero-media, .page-banner{ height: var(--hero-h-mobile); }
@@ -209,7 +207,7 @@ main.content{ max-width: calc(var(--container) + 200px); margin:0 auto; padding:
 .narrative{max-width:var(--content-max);margin:0 auto;padding:0 1rem;}
 .narrative h3,.narrative p{ text-align:left !important; }
 
-/* Readable longform + two-column split */
+/* Longform + two-column split */
 .longform{ max-width: var(--max-measure); }
 .longform p{ line-height: 1.7; margin-bottom: var(--space-4); }
 .split{display:grid;grid-template-columns:1fr 1fr;gap:20px}
@@ -463,7 +461,7 @@ footer #subscribe-form label{
 /* Accessibility */
 .skip-link{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
 
-/* ===== Mobile adjustments & cut-off fixes ===== */
+/* ===== Mobile adjustments ===== */
 @media (max-width:768px){
   .brand .logo{ height:var(--logo-h-mobile); }
   .hero-title{ font-size:2rem; }
@@ -480,7 +478,7 @@ footer #subscribe-form label{
   }
 }
 
-/* QSE page helpers */
+/* QSE helpers */
 .hero.banner-500.center .hero-inner { max-width: 980px; text-align: center; margin: 0 auto; }
 .timeline { display: grid; gap: 20px; }
 .timeline .step { background: #ffffff; border-radius: 14px; padding: 18px 20px; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
@@ -493,86 +491,45 @@ footer #subscribe-form label{
 .section.alt { background: var(--light-bg); }
 .center { text-align: center; }
 .cta-row { display: inline-flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
-
 @media (max-width: 900px){
   .grid-3{ grid-template-columns: 1fr; }
   .grid-2{ grid-template-columns: 1fr; }
 }
-/* Center bottom CTA buttons */
 .cta-row { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
 .cta-row .cta-btn { text-align: center; min-width: 220px; }
 
-/* Partners grid */
 .partner-grid{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
   gap:.5rem;max-width:1000px;margin:0 auto;padding:0 1rem;text-align:center;
 }
 .partner-grid span{display:block;padding:.65rem .75rem;border:1px dashed rgba(0,0,0,.12);border-radius:10px;}
-/* === Home: banner-first layout, tight hero, no background === */
-.home-page .hero-frame { margin: 0; }
 
-/* Banner image height (feel free to tweak the pixels) */
-.home-page .hero-media{ height: 340px; }
-@media (max-width:768px){
-  .home-page .hero-media{ height: 200px; }
-}
+/* =========================
+   FINAL NORMALISERS (win cascade)
+   ========================= */
 
-/* Hero text block: remove bg + tighten spacing */
-.home-page .hero-banner{
-  background: transparent;
-  min-height: 0;
-  padding: 12px 16px 6px;
-}
+/* 1) Universal HERO image height (desktop 500 / mobile 220) */
+.hero-frame { margin: 0; }
+.hero-media { height: 500px; }
+@media (max-width:768px){ .hero-media { height: 220px; } }
 
-/* Smaller, tighter heading + lead */
-.home-page .hero-title{
-  font-size: clamp(1.35rem, 1.8vw + 0.9rem, 1.9rem);
-  line-height: 1.2;
-  margin: 4px 0 6px;
-}
-.home-page .hero-banner .lead{
-  font-size: 1rem;
-  line-height: 1.5;
-  margin: 0 0 8px;
-}
-.home-page .hero-banner .cta-row{ margin-top: 6px; }
-
-/* Bring the next section a little closer */
-.home-page .best-venue-section{ padding-top: 1rem; }
-/* Utilities used above */
-.pl-5 { padding-left: 1.25rem; }
-.max-900 { max-width: 900px; margin-left:auto; margin-right:auto; }
-
-/* === Home: restore taller banner + bump hero text === */
-.home-page .hero-frame { margin: 0; }
-
-/* Banner (image) height */
-.home-page .hero-media{ height: 420px; }          /* desktop */
-@media (max-width:768px){
-  .home-page .hero-media{ height: 220px; }        /* mobile */
-}
-
-/* Hero text block: no background + compact spacing */
-.home-page .hero-banner{
+/* 2) Universal HERO text spacing (match Home) */
+.hero-banner{
   background: transparent;
   min-height: 0;
   padding: 14px 16px 8px;
+  margin-bottom: 1.5rem;     /* gap before next section */
 }
-
-/* Hero typography (slightly larger now) */
-.home-page .hero-title{
+.hero-title{
   font-size: clamp(1.6rem, 2.2vw + 1rem, 2.2rem);
   line-height: 1.22;
   margin: 6px 0 8px;
 }
-.home-page .hero-banner .lead{
+.hero-banner .lead{
   font-size: 1.08rem;
   line-height: 1.55;
   margin: 0 0 10px;
 }
-.home-page .hero-banner .cta-row{ margin-top: 8px; }
 
-/* Bring next section closer */
-.home-page .best-venue-section{ padding-top: 1rem; }
-/* Add breathing room between hero CTA and the "Hybrid" section */
-.home-page .hero-banner { margin-bottom: 1.5rem; }
+/* 3) Force Cloud page banner lines to GOLD (overrides any inline page rule) */
+body.cloud-page{ --frame-color: var(--gold) !important; }
