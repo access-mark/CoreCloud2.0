@@ -22,6 +22,12 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=14.2"/>
 
+  <!-- One-shot Home banner override (no cache games) -->
+  <style>
+    .home-page .hero-media{ height:500px; }
+    @media (max-width:768px){ .home-page .hero-media{ height:220px; } }
+  </style>
+
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/index-bannerimage.png" fetchpriority="high"/>
