@@ -499,3 +499,85 @@ footer #subscribe-form label{
 .hosting-page .hero-intro :is(h1,p){
   text-align: center !important;
 }
+/* ===========================
+   v17.2 — Addendum (safe overrides, no HTML changes)
+   =========================== */
+
+/* 1) Hide honeypot fields that slipped through on some forms */
+.hp, .honeypot,
+input[name="website"], input[name="do_not_fill"],
+input[name="do_not_fill_in"], input[name="do_not_fill_this"]{
+  display: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+/* 2) Compact hero copy & tighten CTA spacing globally (matches Home cadence) */
+.hero-banner .hero-title{ margin: 6px 0 6px !important; }
+.hero-banner .lead{ margin: 0 0 8px !important; }
+.hero-banner .cta-row{ margin-top: 6px !important; gap: 10px !important; }
+
+/* 3) Equal-height cards + cleaner wrapping at tablet widths */
+.card{ min-height: 220px; }
+.card-grid > *{ height: 100%; }
+
+/* 4) Mobile-first CTA rows — stack for bigger tap targets */
+@media (max-width: 640px){
+  .btn-row .cta-btn,
+  .hero-banner .cta-row .cta-btn{
+    display: block !important;
+    width: 100% !important;
+  }
+}
+
+/* 5) Footer subscribe — enforce one-line input + button consistency */
+footer #subscribe-form .form-control{ min-width: 240px; flex: 1 1 260px; }
+footer #subscribe-form .cta-btn{ flex: 0 0 auto; }
+
+/* 6) Minor nav hover polish (keeps v17.2 look) */
+.main-nav > a:hover,
+.desktop-nav > a:hover{
+  color: var(--dark-blue);
+  text-decoration: none;
+}
+/* ===========================
+   v17.2 — Addendum (safe overrides, no HTML changes)
+   =========================== */
+
+/* 1) Hide honeypot fields that slipped through on some forms */
+.hp, .honeypot,
+input[name="website"], input[name="do_not_fill"],
+input[name="do_not_fill_in"], input[name="do_not_fill_this"]{
+  display: none !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
+/* 2) Compact hero copy & tighten CTA spacing globally (matches Home cadence) */
+.hero-banner .hero-title{ margin: 6px 0 6px !important; }
+.hero-banner .lead{ margin: 0 0 8px !important; }
+.hero-banner .cta-row{ margin-top: 6px !important; gap: 10px !important; }
+
+/* 3) Equal-height cards + cleaner wrapping at tablet widths */
+.card{ min-height: 220px; }
+.card-grid > *{ height: 100%; }
+
+/* 4) Mobile-first CTA rows — stack for bigger tap targets */
+@media (max-width: 640px){
+  .btn-row .cta-btn,
+  .hero-banner .cta-row .cta-btn{
+    display: block !important;
+    width: 100% !important;
+  }
+}
+
+/* 5) Footer subscribe — enforce one-line input + button consistency */
+footer #subscribe-form .form-control{ min-width: 240px; flex: 1 1 260px; }
+footer #subscribe-form .cta-btn{ flex: 0 0 auto; }
+
+/* 6) Minor nav hover polish (keeps v17.2 look) */
+.main-nav > a:hover,
+.desktop-nav > a:hover{
+  color: var(--dark-blue);
+  text-decoration: none;
+}
