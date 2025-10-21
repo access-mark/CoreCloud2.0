@@ -1,247 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Privacy Policy – CoreCloud</title>
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta name="description" content="How CoreCloud collects, uses, and protects your information. POPIA-aligned handling of client and candidate data."/>
+  <link rel="canonical" href="https://www.corecloudza.com/privacy.html"/>
+
+  <!-- Social -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Privacy Policy – CoreCloud"/>
+  <meta property="og:description" content="Our approach to data protection, cookies, and your rights."/>
+  <meta property="og:url" content="https://www.corecloudza.com/privacy.html"/>
+  <meta property="og:image" content="https://www.corecloudza.com/assets/images/talent-bannerimage.png"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=17.2a"/>
+
+  <!-- Page-scoped (light) -->
   <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Roboto, sans-serif;
-      background-color: #f4f6f8;
-      color: #1e1e1e;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    .small-banner {
-      background-color: #fff;
-      padding: 0.05rem 2rem 0;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      z-index: 1000;
-    }
-
-    .banner-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      height: 160px;
-      width: auto;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      padding: 0;
-      margin: 0;
-    }
-
-    nav a.nav-btn {
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: #003366;
-      text-transform: uppercase;
-      transition: all 0.3s ease;
-    }
-
-    nav a.nav-btn:hover,
-    nav a.nav-btn.active {
-      color: #0066b2;
-      font-weight: 900;
-    }
-
-    .page-banner {
-      height: 150px;
-      background-color: #0b1e3f;
-      margin-top: 160px;
-    }
-
-    .content {
-      max-width: 1000px;
-      margin: 4rem auto;
-      padding: 0 1.5rem;
-    }
-
-    .content h1 {
-      font-size: 2.8rem;
-      color: #004f91;
-      margin-bottom: 1rem;
-    }
-
-    .content h2 {
-      font-size: 1.4rem;
-      margin-top: 2rem;
-      color: #004f91;
-    }
-
-    .content p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin: 1rem 0;
-      color: #333;
-    }
-
-    footer {
-      background-color: #0b1e3f;
-      padding: 0.5rem 0 0.5rem;
-      margin-top: auto;
-    }
-
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      padding: 1rem;
-    }
-
-    .footer-left, .footer-middle, .footer-right {
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .footer-left { text-align: left; }
-    .footer-middle { text-align: center; }
-    .footer-right { text-align: right; }
-
-    .footer-content p, .footer-content h4 {
-      margin: 0.3rem 0;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-    }
-
-    .footer-newsletter {
-      margin-top: 1rem;
-    }
-
-    .footer-newsletter input[type="email"] {
-      padding: 0.8rem;
-      width: 60%;
-      max-width: 300px;
-      border: none;
-      border-radius: 6px;
-      margin-right: 0.5rem;
-    }
-
-    .footer-newsletter button {
-      padding: 0.8rem 1.5rem;
-      background-color: #0066b2;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-
-    .footer-bottom {
-      margin-top: 1rem;
-      font-size: 0.85rem;
-      text-align: center;
-      color: white;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-    }
-
-    .footer-bottom a {
-      color: red !important;
-      text-decoration: underline;
-      font-weight: bold;
-    }
+    .hero-intro{max-width:900px;margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
+    .hero-intro p{color:#444;}
+    .legal-wrap{max-width:1000px;margin:0 auto;padding:0 1rem;}
+    .legal-wrap h2{margin:2rem 0 0.75rem;}
+    .legal-wrap p{line-height:1.75;color:#333;margin:.55rem 0;}
   </style>
 </head>
-<body>
-  <!-- Navigation -->
-  <div class="small-banner">
-    <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" />
-      <nav>
-        <ul>
-          <li><a href="index.html" class="nav-btn">Home</a></li>
-          <li><a href="contact.html" class="nav-btn">Contact</a></li>
-        </ul>
+<body class="about-page">
+  <!-- Header / Nav (CoreCloud standard) -->
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="CoreCloud Home">
+        <img src="assets/images/corecloud-logo.png" alt="CoreCloud" class="logo" width="300" height="90" decoding="async"/>
+      </a>
+
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+
+        <!-- Consulting -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Consulting</button>
+          <div class="submenu" role="menu" aria-label="Consulting">
+            <a role="menuitem" href="consulting.html">Overview</a>
+            <a role="menuitem" href="dynamic-imprinting.html">Dynamic Imprinting</a>
+          </div>
+        </div>
+
+        <!-- Cloud Suite -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
+          <div class="submenu" role="menu" aria-label="Cloud Suite">
+            <a role="menuitem" href="cloud.html">Overview</a>
+            <a role="menuitem" href="finops.html">FinOps</a>
+            <a role="menuitem" href="application-development.html">Application Development</a>
+            <a role="menuitem" href="data-ai.html">Data &amp; AI</a>
+            <a role="menuitem" href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+            <a role="menuitem" href="cloud-security.html">Cloud Security</a>
+          </div>
+        </div>
+
+        <!-- Infrastructure -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
+          <div class="submenu" role="menu" aria-label="Infrastructure">
+            <a role="menuitem" href="infrastructure.html">Modern Datacenter</a>
+            <a role="menuitem" href="modern-workplace.html">Modern Workplace</a>
+            <a role="menuitem" href="hosting-security.html">Hosting Security</a>
+          </div>
+        </div>
+
+        <!-- Curated Talent -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Curated Talent</button>
+          <div class="submenu" role="menu" aria-label="Curated Talent">
+            <a role="menuitem" href="talent.html">Overview</a>
+            <a role="menuitem" href="talent-relaunch.html">RE/LAUNCH</a>
+            <a role="menuitem" href="global-talent.html">Global Talent</a>
+          </div>
+        </div>
+
+        <!-- Incubation Hub -->
+        <div class="nav-group">
+          <button aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
+          <div class="submenu" role="menu" aria-label="Incubation Hub">
+            <a role="menuitem" href="incubation-hub.html">Overview</a>
+            <a role="menuitem" href="qse-collective.html">QSE Collective</a>
+          </div>
+        </div>
+
+        <a href="about.html" class="active" aria-current="page">About</a>
+        <a href="blog.html">Insights</a>
+        <a href="contact.html">Contact</a>
       </nav>
+
+      <label for="nav-toggle" class="hamburger" aria-label="Toggle navigation"><span></span></label>
+    </div>
+
+    <!-- Mobile -->
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <nav class="mobile-drawer" aria-label="Mobile">
+      <a href="index.html">Home</a>
+
+      <details>
+        <summary>Consulting</summary>
+        <a href="consulting.html">Overview</a>
+        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+      </details>
+
+      <details>
+        <summary>Cloud Suite</summary>
+        <a href="cloud.html">Overview</a>
+        <a href="finops.html">FinOps</a>
+        <a href="application-development.html">Application Development</a>
+        <a href="data-ai.html">Data &amp; AI</a>
+        <a href="hosted-private-cloud.html">Hosting (Private Cloud)</a>
+        <a href="cloud-security.html">Cloud Security</a>
+      </details>
+
+      <details>
+        <summary>Infrastructure</summary>
+        <a href="infrastructure.html">Modern Datacenter</a>
+        <a href="modern-workplace.html">Modern Workplace</a>
+        <a href="hosting-security.html">Hosting Security</a>
+      </details>
+
+      <details>
+        <summary>Curated Talent</summary>
+        <a href="talent.html">Overview</a>
+        <a href="talent-relaunch.html">RE/LAUNCH</a>
+        <a href="global-talent.html">Global Talent</a>
+      </details>
+
+      <a href="about.html" aria-current="page">About</a>
+      <a href="blog.html">Insights</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <div class="hero-frame">
+    <div class="hero-media" role="img" aria-label="Privacy Policy">
+      <img src="assets/images/talent-bannerimage.png" alt="Privacy Policy" width="1920" height="500" loading="eager" decoding="async" fetchpriority="high"/>
     </div>
   </div>
 
-  <!-- Solid Blue Banner (150px) -->
-  <div class="page-banner"></div>
+  <!-- Intro -->
+  <section class="hero-intro">
+    <h1 class="hero-title">Privacy Policy</h1>
+    <p>How we collect, use, and protect your information. POPIA-aligned, with clear options to manage your data.</p>
+  </section>
 
-  <!-- Main Content -->
+  <!-- Content -->
   <main class="content">
-    <h1>Privacy Policy</h1>
+    <div class="legal-wrap longform">
+      <h2>Information We Collect</h2>
+      <p>We may collect personal details such as your name, company, contact details, role preferences, and browsing behaviour. This happens via contact forms, newsletter signups, and cookies.</p>
 
-    <p>CoreCloud is committed to protecting your privacy. This policy outlines how we collect, use, and safeguard your information when you use our website or engage with our services.</p>
+      <h2>How We Use Your Information</h2>
+      <p>We use information to respond to enquiries, deliver services, share relevant updates, and improve our site and offerings. We do not sell your personal data.</p>
 
-    <h2>Information We Collect</h2>
-    <p>We may collect personal details such as name, company, contact information, and browsing behavior. This is done through contact forms, newsletter signups, and cookies.</p>
+      <h2>Data Protection</h2>
+      <p>We apply appropriate technical and organisational measures to protect data against unauthorised access, disclosure, and misuse.</p>
 
-    <h2>Use of Information</h2>
-    <p>Information is used to improve our services, communicate with you, and analyze usage trends. We do not sell your personal data to third parties.</p>
+      <h2>Cookies</h2>
+      <p>Cookies help us improve your experience. You can adjust your browser settings to block or delete cookies.</p>
 
-    <h2>Data Protection</h2>
-    <p>We implement appropriate security measures to protect your data from unauthorized access, disclosure, or misuse.</p>
+      <h2>Third-Party Links</h2>
+      <p>We may link to third-party sites. Their privacy practices are their own; please review their policies.</p>
 
-    <h2>Cookies</h2>
-    <p>Cookies help enhance user experience. You can choose to disable cookies through your browser settings.</p>
+      <h2>Your Rights</h2>
+      <p>You may request access, correction, or deletion of your personal information where applicable. Contact us at <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a>.</p>
 
-    <h2>Third-Party Links</h2>
-    <p>Our website may contain links to third-party sites. We are not responsible for the privacy practices of those websites.</p>
+      <h2>Updates</h2>
+      <p>We may update this policy periodically. Changes will be posted here with an updated date.</p>
 
-    <h2>Changes to Policy</h2>
-    <p>This privacy policy may be updated from time to time. Please review it periodically to stay informed about how we protect your data.</p>
-
-    <p>For any concerns or questions, contact us at <strong>sales@corecloudza.com</strong>.</p>
+      <p><em>Last updated: October 2025</em></p>
+    </div>
   </main>
 
-<!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-left">
-      <p><strong>CoreCloud (Pty) Ltd</strong></p>
-      <p>Sandton<br>Johannesburg<br>South Africa</p>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton<br>Johannesburg<br>South Africa</p>
+      </div>
+
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud"/>
+          <input type="hidden" name="_template" value="table"/>
+          <input type="hidden" name="_captcha" value="false"/>
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter"/>
+          <label class="visually-hidden" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px;flex:1;"/>
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-right">
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+      </div>
     </div>
 
-    <div class="footer-middle">
-      <h4>Stay Informed</h4>
-      <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-      <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-        <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
-        <label class="visually-hidden" for="newsletter_email">Email</label>
-        <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
-        <button type="submit" class="cta-btn">Subscribe</button>
-      </form>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link" aria-current="page">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
     </div>
-
-    <div class="footer-right">
-      <p><strong>Contact</strong></p>
-      <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-      <p>Phone: <a href="mailto:sales@corecloudza.com">{+27) 011 568 8667</a></p>
-      <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 CoreCloud. All rights reserved. |
-      <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-      <a href="terms.html" class="legal-link">Terms</a>
-    </p>
-  </div>
-</footer>
+  </footer>
 </body>
 </html>
