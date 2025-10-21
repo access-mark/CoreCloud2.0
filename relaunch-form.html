@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Meta -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Apply – Re/Launch Experienced Track | CoreCloud</title>
@@ -16,14 +15,14 @@
   <meta property="og:image" content="https://www.corecloudza.com/assets/images/talent-bannerimage.png"/>
   <meta name="twitter:card" content="summary_large_image"/>
 
-  <!-- Global CSS -->
-  <link rel="stylesheet" href="assets/css/styles.css?v=17.2" />
+  <!-- Global CSS (cache-busted) -->
+  <link rel="stylesheet" href="assets/css/styles.css?v=17.2a" />
 
   <!-- Preload -->
   <link rel="preload" as="image" href="assets/images/corecloud-logo.png" fetchpriority="high"/>
   <link rel="preload" as="image" href="assets/images/talent-bannerimage.png" imagesizes="100vw" fetchpriority="high"/>
 
-  <!-- Page-scoped (light, keeps v17.2 look) -->
+  <!-- Page-scoped (light) -->
   <style>
     .hero-intro{max-width:900px;margin:2rem auto 1rem;padding:0 1rem;text-align:center;}
     .hero-intro p{color:#444;}
@@ -35,7 +34,7 @@
 </head>
 
 <body class="talent-page">
-  <!-- ======= SITE HEADER / NAV (exact pattern from your Talent page) ======= -->
+  <!-- ======= SITE HEADER / NAV (your exact nav structure) ======= -->
   <header class="site-header" role="banner">
     <div class="header-inner">
       <a class="brand" href="index.html" aria-label="CoreCloud Home">
@@ -45,7 +44,6 @@
       <nav class="main-nav" aria-label="Primary">
         <a href="index.html">Home</a>
 
-        <!-- Consulting -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Consulting</button>
           <div class="submenu" role="menu" aria-label="Consulting">
@@ -54,7 +52,6 @@
           </div>
         </div>
 
-        <!-- Cloud Suite (includes Cloud Security) -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Cloud Suite</button>
           <div class="submenu" role="menu" aria-label="Cloud Suite">
@@ -67,7 +64,6 @@
           </div>
         </div>
 
-        <!-- Infrastructure (includes Hosting Security) -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Infrastructure</button>
           <div class="submenu" role="menu" aria-label="Infrastructure">
@@ -77,7 +73,6 @@
           </div>
         </div>
 
-        <!-- Curated Talent -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false" class="active">Curated Talent</button>
           <div class="submenu" role="menu" aria-label="Curated Talent">
@@ -87,7 +82,6 @@
           </div>
         </div>
 
-        <!-- Incubation Hub -->
         <div class="nav-group">
           <button aria-haspopup="true" aria-expanded="false">Incubation Hub</button>
           <div class="submenu" role="menu" aria-label="Incubation Hub">
@@ -174,7 +168,7 @@
           <input type="hidden" name="_cc" value="sales@corecloudza.com" />
           <input type="hidden" name="_captcha" value="false" />
 
-          <!-- Honeypot (hidden by v17.2 addendum; inline hide as backup) -->
+          <!-- Honeypot -->
           <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" />
 
           <label for="name">Full Name</label>
@@ -255,24 +249,20 @@
     </div>
   </footer>
 
-  <!-- ======= ACTIVE LINK HIGHLIGHTER (map this form to RE/LAUNCH menu) ======= -->
+  <!-- ======= ACTIVE LINK HIGHLIGHTER (map this form to RE/LAUNCH) ======= -->
   <script>
     (function(){
       function norm(href){
         if(!href) return 'index.html';
         href = href.toLowerCase().split('#')[0].split('?')[0];
         if(href === '' || href === '/') href = 'index.html';
-        // Map this form to the RE/LAUNCH section for highlighting
         if(href === 'relaunch-form.html') href = 'talent-relaunch.html';
-        // Legacy alias
         if(href === 'hosting-private-cloud.html') href = 'hosted-private-cloud.html';
         return href;
       }
       var current = norm((location.pathname.split('/').pop() || 'relaunch-form.html'));
-
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a, .main-nav .nav-group > button')
         .forEach(function(el){ el.classList.remove('active'); el.removeAttribute('aria-current'); });
-
       document.querySelectorAll('.main-nav a, .mobile-drawer a, .submenu a')
         .forEach(function(a){
           var href = norm(a.getAttribute('href') || '');
