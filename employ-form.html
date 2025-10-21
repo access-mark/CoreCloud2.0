@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Meta -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hire Talent – CoreCloud</title>
   <meta name="description" content="Hire elite ICT, cloud, data, security, dev and GTM talent fast. Submit your role and we’ll move." />
-  <link rel="stylesheet" href="assets/css/styles.css" />
-  <style>
-    body { font-family:'Segoe UI', Roboto, sans-serif; }
-    .hero-media img { width:100%; height:auto; }
-    .section { padding:2rem 1.25rem; }
-    .intro .subtitle { max-width:900px; margin:0 auto; }
-    .form-wrap { max-width:800px; margin:2rem auto; background:#fff; padding:2rem; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,.06); }
-    label { display:block; margin-top:1rem; font-weight:600; }
-    input, select, textarea { width:100%; padding:.6rem; margin-top:.35rem; border:1px solid #cfd8dc; border-radius:8px; }
-    button { margin-top:1.5rem; background:#0066b2; color:#fff; border:none; padding:.9rem 1.4rem; width:100%; border-radius:8px; font-weight:700; cursor:pointer; }
-    button:hover { background:#004f91; }
-  </style>
+  <link rel="canonical" href="https://www.corecloudza.com/employ-form.html" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=17.2" />
 </head>
+
 <body class="talent-page">
-  <!-- Slim header -->
-  <div class="small-banner">
-    <div class="banner-header">
-      <img src="assets/images/corecloud-logo.png" alt="CoreCloud Logo" class="logo" width="220" height="64" decoding="async" />
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="CoreCloud Home">
+        <img class="logo" src="assets/images/corecloud-logo.png" alt="CoreCloud" height="120" width="360" decoding="async" />
+      </a>
+
+      <input id="nav-toggle" class="nav-toggle" type="checkbox" aria-hidden="true" />
+      <label class="hamburger" for="nav-toggle" aria-label="Toggle navigation"><span></span></label>
+
       <nav class="desktop-nav" aria-label="Primary">
         <a href="index.html" class="nav-btn">HOME</a>
         <a href="consulting.html" class="nav-btn">CONSULTING</a>
@@ -36,105 +34,130 @@
         <a href="about.html" class="nav-btn">ABOUT</a>
         <a href="contact.html" class="nav-btn">CONTACT</a>
       </nav>
+
+      <nav class="mobile-drawer" aria-label="Mobile">
+        <a href="index.html">Home</a>
+        <a href="consulting.html">Consulting</a>
+        <a href="cloud.html">Cloud Suite</a>
+        <a href="finops.html">FinOps &amp; Governance</a>
+        <a href="application-development.html">App Dev</a>
+        <a href="data-ai.html">Data &amp; AI</a>
+        <a href="talent.html">Talent</a>
+        <a href="talent-relaunch.html">Re / Launch</a>
+        <a href="dynamic-imprinting.html">Dynamic Imprinting</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero (unified frame + media + intro per v17.2) -->
+  <div class="hero-frame">
+    <div class="hero-media">
+      <img src="assets/images/talent-bannerimage.png" alt="Hire Talent – CoreCloud" width="1920" height="500" loading="eager" decoding="async" />
     </div>
   </div>
 
-  <!-- Hero -->
-  <div class="hero-media">
-    <img src="assets/images/talent-bannerimage.png" alt="Hire Talent – CoreCloud" width="1920" height="400" loading="eager" decoding="async">
-  </div>
+  <section class="hero-intro">
+    <h1 class="hero-title">Hire Elite Talent Fast</h1>
+    <p class="lead max-900">
+      Give us the signal and we’ll move — role clarity, shortlists, interviews. Cloud, data, security, dev, GTM.
+      Submit your requirements and we’ll respond with qualified profiles that fit both capability and culture.
+    </p>
+    <div class="cta-row">
+      <a href="talent.html" class="cta-btn">Back to Talent</a>
+    </div>
+  </section>
 
+  <!-- Content -->
   <main class="content">
-    <section class="section intro">
-      <h1 class="hero-title">Hire Elite Talent Fast</h1>
-      <p class="subtitle">
-        Give us the signal and we’ll move—role clarity, shortlists, interviews. Cloud, data, security, dev, GTM.
-        Submit your requirements and we’ll respond with qualified profiles that fit both capability and culture.
-      </p>
-    </section>
-
     <section class="section">
       <div class="form-wrap">
-        <form id="employerForm" action="https://formsubmit.co/mark@corecloudza.com" method="POST" accept-charset="UTF-8">
+        <form id="employerForm"
+              action="https://formsubmit.co/mark@corecloudza.com"
+              method="POST"
+              accept-charset="UTF-8">
           <!-- FormSubmit config -->
-          <input type="hidden" name="_subject" value="New Employer Partnership Submission">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=employer">
-          <input type="hidden" name="_cc" value="sales@corecloudza.com">
-          <!-- Honeypot -->
-          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="_subject" value="New Employer Partnership Submission" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=employer" />
+          <input type="hidden" name="_cc" value="sales@corecloudza.com" />
+          <input type="hidden" name="_captcha" value="false" />
+
+          <!-- Honeypot (hidden via v17.2 addendum; inline hide as backup) -->
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" style="display:none" />
 
           <label for="company">Company Name</label>
-          <input type="text" id="company" name="Company Name" required>
+          <input class="form-control" type="text" id="company" name="Company Name" required autocomplete="organization" />
 
           <label for="contact">Your Name &amp; Surname</label>
-          <input type="text" id="contact" name="Contact Person" required>
+          <input class="form-control" type="text" id="contact" name="Contact Person" required autocomplete="name" />
 
           <label for="email">Email Address</label>
-          <input type="email" id="email" name="Email" required>
+          <input class="form-control" type="email" id="email" name="Email" required autocomplete="email" />
 
           <label for="phone">Phone Number</label>
-          <input type="tel" id="phone" name="Phone Number">
+          <input class="form-control" type="tel" id="phone" name="Phone Number" inputmode="tel" autocomplete="tel" placeholder="+27 11 568 8667" />
 
           <label for="website">Company Website</label>
-          <input type="url" id="website" name="Website" placeholder="https://company.com">
+          <input class="form-control" type="url" id="website" name="Website" placeholder="https://company.com" autocomplete="url" />
 
           <label for="location">Location (City / Province)</label>
-          <input type="text" id="location" name="Location">
+          <input class="form-control" type="text" id="location" name="Location" autocomplete="address-level2" />
 
           <label for="interest">What kind of talent are you looking for?</label>
-          <textarea id="interest" name="Talent Needs" rows="4" placeholder="e.g., Platform Engineer (AWS), Databricks Engineer, Cloud Security Architect"></textarea>
+          <textarea class="form-control" id="interest" name="Talent Needs" rows="4" placeholder="e.g., Platform Engineer (AWS), Databricks Engineer, Cloud Security Architect"></textarea>
 
           <label for="start">Ideal Start Date (optional)</label>
-          <input type="date" id="start" name="Ideal Start">
+          <input class="form-control" type="date" id="start" name="Ideal Start" />
 
-          <label for="consent">
-            <input id="consent" type="checkbox" name="Consent" required>
+          <label for="consent" style="margin-top:1rem; font-weight:600;">
+            <input id="consent" type="checkbox" name="Consent" required />
             I consent to CoreCloud contacting me about talent solutions.
           </label>
 
-          <button type="submit">Submit Role</button>
+          <button type="submit" class="cta-btn" style="width:100%; margin-top:1rem;">Submit Role</button>
         </form>
       </div>
     </section>
   </main>
 
- <!-- Footer -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-left">
-      <p><strong>CoreCloud (Pty) Ltd</strong></p>
-      <p>Sandton<br>Johannesburg<br>South Africa</p>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-left">
+        <p><strong>CoreCloud (Pty) Ltd</strong></p>
+        <p>Sandton<br>Johannesburg<br>South Africa</p>
+      </div>
+
+      <div class="footer-middle">
+        <h4>Stay Informed</h4>
+        <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
+        <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST">
+          <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
+          <label id="newsletter_label" for="newsletter_email">Email</label>
+          <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" />
+          <button type="submit" class="cta-btn">Subscribe</button>
+        </form>
+      </div>
+
+      <div class="footer-right">
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
+        <p>Phone: <a href="tel:+27115688667">+27 11 568 8667</a></p>
+        <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
+      </div>
     </div>
 
-    <div class="footer-middle">
-      <h4>Stay Informed</h4>
-      <p>Join our newsletter for updates on cloud innovation, strategy, and leadership insights.</p>
-      <form id="subscribe-form" action="https://formsubmit.co/mark@corecloudza.com" method="POST" style="display:flex; gap:10px; flex-wrap:wrap; margin-top:10px;">
-        <input type="hidden" name="_subject" value="Newsletter subscription — CoreCloud" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="https://www.corecloudza.com/thank-you.html?type=newsletter" />
-        <label class="visually-hidden" for="newsletter_email">Email</label>
-        <input id="newsletter_email" class="form-control" type="email" name="email" placeholder="Enter your email" required autocomplete="email" style="min-width:220px; flex:1;" />
-        <button type="submit" class="cta-btn">Subscribe</button>
-      </form>
+    <div class="footer-bottom">
+      <p>&copy; 2025 CoreCloud. All rights reserved. |
+        <a href="privacy.html" class="legal-link">Privacy Policy</a> |
+        <a href="terms.html" class="legal-link">Terms</a>
+      </p>
     </div>
-
-    <div class="footer-right">
-      <p><strong>Contact</strong></p>
-      <p>Email: <a href="mailto:sales@corecloudza.com">sales@corecloudza.com</a></p>
-      <p>Phone: <a href="mailto:sales@corecloudza.com">{+27) 011 568 8667</a></p>
-      <p><a href="https://linkedin.com/company/corecloudza" target="_blank" rel="noopener noreferrer" class="linkedin-link">LinkedIn</a></p>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>&copy; 2025 CoreCloud. All rights reserved. |
-      <a href="privacy.html" class="legal-link">Privacy Policy</a> |
-      <a href="terms.html" class="legal-link">Terms</a>
-    </p>
-  </div>
-</footer>
+  </footer>
 </body>
 </html>
