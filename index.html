@@ -23,8 +23,30 @@
   <link rel="stylesheet" href="assets/css/styles.css?v=17.2"/>
   <link rel="stylesheet" href="assets/css/corecloud.market.css"/>
 
-  <!-- One-shot Home banner override (kept) -->
+  <!-- FIXES: particles behind, dropdowns above, hero top stripe visible -->
   <style>
+    /* Put particles behind everything and make them non-interactive */
+    #bgParticles{
+      position:fixed; inset:0;
+      z-index:-1; pointer-events:none;
+      width:100vw; height:100vh;
+    }
+    /* Ensure nav + dropdowns render on top and are not clipped */
+    .site-header{ position:sticky; top:0; z-index:2000; overflow:visible; border-bottom:0; }
+    .header-inner{ overflow:visible; }
+    .main-nav .submenu{ z-index:2100; }
+    /* Hero stripe rendered above the image */
+    .hero-frame{ position:relative; z-index:0; }
+    .hero-media{ position:relative; z-index:1; overflow:visible; }
+    .hero-frame::before, .hero-frame::after{ z-index:5; }
+    /* Guarantee a visible stripe under the header */
+    .site-header::after{
+      content:""; position:absolute; left:0; right:0; bottom:-1px;
+      height:var(--frame-thin,4px);
+      background:var(--frame-color, #d4af37);
+      z-index:2050; pointer-events:none;
+    }
+    /* Home banner height (kept) */
     .home-page .hero-media{ height:500px; }
     @media (max-width:768px){ .home-page .hero-media{ height:220px; } }
   </style>
@@ -360,7 +382,6 @@
 
       function step(){
         ctx.clearRect(0,0,w,h);
-        // glow lines
         for(let i=0;i<dots.length;i++){
           for(let j=i+1;j<dots.length;j++){
             const dx=dots[i].x-dots[j].x, dy=dots[i].y-dots[j].y;
@@ -373,7 +394,6 @@
             }
           }
         }
-        // nodes
         for(const p of dots){
           p.x += p.vx; p.y += p.vy;
           if(p.x<0||p.x>w) p.vx*=-1;
