@@ -23,32 +23,28 @@
   <link rel="stylesheet" href="assets/css/styles.css?v=17.2"/>
   <link rel="stylesheet" href="assets/css/corecloud.market.css"/>
 
-  <!-- FIXES: particles behind, dropdowns above, hero top stripe visible -->
+  <!-- One-shot Home banner height (kept) -->
   <style>
-    /* Put particles behind everything and make them non-interactive */
-    #bgParticles{
-      position:fixed; inset:0;
-      z-index:-1; pointer-events:none;
-      width:100vw; height:100vh;
-    }
-    /* Ensure nav + dropdowns render on top and are not clipped */
-    .site-header{ position:sticky; top:0; z-index:2000; overflow:visible; border-bottom:0; }
-    .header-inner{ overflow:visible; }
-    .main-nav .submenu{ z-index:2100; }
-    /* Hero stripe rendered above the image */
-    .hero-frame{ position:relative; z-index:0; }
-    .hero-media{ position:relative; z-index:1; overflow:visible; }
-    .hero-frame::before, .hero-frame::after{ z-index:5; }
-    /* Guarantee a visible stripe under the header */
-    .site-header::after{
-      content:""; position:absolute; left:0; right:0; bottom:-1px;
-      height:var(--frame-thin,4px);
-      background:var(--frame-color, #d4af37);
-      z-index:2050; pointer-events:none;
-    }
-    /* Home banner height (kept) */
     .home-page .hero-media{ height:500px; }
     @media (max-width:768px){ .home-page .hero-media{ height:220px; } }
+
+    /* --- Fix: dropdowns hidden under banner --- */
+    .site-header{ position:sticky; top:0; z-index:9999 !important; overflow:visible !important; }
+    .header-inner{ overflow:visible !important; }
+    .main-nav{ position:relative; z-index:9999 !important; }
+    .main-nav .submenu{
+      position:absolute; left:0; top:100%;
+      z-index:10000 !important;
+      overflow:visible !important;
+    }
+    .nav-group{ position:relative; overflow:visible !important; }
+
+    /* Ensure banner stays beneath menus */
+    .hero-frame, .hero-media{ position:relative; z-index:0 !important; }
+    .hero-media img{ position:relative; z-index:0 !important; }
+
+    /* Particles always behind everything */
+    #bgParticles{ position:fixed; inset:0; z-index:-1 !important; pointer-events:none; }
   </style>
 
   <!-- Preload -->
@@ -352,7 +348,7 @@
     </div>
   </footer>
 
-  <!-- Particles (lightweight, no deps) -->
+  <!-- Particles (lightweight) -->
   <script>
     (function(){
       const c = document.getElementById('bgParticles');
@@ -368,9 +364,8 @@
         c.style.height = innerHeight + 'px';
         dots.forEach(p => { p.x = Math.random()*w; p.y = Math.random()*h; });
       }
-
       function make(){
-        dots = Array.from({length:n}, ()=>({
+        dots = Array.from({length:n}, () => ({
           x: Math.random()*w,
           y: Math.random()*h,
           vx: (Math.random()-.5)*.28*dpr,
@@ -379,7 +374,6 @@
           a: Math.random()*.7 + .2
         }));
       }
-
       function step(){
         ctx.clearRect(0,0,w,h);
         for(let i=0;i<dots.length;i++){
