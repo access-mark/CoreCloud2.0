@@ -22,7 +22,7 @@
   <!-- Global CSS -->
   <link rel="stylesheet" href="assets/css/styles.css?v=17.2"/>
 
-  <!-- One-shot Home banner override (no cache games) -->
+  <!-- One-shot Home banner override (no cacheC cache games) -->
   <style>
     .home-page .hero-media{ height:500px; }
     @media (max-width:768px){ .home-page .hero-media{ height:220px; } }
@@ -190,6 +190,61 @@
       <p class="lead">We help South African enterprises turn strategy into action — sharper sales execution, modernised cloud &amp; hybrid infrastructure, elite ICT talent, and disciplined app delivery.</p>
       <div class="cta-row">
         <a class="cta-btn" href="cloud.html">Design My Hybrid</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Marketplace Promo Strip (inserts here, outside main.content so no alignment collisions) -->
+  <section class="marketplace-promo" aria-labelledby="marketplace-title">
+    <div class="marketplace-promo__inner">
+      <div class="marketplace-promo__copy">
+        <div class="marketplace-promo__badge" aria-hidden="true">
+          <span class="dot"></span> NEW
+        </div>
+
+        <h2 id="marketplace-title" class="marketplace-promo__title">CoreCloud Marketplace</h2>
+
+        <p class="marketplace-promo__lead">
+          Curated cloud, security, and enablement bundles — built for South African operators.
+          Add to basket, request a quote, and move fast.
+        </p>
+
+        <ul class="marketplace-promo__bullets">
+          <li>Curated bundles (no analysis paralysis)</li>
+          <li>Quote cart → fast turnaround</li>
+          <li>Built for hybrid + compliance</li>
+        </ul>
+
+        <div class="marketplace-promo__cta">
+          <a class="cta-btn marketplace-promo__primary" href="marketplace/index.html">Visit Marketplace</a>
+          <a class="marketplace-promo__secondary" href="marketplace/index.html#bundles">Browse Bundles →</a>
+        </div>
+      </div>
+
+      <div class="marketplace-promo__panel" aria-hidden="true">
+        <div class="marketplace-promo__icon">
+          <!-- Basket icon (inline SVG) -->
+          <svg viewBox="0 0 24 24" width="34" height="34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M7 10L12 4L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M4 10H20L18.6 20H5.4L4 10Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M9 14V18M12 14V18M15 14V18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="marketplace-promo__kpi">
+          <div class="kpi">
+            <div class="kpi__num">Curated</div>
+            <div class="kpi__label">Offer Packs</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi__num">Quote</div>
+            <div class="kpi__label">Cart Workflow</div>
+          </div>
+          <div class="kpi">
+            <div class="kpi__num">Fast</div>
+            <div class="kpi__label">Procurement</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
