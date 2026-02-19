@@ -581,3 +581,176 @@ footer #subscribe-form .cta-btn{ flex: 0 0 auto; }
   color: var(--dark-blue);
   text-decoration: none;
 }
+
+/* ===========================
+   Home — Marketplace Promo Strip (theme-safe, high contrast)
+   =========================== */
+.marketplace-promo{
+  max-width:calc(var(--container) + 200px);
+  margin: 0 auto 1.25rem;
+  padding: 0 1.5rem;
+}
+
+.marketplace-promo__inner{
+  position: relative;
+  display:grid;
+  grid-template-columns: 1.35fr 0.65fr;
+  gap:18px;
+
+  padding: 22px 22px;
+  border-radius: 16px;
+
+  /* Stays in palette: dark-blue + primary-blue + subtle gold glow */
+  background:
+    radial-gradient(900px 320px at 18% 0%, rgba(255,255,255,0.10), transparent 55%),
+    linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 55%, var(--dark-blue) 100%);
+
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+  overflow:hidden;
+}
+
+/* subtle gold “pop” without going gaudy */
+.marketplace-promo__inner::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background: radial-gradient(420px 140px at 72% 22%, rgba(212,175,55,0.22), transparent 62%);
+  pointer-events:none;
+  filter: blur(10px);
+  opacity: 0.9;
+}
+
+.marketplace-promo__copy{ position:relative; z-index:1; text-align:left; }
+
+.marketplace-promo__badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,0.92);
+  background: rgba(0,0,0,0.22);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+.marketplace-promo__badge .dot{
+  width:8px; height:8px; border-radius:50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 4px rgba(212,175,55,0.18);
+}
+
+.marketplace-promo__title{
+  margin: 10px 0 8px;
+  font-size: clamp(1.4rem, 2vw + 1rem, 2.0rem);
+  line-height: 1.15;
+  color:#fff;
+  text-align:left;
+}
+
+.marketplace-promo__lead{
+  margin: 0 0 12px;
+  color: rgba(255,255,255,0.92);
+  max-width: 70ch;
+  text-align:left;
+}
+
+.marketplace-promo__bullets{
+  margin: 0 0 14px;
+  padding-left: 18px;
+  color: rgba(255,255,255,0.90);
+}
+.marketplace-promo__bullets li{ margin: 6px 0; }
+
+.marketplace-promo__cta{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.marketplace-promo__primary{
+  /* uses existing .cta-btn look; we just add “gold edge” */
+  border: 1px solid rgba(212,175,55,0.55) !important;
+  box-shadow: 0 12px 26px rgba(0,0,0,0.22);
+}
+
+.marketplace-promo__secondary{
+  color: rgba(255,255,255,0.95);
+  text-decoration: none;
+  font-weight: 800;
+  border-bottom: 1px solid rgba(255,255,255,0.28);
+  padding-bottom: 2px;
+}
+.marketplace-promo__secondary:hover{
+  border-bottom-color: rgba(255,255,255,0.55);
+}
+
+.marketplace-promo__panel{
+  position:relative;
+  z-index:1;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.14);
+  padding: 14px 14px;
+  display:grid;
+  gap: 12px;
+  align-content:start;
+}
+
+.marketplace-promo__icon{
+  width: 52px; height: 52px;
+  border-radius: 14px;
+  display:grid;
+  place-items:center;
+
+  color: var(--gold);
+  background: rgba(212,175,55,0.12);
+  border: 1px solid rgba(212,175,55,0.28);
+}
+
+.marketplace-promo__kpi{
+  display:grid;
+  gap:10px;
+}
+
+.marketplace-promo .kpi{
+  padding: 10px 10px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+.marketplace-promo .kpi__num{
+  font-weight: 900;
+  font-size: 16px;
+  color:#fff;
+  line-height:1.05;
+}
+.marketplace-promo .kpi__label{
+  margin-top:4px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.82);
+}
+
+/* responsive */
+@media (max-width: 900px){
+  .marketplace-promo__inner{ grid-template-columns: 1fr; }
+  .marketplace-promo__panel{
+    order: -1;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap: 12px;
+  }
+  .marketplace-promo__kpi{
+    grid-template-columns: repeat(3, 1fr);
+    width:100%;
+  }
+}
+@media (max-width: 560px){
+  .marketplace-promo__inner{ padding: 18px 14px; }
+  .marketplace-promo__kpi{ grid-template-columns: 1fr; }
+  .marketplace-promo__cta .cta-btn{ width:100% !important; }
+}
