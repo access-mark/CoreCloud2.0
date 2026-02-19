@@ -583,174 +583,236 @@ footer #subscribe-form .cta-btn{ flex: 0 0 auto; }
 }
 
 /* ===========================
-   Home — Marketplace Promo Strip (theme-safe, high contrast)
+   Home — Marketplace Premium Feature (v1)
+   Premium: glass panel + hairline borders + gold micro-accents
    =========================== */
-.marketplace-promo{
-  max-width:calc(var(--container) + 200px);
-  margin: 0 auto 1.25rem;
+.marketplace-feature{
+  max-width: calc(var(--container) + 200px);
+  margin: 0 auto 1.6rem;
   padding: 0 1.5rem;
 }
 
-.marketplace-promo__inner{
+.marketplace-feature__shell{
   position: relative;
-  display:grid;
-  grid-template-columns: 1.35fr 0.65fr;
-  gap:18px;
+  border-radius: 18px;
+  overflow: hidden;
 
-  padding: 22px 22px;
-  border-radius: 16px;
-
-  /* Stays in palette: dark-blue + primary-blue + subtle gold glow */
+  /* Premium background: subtle, not loud */
   background:
-    radial-gradient(900px 320px at 18% 0%, rgba(255,255,255,0.10), transparent 55%),
-    linear-gradient(135deg, var(--dark-blue) 0%, var(--primary-blue) 55%, var(--dark-blue) 100%);
+    radial-gradient(1200px 420px at 18% 0%, rgba(0,102,178,.16), transparent 55%),
+    radial-gradient(900px 380px at 78% 18%, rgba(212,175,55,.12), transparent 55%),
+    linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.92));
 
-  border: 1px solid rgba(255,255,255,0.16);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
-  overflow:hidden;
+  border: 1px solid rgba(10,43,79,0.10);
+  box-shadow:
+    0 22px 60px rgba(11,30,63,.12),
+    inset 0 1px 0 rgba(255,255,255,.65);
 }
 
-/* subtle gold “pop” without going gaudy */
-.marketplace-promo__inner::after{
+.marketplace-feature__inner{
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 18px;
+  padding: 22px 22px;
+}
+
+/* thin “premium” top rail */
+.marketplace-feature__shell::before{
   content:"";
   position:absolute;
-  inset:-2px;
-  background: radial-gradient(420px 140px at 72% 22%, rgba(212,175,55,0.22), transparent 62%);
-  pointer-events:none;
-  filter: blur(10px);
-  opacity: 0.9;
+  left:0; right:0; top:0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--dark-blue), var(--primary-blue), var(--gold));
+  opacity: .9;
 }
 
-.marketplace-promo__copy{ position:relative; z-index:1; text-align:left; }
-
-.marketplace-promo__badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
+.marketplace-feature__kicker{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   padding: 6px 10px;
   border-radius: 999px;
   font-weight: 800;
   font-size: 12px;
-  letter-spacing: .08em;
-  color: rgba(255,255,255,0.92);
-  background: rgba(0,0,0,0.22);
-  border: 1px solid rgba(255,255,255,0.14);
+  letter-spacing: .06em;
+  color: #0b3d72;
+  background: rgba(0,79,145,0.06);
+  border: 1px solid rgba(0,79,145,0.14);
 }
-.marketplace-promo__badge .dot{
-  width:8px; height:8px; border-radius:50%;
+
+.marketplace-feature__kicker .pip{
+  width: 8px; height: 8px; border-radius: 50%;
   background: var(--gold);
-  box-shadow: 0 0 0 4px rgba(212,175,55,0.18);
+  box-shadow: 0 0 0 4px rgba(212,175,55,.16);
 }
 
-.marketplace-promo__title{
+.marketplace-feature__title{
   margin: 10px 0 8px;
-  font-size: clamp(1.4rem, 2vw + 1rem, 2.0rem);
+  font-size: clamp(1.55rem, 1.7vw + 1rem, 2.2rem);
   line-height: 1.15;
-  color:#fff;
-  text-align:left;
+  color: var(--dark-blue);
+  text-align: left;
 }
 
-.marketplace-promo__lead{
-  margin: 0 0 12px;
-  color: rgba(255,255,255,0.92);
-  max-width: 70ch;
-  text-align:left;
-}
-
-.marketplace-promo__bullets{
+.marketplace-feature__lead{
   margin: 0 0 14px;
-  padding-left: 18px;
-  color: rgba(255,255,255,0.90);
-}
-.marketplace-promo__bullets li{ margin: 6px 0; }
-
-.marketplace-promo__cta{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  flex-wrap:wrap;
+  color: #183a61;
+  max-width: 72ch;
+  text-align: left;
 }
 
-.marketplace-promo__primary{
-  /* uses existing .cta-btn look; we just add “gold edge” */
-  border: 1px solid rgba(212,175,55,0.55) !important;
-  box-shadow: 0 12px 26px rgba(0,0,0,0.22);
+/* “Trust row” */
+.marketplace-feature__trust{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 0 0 14px;
+  padding: 0;
+  list-style: none;
 }
 
-.marketplace-promo__secondary{
-  color: rgba(255,255,255,0.95);
+.marketplace-feature__trust li{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(10,43,79,0.10);
+  box-shadow: 0 8px 20px rgba(11,30,63,.06);
+  color: #173a60;
+  font-weight: 700;
+  font-size: .92rem;
+}
+
+.marketplace-feature__trust svg{
+  width: 18px; height: 18px;
+  color: var(--primary-blue);
+  flex: 0 0 auto;
+}
+
+.marketplace-feature__cta{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+/* premium primary CTA */
+.marketplace-feature__cta .cta-btn.marketplace-feature__primary{
+  background: var(--dark-blue);
+}
+.marketplace-feature__cta .cta-btn.marketplace-feature__primary:hover{
+  background: #003a6a;
+}
+.marketplace-feature__cta .cta-btn.marketplace-feature__primary{
+  border: 1px solid rgba(212,175,55,.55);
+  box-shadow: 0 18px 34px rgba(0,0,0,.10);
+}
+
+/* “secondary link” styled, not a naked anchor */
+.marketplace-feature__secondary{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 12px;
   text-decoration: none;
   font-weight: 800;
-  border-bottom: 1px solid rgba(255,255,255,0.28);
-  padding-bottom: 2px;
+  color: #0b3d72;
+  background: rgba(0,102,178,.06);
+  border: 1px solid rgba(0,79,145,0.14);
 }
-.marketplace-promo__secondary:hover{
-  border-bottom-color: rgba(255,255,255,0.55);
+.marketplace-feature__secondary:hover{
+  background: rgba(0,102,178,.10);
 }
 
-.marketplace-promo__panel{
-  position:relative;
-  z-index:1;
-  border-radius: 14px;
-  background: rgba(0,0,0,0.18);
-  border: 1px solid rgba(255,255,255,0.14);
-  padding: 14px 14px;
-  display:grid;
+/* Right panel (premium card stack) */
+.marketplace-feature__panel{
+  border-radius: 16px;
+  background: rgba(255,255,255,.70);
+  border: 1px solid rgba(10,43,79,0.10);
+  box-shadow: 0 16px 40px rgba(11,30,63,.08);
+  padding: 16px;
+}
+
+.marketplace-feature__panelHead{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   gap: 12px;
-  align-content:start;
+  margin-bottom: 12px;
 }
 
-.marketplace-promo__icon{
-  width: 52px; height: 52px;
-  border-radius: 14px;
-  display:grid;
-  place-items:center;
-
-  color: var(--gold);
-  background: rgba(212,175,55,0.12);
-  border: 1px solid rgba(212,175,55,0.28);
-}
-
-.marketplace-promo__kpi{
-  display:grid;
-  gap:10px;
-}
-
-.marketplace-promo .kpi{
-  padding: 10px 10px;
-  border-radius: 12px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.10);
-}
-.marketplace-promo .kpi__num{
+.marketplace-feature__panelTitle{
   font-weight: 900;
-  font-size: 16px;
-  color:#fff;
-  line-height:1.05;
-}
-.marketplace-promo .kpi__label{
-  margin-top:4px;
-  font-size: 12px;
-  color: rgba(255,255,255,0.82);
+  color: var(--dark-blue);
+  font-size: 1.02rem;
+  margin: 0;
+  text-align: left;
 }
 
-/* responsive */
-@media (max-width: 900px){
-  .marketplace-promo__inner{ grid-template-columns: 1fr; }
-  .marketplace-promo__panel{
-    order: -1;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap: 12px;
-  }
-  .marketplace-promo__kpi{
-    grid-template-columns: repeat(3, 1fr);
-    width:100%;
+.marketplace-feature__badge{
+  font-weight: 900;
+  font-size: 12px;
+  letter-spacing: .06em;
+  color: #0b3d72;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(212,175,55,.14);
+  border: 1px solid rgba(212,175,55,.35);
+  white-space: nowrap;
+}
+
+.marketplace-feature__tiles{
+  display: grid;
+  gap: 10px;
+}
+
+.marketplace-feature__tile{
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 10px;
+  align-items: start;
+  padding: 12px 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(10,43,79,0.10);
+}
+
+.marketplace-feature__tileIcon{
+  width: 40px; height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: rgba(0,102,178,.08);
+  border: 1px solid rgba(0,79,145,.14);
+  color: var(--primary-blue);
+}
+
+.marketplace-feature__tile h4{
+  margin: 0 0 2px;
+  color: var(--dark-blue);
+  font-size: .98rem;
+}
+.marketplace-feature__tile p{
+  margin: 0;
+  color: #274866;
+  font-size: .95rem;
+}
+
+/* Responsive */
+@media (max-width: 980px){
+  .marketplace-feature__inner{
+    grid-template-columns: 1fr;
   }
 }
-@media (max-width: 560px){
-  .marketplace-promo__inner{ padding: 18px 14px; }
-  .marketplace-promo__kpi{ grid-template-columns: 1fr; }
-  .marketplace-promo__cta .cta-btn{ width:100% !important; }
+@media (max-width: 640px){
+  .marketplace-feature__inner{ padding: 16px; }
+  .marketplace-feature__cta .cta-btn,
+  .marketplace-feature__secondary{
+    width: 100%;
+    justify-content: center;
+  }
 }
